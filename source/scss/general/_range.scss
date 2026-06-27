@@ -1,0 +1,96 @@
+.range-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.range-box {
+  position: relative;
+  // margin: 0 auto;
+  // max-width: 90%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.slider-track {
+  width: 90%;
+  height: 4px;
+  border-radius: 2px;
+  background: #D9D9D9;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.slider-range {
+  height: 4px;
+  background: #8ED593;
+  position: absolute;
+  top: 50%;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: transparent;
+  position: absolute;
+  pointer-events: none;
+  height: 0;
+  top: 50%;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  position: relative;
+  -webkit-appearance: none;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid var(--br-c);
+  background-color: #fff;
+  padding: 4px;
+  cursor: pointer;
+  pointer-events: auto;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='6' cy='6' r='6' fill='%238ED593'/%3E%3C/svg%3E%0A");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  margin-left: -3px;
+}
+
+.values {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.values label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 125%;
+  font-weight: 400;
+  color: var(--cl-c);
+  width: 100px;
+  height: 36px;
+  border: 1px solid var(--br-h);
+  border-radius: 8px;
+  font-family: var(--font-primary);
+}
+
+.value-bubble {
+  width: fit-content;
+  padding: 0;
+  transition: left 0.1s ease-out;
+  font-size: 16px;
+  line-height: 125%;
+  font-weight: 400;
+  color: var(--cl-c);
+  text-align: center;
+}

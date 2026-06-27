@@ -1,0 +1,49 @@
+.card-categories {
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+
+    &:hover {
+        span {
+            background: rgba(44, 129, 50, 1.0);
+        }
+    }
+
+    &__title {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: clamp(11px, 1.458vw, 21px) 0;
+        font-family: var(--font-second);
+        font-size: clamp(18px, 1.944vw, 28px);
+        line-height: 120%;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        color: var(--cl-a);
+        text-align: center;
+        transition: all .4s;
+        background: rgba(44, 129, 50, 0.70);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        transition: 0.2s ease;
+    }
+
+    &__image {
+        max-height: 300px;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        picture,
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}

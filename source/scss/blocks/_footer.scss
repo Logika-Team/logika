@@ -1,0 +1,146 @@
+.footer {
+    padding: 48px 0;
+    background-color: var(--bg-c);
+
+    &__wrapp {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 36px;
+    }
+
+    &__box {
+        width: 100%;
+
+        @include for-tablet {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        @include tablet {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 36px 20px;
+
+            @include for-small-tablet {
+                & > div:last-child {
+                    order: -1;
+                }
+            }
+        }
+
+        @include mobile {
+            & > div:first-child {
+                grid-column: 1 / -1;
+            }
+
+            & > div:last-child {
+                order: 1;
+                grid-column: 1 / -1;
+            }
+        }
+
+        &-left {
+            order: -1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        &-block {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+    }
+
+    &__accreditation {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        font-size: 16px;
+        color: var(--cl-d);
+    }
+
+    &__payments {
+        display: flex;
+    }
+
+    &__title {
+        font-size: 18px;
+        line-height: 122%;
+        font-weight: 700;
+        color: var(--cl-a);
+    }
+
+    &__menu {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        a {
+            font-size: 14px;
+            line-height: 114%;
+            font-weight: 500;
+            color: var(--cl-k);
+        }
+    }
+
+    &__contacts {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        
+        span,
+        a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            line-height: 125%;
+            font-weight: 400;
+            color: var(--cl-k);
+        }
+
+        svg {
+            fill: currentColor;
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0 14px;
+        font-size: 12px;
+        line-height: 140%;
+        color: var(--cl-a);
+        letter-spacing: 0.03em;
+
+        a {
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: -10px;
+                transform: translateY(-50%);
+                width: 4px;
+                height: 1px;
+                background-color: var(--bg-a);
+            }
+        }
+
+        @include mobile {
+            p {
+                width: 100%;
+            }
+
+            a:first-child {
+                color: red;
+            }
+        }
+    }
+}

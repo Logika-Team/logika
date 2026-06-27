@@ -1,0 +1,11 @@
+@import "../../general/mixins";
+
+.faq-section {
+    padding: clamp(32px, 4.444vw, 64px) 0;
+
+    &__wrapp {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(24px, 3.125vw, 32px);
+    }
+}

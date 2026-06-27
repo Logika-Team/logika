@@ -1,0 +1,18 @@
+@import "../blocks/header.scss";
+@import "../blocks/mobile-menu.scss";
+@import "../blocks/footer.scss";
+
+// ----------------- SECTION BLOCKS -----------------
+@import "../blocks/sections/banner-section.scss";
+@import "../blocks/sections/main-section.scss";
+@import "../blocks/sections/content-section.scss";
+@import "../blocks/sections/reasons-section.scss";
+@import "../blocks/sections/faq-section.scss";
+@import "../blocks/sections/reviews-section.scss";
+
+// ----------------- PRODUCT PAGE BLOCKS -----------------
+@import "../blocks/sections/product.scss";
+
+// ----------------- CATEGORY PAGE BLOCKS -----------------
+@import "../blocks/sections/top-section.scss";
+@import "../blocks/sections/categories-section.scss";

@@ -1,0 +1,54 @@
+@import "../../general/mixins";
+
+.banner-section {
+    padding-top: clamp(24px, 2.222vw, 32px);
+
+    &__slider {
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        display: flex;
+    
+        @include laptop {
+            padding: 0 var(--container-offset);
+        }
+
+        .swiper {
+            width: calc(100% + (var(--container-offset) * 2));
+            margin: 0 calc(var(--container-offset) * -1);
+
+            .swiper-container {
+                padding: 0 var(--container-offset);
+            }
+            
+            &-slide{
+                width: 100%;
+            }
+    
+            &-container{
+                width: 100%;
+    
+                @include laptop {
+                    width: calc(100% + (var(--container-offset) * 2));
+                    margin: 0 calc(var(--container-offset) * -1);
+                }
+            }
+    
+            &-btn {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 3;
+
+                
+                &.swiper-button-next{
+                    right: clamp(10px, 1.613vw, 20px);
+                }
+    
+                &.swiper-button-prev{
+                    left: clamp(10px, 1.613vw, 20px);
+                }
+            }
+        }
+    }
+}

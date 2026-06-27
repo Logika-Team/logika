@@ -1,0 +1,52 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+
+        &-link {
+            font-size: 16px;
+            line-height: normal;
+            font-weight: 600;
+            transition: all 0.3s ease;
+
+            &.active,
+            &:hover {
+                color: var(--cl-c);
+            }
+        }
+    }
+
+    &__nav {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--cl-a);
+        transition: all 0.3s ease;
+
+        &--prev {
+            background-color: var(--bg-i);
+        }
+
+        &--next {
+            background-color: var(--bg-c);
+        }
+        
+        &:active,
+        &:hover {
+            background-color: var(--bg-d);
+        }
+
+        svg {
+            fill: currentColor;
+        }
+    }
+}

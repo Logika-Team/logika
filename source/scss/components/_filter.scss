@@ -1,0 +1,95 @@
+.filter {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  
+    label {
+        width: fit-content;
+        position: relative;
+        cursor: pointer;
+
+        & > span {
+            position: relative;
+            padding-left: 26px;
+            font-family: var(--font-primary);
+            font-size: 16px;
+            line-height: 125%;
+            font-weight: 400;
+            color: var(--cl-c);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        
+            &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            border: 1px solid var(--br-f);
+            }
+        
+            &::after {
+            content: '';
+            position: absolute;
+            left: 3px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            background-color: var(--br-d);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.2s ease;
+            }
+        }
+    }
+  
+    input {
+        position: absolute;
+        inset: 0;
+        margin: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+  
+    input:checked ~ span::before {
+        border: 1px solid var(--br-d);
+    }
+  
+    input:checked ~ span::after {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &__stars {
+        span {
+            display: flex;
+        }
+        
+        svg {
+            width: clamp(16px, 2.604vw, 20px);
+            height: clamp(16px, 2.604vw, 20px);
+        }
+
+        svg use  {
+            fill: var(--br-f);
+            transition: fill 0.3s;
+        }
+        
+        /* Активируем звёзды через nth-child */
+        &[data-rating="1"] span:nth-child(-n+1) svg use,
+        &[data-rating="2"] span:nth-child(-n+2) svg use,
+        &[data-rating="3"] span:nth-child(-n+3) svg use,
+        &[data-rating="4"] span:nth-child(-n+4) svg use,
+        &[data-rating="5"] span:nth-child(-n+5) svg use {
+            fill: rgba(255, 221, 0, 1.0);
+        }
+    }
+}
+  

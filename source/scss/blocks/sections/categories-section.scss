@@ -1,0 +1,203 @@
+@import "../../general/mixins";
+
+.categories-section {
+    margin-bottom: 64px;
+
+    &__wrapp {
+        display: grid;
+        gap: 20px;
+
+        @include for-tablet  {
+            grid-template-columns: 285px 1fr;
+            align-items: flex-start;
+        }
+
+        @include tablet  {
+            grid-template-columns: 100%;
+        }
+    }
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(16px, 4.167vw, 32px);
+
+        &-top {
+            width: 100%;
+            display: flex;
+            gap: clamp(12px, 3.125vw, 24px);
+            align-items: center;
+
+            @include for-mobile  {
+                justify-content: flex-end;
+            }
+
+            @include mobile  {
+                justify-content: space-between;
+            }
+        }
+
+        &-sorting {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            & > span {
+                font-size: clamp(14px, 2.083vw, 16px);
+                line-height: 137%;
+                font-weight: 500;
+                color: var(--cl-h);
+            }
+        }
+
+        &-select {
+            position: relative;
+
+            .select__header {
+                min-width: clamp(160px, 26.042vw, 200px);
+                padding: 8px clamp(8px, 2.083vw, 16px);
+                border: 1px solid var(--br-e);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 8px;
+                border-radius: clamp(6px, 1.563vw, 12px);
+                font-size: 14px;
+                line-height: 114%;
+                font-weight: 500;
+                transition: 0.3s ease;
+                cursor: pointer;
+    
+                svg {
+                    fill: currentColor;
+                }
+            }
+
+            .select__list {
+                background-color: var(--bg-a);
+                min-width: 107px;
+                border: 1px solid var(--br-e);
+                border-radius: 12px;
+            }
+
+            .select__option {
+                width: 100%;
+                padding: 8px 16px;
+                font-size: 14px;
+                line-height: 114%;
+                font-weight: 500;
+                transition: 0.3s ease;
+                text-align: center;
+                cursor: pointer;
+
+                &:hover {
+                    border-radius: 12px;
+                    background-color: var(--bg-g);
+                    color: var(--cl-a);
+                }
+            }
+        }
+
+        &-list {
+            display: grid;
+            gap: clamp(15px, 4.167vw, 32px) clamp(15px, 2.604vw, 20px);
+
+            @include for-laptop  {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            @include laptop  {
+                @include for-tablet  {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @include tablet  {
+                @include for-small-tablet  {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+
+            @include small-tablet  {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+
+    &__aside {
+        display: flex;
+        flex-direction: column;
+
+        @include for-tablet  {
+            gap: 32px;
+        }
+    }
+
+    &__filters {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        @include for-tablet  {
+            overflow: visible;
+            max-height: initial;
+        }
+
+        &-active {
+            ul {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            @include tablet  {
+                padding-top: 16px;
+            }
+        }
+
+        &-block {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--br-f);
+
+            & > span {
+                font-size: 20px;
+                line-height: 140%;
+                font-weight: 500;
+            }
+        }
+    }
+
+    &__title {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        border: none;
+        font-size: 20px;
+        line-height: 125%;
+        font-weight: 500;
+
+        @include for-tablet  {
+            pointer-events: none;
+
+            svg {
+                display: none;
+            }
+        }
+
+        svg {
+            transition: all 0.3s ease;
+        }
+
+        &.active {
+            svg {
+                transform: scale(-1);
+            }
+        }
+    }
+}

@@ -1,0 +1,57 @@
+@import "../../general/mixins";
+
+.top-section {
+    margin-bottom: 64px;
+
+    &__wrapp {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    &__slider {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        &-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &-btns {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .swiper-btn {
+            border: 1px solid var(--br-c);
+            background-color: var(--bg-g);
+            color: var(--cl-a);
+
+            &:hover,
+            &:active {
+                border: 1px solid var(--br-e);
+                background-color: var(--bg-c);
+            }
+
+            &.swiper-button-disabled {
+                opacity: 0.5;
+            }
+        }
+
+        .swiper-slide {
+            height: initial;
+        }
+
+        .card-categories__title {
+            padding: 16px 0;
+            font-size: 16px;
+            line-height: 137%;
+            font-weight: 500;
+            border-radius: 12px 12px 0 0;
+        }
+    }
+}

@@ -1,0 +1,139 @@
+@import "../../general/mixins";
+
+.main-section {
+    padding: clamp(24px, 4.444vw, 64px) 0;
+
+    &.promo {
+        background-color: var(--bg-h);
+        
+        .card-product:not(.limited) {
+            background-color: var(--bg-i);
+        
+            .card-product__image {
+                padding: 16px 16px 0;
+                background-color: var(--bg-i);
+        
+                picture,
+                img {
+                    border-radius: 12px;
+                }
+            }
+        
+            .card-product__info {
+                gap: 4px;
+            }
+        
+            .card-product__pricelist {
+                flex-direction: row-reverse;
+                justify-content: flex-end;
+            }
+        }
+    }
+
+    &__wrapp {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(24px, 3.125vw, 32px);
+    }
+
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: clamp(24px, 3.125vw, 32px);
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-size: clamp(12px, 1.953vw, 20px);
+        line-height: 140%;
+        font-weight: 500;
+        transition: all .4s;
+
+        &-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: clamp(24px, 4.883vw, 50px);
+            height: clamp(24px, 4.883vw, 50px);
+            background-color: var(--bg-g);
+            border: 1px solid var(--br-c);
+            border-radius: clamp(6px, 1.563vw, 12px);
+            color: var(--cl-a);
+            transition: all .4s;
+
+            svg {
+                width: clamp(12px, 2.344vw, 24px);
+                height: clamp(12px, 2.344vw, 24px);
+                fill: currentColor;
+            }
+        }
+
+        &:hover {
+            color: var(--cl-i);
+
+            span {
+                background-color: var(--bg-a);
+                color: var(--cl-i);
+            }
+        }
+    }
+    
+    &__box {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: clamp(15px, 1.389vw, 20px);
+
+        @include tablet{
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @include for-tablet{
+        &__slider {
+            .swiper-wrapper {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+        }
+    }
+
+    @include tablet{
+        &__slider {
+            width: calc(100% + (var(--container-offset) * 2));
+            margin: 0 calc(var(--container-offset) * -1);
+
+            .swiper-container {
+                padding: 0 var(--container-offset);
+            }
+
+            .swiper-slide {
+                height: auto;
+            }
+
+            .swiper-pagination {
+                margin-top: clamp(20px, 2.93vw, 30px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .swiper-pagination-bullet {
+                width: clamp(10px, 1.953vw, 20px);
+                height: clamp(10px, 1.953vw, 20px);
+                border-radius: 100px;
+                border: 1px solid var(--br-c);
+                transition: all 0.3s;
+                cursor: pointer;
+
+                &-active {
+                    background-color: var(--bg-c);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+@mixin overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  display: flex;
+  overflow-y: auto;
+  padding: 20px 0;
+  height: 100%;
+  min-height: 100dvh;
+  max-height: 100dvh;
+  background: rgba(28, 27, 31, .7);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s .7s, visibility .5s .7s, z-index .5s .7s;
+  transition-timing-function: cubic-bezier(.25,.1,.25,1);
+  pointer-events: none;
+  backdrop-filter: blur(3px);
+  
+  @include  mobile {
+    padding: 10px 0 !important;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &.active {
+   opacity: 1;
+    visibility: visible;
+    transition: opacity .2s, visibility .2s;
+    transition-timing-function: cubic-bezier(.25,.1,.25,1);
+    pointer-events: initial;
+
+    &.mode {
+      z-index: 35;
+    }
+  }
+}
+

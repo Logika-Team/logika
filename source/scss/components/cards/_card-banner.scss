@@ -1,0 +1,41 @@
+.card-banner {
+    width: 100%;
+    display: flex;
+
+    picture,
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    @include mobile {
+        position: relative;
+
+        &[data-mob-button] {
+            &::before {
+                content: attr(data-mob-button);
+                position: absolute;
+                bottom: 40%;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 13px 35px;
+                background-color: var(--bg-a);
+                border-radius: 50px;
+                font-size: 20px;
+                line-height: 100%;
+                font-weight: 500;
+                color: var(--cl-b);
+                transition: all .3s ease;
+        
+                &:hover,
+                &:active {
+                    background-color: var(--bg-c);
+                    color: var(--cl-a);
+                }
+            }
+            
+        }
+    }
+}

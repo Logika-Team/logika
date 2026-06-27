@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+@include('partials/head.html')
+
+<body>
+  @include('partials/header.html')
+
+  <main>
+    <section class="banner-section">
+      <div class="container">
+        <div class='banner-section__slider'>
+          <div class='swiper-container'>
+            <ul class='swiper-wrapper'>
+              <li class='swiper-slide'>
+                <a class="card-banner" href="#" data-mob-button="Shop now">
+                  <picture>
+                    <source type='image/webp' media='(max-width: 575px)' srcset='img/banner-slider/banner1-mob.webp'>
+                    <source media='(max-width: 575px)' srcset='img/banner-slider/banner1-mob.png'>
+                    <source type='image/webp' srcset='img/banner-slider/banner1.webp'>
+                    <img width='1189' height='390' src='img/banner-slider/banner1.png' alt='banner1'>
+                  </picture>
+                </a>
+              </li>
+              <li class='swiper-slide'>
+                <a class="card-banner" href="#" data-mob-button="Shop now">
+                  <picture>
+                    <source type='image/webp' media='(max-width: 575px)' srcset='img/banner-slider/banner2-mob.webp'>
+                    <source media='(max-width: 575px)' srcset='img/banner-slider/banner2-mob.png'>
+                    <source type='image/webp' srcset='img/banner-slider/banner2.webp'>
+                    <img width='1189' height='390' src='img/banner-slider/banner2.png' alt='banner2'>
+                  </picture>
+                </a>
+              </li>
+              <li class='swiper-slide'>
+                <a class="card-banner" href="#" data-mob-button="Shop now">
+                  <picture>
+                    <source type='image/webp' media='(max-width: 575px)' srcset='img/banner-slider/banner3-mob.webp'>
+                    <source media='(max-width: 575px)' srcset='img/banner-slider/banner3-mob.png'>
+                    <source type='image/webp' srcset='img/banner-slider/banner3.webp'>
+                    <img width='1189' height='390' src='img/banner-slider/banner23.png' alt='banner3'>
+                  </picture>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <button class='swiper-btn swiper-button-next'>
+            <svg width='24' height='24'>
+              <use href='img/sprite/sprite.svg#arrow-right'></use>
+            </svg>
+          </button>
+          <button class='swiper-btn swiper-button-prev'>
+            <svg width='24' height='24'>
+              <use href='img/sprite/sprite.svg#arrow-left'></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="main-section">
+      <div class="container">
+        <div class="main-section__wrapp">
+          <div class="main-section__top">
+            <h2 class="main-section__title">What's New</h2>
+
+            <a class="main-section__link" href="#">
+              View all
+              <span class="main-section__link-icon">
+                <svg width='24' height='24'>
+                  <use href='img/sprite/sprite.svg#arrow-right'></use>
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <div class="main-section__box">
+            <div class="card-product">
+              <span class="card-product__label sale">Save 15%</span>
+
+              <a class="card-product__image" href="#">
+                <picture>
+                  <source type='image/webp' srcset='img/card-product/card1.webp'>
+                  <img width='285' height='220' src='img/card-product/card1.png' alt='card1'>
+                </picture>
+              </a>
+
+              <div class="card-product__info">
+                <div class="card-product__top">
+                  <span class="card-product__brand">CeraVe</span>
+
+                  <div class="card-product__rating" data-rating="3">
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <a class="card-product__title" href="#">CeraVe Skin Renewing Nightly Exfoliating Treatment, 50 mL</a>
+
+                <div class="card-product__pricelist">
+                  <span class="card-product__price-current">$14.99 CAD</span>
+                </div>
+
+                <a class="card-product__buy" href="#">Add to cart</a>
+              </div>
+            </div>
+
+            <div class="card-product">
+              <a class="card-product__image" href="#">
+                <picture>
+                  <source type='image/webp' srcset='img/card-product/card2.webp'>
+                  <img width='285' height='220' src='img/card-product/card2.png' alt='card2'>
+                </picture>
+              </a>
+
+              <div class="card-product__info">
+                <div class="card-product__top">
+                  <span class="card-product__brand">Claritin</span>
+
+                  <div class="card-product__rating" data-rating="3">
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <a class="card-product__title" href="#">Claritin Allergy Decongestant Nasal Spray, 25 mL</a>
+
+                <div class="card-product__pricelist">
+                  <span class="card-product__price-current">$5.49 CAD</span>
+                </div>
+
+                <a class="card-product__buy" href="#">Add to cart</a>
+              </div>
+            </div>
+
+            <div class="card-product">
+              <a class="card-product__image" href="#">
+                <picture>
+                  <source type='image/webp' srcset='img/card-product/card3.webp'>
+                  <img width='285' height='220' src='img/card-product/card3.png' alt='card3'>
+                </picture>
+              </a>
+
+              <div class="card-product__info">
+                <div class="card-product__top">
+                  <span class="card-product__brand">Nexium</span>
+
+                  <div class="card-product__rating" data-rating="2">
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+
+                <a class="card-product__title" href="#">Nexium 24-Hour Acid Reducer, 14 ct</a>
+
+                <div class="card-product__pricelist">
+                  <span class="card-product__price-current">$15.99 CAD</span>
+                  <span class="card-product__price-before">$24 CAD</span>
+                </div>
+
+                <a class="card-product__buy" href="#">Add to cart</a>
+              </div>
+            </div>
+
+            <div class="card-product">
+              <span class="card-product__label sale">Save 15%</span>
+
+              <a class="card-product__image" href="#">
+                <picture>
+                  <source type='image/webp' srcset='img/card-product/card1.webp'>
+                  <img width='285' height='220' src='img/card-product/card1.png' alt='card1'>
+                </picture>
+              </a>
+
+              <div class="card-product__info">
+                <div class="card-product__top">
+                  <span class="card-product__brand">CeraVe</span>
+
+                  <div class="card-product__rating" data-rating="3">
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+
+                <a class="card-product__title" href="#">CeraVe Skin Renewing Nightly Exfoliating Treatment, 50 mL</a>
+
+                <div class="card-product__pricelist">
+                  <span class="card-product__price-current">$14.99 CAD</span>
+                </div>
+
+                <a class="card-product__buy" href="#">Add to cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="main-section promo">
+      <div class="container">
+        <div class="main-section__wrapp">
+          <div class="main-section__box">
+            <div class="card-product limited">
+              <span class="card-product__label limited">
+                <svg width='12' height='12'>
+                  <use href='img/sprite/sprite.svg#limited'></use>
+                </svg>
+                limited time only
+              </span>
+
+              <div class="card-product__image">
+                <picture>
+                  <source type='image/webp' srcset='img/card-product/limited.webp'>
+                  <img width='321' height='355' src='img/card-product/limited.png' alt='card12'>
+                </picture>
+              </div>
+
+              <div class="card-product__info">
+                <a class="card-product__title" href="#">Special Offer on Tylenol – Relief You Can Trust</a>
+
+                <p class="card-product__descr">Get 170 caplets for only $29.99 — limited time only!</p>
+
+                <a class="card-product__buy" href="#">Shop now</a>
+              </div>
+            </div>
+
+            <div class="card-product">
+              <a class="card-product__image" href="#">
+                <picture>
+                  <source type='image/webp' srcset='img/card-product/card12.webp'>
+                  <img width='285' height='220' src='img/card-product/card12.png' alt='card12'>
+                </picture>
+              </a>
+
+              <div class="card-product__info">
+                <div class="card-product__top">
+                  <span class="card-product__brand">Advil</span>
+                </div>
+
+                <a class="card-product__title" href="#">Advil 12 Hour Tablets for Extended Pain Relief 600mg Ibuprofen 52 Count</a>
+
+                <div class="card-product__pricelist">
+                  <span class="card-product__price-current">$20 CAD</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-product">
+              <span class="card-product__label sale">Save 15%</span>
+
+              <a class="card-product__image" href="#">
+                <picture>
+                  <source type='image/webp' srcset='img/card-product/card1.webp'>
+                  <img width='285' height='220' src='img/card-product/card1.png' alt='card1'>
+                </picture>
+              </a>
+
+              <div class="card-product__info">
+                <div class="card-product__top">
+                  <span class="card-product__brand">CeraVe</span>
+                </div>
+
+                <a class="card-product__title" href="#">CeraVe Skin Renewing Nightly Exfoliating Treatment, 50 mL</a>
+
+                <div class="card-product__pricelist">
+                  <span class="card-product__price-current">$14.99 CAD</span>
+                  <span class="card-product__price-before">$24 CAD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="main-section">
+      <div class="container">
+        <div class="main-section__wrapp">
+          <div class="main-section__top">
+            <h2 class="main-section__title">Popular products</h2>
+
+            <a class="main-section__link" href="#">
+              View all
+
+              <span class="main-section__link-icon">
+                <svg width='24' height='24'>
+                  <use href='img/sprite/sprite.svg#arrow-right'></use>
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <div class="main-section__box">
+            <div class="card-product">
+              <span class="card-product__label sale">Save 15%</span>
+
+              <a class="card-product__image" href="#">
+                <picture>
+                  <source type='image/webp' srcset='img/card-product/card1.webp'>
+                  <img width='285' height='220' src='img/card-product/card1.png' alt='card1'>
+                </picture>
+              </a>
+
+              <div class="card-product__info">
+                <div class="card-product__top">
+                  <span class="card-product__brand">CeraVe</span>
+
+                  <div class="card-product__rating" data-rating="3">
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <a class="card-product__title" href="#">CeraVe Skin Renewing Nightly Exfoliating Treatment, 50 mL</a>
+
+                <div class="card-product__pricelist">
+                  <span class="card-product__price-current">$14.99 CAD</span>
+                </div>
+
+                <a class="card-product__buy" href="#">Add to cart</a>
+              </div>
+            </div>
+
+            <div class="card-product">
+              <a class="card-product__image" href="#">
+                <picture>
+                  <source type='image/webp' srcset='img/card-product/card2.webp'>
+                  <img width='285' height='220' src='img/card-product/card2.png' alt='card2'>
+                </picture>
+              </a>
+
+              <div class="card-product__info">
+                <div class="card-product__top">
+                  <span class="card-product__brand">Claritin</span>
+
+                  <div class="card-product__rating" data-rating="3">
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <a class="card-product__title" href="#">Claritin Allergy Decongestant Nasal Spray, 25 mL</a>
+
+                <div class="card-product__pricelist">
+                  <span class="card-product__price-current">$5.49 CAD</span>
+                </div>
+
+                <a class="card-product__buy" href="#">Add to cart</a>
+              </div>
+            </div>
+
+            <div class="card-product">
+              <a class="card-product__image" href="#">
+                <picture>
+                  <source type='image/webp' srcset='img/card-product/card3.webp'>
+                  <img width='285' height='220' src='img/card-product/card3.png' alt='card3'>
+                </picture>
+              </a>
+
+              <div class="card-product__info">
+                <div class="card-product__top">
+                  <span class="card-product__brand">Nexium</span>
+
+                  <div class="card-product__rating" data-rating="2">
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+
+                <a class="card-product__title" href="#">Nexium 24-Hour Acid Reducer, 14 ct</a>
+
+                <div class="card-product__pricelist">
+                  <span class="card-product__price-current">$15.99 CAD</span>
+                  <span class="card-product__price-before">$24 CAD</span>
+                </div>
+
+                <a class="card-product__buy" href="#">Add to cart</a>
+              </div>
+            </div>
+
+            <div class="card-product">
+              <span class="card-product__label sale">Save 15%</span>
+
+              <a class="card-product__image" href="#">
+                <picture>
+                  <source type='image/webp' srcset='img/card-product/card1.webp'>
+                  <img width='285' height='220' src='img/card-product/card1.png' alt='card1'>
+                </picture>
+              </a>
+
+              <div class="card-product__info">
+                <div class="card-product__top">
+                  <span class="card-product__brand">CeraVe</span>
+
+                  <div class="card-product__rating" data-rating="3">
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+
+                <a class="card-product__title" href="#">CeraVe Skin Renewing Nightly Exfoliating Treatment, 50 mL</a>
+
+                <div class="card-product__pricelist">
+                  <span class="card-product__price-current">$14.99 CAD</span>
+                </div>
+
+                <a class="card-product__buy" href="#">Add to cart</a>
+              </div>
+            </div>
+
+            <div class="card-product">
+              <span class="card-product__label sale">Save 15%</span>
+
+              <a class="card-product__image" href="#">
+                <picture>
+                  <source type='image/webp' srcset='img/card-product/card1.webp'>
+                  <img width='285' height='220' src='img/card-product/card1.png' alt='card1'>
+                </picture>
+              </a>
+
+              <div class="card-product__info">
+                <div class="card-product__top">
+                  <span class="card-product__brand">CeraVe</span>
+
+                  <div class="card-product__rating" data-rating="3">
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <a class="card-product__title" href="#">CeraVe Skin Renewing Nightly Exfoliating Treatment, 50 mL</a>
+
+                <div class="card-product__pricelist">
+                  <span class="card-product__price-current">$14.99 CAD</span>
+                </div>
+
+                <a class="card-product__buy" href="#">Add to cart</a>
+              </div>
+            </div>
+
+            <div class="card-product">
+              <a class="card-product__image" href="#">
+                <picture>
+                  <source type='image/webp' srcset='img/card-product/card2.webp'>
+                  <img width='285' height='220' src='img/card-product/card2.png' alt='card2'>
+                </picture>
+              </a>
+
+              <div class="card-product__info">
+                <div class="card-product__top">
+                  <span class="card-product__brand">Claritin</span>
+
+                  <div class="card-product__rating" data-rating="3">
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <a class="card-product__title" href="#">Claritin Allergy Decongestant Nasal Spray, 25 mL</a>
+
+                <div class="card-product__pricelist">
+                  <span class="card-product__price-current">$5.49 CAD</span>
+                </div>
+
+                <a class="card-product__buy" href="#">Add to cart</a>
+              </div>
+            </div>
+
+            <div class="card-product">
+              <a class="card-product__image" href="#">
+                <picture>
+                  <source type='image/webp' srcset='img/card-product/card3.webp'>
+                  <img width='285' height='220' src='img/card-product/card3.png' alt='card3'>
+                </picture>
+              </a>
+
+              <div class="card-product__info">
+                <div class="card-product__top">
+                  <span class="card-product__brand">Nexium</span>
+
+                  <div class="card-product__rating" data-rating="2">
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+
+                <a class="card-product__title" href="#">Nexium 24-Hour Acid Reducer, 14 ct</a>
+
+                <div class="card-product__pricelist">
+                  <span class="card-product__price-current">$15.99 CAD</span>
+                  <span class="card-product__price-before">$24 CAD</span>
+                </div>
+
+                <a class="card-product__buy" href="#">Add to cart</a>
+              </div>
+            </div>
+
+            <div class="card-product">
+              <span class="card-product__label sale">Save 15%</span>
+
+              <a class="card-product__image" href="#">
+                <picture>
+                  <source type='image/webp' srcset='img/card-product/card1.webp'>
+                  <img width='285' height='220' src='img/card-product/card1.png' alt='card1'>
+                </picture>
+              </a>
+
+              <div class="card-product__info">
+                <div class="card-product__top">
+                  <span class="card-product__brand">CeraVe</span>
+
+                  <div class="card-product__rating" data-rating="3">
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+
+                <a class="card-product__title" href="#">CeraVe Skin Renewing Nightly Exfoliating Treatment, 50 mL</a>
+
+                <div class="card-product__pricelist">
+                  <span class="card-product__price-current">$14.99 CAD</span>
+                </div>
+
+                <a class="card-product__buy" href="#">Add to cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="main-section">
+      <div class="container">
+        <div class="main-section__wrapp">
+          <div class="main-section__top">
+            <h2 class="main-section__title">Featured Categories</h2>
+
+            <a class="main-section__link" href="#">
+              View all
+              <span class="main-section__link-icon">
+                <svg width='24' height='24'>
+                  <use href='img/sprite/sprite.svg#arrow-right'></use>
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <div class="main-section__slider categories-slider">
+            <div class='swiper-container'>
+              <ul class='swiper-wrapper'>
+                <li class='swiper-slide'>
+                  <a class="card-categories" href="#">
+                    <span class="card-categories__title">Sun Care</span>
+      
+                    <div class="card-categories__image">
+                      <picture>
+                        <source type='image/webp' srcset='img/card-categories/category1.webp'>
+                        <img width='285' height='300' src='img/card-categories/category1.png' alt='category1'>
+                      </picture>
+                    </div>
+                  </a>
+                </li>
+                <li class='swiper-slide'>
+                  <a class="card-categories" href="#">
+                    <span class="card-categories__title">Baby and kids</span>
+      
+                    <div class="card-categories__image">
+                      <picture>
+                        <source type='image/webp' srcset='img/card-categories/category2.webp'>
+                        <img width='285' height='300' src='img/card-categories/category2.png' alt='category2'>
+                      </picture>
+                    </div>
+                  </a>
+                </li>
+                <li class='swiper-slide'>
+                  <a class="card-categories" href="#">
+                    <span class="card-categories__title">Personal Care</span>
+      
+                    <div class="card-categories__image">
+                      <picture>
+                        <source type='image/webp' srcset='img/card-categories/category3.webp'>
+                        <img width='285' height='300' src='img/card-categories/category3.png' alt='category3'>
+                      </picture>
+                    </div>
+                  </a>
+                </li>
+                <li class='swiper-slide'>
+                  <a class="card-categories" href="#">
+                    <span class="card-categories__title">Fitness & Protein</span>
+      
+                    <div class="card-categories__image">
+                      <picture>
+                        <source type='image/webp' srcset='img/card-categories/category4.webp'>
+                        <img width='285' height='300' src='img/card-categories/category4.png' alt='category4'>
+                      </picture>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class='swiper-pagination'></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="main-section">
+      <div class="container">
+        <div class="main-section__wrapp">
+          <div class="main-section__top">
+            <h2 class="main-section__title">Last chance</h2>
+
+            <a class="main-section__link" href="#">
+              View all
+
+              <span class="main-section__link-icon">
+                <svg width='24' height='24'>
+                  <use href='img/sprite/sprite.svg#arrow-right'></use>
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <div class="main-section__box">
+            <div class="card-product">
+              <span class="card-product__label sale">Save 15%</span>
+
+              <a class="card-product__image" href="#">
+                <picture>
+                  <source type='image/webp' srcset='img/card-product/card1.webp'>
+                  <img width='285' height='220' src='img/card-product/card1.png' alt='card1'>
+                </picture>
+              </a>
+
+              <div class="card-product__info">
+                <div class="card-product__top">
+                  <span class="card-product__brand">CeraVe</span>
+
+                  <div class="card-product__rating" data-rating="3">
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <a class="card-product__title" href="#">CeraVe Skin Renewing Nightly Exfoliating Treatment, 50 mL</a>
+
+                <div class="card-product__pricelist">
+                  <span class="card-product__price-current">$14.99 CAD</span>
+                </div>
+
+                <a class="card-product__buy" href="#">Add to cart</a>
+              </div>
+            </div>
+
+            <div class="card-product">
+              <a class="card-product__image" href="#">
+                <picture>
+                  <source type='image/webp' srcset='img/card-product/card2.webp'>
+                  <img width='285' height='220' src='img/card-product/card2.png' alt='card2'>
+                </picture>
+              </a>
+
+              <div class="card-product__info">
+                <div class="card-product__top">
+                  <span class="card-product__brand">Claritin</span>
+
+                  <div class="card-product__rating" data-rating="3">
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <a class="card-product__title" href="#">Claritin Allergy Decongestant Nasal Spray, 25 mL</a>
+
+                <div class="card-product__pricelist">
+                  <span class="card-product__price-current">$5.49 CAD</span>
+                </div>
+
+                <a class="card-product__buy" href="#">Add to cart</a>
+              </div>
+            </div>
+
+            <div class="card-product">
+              <a class="card-product__image" href="#">
+                <picture>
+                  <source type='image/webp' srcset='img/card-product/card3.webp'>
+                  <img width='285' height='220' src='img/card-product/card3.png' alt='card3'>
+                </picture>
+              </a>
+
+              <div class="card-product__info">
+                <div class="card-product__top">
+                  <span class="card-product__brand">Nexium</span>
+
+                  <div class="card-product__rating" data-rating="2">
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+
+                <a class="card-product__title" href="#">Nexium 24-Hour Acid Reducer, 14 ct</a>
+
+                <div class="card-product__pricelist">
+                  <span class="card-product__price-current">$15.99 CAD</span>
+                  <span class="card-product__price-before">$24 CAD</span>
+                </div>
+
+                <a class="card-product__buy" href="#">Add to cart</a>
+              </div>
+            </div>
+
+            <div class="card-product">
+              <span class="card-product__label sale">Save 15%</span>
+
+              <a class="card-product__image" href="#">
+                <picture>
+                  <source type='image/webp' srcset='img/card-product/card1.webp'>
+                  <img width='285' height='220' src='img/card-product/card1.png' alt='card1'>
+                </picture>
+              </a>
+
+              <div class="card-product__info">
+                <div class="card-product__top">
+                  <span class="card-product__brand">CeraVe</span>
+
+                  <div class="card-product__rating" data-rating="3">
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                    <span>
+                      <svg width='16' height='16'>
+                        <use href='img/sprite/sprite.svg#star'></use>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+
+                <a class="card-product__title" href="#">CeraVe Skin Renewing Nightly Exfoliating Treatment, 50 mL</a>
+
+                <div class="card-product__pricelist">
+                  <span class="card-product__price-current">$14.99 CAD</span>
+                </div>
+
+                <a class="card-product__buy" href="#">Add to cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+        <div class="content-section__wrapp">
+          <div class="content-section__info">
+            <h2 class="content-section__title">Your Trusted Online Pharmacy in Canada</h2>
+            <p class="content-section__text">In a laoreet purus. Integer turpis quam, laoreet id orci nec, ultrices lacinia nunc. Aliquam erat vo Aliquam pulvinar vestibulum blandit. </p>
+            <p class="content-section__text">Donec sed nisl libero. Fusce dignissim luctus sem eu dapibus. P Vestibulum eu quam nec neque pellentesque efficitur id eget nisl. </p>
+          </div>
+
+          <div class="content-section__image">
+            <picture>
+              <source type='image/webp' media='(max-width: 575px)' srcset='img/content/image1-mob.webp'>
+              <source media='(max-width: 575px)' srcset='img/content/image1-mob.png'>
+              <source type='image/webp' srcset='img/content/image1.webp'>
+              <img width='590' height='200' src='img/content/image1.png' alt='image 1'>
+            </picture>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reasons-section">
+      <div class="container">
+        <div class="reasons-section__wrapp">
+          <ul class="reasons-section__details">
+            <li class="reasons-section__detail">
+              <span class="reasons-section__detail-icon">
+                <svg width='32' height='32'>
+                  <use href='img/sprite/sprite.svg#cart'></use>
+                </svg>
+              </span>
+
+              <div class="reasons-section__detail-title">Wide Range of Products</div>
+              <p class="reasons-section__detail-descr">In a laoreet purus. Integer turpis quam, laoreet id orci nec, ultrices lacinia nunc. Aliquam erat vo</p>
+            </li>
+            <li class="reasons-section__detail">
+              <span class="reasons-section__detail-icon">
+                <svg width='32' height='32'>
+                  <use href='img/sprite/sprite.svg#license'></use>
+                </svg>
+              </span>
+
+              <div class="reasons-section__detail-title">Licensed and Certified Services</div>
+              <p class="reasons-section__detail-descr">In a laoreet purus. Integer turpis quam, laoreet id orci nec, ultrices lacinia nunc. Aliquam erat vo</p>
+            </li>
+            <li class="reasons-section__detail">
+              <span class="reasons-section__detail-icon">
+                <svg width='32' height='32'>
+                  <use href='img/sprite/sprite.svg#delivery'></use>
+                </svg>
+              </span>
+
+              <div class="reasons-section__detail-title">Convenient Home Deliver</div>
+              <p class="reasons-section__detail-descr">In a laoreet purus. Integer turpis quam, laoreet id orci nec, ultrices lacinia nunc. Aliquam erat vo</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section content-section--reverse">
+      <div class="container">
+        <div class="content-section__wrapp">
+          <div class="content-section__info">
+            <h2 class="content-section__title">Your Reliable Partner for Health & Wellness</h2>
+            <p class="content-section__text">In a laoreet purus. Integer turpis quam, laoreet id orci nec, ultrices lacinia nunc. Aliquam erat vo Aliquam pulvinar vestibulum blandit. </p>
+            <p class="content-section__text">Donec sed nisl libero. Fusce dignissim luctus sem eu dapibus. P Vestibulum eu quam nec neque pellentesque efficitur id eget nisl. </p>
+          </div>
+
+          <div class="content-section__image">
+            <picture>
+              <source type='image/webp' media='(max-width: 575px)' srcset='img/content/image2-mob.webp'>
+              <source media='(max-width: 575px)' srcset='img/content/image2-mob.png'>
+              <source type='image/webp' srcset='img/content/image2.webp'>
+              <img width='586' height='307' src='img/content/image2.png' alt='image 2'>
+            </picture>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <div class="faq-section__wrapp">
+          <h2>FAQ</h2>
+
+          <ul class='accordion' data-default="1" data-single='true' data-breakpoint='576' data-accordion-init>
+            <li class='accordion__item'>
+              <button class='accordion__btn' data-id='1'>
+                What is an online pharmacy, and how does it work?
+                <span class="accordion__btn-icon">
+                  <svg width='24' height='24'>
+                    <use href='img/sprite/sprite.svg#agile-down'></use>
+                  </svg>
+                </span>
+              </button>
+              <div class='accordion__content' data-content='1'>
+                <div class="editor">
+                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
+                </div>
+              </div>
+            </li>
+            <li class='accordion__item'>
+              <button class='accordion__btn' data-id='2'>
+                How do I place an order?
+                <span class="accordion__btn-icon">
+                  <svg width='24' height='24'>
+                    <use href='img/sprite/sprite.svg#agile-down'></use>
+                  </svg>
+                </span>
+              </button>
+              <div class='accordion__content' data-content='2'>
+                <div class="editor">
+                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
+                </div>
+              </div>
+            </li>
+            <li class='accordion__item'>
+              <button class='accordion__btn' data-id='3'>
+                Can I order prescription medications from your online pharmacy?
+                <span class="accordion__btn-icon">
+                  <svg width='24' height='24'>
+                    <use href='img/sprite/sprite.svg#agile-down'></use>
+                  </svg>
+                </span>
+              </button>
+              <div class='accordion__content' data-content='3'>
+                <div class="editor">
+                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
+                </div>
+              </div>
+            </li>
+            <li class='accordion__item'>
+              <button class='accordion__btn' data-id='4'>
+                How does delivery work with your online pharmacy in Canada?
+                <span class="accordion__btn-icon">
+                  <svg width='24' height='24'>
+                    <use href='img/sprite/sprite.svg#agile-down'></use>
+                  </svg>
+                </span>
+              </button>
+              <div class='accordion__content' data-content='4'>
+                <div class="editor">
+                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
+                </div>
+              </div>
+            </li>
+            <li class='accordion__item'>
+              <button class='accordion__btn' data-id='5'>
+                Do you offer over-the-counter products in your online drugstore?
+                <span class="accordion__btn-icon">
+                  <svg width='24' height='24'>
+                    <use href='img/sprite/sprite.svg#agile-down'></use>
+                  </svg>
+                </span>
+              </button>
+              <div class='accordion__content' data-content='5'>
+                <div class="editor">
+                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
+                </div>
+              </div>
+            </li>
+            <li class='accordion__item'>
+              <button class='accordion__btn' data-id='6'>
+                What if I have questions or need help with my order?
+                <span class="accordion__btn-icon">
+                  <svg width='24' height='24'>
+                    <use href='img/sprite/sprite.svg#agile-down'></use>
+                  </svg>
+                </span>
+              </button>
+              <div class='accordion__content' data-content='6'>
+                <div class="editor">
+                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  @include('partials/footer.html')
+
+  <script src="js/swiper.js"></script>
+  <script defer src="js/main.js"></script>
+</body>
+
+
+</html>

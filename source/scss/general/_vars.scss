@@ -1,0 +1,67 @@
+:root {
+  // --------------- default global variables ---------------
+  --body-font-size: clamp(12px, 2.083vw, 16px);
+  --content-width: 1200px;
+  --content-width-mode: 1920px;
+  --content-width-mini: 952px;
+
+  --container-offset: clamp(16px, 2.083vw, 40px);
+  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+
+    // --------------- default JS variables ---------------
+    --header-height: 125px;
+ 
+    @include tablet{
+      --header-height: 110px;
+    }
+
+    @include mobile {
+      --header-height: 190px;
+    }
+
+  // --------------- default font-family variables ---------------
+
+  --font-primary: "Inter", sans-serif; // var(--font-primary);
+  --font-second: "Raleway", sans-serif; // var(--font-second);
+
+  // --------------- default text color variables ---------------
+  --cl-a: #ffffff; // var(--cl-a);
+  --cl-b: #000000; // var(--cl-b);
+
+  --cl-c: #343434; // var(--cl-c);
+  --cl-d: #FDFDFD; // var(--cl-d);
+  --cl-e: #FFDD00; // var(--cl-e);
+  --cl-f: #6F6F6F; // var(--cl-f);
+  --cl-g: #2C8132; // var(--cl-g);
+  --cl-h: #0F0F0F; // var(--cl-h);
+  --cl-i: #43B94B; // var(--cl-i);
+  --cl-k: #F8F8F8; // var(--cl-k);
+  --cl-l: #9F9F9F; // var(--cl-l);
+  --cl-m: #8ED593; // var(--cl-m);
+  --cl-n: #575757; // var(--cl-n);
+
+  // --------------- default background color variables ---------------
+  --bg-a: #ffffff; // var(--bg-a);
+  --bg-b: #000000; // var(--bg-b);
+  
+  --bg-c: #2C8132; // var(--bg-c);
+  --bg-d: #FFDD00; // var(--bg-d);
+  --bg-e: #EEEEEE; // var(--bg-e);
+  --bg-f: #FF2F00; // var(--bg-f);
+  --bg-g: #43B94B; // var(--bg-g);
+  --bg-h: #ECF8ED; // var(--bg-h);
+  --bg-i: #F8F8F8; // var(--bg-i);
+  --bg-k: #343434; // var(--bg-k);
+
+  // --------------- default border color variable ---------------
+  --br-a: #ffffff; // var(--br-a);
+  --br-b: #FFDD00; // var(--br-b);
+  --br-c: #43B94B; // var(--br-c);
+  --br-d: #B4E3B7; // var(--br-d);
+  --br-e: #2C8132; // var(--br-e);
+  --br-f: #eeeeee; // var(--br-f);
+  --br-g: #D9F1DB; // var(--br-g);
+  --br-h: #B7B7B7; // var(--br-h);
+}       
+
+

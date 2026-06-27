@@ -1,0 +1,45 @@
+.accordion{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    &__item{
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__btn {
+        width: 100%;
+        padding: clamp(12px, 2.083vw, 16px);
+        border: 1px solid var(--br-d);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: clamp(12px, 2.604vw, 20px);   
+        line-height: 140%;
+        font-weight: 500;
+        text-align: left;
+        transition: all .3s ease;
+
+        span {
+            display: flex;
+
+            svg {
+                fill: var(--cl-g);
+            }
+        }
+
+        &.active{
+            .accordion__btn-icon {
+                transform: scale(-1);
+            }
+        }
+    }
+
+    .editor {
+        padding: clamp(12px, 2.083vw, 16px);
+        max-width: 1082px;
+    }
+}
