@@ -1,0 +1,150 @@
+# Production requirements
+
+## 1. Environments
+
+- [ ] Production environment is separate from local and staging.
+- [ ] Staging environment exists and is used for final release checks.
+- [ ] Staging is blocked from search indexing.
+- [ ] Production runs only over HTTPS.
+- [ ] Production domain, DNS and SSL certificate are configured before launch.
+- [ ] Production PHP, MySQL and WordPress versions match the approved stack baseline.
+- [ ] Production file permissions follow WordPress hosting best practices.
+
+## 2. Access and accounts
+
+- [ ] Every admin/editor has a personal WordPress account.
+- [ ] Shared admin accounts are not used.
+- [ ] Two-factor authentication is enabled for privileged users.
+- [ ] Default usernames such as `admin`, `test`, `manager` are not used.
+- [ ] Developer access is limited to required people only.
+- [ ] Hosting, DNS, CRM and analytics access owners are documented.
+- [ ] Temporary launch access is revoked after release.
+
+## 3. Secrets and configuration
+
+- [ ] Production secrets are not stored in Git.
+- [ ] CRM credentials are stored only server-side.
+- [ ] SMTP credentials are stored securely.
+- [ ] Database credentials are stored securely.
+- [ ] WordPress salts are unique for production.
+- [ ] Production secrets differ from staging/local secrets.
+- [ ] `.env.example` contains placeholders only.
+- [ ] Frontend JS bundle does not contain private API keys.
+
+## 4. Build and release artifact
+
+- [ ] Production deploy uses a reproducible build process.
+- [ ] Dependencies are installed from lockfiles.
+- [ ] Built assets are generated before deployment.
+- [ ] Manual edits in `build/`, vendor files or installed plugins are not part of the release process.
+- [ ] Deployed theme and plugins match the reviewed source state.
+- [ ] ACF Local JSON is included in the deployment artifact.
+
+## 5. Database and migrations
+
+- [ ] Production database backup exists before deployment.
+- [ ] Restore procedure has been tested on staging.
+- [ ] Plugin migrations are idempotent.
+- [ ] Migrations are tested on a production-like database copy.
+- [ ] Schema version options are updated only by migration code.
+- [ ] Destructive database changes require explicit approval and rollback plan.
+- [ ] CRM retry queue is checked before and after restore/migration operations.
+
+## 6. WordPress and plugins
+
+- [ ] WordPress core version matches approved production baseline.
+- [ ] Required plugins are installed and active.
+- [ ] Unused plugins are removed, not only disabled.
+- [ ] Unused themes are removed, except required fallback theme if hosting policy requires it.
+- [ ] `logika-theme` is active.
+- [ ] `logika-core` is active.
+- [ ] `logika-leads` is active if lead handling is included in current release.
+- [ ] ACF Pro is active and field groups are synchronized.
+- [ ] SEO plugin is configured.
+
+## 7. Caching and performance
+
+- [ ] Page cache/CDN is configured for public pages.
+- [ ] Lead submission endpoints are excluded from cache.
+- [ ] Form token endpoint is excluded from cache.
+- [ ] Admin endpoints are excluded from cache.
+- [ ] CRM callback endpoints are excluded from cache.
+- [ ] Static assets have cache headers.
+- [ ] CSS/JS assets are versioned.
+- [ ] Images are optimized for production.
+- [ ] Critical pages pass agreed performance smoke checks.
+
+## 8. Forms, leads and CRM
+
+- [ ] Lead forms save requests locally before CRM send.
+- [ ] CRM integration uses server-side requests only.
+- [ ] CRM credentials are not exposed to browser.
+- [ ] CRM timeout policy is configured.
+- [ ] CRM retry policy is configured.
+- [ ] Lead idempotency is enabled.
+- [ ] Duplicate lead handling is enabled.
+- [ ] Admin can view lead status.
+- [ ] Admin can retry failed leads with correct permissions.
+- [ ] CRM failure does not show technical details to users.
+- [ ] Production test lead flow is verified according to agreed launch policy.
+
+## 9. Security
+
+- [ ] `WP_DEBUG_DISPLAY` is disabled in production.
+- [ ] Debug logs are not publicly accessible.
+- [ ] Custom public endpoints validate nonce/token where required.
+- [ ] Custom admin endpoints validate capability and nonce.
+- [ ] Form inputs are sanitized server-side.
+- [ ] Template output is escaped.
+- [ ] Upload file types are restricted.
+- [ ] Rate limiting or anti-spam protection is enabled for public forms.
+- [ ] Security headers are configured at hosting/CDN level where possible.
+
+## 10. SEO and indexing
+
+- [ ] Production robots/indexing settings are correct.
+- [ ] Staging noindex settings are not copied to production.
+- [ ] Sitemap is generated and accessible.
+- [ ] `noindex` cities/entities are excluded from sitemap.
+- [ ] Canonical URLs are correct on homepage, city pages and course pages.
+- [ ] Redirect map from old Tilda URLs is applied.
+- [ ] Priority old URLs are checked after deployment.
+- [ ] JSON-LD output is valid on priority templates.
+- [ ] SEO titles/descriptions render from configured fields/templates.
+
+## 11. Monitoring and logs
+
+- [ ] PHP error logging is enabled privately.
+- [ ] Web server logs are available.
+- [ ] CRM send attempts are logged.
+- [ ] Lead events are auditable.
+- [ ] 404 monitoring is available after launch.
+- [ ] Critical form failures can be diagnosed by `request_id` or `lead_id`.
+- [ ] First 24 hours after launch have active monitoring owner.
+
+## 12. Rollback requirements
+
+- [ ] Previous production release can be restored.
+- [ ] Database backup is available before launch.
+- [ ] Theme/plugin rollback steps are documented.
+- [ ] DNS rollback or maintenance fallback is documented if needed.
+- [ ] Migration rollback limitations are documented.
+- [ ] CRM retry behavior after rollback is understood.
+
+## 13. Launch checklist
+
+- [ ] Deploy to staging.
+- [ ] Run migrations on staging.
+- [ ] Sync ACF field groups on staging.
+- [ ] Verify homepage.
+- [ ] Verify priority city pages.
+- [ ] Verify priority course pages.
+- [ ] Verify lead form success path.
+- [ ] Verify lead form validation errors.
+- [ ] Verify CRM failure handling.
+- [ ] Verify sitemap and robots.
+- [ ] Verify redirects.
+- [ ] Take production backup.
+- [ ] Deploy production release.
+- [ ] Run production smoke checks.
+- [ ] Monitor logs and lead queue after launch.

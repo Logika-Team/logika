@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "skills": {
+    "blueprint": {
+      "source": "wordpress/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/blueprint/SKILL.md",
+      "computedHash": "c93470fd807a46b5f0ed140d43115e94555b72618c0fc4dfb1f6f01bb7bd4b1a"
+    },
+    "design-systems": {
+      "source": "automattic/wordpress-agent-skills",
+      "sourceType": "github",
+      "skillPath": "claude-cowork/wp-site-creator/skills/design-systems/SKILL.md",
+      "computedHash": "8d8bdab552acbc58446a63c74cf39991a1eecddcc4d688d5dc016081411bec0e"
+    },
+    "wordpress-content": {
+      "source": "jezweb/claude-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/wordpress/skills/wordpress-content/SKILL.md",
+      "computedHash": "51e7694ebf99183ffd4bbaa434b6856c2dc9e248d132198ea1e6a1b77fdb8032"
+    },
+    "wordpress-performance-best-practices": {
+      "source": "bartekmis/wordpress-performance-best-practises",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "4136bcab5124d74dd1faf98a1a15d19dae84b914ffc6de94da6c49debdffa2ff"
+    },
+    "wordpress-pro": {
+      "source": "jeffallan/claude-skills",
+      "sourceType": "github",
+      "skillPath": "skills/wordpress-pro/SKILL.md",
+      "computedHash": "ef569ff0920fa0948aca9a464118e13b9a9d655f40fd5b61526b7e53a80f451c"
+    },
+    "wordpress-router": {
+      "source": "automattic/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/wordpress-router/SKILL.md",
+      "computedHash": "7e1ab6a500f78ecbadde3b9f8277370f7f5d8bc01c014c7bb94f6d5948f2d109"
+    },
+    "wordpress-security-validation": {
+      "source": "bobmatnyc/claude-mpm-skills",
+      "sourceType": "github",
+      "skillPath": "toolchains/php/frameworks/wordpress/wordpress-security-validation/SKILL.md",
+      "computedHash": "f168927194b17034e00188c44c16c51e73846ee8ed066750f7f01df96a5dabf5"
+    },
+    "wordpress-testing-qa": {
+      "source": "bobmatnyc/claude-mpm-skills",
+      "sourceType": "github",
+      "skillPath": "toolchains/php/frameworks/wordpress/wordpress-testing-qa/SKILL.md",
+      "computedHash": "9b970a6191be35fe350fb7f4d0e65e9d00d446ff583fab00b749f5a31acdd015"
+    }
+  }
+}
