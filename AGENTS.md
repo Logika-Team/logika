@@ -30,6 +30,7 @@ One of the main technical capabilities is selecting a city via an interactive ma
 22. Always check `/docs/edge-cases` before starting.
 23. For the latest documentation, always check `/docs/links.md`.
 24. For CI/CD setup, refer to `/docs/deployment.md`.
+25. All local WordPress development must use Docker and DDEV to ensure a consistent, reproducible environment across all developers and AI agents.
 
 ## graphify
 

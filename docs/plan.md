@@ -15,6 +15,7 @@ Rules for agents and developers:
 - if a task is blocked, leave it unchecked and add a short note under the relevant phase;
 - keep tasks small enough to be reviewed;
 - keep implementation aligned with `docs/architecture.md`, `docs/database.md`, `docs/api.md`, `docs/security.md`, `docs/testing.md` and `rules/rules.md`;
+- use the repo-local `.agents/skills/acf-pro` skill for future ACF Pro field model, Local JSON, options page, and template output work;
 - update this plan when scope changes.
 
 Checkbox meaning:
