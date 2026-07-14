@@ -6,105 +6,149 @@
   @include('partials/header.html')
 
   <main>
-    Camps
-
-    <section class="faq-section">
+    <section class="camp-highlights" aria-labelledby="camp-highlights-title">
       <div class="container">
-        <div class="faq-section__wrapp">
-          <h2>FAQ</h2>
+        <h2 class="camp-highlights__title" id="camp-highlights-title">Табори з Logika - це:</h2>
 
-          <ul class='accordion' data-default="1" data-single='true' data-breakpoint='576' data-accordion-init>
-            <li class='accordion__item'>
-              <button class='accordion__btn' data-id='1'>
-                What is an online pharmacy, and how does it work?
-                <span class="accordion__btn-icon">
-                  <svg width='24' height='24'>
-                    <use href='img/sprite/sprite.svg#agile-down'></use>
-                  </svg>
-                </span>
-              </button>
-              <div class='accordion__content' data-content='1'>
-                <div class="editor">
-                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                </div>
-              </div>
-            </li>
-            <li class='accordion__item'>
-              <button class='accordion__btn' data-id='2'>
-                How do I place an order?
-                <span class="accordion__btn-icon">
-                  <svg width='24' height='24'>
-                    <use href='img/sprite/sprite.svg#agile-down'></use>
-                  </svg>
-                </span>
-              </button>
-              <div class='accordion__content' data-content='2'>
-                <div class="editor">
-                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                </div>
-              </div>
-            </li>
-            <li class='accordion__item'>
-              <button class='accordion__btn' data-id='3'>
-                Can I order prescription medications from your online pharmacy?
-                <span class="accordion__btn-icon">
-                  <svg width='24' height='24'>
-                    <use href='img/sprite/sprite.svg#agile-down'></use>
-                  </svg>
-                </span>
-              </button>
-              <div class='accordion__content' data-content='3'>
-                <div class="editor">
-                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                </div>
-              </div>
-            </li>
-            <li class='accordion__item'>
-              <button class='accordion__btn' data-id='4'>
-                How does delivery work with your online pharmacy in Canada?
-                <span class="accordion__btn-icon">
-                  <svg width='24' height='24'>
-                    <use href='img/sprite/sprite.svg#agile-down'></use>
-                  </svg>
-                </span>
-              </button>
-              <div class='accordion__content' data-content='4'>
-                <div class="editor">
-                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                </div>
-              </div>
-            </li>
-            <li class='accordion__item'>
-              <button class='accordion__btn' data-id='5'>
-                Do you offer over-the-counter products in your online drugstore?
-                <span class="accordion__btn-icon">
-                  <svg width='24' height='24'>
-                    <use href='img/sprite/sprite.svg#agile-down'></use>
-                  </svg>
-                </span>
-              </button>
-              <div class='accordion__content' data-content='5'>
-                <div class="editor">
-                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                </div>
-              </div>
-            </li>
-            <li class='accordion__item'>
-              <button class='accordion__btn' data-id='6'>
-                What if I have questions or need help with my order?
-                <span class="accordion__btn-icon">
-                  <svg width='24' height='24'>
-                    <use href='img/sprite/sprite.svg#agile-down'></use>
-                  </svg>
-                </span>
-              </button>
-              <div class='accordion__content' data-content='6'>
-                <div class="editor">
-                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                </div>
-              </div>
-            </li>
-          </ul>
+        <ul class="camp-highlights__list">
+          <li class="camp-highlights__item">
+                        <img class="camp-highlights__character camp-highlights__character--one" src="img/camp/highlights/figma-age.png" alt="">
+            <p>Для дітей 10-16<br>років</p>
+          </li>
+          <li class="camp-highlights__item">
+                        <img class="camp-highlights__character camp-highlights__character--two" src="img/camp/highlights/figma-all-inclusive.png" alt="">
+            <p>Формат All-<br>inclusive</p>
+          </li>
+          <li class="camp-highlights__item">
+                        <img class="camp-highlights__character camp-highlights__character--three" src="img/camp/highlights/figma-entertainment.png" alt="">
+            <p>Власні<br>розважальні<br>програми</p>
+          </li>
+          <li class="camp-highlights__item">
+                        <img class="camp-highlights__character camp-highlights__character--four" src="img/camp/highlights/figma-team.png" alt="">
+            <p>Працює своя<br>команда вожатих</p>
+          </li>
+          <li class="camp-highlights__item">
+                        <img class="camp-highlights__character camp-highlights__character--five" src="img/camp/highlights/figma-transfer.png" alt="">
+            <p>Трансферти з<br>великих міст</p>
+          </li>
+          <li class="camp-highlights__item">
+                        <img class="camp-highlights__character camp-highlights__character--six" src="img/camp/highlights/figma-medical.png" alt="">
+            <p>Медичне<br>страхування</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="camp-formats" aria-labelledby="camp-formats-title">
+      <div class="container">
+        <h2 class="camp-formats__title" id="camp-formats-title">Оберіть свій формат</h2>
+
+        <ul class="camp-formats__list">
+          <li class="camp-formats__item">
+            <img src="img/camp/formats/summer.jpg" alt="Літній морський пейзаж">
+            <span class="camp-formats__season">Літо</span>
+            <a href="camp.html">Переглянути табори</a>
+          </li>
+          <li class="camp-formats__item">
+            <img src="img/camp/formats/autumn.jpg" alt="Осінні гори">
+            <span class="camp-formats__season">Осінь</span>
+            <a href="camp.html">Переглянути табори</a>
+          </li>
+          <li class="camp-formats__item">
+            <img src="img/camp/formats/winter.jpg" alt="Засніжені гори взимку">
+            <span class="camp-formats__season">Зима</span>
+            <a href="camp.html">Переглянути табори</a>
+          </li>
+          <li class="camp-formats__item">
+            <img src="img/camp/formats/spring.jpg" alt="Весняний гірський луг">
+            <span class="camp-formats__season">Весна</span>
+            <a href="camp.html">Переглянути табори</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="camp-booking" aria-labelledby="camp-booking-title">
+      <div class="container">
+        <h2 class="camp-booking__title" id="camp-booking-title">Встигніть забронювати<br>незабутні спогади</h2>
+
+        <div class="camp-booking__content">
+          <div class="camp-booking__benefits">
+            <ul>
+              <li>Оновлена IT програма</li>
+              <li>Активності, квести, турніри, ігри та дискотеки, екскурсії</li>
+              <li>Безпека. Вожаті поряд з дітьми 24/7</li>
+            </ul>
+            <img class="camp-booking__characters" src="img/camp/booking-characters.svg" alt="">
+          </div>
+
+          <form class="camp-booking__form main-form">
+            <div class="camp-booking__form-title">
+              <span>Встигніть забронювати.</span>
+              Залиште заявку за 30 секунд — ми зателефонуємо і обговоримо усі деталі
+            </div>
+
+            <div class="camp-booking__inputs">
+              <input class="main-form__input" type="text" name="name" placeholder="Ім’я">
+              <input class="main-form__input" type="tel" name="tel" placeholder="Номер телефону">
+              <select class="main-form__input" name="city" aria-label="Ваше місто">
+                <option value="" selected disabled>Ваше місто</option>
+                <option value="kyiv">Київ</option>
+                <option value="lviv">Львів</option>
+                <option value="online">Онлайн</option>
+              </select>
+              <select class="main-form__input camp-booking__camp-select" name="camp" aria-label="Оберіть табір">
+                <option value="" selected disabled>Оберіть табір</option>
+                <option value="greece">Табір в Греції (5.07-14.07)</option>
+                <option value="emily">VIP табір в Emily Resort (20.06-27.06)</option>
+                <option value="zakarpattia">Еко-табір на Закарпатті</option>
+                <option value="online">Табір онлайн</option>
+                <option value="city">Міський табір</option>
+              </select>
+            </div>
+
+            <button class="camp-booking__submit btn btn--yellow" type="submit">Відправити <span aria-hidden="true">→</span></button>
+            <p class="camp-booking__policy">Натискаючи, ви погоджуєтесь із <a href="#">Політикою конфіденційності</a></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="school-map" data-school-map aria-labelledby="school-map-title">
+      <div class="container">
+        <div class="school-map__heading">
+          <h2 id="school-map-title">Знайдіть свою школу або<br>навчайтесь онлайн</h2>
+          <p>Наші школи у 130 містах України - знайдіть зручний варіант поруч із вами або навчайтесь онлайн.</p>
+        </div>
+        <div class="school-map__mode" role="group" aria-label="Формат навчання">
+          <button class="is-active" type="button" data-map-mode="offline">Навчатися у нашому місті</button>
+          <button type="button" data-map-mode="online">Онлайн навчання</button>
+        </div>
+
+        <div class="school-map__layout">
+          <div class="school-map__visual">
+            <div class="school-map__canvas" data-map-canvas aria-live="polite">
+              <p>Завантажуємо карту областей...</p>
+            </div>
+          </div>
+
+          <div class="school-map__selector">
+            <h3>Оберіть місто навчання</h3>
+            <p>Ми підкажемо зручний варіант у вибраній області.</p>
+            <h4 data-map-region>Дніпропетровська область</h4>
+            <div class="school-map__cities" data-map-cities></div>
+          </div>
+        </div>
+
+        <div class="school-map__details" data-map-details>
+          <h3 data-map-city-title>ДНІПРО</h3>
+          <div class="school-map__details-content">
+            <div class="school-map__locations">
+              <p class="school-map__locations-count" data-map-locations-count>Усі локації (8)</p>
+              <ul class="school-map__schools" data-map-schools></ul>
+            </div>
+            <iframe class="school-map__frame" data-map-frame title="Карта шкіл у Дніпрі" loading="lazy" src="https://www.google.com/maps?q=Dnipro,+Ukraine&output=embed"></iframe>
+          </div>
         </div>
       </div>
     </section>
@@ -114,6 +158,7 @@
 
   <script src="js/swiper.js"></script>
   <script defer src="js/main.js"></script>
+  <script defer src="js/camp-map.js"></script>
 </body>
 
 
