@@ -6,34 +6,41 @@ One of the main technical capabilities is selecting a city via an interactive ma
 
 ### Rules:
 
-1. Always read the `/docs` folder if you need additional project information.
+1. Always read `/docs/guidelines` for stable project documentation and `/docs/changelog` for recent change notes.
 2. Write the smallest possible number of lines to complete the task — fewer lines are better.
 3. The entire site must be only in Ukrainian.
 4. When you make a significant architectural change, add it to `/rules/structure.md`.
 5. Describe business logic according to the single responsibility principle.
-6. When planning implementation steps, break work into steps and add them to `/docs/plan.md`.
+6. When planning implementation steps, break work into steps and add them to `/docs/guidelines/plan.md`.
 7. Use `/.agents/skills` to verify what you are going to do.
 8. Always do exactly what was requested and respond with short status updates without long text.
-9. For API work, use `/docs/api`.
-10. For testing, use `/docs/testing.md`.
-11. When adding a new feature not listed in `/docs/features.md`, add a feature description to `features.md` to keep our backlog.
-12. For database work, use `/docs/database.md`.
-13. Before starting work, always check the stack in `/docs/tech-stack.md`.
-14. For security, always refer to `/docs/security.md`.
-15. See `/docs/project.md` for more detailed project goals.
+9. For API work, use `/docs/guidelines/api`.
+10. For testing, use `/docs/guidelines/testing.md`.
+11. When adding a new feature not listed in `/docs/guidelines/features.md`, add a feature description to `/docs/guidelines/features.md` to keep our backlog.
+12. For database work, use `/docs/guidelines/database.md`.
+13. Before starting work, always check the stack in `/docs/guidelines/tech-stack.md`.
+14. For security, always refer to `/docs/guidelines/security.md`.
+15. See `/docs/guidelines/project.md` for more detailed project goals.
 16. For architecture work, use `/rules/architecture.md` and always update `architecture.md` when a new architectural innovation appears.
 17. Always follow the rules in `rules/rules.md`.
 18. Update project launch instructions in `/README.md`.
-19. For deployment preparation or deployment readiness checks, see `/docs/deployment.md`.
-20. For guidance on using ACF Pro for content model configuration, see `/docs/content-model.md`.
+19. For deployment preparation or deployment readiness checks, see `/docs/guidelines/deployment.md`.
+20. For guidance on using ACF Pro for content model configuration, see `/docs/guidelines/content-model.md`.
 21. Follow REST principles.
-22. Always check `/docs/edge-cases` before starting.
-23. For the latest documentation, always check `/docs/links.md`.
-24. For CI/CD setup, refer to `/docs/deployment.md`.
+22. Always check `/docs/guidelines/edge-cases` before starting.
+23. For the latest documentation, always check `/docs/guidelines/links.md`.
+24. For CI/CD setup, refer to `/docs/guidelines/deployment.md`.
 25. All local WordPress development must use Docker and DDEV to ensure a consistent, reproducible environment across all developers and AI agents.
 26. For any ACF Pro, ACF Local JSON, content model, field group, CPT, taxonomy, options page, or ACF runtime work, use the project MCP setup. Work from the WordPress/DDEV checkout at `/home/sbaikov/Desktop/Projects/logika/.worktrees/codex-implement-plan`, start/check DDEV first, and use both:
     - `logika-wordpress` via `.mcp.json` / `./scripts/wp-mcp.sh` for WordPress MCP Adapter runtime abilities.
     - our local ACF MCP server from `/home/sbaikov/Desktop/Projects/acf_mcp` for safe Local JSON audits, dry runs, backups, and sync checks.
+
+27. After any meaningful project change, update documentation in Obsidian vault at `/home/sbaikov/Obsidian/obsidian-backup/Obsidian vault/Projects/logika-school` using local skills `obsidian-vault` and `obsidian-markdown` as a brief dated changelog:
+    - Use files by month: `docs/changelog/YYYY-MM.md` (example: `docs/changelog/2026-07.md`).
+    - Inside each file, keep concise date sections:
+      - `## YYYY-MM-DD` (for example, `## 2026-07-14`)
+      - Short bullet list of what changed that day, without long descriptions.
+    - One file should contain all meaningful changes for that month (ACF, deployment, CPT, API, etc.), not separate files per technology.
 
 ACF MCP commands:
 
@@ -99,7 +106,7 @@ ddev wp plugin install https://github.com/WordPress/mcp-adapter/releases/latest/
 ddev wp mcp-adapter list
 ```
 
-Full setup and verification steps are in `docs/mcp.md`.
+Full setup and verification steps are in `docs/guidelines/mcp.md`.
 
 ## Skill usage for tool work
 
