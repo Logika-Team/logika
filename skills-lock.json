@@ -13,12 +13,6 @@
       "skillPath": "claude-cowork/wp-site-creator/skills/design-systems/SKILL.md",
       "computedHash": "8d8bdab552acbc58446a63c74cf39991a1eecddcc4d688d5dc016081411bec0e"
     },
-    "graphify": {
-      "source": "howell5/willhong-skills",
-      "sourceType": "github",
-      "skillPath": "skills/graphify/SKILL.md",
-      "computedHash": "80456681e8ee5e57700fcca889a46179f81354a76559744cee8977c97d1faf66"
-    },
     "php-best-practices": {
       "source": "asyrafhussin/agent-skills",
       "sourceType": "github",

@@ -1,6 +1,15 @@
 node_modules
 .env
 .worktrees/
+
+# Local Graphify outputs and repo-local installs.
+graphify-out/
+.graphify/
+.graphify-*
+.agents/skills/graphify/
+.codex/skills/graphify/
+docs/graphify.md
+
 wordpress/*
 !wordpress/wp-content/
 wordpress/wp-content/*
