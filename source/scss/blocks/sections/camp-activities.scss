@@ -1,0 +1,148 @@
+@import "../../general/mixins";
+
+.camp-activities {
+    overflow: hidden;
+    padding: clamp(56px, 4.167vw, 80px) 0;
+    background-color: rgba(221, 240, 251, .4);
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(40px, 3.125vw, 60px);
+    }
+
+    &__title {
+        color: var(--violet-500);
+        font-size: clamp(32px, 2.917vw, 56px);
+        font-weight: 700;
+        line-height: 118%;
+        letter-spacing: -2.8px;
+        text-align: center;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+        width: 100%;
+    }
+
+    &__item {
+        min-width: 0;
+
+        article {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            height: 100%;
+        }
+    }
+
+    &__visual {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 219px;
+        width: 246px;
+        height: 219px;
+
+        &::before,
+        &::after {
+            position: absolute;
+            display: block;
+            border-radius: 50%;
+            background-color: #d8f1fb;
+            content: "";
+        }
+
+        &::before {
+            top: 0;
+            left: 50%;
+            width: 194px;
+            height: 194px;
+            transform: translateX(-50%);
+        }
+
+        &::after {
+            bottom: 0;
+            left: 0;
+            width: 63px;
+            height: 63px;
+        }
+    }
+
+    &__image {
+        position: relative;
+        z-index: 1;
+        width: 235px;
+        height: 235px;
+        object-fit: contain;
+    }
+
+    &__copy {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        max-width: 406px;
+        text-align: center;
+    }
+
+    &__name {
+        color: var(--violet-500);
+        font-size: clamp(18px, 1.458vw, 28px);
+        font-weight: 600;
+        line-height: 128%;
+        letter-spacing: -1.4px;
+    }
+
+    p {
+        color: var(--grey-500);
+        font-size: clamp(14px, .938vw, 18px);
+        font-weight: 600;
+        line-height: 140%;
+        letter-spacing: -.9px;
+    }
+
+    @include tablet {
+        &__list {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            max-width: 720px;
+        }
+    }
+
+    @include mobile {
+        padding: 48px 0 56px;
+
+        &__inner {
+            gap: 40px;
+        }
+
+        &__title {
+            letter-spacing: -1.6px;
+        }
+
+        &__list {
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+
+        &__visual {
+            transform: scale(.84);
+            transform-origin: center bottom;
+            margin-bottom: -34px;
+        }
+
+        &__name {
+            font-size: 20px;
+        }
+
+        p {
+            max-width: 330px;
+            font-size: 14px;
+        }
+    }
+}
