@@ -1,0 +1,214 @@
+@import "../../general/mixins";
+
+.camp-details {
+    padding: 80px 0;
+    background-color: var(--white);
+
+    &__content {
+        display: grid;
+        grid-template-areas: "copy gallery";
+        grid-template-columns: minmax(0, .828fr) minmax(0, 1fr);
+        align-items: center;
+        gap: clamp(24px, 7.396vw, 142px);
+        min-height: 570px;
+    }
+
+    &--reverse {
+        background-color: #f6fbfe;
+
+        .camp-details__content {
+            grid-template-areas: "gallery copy";
+        }
+    }
+
+    &__copy {
+        display: flex;
+        grid-area: copy;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+        max-width: 588px;
+    }
+
+    h2 {
+        color: var(--violet-500);
+        font-size: clamp(34px, 2.917vw, 56px);
+        font-weight: 700;
+        line-height: 118%;
+        letter-spacing: -2.8px;
+    }
+
+    p {
+        max-width: 588px;
+        color: var(--grey-500);
+        font-size: clamp(16px, .938vw, 18px);
+        font-weight: 500;
+        line-height: 140%;
+        letter-spacing: -.9px;
+    }
+
+    &__cta {
+        min-width: 250px;
+    }
+
+    &__gallery {
+        display: flex;
+        grid-area: gallery;
+        flex-direction: column;
+        gap: 10px;
+        min-width: 0;
+        width: 100%;
+    }
+
+    &__main-image {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        aspect-ratio: 710 / 440;
+        border-radius: 24px;
+        background-color: var(--light-blue);
+
+        > img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__controls {
+        position: absolute;
+        right: 15px;
+        bottom: 15px;
+        left: 15px;
+        display: flex;
+        justify-content: space-between;
+        pointer-events: none;
+    }
+
+    &__control {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        color: var(--white);
+        background-color: var(--violet-100);
+        pointer-events: auto;
+        transition: background-color .2s ease;
+
+        &:hover {
+            background-color: var(--violet-500);
+        }
+    }
+
+    &__thumbs {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        width: 100%;
+    }
+
+    &__thumb {
+        display: block;
+        overflow: hidden;
+        width: 100%;
+        aspect-ratio: 170 / 120;
+        padding: 0;
+        border: 2px solid transparent;
+        border-radius: 14px;
+        background-color: var(--light-blue);
+        transition: border-color .2s ease, opacity .2s ease;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &:hover,
+        &.is-active {
+            border-color: var(--violet-100);
+        }
+
+        &:not(.is-active) {
+            opacity: .82;
+        }
+    }
+
+    @include laptop {
+        padding: 64px 0;
+
+        &__content {
+            min-height: 0;
+        }
+
+        &__copy {
+            gap: 20px;
+        }
+    }
+
+    @include tablet {
+        &__content,
+        &--reverse .camp-details__content {
+            grid-template-areas:
+                "copy"
+                "gallery";
+            grid-template-columns: 1fr;
+            gap: 36px;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        &__copy {
+            width: 100%;
+            max-width: 588px;
+        }
+
+        &__gallery {
+            width: 100%;
+        }
+    }
+
+    @include mobile {
+        padding: 48px 0 56px;
+
+        &__content,
+        &--reverse .camp-details__content {
+            gap: 28px;
+        }
+
+        h2 {
+            letter-spacing: -1.6px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        &__cta {
+            width: 100%;
+        }
+
+        &__main-image {
+            border-radius: 18px;
+        }
+
+        &__control {
+            width: 42px;
+            height: 42px;
+        }
+
+        &__controls {
+            right: 10px;
+            bottom: 10px;
+            left: 10px;
+        }
+
+        &__thumb {
+            border-radius: 10px;
+        }
+    }
+}

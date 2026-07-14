@@ -415,6 +415,39 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   )};
 
+  document.querySelectorAll("[data-camp-gallery]").forEach(function (gallery) {
+    const mainImage = gallery.querySelector("[data-gallery-main]");
+    const thumbnails = Array.from(gallery.querySelectorAll("[data-gallery-thumb]"));
+    const prevButton = gallery.querySelector("[data-gallery-prev]");
+    const nextButton = gallery.querySelector("[data-gallery-next]");
+    let activeIndex = 0;
+
+    const setActiveImage = function (index) {
+      activeIndex = (index + thumbnails.length) % thumbnails.length;
+      mainImage.src = thumbnails[activeIndex].dataset.galleryThumb;
+
+      thumbnails.forEach(function (thumbnail, thumbnailIndex) {
+        const isActive = thumbnailIndex === activeIndex;
+        thumbnail.classList.toggle("is-active", isActive);
+        thumbnail.setAttribute("aria-pressed", String(isActive));
+      });
+    };
+
+    thumbnails.forEach(function (thumbnail, thumbnailIndex) {
+      thumbnail.addEventListener("click", function () {
+        setActiveImage(thumbnailIndex);
+      });
+    });
+
+    prevButton.addEventListener("click", function () {
+      setActiveImage(activeIndex - 1);
+    });
+
+    nextButton.addEventListener("click", function () {
+      setActiveImage(activeIndex + 1);
+    });
+  });
+
 
 });
 
@@ -487,6 +520,5 @@ if (select.length) {
     });
   });
 }
-
 
 
