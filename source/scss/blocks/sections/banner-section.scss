@@ -85,3 +85,260 @@
         }
     }
 }
+
+.camp-hero {
+    overflow: hidden;
+    background-color: var(--light-blue);
+
+    .banner-section__blocks {
+        align-items: flex-start;
+    }
+
+    .banner-section__left {
+        gap: 32px;
+    }
+
+    .banner-section__info {
+        gap: 12px;
+    }
+
+    .banner-section__info h4 {
+        font-size: 25px;
+        line-height: 128%;
+    }
+
+    .banner-section__bar {
+        align-items: stretch;
+        background-color: var(--white);
+
+        li {
+            flex: 1 1 0;
+            min-width: 0;
+
+            p {
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+                color: var(--violet-300);
+                letter-spacing: -0.7px;
+
+                span {
+                    font-size: 14px;
+                    line-height: 118%;
+                    font-weight: 500;
+                    color: var(--grey-500);
+                }
+
+                strong {
+                    font-size: 20px;
+                    line-height: 118%;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    &__description {
+        max-width: 585px;
+        font-size: 18px;
+        line-height: 140%;
+        font-weight: 500;
+        color: var(--grey-500);
+    }
+
+    &__gallery {
+        position: relative;
+        width: min(637px, 100%);
+        height: 239px;
+        flex: 0 0 239px;
+    }
+
+    &__image {
+        position: absolute;
+        display: block;
+        max-width: none;
+        object-fit: cover;
+        border: 4px solid var(--white);
+        border-radius: 50%;
+        box-shadow: 0 8px 20px rgba(47, 37, 53, 0.14);
+
+        &--hands {
+            top: 88px;
+            left: 0;
+            width: 107px;
+            height: 107px;
+        }
+
+        &--pool {
+            top: 0;
+            left: 125px;
+            width: 237px;
+            height: 237px;
+        }
+
+        &--team {
+            top: 88px;
+            left: 385px;
+            width: 126px;
+            height: 126px;
+        }
+
+        &--mountains {
+            top: 8px;
+            right: 0;
+            width: 74px;
+            height: 74px;
+        }
+    }
+
+    @include laptop {
+        .banner-section__blocks {
+            gap: 20px;
+        }
+
+        .banner-section__form {
+            max-width: 440px;
+        }
+
+        .banner-section__bar {
+            padding: 24px;
+            gap: 20px;
+
+            li {
+                gap: 10px;
+
+                span img {
+                    width: 44px;
+                    height: 44px;
+                }
+
+                p strong {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    @include tablet {
+        .banner-section__blocks {
+            flex-direction: column;
+        }
+
+        .banner-section__left,
+        .banner-section__right {
+            width: 100%;
+        }
+
+        .banner-section__right {
+            justify-content: flex-start;
+        }
+
+        .banner-section__form {
+            max-width: 480px;
+        }
+
+        .banner-section__character-logika {
+            display: none;
+        }
+
+        .banner-section__bar {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        &__gallery {
+            align-self: center;
+        }
+    }
+
+    @include mobile {
+        padding: 32px 0;
+
+        .banner-section__info h1 {
+            font-size: clamp(34px, 10vw, 46px);
+            line-height: 116%;
+            letter-spacing: -1.8px;
+        }
+
+        .banner-section__info h4 {
+            font-size: 20px;
+        }
+
+        &__description {
+            font-size: 16px;
+        }
+
+        &__gallery {
+            width: 100%;
+            height: 184px;
+            flex-basis: 184px;
+        }
+
+        &__image {
+            border-width: 3px;
+
+            &--hands {
+                top: 70px;
+                width: 82px;
+                height: 82px;
+            }
+
+            &--pool {
+                left: 18%;
+                width: 184px;
+                height: 184px;
+            }
+
+            &--team {
+                top: 72px;
+                left: auto;
+                right: 12%;
+                width: 98px;
+                height: 98px;
+            }
+
+            &--mountains {
+                top: 0;
+                right: 0;
+                width: 58px;
+                height: 58px;
+            }
+        }
+
+        .banner-section__right {
+            gap: 0;
+        }
+
+        .banner-section__form {
+            padding: 30px 18px;
+            border-radius: 24px;
+        }
+
+        .banner-section__bar {
+            padding: 18px;
+            gap: 18px 12px;
+
+            li {
+                align-items: flex-start;
+
+                span img {
+                    width: 36px;
+                    height: 36px;
+                }
+
+                p {
+                    gap: 1px;
+
+                    span {
+                        font-size: 11px;
+                    }
+
+                    strong {
+                        font-size: 13px;
+                        letter-spacing: -0.35px;
+                    }
+                }
+            }
+        }
+    }
+}

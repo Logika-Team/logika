@@ -1,120 +1,93 @@
 <!DOCTYPE html>
-  <html lang="en">
-  @include('partials/head.html')
+<html lang="uk">
+@include('partials/head.html')
 
-  <body>
-    @include('partials/header.html')
+<body>
+  @include('partials/header.html')
 
-    <main>
-      Single Camp
+  <main>
+    <section class="banner-section camp-hero">
+      <div class="container">
+        <div class="banner-section__wrapp">
+          <div class="banner-section__blocks">
+            <div class="banner-section__left">
+              <div class="banner-section__info">
+                <h1>Літній табір на Закарпатті – “Фестиваль професій”</h1>
+                <h4>27.06 - 06.07 (перша зміна), 21.07 - 30.07 (друга зміна)</h4>
+                <p class="camp-hero__description">Навчаємо дітей створювати ігри, сайти, застосунки та власні digital-проєкти через практику й сучасні технології.</p>
+              </div>
 
-      <section class="faq-section">
-        <div class="container">
-          <div class="faq-section__wrapp">
-            <h2>FAQ</h2>
+              <div class="camp-hero__gallery" aria-label="Фотографії літнього табору">
+                <img class="camp-hero__image camp-hero__image--hands" src="img/camp/hands.png" alt="Діти в таборі">
+                <img class="camp-hero__image camp-hero__image--pool" src="img/camp/pool.png" alt="Відпочинок дітей у басейні">
+                <img class="camp-hero__image camp-hero__image--team" src="img/camp/team.png" alt="Команда учасників табору">
+                <img class="camp-hero__image camp-hero__image--mountains" src="img/camp/mountains.png" alt="Учасники табору в Карпатах">
+              </div>
+            </div>
 
-            <ul class='accordion' data-default="1" data-single='true' data-breakpoint='576' data-accordion-init>
-              <li class='accordion__item'>
-                <button class='accordion__btn' data-id='1'>
-                  What is an online pharmacy, and how does it work?
-                  <span class="accordion__btn-icon">
-                    <svg width='24' height='24'>
-                      <use href='img/sprite/sprite.svg#agile-down'></use>
-                    </svg>
-                  </span>
-                </button>
-                <div class='accordion__content' data-content='1'>
-                  <div class="editor">
-                    <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                  </div>
+            <div class="banner-section__right">
+              <form id="form" class="banner-section__form main-form">
+                <div class="main-form__title h5">
+                  <span>Встигніть забронювати.</span>
+                  Залиште заявку за 30 секунд — ми зателефонуємо і обговоримо усі деталі
                 </div>
-              </li>
-              <li class='accordion__item'>
-                <button class='accordion__btn' data-id='2'>
-                  How do I place an order?
-                  <span class="accordion__btn-icon">
-                    <svg width='24' height='24'>
-                      <use href='img/sprite/sprite.svg#agile-down'></use>
-                    </svg>
-                  </span>
-                </button>
-                <div class='accordion__content' data-content='2'>
-                  <div class="editor">
-                    <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                  </div>
+
+                <div class="main-form__inputs">
+                  <input class="main-form__input" type="text" name="name" placeholder="Ім’я">
+                  <input class="main-form__input" type="tel" name="tel" placeholder="Номер телефону">
+                  <input class="main-form__input" type="text" name="city" placeholder="Ваше місто">
                 </div>
-              </li>
-              <li class='accordion__item'>
-                <button class='accordion__btn' data-id='3'>
-                  Can I order prescription medications from your online pharmacy?
-                  <span class="accordion__btn-icon">
-                    <svg width='24' height='24'>
-                      <use href='img/sprite/sprite.svg#agile-down'></use>
-                    </svg>
-                  </span>
+
+                <button class="main-form__btn btn btn--yellow" type="submit">
+                  Забронювати місце
+                  <svg width="20" height="20">
+                    <use href="img/sprite/sprite.svg#arrow-right"></use>
+                  </svg>
                 </button>
-                <div class='accordion__content' data-content='3'>
-                  <div class="editor">
-                    <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                  </div>
-                </div>
-              </li>
-              <li class='accordion__item'>
-                <button class='accordion__btn' data-id='4'>
-                  How does delivery work with your online pharmacy in Canada?
-                  <span class="accordion__btn-icon">
-                    <svg width='24' height='24'>
-                      <use href='img/sprite/sprite.svg#agile-down'></use>
-                    </svg>
-                  </span>
-                </button>
-                <div class='accordion__content' data-content='4'>
-                  <div class="editor">
-                    <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                  </div>
-                </div>
-              </li>
-              <li class='accordion__item'>
-                <button class='accordion__btn' data-id='5'>
-                  Do you offer over-the-counter products in your online drugstore?
-                  <span class="accordion__btn-icon">
-                    <svg width='24' height='24'>
-                      <use href='img/sprite/sprite.svg#agile-down'></use>
-                    </svg>
-                  </span>
-                </button>
-                <div class='accordion__content' data-content='5'>
-                  <div class="editor">
-                    <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                  </div>
-                </div>
-              </li>
-              <li class='accordion__item'>
-                <button class='accordion__btn' data-id='6'>
-                  What if I have questions or need help with my order?
-                  <span class="accordion__btn-icon">
-                    <svg width='24' height='24'>
-                      <use href='img/sprite/sprite.svg#agile-down'></use>
-                    </svg>
-                  </span>
-                </button>
-                <div class='accordion__content' data-content='6'>
-                  <div class="editor">
-                    <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                  </div>
-                </div>
-              </li>
-            </ul>
+
+                <p class="main-form__text">Натискаючи, ви погоджуєтесь із <a href="#">Політикою конфіденційності</a></p>
+              </form>
+
+              <div class="banner-section__character-logika">
+                <img width="97" height="146" src="img/logika-character.svg" alt="Персонаж Logika">
+              </div>
+            </div>
           </div>
+
+          <ul class="banner-section__bar">
+            <li>
+              <span><img width="56" height="56" src="img/banner-bar/icon-map-location.svg" alt=""></span>
+              <p><span>Де:</span><strong>с. Дудки, Закарпаття</strong></p>
+            </li>
+            <li>
+              <span><img width="56" height="56" src="img/banner-bar/icon-calendar-check.svg" alt=""></span>
+              <p><span>Коли:</span><strong>27-01 липня 2026</strong></p>
+            </li>
+            <li>
+              <span><img width="56" height="56" src="img/banner-bar/icon-rating-star.svg" alt=""></span>
+              <p><span>Тривалість:</span><strong>10 днів/9 ночей</strong></p>
+            </li>
+            <li>
+              <span><img width="56" height="56" src="img/banner-bar/icon-outline_school.svg" alt=""></span>
+              <p><span>Для кого:</span><strong>діти 10-16 років</strong></p>
+            </li>
+            <li>
+              <span><img width="56" height="56" src="img/banner-bar/icon-document-certificate.svg" alt=""></span>
+              <p><span>Акційна ціна:</span><strong>21000 грн (при оплаті до 10.06)</strong></p>
+            </li>
+            <li>
+              <span><img width="56" height="56" src="img/banner-bar/icon-tabler-school.svg" alt=""></span>
+              <p><span>Ціна:</span><strong>25000 грн</strong></p>
+            </li>
+          </ul>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
+  </main>
 
-    @include('partials/footer.html')
+  @include('partials/footer.html')
 
-    <script src="js/swiper.js"></script>
-    <script defer src="js/main.js"></script>
-  </body>
-
-
+  <script src="js/swiper.js"></script>
+  <script defer src="js/main.js"></script>
+</body>
 </html>
