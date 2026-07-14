@@ -1,110 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 @include('partials/head.html')
 
 <body>
   @include('partials/header.html')
 
   <main>
-    About page
-
-    <section class="faq-section">
+    <section class="banner-section about-hero">
       <div class="container">
-        <div class="faq-section__wrapp">
-          <h2>FAQ</h2>
+        <div class="banner-section__wrapp">
+          <div class="banner-section__blocks">
+            <div class="banner-section__left">
+              <div class="banner-section__info">
+                <h1>Найбільша в Україні школа програмування для дітей 7-17 років</h1>
+                <h4>Перші результати вже через 4 тижні</h4>
+              </div>
+              <div class="banner-section__character-boy">
+                <img width="432" height="232" src="img/about/hero-characters.png" alt="Персонажі Logika Ctrl та W">
+              </div>
+            </div>
+            <div class="banner-section__right">
+              <form id="form" class="banner-section__form main-form">
+                <div class="main-form__title h5"><span>Перший урок — безкоштовно.</span>Залиште заявку за 30 секунд — ми зателефонуємо і підберемо зручний час</div>
+                <div class="main-form__inputs">
+                  <input class="main-form__input" type="text" name="name" placeholder="Ім’я">
+                  <input class="main-form__input" type="tel" name="tel" placeholder="Номер телефону">
+                  <input class="main-form__input" type="text" name="age" placeholder="Вік дитини (від 7 до 17)">
+                </div>
+                <button class="main-form__btn btn btn--yellow" type="submit">Спробувати безкоштовно<svg width="20" height="20"><use href="img/sprite/sprite.svg#arrow-right"></use></svg></button>
+                <p class="main-form__text">Натискаючи, ви погоджуєтесь із <a href="#">Політикою конфіденційності</a></p>
+              </form>
+              <div class="banner-section__character-logika"><img width="97" height="146" src="img/logika-character.svg" alt="Персонаж Logika"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <ul class='accordion' data-default="1" data-single='true' data-breakpoint='576' data-accordion-init>
-            <li class='accordion__item'>
-              <button class='accordion__btn' data-id='1'>
-                What is an online pharmacy, and how does it work?
-                <span class="accordion__btn-icon">
-                  <svg width='24' height='24'>
-                    <use href='img/sprite/sprite.svg#agile-down'></use>
-                  </svg>
-                </span>
-              </button>
-              <div class='accordion__content' data-content='1'>
-                <div class="editor">
-                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                </div>
-              </div>
-            </li>
-            <li class='accordion__item'>
-              <button class='accordion__btn' data-id='2'>
-                How do I place an order?
-                <span class="accordion__btn-icon">
-                  <svg width='24' height='24'>
-                    <use href='img/sprite/sprite.svg#agile-down'></use>
-                  </svg>
-                </span>
-              </button>
-              <div class='accordion__content' data-content='2'>
-                <div class="editor">
-                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                </div>
-              </div>
-            </li>
-            <li class='accordion__item'>
-              <button class='accordion__btn' data-id='3'>
-                Can I order prescription medications from your online pharmacy?
-                <span class="accordion__btn-icon">
-                  <svg width='24' height='24'>
-                    <use href='img/sprite/sprite.svg#agile-down'></use>
-                  </svg>
-                </span>
-              </button>
-              <div class='accordion__content' data-content='3'>
-                <div class="editor">
-                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                </div>
-              </div>
-            </li>
-            <li class='accordion__item'>
-              <button class='accordion__btn' data-id='4'>
-                How does delivery work with your online pharmacy in Canada?
-                <span class="accordion__btn-icon">
-                  <svg width='24' height='24'>
-                    <use href='img/sprite/sprite.svg#agile-down'></use>
-                  </svg>
-                </span>
-              </button>
-              <div class='accordion__content' data-content='4'>
-                <div class="editor">
-                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                </div>
-              </div>
-            </li>
-            <li class='accordion__item'>
-              <button class='accordion__btn' data-id='5'>
-                Do you offer over-the-counter products in your online drugstore?
-                <span class="accordion__btn-icon">
-                  <svg width='24' height='24'>
-                    <use href='img/sprite/sprite.svg#agile-down'></use>
-                  </svg>
-                </span>
-              </button>
-              <div class='accordion__content' data-content='5'>
-                <div class="editor">
-                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                </div>
-              </div>
-            </li>
-            <li class='accordion__item'>
-              <button class='accordion__btn' data-id='6'>
-                What if I have questions or need help with my order?
-                <span class="accordion__btn-icon">
-                  <svg width='24' height='24'>
-                    <use href='img/sprite/sprite.svg#agile-down'></use>
-                  </svg>
-                </span>
-              </button>
-              <div class='accordion__content' data-content='6'>
-                <div class="editor">
-                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                </div>
-              </div>
-            </li>
-          </ul>
+    <section class="about-stats" aria-labelledby="about-stats-title">
+      <div class="container">
+        <h1 id="about-stats-title">Навчайтеся в найбільшій школі в Україні</h1>
+        <ul class="about-stats__list">
+          <li><img src="img/banner-bar/icon-calendar-check.svg" alt="">З 2018 року на ринку</li>
+          <li><img src="img/banner-bar/icon-document-certificate.svg" alt="">Освітня ліцензія</li>
+          <li><img src="img/banner-bar/icon-rating-star.svg" alt="">4.9 рейтинг від клієнтів</li>
+          <li><img src="img/banner-bar/icon-outline_school.svg" alt="">178 шкіл в Україні</li>
+          <li><img src="img/banner-bar/icon-map-location.svg" alt="">130 міст по Україні</li>
+          <li><img src="img/banner-bar/icon-tabler-school.svg" alt="">100тис+ успішних випускників</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="about-directions" aria-label="Напрями навчання">
+      <div class="container">
+        <ul>
+          <li><a href="/it-courses.html" aria-label="Переглянути курси програмування"><img src="img/about/direction-programming.png?v=3" alt="Курси програмування"></a></li>
+          <li><a href="/en-courses.html" aria-label="Переглянути курси англійської"><img src="img/about/direction-english.png?v=3" alt="Курси англійської мови"></a></li>
+          <li><a href="/camps.html" aria-label="Переглянути табори"><img src="img/about/direction-camps.png?v=3" alt="Табори Logika"></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="about-outcomes" aria-labelledby="about-outcomes-title">
+      <div class="container">
+        <h2 id="about-outcomes-title">Що отримає ваша дитина,<br>навчаючись у школі “Logika”</h2>
+        <ul>
+          <li><img src="img/about/outcome-thinking.png?v=3" alt="Дитина полюбить точні науки та побачить, як шкільні предмети працюють у житті"></li>
+          <li><img src="img/about/outcome-technology.png?v=3" alt="Дитина навчиться сучасним IT-технологіям, які використовують фахівці в реальних компаніях"></li>
+          <li><img src="img/about/outcome-projects.png?v=3" alt="Дитина створюватиме реальні проєкти для перших професійних досягнень"></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="about-history" aria-labelledby="about-history-title">
+      <div class="container">
+        <div class="about-history__layout">
+          <div class="about-history__content">
+            <h2 id="about-history-title">Logika – успішний освітній<br>проєкт з 2018 року</h2>
+            <div class="about-history__copy">
+              <p>Наша школа є успішним освітнім проєктом, який діє з 2018 року та має понад 50 000 випускників. Навчаємо дітей 7–17 років, заняття проводимо онлайн та офлайн. Маємо два напрямки: програмування та англійська мова.</p>
+              <p>Крім основного навчання проводимо сезонні інтелектуальні квести з призами, їздимо в IT-табори до Карпат та заохочуємо до навчання різноманітними способами.</p>
+              <strong>Наша основна мета – навчити цікаво, легко та ефективно!</strong>
+            </div>
+            <a class="about-history__cta" href="#form">Безкоштовний пробний урок&nbsp; →</a>
+          </div>
+          <div class="about-history__image">
+            <img src="img/about/anniversary-full.png" alt="Logika святкує чотири роки">
+            <span class="about-history__skill about-history__skill--team">командна робота</span>
+            <span class="about-history__skill about-history__skill--communication">комунікація</span>
+            <span class="about-history__skill about-history__skill--thinking">критичне мислення</span>
+            <span class="about-history__skill about-history__skill--creativity">креативність</span>
+          </div>
         </div>
       </div>
     </section>
@@ -115,6 +101,4 @@
   <script src="js/swiper.js"></script>
   <script defer src="js/main.js"></script>
 </body>
-
-
 </html>
