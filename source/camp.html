@@ -1,120 +1,322 @@
 <!DOCTYPE html>
-  <html lang="en">
-  @include('partials/head.html')
+<html lang="uk">
+@include('partials/head.html')
 
-  <body>
-    @include('partials/header.html')
+<body>
+  @include('partials/header.html')
 
-    <main>
-      Single Camp
+  <main>
+    <section class="banner-section camp-hero">
+      <div class="container">
+        <div class="banner-section__wrapp">
+          <div class="banner-section__blocks">
+            <div class="banner-section__left">
+              <div class="banner-section__info">
+                <h1>Літній табір на Закарпатті – “Фестиваль професій”</h1>
+                <h4>27.06 - 06.07 (перша зміна), 21.07 - 30.07 (друга зміна)</h4>
+                <p class="camp-hero__description">Навчаємо дітей створювати ігри, сайти, застосунки та власні digital-проєкти через практику й сучасні технології.</p>
+              </div>
 
-      <section class="faq-section">
-        <div class="container">
-          <div class="faq-section__wrapp">
-            <h2>FAQ</h2>
+              <div class="camp-hero__gallery" aria-label="Фотографії літнього табору">
+                <img class="camp-hero__image camp-hero__image--hands" src="img/camp/hands.png" alt="Діти в таборі">
+                <img class="camp-hero__image camp-hero__image--pool" src="img/camp/pool.png" alt="Відпочинок дітей у басейні">
+                <img class="camp-hero__image camp-hero__image--team" src="img/camp/team.png" alt="Команда учасників табору">
+                <img class="camp-hero__image camp-hero__image--mountains" src="img/camp/mountains.png" alt="Учасники табору в Карпатах">
+              </div>
+            </div>
 
-            <ul class='accordion' data-default="1" data-single='true' data-breakpoint='576' data-accordion-init>
-              <li class='accordion__item'>
-                <button class='accordion__btn' data-id='1'>
-                  What is an online pharmacy, and how does it work?
-                  <span class="accordion__btn-icon">
-                    <svg width='24' height='24'>
-                      <use href='img/sprite/sprite.svg#agile-down'></use>
-                    </svg>
-                  </span>
-                </button>
-                <div class='accordion__content' data-content='1'>
-                  <div class="editor">
-                    <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                  </div>
+            <div class="banner-section__right">
+              <form id="form" class="banner-section__form main-form">
+                <div class="main-form__title h5">
+                  <span>Встигніть забронювати.</span>
+                  Залиште заявку за 30 секунд — ми зателефонуємо і обговоримо усі деталі
                 </div>
-              </li>
-              <li class='accordion__item'>
-                <button class='accordion__btn' data-id='2'>
-                  How do I place an order?
-                  <span class="accordion__btn-icon">
-                    <svg width='24' height='24'>
-                      <use href='img/sprite/sprite.svg#agile-down'></use>
-                    </svg>
-                  </span>
-                </button>
-                <div class='accordion__content' data-content='2'>
-                  <div class="editor">
-                    <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                  </div>
+
+                <div class="main-form__inputs">
+                  <input class="main-form__input" type="text" name="name" placeholder="Ім’я">
+                  <input class="main-form__input" type="tel" name="tel" placeholder="Номер телефону">
+                  <input class="main-form__input" type="text" name="city" placeholder="Ваше місто">
                 </div>
-              </li>
-              <li class='accordion__item'>
-                <button class='accordion__btn' data-id='3'>
-                  Can I order prescription medications from your online pharmacy?
-                  <span class="accordion__btn-icon">
-                    <svg width='24' height='24'>
-                      <use href='img/sprite/sprite.svg#agile-down'></use>
-                    </svg>
-                  </span>
+
+                <button class="main-form__btn btn btn--yellow" type="submit">
+                  Забронювати місце
+                  <svg width="20" height="20">
+                    <use href="img/sprite/sprite.svg#arrow-right"></use>
+                  </svg>
                 </button>
-                <div class='accordion__content' data-content='3'>
-                  <div class="editor">
-                    <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                  </div>
+
+                <p class="main-form__text">Натискаючи, ви погоджуєтесь із <a href="#">Політикою конфіденційності</a></p>
+              </form>
+
+              <div class="banner-section__character-logika">
+                <img width="97" height="146" src="img/logika-character.svg" alt="Персонаж Logika">
+              </div>
+            </div>
+          </div>
+
+          <ul class="banner-section__bar">
+            <li>
+              <span><img width="56" height="56" src="img/banner-bar/icon-map-location-figma.svg" alt=""></span>
+              <p><span>Де:</span><strong>с. Дудки, Закарпаття</strong></p>
+            </li>
+            <li>
+              <span><img width="56" height="56" src="img/banner-bar/icon-calendar-check-figma.svg" alt=""></span>
+              <p><span>Коли:</span><strong>27-01 липня 2026</strong></p>
+            </li>
+            <li>
+              <span><img width="56" height="56" src="img/banner-bar/icon-time-outline-figma.svg" alt=""></span>
+              <p><span>Тривалість:</span><strong>10 днів/9 ночей</strong></p>
+            </li>
+            <li>
+              <span><img width="56" height="56" src="img/banner-bar/icon-user-group-figma.svg" alt=""></span>
+              <p><span>Для кого:</span><strong>діти 10-16 років</strong></p>
+            </li>
+            <li>
+              <span><img width="56" height="56" src="img/banner-bar/icon-hot-price-figma.svg" alt=""></span>
+              <p><span>Акційна ціна:</span><strong>21000 грн (при оплаті до 10.06)</strong></p>
+            </li>
+            <li>
+              <span><img width="56" height="56" src="img/banner-bar/icon-price-tag-figma.svg" alt=""></span>
+              <p><span>Ціна:</span><strong>25000 грн</strong></p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="camp-benefits" aria-labelledby="camp-benefits-title">
+      <div class="camp-benefits__cloud camp-benefits__cloud--left" aria-hidden="true"></div>
+      <div class="camp-benefits__cloud camp-benefits__cloud--right" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="camp-benefits__inner">
+          <h2 class="camp-benefits__title" id="camp-benefits-title">
+            10 днів цікавої програми та незабутніх<br>
+            вражень від літніх канікул
+          </h2>
+
+          <ul class="camp-benefits__list">
+            <li class="camp-benefits__item">
+              <article>
+                <img class="camp-benefits__image" src="img/camp/benefits/pool.png" alt="">
+                <h3>Безлімітний басейн на<br>свіжому повітрі</h3>
+              </article>
+            </li>
+            <li class="camp-benefits__item">
+              <article>
+                <img class="camp-benefits__image" src="img/camp/benefits/medical.png" alt="">
+                <h3>Медична допомога 24/7<br>на території</h3>
+              </article>
+            </li>
+            <li class="camp-benefits__item">
+              <article>
+                <img class="camp-benefits__image" src="img/camp/benefits/food.png" alt="">
+                <h3>4-х разове харчування<br>(основне + перекус)</h3>
+              </article>
+            </li>
+            <li class="camp-benefits__item">
+              <article>
+                <img class="camp-benefits__image" src="img/camp/benefits/foam.png" alt="">
+                <h3>Незабутня професійна<br>пінна вечірка</h3>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="camp-activities">
+      <div class="container">
+        <div class="camp-activities__inner">
+          <h2 class="camp-activities__title">Активності у програмі:</h2>
+
+          <ul class="camp-activities__list">
+            <li class="camp-activities__item">
+              <article>
+                <div class="camp-activities__visual" aria-hidden="true">
+                  <img class="camp-activities__image" src="img/camp/activities/aquatoriy.png" alt="">
                 </div>
-              </li>
-              <li class='accordion__item'>
-                <button class='accordion__btn' data-id='4'>
-                  How does delivery work with your online pharmacy in Canada?
-                  <span class="accordion__btn-icon">
-                    <svg width='24' height='24'>
-                      <use href='img/sprite/sprite.svg#agile-down'></use>
-                    </svg>
-                  </span>
+                <div class="camp-activities__copy">
+                  <h3 class="camp-activities__name">Акваторій Emily Resort</h3>
+                  <p>море веселощів, гірки та водні атракціони для яскравих емоцій!</p>
+                </div>
+              </article>
+            </li>
+            <li class="camp-activities__item">
+              <article>
+                <div class="camp-activities__visual" aria-hidden="true">
+                  <img class="camp-activities__image" src="img/camp/activities/mountains.png" alt="">
+                </div>
+                <div class="camp-activities__copy">
+                  <h3 class="camp-activities__name">Похід у гори</h3>
+                  <p>свіже повітря, мальовничі краєвиди та справжня команда однодумців!</p>
+                </div>
+              </article>
+            </li>
+            <li class="camp-activities__item">
+              <article>
+                <div class="camp-activities__visual" aria-hidden="true">
+                  <img class="camp-activities__image" src="img/camp/activities/campfire.png" alt="">
+                </div>
+                <div class="camp-activities__copy">
+                  <h3 class="camp-activities__name">Пісні біля вогнища</h3>
+                  <p>атмосферні вечори з гітарою, історіями та смачними маршмелоу!</p>
+                </div>
+              </article>
+            </li>
+            <li class="camp-activities__item">
+              <article>
+                <div class="camp-activities__visual" aria-hidden="true">
+                  <img class="camp-activities__image" src="img/camp/activities/lviv.png" alt="">
+                </div>
+                <div class="camp-activities__copy">
+                  <h3 class="camp-activities__name">Пригоди у Львові</h3>
+                  <p>захоплива виїзна мандрівка до міста легенд, історії та яскравих вражень</p>
+                </div>
+              </article>
+            </li>
+            <li class="camp-activities__item">
+              <article>
+                <div class="camp-activities__visual" aria-hidden="true">
+                  <img class="camp-activities__image" src="img/camp/activities/quests.png" alt="">
+                </div>
+                <div class="camp-activities__copy">
+                  <h3 class="camp-activities__name">Розваги</h3>
+                  <p>захопливі квести у стилі популярних ігор, інтелектуальні квізи та челенджі</p>
+                </div>
+              </article>
+            </li>
+            <li class="camp-activities__item">
+              <article>
+                <div class="camp-activities__visual" aria-hidden="true">
+                  <img class="camp-activities__image" src="img/camp/activities/team.png" alt="">
+                </div>
+                <div class="camp-activities__copy">
+                  <h3 class="camp-activities__name">Яскраве табірне життя</h3>
+                  <p>спортивні ігри та командні змагання, вечірки, дискотеки та нові друзі</p>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="camp-details" aria-labelledby="camp-location-title">
+      <div class="container">
+        <div class="camp-details__content">
+          <div class="camp-details__copy">
+            <h2 id="camp-location-title">Локація</h2>
+            <p>Комплекс розташований в 10 хвилинах від центру Львова (м. Винники, вул. Хмельницького, 9б). Має просторі піщані пляжі, озеро, 2 природних басейни, водні атракціони, аквапарк, тюбінг-парк, панорамний підйомник та багато іншого</p>
+            <a class="camp-details__cta btn btn--violet" href="#form">
+              Забронювати місце
+              <svg width="20" height="20">
+                <use href="img/sprite/sprite.svg#arrow-right"></use>
+              </svg>
+            </a>
+          </div>
+
+          <div class="camp-details__gallery" data-camp-gallery>
+            <div class="camp-details__main-image">
+              <img data-gallery-main src="img/camp/details/location.png" alt="Комплекс Emily Resort">
+              <div class="camp-details__controls">
+                <button class="camp-details__control" type="button" data-gallery-prev aria-label="Попереднє фото">
+                  <svg width="24" height="24"><use href="img/sprite/sprite.svg#icon-arrow-left"></use></svg>
                 </button>
-                <div class='accordion__content' data-content='4'>
-                  <div class="editor">
-                    <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                  </div>
-                </div>
-              </li>
-              <li class='accordion__item'>
-                <button class='accordion__btn' data-id='5'>
-                  Do you offer over-the-counter products in your online drugstore?
-                  <span class="accordion__btn-icon">
-                    <svg width='24' height='24'>
-                      <use href='img/sprite/sprite.svg#agile-down'></use>
-                    </svg>
-                  </span>
+                <button class="camp-details__control" type="button" data-gallery-next aria-label="Наступне фото">
+                  <svg width="24" height="24"><use href="img/sprite/sprite.svg#icon-arrow-right"></use></svg>
                 </button>
-                <div class='accordion__content' data-content='5'>
-                  <div class="editor">
-                    <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                  </div>
-                </div>
-              </li>
-              <li class='accordion__item'>
-                <button class='accordion__btn' data-id='6'>
-                  What if I have questions or need help with my order?
-                  <span class="accordion__btn-icon">
-                    <svg width='24' height='24'>
-                      <use href='img/sprite/sprite.svg#agile-down'></use>
-                    </svg>
-                  </span>
-                </button>
-                <div class='accordion__content' data-content='6'>
-                  <div class="editor">
-                    <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                  </div>
-                </div>
-              </li>
+              </div>
+            </div>
+            <ul class="camp-details__thumbs">
+              <li><button class="camp-details__thumb is-active" type="button" data-gallery-thumb="img/camp/details/location.png" aria-label="Показати головне фото" aria-pressed="true"><img src="img/camp/details/location.png" alt=""></button></li>
+              <li><button class="camp-details__thumb" type="button" data-gallery-thumb="img/camp/details/location-1.png" aria-label="Показати фото 2" aria-pressed="false"><img src="img/camp/details/location-1.png" alt=""></button></li>
+              <li><button class="camp-details__thumb" type="button" data-gallery-thumb="img/camp/details/location-2.png" aria-label="Показати фото 3" aria-pressed="false"><img src="img/camp/details/location-2.png" alt=""></button></li>
+              <li><button class="camp-details__thumb" type="button" data-gallery-thumb="img/camp/details/location-3.png" aria-label="Показати фото 4" aria-pressed="false"><img src="img/camp/details/location-3.png" alt=""></button></li>
             </ul>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
 
-    @include('partials/footer.html')
+    <section class="camp-details camp-details--reverse" aria-labelledby="camp-accommodation-title">
+      <div class="container">
+        <div class="camp-details__content">
+          <div class="camp-details__copy">
+            <h2 id="camp-accommodation-title">Проживання</h2>
+            <p>Комфортні 4/6-місні номери з усіма зручностями</p>
+            <a class="camp-details__cta btn btn--violet" href="#form">
+              Забронювати місце
+              <svg width="20" height="20">
+                <use href="img/sprite/sprite.svg#arrow-right"></use>
+              </svg>
+            </a>
+          </div>
 
-    <script src="js/swiper.js"></script>
-    <script defer src="js/main.js"></script>
-  </body>
+          <div class="camp-details__gallery" data-camp-gallery>
+            <div class="camp-details__main-image">
+              <img data-gallery-main src="img/camp/details/accommodation.png" alt="Номери для проживання">
+              <div class="camp-details__controls">
+                <button class="camp-details__control" type="button" data-gallery-prev aria-label="Попереднє фото">
+                  <svg width="24" height="24"><use href="img/sprite/sprite.svg#icon-arrow-left"></use></svg>
+                </button>
+                <button class="camp-details__control" type="button" data-gallery-next aria-label="Наступне фото">
+                  <svg width="24" height="24"><use href="img/sprite/sprite.svg#icon-arrow-right"></use></svg>
+                </button>
+              </div>
+            </div>
+            <ul class="camp-details__thumbs">
+              <li><button class="camp-details__thumb is-active" type="button" data-gallery-thumb="img/camp/details/accommodation.png" aria-label="Показати головне фото" aria-pressed="true"><img src="img/camp/details/accommodation.png" alt=""></button></li>
+              <li><button class="camp-details__thumb" type="button" data-gallery-thumb="img/camp/details/gallery-1.png" aria-label="Показати фото 2" aria-pressed="false"><img src="img/camp/details/gallery-1.png" alt=""></button></li>
+              <li><button class="camp-details__thumb" type="button" data-gallery-thumb="img/camp/details/gallery-2.png" aria-label="Показати фото 3" aria-pressed="false"><img src="img/camp/details/gallery-2.png" alt=""></button></li>
+              <li><button class="camp-details__thumb" type="button" data-gallery-thumb="img/camp/details/gallery-3.png" aria-label="Показати фото 4" aria-pressed="false"><img src="img/camp/details/gallery-3.png" alt=""></button></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="camp-details" aria-labelledby="camp-menu-title">
+      <div class="container">
+        <div class="camp-details__content">
+          <div class="camp-details__copy">
+            <h2 id="camp-menu-title">Меню</h2>
+            <p>4-х разове харчування з різноманітним вибором: широкий вибір страв на будь-який смак</p>
+            <a class="camp-details__cta btn btn--violet" href="#form">
+              Забронювати місце
+              <svg width="20" height="20">
+                <use href="img/sprite/sprite.svg#arrow-right"></use>
+              </svg>
+            </a>
+          </div>
 
+          <div class="camp-details__gallery" data-camp-gallery>
+            <div class="camp-details__main-image">
+              <img data-gallery-main src="img/camp/details/menu.png" alt="Меню в таборі">
+              <div class="camp-details__controls">
+                <button class="camp-details__control" type="button" data-gallery-prev aria-label="Попереднє фото">
+                  <svg width="24" height="24"><use href="img/sprite/sprite.svg#icon-arrow-left"></use></svg>
+                </button>
+                <button class="camp-details__control" type="button" data-gallery-next aria-label="Наступне фото">
+                  <svg width="24" height="24"><use href="img/sprite/sprite.svg#icon-arrow-right"></use></svg>
+                </button>
+              </div>
+            </div>
+            <ul class="camp-details__thumbs">
+              <li><button class="camp-details__thumb is-active" type="button" data-gallery-thumb="img/camp/details/menu.png" aria-label="Показати головне фото" aria-pressed="true"><img src="img/camp/details/menu.png" alt=""></button></li>
+              <li><button class="camp-details__thumb" type="button" data-gallery-thumb="img/camp/details/gallery-1.png" aria-label="Показати фото 2" aria-pressed="false"><img src="img/camp/details/gallery-1.png" alt=""></button></li>
+              <li><button class="camp-details__thumb" type="button" data-gallery-thumb="img/camp/details/gallery-2.png" aria-label="Показати фото 3" aria-pressed="false"><img src="img/camp/details/gallery-2.png" alt=""></button></li>
+              <li><button class="camp-details__thumb" type="button" data-gallery-thumb="img/camp/details/gallery-4.png" aria-label="Показати фото 4" aria-pressed="false"><img src="img/camp/details/gallery-4.png" alt=""></button></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  @include('partials/footer.html')
+
+  <script src="js/swiper.js"></script>
+  <script defer src="js/main.js"></script>
+</body>
 </html>
