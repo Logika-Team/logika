@@ -99,6 +99,10 @@
         pointer-events: auto;
         transition: background-color .2s ease;
 
+        svg {
+            filter: brightness(0) invert(1);
+        }
+
         &:hover {
             background-color: var(--violet-500);
         }
