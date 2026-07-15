@@ -2,6 +2,7 @@
 
 .portfolio-section {
     padding: clamp(40px, 7.813vw, 80px) 0;
+    overflow: hidden;
 
     &__wrapp {
         display: flex;
@@ -12,5 +13,208 @@
 
     &__title {
         text-align: center;
+    }
+
+    &__viewport {
+        width: 100%;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    &__viewport::-webkit-scrollbar {
+        display: none;
+    }
+
+    &__slider {
+        display: flex;
+        gap: 20px;
+        width: max-content;
+        margin: 0 0 0 calc(50% - 1085px);
+        padding: 0;
+        list-style: none;
+        scroll-snap-type: x mandatory;
+    }
+
+    &__card {
+        display: flex;
+        flex: 0 0 345px;
+        flex-direction: column;
+        align-items: center;
+        min-height: 368px;
+        padding: 30px;
+        color: #2f2535;
+        background: #f1f2f9;
+        border-radius: 20px;
+        scroll-snap-align: center;
+
+        h3,
+        p {
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+        }
+
+        h3 {
+            font-size: 16px;
+            line-height: 1.4;
+        }
+
+        > p {
+            margin-top: auto;
+            color: #858585;
+            font-size: 14px;
+            line-height: 1.4;
+            text-align: center;
+        }
+    }
+
+    &__photo {
+        position: relative;
+        width: 170px;
+        height: 170px;
+        margin-top: 20px;
+        overflow: visible;
+        border-radius: 50%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            object-fit: cover;
+            object-position: center 66%;
+        }
+    }
+
+    &__tag {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 10px;
+        color: #602b7a;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: -0.05em;
+        background: #efddfa;
+        border-radius: 999px;
+
+        &--course,
+        &--topic {
+            position: absolute;
+            white-space: nowrap;
+            transform: rotate(-10deg);
+        }
+
+        &--course {
+            top: 15px;
+            right: -25px;
+        }
+
+        &--topic {
+            bottom: 12px;
+            left: -18px;
+        }
+    }
+
+    &__card--featured {
+        position: relative;
+        display: grid;
+        flex-basis: 710px;
+        grid-template-columns: minmax(0, 1fr) 260px;
+        gap: 30px;
+        align-items: stretch;
+        padding: 30px;
+        color: #fff;
+        background: #602b7a;
+
+        h3 {
+            margin-top: 14px;
+            font-size: 20px;
+        }
+
+        p {
+            margin-top: 10px;
+            color: #d0d0d0;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__game {
+        width: 100%;
+        height: 100%;
+        min-height: 308px;
+        border-radius: 12px;
+        object-fit: cover;
+    }
+
+    &__video {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+        margin-top: auto;
+        padding: 0;
+        color: #ddf0fb;
+        font: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: -0.05em;
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+    }
+
+    &__video span {
+        display: grid;
+        width: 18px;
+        height: 18px;
+        place-items: center;
+        color: #602b7a;
+        font-size: 9px;
+        background: #ddf0fb;
+        border-radius: 50%;
+    }
+
+    &__trial {
+        display: inline-flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        padding: 12px 20px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    @media (max-width: 767px) {
+        &__wrapp {
+            gap: 30px;
+        }
+
+        &__slider {
+            gap: 12px;
+            margin-left: 0;
+            padding: 0 16px;
+        }
+
+        &__card {
+            flex-basis: min(84vw, 345px);
+        }
+
+        &__card--featured {
+            display: flex;
+            flex-basis: min(92vw, 710px);
+            min-height: auto;
+        }
+
+        &__game {
+            min-height: 210px;
+            margin-top: 20px;
+        }
     }
 }
