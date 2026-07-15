@@ -1,5 +1,41 @@
 # Production requirements
 
+## Infrastructure release readiness
+
+This section is the release-engineering boundary. It can be completed before
+the application backlog is complete, but only with attached workflow, backup,
+restore and smoke-check evidence. The release source is `wordpress`: a push
+deploys the immutable artifact to staging, while production receives the same
+artifact only through a manually approved GitHub Environment deployment.
+
+- [ ] GitHub `staging` and `production` Environments contain SSH host, user,
+  port, release root, WordPress root, deploy key and pinned `known_hosts`.
+- [ ] Staging is `https://staging.logika.resumemyhost.miy.link`, has its own
+  database and files, serves HTTPS and is non-indexable.
+- [ ] Managed component paths are verified symlinks to
+  `DEPLOY_ROOT/current/wordpress/...`; uploads, `wp-config.php` and unrelated
+  server plugins are not release payload.
+- [ ] The staging workflow has deployed a validated SHA and its smoke checks
+  have passed.
+- [ ] The production Environment requires an approver and deploys only an
+  artifact downloaded from a successful staging workflow run.
+- [ ] A protected database plus managed-files backup is created before each
+  production deploy, retained for 30 days, and has been restored on staging.
+- [ ] The preceding release is still present and its rollback has been drilled
+  on staging within 30 minutes.
+- [ ] The release initiator has reviewed nginx/PHP/WordPress logs, 404s and
+  the lead queue during the first 24 hours after production deployment.
+
+## Application go-live readiness
+
+The remaining product requirements below are intentionally not evidence of
+infrastructure readiness. Leave them unchecked until the related CRM, import,
+redirect, SEO, content and dynamic-page functionality has been implemented and
+verified for a public launch.
+
+The operational setup and evidence collection procedure is documented in
+[`release-operations.md`](release-operations.md).
+
 ## 1. Environments
 
 - [ ] Production environment is separate from local and staging.

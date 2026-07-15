@@ -1,0 +1,71 @@
+name: Deploy WordPress production
+
+on:
+  workflow_dispatch:
+    inputs:
+      staging_run_id:
+        description: Successful staging workflow run ID that produced the artifact
+        required: true
+        type: string
+      release_sha:
+        description: Commit SHA recorded in the approved staging artifact
+        required: true
+        type: string
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://logika.resumemyhost.miy.link
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: wordpress-release
+          run-id: ${{ inputs.staging_run_id }}
+          github-token: ${{ github.token }}
+      - name: Verify staged artifact identity
+        run: |
+          test -f release-manifest.json
+          test "$(node -p "require('./release-manifest.json').commitSha")" = "${{ inputs.release_sha }}"
+          test -f "logika-wordpress-${{ inputs.release_sha }}.tar.gz"
+      - name: Configure SSH trust
+        env:
+          DEPLOY_SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+      - name: Create protected production backup
+        env:
+          DEPLOY_HOST: ${{ secrets.SSH_HOST }}
+          DEPLOY_USER: ${{ secrets.SSH_USER }}
+          DEPLOY_PORT: ${{ secrets.SSH_PORT }}
+          DEPLOY_ROOT: ${{ secrets.DEPLOY_ROOT }}
+          DEPLOY_SITE_ROOT: ${{ secrets.DEPLOY_SITE_ROOT }}
+          DEPLOY_BACKUP_ROOT: ${{ secrets.DEPLOY_BACKUP_ROOT }}
+        run: scripts/release/backup.sh
+      - name: Deploy the approved staged artifact
+        env:
+          DEPLOY_HOST: ${{ secrets.SSH_HOST }}
+          DEPLOY_USER: ${{ secrets.SSH_USER }}
+          DEPLOY_PORT: ${{ secrets.SSH_PORT }}
+          DEPLOY_ROOT: ${{ secrets.DEPLOY_ROOT }}
+          DEPLOY_SITE_ROOT: ${{ secrets.DEPLOY_SITE_ROOT }}
+        run: scripts/release/deploy.sh --artifact "logika-wordpress-${{ inputs.release_sha }}.tar.gz"
+      - name: Read-only server preflight
+        env:
+          DEPLOY_HOST: ${{ secrets.SSH_HOST }}
+          DEPLOY_USER: ${{ secrets.SSH_USER }}
+          DEPLOY_PORT: ${{ secrets.SSH_PORT }}
+          DEPLOY_SITE_ROOT: ${{ secrets.DEPLOY_SITE_ROOT }}
+        run: scripts/release/preflight.sh
+      - name: Production smoke checks
+        run: scripts/release/smoke.sh --base-url https://logika.resumemyhost.miy.link
