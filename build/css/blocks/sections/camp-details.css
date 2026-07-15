@@ -131,12 +131,8 @@
   transition: background-color 0.2s ease;
 }
 .camp-details__control svg {
-  color: var(--white);
   -webkit-filter: brightness(0) invert(1);
   filter: brightness(0) invert(1);
-}
-.camp-details__control svg * {
-  stroke: currentColor;
 }
 .camp-details__control:hover {
   background-color: var(--violet-500);

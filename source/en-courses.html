@@ -673,6 +673,46 @@
       </div>
     </section>
 
+    <section class="school-map" data-school-map aria-labelledby="school-map-title">
+      <div class="container">
+        <div class="school-map__heading">
+          <h2 id="school-map-title">Знайдіть свою школу або<br>навчайтесь онлайн</h2>
+          <p>Наші школи у 130 містах України - знайдіть зручний варіант поруч із вами або навчайтесь онлайн.</p>
+        </div>
+        <div class="school-map__mode" role="group" aria-label="Формат навчання">
+          <button class="is-active" type="button" data-map-mode="offline">Навчатися у нашому місті</button>
+          <button type="button" data-map-mode="online">Онлайн навчання</button>
+        </div>
+
+        <div class="school-map__layout">
+          <div class="school-map__visual">
+            <div class="school-map__canvas" data-map-canvas aria-live="polite">
+              <p>Завантажуємо карту областей...</p>
+            </div>
+          </div>
+
+          <div class="school-map__selector">
+            <h3>Оберіть місто навчання</h3>
+            <p>Ми підкажемо зручний варіант у вибраній області.</p>
+            <h4 data-map-region>Дніпропетровська область</h4>
+            <div class="school-map__cities" data-map-cities></div>
+          </div>
+        </div>
+
+        <div class="school-map__details" data-map-details>
+          <h3 data-map-city-title>ДНІПРО</h3>
+          <div class="school-map__details-content">
+            <div class="school-map__locations">
+              <p class="school-map__locations-count" data-map-locations-count>Усі локації (8)</p>
+              <ul class="school-map__schools" data-map-schools></ul>
+            </div>
+            <iframe class="school-map__frame" data-map-frame title="Карта шкіл у Дніпрі" loading="lazy"
+              src="https://www.google.com/maps?q=Dnipro,+Ukraine&output=embed"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="cta-section">
       <div class="container">
         <div class="cta-section__wrapp">
@@ -821,6 +861,7 @@
 
   <script src="js/swiper.js"></script>
   <script defer src="js/main.js"></script>
+  <script defer src="js/camp-map.js"></script>
 </body>
 
 
