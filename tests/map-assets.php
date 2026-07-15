@@ -19,6 +19,11 @@ foreach ( array( 'branchesEndpoint', 'fetchMap', 'logikaCityContext', 'moveHeroF
 	}
 }
 
+if ( str_contains( $script, 'config.citiesEndpoint' ) || str_contains( $functions, "'citiesEndpoint'" ) ) {
+	fwrite( STDERR, "School map must load cities only through the shared city context.\n" );
+	exit( 1 );
+}
+
 if ( str_contains( $script, 'requestJson(config.mapUrl)' ) ) {
 	fwrite( STDERR, "School map SVG must be read as text, not JSON.\n" );
 	exit( 1 );

@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', () => setMode(button.dataset.mapMode));
   });
 
-  if (!config.mapUrl || !config.citiesEndpoint || !config.branchesEndpoint) return;
+  if (!config.mapUrl || !config.branchesEndpoint) return;
 
   Promise.all([fetchMap(), window.logikaCityContext.load()])
     .then(([svg, cityList]) => {

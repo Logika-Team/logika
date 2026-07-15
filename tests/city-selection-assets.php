@@ -22,7 +22,7 @@ if ( str_contains( $selector, 'link.href = city.url' ) || ! str_contains( $selec
 	exit( 1 );
 }
 
-if ( ! str_contains( $media, 'logika:city-change' ) || ! str_contains( $media, '.archive-section__main' ) || ! str_contains( $media, '.news-section__items' ) || ! str_contains( $functions, 'logika-media-center' ) ) {
+if ( ! str_contains( $media, 'logika:city-change' ) || ! str_contains( $media, '[data-media-featured]' ) || ! str_contains( $media, '[data-media-list]' ) || ! str_contains( $functions, 'logika-media-center' ) ) {
 	fwrite( STDERR, "Media center must update its cards from shared city selection.\n" );
 	exit( 1 );
 }
