@@ -33,6 +33,11 @@ if ( ! str_contains( $context, 'window.history.pushState' ) || str_contains( $se
 	exit( 1 );
 }
 
+if ( ! str_contains( $context, "document.querySelectorAll('a[href]')" ) || ! str_contains( $context, 'logikaOriginalHref' ) || ! str_contains( $context, 'syncLinks(city)' ) ) {
+	fwrite( STDERR, "Internal links must preserve the selected city URL context.\n" );
+	exit( 1 );
+}
+
 if ( ! str_contains( $routing, '^cities/([^/]+)/?$' ) || ! str_contains( $routing, 'resolveCity' ) || ! str_contains( $routing, '^cities/([^/]+)/(.+)/?$' ) || ! str_contains( $routing, 'logika_city' ) || ! str_contains( $routing, 'redirectCanonical' ) || ! str_contains( $routing, 'flushRules' ) ) {
 	fwrite( STDERR, "WordPress must resolve, preserve and activate city-prefixed page URLs.\n" );
 	exit( 1 );

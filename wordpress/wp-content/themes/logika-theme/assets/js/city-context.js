@@ -40,14 +40,27 @@
 
   const get = () => cityFromPath() || cities.find((city) => String(city.id) === String(storedId())) || cachedCity();
 
-  const cityUrl = (city) => {
+  const cityUrl = (city, destination = window.location.href) => {
     if (!city?.url) return '';
     const url = new URL(city.url, window.location.origin);
-    const path = window.location.pathname.replace(/^\/cities\/[^/]+(?:\/|$)/, '/').replace(/^\/+/, '');
+    const current = new URL(destination, window.location.origin);
+    const path = current.pathname.replace(/^\/cities\/[^/]+(?:\/|$)/, '/').replace(/^\/+/, '');
     url.pathname = `${url.pathname.replace(/\/?$/, '/')}${path}`;
-    url.search = window.location.search;
-    url.hash = window.location.hash;
+    url.search = current.search;
+    url.hash = current.hash;
     return url.href;
+  };
+
+  const syncLinks = (city) => {
+    if (!city) return;
+    document.querySelectorAll('a[href]').forEach((anchor) => {
+      const href = anchor.dataset.logikaOriginalHref || anchor.getAttribute('href');
+      if (!href || '#' === href) return;
+      const url = new URL(href, window.location.origin);
+      if (url.origin !== window.location.origin || /^\/(?:wp-admin|wp-login|wp-json)/.test(url.pathname)) return;
+      anchor.dataset.logikaOriginalHref = href;
+      anchor.href = cityUrl(city, url.href);
+    });
   };
 
   const load = () => {
@@ -58,7 +71,10 @@
       .then((items) => {
         cities = Array.isArray(items) ? items : [];
         const city = cityFromPath() || cities.find((item) => String(item.id) === String(storedId()));
-        if (city) remember(city);
+        if (city) {
+          remember(city);
+          syncLinks(city);
+        }
         return cities;
       })
       .catch(() => []);
@@ -71,12 +87,19 @@
     remember(city);
     const url = updateUrl && cityUrl(city);
     if (url && window.history?.pushState) window.history.pushState({ cityId: city.id }, '', url);
+    syncLinks(city);
     window.dispatchEvent(new CustomEvent('logika:city-change', { detail: { city } }));
   };
 
+  const initial = get();
+  if (initial) syncLinks(initial);
+
   window.addEventListener('popstate', () => {
     const city = get();
-    if (city) window.dispatchEvent(new CustomEvent('logika:city-change', { detail: { city } }));
+    if (city) {
+      syncLinks(city);
+      window.dispatchEvent(new CustomEvent('logika:city-change', { detail: { city } }));
+    }
   });
 
   window.logikaCityContext = { get, load, set, url: cityUrl };
