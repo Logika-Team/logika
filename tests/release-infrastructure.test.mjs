@@ -116,7 +116,8 @@ test('release workflows enforce staged approval and document the readiness bound
   assert.match(validationWorkflow, /npm run build/);
   assert.match(validationWorkflow, /npm run html/);
   assert.match(validationWorkflow, /scripts\/release\/run-wordpress-tests\.sh/);
-  assert.match(validationWorkflow, /gitleaks/);
+  assert.match(validationWorkflow, /ghcr\.io\/gitleaks\/gitleaks:v8\.24\.2/);
+  assert.doesNotMatch(validationWorkflow, /gitleaks\/gitleaks-action/);
   const wordpressRunner = readFileSync(join(root, 'scripts/release/run-wordpress-tests.sh'), 'utf8');
   assert.match(wordpressRunner, /ddev exec scripts\/release\/prepare-wordpress-tests\.sh/);
   assert.match(wordpressRunner, /wp eval-file --path=wordpress scripts\/seed-cities\.php/);
