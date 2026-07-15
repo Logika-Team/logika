@@ -33,6 +33,11 @@ if ( ! str_contains( $context, 'window.location.assign( city.url )' ) || str_con
 	exit( 1 );
 }
 
+if ( ! str_contains( $context, 'const syncHomeLinks' ) || ! str_contains( $context, "url.pathname !== '/'" ) || ! str_contains( $context, 'anchor.href = city.url' ) ) {
+	fwrite( STDERR, "Only homepage links must retain the selected city URL.\n" );
+	exit( 1 );
+}
+
 if ( ! str_contains( $routing, "'index.php?logika_city=\$matches[1]'" ) || str_contains( $routing, '^cities/([^/]+)/(.+)/?$' ) || ! str_contains( $routing, 'resolveCityHomepage' ) ) {
 	fwrite( STDERR, "Only the city homepage may use a city-prefixed URL.\n" );
 	exit( 1 );

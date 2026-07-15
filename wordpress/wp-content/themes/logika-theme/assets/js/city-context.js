@@ -40,6 +40,18 @@
 
   const get = () => cityFromPath() || cities.find((city) => String(city.id) === String(storedId())) || cachedCity();
 
+  const syncHomeLinks = (city) => {
+    if (!city?.url) return;
+    document.querySelectorAll('a[href]').forEach((anchor) => {
+      const href = anchor.dataset.logikaOriginalHref || anchor.getAttribute('href');
+      if (!href) return;
+      const url = new URL(href, window.location.origin);
+      if (url.origin !== window.location.origin || url.pathname !== '/' || url.search || url.hash) return;
+      anchor.dataset.logikaOriginalHref = href;
+      anchor.href = city.url;
+    });
+  };
+
   const load = () => {
     if (loading) return loading;
     if (!config.endpoint) return Promise.resolve(cities);
@@ -50,6 +62,7 @@
         const city = cityFromPath() || cities.find((item) => String(item.id) === String(storedId()));
         if (city) {
           remember(city);
+          syncHomeLinks(city);
         }
         return cities;
       })
@@ -61,13 +74,18 @@
   const set = (city, openCityPage = false) => {
     if (!city || !city.id) return;
     remember(city);
+    syncHomeLinks(city);
     window.dispatchEvent(new CustomEvent('logika:city-change', { detail: { city } }));
     if (openCityPage && city.url) window.location.assign( city.url );
   };
 
+  const initial = get();
+  if (initial) syncHomeLinks(initial);
+
   window.addEventListener('popstate', () => {
     const city = get();
     if (city) {
+      syncHomeLinks(city);
       window.dispatchEvent(new CustomEvent('logika:city-change', { detail: { city } }));
     }
   });
