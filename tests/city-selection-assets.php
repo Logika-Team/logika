@@ -28,24 +28,13 @@ if ( ! str_contains( $functions, '$city_selector_version' ) || ! str_contains( $
 	exit( 1 );
 }
 
-if ( ! str_contains( $context, 'window.history.pushState' ) || str_contains( $selector, 'window.location.assign' ) || str_contains( $map, 'window.location.assign' ) ) {
-	fwrite( STDERR, "City selection must update the context URL without navigating away.\n" );
+if ( ! str_contains( $context, 'window.location.assign( city.url )' ) || str_contains( $context, 'syncLinks' ) || str_contains( $context, 'window.history.pushState' ) || ! str_contains( $selector, 'logikaCityContext.set(city, true)' ) || ! str_contains( $map, 'cityContext.set(city, true)' ) ) {
+	fwrite( STDERR, "Navbar and map selection must open only the selected city homepage.\n" );
 	exit( 1 );
 }
 
-if ( ! str_contains( $context, "document.querySelectorAll('a[href]')" ) || ! str_contains( $context, 'logikaOriginalHref' ) || ! str_contains( $context, 'syncLinks(city)' ) ) {
-	fwrite( STDERR, "Internal links must preserve the selected city URL context.\n" );
-	exit( 1 );
-}
-
-if ( ! str_contains( $routing, '^cities/([^/]+)/?$' ) || ! str_contains( $routing, 'resolveCity' ) || ! str_contains( $routing, '^cities/([^/]+)/(.+)/?$' ) || ! str_contains( $routing, 'logika_city' ) || ! str_contains( $routing, 'redirectCanonical' ) || ! str_contains( $routing, 'flushRules' ) ) {
-	fwrite( STDERR, "WordPress must resolve, preserve and activate city-prefixed page URLs.\n" );
-	exit( 1 );
-}
-
-$generic_route = strpos( $routing, '^cities/([^/]+)/(.+)/?$' );
-if ( false === $generic_route || false === strpos( $routing, '^cities/([^/]+)/camps/?$' ) || false === strpos( $routing, '^cities/([^/]+)/courses/?$' ) || strpos( $routing, '^cities/([^/]+)/camps/?$' ) > $generic_route || strpos( $routing, '^cities/([^/]+)/courses/?$' ) > $generic_route || strpos( $routing, '^cities/([^/]+)/camps/([^/]+)/?$' ) > $generic_route || strpos( $routing, '^cities/([^/]+)/courses/([^/]+)/?$' ) > $generic_route || strpos( $routing, '^cities/([^/]+)/media-center/([^/]+)/?$' ) > $generic_route ) {
-	fwrite( STDERR, "City archives and entries must be routed before generic city pages.\n" );
+if ( ! str_contains( $routing, "'index.php?logika_city=\$matches[1]'" ) || str_contains( $routing, '^cities/([^/]+)/(.+)/?$' ) || ! str_contains( $routing, 'resolveCityHomepage' ) ) {
+	fwrite( STDERR, "Only the city homepage may use a city-prefixed URL.\n" );
 	exit( 1 );
 }
 
@@ -57,6 +46,11 @@ if ( ! str_contains( $map, 'Object.entries(regionNames).find' ) || ! str_contain
 $leads = $read( $root . '/wordpress/wp-content/themes/logika-theme/assets/js/leads.js' );
 if ( ! str_contains( $leads, "window.addEventListener('logika:city-change'" ) || ! str_contains( $leads, 'window.logikaCityContext?.get()' ) ) {
 	fwrite( STDERR, "Lead forms must inherit the shared selected city.\n" );
+	exit( 1 );
+}
+
+if ( str_contains( $leads, 'window.logikaCityContext?.set(city, true)' ) ) {
+	fwrite( STDERR, "Form city selection must not redirect away from the form.\n" );
 	exit( 1 );
 }
 

@@ -253,7 +253,7 @@ document.querySelectorAll('[data-logika-city-select]').forEach((root) => {
     valueInput.dispatchEvent(new Event('change', { bubbles: true }));
     close();
     if (focus) trigger.focus();
-    if (updateContext) window.logikaCityContext?.set(city, true);
+    if (updateContext) window.logikaCityContext?.set(city);
   };
   const setRegionState = (button, isOpen) => {
     button.closest('.main-form__city-region')?.classList.toggle('is-open', isOpen);

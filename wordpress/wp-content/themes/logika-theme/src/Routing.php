@@ -5,7 +5,7 @@ declare(strict_types=1);
 defined( 'ABSPATH' ) || exit;
 
 final class Logika_Theme_Routing {
-	private const REWRITE_VERSION = '5';
+	private const REWRITE_VERSION = '6';
 
 	private const LEGACY_ROUTES = array(
 		'about.html' => '/about/', 'faq.html' => '/faq/', 'it-courses.html' => '/it-courses/', 'en-courses.html' => '/english-courses/', 'camps.html' => '/camps/', 'media-center.html' => '/media-center/', 'article.html' => '/media-center/', 'it-course.html' => '/courses/', 'camp.html' => '/camps/', 'city.html' => '/',
@@ -14,7 +14,7 @@ final class Logika_Theme_Routing {
 	public static function register(): void {
 		add_action( 'init', array( self::class, 'rewriteRules' ), 20 );
 		add_action( 'init', array( self::class, 'flushRules' ), 99 );
-		add_action( 'pre_get_posts', array( self::class, 'resolveCity' ) );
+		add_action( 'parse_request', array( self::class, 'resolveCityHomepage' ) );
 		add_filter( 'query_vars', array( self::class, 'queryVars' ) );
 		add_filter( 'post_type_link', array( self::class, 'postTypeLink' ), 10, 2 );
 		add_filter( 'post_link', array( self::class, 'postLink' ), 10, 2 );
@@ -24,31 +24,22 @@ final class Logika_Theme_Routing {
 	}
 
 	public static function rewriteRules(): void {
-		add_rewrite_rule( '^cities/([^/]+)/?$', 'index.php?post_type=city&logika_city=$matches[1]', 'top' );
-		add_rewrite_rule( '^cities/([^/]+)/camps/([^/]+)/?$', 'index.php?post_type=camp&name=$matches[2]&logika_city=$matches[1]', 'top' );
-		add_rewrite_rule( '^cities/([^/]+)/courses/([^/]+)/?$', 'index.php?post_type=course&name=$matches[2]&logika_city=$matches[1]', 'top' );
-		add_rewrite_rule( '^cities/([^/]+)/media-center/([^/]+)/?$', 'index.php?post_type=post&name=$matches[2]&logika_city=$matches[1]', 'top' );
-		add_rewrite_rule( '^cities/([^/]+)/camps/?$', 'index.php?post_type=camp&logika_city=$matches[1]', 'top' );
-		add_rewrite_rule( '^cities/([^/]+)/courses/?$', 'index.php?post_type=course&logika_city=$matches[1]', 'top' );
-		add_rewrite_rule( '^cities/([^/]+)/(.+)/?$', 'index.php?pagename=$matches[2]&logika_city=$matches[1]', 'top' );
+		add_rewrite_rule( '^cities/([^/]+)/?$', 'index.php?logika_city=$matches[1]', 'top' );
 		add_rewrite_rule( '^media-center/([^/]+)/?$', 'index.php?post_type=post&name=$matches[1]', 'top' );
-	}
-
-	public static function resolveCity( WP_Query $query ): void {
-		if ( is_admin() || ! $query->is_main_query() || 'city' !== $query->get( 'post_type' ) ) {
-			return;
-		}
-
-		$city = \Logika\Core\CitySlug::find( (string) $query->get( 'logika_city' ) );
-		if ( $city instanceof WP_Post ) {
-			$query->set( 'p', $city->ID );
-		}
 	}
 
 	public static function queryVars( array $vars ): array {
 		$vars[] = 'logika_city';
 
 		return $vars;
+	}
+
+	public static function resolveCityHomepage( WP $wp ): void {
+		if ( empty( $wp->query_vars['logika_city'] ) || ! get_option( 'page_on_front' ) ) {
+			return;
+		}
+
+		$wp->query_vars['page_id'] = (int) get_option( 'page_on_front' );
 	}
 
 	public static function flushRules(): void {
