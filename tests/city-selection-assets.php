@@ -17,8 +17,8 @@ if ( ! str_contains( $context, 'logika-city-id' ) || ! str_contains( $context, '
 	exit( 1 );
 }
 
-if ( str_contains( $selector, 'link.href = city.url' ) || ! str_contains( $selector, 'logikaCityContext.set' ) || ! str_contains( $map, 'cityContext.set' ) ) {
-	fwrite( STDERR, "Navbar and map must select a city without navigation.\n" );
+if ( ! str_contains( $selector, 'window.location.assign(city.url)' ) || ! str_contains( $selector, 'logikaCityContext.set' ) || ! str_contains( $map, 'cityContext.set' ) || ! str_contains( $map, 'window.location.assign(city.url)' ) ) {
+	fwrite( STDERR, "Navbar and map must select a city and open its URL.\n" );
 	exit( 1 );
 }
 

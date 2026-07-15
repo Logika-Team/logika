@@ -92,7 +92,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const selectCity = (city, persist = true) => {
     selectedCity = city;
-    if (persist) cityContext.set(city);
+    if (persist) {
+      cityContext.set(city);
+      if (city.url) {
+        window.location.assign(city.url);
+        return;
+      }
+    }
     cityTitle.textContent = city.label.toUpperCase();
     details.hidden = false;
     locationsCount.textContent = 'Завантажуємо локації...';
