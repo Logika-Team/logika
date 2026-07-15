@@ -13,7 +13,7 @@
 | **🇬🇧 English Курси** | [Перейти ↗](https://logika-orpin.vercel.app/en-courses.html) |
 | **⛺️ Табори (Camps)** | [Перейти ↗](https://logika-orpin.vercel.app/camps.html) |
 | **🌲 Окремий Табір (Camp)** | [Перейти ↗](https://logika-orpin.vercel.app/camp.html) |
-| **📰 Медіа Центр** | [Перейти ↗](https://logika-orpin.vercel.app/media.html) |
+| **📰 Медіа Центр** | [Перейти ↗](https://logika-orpin.vercel.app/media-center.html) |
 | **📄 Стаття** | [Перейти ↗](https://logika-orpin.vercel.app/article.html) |
 | **ℹ️ Про компанію (About)** | [Перейти ↗](https://logika-orpin.vercel.app/about.html) |
 | **❓ Питання та відповіді (FAQ)** | [Перейти ↗](https://logika-orpin.vercel.app/faq.html) |
