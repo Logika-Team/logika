@@ -110,6 +110,7 @@ test('release workflows enforce staged approval and document the readiness bound
   assert.match(stagingWorkflow, /branches:\s*\n\s*- wordpress/);
   assert.match(stagingWorkflow, /environment:\s*\n\s*name: staging/);
   assert.match(productionWorkflow, /workflow_dispatch:/);
+  assert.match(productionWorkflow, /ref: wordpress/);
   assert.match(productionWorkflow, /environment:\s*\n\s*name: production/);
   assert.match(productionWorkflow, /staging_run_id/);
   assert.match(validationWorkflow, /npm ci/);

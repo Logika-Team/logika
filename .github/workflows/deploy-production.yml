@@ -23,6 +23,9 @@ jobs:
       name: production
       url: https://logika.resumemyhost.miy.link
     steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: wordpress
       - uses: actions/download-artifact@v4
         with:
           name: wordpress-release
