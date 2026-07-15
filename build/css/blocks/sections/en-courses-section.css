@@ -1,0 +1,28 @@
+/* stylelint-disable */
+/* stylelint-disable */
+/* stylelint-disable */
+.en-courses-section {
+  padding: clamp(40px, 7.813vw, 80px) 0;
+}
+.en-courses-section__wrapp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 40px;
+}
+.en-courses-section__items {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+/*# sourceMappingURL=en-courses-section.css.map */

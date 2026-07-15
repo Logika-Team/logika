@@ -1,6 +1,6 @@
 @import "../../general/mixins";
 
-.portfolio-section {
+.media-section {
     padding: clamp(40px, 7.813vw, 80px) 0;
 
     &__wrapp {
@@ -10,7 +10,51 @@
         gap: 60px;
     }
 
+    &__top {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    &__btns {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    &__btn-lesson {
+        max-width: 365px;
+        width: 100%;
+    }
+
+    &__btn-about {
+        width: fit-content;
+    }
+
     &__title {
         text-align: center;
+    }
+
+    &__text {
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 140%; /* 25.2px */
+        letter-spacing: -0.9px;
+        color: var(--grey-500);
+    }
+
+    &__box {
+        display: grid;
+        grid-template-columns: 710px 467px 225px;
+        gap: 20px;
+
+        & > div {
+            height: 400px;
+            background-color: red;
+        }
     }
 }

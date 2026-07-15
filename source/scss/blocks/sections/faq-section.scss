@@ -1,7 +1,22 @@
 @import "../../general/mixins";
 
 .faq-section {
+    position: relative;
     padding: clamp(32px, 4.444vw, 64px) 0;
+
+    &__left-bg {
+        position: absolute;
+        top: -20%;
+        left: 0;
+        display: flex;
+    }
+
+    &__right-bg {
+        position: absolute;
+        bottom: -5%;
+        right: 0;
+        display: flex;
+    }
 
     &__wrapp {
         display: flex;

@@ -1,13 +1,43 @@
 @import "../../general/mixins";
 
 .services-section {
+    position: relative;
     padding: clamp(40px, 7.813vw, 80px) 0;
+
+    &__bg {
+        position: absolute;
+        top: 16px;
+        right: 0;
+        display: flex;
+    }
 
     &__wrapp {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 60px;
+    }
+
+    &__box {
+        width: 100%;
+        position: relative;
+        display: flex;
+    }
+
+    &__box-bg {
+        position: absolute;
+        z-index: -1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__title {
+        text-align: center
     }
 
     &__items {
@@ -20,6 +50,7 @@
             flex-direction: row-reverse;
         }
     }
+    
 
     &__item {
         display: flex;
@@ -32,6 +63,12 @@
             width: 100%;
             background-color: var(--violet-100);
             border-radius: 40px;
+        }
+
+        &-bg {
+            display: flex;
+            position: absolute;
+            inset: 0;
         }
 
         &-ages {

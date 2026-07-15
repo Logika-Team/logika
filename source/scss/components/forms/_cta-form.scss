@@ -1,0 +1,65 @@
+.cta-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+
+    &__top {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__title {
+        color: var(--white);
+    }
+
+    &__subtitle {
+        color: var(--light-blue);
+    }
+
+
+
+    &__inputs {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    &__input {
+        height: 52px;
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        border-radius: 46px;
+        background-color: var(--white);
+        font-family: var(--font-primary);
+        font-size: 14px;
+        line-height: 140%;
+        font-weight: 400;
+        color: var(--black);
+    }
+
+    &__text {
+        font-size: 12px;
+        line-height: 140%;
+        font-weight: 500;
+        color: var(--light-blue);
+        letter-spacing: -0.6px;
+
+        a {
+            text-decoration-line: underline;
+            text-decoration-style: solid;
+            text-decoration-skip-ink: auto;
+            text-decoration-thickness: auto;
+            text-underline-offset: auto;
+            text-underline-position: from-font;
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+}

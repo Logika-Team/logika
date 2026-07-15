@@ -13,6 +13,12 @@
         gap: 20px;
     }
 
+    &__bg {
+        display: flex;
+        position: absolute;
+        inset: 0;
+    }
+
     &__left {
         padding: 0px 80px;
         display: flex;

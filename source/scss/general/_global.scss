@@ -111,6 +111,10 @@ img {
   object-fit: cover;
 }
 
+svg {
+  fill: transparent;
+}
+
 picture {
   display: inline-flex;
 }

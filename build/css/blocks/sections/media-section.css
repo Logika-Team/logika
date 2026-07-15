@@ -1,1 +1,75 @@
-.portfolio-section{padding:clamp(40px,7.813vw,80px) 0}.portfolio-section__wrapp{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:60px}.portfolio-section__title{text-align:center}
+/* stylelint-disable */
+/* stylelint-disable */
+/* stylelint-disable */
+.media-section {
+  padding: clamp(40px, 7.813vw, 80px) 0;
+}
+.media-section__wrapp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 60px;
+}
+.media-section__top {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 30px;
+}
+.media-section__btns {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 16px;
+}
+.media-section__btn-lesson {
+  max-width: 365px;
+  width: 100%;
+}
+.media-section__btn-about {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.media-section__title {
+  text-align: center;
+}
+.media-section__text {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%; /* 25.2px */
+  letter-spacing: -0.9px;
+  color: var(--grey-500);
+}
+.media-section__box {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 710px 467px 225px;
+  grid-template-columns: 710px 467px 225px;
+  gap: 20px;
+}
+.media-section__box > div {
+  height: 400px;
+  background-color: red;
+}
+/*# sourceMappingURL=media-section.css.map */

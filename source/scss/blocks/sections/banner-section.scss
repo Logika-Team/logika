@@ -4,6 +4,13 @@
     position: relative;
     padding: 60px 0;
 
+    &__bg {
+        position: absolute;
+        top: 16px;
+        right: 0;
+        display: flex;
+    }
+
     &__wrapp {
         display: flex;
         flex-direction: column;

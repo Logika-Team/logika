@@ -16,6 +16,7 @@ const accParrent = [...document.querySelectorAll("[data-accordion-init]")];
 
 const marqueeSectionSlider = document.querySelectorAll('.marquee-section__slider');
 const englishSectionSlider = document.querySelectorAll('.english-section__slider');
+const categoriesCoursesSlider = document.querySelectorAll('.categories-section__slider');
 
 //------------------------------------------------
 
@@ -415,38 +416,32 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   )};
 
-  document.querySelectorAll("[data-camp-gallery]").forEach(function (gallery) {
-    const mainImage = gallery.querySelector("[data-gallery-main]");
-    const thumbnails = Array.from(gallery.querySelectorAll("[data-gallery-thumb]"));
-    const prevButton = gallery.querySelector("[data-gallery-prev]");
-    const nextButton = gallery.querySelector("[data-gallery-next]");
-    let activeIndex = 0;
+  if (categoriesCoursesSlider.length > 0) {
+    categoriesCoursesSlider.forEach(function (slider) {
+      const container = slider.querySelector(".swiper-container");
+      
+      // Піднімаємося до спільного батька (сесії), щоб знайти кнопки, які лежать вище в HTML
+      const parentSection = slider.closest('.categories-section');
+      const nextBtn = parentSection ? parentSection.querySelector(".swiper-button-next") : null;
+      const prevBtn = parentSection ? parentSection.querySelector(".swiper-button-prev") : null;
 
-    const setActiveImage = function (index) {
-      activeIndex = (index + thumbnails.length) % thumbnails.length;
-      mainImage.src = thumbnails[activeIndex].dataset.galleryThumb;
-
-      thumbnails.forEach(function (thumbnail, thumbnailIndex) {
-        const isActive = thumbnailIndex === activeIndex;
-        thumbnail.classList.toggle("is-active", isActive);
-        thumbnail.setAttribute("aria-pressed", String(isActive));
-      });
-    };
-
-    thumbnails.forEach(function (thumbnail, thumbnailIndex) {
-      thumbnail.addEventListener("click", function () {
-        setActiveImage(thumbnailIndex);
-      });
+      if (container) {
+        const mainSwiper = new Swiper(container, {
+          slidesPerView: 3,
+          spaceBetween: 10,
+          speed: 1800,
+          // loop: true,
+          observer: true,
+          observeParents: true,
+          watchSlidesProgress: true,
+          navigation: {
+            nextEl: nextBtn, // Тепер кнопки успішно зв'яжуться зі слайдером
+            prevEl: prevBtn,
+          },
+        });
+      }
     });
-
-    prevButton.addEventListener("click", function () {
-      setActiveImage(activeIndex - 1);
-    });
-
-    nextButton.addEventListener("click", function () {
-      setActiveImage(activeIndex + 1);
-    });
-  });
+  }
 
 
 });

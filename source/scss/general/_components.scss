@@ -3,18 +3,27 @@
 @import "../components/breadcrumbs.scss";
 @import "../components/pagination.scss";
 @import "../components/search.scss";
+@import "../components/tags.scss";
 // @import "../components/star-ratings.scss";
+
+@import "../components/top-block.scss";
+@import "../components/share.scss";
 
 
 
 // ----------------- CARD COMPONENTS -----------------
 @import "../components/cards/english-level.scss";
-// @import "../components/cards/card-product.scss";
-// @import "../components/cards/card-categories.scss";
+@import "../components/cards/testimonials-card.scss";
+@import "../components/cards/news-card.scss";
+@import "../components/cards/article-card.scss";
+@import "../components/cards/offer-card.scss";
+@import "../components/cards/course-card.scss";
 
 
 // ----------------- FORMS COMPONENTS -----------------
 @import "../components/forms/main-form.scss";
+@import "../components/forms/cta-form.scss";
+@import "../components/forms/search-form.scss";
 
 
 

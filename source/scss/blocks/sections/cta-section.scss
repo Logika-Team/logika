@@ -5,107 +5,53 @@
 
     &__wrapp {
         position: relative;
-        padding: 60px 0;
-        background-color: var(--violet-500);
+        padding: 0 80px;
+        background-color: var(--violet-100);
         border-radius: 40px;
         display: flex;
         justify-content: space-between;
         gap: 20px;
     }
 
-    &__left {
-        padding: 0px 80px;
-        display: flex;
-        justify-content: center;
-    }
-
-    &__content {
-        max-width: 510px;
+    &__left {   
+        padding: 30px 0;
+        max-width: 683px;
         width: 100%;
         display: flex;
-        flex-direction: column;
         justify-content: center;
-        gap: 30px;
-    }
-
-    &__box {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    &__title {
-        color: var(--white);
-    }
-
-    &__subtitle {
-        color: var(--light-blue);
-    }
-
-    &__text {
-        color: var(--white);
-    }
-
-    &__link {
-        max-width: 400px;
+        align-items: center;
     }
 
     &__right {
-        max-width: 720px;
+        position: relative;
+        max-width: 487px;
         width: 100%;
-        margin-right: -1px;
-    }
-
-    &__slider {
-        width: 100%;
-
-        .swiper-slide { 
-            width: max-content; 
-            height: auto;
-        }
-    }
-
-    &__controls {
-        margin-top: 30px;
         display: flex;
-        align-items: center;
-        gap: 10px;
+    }
 
-        .swiper-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            background-color: var(--white);
-            font-size: 14px;
-            font-weight: 600;
-            line-height: 140%;
-            letter-spacing: -0.7px;
-            color: var(--violet-500);
-            border-radius: 46px;
-            transition: all 0.3s;
+    &__image {
+        margin-top: -62px;
+        display: flex;
+    }
 
-            &.swiper-button-prev {
-                padding: 10px;
-            }
+    &__character-logika {
+        position: absolute;
+        top: 70px;
+        display: flex;
+    }
 
-            &.swiper-button-next {
-                padding: 10px 20px;
-            }
+    &__top-bg {
+        display: flex;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+    }
 
-            svg {
-                width: clamp(12px, 2.344vw, 24px);
-                height: clamp(12px, 2.344vw, 24px);
-                fill: currentColor;
-            }
-
-            // @include for-tablet {
-            //     &:hover,
-            //     &:active {
-            //         background-color: var(--bg-c);
-            //         color: var(--white);
-            //     }
-            // }
-        }
+    &__bottom-bg {
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        right: 0;
     }
 }
