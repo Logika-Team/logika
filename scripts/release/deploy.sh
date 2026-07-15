@@ -55,7 +55,7 @@ if grep -Eq '(^|/)\.\.(/|$)' <<<"$archive_entries"; then
   exit 1
 fi
 
-if grep -Ev '^(release-manifest\.json|wordpress/wp-content/(themes/logika-theme|plugins/logika-core|plugins/logika-leads)/)' <<<"$archive_entries" | grep -q .; then
+if grep -Ev '^(release-manifest\.json|wordpress/|wordpress/wp-content/|wordpress/wp-content/(themes|plugins)/|wordpress/wp-content/(themes/logika-theme|plugins/logika-core|plugins/logika-leads)/)' <<<"$archive_entries" | grep -q .; then
   echo "Release archive contains an unmanaged path" >&2
   exit 1
 fi
