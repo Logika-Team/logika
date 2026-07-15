@@ -24,6 +24,10 @@ final class Logika_Theme_Source_Markup {
 		'en-courses.html'   => '/english-courses/',
 		'camps.html'        => '/camps/',
 		'media-center.html' => '/media-center/',
+		'article.html'      => '/media-center/',
+		'it-course.html'    => '/courses/',
+		'camp.html'         => '/camps/',
+		'city.html'         => '/',
 	);
 
 	public static function renderPage( string $source ): void {
@@ -37,13 +41,62 @@ final class Logika_Theme_Source_Markup {
 			$markup = self::applyHomepageValues( $markup );
 		}
 
+		$markup = Logika_Theme_Page_Content::apply( $markup, $source );
+
+		$markup = Logika_Theme_Testimonials::apply( self::routeNavigationLinks( self::applyLeadForms( $markup ), $source ) );
+
 		if ( preg_match( '#<main(?:\s[^>]*)?>.*?</main>#is', $markup, $matches ) ) {
 			echo self::rewriteAssets( $matches[0] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 
 	public static function renderFragment( string $fragment ): void {
-		echo self::rewriteAssets( self::read( $fragment ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo self::rewriteAssets( self::routeNavigationLinks( self::read( $fragment ), $fragment ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+
+	public static function routeNavigationLinks( string $markup, string $source ): string {
+		return (string) preg_replace_callback(
+			'~<a(?P<attributes>[^>]*\bhref=(?P<quote>["\'])#(?P=quote)[^>]*)>(?P<body>.*?)</a>~s',
+			static function ( array $matches ) use ( $source ): string {
+				preg_match( '#\bclass=(["\'])(.*?)\1#', $matches['attributes'], $class );
+				$route = self::navigationRoute( $class[2] ?? '', wp_strip_all_tags( $matches['body'] ), $source );
+
+				return $route ? str_replace( 'href=' . $matches['quote'] . '#' . $matches['quote'], 'href=' . $matches['quote'] . esc_url( home_url( $route ) ) . $matches['quote'], $matches[0] ) : $matches[0];
+			},
+			$markup
+		);
+	}
+
+	private static function navigationRoute( string $class, string $label, string $source ): string {
+		if ( str_contains( $class, 'services-section__item-about' ) || ( str_contains( $class, 'course-card__btn' ) && str_contains( $class, 'btn--bordered' ) ) ) {
+			return '/it-courses/';
+		}
+
+		if ( str_contains( $class, 'english-section__link' ) ) {
+			return '/english-courses/';
+		}
+
+		if ( str_contains( $class, 'english-level__link' ) || str_contains( $class, 'test-section__link' ) ) {
+			return '/#lead-form';
+		}
+
+		if ( str_contains( $class, 'archive-section__promo-link' ) || str_contains( $class, 'article-section__promo-btn' ) ) {
+			return '/camps/';
+		}
+
+		if ( str_contains( $class, 'news-section__btn' ) || str_contains( $class, 'articles-section__btn' ) ) {
+			return '/media-center/';
+		}
+
+		if ( str_contains( $class, 'menu-link' ) && 'Курси' === trim( $label ) ) {
+			return '/it-courses/';
+		}
+
+		if ( str_contains( $class, 'btn' ) && ( 'footer' === $source || str_contains( $class, 'header__lesson' ) || str_contains( $class, 'lesson' ) || str_contains( $class, 'transformation' ) || str_contains( $class, 'onboarding' ) || str_contains( $class, 'media-section__btn' ) || str_contains( $class, 'btn--violet' ) || ( str_contains( $class, 'course-card__btn' ) && 'it-courses' === $source ) ) ) {
+			return '/#lead-form';
+		}
+
+		return '';
 	}
 
 	public static function sourceForCurrentPage(): ?string {
@@ -69,6 +122,39 @@ final class Logika_Theme_Source_Markup {
 		return (string) ob_get_clean();
 	}
 
+	private static function applyLeadForms( string $markup ): string {
+		return (string) preg_replace_callback(
+			'#<form\b(?=[^>]*(?:banner-section__form|cta-form|camp-booking__form))(?P<attributes>[^>]*)>(?P<body>.*?)</form>#s',
+			static function ( array $matches ): string {
+				if ( str_contains( $matches['attributes'], 'data-logika-lead-form' ) ) {
+					return $matches[0];
+				}
+
+				$body = self::replaceLeadInputs( $matches['body'] );
+				$body .= '<input type="hidden" name="form_id" value="consultation"><input type="hidden" name="consent_accepted" value="1"><input type="hidden" name="consent_text_version" value="v1"><input type="hidden" name="idempotency_key" value=""><input class="main-form__honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><p class="main-form__status" aria-live="polite" hidden></p>';
+
+				return '<form' . self::addMainFormClass( $matches['attributes'] ) . ' data-logika-lead-form novalidate>' . $body . '</form>';
+			},
+			$markup
+		);
+	}
+
+	private static function addMainFormClass( string $attributes ): string {
+		return (string) preg_replace_callback(
+			'#\bclass=([\'\"])(?P<classes>[^\'\"]*)\1#',
+			static fn( array $matches ): string => str_contains( $matches['classes'], 'main-form' ) ? $matches[0] : 'class="' . esc_attr( trim( $matches['classes'] . ' main-form' ) ) . '"',
+			$attributes,
+			1
+		);
+	}
+
+	private static function replaceLeadInputs( string $body ): string {
+		$body = (string) preg_replace( '#<input\b(?=[^>]*\btype=[\'\"]tel[\'\"])[^>]*>#', '<div class="main-form__phone-wrap"><input class="main-form__input main-form__phone" type="tel" name="tel" placeholder="Номер телефону" data-logika-phone-input aria-describedby="logika-phone-error" required><span class="main-form__phone-error" id="logika-phone-error" data-logika-phone-error hidden>Введіть коректний номер телефону</span></div>', $body, 1 );
+		$body = (string) preg_replace( '#<select\b(?=[^>]*\bname=[\'\"]city[\'\"])[^>]*>.*?</select>|<input\b(?=[^>]*\bname=[\'\"](?:city|town)[\'\"])[^>]*>#s', Logika_Theme_Lead_Form::render_city_select(), $body, 1 );
+
+		return (string) preg_replace( '#<input\b(?=[^>]*\bname=[\'\"]age[\'\"])[^>]*>#', Logika_Theme_Lead_Form::render_age_select(), $body, 1 );
+	}
+
 	private static function applyHomepageValues( string $markup ): string {
 		$page_id = (int) get_option( 'page_on_front' );
 		$title   = get_field( 'home_hero_title', $page_id );
@@ -83,6 +169,9 @@ final class Logika_Theme_Source_Markup {
 		}
 
 		$markup = self::applyHomepageSectionText( $markup, $page_id );
+		$markup = self::applyHomepagePortfolioItems( $markup, $page_id );
+		$markup = self::removeHomepageMediaCenter( $markup );
+		$markup = (string) preg_replace( '#<section class="banner-section">#', '<section id="lead-form" class="banner-section">', $markup, 1 );
 
 		$hero_boy_image = self::attachmentUrl( get_field( 'home_hero_boy_image_override', $page_id ), true );
 		if ( $hero_boy_image ) {
@@ -154,21 +243,71 @@ final class Logika_Theme_Source_Markup {
 			'<input type="hidden" name="form_id" value="trial_lesson"><input type="hidden" name="consent_accepted" value="1"><input type="hidden" name="consent_text_version" value="v1"><input type="hidden" name="idempotency_key" value=""><input class="main-form__honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><p class="main-form__text">',
 			$markup
 		);
-		$markup = str_replace(
-			'</a></p></form>',
-			'</a></p><p class="main-form__status" aria-live="polite" hidden></p></form>',
-			$markup
-		);
+		$markup = (string) preg_replace( '#(<p class="main-form__text">.*?</p>)(\s*</form>)#s', '$1<p class="main-form__status" aria-live="polite" hidden></p>$2', $markup, 1 );
 		$markup = self::replaceHomepageAgeSelect( $markup, $page_id );
 
 		return str_replace( '<span>Наступні курси</span>', '<p>Наступні курси</p>', $markup );
 	}
 
+	private static function removeHomepageMediaCenter( string $markup ): string {
+		return (string) preg_replace( '#\s*<section class="media-section">(?:(?!<section\b).)*?<h2 class="media-section__title">Медіа-центр</h2>(?:(?!<section\b).)*?</section>#su', '', $markup, 1 );
+	}
+
 	private static function replaceHomepageAgeSelect( string $markup, int $page_id ): string {
 		$select = Logika_Theme_Lead_Form::render_age_select( $page_id );
-		$markup = str_replace( '<input class="main-form__input" type="text" name="age" placeholder="Вік дитини (від 7 до 17)">', $select, $markup );
+		$markup = (string) preg_replace( '#<input class="main-form__input" type="text" name="age" placeholder="Вік дитини \(від 7 до 17\)">#', $select, $markup, 1 );
 
 		return (string) preg_replace( '#<(?P<tag>span|div) class="main-form__select-wrap"[^>]*>.*?</(?P=tag)>#s', $select, $markup, 1 );
+	}
+
+	private static function applyHomepagePortfolioItems( string $markup, int $page_id ): string {
+		$rows = array_filter( (array) get_field( 'home_portfolio_items', $page_id ), 'is_array' );
+
+		if ( ! $rows ) {
+			return $markup;
+		}
+
+		$cards = array_filter( array_map( static fn( array $row ): string => self::portfolioCard( $row ), $rows ) );
+
+		if ( ! $cards ) {
+			return $markup;
+		}
+
+		return (string) preg_replace( '#(<ul class="portfolio-section__slider">).*?(</ul>)#s', '$1' . implode( '', $cards ) . '$2', $markup, 1 );
+	}
+
+	private static function portfolioCard( array $row ): string {
+		$name        = trim( (string) ( $row['student_name'] ?? '' ) );
+		$age         = trim( (string) ( $row['student_age'] ?? '' ) );
+		$course      = trim( (string) ( $row['course'] ?? '' ) );
+		$topic       = trim( (string) ( $row['topic'] ?? '' ) );
+		$description = trim( (string) ( $row['description'] ?? '' ) );
+		$title       = trim( $name . ( '' !== $age ? ', ' . $age : '' ) );
+
+		if ( '' === $title || '' === $course || '' === $description ) {
+			return '';
+		}
+
+		if ( 'featured' === ( $row['variant'] ?? 'standard' ) ) {
+			$video_url = esc_url( (string) ( $row['video_url'] ?? '' ) );
+			$cta_label = trim( (string) ( $row['cta_label'] ?? '' ) ) ?: 'Безкоштовний пробний урок';
+			$cta_url   = esc_url( (string) ( $row['cta_url'] ?? '#lead-form' ) );
+			$video     = '' !== $video_url ? '<a class="portfolio-section__video" href="' . $video_url . '"><span aria-hidden="true">▶</span>Дивитись відеовідгук</a>' : '';
+			$image     = self::portfolioImage( $row['project_image'] ?? 0, 'Гра, створена учнем ' . $name, 'large', 'portfolio-section__game' );
+
+			return '<li class="portfolio-section__card portfolio-section__card--featured"><div class="portfolio-section__content"><span class="portfolio-section__tag">' . esc_html( $course ) . '</span><h3>' . esc_html( $title ) . '</h3><p>' . esc_html( $description ) . '</p>' . $video . '<a class="portfolio-section__trial btn btn--yellow" href="' . $cta_url . '">' . esc_html( $cta_label ) . '<svg width="20" height="20" aria-hidden="true"><use href="img/sprite/sprite.svg#arrow-right"></use></svg></a></div>' . $image . '</li>';
+		}
+
+		$image = self::portfolioImage( $row['student_image'] ?? 0, $name . ', учень курсу ' . $course, 'medium', '' );
+		$topic = '' !== $topic ? '<span class="portfolio-section__tag portfolio-section__tag--topic">' . esc_html( $topic ) . '</span>' : '';
+
+		return '<li class="portfolio-section__card"><h3>' . esc_html( $title ) . '</h3><div class="portfolio-section__photo">' . $image . '<span class="portfolio-section__tag portfolio-section__tag--course">' . esc_html( $course ) . '</span>' . $topic . '</div><p>' . esc_html( $description ) . '</p></li>';
+	}
+
+	private static function portfolioImage( mixed $attachment, string $alt, string $size, string $class ): string {
+		$id = is_array( $attachment ) && isset( $attachment['ID'] ) ? (int) $attachment['ID'] : (int) $attachment;
+
+		return $id > 0 ? wp_get_attachment_image( $id, $size, false, array( 'alt' => $alt, 'class' => $class, 'loading' => 'lazy' ) ) : '';
 	}
 
 	private static function applyHomepageSectionText( string $markup, int $page_id ): string {
@@ -185,9 +324,8 @@ final class Logika_Theme_Source_Markup {
 				'home_transformation_after_text' => 'Створює власні ігри',
 				'home_onboarding_title' => 'Як розпочати навчання',
 				'home_testimonials_title' => 'Довіра, підтверджена результатами',
-				'home_portfolio_title' => 'Проекти наших учнів',
-				'home_locations_title' => 'Знайдіть свою школу або навчайтесь онлайн',
-				'home_locations_text' => 'Наші школи у 130 містах України — знайдіть зручний варіант поруч із вами або навчайтесь онлайн.',
+				'home_portfolio_title' => 'Проєкти наших учнів',
+				'home_locations_text' => 'Наші школи у 130 містах України - знайдіть зручний варіант поруч із вами або навчайтесь онлайн.',
 				'home_media_title' => 'Медіа-центр',
 				'home_media_text' => 'Новини, події та корисні матеріали про навчання, розвиток дітей і світ технологій.',
 				'home_cta_title' => 'Підберемо курс саме для вашої дитини!',
@@ -196,10 +334,11 @@ final class Logika_Theme_Source_Markup {
 				'home_certificates_subtitle' => 'Вартість сертифікату на 2 місяці навчання = вартість 1-го місяця + вартість 2-го місяця зі знижкою 10%',
 				'home_certificates_text' => "Залиште заявку, і ми зв'яжемось з вами: відповімо на будь-які запитання і допоможемо обрати курс ",
 				'home_partners_title' => 'Наші партнери',
-			) as $field => $default
-		) {
+		) as $field => $default
+	) {
 			$markup = self::replaceFieldText( $markup, $page_id, $field, $default );
 		}
+		$markup = self::replacePatternFieldText( $markup, $page_id, 'home_locations_title', '#(<h2 id="school-map-title">)(.*?)(</h2>)#s' );
 
 		$markup = self::replacePatternFieldText( $markup, $page_id, 'home_form_button', '#(<button class="main-form__btn btn btn--yellow">)(.*?)(\s*<svg)#s' );
 		$markup = self::replacePatternFieldText( $markup, $page_id, 'home_form_consent', '~(<p class="main-form__text">)(.*?)(<a href="#">Політикою конфіденційності</a></p>)~s' );
@@ -374,7 +513,7 @@ final class Logika_Theme_Source_Markup {
 		$index = 0;
 
 		return (string) preg_replace_callback(
-			'#<li class="swiper-slide"><div class="english-level">.*?</div></li>#s',
+			'#<li class=[\'\"]swiper-slide[\'\"]>\s*<div class="english-level">.*?</div>\s*</li>#s',
 			static function ( array $matches ) use ( $rows, $defaults, &$index ): string {
 				$item = $matches[0];
 				$row = $rows[ $index ] ?? null;
@@ -438,7 +577,7 @@ final class Logika_Theme_Source_Markup {
 		$index = 0;
 
 		return (string) preg_replace_callback(
-			'#<li><picture><source type="image/webp" srcset="img/Partners/[^"]+"><img width="305" height="180" src="img/Partners/[^"]+" alt=""></picture></li>#',
+			'#<li>\s*<picture>.*?img/Partners/.*?</picture>\s*</li>#s',
 			static function ( array $matches ) use ( $rows, $defaults, &$index ): string {
 				$item = $matches[0];
 				$row = $rows[ $index ] ?? null;
@@ -463,7 +602,7 @@ final class Logika_Theme_Source_Markup {
 		$index = 0;
 
 		return (string) preg_replace_callback(
-			'#<li class="accordion__item">.*?</li>#s',
+			'#<li class=[\'\"]accordion__item[\'\"]>.*?</li>#s',
 			static function ( array $matches ) use ( $rows, $defaults, &$index ): string {
 				$item = $matches[0];
 				$row = $rows[ $index ] ?? null;
@@ -477,11 +616,11 @@ final class Logika_Theme_Source_Markup {
 				$answer = trim( (string) ( $row['answer'] ?? '' ) );
 
 				if ( '' !== $question ) {
-					$item = (string) preg_replace( '#(<button class="accordion__btn h5" data-id="\d+">).*?(</button>)#s', '$1' . esc_html( $question ) . '$2', $item, 1 );
+					$item = (string) preg_replace( '#(<button class=[\'\"]accordion__btn h5[\'\"] data-id=[\'\"]\d+[\'\"]>).*?(</button>)#s', '$1' . esc_html( $question ) . '$2', $item, 1 );
 				}
 
 				if ( '' !== $answer ) {
-					$item = (string) preg_replace( '#(<div class="editor"><p>).*?(</p></div>)#s', '$1' . esc_html( $answer ) . '$2', $item, 1 );
+					$item = (string) preg_replace( '#(<div class="editor">\s*<p>).*?(</p>\s*</div>)#s', '$1' . esc_html( $answer ) . '$2', $item, 1 );
 				}
 
 				return $item;
@@ -544,9 +683,7 @@ final class Logika_Theme_Source_Markup {
 			return $markup;
 		}
 
-		$markup = '' === $webp_path ? $markup : str_replace( 'type="image/webp" srcset="' . $webp_path . '"', 'srcset="' . esc_url( $url ) . '"', $markup );
-
-		return str_replace( 'src="' . $image_path . '"', 'src="' . esc_url( $url ) . '"', $markup );
+		return str_replace( array_filter( array( $webp_path, $image_path ) ), esc_url( $url ), $markup );
 	}
 
 	private static function rewriteAssets( string $markup ): string {

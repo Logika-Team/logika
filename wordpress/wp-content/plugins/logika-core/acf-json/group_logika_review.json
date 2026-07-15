@@ -216,6 +216,52 @@
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_review_card_label",
+            "label": "Мітка картки",
+            "name": "review_card_label",
+            "type": "text",
+            "instructions": "Наприклад: назва курсу або «Відгук батьків».",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_review_display_order",
+            "label": "Порядок показу",
+            "name": "review_display_order",
+            "type": "number",
+            "instructions": "Менше число показується раніше.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "min": 0,
+            "max": "",
+            "step": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_review_video_url",
+            "label": "Посилання на відеовідгук",
+            "name": "review_video_url",
+            "type": "url",
+            "instructions": "Необов'язкове посилання на опубліковане відео.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "https://",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [

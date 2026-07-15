@@ -1,0 +1,19 @@
+{
+  "key": "group_logika_page_faq",
+  "title": "Сторінка: FAQ",
+  "fields": [
+    {"key":"field_faq_page_tab_hero","label":"Hero","type":"tab"},
+    {"key":"field_faq_page_hero_title","label":"Заголовок hero","name":"faq_page_hero_title","type":"text"},
+    {"key":"field_faq_page_hero_text","label":"Текст hero","name":"faq_page_hero_text","type":"textarea"},
+    {"key":"field_faq_page_hero_image","label":"Зображення hero","name":"faq_page_hero_image","type":"image","return_format":"id"},
+    {"key":"field_faq_page_tab_sections","label":"Секції","type":"tab"},
+    {"key":"field_faq_page_list_title","label":"Заголовок FAQ","name":"faq_page_list_title","type":"text"},
+    {"key":"field_faq_page_reviews_title","label":"Заголовок відгуків","name":"faq_page_reviews_title","type":"text"},
+    {"key":"field_faq_page_tab_content","label":"Добірки","type":"tab"},
+    {"key":"field_faq_page_featured_faq","label":"FAQ","name":"faq_page_featured_faq","type":"relationship","post_type":["faq_item"],"return_format":"id","filters":["search"]},
+    {"key":"field_faq_page_featured_reviews","label":"Відгуки","name":"faq_page_featured_reviews","type":"relationship","post_type":["review"],"return_format":"id","filters":["search"]}
+  ],
+  "location": [[{"param":"page_template","operator":"==","value":"templates/page-faq.php"}]],
+  "active": true,
+  "show_in_rest": true
+}

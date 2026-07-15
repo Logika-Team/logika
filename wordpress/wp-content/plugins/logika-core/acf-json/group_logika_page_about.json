@@ -1,0 +1,24 @@
+{
+  "key": "group_logika_page_about",
+  "title": "Сторінка: About",
+  "fields": [
+    {"key":"field_about_tab_hero","label":"Hero","type":"tab"},
+    {"key":"field_about_hero_title","label":"Заголовок hero","name":"about_hero_title","type":"text"},
+    {"key":"field_about_hero_text","label":"Текст hero","name":"about_hero_text","type":"textarea"},
+    {"key":"field_about_hero_image","label":"Зображення hero","name":"about_hero_image","type":"image","return_format":"id"},
+    {"key":"field_about_tab_story","label":"Про школу","type":"tab"},
+    {"key":"field_about_stats_title","label":"Заголовок показників","name":"about_stats_title","type":"text"},
+    {"key":"field_about_stats_items","label":"Показники","name":"about_stats_items","type":"repeater","layout":"table","sub_fields":[{"key":"field_about_stats_item_icon","label":"Іконка","name":"icon","type":"image","return_format":"id"},{"key":"field_about_stats_item_text","label":"Текст","name":"text","type":"text"}]},
+    {"key":"field_about_outcomes_title","label":"Заголовок результатів","name":"about_outcomes_title","type":"text"},
+    {"key":"field_about_history_title","label":"Заголовок історії","name":"about_history_title","type":"text"},
+    {"key":"field_about_history_text","label":"Текст історії","name":"about_history_text","type":"wysiwyg","tabs":"visual"},
+    {"key":"field_about_history_image","label":"Зображення історії","name":"about_history_image","type":"image","return_format":"id"},
+    {"key":"field_about_tab_content","label":"Добірки","type":"tab"},
+    {"key":"field_about_featured_reviews","label":"Відгуки","name":"about_featured_reviews","type":"relationship","post_type":["review"],"return_format":"id","filters":["search"]},
+    {"key":"field_about_featured_faq","label":"FAQ","name":"about_featured_faq","type":"relationship","post_type":["faq_item"],"return_format":"id","filters":["search"]},
+    {"key":"field_about_featured_posts","label":"Матеріали","name":"about_featured_posts","type":"relationship","post_type":["post"],"return_format":"id","filters":["search"]}
+  ],
+  "location": [[{"param":"page_template","operator":"==","value":"templates/page-about.php"}]],
+  "active": true,
+  "show_in_rest": true
+}

@@ -312,6 +312,8 @@ Requirements:
 - news/offer can be linked to city.
 - if city selected, city content is shown first.
 - if no local content, global content is shown.
+- media-centre search finds published articles by their native WordPress searchable content and keeps the selected-city filter.
+- while the visitor types, the search field shows a compact dropdown of matching article links.
 - content should have URL and SEO fields.
 
 Acceptance criteria:
@@ -435,6 +437,8 @@ Requirements:
 - cities should have SEO title, description, H1, intro, SEO text, FAQ, local blocks.
 - courses require SEO title, description, H1, FAQ, Course schema inputs.
 - articles need answer-first summary, author/expert, related content.
+- managers can create a complete article from one fixed editor template: cover, author, body, sidebar promotion, selected courses, related articles, CTA and inline FAQ.
+- article table of contents is generated from visible H2/H3 headings; only published related content may appear publicly.
 - schema should be built from visible content.
 
 Acceptance criteria:
@@ -545,6 +549,11 @@ Acceptance criteria:
 3. automatic Zoom/Google Meet setup.
 4. complex CRM lead-routing logic.
 5. multilingual support.
+
+## Marketing page ACF
+
+- [x] Add page-specific ACF groups for About, IT Courses, English Courses, FAQ and Media Center.
+- [x] Seed the first editable course and FAQ content without duplicating existing entities.
 
 ## 18. Open questions
 

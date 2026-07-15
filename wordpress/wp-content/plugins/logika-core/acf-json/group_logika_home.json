@@ -1530,6 +1530,132 @@
             "append": ""
         },
         {
+            "key": "field_home_portfolio_items",
+            "label": "Картки проєктів учнів",
+            "name": "home_portfolio_items",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Додайте картки у потрібному порядку. Порожній список показує базові картки з дизайну.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_home_portfolio_item_student_name",
+            "button_label": "Додати картку",
+            "sub_fields": [
+                {
+                    "key": "field_home_portfolio_item_variant",
+                    "label": "Тип картки",
+                    "name": "variant",
+                    "type": "button_group",
+                    "instructions": "Головна картка показує зображення проєкту, відео та CTA.",
+                    "required": true,
+                    "choices": { "standard": "Звичайна", "featured": "Головна" },
+                    "default_value": "standard",
+                    "return_format": "value",
+                    "layout": "horizontal"
+                },
+                {
+                    "key": "field_home_portfolio_item_student_name",
+                    "label": "Ім’я учня",
+                    "name": "student_name",
+                    "type": "text",
+                    "instructions": "Наприклад: Максим.",
+                    "required": true
+                },
+                {
+                    "key": "field_home_portfolio_item_student_age",
+                    "label": "Вік",
+                    "name": "student_age",
+                    "type": "text",
+                    "instructions": "Наприклад: 12 років.",
+                    "required": true
+                },
+                {
+                    "key": "field_home_portfolio_item_course",
+                    "label": "Курс",
+                    "name": "course",
+                    "type": "text",
+                    "instructions": "Назва курсу на мітці картки.",
+                    "required": true
+                },
+                {
+                    "key": "field_home_portfolio_item_topic",
+                    "label": "Тема",
+                    "name": "topic",
+                    "type": "text",
+                    "instructions": "Додаткова мітка для звичайної картки.",
+                    "required": false
+                },
+                {
+                    "key": "field_home_portfolio_item_description",
+                    "label": "Опис проєкту",
+                    "name": "description",
+                    "type": "textarea",
+                    "instructions": "Коротко опишіть результат учня.",
+                    "required": true,
+                    "rows": 3,
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_home_portfolio_item_student_image",
+                    "label": "Фото учня",
+                    "name": "student_image",
+                    "type": "image",
+                    "instructions": "Потрібне для звичайної картки.",
+                    "required": false,
+                    "conditional_logic": [[{ "field": "field_home_portfolio_item_variant", "operator": "==", "value": "standard" }]],
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "mime_types": "jpg,jpeg,png,webp"
+                },
+                {
+                    "key": "field_home_portfolio_item_project_image",
+                    "label": "Зображення проєкту",
+                    "name": "project_image",
+                    "type": "image",
+                    "instructions": "Потрібне для головної картки.",
+                    "required": false,
+                    "conditional_logic": [[{ "field": "field_home_portfolio_item_variant", "operator": "==", "value": "featured" }]],
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "mime_types": "jpg,jpeg,png,webp"
+                },
+                {
+                    "key": "field_home_portfolio_item_video_url",
+                    "label": "Посилання на відеовідгук",
+                    "name": "video_url",
+                    "type": "url",
+                    "instructions": "Необов’язкове посилання для головної картки.",
+                    "required": false,
+                    "conditional_logic": [[{ "field": "field_home_portfolio_item_variant", "operator": "==", "value": "featured" }]]
+                },
+                {
+                    "key": "field_home_portfolio_item_cta_label",
+                    "label": "Текст CTA",
+                    "name": "cta_label",
+                    "type": "text",
+                    "instructions": "Наприклад: Безкоштовний пробний урок.",
+                    "required": false,
+                    "conditional_logic": [[{ "field": "field_home_portfolio_item_variant", "operator": "==", "value": "featured" }]]
+                },
+                {
+                    "key": "field_home_portfolio_item_cta_url",
+                    "label": "Посилання CTA",
+                    "name": "cta_url",
+                    "type": "url",
+                    "instructions": "Необов’язкове посилання для головної картки.",
+                    "required": false,
+                    "conditional_logic": [[{ "field": "field_home_portfolio_item_variant", "operator": "==", "value": "featured" }]]
+                }
+            ]
+        },
+        {
             "key": "field_home_locations_title",
             "label": "Заголовок локацій",
             "name": "home_locations_title",

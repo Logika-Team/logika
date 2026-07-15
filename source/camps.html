@@ -6,108 +6,527 @@
   @include('partials/header.html')
 
   <main>
-    Camps
-
-    <section class="faq-section">
-      <div class="container">
-        <div class="faq-section__wrapp">
-          <h2>FAQ</h2>
-
-          <ul class='accordion' data-default="1" data-single='true' data-breakpoint='576' data-accordion-init>
-            <li class='accordion__item'>
-              <button class='accordion__btn' data-id='1'>
-                What is an online pharmacy, and how does it work?
-                <span class="accordion__btn-icon">
-                  <svg width='24' height='24'>
-                    <use href='img/sprite/sprite.svg#agile-down'></use>
-                  </svg>
-                </span>
-              </button>
-              <div class='accordion__content' data-content='1'>
-                <div class="editor">
-                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                </div>
-              </div>
-            </li>
-            <li class='accordion__item'>
-              <button class='accordion__btn' data-id='2'>
-                How do I place an order?
-                <span class="accordion__btn-icon">
-                  <svg width='24' height='24'>
-                    <use href='img/sprite/sprite.svg#agile-down'></use>
-                  </svg>
-                </span>
-              </button>
-              <div class='accordion__content' data-content='2'>
-                <div class="editor">
-                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                </div>
-              </div>
-            </li>
-            <li class='accordion__item'>
-              <button class='accordion__btn' data-id='3'>
-                Can I order prescription medications from your online pharmacy?
-                <span class="accordion__btn-icon">
-                  <svg width='24' height='24'>
-                    <use href='img/sprite/sprite.svg#agile-down'></use>
-                  </svg>
-                </span>
-              </button>
-              <div class='accordion__content' data-content='3'>
-                <div class="editor">
-                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                </div>
-              </div>
-            </li>
-            <li class='accordion__item'>
-              <button class='accordion__btn' data-id='4'>
-                How does delivery work with your online pharmacy in Canada?
-                <span class="accordion__btn-icon">
-                  <svg width='24' height='24'>
-                    <use href='img/sprite/sprite.svg#agile-down'></use>
-                  </svg>
-                </span>
-              </button>
-              <div class='accordion__content' data-content='4'>
-                <div class="editor">
-                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                </div>
-              </div>
-            </li>
-            <li class='accordion__item'>
-              <button class='accordion__btn' data-id='5'>
-                Do you offer over-the-counter products in your online drugstore?
-                <span class="accordion__btn-icon">
-                  <svg width='24' height='24'>
-                    <use href='img/sprite/sprite.svg#agile-down'></use>
-                  </svg>
-                </span>
-              </button>
-              <div class='accordion__content' data-content='5'>
-                <div class="editor">
-                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                </div>
-              </div>
-            </li>
-            <li class='accordion__item'>
-              <button class='accordion__btn' data-id='6'>
-                What if I have questions or need help with my order?
-                <span class="accordion__btn-icon">
-                  <svg width='24' height='24'>
-                    <use href='img/sprite/sprite.svg#agile-down'></use>
-                  </svg>
-                </span>
-              </button>
-              <div class='accordion__content' data-content='6'>
-                <div class="editor">
-                  <p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p>
-                </div>
-              </div>
-            </li>
-          </ul>
+    <section class="camp-page-hero" aria-laчцbelledby="camp-page-hero-title">
+      <img class="camp-page-hero__art" src="img/camp/camp-hero.svg" alt="" aria-hidden="true">
+    <div class="container camp-page-hero__container">
+        <div class="camp-page-hero__content">
+          <h1 id="camp-page-hero-title">Табори з Logika: подаруйте<br>дитині незабутні емоції</h1>
+          <p>Відпочиваємо та розвиваємося разом!</p>
+          <a class="camp-page-hero__cta btn btn--violet" href="#camp-booking">Залишити заявку <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
+
+    <section class="camp-highlights" aria-labelledby="camp-highlights-title">
+      <div class="container">
+        <h2 class="camp-highlights__title" id="camp-highlights-title">Табори з Logika - це:</h2>
+
+        <ul class="camp-highlights__list">
+          <li class="camp-highlights__item">
+            <img class="camp-highlights__character camp-highlights__character--one"
+              src="img/camp/highlights/figma-age.png" alt="">
+            <p>Для дітей 10-16<br>років</p>
+          </li>
+          <li class="camp-highlights__item">
+            <img class="camp-highlights__character camp-highlights__character--two"
+              src="img/camp/highlights/figma-all-inclusive.png" alt="">
+            <p>Формат All-<br>inclusive</p>
+          </li>
+          <li class="camp-highlights__item">
+            <img class="camp-highlights__character camp-highlights__character--three"
+              src="img/camp/highlights/figma-entertainment.png" alt="">
+            <p>Власні<br>розважальні<br>програми</p>
+          </li>
+          <li class="camp-highlights__item">
+            <img class="camp-highlights__character camp-highlights__character--four"
+              src="img/camp/highlights/figma-team.png" alt="">
+            <p>Працює своя<br>команда вожатих</p>
+          </li>
+          <li class="camp-highlights__item">
+            <img class="camp-highlights__character camp-highlights__character--five"
+              src="img/camp/highlights/figma-transfer.png" alt="">
+            <p>Трансферти з<br>великих міст</p>
+          </li>
+          <li class="camp-highlights__item">
+            <img class="camp-highlights__character camp-highlights__character--six"
+              src="img/camp/highlights/figma-medical.png" alt="">
+            <p>Медичне<br>страхування</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="camp-formats" aria-labelledby="camp-formats-title">
+        <div class="container">
+          <h2 class="camp-formats__title" id="camp-formats-title">Оберіть свій формат</h2>
+
+          <ul class="camp-formats__list">
+            <li class="camp-formats__item">
+              <img src="img/camp/formats/summer.jpg" alt="Літній морський пейзаж">
+              <span class="camp-formats__season">Літо</span>
+              <a href="camp.html">Переглянути табори</a>
+            </li>
+            <li class="camp-formats__item">
+              <img src="img/camp/formats/autumn.jpg" alt="Осінні гори">
+              <span class="camp-formats__season">Осінь</span>
+              <a href="camp.html">Переглянути табори</a>
+            </li>
+            <li class="camp-formats__item">
+              <img src="img/camp/formats/winter.jpg" alt="Засніжені гори взимку">
+              <span class="camp-formats__season">Зима</span>
+              <a href="camp.html">Переглянути табори</a>
+            </li>
+            <li class="camp-formats__item">
+              <img src="img/camp/formats/spring.jpg" alt="Весняний гірський луг">
+              <span class="camp-formats__season">Весна</span>
+              <a href="camp.html">Переглянути табори</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="camp-booking" id="camp-booking" aria-labelledby="camp-booking-title">
+        <div class="container">
+          <h2 class="camp-booking__title" id="camp-booking-title">Встигніть забронювати<br>незабутні спогади</h2>
+
+          <div class="camp-booking__content">
+            <div class="camp-booking__benefits">
+              <ul>
+                <li>Оновлена IT програма</li>
+                <li>Активності, квести, турніри, ігри та дискотеки, екскурсії</li>
+                <li>Безпека. Вожаті поряд з дітьми 24/7</li>
+              </ul>
+              <img class="camp-booking__characters" src="img/camp/booking-characters.svg" alt="">
+            </div>
+
+            <form class="camp-booking__form main-form">
+              <div class="camp-booking__form-title">
+                <span>Встигніть забронювати.</span>
+                Залиште заявку за 30 секунд — ми зателефонуємо і обговоримо усі деталі
+              </div>
+
+              <div class="camp-booking__inputs">
+                <input class="main-form__input" type="text" name="name" placeholder="Ім’я">
+                <input class="main-form__input" type="tel" name="tel" placeholder="Номер телефону">
+                <select class="main-form__input" name="city" aria-label="Ваше місто">
+                  <option value="" selected disabled>Ваше місто</option>
+                  <option value="kyiv">Київ</option>
+                  <option value="lviv">Львів</option>
+                  <option value="online">Онлайн</option>
+                </select>
+                <select class="main-form__input camp-booking__camp-select" name="camp" aria-label="Оберіть табір">
+                  <option value="" selected disabled>Оберіть табір</option>
+                  <option value="greece">Табір в Греції (5.07-14.07)</option>
+                  <option value="emily">VIP табір в Emily Resort (20.06-27.06)</option>
+                  <option value="zakarpattia">Еко-табір на Закарпатті</option>
+                  <option value="online">Табір онлайн</option>
+                  <option value="city">Міський табір</option>
+                </select>
+              </div>
+
+              <button class="camp-booking__submit btn btn--yellow" type="submit">Відправити <span
+                  aria-hidden="true">→</span></button>
+              <p class="camp-booking__policy">Натискаючи, ви погоджуєтесь із <a href="#">Політикою
+                  конфіденційності</a>
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="camp-history">
+        <div class="container">
+          <div class="camp-history__wrapp">
+            <h2>Як це було минулих років</h2>
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery-section">
+        <div class="container">
+          <div class="gallery-section__wrapp">
+            Gallery Images
+          </div>
+        </div>
+      </section>
+
+      <section class="testimonials-section">
+        <div class="container">
+          <div class="testimonials-section__wrapp">
+            <h2>Довіра, підтверджена результатами</h2>
+
+            <div class="testimonials-section__box">
+              <ul class="testimonials-section__items">
+                <li class="testimonials-section__item">
+                  <div class="testimonials-card is-image">
+                    <div class="testimonials-card__decor">
+                      <picture>
+                        <source type='image/webp' srcset='img/testimonials/testimonial.webp'>
+                        <img width='220' height='220' src='img/testimonials/testimonial.png' alt=''>
+                      </picture>
+
+                    </div>
+
+                    <div class="testimonials-card__watch">
+                      <svg width='34' height='34'>
+                        <use href='img/sprite/sprite.svg#watch'></use>
+                      </svg>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="testimonials-section__item">
+                  <div class="testimonials-card">
+                    <div class="testimonials-card__box">
+                      <div class="testimonials-card__top">
+                        <div class="testimonials-card__avatar">
+                          <picture>
+                            <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                            <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                          </picture>
+                        </div>
+
+                        <div class="testimonials-card__info">
+                          <div class="testimonials-card__name">Анна Н.</div>
+                          <div class="testimonials-card__rating">
+                            <svg width='100' height='18'>
+                              <use href='img/sprite/sprite.svg#stars-rating'></use>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+
+                      <span class="testimonials-card__tag">Python Mastery</span>
+
+                      <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="testimonials-section__item">
+                  <div class="testimonials-card">
+                    <div class="testimonials-card__box">
+                      <div class="testimonials-card__top">
+                        <div class="testimonials-card__avatar">
+                          <picture>
+                            <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                            <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                          </picture>
+                        </div>
+
+                        <div class="testimonials-card__info">
+                          <div class="testimonials-card__name">Анна Н.</div>
+                          <div class="testimonials-card__rating">
+                            <svg width='100' height='18'>
+                              <use href='img/sprite/sprite.svg#stars-rating'></use>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+
+                      <span class="testimonials-card__tag">Python Mastery</span>
+
+                      <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="testimonials-section__item">
+                  <div class="testimonials-card is-image">
+                    <div class="testimonials-card__decor">
+                      <picture>
+                        <source type='image/webp' srcset='img/testimonials/testimonial.webp'>
+                        <img width='220' height='220' src='img/testimonials/testimonial.png' alt=''>
+                      </picture>
+
+                    </div>
+                  </div>
+                </li>
+
+                <li class="testimonials-section__item">
+                  <div class="testimonials-card">
+                    <div class="testimonials-card__box">
+                      <div class="testimonials-card__top">
+                        <div class="testimonials-card__avatar">
+                          <picture>
+                            <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                            <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                          </picture>
+                        </div>
+
+                        <div class="testimonials-card__info">
+                          <div class="testimonials-card__name">Анна Н.</div>
+                          <div class="testimonials-card__rating">
+                            <svg width='100' height='18'>
+                              <use href='img/sprite/sprite.svg#stars-rating'></use>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+
+                      <span class="testimonials-card__tag">Python Mastery</span>
+
+                      <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="testimonials-section__item">
+                  <div class="testimonials-card">
+                    <div class="testimonials-card__box">
+                      <div class="testimonials-card__top">
+                        <div class="testimonials-card__avatar">
+                          <picture>
+                            <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                            <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                          </picture>
+                        </div>
+
+                        <div class="testimonials-card__info">
+                          <div class="testimonials-card__name">Анна Н.</div>
+                          <div class="testimonials-card__rating">
+                            <svg width='100' height='18'>
+                              <use href='img/sprite/sprite.svg#stars-rating'></use>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+
+                      <span class="testimonials-card__tag">Python Mastery</span>
+
+                      <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="testimonials-section__item">
+                  <div class="testimonials-card">
+                    <div class="testimonials-card__box">
+                      <div class="testimonials-card__top">
+                        <div class="testimonials-card__avatar">
+                          <picture>
+                            <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                            <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                          </picture>
+                        </div>
+
+                        <div class="testimonials-card__info">
+                          <div class="testimonials-card__name">Анна Н.</div>
+                          <div class="testimonials-card__rating">
+                            <svg width='100' height='18'>
+                              <use href='img/sprite/sprite.svg#stars-rating'></use>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+
+                      <span class="testimonials-card__tag">Python Mastery</span>
+
+                      <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="testimonials-section__item">
+                  <div class="testimonials-card">
+                    <div class="testimonials-card__box">
+                      <div class="testimonials-card__top">
+                        <div class="testimonials-card__avatar">
+                          <picture>
+                            <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                            <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                          </picture>
+                        </div>
+
+                        <div class="testimonials-card__info">
+                          <div class="testimonials-card__name">Анна Н.</div>
+                          <div class="testimonials-card__rating">
+                            <svg width='100' height='18'>
+                              <use href='img/sprite/sprite.svg#stars-rating'></use>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+
+                      <span class="testimonials-card__tag">Python Mastery</span>
+
+                      <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="testimonials-section__item">
+                  <div class="testimonials-card is-image">
+                    <div class="testimonials-card__decor">
+                      <picture>
+                        <source type='image/webp' srcset='img/testimonials/testimonial.webp'>
+                        <img width='220' height='220' src='img/testimonials/testimonial.png' alt=''>
+                      </picture>
+
+                    </div>
+                  </div>
+                </li>
+
+                <li class="testimonials-section__item">
+                  <div class="testimonials-card">
+                    <div class="testimonials-card__box">
+                      <div class="testimonials-card__top">
+                        <div class="testimonials-card__avatar">
+                          <picture>
+                            <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                            <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                          </picture>
+                        </div>
+
+                        <div class="testimonials-card__info">
+                          <div class="testimonials-card__name">Анна Н.</div>
+                          <div class="testimonials-card__rating">
+                            <svg width='100' height='18'>
+                              <use href='img/sprite/sprite.svg#stars-rating'></use>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+
+                      <span class="testimonials-card__tag">Python Mastery</span>
+
+                      <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="testimonials-section__item">
+                  <div class="testimonials-card is-image">
+                    <div class="testimonials-card__decor">
+                      <picture>
+                        <source type='image/webp' srcset='img/testimonials/testimonial.webp'>
+                        <img width='220' height='220' src='img/testimonials/testimonial.png' alt=''>
+                      </picture>
+
+                    </div>
+                  </div>
+                </li>
+
+                <li class="testimonials-section__item">
+                  <div class="testimonials-card">
+                    <div class="testimonials-card__box">
+                      <div class="testimonials-card__top">
+                        <div class="testimonials-card__avatar">
+                          <picture>
+                            <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                            <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                          </picture>
+                        </div>
+
+                        <div class="testimonials-card__info">
+                          <div class="testimonials-card__name">Анна Н.</div>
+                          <div class="testimonials-card__rating">
+                            <svg width='100' height='18'>
+                              <use href='img/sprite/sprite.svg#stars-rating'></use>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+
+                      <span class="testimonials-card__tag">Python Mastery</span>
+
+                      <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq-section">
+        <div class="faq-section__left-bg">
+          <img src="img/faq/faq-left-bg.svg" alt="">
+        </div>
+
+        <div class="faq-section__right-bg">
+          <img src="img/faq/faq-right-bg.svg" alt="">
+        </div>
+
+        <div class="container">
+          <div class="faq-section__wrapp">
+            <h2>Питання та відповіді</h2>
+
+            <ul class='accordion' data-default="1" data-single='true' data-breakpoint='576' data-accordion-init>
+              <li class='accordion__item'>
+                <button class='accordion__btn h5' data-id='1'>
+                  Скільки коштує навчання в Logika?
+                </button>
+                <div class='accordion__content' data-content='1'>
+                  <div class="editor">
+                    <p>Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.</p>
+                  </div>
+                </div>
+              </li>
+              <li class='accordion__item'>
+                <button class='accordion__btn h5' data-id='2'>
+                  З якого віку можна навчатися в Logika?
+                </button>
+                <div class='accordion__content' data-content='2'>
+                  <div class="editor">
+                    <p>Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.</p>
+                  </div>
+                </div>
+              </li>
+              <li class='accordion__item'>
+                <button class='accordion__btn h5' data-id='3'>
+                  Чи потрібен досвід у програмуванні або англійській?
+                </button>
+                <div class='accordion__content' data-content='3'>
+                  <div class="editor">
+                    <p>Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.</p>
+                  </div>
+                </div>
+              </li>
+              <li class='accordion__item'>
+                <button class='accordion__btn h5' data-id='4'>
+                  Як проходять заняття?
+                </button>
+                <div class='accordion__content' data-content='4'>
+                  <div class="editor">
+                    <p>Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.</p>
+                  </div>
+                </div>
+              </li>
+              <li class='accordion__item'>
+                <button class='accordion__btn h5' data-id='5'>
+                  Що отримає дитина під час навчання?
+                </button>
+                <div class='accordion__content' data-content='5'>
+                  <div class="editor">
+                    <p>Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.</p>
+                  </div>
+                </div>
+              </li>
+              <li class='accordion__item'>
+                <button class='accordion__btn h5' data-id='6'>
+                  Як записатися на безкоштовний пробний урок?
+                </button>
+                <div class='accordion__content' data-content='6'>
+                  <div class="editor">
+                    <p>Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.</p>
+                  </div>
+                </div>
+              </li>
+              <li class='accordion__item'>
+                <button class='accordion__btn h5' data-id='7'>
+                  Чим Logika відрізняється від інших шкіл?
+                </button>
+                <div class='accordion__content' data-content='7'>
+                  <div class="editor">
+                    <p>Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
   </main>
 
   @include('partials/footer.html')

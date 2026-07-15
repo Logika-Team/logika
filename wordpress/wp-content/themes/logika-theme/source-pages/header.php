@@ -91,10 +91,10 @@
 
                 <ul class="sub-menu" data-content='courses'>
                   <li class="menu-item">
-                    <a class="menu-link" href="/it-courses/">IT Courses</a>
+                    <a class="menu-link" href="/it-courses/">IT Курси</a>
                   </li>
                   <li class="menu-item">
-                    <a class="menu-link" href="/english-courses/">English Courses</a>
+                    <a class="menu-link" href="/english-courses/">Курси англійської</a>
                   </li>
                 </ul>
               </li>
@@ -114,13 +114,6 @@
           </nav>
 
           <div class="header__controls">
-            <a class="header__login btn" href="#">
-              <svg width='16' height='16'>
-                <use href='img/sprite/sprite.svg#icon-person'></use>
-              </svg>
-              <span>Увійти</span>
-            </a>
-
             <a class="header__lesson btn btn--yellow" href="#">
               Пробний урок
               <svg width='20' height='20'>

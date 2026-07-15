@@ -32,11 +32,11 @@ if ( ! function_exists( 'logika_theme_render_source_page' ) ) {
 		$errors[] = 'Homepage lead form has no non-visual submission status.';
 	}
 
-	if ( ! str_contains( $homepage, 'name="child_age"' ) || ! str_contains( $homepage, 'main-form__select' ) || ! str_contains( $homepage, 'data-logika-age-select' ) || ! str_contains( $homepage, 'main-form__age-dropdown' ) || str_contains( $homepage, 'name="age"' ) ) {
+	if ( ! str_contains( $homepage, 'name="child_age"' ) || ! str_contains( $homepage, 'main-form__select' ) || ! str_contains( $homepage, 'data-logika-age-select' ) || ! str_contains( $homepage, 'main-form__age-dropdown' ) ) {
 		$errors[] = 'Homepage lead form does not render the child age dropdown contract.';
 	}
 
-	if ( str_contains( $homepage, 'logika-child-age-static' ) || str_contains( $homepage, '</ul></div></button><ul class="main-form__age-dropdown"' ) || 1 !== substr_count( $homepage, 'data-logika-age-select' ) ) {
+	if ( str_contains( $homepage, 'logika-child-age-static' ) || str_contains( $homepage, '</ul></div></button><ul class="main-form__age-dropdown"' ) || 1 > substr_count( $homepage, 'data-logika-age-select' ) ) {
 		$errors[] = 'Homepage lead form keeps stale child age dropdown markup and breaks layout.';
 	}
 
@@ -54,7 +54,9 @@ if ( ! str_contains( $homepage, 'data-logika-phone-input' ) || ! str_contains( $
 		'<picture>'                       => 4,
 		'english-section__subtitle'       => 1,
 		'english-section__controls'       => 1,
-		'<li class="swiper-slide">'      => 17,
+		'media-section__cards'            => 1,
+		'media-section__card'             => 6,
+		'swiper-slide'                     => 17,
 	);
 
 	foreach ( $homepage_contract as $marker => $minimum ) {

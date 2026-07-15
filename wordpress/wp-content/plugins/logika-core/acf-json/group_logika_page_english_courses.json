@@ -1,0 +1,21 @@
+{
+  "key": "group_logika_page_english_courses",
+  "title": "Сторінка: English Courses",
+  "fields": [
+    {"key":"field_english_courses_tab_hero","label":"Hero","type":"tab"},
+    {"key":"field_english_courses_hero_title","label":"Заголовок hero","name":"english_courses_hero_title","type":"text"},
+    {"key":"field_english_courses_hero_text","label":"Текст hero","name":"english_courses_hero_text","type":"textarea"},
+    {"key":"field_english_courses_hero_image","label":"Зображення hero","name":"english_courses_hero_image","type":"image","return_format":"id"},
+    {"key":"field_english_courses_tab_sections","label":"Секції","type":"tab"},
+    {"key":"field_english_courses_catalog_title","label":"Заголовок каталогу","name":"english_courses_catalog_title","type":"text"},
+    {"key":"field_english_courses_test_title","label":"Заголовок тестування","name":"english_courses_test_title","type":"text"},
+    {"key":"field_english_courses_about_title","label":"Заголовок про навчання","name":"english_courses_about_title","type":"text"},
+    {"key":"field_english_courses_tab_content","label":"Добірки","type":"tab"},
+    {"key":"field_english_courses_featured_courses","label":"Курси","name":"english_courses_featured_courses","type":"relationship","post_type":["course"],"return_format":"id","filters":["search"]},
+    {"key":"field_english_courses_featured_reviews","label":"Відгуки","name":"english_courses_featured_reviews","type":"relationship","post_type":["review"],"return_format":"id","filters":["search"]},
+    {"key":"field_english_courses_featured_faq","label":"FAQ","name":"english_courses_featured_faq","type":"relationship","post_type":["faq_item"],"return_format":"id","filters":["search"]}
+  ],
+  "location": [[{"param":"page_template","operator":"==","value":"templates/page-english-courses.php"}]],
+  "active": true,
+  "show_in_rest": true
+}

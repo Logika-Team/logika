@@ -1,0 +1,19 @@
+@import "../../general/mixins";
+
+.offers-section {
+    padding: clamp(40px, 7.813vw, 80px) 0;
+    background-color: #F8F7FF;
+
+    &__wrapp {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: stretch;
+        gap: 20px;
+    }
+}

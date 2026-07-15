@@ -1,0 +1,21 @@
+{
+  "key": "group_logika_page_it_courses",
+  "title": "Сторінка: IT Courses",
+  "fields": [
+    {"key":"field_it_courses_tab_hero","label":"Hero","type":"tab"},
+    {"key":"field_it_courses_hero_title","label":"Заголовок hero","name":"it_courses_hero_title","type":"text"},
+    {"key":"field_it_courses_hero_text","label":"Текст hero","name":"it_courses_hero_text","type":"textarea"},
+    {"key":"field_it_courses_hero_image","label":"Зображення hero","name":"it_courses_hero_image","type":"image","return_format":"id"},
+    {"key":"field_it_courses_tab_sections","label":"Секції","type":"tab"},
+    {"key":"field_it_courses_catalog_title","label":"Заголовок каталогу","name":"it_courses_catalog_title","type":"text"},
+    {"key":"field_it_courses_categories_title","label":"Заголовок категорій","name":"it_courses_categories_title","type":"text"},
+    {"key":"field_it_courses_marquee_items","label":"Бігучий рядок","name":"it_courses_marquee_items","type":"repeater","layout":"table","sub_fields":[{"key":"field_it_courses_marquee_item_text","label":"Текст","name":"text","type":"text"}]},
+    {"key":"field_it_courses_tab_content","label":"Добірки","type":"tab"},
+    {"key":"field_it_courses_featured_courses","label":"Курси","name":"it_courses_featured_courses","type":"relationship","post_type":["course"],"return_format":"id","filters":["search"]},
+    {"key":"field_it_courses_featured_reviews","label":"Відгуки","name":"it_courses_featured_reviews","type":"relationship","post_type":["review"],"return_format":"id","filters":["search"]},
+    {"key":"field_it_courses_featured_faq","label":"FAQ","name":"it_courses_featured_faq","type":"relationship","post_type":["faq_item"],"return_format":"id","filters":["search"]}
+  ],
+  "location": [[{"param":"page_template","operator":"==","value":"templates/page-it-courses.php"}]],
+  "active": true,
+  "show_in_rest": true
+}

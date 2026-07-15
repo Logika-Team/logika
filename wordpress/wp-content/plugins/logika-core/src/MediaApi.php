@@ -11,7 +11,8 @@ use WP_REST_Response;
 use WP_REST_Server;
 
 final class MediaApi {
-	private const LIMIT = 7;
+	private const LIMIT        = 7;
+	private const SEARCH_LIMIT = 100;
 
 	public static function register(): void {
 		register_rest_route(
@@ -25,6 +26,10 @@ final class MediaApi {
 					'city' => array(
 						'validate_callback' => static fn( $value ): bool => is_numeric( $value ),
 					),
+					'search' => array(
+						'sanitize_callback' => static fn( $value ): string => sanitize_text_field( (string) $value ),
+						'validate_callback' => static fn( $value ): bool => strlen( (string) $value ) <= 300,
+					),
 				),
 			)
 		);
@@ -32,9 +37,11 @@ final class MediaApi {
 
 	public static function index( WP_REST_Request $request ): WP_REST_Response {
 		$city_id = absint( $request->get_param( 'city' ) );
+		$search  = trim( (string) $request->get_param( 'search' ) );
+		$limit   = $search ? self::SEARCH_LIMIT : self::LIMIT;
 
 		if ( ! $city_id ) {
-			return new WP_REST_Response( self::cards( new WP_Query( self::latest_query() ) ) );
+			return new WP_REST_Response( self::cards( new WP_Query( self::latest_query( $search ) ) ) );
 		}
 
 		$city = get_post( $city_id );
@@ -48,15 +55,16 @@ final class MediaApi {
 				array(
 					'post_type'      => 'post',
 					'post_status'    => 'publish',
-					'posts_per_page' => self::LIMIT,
+					'posts_per_page' => $limit,
 					'orderby'        => 'date',
 					'order'          => 'DESC',
 					'meta_key'       => 'post_related_city',
 					'meta_value'     => (string) $city_id,
+					's'              => $search,
 				)
 			)
 		);
-		$remaining = self::LIMIT - count( $local );
+		$remaining = $limit - count( $local );
 		$common = $remaining > 0 ? self::cards(
 			new WP_Query(
 				array(
@@ -65,12 +73,13 @@ final class MediaApi {
 					'posts_per_page' => $remaining,
 					'orderby'        => 'date',
 					'order'          => 'DESC',
-					'meta_query'     => array(
+						'meta_query'     => array(
 						'relation' => 'OR',
 						array( 'key' => 'post_related_city', 'compare' => 'NOT EXISTS' ),
 						array( 'key' => 'post_related_city', 'value' => '', 'compare' => '=' ),
 						array( 'key' => 'post_related_city', 'value' => '0' ),
-					),
+						),
+						's'              => $search,
 				)
 			)
 		) : array();
@@ -81,14 +90,20 @@ final class MediaApi {
 	/**
 	 * @return array<string, mixed>
 	 */
-	private static function latest_query(): array {
-		return array(
+	private static function latest_query( string $search = '' ): array {
+		$query = array(
 			'post_type'      => 'post',
 			'post_status'    => 'publish',
-			'posts_per_page' => self::LIMIT,
+			'posts_per_page' => $search ? self::SEARCH_LIMIT : self::LIMIT,
 			'orderby'        => 'date',
 			'order'          => 'DESC',
 		);
+
+		if ( $search ) {
+			$query['s'] = $search;
+		}
+
+		return $query;
 	}
 
 	/**

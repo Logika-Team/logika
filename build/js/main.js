@@ -16,6 +16,8 @@ const accParrent = [...document.querySelectorAll("[data-accordion-init]")];
 
 const marqueeSectionSlider = document.querySelectorAll('.marquee-section__slider');
 const englishSectionSlider = document.querySelectorAll('.english-section__slider');
+const categoriesCoursesSlider = document.querySelectorAll('.categories-section__slider');
+const campGalleries = document.querySelectorAll('[data-camp-gallery]');
 
 //------------------------------------------------
 
@@ -372,6 +374,63 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //----Sliders----------------------------------
 document.addEventListener("DOMContentLoaded", function () {
+  if (campGalleries.length > 0) {
+    campGalleries.forEach(function (gallery) {
+      const mainImage = gallery.querySelector("[data-gallery-main]");
+      const thumbs = Array.from(gallery.querySelectorAll("[data-gallery-thumb]"));
+      const prevBtn = gallery.querySelector("[data-gallery-prev]");
+      const nextBtn = gallery.querySelector("[data-gallery-next]");
+
+      if (!mainImage || thumbs.length === 0) {
+        return;
+      }
+
+      let currentIndex = thumbs.findIndex(function (thumb) {
+        return thumb.classList.contains("is-active");
+      });
+
+      if (currentIndex < 0) {
+        currentIndex = 0;
+      }
+
+      const setActiveSlide = function (index) {
+        const nextIndex = (index + thumbs.length) % thumbs.length;
+        const activeThumb = thumbs[nextIndex];
+        const nextSrc = activeThumb.dataset.galleryThumb;
+
+        if (!nextSrc) {
+          return;
+        }
+
+        mainImage.src = nextSrc;
+        thumbs.forEach(function (thumb, thumbIndex) {
+          const isActive = thumbIndex === nextIndex;
+          thumb.classList.toggle("is-active", isActive);
+          thumb.setAttribute("aria-pressed", isActive ? "true" : "false");
+        });
+        currentIndex = nextIndex;
+      };
+
+      thumbs.forEach(function (thumb, index) {
+        thumb.addEventListener("click", function () {
+          setActiveSlide(index);
+        });
+      });
+
+      if (prevBtn) {
+        prevBtn.addEventListener("click", function () {
+          setActiveSlide(currentIndex - 1);
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener("click", function () {
+          setActiveSlide(currentIndex + 1);
+        });
+      }
+    });
+  }
+
   if (marqueeSectionSlider) {
     marqueeSectionSlider.forEach(function (slider) {
       const container = slider.querySelector(".swiper-container");
@@ -414,6 +473,33 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   )};
+
+  if (categoriesCoursesSlider.length > 0) {
+    categoriesCoursesSlider.forEach(function (slider) {
+      const container = slider.querySelector(".swiper-container");
+      
+      // Піднімаємося до спільного батька (сесії), щоб знайти кнопки, які лежать вище в HTML
+      const parentSection = slider.closest('.categories-section');
+      const nextBtn = parentSection ? parentSection.querySelector(".swiper-button-next") : null;
+      const prevBtn = parentSection ? parentSection.querySelector(".swiper-button-prev") : null;
+
+      if (container) {
+        const mainSwiper = new Swiper(container, {
+          slidesPerView: 3,
+          spaceBetween: 10,
+          speed: 1800,
+          // loop: true,
+          observer: true,
+          observeParents: true,
+          watchSlidesProgress: true,
+          navigation: {
+            nextEl: nextBtn, // Тепер кнопки успішно зв'яжуться зі слайдером
+            prevEl: prevBtn,
+          },
+        });
+      }
+    });
+  }
 
 
 });
@@ -487,6 +573,4 @@ if (select.length) {
     });
   });
 }
-
-
 

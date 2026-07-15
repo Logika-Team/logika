@@ -41,7 +41,7 @@ $assets = get_template_directory_uri() . '/assets/img/';
 								<?php if ( $terms && ! is_wp_error( $terms ) ) : ?><ul class="services-section__item-tags"><?php foreach ( $terms as $term ) : ?><li class="h5"><?php echo esc_html( $term->name ); ?></li><?php endforeach; ?></ul><?php endif; ?>
 								<?php if ( $description ) : ?><p class="services-section__item-excerpt"><?php echo esc_html( $description ); ?></p><?php endif; ?>
 								<div class="services-section__item-btns">
-									<a href="#lead-form" class="services-section__item-lesson btn btn--yellow">Запис на безкоштовний урок <svg width="20" height="20"><use href="<?php echo esc_url( $assets . 'sprite/sprite.svg#arrow-right' ); ?>"></use></svg></a>
+									<a href="<?php echo esc_url( home_url( '/#lead-form' ) ); ?>" class="services-section__item-lesson btn btn--yellow">Запис на безкоштовний урок <svg width="20" height="20"><use href="<?php echo esc_url( $assets . 'sprite/sprite.svg#arrow-right' ); ?>"></use></svg></a>
 									<a href="<?php the_permalink(); ?>" class="services-section__item-about btn">Детальніше про курс <svg width="20" height="20"><use href="<?php echo esc_url( $assets . 'sprite/sprite.svg#arrow-right' ); ?>"></use></svg></a>
 								</div>
 							</div>

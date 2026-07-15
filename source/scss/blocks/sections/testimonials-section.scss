@@ -9,4 +9,12 @@
         align-items: center;
         gap: 60px;
     }
+
+    &__items {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        align-items: stretch;
+        gap: 40px 20px;
+    }
 }

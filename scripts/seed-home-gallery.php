@@ -44,9 +44,36 @@ $asset_dir = trailingslashit( get_template_directory() ) . 'assets/img';
 $upload = wp_upload_dir();
 $ids = array();
 
+$copy_image = static function ( string $source, string $target ): void {
+	$extension = strtolower( pathinfo( $source, PATHINFO_EXTENSION ) );
+
+	wp_mkdir_p( dirname( $target ) );
+
+	if ( 'svg' === $extension ) {
+		$command = sprintf( 'convert -background none -resize 800x800 %s %s 2>&1', escapeshellarg( $source ), escapeshellarg( $target ) );
+		exec( $command, $output, $code );
+		if ( 0 !== $code || ! is_readable( $target ) ) {
+			throw new RuntimeException( "Cannot create preview for {$source}: " . implode( ' ', $output ) );
+		}
+
+		return;
+	}
+
+	if ( ! copy( $source, $target ) ) {
+		throw new RuntimeException( "Cannot copy asset: {$source}" );
+	}
+};
+
 foreach ( $slots as $index => $slot ) {
 	$position = $index + 1;
 	$title = sprintf( 'Головна %02d - %s', $position, $slot[0] );
+	$source = trailingslashit( $asset_dir ) . $slot[1];
+
+	if ( ! is_readable( $source ) ) {
+		fwrite( STDERR, "Missing asset: {$source}\n" );
+		exit( 1 );
+	}
+
 	$existing = get_posts(
 		array(
 			'fields'           => 'ids',
@@ -60,28 +87,30 @@ foreach ( $slots as $index => $slot ) {
 	);
 
 	if ( $existing ) {
-		$ids[] = (int) $existing[0];
+		$id     = (int) $existing[0];
+		$target = (string) get_attached_file( $id );
+
+		if ( ! is_readable( $target ) ) {
+			try {
+				$copy_image( $source, $target );
+			} catch ( RuntimeException $exception ) {
+				fwrite( STDERR, $exception->getMessage() . "\n" );
+				exit( 1 );
+			}
+
+			wp_update_attachment_metadata( $id, wp_generate_attachment_metadata( $id, $target ) );
+		}
+
+		$ids[] = $id;
 		continue;
 	}
 
-	$source = trailingslashit( $asset_dir ) . $slot[1];
-	if ( ! is_readable( $source ) ) {
-		fwrite( STDERR, "Missing asset: {$source}\n" );
-		exit( 1 );
-	}
-
 	$target = trailingslashit( $upload['path'] ) . sanitize_file_name( sprintf( 'logika-home-%02d-%s.png', $position, pathinfo( $slot[1], PATHINFO_FILENAME ) ) );
-	$extension = strtolower( pathinfo( $source, PATHINFO_EXTENSION ) );
 
-	if ( 'svg' === $extension ) {
-		$command = sprintf( 'convert -background none -resize 800x800 %s %s 2>&1', escapeshellarg( $source ), escapeshellarg( $target ) );
-		exec( $command, $output, $code );
-		if ( 0 !== $code || ! is_readable( $target ) ) {
-			fwrite( STDERR, "Cannot create preview for {$source}: " . implode( ' ', $output ) . "\n" );
-			exit( 1 );
-		}
-	} elseif ( ! copy( $source, $target ) ) {
-		fwrite( STDERR, "Cannot copy asset: {$source}\n" );
+	try {
+		$copy_image( $source, $target );
+	} catch ( RuntimeException $exception ) {
+		fwrite( STDERR, $exception->getMessage() . "\n" );
 		exit( 1 );
 	}
 

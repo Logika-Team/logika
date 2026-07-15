@@ -26,4 +26,15 @@
     background-color: var(--green);
     color: var(--white);
   }
+
+  &--white {
+    background-color: var(--white);
+    color: var(--violet-300);
+  }
+
+  &--bordered {
+    background-color: var(--white);
+    border: 1px solid var(--green);
+    color: var(--green);
+  }
 }

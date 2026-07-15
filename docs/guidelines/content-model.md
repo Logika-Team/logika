@@ -72,6 +72,10 @@ Rules:
 - camp pages are generated from CPT `camp`;
 - content that repeats across pages should be modeled as CPT or option fields.
 
+### Homepage student projects
+
+The front page owns the ordered `home_portfolio_items` ACF repeater. Each row describes one student project: card type (`standard` or `featured`), student name and age, course, topic, description, and the relevant image. A featured row may additionally include a video-review URL and CTA label/URL. The source markup remains the public fallback when the repeater has no rows.
+
 ## 4. Custom Post Types
 
 ### 4.1. `city`
@@ -456,6 +460,16 @@ Fields:
 | `post_author_expert` | Text | no | author/expert display |
 | `post_seo_title` | Text | no | manual SEO override if SEO plugin does not cover |
 | `post_seo_description` | Textarea | no | manual SEO override if SEO plugin does not cover |
+
+### 5.1. Fixed article template
+
+The standard post editor owns the title, slug, date, tags and main article content. The `Post Editorial Fields` group adds the article-specific UI: cover, AEO summary, author role/photo, optional reading-time and view overrides, sidebar promotion, selected courses, manually ordered related posts, CTA and inline FAQ.
+
+- `article_cover_image` is required for a newly prepared article; if an older post has no cover, the theme uses `global_fallback_image` or an image-free layout.
+- H2/H3 headings from the native editor form the public table of contents automatically; editors do not maintain duplicate anchors manually.
+- `article_popular_courses` and `article_related_posts` store relations only. The public template reads title, URL and image from published source entities and skips drafts/private posts.
+- Article FAQ is local to the post; global media-centre search labels and topic links belong to Global Site Settings.
+- The theme renders this model. `logika-core` owns the ACF Local JSON schema.
 
 Rules:
 
@@ -847,3 +861,7 @@ Examples requiring update:
 - adding multilingual support.
 
 Do not rename ACF field names without migration plan.
+
+## 16. Marketing pages
+
+About, IT Courses, English Courses, FAQ and Media Center use page-specific ACF Local JSON groups bound to their WordPress page template. Static headings and media are page fields; reusable courses, FAQ, reviews and posts remain their own CPT/Post data and are selected in page relationship fields.

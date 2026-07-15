@@ -1,4 +1,5 @@
 const phoneInstances = new WeakMap();
+const leadConfig = window.logikaLead || {};
 const createLeadKey = () => {
   const bytes = new Uint8Array(16);
   window.crypto?.getRandomValues?.(bytes);
@@ -21,8 +22,8 @@ const logikaLeadToast = (message, type = 'success') => {
   logikaLeadToast.timeout = window.setTimeout(() => toast.classList.remove('is-visible'), 5000);
 };
 const normalizePhoneCountry = (country) => /^[a-z]{2}$/i.test(country || '') ? country.toLowerCase() : '';
-const phoneCountryDefault = normalizePhoneCountry(logikaLead.phoneCountryDefault) || 'ua';
-const phoneCountryEndpoint = logikaLead.phoneCountryEndpoint || '';
+const phoneCountryDefault = normalizePhoneCountry(leadConfig.phoneCountryDefault) || 'ua';
+const phoneCountryEndpoint = leadConfig.phoneCountryEndpoint || '';
 
 const resolvePhoneCountry = (success) => {
   if (!phoneCountryEndpoint) {
@@ -122,39 +123,43 @@ const setPhoneError = (input, show) => {
 };
 
 document.querySelectorAll('[data-logika-phone-input], input[type="tel"][name="phone"], input[type="tel"][name="tel"]').forEach((input) => {
-  if (!window.intlTelInput) return;
+  try {
+    if (!window.intlTelInput) return;
 
-  const instance = window.intlTelInput(input, {
-    initialCountry: 'auto',
-    countrySearch: false,
-    geoIpLookup: resolvePhoneCountry,
-    i18n: window.logikaIntlTelInputUk || {},
-    nationalMode: true,
-    separateDialCode: true,
-    showSelectedDialCode: true,
-    strictMode: true,
-    utilsScript: logikaLead.phoneUtilsUrl,
-  });
-  phoneInstances.set(input, instance);
-  setupPhoneCountrySearch(input);
-  updatePhoneState(input);
-
-  input.addEventListener('open:countrydropdown', () => {
-    const iti = input.closest('.iti');
-    iti?.classList.add('iti--phone-dropdown-open');
-    iti?.classList.toggle('iti--phone-dropdown-up', Boolean(iti?.querySelector('.iti__dropdown-content--dropup')));
-  });
-  input.addEventListener('close:countrydropdown', () => input.closest('.iti')?.classList.remove('iti--phone-dropdown-open', 'iti--phone-dropdown-up'));
-
-  input.addEventListener('input', () => {
+    const instance = window.intlTelInput(input, {
+      initialCountry: 'auto',
+      countrySearch: false,
+      geoIpLookup: resolvePhoneCountry,
+      i18n: window.logikaIntlTelInputUk || {},
+      nationalMode: true,
+      separateDialCode: true,
+      showSelectedDialCode: true,
+      strictMode: true,
+      utilsScript: leadConfig.phoneUtilsUrl,
+    });
+    phoneInstances.set(input, instance);
+    setupPhoneCountrySearch(input);
     updatePhoneState(input);
-    if (!input.value.trim() || phoneInstances.get(input)?.isValidNumber?.()) setPhoneError(input, false);
-  });
-  input.addEventListener('countrychange', () => { updatePhoneState(input); setPhoneError(input, false); });
-  input.addEventListener('blur', () => {
-    const instance = phoneInstances.get(input);
-    if (input.value.trim()) setPhoneError(input, Boolean(instance && !instance.isValidNumber()));
-  });
+
+    input.addEventListener('open:countrydropdown', () => {
+      const iti = input.closest('.iti');
+      iti?.classList.add('iti--phone-dropdown-open');
+      iti?.classList.remove('iti--phone-dropdown-up');
+    });
+    input.addEventListener('close:countrydropdown', () => input.closest('.iti')?.classList.remove('iti--phone-dropdown-open', 'iti--phone-dropdown-up'));
+
+    input.addEventListener('input', () => {
+      updatePhoneState(input);
+      if (!input.value.trim() || phoneInstances.get(input)?.isValidNumber?.()) setPhoneError(input, false);
+    });
+    input.addEventListener('countrychange', () => { updatePhoneState(input); setPhoneError(input, false); });
+    input.addEventListener('blur', () => {
+      const instance = phoneInstances.get(input);
+      if (input.value.trim()) setPhoneError(input, Boolean(instance && !instance.isValidNumber()));
+    });
+  } catch (error) {
+    console.error('Logika phone setup failed', error);
+  }
 });
 
 document.querySelectorAll('[data-logika-age-select]').forEach((root) => {
@@ -207,7 +212,147 @@ document.querySelectorAll('[data-logika-age-select]').forEach((root) => {
     if (!root.contains(event.target)) close();
   });
 });
+const cityEndpoint = leadConfig.cityEndpoint || '';
+const cityRequest = cityEndpoint
+  ? fetch(cityEndpoint, { credentials: 'same-origin', headers: { Accept: 'application/json' } }).then((response) => response.ok ? response.json() : [])
+  : Promise.resolve([]);
+const cityRegionLabel = (label) => String(label || 'Інші міста').replace(' область', ' обл.');
+const cityOptionLabel = (label) => label === 'Онлайн' || /^м\.\s/.test(label) ? label : `м. ${label}`;
 
+document.querySelectorAll('[data-logika-city-select]').forEach((root) => {
+  const valueInput = root.querySelector('input[name="city_id"]');
+  const trigger = root.querySelector('.main-form__city-trigger');
+  const label = root.querySelector('.main-form__city-label');
+  const dropdown = root.querySelector('.main-form__city-dropdown');
+  const search = root.querySelector('.main-form__city-search');
+  const list = root.querySelector('.main-form__city-list');
+  const empty = root.querySelector('.main-form__city-empty');
+
+  if (!valueInput || !trigger || !label || !dropdown || !search || !list || !empty) return;
+
+  const close = () => {
+    root.classList.remove('is-open');
+    trigger.setAttribute('aria-expanded', 'false');
+    dropdown.hidden = true;
+  };
+  const open = () => {
+    root.classList.add('is-open');
+    trigger.setAttribute('aria-expanded', 'true');
+    dropdown.hidden = false;
+    search.focus();
+  };
+  const selectCity = (city) => {
+    valueInput.value = String(city.id);
+    label.textContent = cityOptionLabel(city.label);
+    root.classList.add('has-value');
+    list.querySelectorAll('.main-form__city-option').forEach((option) => {
+      const active = option.dataset.id === String(city.id);
+      option.classList.toggle('is-active', active);
+      option.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+    valueInput.dispatchEvent(new Event('change', { bubbles: true }));
+    close();
+    trigger.focus();
+  };
+  const setRegionState = (button, isOpen) => {
+    button.closest('.main-form__city-region')?.classList.toggle('is-open', isOpen);
+    button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  };
+  const filterCities = () => {
+    const query = search.value.trim().toLocaleLowerCase('uk-UA');
+    let visible = 0;
+
+    list.querySelectorAll('.main-form__city-region').forEach((region) => {
+      const regionName = region.querySelector('.main-form__city-region-toggle')?.textContent.toLocaleLowerCase('uk-UA') || '';
+      const options = [...region.querySelectorAll('.main-form__city-option')];
+      const regionMatch = regionName.includes(query);
+      const citiesList = region.querySelector('.main-form__city-region-cities');
+      let matches = 0;
+
+      options.forEach((option) => {
+        const match = regionMatch || option.textContent.toLocaleLowerCase('uk-UA').includes(query);
+        option.parentElement.hidden = !match;
+        if (match) matches += 1;
+      });
+
+      region.hidden = Boolean(query) && matches === 0;
+      if (query && citiesList) {
+        setRegionState(region.querySelector('.main-form__city-region-toggle'), matches > 0);
+        citiesList.hidden = matches === 0;
+      }
+      visible += matches;
+    });
+
+    empty.hidden = visible > 0;
+  };
+  const renderCities = (cities) => {
+    const groups = cities.reduce((regions, city) => {
+      const region = city.region || {};
+      const key = region.slug || 'other';
+      if (!regions[key]) regions[key] = { region, cities: [] };
+      regions[key].cities.push(city);
+      return regions;
+    }, {});
+
+    Object.values(groups).forEach((group) => {
+      const item = document.createElement('li');
+      const regionButton = document.createElement('button');
+      const citiesList = document.createElement('ul');
+
+      item.className = 'main-form__city-region';
+      regionButton.className = 'main-form__city-region-toggle';
+      regionButton.type = 'button';
+      regionButton.textContent = cityRegionLabel(group.region.label);
+      regionButton.setAttribute('aria-expanded', 'false');
+      citiesList.className = 'main-form__city-region-cities';
+      citiesList.hidden = true;
+      regionButton.addEventListener('click', () => {
+        const nextState = !item.classList.contains('is-open');
+        list.querySelectorAll('.main-form__city-region-toggle').forEach((button) => setRegionState(button, false));
+        list.querySelectorAll('.main-form__city-region-cities').forEach((cities) => { cities.hidden = true; });
+        setRegionState(regionButton, nextState);
+        citiesList.hidden = !nextState;
+      });
+
+      group.cities.forEach((city) => {
+        const cityItem = document.createElement('li');
+        const option = document.createElement('button');
+        option.className = 'main-form__city-option';
+        option.type = 'button';
+        option.dataset.id = city.id;
+        option.textContent = cityOptionLabel(city.label);
+        option.setAttribute('role', 'option');
+        option.setAttribute('aria-selected', 'false');
+        option.addEventListener('click', () => selectCity(city));
+        cityItem.append(option);
+        citiesList.append(cityItem);
+      });
+
+      item.append(regionButton, citiesList);
+      list.append(item);
+    });
+
+    filterCities();
+  };
+
+  trigger.addEventListener('click', () => root.classList.contains('is-open') ? close() : open());
+  search.addEventListener('input', filterCities);
+  root.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') close();
+  });
+  root.closest('form')?.addEventListener('reset', () => {
+    valueInput.value = '';
+    label.textContent = 'Оберіть місто';
+    root.classList.remove('has-value');
+    search.value = '';
+    filterCities();
+  });
+  document.addEventListener('click', (event) => {
+    if (!root.contains(event.target)) close();
+  });
+
+  cityRequest.then(renderCities).catch(() => { empty.hidden = false; });
+});
 const setStatus = (status, message) => {
   if (!status) return;
   status.hidden = false;
@@ -218,12 +363,15 @@ const fieldLabels = {
   name: 'ім’я',
   phone: 'номер телефону',
   tel: 'номер телефону',
+  city_id: 'місто',
   child_age: 'вік дитини',
   age: 'вік дитини',
   consent_accepted: 'згоду з політикою конфіденційності',
 };
 const setFieldError = (field, show) => {
-  const target = field?.closest('[data-logika-age-select]')?.querySelector('.main-form__age-trigger') || field;
+  const target = field?.closest('[data-logika-age-select]')?.querySelector('.main-form__age-trigger')
+    || field?.closest('[data-logika-city-select]')?.querySelector('.main-form__city-trigger')
+    || field;
   target?.classList.toggle('main-form__input--error', show);
   target?.setAttribute('aria-invalid', show ? 'true' : 'false');
 };
@@ -231,7 +379,7 @@ const validateRequiredFields = (form, phoneInput, phone) => {
   const missing = [];
   const fields = new Set(form.querySelectorAll('[required]'));
 
-  ['name', 'phone', 'tel', 'child_age'].forEach((name) => {
+  ['name', 'phone', 'tel', 'city_id', 'child_age'].forEach((name) => {
     const field = form.querySelector(`[name="${name}"]`);
     if (field) fields.add(field);
   });
@@ -288,10 +436,10 @@ document.querySelectorAll('[data-logika-lead-form]').forEach((form) => {
 	const button = submitButton(form);
     try {
 	  button?.setAttribute('disabled', 'disabled');
-	  const tokenResponse = await fetch(`${logikaLead.tokenEndpoint}?form_id=${encodeURIComponent(data.form_id)}`, { credentials: 'same-origin' });
+	  const tokenResponse = await fetch(`${leadConfig.tokenEndpoint}?form_id=${encodeURIComponent(data.form_id)}`, { credentials: 'same-origin' });
 	  const tokenData = tokenResponse.ok ? await tokenResponse.json() : null;
 	  if (!tokenData?.token) throw new Error('token');
-      const response = await fetch(logikaLead.endpoint, {
+      const response = await fetch(leadConfig.endpoint, {
         method: 'POST',
 		headers: { 'Content-Type': 'application/json', 'X-Logika-Form-Token': tokenData.token },
         body: JSON.stringify({ ...data, source_url: window.location.href }),

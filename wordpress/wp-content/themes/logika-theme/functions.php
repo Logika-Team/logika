@@ -5,7 +5,10 @@ declare(strict_types=1);
 defined( 'ABSPATH' ) || exit;
 
 require_once get_template_directory() . '/src/LeadForm.php';
+require_once get_template_directory() . '/src/PageContent.php';
+require_once get_template_directory() . '/src/ArticlePage.php';
 require_once get_template_directory() . '/src/SourceMarkup.php';
+require_once get_template_directory() . '/src/Testimonials.php';
 require_once get_template_directory() . '/src/CityPage.php';
 require_once get_template_directory() . '/src/CoursePage.php';
 require_once get_template_directory() . '/src/CampPage.php';
@@ -34,6 +37,7 @@ function logika_theme_assets(): void {
 	$map_version = (string) filemtime( get_template_directory() . '/assets/js/camp-map.js' );
 	$city_context_version = (string) filemtime( get_template_directory() . '/assets/js/city-context.js' );
 	$media_center_version = (string) filemtime( get_template_directory() . '/assets/js/media-center.js' );
+	$media_search_version = (string) filemtime( get_template_directory() . '/assets/css/media-search.css' );
 	$map_style_version = (string) filemtime( get_template_directory() . '/assets/css/blocks/sections/school-map.css' );
 	$leads_version = (string) filemtime( get_template_directory() . '/assets/js/leads.js' );
 	$phone_dropup_version = (string) filemtime( get_template_directory() . '/assets/css/phone-dropdown-dropup.css' );
@@ -53,6 +57,7 @@ function logika_theme_assets(): void {
 	wp_localize_script( 'logika-leads', 'logikaLead', array( 'endpoint' => esc_url_raw( rest_url( 'logika/v1/leads' ) ), 'tokenEndpoint' => esc_url_raw( rest_url( 'logika/v1/forms/token' ) ), 'cityEndpoint' => esc_url_raw( rest_url( 'logika/v1/cities' ) ), 'phoneCountryDefault' => 'UA', 'phoneCountryEndpoint' => esc_url_raw( rest_url( 'logika/v1/phone-country' ) ), 'phoneUtilsUrl' => esc_url_raw( $uri . '/js/vendor/intl-tel-input/utils.js' ) ) );
 	wp_enqueue_script( 'logika-city-selector', $uri . '/js/city-selector.js', array( 'logika-city-context' ), $version, true );
 	if ( is_page( 'media-center' ) ) {
+		wp_enqueue_style( 'logika-media-search', $uri . '/css/media-search.css', array( 'logika-theme' ), $media_search_version );
 		wp_enqueue_script( 'logika-media-center', $uri . '/js/media-center.js', array( 'logika-city-context' ), $media_center_version, true );
 		wp_localize_script( 'logika-media-center', 'logikaMediaCenter', array( 'endpoint' => esc_url_raw( rest_url( 'logika/v1/media' ) ) ) );
 	}

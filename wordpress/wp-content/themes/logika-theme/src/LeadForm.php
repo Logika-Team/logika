@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 final class Logika_Theme_Lead_Form {
 	private static int $age_select_index = 0;
+	private static int $city_select_index = 0;
 
 	public static function render_age_select( int $page_id = 0 ): string {
 		$page_id = $page_id > 0 ? $page_id : (int) get_option( 'page_on_front' );
@@ -27,6 +28,12 @@ final class Logika_Theme_Lead_Form {
 		}
 
 		return $html . '</ul></div>';
+	}
+
+	public static function render_city_select(): string {
+		$control_id = 'logika-city-' . ++self::$city_select_index;
+
+		return '<div class="main-form__city-select" data-logika-city-select><input type="hidden" name="city_id" required><button class="main-form__input main-form__city-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="' . esc_attr( $control_id ) . '"><span class="main-form__city-label">Оберіть місто</span></button><div class="main-form__city-dropdown" id="' . esc_attr( $control_id ) . '" hidden><input class="main-form__city-search" type="search" placeholder="Пошук міста" aria-label="Пошук міста"><ul class="main-form__city-list" role="listbox"></ul><p class="main-form__city-empty" hidden>Місто не знайдено</p></div></div>';
 	}
 
 	/**

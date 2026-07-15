@@ -1,0 +1,29 @@
+@import "../../general/mixins";
+
+.articles-section {
+    padding: clamp(40px, 7.813vw, 80px) 0;
+    background-color: #FFF;
+
+    &__wrapp {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    &__btn {
+        width: fit-content;
+    }
+
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}

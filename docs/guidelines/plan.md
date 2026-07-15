@@ -18,6 +18,17 @@ Rules for agents and developers:
 - use the repo-local `.agents/skills/acf-pro` skill for future ACF Pro field model, Local JSON, options page, and template output work;
 - update this plan when scope changes.
 
+### 2026-07-15: Smooth lead CTA scroll
+
+- [ ] Add a homepage-only smooth-scroll handler for `/#lead-form` CTA links.
+- [ ] Cover the handler contract with a static regression test and run theme checks.
+
+### 2026-07-15: Search in media centre
+
+- [x] Extend the existing media feed API with a published-articles search parameter.
+- [x] Connect the media-centre search form and cover both API and browser-script contracts.
+- [x] Show debounced article suggestions directly below the search field.
+
 Checkbox meaning:
 
 - `[ ]` not started or not complete;
@@ -444,6 +455,7 @@ Goal: preserve search value and make structured data data-driven.
 - [x] Implement `Course` schema.
 - [x] Implement `FAQPage` schema from visible FAQ only.
 - [ ] Create Tilda URL inventory.
+- [x] Import 13 Tilda blog articles with media-library images and original slugs.
 - [ ] Create redirect map.
 - [ ] Apply 301 redirects before launch.
 - [ ] Check critical old URLs.
@@ -585,6 +597,7 @@ Exit criteria:
 
 - [x] Route navigation CTAs to course catalogues, camps, media centre, or the lead form.
 - [x] Verify canonical destinations in the WordPress runtime.
+- [x] Place the lead-form anchor at the top of the homepage hero for smooth CTA scrolling.
 
 ## 21. Agent update protocol
 
@@ -607,3 +620,21 @@ Note: CRM adapter implemented with fake client only; production credentials are 
 - [x] Add a focused source-page check for Ukrainian course labels and the minimalist menu contract.
 - [x] Replace the two English labels and restyle only the desktop `.sub-menu` card without changing its hover interaction.
 - [x] Build the theme assets and run the focused check.
+
+## 23. Відгуки з Tilda
+
+- [x] Додати ACF-поля для мітки картки, порядку показу та відеовідгуку.
+- [x] Імпортувати унікальні відгуки Tilda разом із доступними фото до Медіафайлів.
+- [x] Замінити статичні картки відгуків даними зі схваленого CPT `review`.
+
+## 24. ACF маркетингових сторінок
+
+- [x] Додати валідні page templates і Local JSON групи для п'яти поточних маркетингових сторінок.
+- [x] Додати ідемпотентне початкове наповнення курсів, FAQ і зображень.
+- [x] Перевірити рендеринг ACF і dry-run синхронізації JSON.
+
+## 25. Проєкти учнів на головній
+
+- [x] Перенести секцію проєктів з source-розмітки до теми WordPress.
+- [x] Додати Local JSON повторювач ACF для редагування карток і безпечний fallback.
+- [x] Зібрати assets та перевірити PHP-контракт і браузерний рендер.

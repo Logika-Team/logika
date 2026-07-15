@@ -3,9 +3,5 @@
 declare(strict_types=1);
 
 get_header();
-?>
-<main>
-	<?php get_template_part( 'template-parts/sections/course-list' ); ?>
-</main>
-<?php
+logika_theme_render_source_page( 'it-courses' );
 get_footer();

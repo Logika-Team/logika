@@ -4,6 +4,15 @@
 
 // ----------------- SECTION BLOCKS -----------------
 @import "../blocks/sections/banner-section.scss";
+@import "../blocks/sections/about.scss";
+@import "../blocks/sections/camp-page-hero.scss";
+@import "../blocks/sections/camp-benefits.scss";
+@import "../blocks/sections/camp-activities.scss";
+@import "../blocks/sections/camp-details.scss";
+@import "../blocks/sections/camp-highlights.scss";
+@import "../blocks/sections/camp-formats.scss";
+@import "../blocks/sections/camp-booking.scss";
+@import "../blocks/sections/school-map.scss";
 @import "../blocks/sections/marquee-section.scss";
 @import "../blocks/sections/services-section.scss";
 @import "../blocks/sections/english-section.scss";
@@ -18,3 +27,19 @@
 @import "../blocks/sections/certificates-section.scss";
 @import "../blocks/sections/partners-section.scss";
 
+// ----------------- SECTION ARCHIVE BLOG AND POSTS -----------------
+@import "../blocks/sections/archive-section.scss";
+@import "../blocks/sections/article-section.scss";
+@import "../blocks/sections/news-section.scss";
+@import "../blocks/sections/articles-section.scss";
+@import "../blocks/sections/offers-section.scss";
+@import "../blocks/sections/related-section.scss";
+
+
+// ----------------- SECTION COURSES PAGES -----------------
+@import "../blocks/sections/courses-section.scss";
+@import "../blocks/sections/categories-section.scss";
+
+@import "../blocks/sections/en-courses-section.scss";
+@import "../blocks/sections/test-section.scss";
+@import "../blocks/sections/en-about-section.scss";

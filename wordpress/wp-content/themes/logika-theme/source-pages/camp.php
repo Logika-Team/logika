@@ -1,1 +1,774 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="Description" content="Logika"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Logika</title><link rel="preload" href="fonts/Montserrat-Regular.woff" as="font" crossorigin="anonymous"><link rel="preload" href="fonts/Montserrat-Medium.woff" as="font" crossorigin="anonymous"><link rel="preload" href="fonts/Montserrat-SemiBold.woff" as="font" crossorigin="anonymous"><link rel="preload" href="fonts/Montserrat-Bold.woff" as="font" crossorigin="anonymous"><link rel="stylesheet" href="css/style.css"></head><body><header class="header fixed-block"><div class="header__top"><div class="container"><div class="header__top-box"><div class="header__contact"><div class="header__contact-heading"><svg width="16" height="16"><use href="img/sprite/sprite.svg#icon-phone"></use></svg> <span>Телефон:</span></div><a class="header__contact-link" href="tel:+380931707440" target="_blank">+ 38 (093) 170-74-40</a></div><div class="header__contact"><div class="header__contact-heading"><svg width="16" height="16"><use href="img/sprite/sprite.svg#icon-email"></use></svg> <span>Email:</span></div><a class="header__contact-link" href="mailto:kiev@logikaschool.com" target="_blank">kiev@logikaschool.com</a></div><div class="header__socials"><div class="header__socials-heading">Соц. мережі:</div><ul class="header__socials-links"><li><a href="#" target="_blank"><svg width="24" height="24"><use href="img/sprite/sprite.svg#instagram-color"></use></svg></a></li><li><a href="#" target="_blank"><svg width="24" height="24"><use href="img/sprite/sprite.svg#facebook-color"></use></svg></a></li></ul></div></div></div></div><div class="container"><div class="header__box"><div class="header__left"><a class="header__logo logo" href="/"><img width="129" height="54" src="img/main-logo.svg" alt="Logika"></a><div class="header__accreditation">Найбільша в Україні школа програмування та англійської мови для учнів 7-16 років</div></div><div class="mobile"><div class="mobile__box"><div class="header__location"><div class="header__location-trigger"><div class="header__location-active"><svg width="16" height="16"><use href="img/sprite/sprite.svg#icon-location"></use></svg><p>Оберіть місто</p></div><svg width="18" height="18"><use href="img/sprite/sprite.svg#icon-caret-down"></use></svg></div></div><nav class="header__nav" data-single="true" data-breakpoint="576" data-accordion-init><ul class="menu"><li class="menu-item"><a class="menu-link" href="#">Про Logika</a></li><li class="menu-item menu-has-child"><a class="menu-link" href="#">Курси</a> <button class="menu-button" data-id="courses"><svg width="18" height="18"><use href="img/sprite/sprite.svg#icon-caret-down"></use></svg></button><ul class="sub-menu" data-content="courses"><li class="menu-item"><a class="menu-link" href="#">IT Courses</a></li><li class="menu-item"><a class="menu-link" href="#">English Courses</a></li></ul></li><li class="menu-item"><a class="menu-link" href="#">IT-табори</a></li><li class="menu-item"><a class="menu-link" href="#">Медіа-центр</a></li><li class="menu-item"><a class="menu-link" href="#">FAQ</a></li><li class="menu-item"><a class="menu-link" href="#">Контакти</a></li></ul></nav><div class="header__controls"><a class="header__login btn" href="#"><svg width="16" height="16"><use href="img/sprite/sprite.svg#icon-person"></use></svg> <span>Увійти</span> </a><a class="header__lesson btn btn--yellow" href="#">Пробний урок <svg width="20" height="20"><use href="img/sprite/sprite.svg#arrow-right"></use></svg></a></div></div></div><button class="burger"><span class="burger__line"></span></button></div></div></header><main>Single Camp<section class="faq-section"><div class="container"><div class="faq-section__wrapp"><h2>FAQ</h2><ul class="accordion" data-default="1" data-single="true" data-breakpoint="576" data-accordion-init><li class="accordion__item"><button class="accordion__btn" data-id="1">What is an online pharmacy, and how does it work? <span class="accordion__btn-icon"><svg width="24" height="24"><use href="img/sprite/sprite.svg#agile-down"></use></svg></span></button><div class="accordion__content" data-content="1"><div class="editor"><p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p></div></div></li><li class="accordion__item"><button class="accordion__btn" data-id="2">How do I place an order? <span class="accordion__btn-icon"><svg width="24" height="24"><use href="img/sprite/sprite.svg#agile-down"></use></svg></span></button><div class="accordion__content" data-content="2"><div class="editor"><p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p></div></div></li><li class="accordion__item"><button class="accordion__btn" data-id="3">Can I order prescription medications from your online pharmacy? <span class="accordion__btn-icon"><svg width="24" height="24"><use href="img/sprite/sprite.svg#agile-down"></use></svg></span></button><div class="accordion__content" data-content="3"><div class="editor"><p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p></div></div></li><li class="accordion__item"><button class="accordion__btn" data-id="4">How does delivery work with your online pharmacy in Canada? <span class="accordion__btn-icon"><svg width="24" height="24"><use href="img/sprite/sprite.svg#agile-down"></use></svg></span></button><div class="accordion__content" data-content="4"><div class="editor"><p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p></div></div></li><li class="accordion__item"><button class="accordion__btn" data-id="5">Do you offer over-the-counter products in your online drugstore? <span class="accordion__btn-icon"><svg width="24" height="24"><use href="img/sprite/sprite.svg#agile-down"></use></svg></span></button><div class="accordion__content" data-content="5"><div class="editor"><p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p></div></div></li><li class="accordion__item"><button class="accordion__btn" data-id="6">What if I have questions or need help with my order? <span class="accordion__btn-icon"><svg width="24" height="24"><use href="img/sprite/sprite.svg#agile-down"></use></svg></span></button><div class="accordion__content" data-content="6"><div class="editor"><p>Pellentesque et neque fringilla arcu laoreet pretium. Aenean id pellentesque ante. Phasellus in augue eget magna ultrices tristique vitae sed ligula. Etiam imperdiet mi ut odio tincidunt finibus. Nulla facilisi. Nullam molestie dictum nibh, dignissim accumsan ipsum pharetra pulvinar. In eu sollicitudin sapien. Mauris suscipit venenatis nunc et commodo. Etiam et tortor non ipsum tempus aliquam.</p></div></div></li></ul></div></div></section></main><footer class="footer"><div class="container"><div class="footer__wrapp"><div class="footer__top"><div class="footer__info"><a class="footer__logo logo" href="/"><img width="193" height="80" src="img/logo.svg" alt="Logika"></a><div class="footer__accreditation">Найбільша в Україні школа програмування та англійської мови для учнів 7-16 років</div><a class="btn btn--yellow" href="#">Спробувати безкоштовно <svg width="20" height="20"><use href="img/sprite/sprite.svg#arrow-right"></use></svg></a></div><div class="footer__box"><div class="footer__navigation"><div class="footer__title">Навігація</div><ul class="footer__menu"><li><a href="/about.html">Про Logika</a></li><li><a href="/it-courses.html">Курси</a></li><li><a href="/camps.html">IT Табори</a></li><li><a href="/media-center.html">Медіа-центр</a></li><li><a href="/faq.html">FAQ</a></li><li><a href="#">Контакти</a></li></ul></div><div class="footer__information"><div class="footer__title">Інформація</div><ul class="footer__menu"><li><a href="#">Вакансії</a></li><li><a href="#">Договір оферти<p>(для клієнтів в Україні)</p></a></li><li><a href="#">Договір оферти<p>(для клієнтів поза межами України)</p></a></li><li><a href="#">Освітня ліцензія</a></li></ul></div><div class="footer__contacts"><div class="footer__contacts-box"><div class="footer__title">Наші соц. мережі</div><ul class="footer__socials"><li><a href="#" target="_blank"><svg width="46" height="46"><use href="img/sprite/sprite.svg#Instagram"></use></svg></a></li><li><a href="#" target="_blank"><svg width="46" height="46"><use href="img/sprite/sprite.svg#Facebook"></use></svg></a></li></ul></div><div class="footer__contacts-box"><div class="footer__title">Контакти</div><a class="footer__tel" href="tel:+380931707440" target="_blank">+ 38 (093) 170-74-40</a> <a class="footer__email" href="mailto:kiev@logikaschool.com" target="_blank">kiev@logikaschool.com</a></div></div></div></div><div class="footer__bottom"><div class="footer__bottom-left"><p>© 2026 Logika</p><p>Всі права захищені</p></div><a class="footer__policy" href="#">Політика конфіденційності</a></div></div></div></footer><script src="js/swiper.js"></script><script defer="defer" src="js/main.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="uk">
+@include('partials/head.html')
+
+<body>
+  @include('partials/header.html')
+
+  <main>
+    <section class="banner-section camp-hero">
+      <div class="container">
+        <div class="banner-section__wrapp">
+          <div class="banner-section__blocks">
+            <div class="banner-section__left">
+              <div class="banner-section__info">
+                <h1>Літній табір на Закарпатті – “Фестиваль професій”</h1>
+                <h4>27.06 - 06.07 (перша зміна), 21.07 - 30.07 (друга зміна)</h4>
+                <p class="camp-hero__description">Навчаємо дітей створювати ігри, сайти, застосунки та власні digital-проєкти через практику й сучасні технології.</p>
+              </div>
+
+              <div class="camp-hero__gallery" aria-label="Фотографії літнього табору">
+                <img class="camp-hero__image camp-hero__image--hands" src="img/camp/hands.png" alt="Діти в таборі">
+                <img class="camp-hero__image camp-hero__image--pool" src="img/camp/pool.png" alt="Відпочинок дітей у басейні">
+                <img class="camp-hero__image camp-hero__image--team" src="img/camp/team.png" alt="Команда учасників табору">
+                <img class="camp-hero__image camp-hero__image--mountains" src="img/camp/mountains.png" alt="Учасники табору в Карпатах">
+              </div>
+            </div>
+
+            <div class="banner-section__right">
+              <form id="form" class="banner-section__form main-form">
+                <div class="main-form__title h5">
+                  <span>Встигніть забронювати.</span>
+                  Залиште заявку за 30 секунд — ми зателефонуємо і обговоримо усі деталі
+                </div>
+
+                <div class="main-form__inputs">
+                  <input class="main-form__input" type="text" name="name" placeholder="Ім’я">
+                  <input class="main-form__input" type="tel" name="tel" placeholder="Номер телефону">
+                  <input class="main-form__input" type="text" name="city" placeholder="Ваше місто">
+                </div>
+
+                <button class="main-form__btn btn btn--yellow" type="submit">
+                  Забронювати місце
+                  <svg width="20" height="20">
+                    <use href="img/sprite/sprite.svg#arrow-right"></use>
+                  </svg>
+                </button>
+
+                <p class="main-form__text">Натискаючи, ви погоджуєтесь із <a href="#">Політикою конфіденційності</a></p>
+              </form>
+
+              <div class="banner-section__character-logika">
+                <img width="97" height="146" src="img/logika-character.svg" alt="Персонаж Logika">
+              </div>
+            </div>
+          </div>
+
+          <ul class="banner-section__bar">
+            <li>
+              <span><img width="56" height="56" src="img/banner-bar/icon-map-location-figma.svg" alt=""></span>
+              <p><span>Де:</span><strong>с. Дудки, Закарпаття</strong></p>
+            </li>
+            <li>
+              <span><img width="56" height="56" src="img/banner-bar/icon-calendar-check-figma.svg" alt=""></span>
+              <p><span>Коли:</span><strong>27-01 липня 2026</strong></p>
+            </li>
+            <li>
+              <span><img width="56" height="56" src="img/banner-bar/icon-time-outline-figma.svg" alt=""></span>
+              <p><span>Тривалість:</span><strong>10 днів/9 ночей</strong></p>
+            </li>
+            <li>
+              <span><img width="56" height="56" src="img/banner-bar/icon-user-group-figma.svg" alt=""></span>
+              <p><span>Для кого:</span><strong>діти 10-16 років</strong></p>
+            </li>
+            <li>
+              <span><img width="56" height="56" src="img/banner-bar/icon-hot-price-figma.svg" alt=""></span>
+              <p><span>Акційна ціна:</span><strong>21000 грн (при оплаті до 10.06)</strong></p>
+            </li>
+            <li>
+              <span><img width="56" height="56" src="img/banner-bar/icon-price-tag-figma.svg" alt=""></span>
+              <p><span>Ціна:</span><strong>25000 грн</strong></p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="camp-benefits" aria-labelledby="camp-benefits-title">
+      <div class="camp-benefits__cloud camp-benefits__cloud--left" aria-hidden="true"></div>
+      <div class="camp-benefits__cloud camp-benefits__cloud--right" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="camp-benefits__inner">
+          <h2 class="camp-benefits__title" id="camp-benefits-title">
+            10 днів цікавої програми та незабутніх<br>
+            вражень від літніх канікул
+          </h2>
+
+          <ul class="camp-benefits__list">
+            <li class="camp-benefits__item">
+              <article>
+                <img class="camp-benefits__image" src="img/camp/benefits/pool.png" alt="">
+                <h3>Безлімітний басейн на<br>свіжому повітрі</h3>
+              </article>
+            </li>
+            <li class="camp-benefits__item">
+              <article>
+                <img class="camp-benefits__image" src="img/camp/benefits/medical.png" alt="">
+                <h3>Медична допомога 24/7<br>на території</h3>
+              </article>
+            </li>
+            <li class="camp-benefits__item">
+              <article>
+                <img class="camp-benefits__image" src="img/camp/benefits/food.png" alt="">
+                <h3>4-х разове харчування<br>(основне + перекус)</h3>
+              </article>
+            </li>
+            <li class="camp-benefits__item">
+              <article>
+                <img class="camp-benefits__image" src="img/camp/benefits/foam.png" alt="">
+                <h3>Незабутня професійна<br>пінна вечірка</h3>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="camp-activities">
+      <div class="container">
+        <div class="camp-activities__inner">
+          <h2 class="camp-activities__title">Активності у програмі:</h2>
+
+          <ul class="camp-activities__list">
+            <li class="camp-activities__item">
+              <article>
+                <div class="camp-activities__visual" aria-hidden="true">
+                  <img class="camp-activities__image" src="img/camp/activities/aquatoriy.png" alt="">
+                </div>
+                <div class="camp-activities__copy">
+                  <h3 class="camp-activities__name">Акваторій Emily Resort</h3>
+                  <p>море веселощів, гірки та водні атракціони для яскравих емоцій!</p>
+                </div>
+              </article>
+            </li>
+            <li class="camp-activities__item">
+              <article>
+                <div class="camp-activities__visual" aria-hidden="true">
+                  <img class="camp-activities__image" src="img/camp/activities/mountains.png" alt="">
+                </div>
+                <div class="camp-activities__copy">
+                  <h3 class="camp-activities__name">Похід у гори</h3>
+                  <p>свіже повітря, мальовничі краєвиди та справжня команда однодумців!</p>
+                </div>
+              </article>
+            </li>
+            <li class="camp-activities__item">
+              <article>
+                <div class="camp-activities__visual" aria-hidden="true">
+                  <img class="camp-activities__image" src="img/camp/activities/campfire.png" alt="">
+                </div>
+                <div class="camp-activities__copy">
+                  <h3 class="camp-activities__name">Пісні біля вогнища</h3>
+                  <p>атмосферні вечори з гітарою, історіями та смачними маршмелоу!</p>
+                </div>
+              </article>
+            </li>
+            <li class="camp-activities__item">
+              <article>
+                <div class="camp-activities__visual" aria-hidden="true">
+                  <img class="camp-activities__image" src="img/camp/activities/lviv.png" alt="">
+                </div>
+                <div class="camp-activities__copy">
+                  <h3 class="camp-activities__name">Пригоди у Львові</h3>
+                  <p>захоплива виїзна мандрівка до міста легенд, історії та яскравих вражень</p>
+                </div>
+              </article>
+            </li>
+            <li class="camp-activities__item">
+              <article>
+                <div class="camp-activities__visual" aria-hidden="true">
+                  <img class="camp-activities__image" src="img/camp/activities/quests.png" alt="">
+                </div>
+                <div class="camp-activities__copy">
+                  <h3 class="camp-activities__name">Розваги</h3>
+                  <p>захопливі квести у стилі популярних ігор, інтелектуальні квізи та челенджі</p>
+                </div>
+              </article>
+            </li>
+            <li class="camp-activities__item">
+              <article>
+                <div class="camp-activities__visual" aria-hidden="true">
+                  <img class="camp-activities__image" src="img/camp/activities/team.png" alt="">
+                </div>
+                <div class="camp-activities__copy">
+                  <h3 class="camp-activities__name">Яскраве табірне життя</h3>
+                  <p>спортивні ігри та командні змагання, вечірки, дискотеки та нові друзі</p>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="camp-details" aria-labelledby="camp-location-title">
+      <div class="container">
+        <div class="camp-details__content">
+          <div class="camp-details__copy">
+            <h2 id="camp-location-title">Локація</h2>
+            <p>Комплекс розташований в 10 хвилинах від центру Львова (м. Винники, вул. Хмельницького, 9б). Має просторі піщані пляжі, озеро, 2 природних басейни, водні атракціони, аквапарк, тюбінг-парк, панорамний підйомник та багато іншого</p>
+            <a class="camp-details__cta btn btn--violet" href="#form">
+              Забронювати місце
+              <svg width="20" height="20">
+                <use href="img/sprite/sprite.svg#arrow-right"></use>
+              </svg>
+            </a>
+          </div>
+
+          <div class="camp-details__gallery" data-camp-gallery>
+            <div class="camp-details__main-image">
+              <img data-gallery-main src="img/camp/details/location.png" alt="Комплекс Emily Resort">
+              <div class="camp-details__controls">
+                <button class="camp-details__control" type="button" data-gallery-prev aria-label="Попереднє фото">
+                  <svg width="24" height="24"><use href="img/sprite/sprite.svg#icon-arrow-left"></use></svg>
+                </button>
+                <button class="camp-details__control" type="button" data-gallery-next aria-label="Наступне фото">
+                  <svg width="24" height="24"><use href="img/sprite/sprite.svg#icon-arrow-right"></use></svg>
+                </button>
+              </div>
+            </div>
+            <ul class="camp-details__thumbs">
+              <li><button class="camp-details__thumb is-active" type="button" data-gallery-thumb="img/camp/details/location.png" aria-label="Показати головне фото" aria-pressed="true"><img src="img/camp/details/location.png" alt=""></button></li>
+              <li><button class="camp-details__thumb" type="button" data-gallery-thumb="img/camp/details/location-1.png" aria-label="Показати фото 2" aria-pressed="false"><img src="img/camp/details/location-1.png" alt=""></button></li>
+              <li><button class="camp-details__thumb" type="button" data-gallery-thumb="img/camp/details/location-2.png" aria-label="Показати фото 3" aria-pressed="false"><img src="img/camp/details/location-2.png" alt=""></button></li>
+              <li><button class="camp-details__thumb" type="button" data-gallery-thumb="img/camp/details/location-3.png" aria-label="Показати фото 4" aria-pressed="false"><img src="img/camp/details/location-3.png" alt=""></button></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="camp-details camp-details--reverse" aria-labelledby="camp-accommodation-title">
+      <div class="container">
+        <div class="camp-details__content">
+          <div class="camp-details__copy">
+            <h2 id="camp-accommodation-title">Проживання</h2>
+            <p>Комфортні 4/6-місні номери з усіма зручностями</p>
+            <a class="camp-details__cta btn btn--violet" href="#form">
+              Забронювати місце
+              <svg width="20" height="20">
+                <use href="img/sprite/sprite.svg#arrow-right"></use>
+              </svg>
+            </a>
+          </div>
+
+          <div class="camp-details__gallery" data-camp-gallery>
+            <div class="camp-details__main-image">
+              <img data-gallery-main src="img/camp/details/accommodation.png" alt="Номери для проживання">
+              <div class="camp-details__controls">
+                <button class="camp-details__control" type="button" data-gallery-prev aria-label="Попереднє фото">
+                  <svg width="24" height="24"><use href="img/sprite/sprite.svg#icon-arrow-left"></use></svg>
+                </button>
+                <button class="camp-details__control" type="button" data-gallery-next aria-label="Наступне фото">
+                  <svg width="24" height="24"><use href="img/sprite/sprite.svg#icon-arrow-right"></use></svg>
+                </button>
+              </div>
+            </div>
+            <ul class="camp-details__thumbs">
+              <li><button class="camp-details__thumb is-active" type="button" data-gallery-thumb="img/camp/details/accommodation.png" aria-label="Показати головне фото" aria-pressed="true"><img src="img/camp/details/accommodation.png" alt=""></button></li>
+              <li><button class="camp-details__thumb" type="button" data-gallery-thumb="img/camp/details/gallery-1.png" aria-label="Показати фото 2" aria-pressed="false"><img src="img/camp/details/gallery-1.png" alt=""></button></li>
+              <li><button class="camp-details__thumb" type="button" data-gallery-thumb="img/camp/details/gallery-2.png" aria-label="Показати фото 3" aria-pressed="false"><img src="img/camp/details/gallery-2.png" alt=""></button></li>
+              <li><button class="camp-details__thumb" type="button" data-gallery-thumb="img/camp/details/gallery-3.png" aria-label="Показати фото 4" aria-pressed="false"><img src="img/camp/details/gallery-3.png" alt=""></button></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="camp-details" aria-labelledby="camp-menu-title">
+      <div class="container">
+        <div class="camp-details__content">
+          <div class="camp-details__copy">
+            <h2 id="camp-menu-title">Меню</h2>
+            <p>4-х разове харчування з різноманітним вибором: широкий вибір страв на будь-який смак</p>
+            <a class="camp-details__cta btn btn--violet" href="#form">
+              Забронювати місце
+              <svg width="20" height="20">
+                <use href="img/sprite/sprite.svg#arrow-right"></use>
+              </svg>
+            </a>
+          </div>
+
+          <div class="camp-details__gallery" data-camp-gallery>
+            <div class="camp-details__main-image">
+              <img data-gallery-main src="img/camp/details/menu.png" alt="Меню в таборі">
+              <div class="camp-details__controls">
+                <button class="camp-details__control" type="button" data-gallery-prev aria-label="Попереднє фото">
+                  <svg width="24" height="24"><use href="img/sprite/sprite.svg#icon-arrow-left"></use></svg>
+                </button>
+                <button class="camp-details__control" type="button" data-gallery-next aria-label="Наступне фото">
+                  <svg width="24" height="24"><use href="img/sprite/sprite.svg#icon-arrow-right"></use></svg>
+                </button>
+              </div>
+            </div>
+            <ul class="camp-details__thumbs">
+              <li><button class="camp-details__thumb is-active" type="button" data-gallery-thumb="img/camp/details/menu.png" aria-label="Показати головне фото" aria-pressed="true"><img src="img/camp/details/menu.png" alt=""></button></li>
+              <li><button class="camp-details__thumb" type="button" data-gallery-thumb="img/camp/details/gallery-1.png" aria-label="Показати фото 2" aria-pressed="false"><img src="img/camp/details/gallery-1.png" alt=""></button></li>
+              <li><button class="camp-details__thumb" type="button" data-gallery-thumb="img/camp/details/gallery-2.png" aria-label="Показати фото 3" aria-pressed="false"><img src="img/camp/details/gallery-2.png" alt=""></button></li>
+              <li><button class="camp-details__thumb" type="button" data-gallery-thumb="img/camp/details/gallery-4.png" aria-label="Показати фото 4" aria-pressed="false"><img src="img/camp/details/gallery-4.png" alt=""></button></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trips-section">
+      <div class="container">
+        <div class="trips-section__wrapp">
+          <h2>Виїзні екскурсії:</h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="details-section">
+      <div class="container">
+        <div class="details-section__wrapp">
+          <h2>У вартість входить:</h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="camp-booking" aria-labelledby="camp-booking-title">
+      <div class="container">
+        <h2 class="camp-booking__title" id="camp-booking-title">Встигніть забронювати<br>незабутні спогади</h2>
+
+        <div class="camp-booking__content">
+            <div class="camp-booking__benefits">
+              <ul>
+                <li>Оновлена IT програма</li>
+                <li>Активності, квести, турніри, ігри та дискотеки, екскурсії</li>
+                <li>Безпека. Вожаті поряд з дітьми 24/7</li>
+              </ul>
+              <img class="camp-booking__characters" src="img/camp/booking-characters.svg" alt="">
+            </div>
+
+            <form class="camp-booking__form main-form">
+              <div class="camp-booking__form-title">
+                <span>Встигніть забронювати.</span>
+                Залиште заявку за 30 секунд — ми зателефонуємо і обговоримо усі деталі
+              </div>
+
+              <div class="camp-booking__inputs">
+                <input class="main-form__input" type="text" name="name" placeholder="Ім’я">
+                <input class="main-form__input" type="tel" name="tel" placeholder="Номер телефону">
+                <select class="main-form__input" name="city" aria-label="Ваше місто">
+                  <option value="" selected disabled>Ваше місто</option>
+                  <option value="kyiv">Київ</option>
+                  <option value="lviv">Львів</option>
+                  <option value="online">Онлайн</option>
+                </select>
+                <select class="main-form__input camp-booking__camp-select" name="camp" aria-label="Оберіть табір">
+                  <option value="" selected disabled>Оберіть табір</option>
+                  <option value="greece">Табір в Греції (5.07-14.07)</option>
+                  <option value="emily">VIP табір в Emily Resort (20.06-27.06)</option>
+                  <option value="zakarpattia">Еко-табір на Закарпатті</option>
+                  <option value="online">Табір онлайн</option>
+                  <option value="city">Міський табір</option>
+                </select>
+              </div>
+
+              <button class="camp-booking__submit btn btn--yellow" type="submit">Відправити <span
+                  aria-hidden="true">→</span></button>
+              <p class="camp-booking__policy">Натискаючи, ви погоджуєтесь із <a href="#">Політикою
+                  конфіденційності</a>
+              </p>
+            </form>
+          </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+      <div class="container">
+        <div class="gallery-section__wrapp">
+          <h2>Gallery</h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="testimonials-section__wrapp">
+          <h2>Довіра, підтверджена результатами</h2>
+
+          <div class="testimonials-section__box">
+            <ul class="testimonials-section__items">
+              <li class="testimonials-section__item">
+                <div class="testimonials-card is-image">
+                  <div class="testimonials-card__decor">
+                    <picture>
+                      <source type='image/webp' srcset='img/testimonials/testimonial.webp'>
+                      <img width='220' height='220' src='img/testimonials/testimonial.png' alt=''>
+                    </picture>
+
+                  </div>
+
+                  <div class="testimonials-card__watch">
+                    <svg width='34' height='34'>
+                      <use href='img/sprite/sprite.svg#watch'></use>
+                    </svg>
+                  </div>
+                </div>
+              </li>
+
+              <li class="testimonials-section__item">
+                <div class="testimonials-card">
+                  <div class="testimonials-card__box">
+                    <div class="testimonials-card__top">
+                      <div class="testimonials-card__avatar">
+                        <picture>
+                          <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                          <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                        </picture>
+                      </div>
+
+                      <div class="testimonials-card__info">
+                        <div class="testimonials-card__name">Анна Н.</div>
+                        <div class="testimonials-card__rating">
+                          <svg width='100' height='18'>
+                            <use href='img/sprite/sprite.svg#stars-rating'></use>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+                    <span class="testimonials-card__tag">Python Mastery</span>
+
+                    <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="testimonials-section__item">
+                <div class="testimonials-card">
+                  <div class="testimonials-card__box">
+                    <div class="testimonials-card__top">
+                      <div class="testimonials-card__avatar">
+                        <picture>
+                          <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                          <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                        </picture>
+                      </div>
+
+                      <div class="testimonials-card__info">
+                        <div class="testimonials-card__name">Анна Н.</div>
+                        <div class="testimonials-card__rating">
+                          <svg width='100' height='18'>
+                            <use href='img/sprite/sprite.svg#stars-rating'></use>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+                    <span class="testimonials-card__tag">Python Mastery</span>
+
+                    <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="testimonials-section__item">
+                <div class="testimonials-card is-image">
+                  <div class="testimonials-card__decor">
+                    <picture>
+                      <source type='image/webp' srcset='img/testimonials/testimonial.webp'>
+                      <img width='220' height='220' src='img/testimonials/testimonial.png' alt=''>
+                    </picture>
+
+                  </div>
+                </div>
+              </li>
+
+              <li class="testimonials-section__item">
+                <div class="testimonials-card">
+                  <div class="testimonials-card__box">
+                    <div class="testimonials-card__top">
+                      <div class="testimonials-card__avatar">
+                        <picture>
+                          <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                          <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                        </picture>
+                      </div>
+
+                      <div class="testimonials-card__info">
+                        <div class="testimonials-card__name">Анна Н.</div>
+                        <div class="testimonials-card__rating">
+                          <svg width='100' height='18'>
+                            <use href='img/sprite/sprite.svg#stars-rating'></use>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+                    <span class="testimonials-card__tag">Python Mastery</span>
+
+                    <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="testimonials-section__item">
+                <div class="testimonials-card">
+                  <div class="testimonials-card__box">
+                    <div class="testimonials-card__top">
+                      <div class="testimonials-card__avatar">
+                        <picture>
+                          <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                          <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                        </picture>
+                      </div>
+
+                      <div class="testimonials-card__info">
+                        <div class="testimonials-card__name">Анна Н.</div>
+                        <div class="testimonials-card__rating">
+                          <svg width='100' height='18'>
+                            <use href='img/sprite/sprite.svg#stars-rating'></use>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+                    <span class="testimonials-card__tag">Python Mastery</span>
+
+                    <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="testimonials-section__item">
+                <div class="testimonials-card">
+                  <div class="testimonials-card__box">
+                    <div class="testimonials-card__top">
+                      <div class="testimonials-card__avatar">
+                        <picture>
+                          <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                          <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                        </picture>
+                      </div>
+
+                      <div class="testimonials-card__info">
+                        <div class="testimonials-card__name">Анна Н.</div>
+                        <div class="testimonials-card__rating">
+                          <svg width='100' height='18'>
+                            <use href='img/sprite/sprite.svg#stars-rating'></use>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+                    <span class="testimonials-card__tag">Python Mastery</span>
+
+                    <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="testimonials-section__item">
+                <div class="testimonials-card">
+                  <div class="testimonials-card__box">
+                    <div class="testimonials-card__top">
+                      <div class="testimonials-card__avatar">
+                        <picture>
+                          <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                          <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                        </picture>
+                      </div>
+
+                      <div class="testimonials-card__info">
+                        <div class="testimonials-card__name">Анна Н.</div>
+                        <div class="testimonials-card__rating">
+                          <svg width='100' height='18'>
+                            <use href='img/sprite/sprite.svg#stars-rating'></use>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+                    <span class="testimonials-card__tag">Python Mastery</span>
+
+                    <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="testimonials-section__item">
+                <div class="testimonials-card is-image">
+                  <div class="testimonials-card__decor">
+                    <picture>
+                      <source type='image/webp' srcset='img/testimonials/testimonial.webp'>
+                      <img width='220' height='220' src='img/testimonials/testimonial.png' alt=''>
+                    </picture>
+
+                  </div>
+                </div>
+              </li>
+
+              <li class="testimonials-section__item">
+                <div class="testimonials-card">
+                  <div class="testimonials-card__box">
+                    <div class="testimonials-card__top">
+                      <div class="testimonials-card__avatar">
+                        <picture>
+                          <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                          <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                        </picture>
+                      </div>
+
+                      <div class="testimonials-card__info">
+                        <div class="testimonials-card__name">Анна Н.</div>
+                        <div class="testimonials-card__rating">
+                          <svg width='100' height='18'>
+                            <use href='img/sprite/sprite.svg#stars-rating'></use>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+                    <span class="testimonials-card__tag">Python Mastery</span>
+
+                    <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="testimonials-section__item">
+                <div class="testimonials-card is-image">
+                  <div class="testimonials-card__decor">
+                    <picture>
+                      <source type='image/webp' srcset='img/testimonials/testimonial.webp'>
+                      <img width='220' height='220' src='img/testimonials/testimonial.png' alt=''>
+                    </picture>
+
+                  </div>
+                </div>
+              </li>
+
+              <li class="testimonials-section__item">
+                <div class="testimonials-card">
+                  <div class="testimonials-card__box">
+                    <div class="testimonials-card__top">
+                      <div class="testimonials-card__avatar">
+                        <picture>
+                          <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                          <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                        </picture>
+                      </div>
+
+                      <div class="testimonials-card__info">
+                        <div class="testimonials-card__name">Анна Н.</div>
+                        <div class="testimonials-card__rating">
+                          <svg width='100' height='18'>
+                            <use href='img/sprite/sprite.svg#stars-rating'></use>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+                    <span class="testimonials-card__tag">Python Mastery</span>
+
+                    <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="faq-section__left-bg">
+        <img src="img/faq/faq-left-bg.svg" alt="">
+      </div>
+
+      <div class="faq-section__right-bg">
+        <img src="img/faq/faq-right-bg.svg" alt="">
+      </div>
+
+      <div class="container">
+        <div class="faq-section__wrapp">
+          <h2>Питання та відповіді</h2>
+
+          <ul class='accordion' data-default="1" data-single='true' data-breakpoint='576' data-accordion-init>
+            <li class='accordion__item'>
+              <button class='accordion__btn h5' data-id='1'>
+                Скільки коштує навчання в Logika?
+              </button>
+              <div class='accordion__content' data-content='1'>
+                <div class="editor">
+                  <p>Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.</p>
+                </div>
+              </div>
+            </li>
+            <li class='accordion__item'>
+              <button class='accordion__btn h5' data-id='2'>
+                З якого віку можна навчатися в Logika?
+              </button>
+              <div class='accordion__content' data-content='2'>
+                <div class="editor">
+                  <p>Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.</p>
+                </div>
+              </div>
+            </li>
+            <li class='accordion__item'>
+              <button class='accordion__btn h5' data-id='3'>
+                Чи потрібен досвід у програмуванні або англійській?
+              </button>
+              <div class='accordion__content' data-content='3'>
+                <div class="editor">
+                  <p>Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.</p>
+                </div>
+              </div>
+            </li>
+            <li class='accordion__item'>
+              <button class='accordion__btn h5' data-id='4'>
+                Як проходять заняття?
+              </button>
+              <div class='accordion__content' data-content='4'>
+                <div class="editor">
+                  <p>Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.</p>
+                </div>
+              </div>
+            </li>
+            <li class='accordion__item'>
+              <button class='accordion__btn h5' data-id='5'>
+                Що отримає дитина під час навчання?
+              </button>
+              <div class='accordion__content' data-content='5'>
+                <div class="editor">
+                  <p>Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.</p>
+                </div>
+              </div>
+            </li>
+            <li class='accordion__item'>
+              <button class='accordion__btn h5' data-id='6'>
+                Як записатися на безкоштовний пробний урок?
+              </button>
+              <div class='accordion__content' data-content='6'>
+                <div class="editor">
+                  <p>Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.</p>
+                </div>
+              </div>
+            </li>
+            <li class='accordion__item'>
+              <button class='accordion__btn h5' data-id='7'>
+                Чим Logika відрізняється від інших шкіл?
+              </button>
+              <div class='accordion__content' data-content='7'>
+                <div class="editor">
+                  <p>Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  @include('partials/footer.html')
+
+  <script src="js/swiper.js"></script>
+  <script defer src="js/main.js"></script>
+</body>
+</html>

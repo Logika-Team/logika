@@ -1,0 +1,110 @@
+@import "../../general/mixins";
+
+.en-about-section {
+    padding: clamp(40px, 7.813vw, 80px) 0;
+
+    &__wrapp {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+    }
+
+    &__box {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    &__item {
+        padding: 30px;
+        background-color: var(--white);
+        border-radius: 25px;
+        border: 1px solid #F0F0F0;
+        box-shadow: 0 0 25px 0 rgba(37, 37, 37, 0.06);
+
+        &-icon {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        &-heading {
+            margin-bottom: 10px;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 128%;
+            letter-spacing: -1px;
+            color: var(--violet-500);
+        }
+
+        &-text {
+            color: var(--grey-500);
+        }
+    }
+
+    &__info {
+        overflow: hidden;
+        position: relative;
+        background-color: #374C92;
+        border-radius: 30px;
+        display: flex;
+
+        &-box {
+            max-width: 345px;
+            width: 100%;
+            padding: 40px 20px 40px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        &-top {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        &-title {
+            font-size: 36px;
+            font-weight: 600;
+            line-height: 118%; 
+            letter-spacing: -1.8px;
+            color: var(--white);
+        }
+
+        &-text {
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 140%; 
+            letter-spacing: -0.9px;
+            color: var(--grey-100);
+        }
+
+        &-icon {
+            display: flex;
+        }
+
+        &-image {
+            max-width: 331px;
+            width: 100%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        &-bg {
+            position: absolute;
+            inset: 0;
+            display: flex;
+        }
+    }
+}

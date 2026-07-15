@@ -1,0 +1,120 @@
+@import "../../general/mixins";
+
+.archive-section {
+    &__wrapp {
+        padding: clamp(40px, 7.813vw, 80px) 0;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    &__box {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 30px;
+    }
+
+    &__main {
+        .news-card {
+            padding: 0;
+            background-color: transparent;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .news-card__thumbnail {
+            width: 100%;
+            aspect-ratio: 832 / 430;
+
+            picture,
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .news-card__top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .news-card__title {
+            font-size: 32px;
+            line-height: 118%; /* 37.76px */
+            letter-spacing: -1.6px;
+            color: var(--violet-300);
+        }
+    }
+
+    &__promos {
+        max-width: 588px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__promo {
+        position: relative;
+        overflow: hidden;
+        padding: 30px;
+        background-color: var(--violet-100);
+        box-shadow: 0 0 25px 0 rgba(37, 37, 37, 0.06);
+        border-radius: 32px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        &-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 230px;
+            height: 230px;          
+        }
+
+        &-image {
+            position: absolute;
+        }
+
+        &-label {
+            width: fit-content;
+            padding: 10px 15px;
+            border-radius: 46px;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 140%;
+            letter-spacing: -0.6px;
+            border: 1px solid #D6C1E3;
+            background: #EFDDFA;
+            color: var(--violet-100);
+        }
+
+        &-info {
+            max-width: 348px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            & > span {
+                color: var(--white);
+            }
+
+            & > p {
+                color: var(--grey-100);
+            }
+        }
+
+        &-link {
+            padding: 20px 0;
+        }
+
+    }
+
+}

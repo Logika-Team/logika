@@ -28,7 +28,9 @@
     {"key":"field_fallback_faq","label":"Резервні FAQ","name":"fallback_faq","type":"relationship","post_type":["faq_item"],"return_format":"id"},
     {"key":"field_fallback_no_branch_text","label":"Текст без філій","name":"fallback_no_branch_text","type":"textarea"},
     {"key":"field_fallback_no_camp_text","label":"Текст без таборів","name":"fallback_no_camp_text","type":"textarea"},
-    {"key":"field_fallback_no_course_text","label":"Текст без курсів","name":"fallback_no_course_text","type":"textarea"}
+    {"key":"field_fallback_no_course_text","label":"Текст без курсів","name":"fallback_no_course_text","type":"textarea"},
+    {"key":"field_media_center_search_placeholder","label":"Placeholder пошуку медіацентру","name":"media_center_search_placeholder","type":"text","default_value":"Пошук по статтях"},
+    {"key":"field_media_center_topics","label":"Тематичні посилання медіацентру","name":"media_center_topics","type":"repeater","layout":"table","button_label":"Додати посилання","sub_fields":[{"key":"field_media_center_topic_label","label":"Назва","name":"label","type":"text","required":1},{"key":"field_media_center_topic_url","label":"Посилання","name":"url","type":"url","required":1}]}
   ],
   "location": [[{"param":"options_page","operator":"==","value":"logika-settings"}]],
   "active": true,
