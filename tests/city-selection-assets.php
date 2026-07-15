@@ -43,6 +43,12 @@ if ( ! str_contains( $routing, '^cities/([^/]+)/?$' ) || ! str_contains( $routin
 	exit( 1 );
 }
 
+$generic_route = strpos( $routing, '^cities/([^/]+)/(.+)/?$' );
+if ( false === $generic_route || false === strpos( $routing, '^cities/([^/]+)/camps/?$' ) || false === strpos( $routing, '^cities/([^/]+)/courses/?$' ) || strpos( $routing, '^cities/([^/]+)/camps/?$' ) > $generic_route || strpos( $routing, '^cities/([^/]+)/courses/?$' ) > $generic_route || strpos( $routing, '^cities/([^/]+)/camps/([^/]+)/?$' ) > $generic_route || strpos( $routing, '^cities/([^/]+)/courses/([^/]+)/?$' ) > $generic_route || strpos( $routing, '^cities/([^/]+)/media-center/([^/]+)/?$' ) > $generic_route ) {
+	fwrite( STDERR, "City archives and entries must be routed before generic city pages.\n" );
+	exit( 1 );
+}
+
 if ( ! str_contains( $map, 'Object.entries(regionNames).find' ) || ! str_contains( $map, 'label === city.region?.label' ) ) {
 	fwrite( STDERR, "Map must resolve the selected city region by its public label.\n" );
 	exit( 1 );

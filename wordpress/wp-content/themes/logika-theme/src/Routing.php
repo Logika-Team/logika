@@ -5,7 +5,7 @@ declare(strict_types=1);
 defined( 'ABSPATH' ) || exit;
 
 final class Logika_Theme_Routing {
-	private const REWRITE_VERSION = '4';
+	private const REWRITE_VERSION = '5';
 
 	private const LEGACY_ROUTES = array(
 		'about.html' => '/about/', 'faq.html' => '/faq/', 'it-courses.html' => '/it-courses/', 'en-courses.html' => '/english-courses/', 'camps.html' => '/camps/', 'media-center.html' => '/media-center/', 'article.html' => '/media-center/', 'it-course.html' => '/courses/', 'camp.html' => '/camps/', 'city.html' => '/',
@@ -25,10 +25,12 @@ final class Logika_Theme_Routing {
 
 	public static function rewriteRules(): void {
 		add_rewrite_rule( '^cities/([^/]+)/?$', 'index.php?post_type=city&logika_city=$matches[1]', 'top' );
-		add_rewrite_rule( '^cities/([^/]+)/(.+)/?$', 'index.php?pagename=$matches[2]&logika_city=$matches[1]', 'top' );
 		add_rewrite_rule( '^cities/([^/]+)/camps/([^/]+)/?$', 'index.php?post_type=camp&name=$matches[2]&logika_city=$matches[1]', 'top' );
 		add_rewrite_rule( '^cities/([^/]+)/courses/([^/]+)/?$', 'index.php?post_type=course&name=$matches[2]&logika_city=$matches[1]', 'top' );
 		add_rewrite_rule( '^cities/([^/]+)/media-center/([^/]+)/?$', 'index.php?post_type=post&name=$matches[2]&logika_city=$matches[1]', 'top' );
+		add_rewrite_rule( '^cities/([^/]+)/camps/?$', 'index.php?post_type=camp&logika_city=$matches[1]', 'top' );
+		add_rewrite_rule( '^cities/([^/]+)/courses/?$', 'index.php?post_type=course&logika_city=$matches[1]', 'top' );
+		add_rewrite_rule( '^cities/([^/]+)/(.+)/?$', 'index.php?pagename=$matches[2]&logika_city=$matches[1]', 'top' );
 		add_rewrite_rule( '^media-center/([^/]+)/?$', 'index.php?post_type=post&name=$matches[1]', 'top' );
 	}
 
