@@ -34,6 +34,11 @@ if ( ! str_contains( $scss, '&__online' ) || ! str_contains( $scss, '[hidden]' )
 	exit( 1 );
 }
 
+if ( 1 !== preg_match( '#&__online \{.*?width: 912px;.*?max-width: calc\(100vw - 40px\);.*?\.main-form \{\s*width: 100%;#s', $scss ) ) {
+	fwrite( STDERR, "School map online form must match the mode switcher width.\n" );
+	exit( 1 );
+}
+
 if ( ! str_contains( $functions, 'logika-school-map-style' ) ) {
 	fwrite( STDERR, "School map stylesheet must be enqueued after the theme stylesheet.\n" );
 	exit( 1 );
