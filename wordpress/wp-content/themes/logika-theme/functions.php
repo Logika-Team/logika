@@ -14,6 +14,9 @@ require_once get_template_directory() . '/src/CitySchema.php';
 require_once get_template_directory() . '/src/CityFaqSchema.php';
 require_once get_template_directory() . '/src/CourseSchema.php';
 require_once get_template_directory() . '/src/PhoneCountry.php';
+require_once get_template_directory() . '/src/Routing.php';
+
+Logika_Theme_Routing::register();
 
 function logika_theme_setup(): void {
 	add_theme_support( 'title-tag' );
@@ -26,17 +29,22 @@ add_action( 'after_setup_theme', 'logika_theme_setup' );
 function logika_theme_assets(): void {
 	$uri     = get_template_directory_uri() . '/assets';
 	$version = wp_get_theme()->get( 'Version' );
+	$style_version = (string) filemtime( get_template_directory() . '/assets/css/style.css' );
+	$main_version = (string) filemtime( get_template_directory() . '/assets/js/main.js' );
+	$map_version = (string) filemtime( get_template_directory() . '/assets/js/camp-map.js' );
 	$leads_version = (string) filemtime( get_template_directory() . '/assets/js/leads.js' );
 	$phone_dropup_version = (string) filemtime( get_template_directory() . '/assets/css/phone-dropdown-dropup.css' );
 	wp_enqueue_style( 'logika-intl-tel-input', $uri . '/css/vendor/intl-tel-input/intlTelInput.min.css', array(), '20.1.0' );
-	wp_enqueue_style( 'logika-theme', $uri . '/css/style.css', array( 'logika-intl-tel-input' ), $version );
+	wp_enqueue_style( 'logika-theme', $uri . '/css/style.css', array( 'logika-intl-tel-input' ), $style_version );
 	wp_enqueue_style( 'logika-phone-dropdown-dropup', $uri . '/css/phone-dropdown-dropup.css', array( 'logika-theme' ), $phone_dropup_version );
 	wp_enqueue_script( 'logika-swiper', $uri . '/js/swiper.js', array(), $version, true );
-	wp_enqueue_script( 'logika-theme', $uri . '/js/main.js', array( 'logika-swiper' ), $version, true );
+	wp_enqueue_script( 'logika-theme', $uri . '/js/main.js', array( 'logika-swiper' ), $main_version, true );
+	wp_enqueue_script( 'logika-school-map', $uri . '/js/camp-map.js', array(), $map_version, true );
+	wp_localize_script( 'logika-school-map', 'logikaThemeAssets', array( 'mapUrl' => esc_url_raw( $uri . '/img/maps/ukraine-regions.svg' ), 'citiesEndpoint' => esc_url_raw( rest_url( 'logika/v1/cities' ) ), 'branchesEndpoint' => esc_url_raw( rest_url( 'logika/v1/cities/' ) ) ) );
 	wp_enqueue_script( 'logika-intl-tel-input', $uri . '/js/vendor/intl-tel-input/intlTelInput.min.js', array(), '20.1.0', true );
 	wp_enqueue_script( 'logika-intl-tel-input-i18n-uk', $uri . '/js/vendor/intl-tel-input/i18n-uk.js', array( 'logika-intl-tel-input' ), $version, true );
 	wp_enqueue_script( 'logika-leads', $uri . '/js/leads.js', array( 'logika-intl-tel-input-i18n-uk' ), $leads_version, true );
-	wp_localize_script( 'logika-leads', 'logikaLead', array( 'endpoint' => esc_url_raw( rest_url( 'logika/v1/leads' ) ), 'tokenEndpoint' => esc_url_raw( rest_url( 'logika/v1/forms/token' ) ), 'phoneCountryDefault' => 'UA', 'phoneCountryEndpoint' => esc_url_raw( rest_url( 'logika/v1/phone-country' ) ), 'phoneUtilsUrl' => esc_url_raw( $uri . '/js/vendor/intl-tel-input/utils.js' ) ) );
+	wp_localize_script( 'logika-leads', 'logikaLead', array( 'endpoint' => esc_url_raw( rest_url( 'logika/v1/leads' ) ), 'tokenEndpoint' => esc_url_raw( rest_url( 'logika/v1/forms/token' ) ), 'cityEndpoint' => esc_url_raw( rest_url( 'logika/v1/cities' ) ), 'phoneCountryDefault' => 'UA', 'phoneCountryEndpoint' => esc_url_raw( rest_url( 'logika/v1/phone-country' ) ), 'phoneUtilsUrl' => esc_url_raw( $uri . '/js/vendor/intl-tel-input/utils.js' ) ) );
 	wp_enqueue_script( 'logika-city-selector', $uri . '/js/city-selector.js', array(), $version, true );
 	wp_localize_script( 'logika-city-selector', 'logikaCitySelector', array( 'endpoint' => esc_url_raw( rest_url( 'logika/v1/cities' ) ) ) );
 }
