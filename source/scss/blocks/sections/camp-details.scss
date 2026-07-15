@@ -100,7 +100,12 @@
         transition: background-color .2s ease;
 
         svg {
+            color: var(--white);
             filter: brightness(0) invert(1);
+
+            * {
+                stroke: currentColor;
+            }
         }
 
         &:hover {

@@ -1,1 +1,149 @@
-.camp-benefits{position:relative;overflow:hidden;padding:80px 0;background-color:var(--white)}.camp-benefits__inner{position:relative;z-index:1;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:60px}.camp-benefits__title{color:var(--violet-500);font-size:clamp(32px,2.917vw,56px);font-weight:700;line-height:118%;letter-spacing:-2.8px;text-align:center}.camp-benefits__list{display:-ms-grid;display:grid;-ms-grid-columns:(minmax(0,588px))[2];grid-template-columns:repeat(2,minmax(0,588px));-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;gap:20px;width:100%;max-width:1196px}.camp-benefits__item{min-width:0}.camp-benefits__item article{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:20px;min-height:150px;padding:20px;border-radius:16px;background-color:var(--white);-webkit-box-shadow:0 0 25px rgba(37,37,37,.06);box-shadow:0 0 25px rgba(37,37,37,.06)}.camp-benefits__item h3{color:var(--violet-500);font-size:clamp(16px,1.042vw,20px);font-weight:600;line-height:128%;letter-spacing:-1px}.camp-benefits__image{-webkit-box-flex:0;-ms-flex:0 0 110px;flex:0 0 110px;width:110px;height:110px;-o-object-fit:contain;object-fit:contain}.camp-benefits__cloud{position:absolute;z-index:0;width:240px;height:120px;opacity:.65;background:radial-gradient(ellipse at 22% 76%,#e5f3fa 0 34px,transparent 35px),radial-gradient(ellipse at 48% 58%,#e5f3fa 0 54px,transparent 55px),radial-gradient(ellipse at 73% 70%,#e5f3fa 0 42px,transparent 43px),-webkit-gradient(linear,left top,left bottom,from(#e5f3fa),to(#e5f3fa)) 24px 70px/170px 45px no-repeat;background:radial-gradient(ellipse at 22% 76%,#e5f3fa 0 34px,transparent 35px),radial-gradient(ellipse at 48% 58%,#e5f3fa 0 54px,transparent 55px),radial-gradient(ellipse at 73% 70%,#e5f3fa 0 42px,transparent 43px),linear-gradient(#e5f3fa,#e5f3fa) 24px 70px/170px 45px no-repeat}.camp-benefits__cloud--left{bottom:22px;left:-76px}.camp-benefits__cloud--right{top:20px;right:-38px;-webkit-transform:scale(.9);-ms-transform:scale(.9);transform:scale(.9)}@media (max-width:1024px){.camp-benefits{padding:64px 0}.camp-benefits__inner{gap:44px}.camp-benefits__list{max-width:720px}}@media (max-width:576px){.camp-benefits{padding:48px 0 56px}.camp-benefits__inner{gap:36px}.camp-benefits__title{letter-spacing:-1.6px}.camp-benefits__list{-ms-grid-columns:1fr;grid-template-columns:1fr;gap:16px}.camp-benefits__item article{min-height:118px;padding:12px;gap:14px}.camp-benefits__image{-ms-flex-preferred-size:86px;flex-basis:86px;width:86px;height:86px}.camp-benefits__cloud{opacity:.45;-webkit-transform:scale(.7);-ms-transform:scale(.7);transform:scale(.7)}.camp-benefits__cloud--left{left:-120px}.camp-benefits__cloud--right{right:-120px}}
+/* stylelint-disable */
+/* stylelint-disable */
+/* stylelint-disable */
+.camp-benefits {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 0;
+  background-color: var(--white);
+}
+.camp-benefits__inner {
+  position: relative;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 60px;
+}
+.camp-benefits__title {
+  color: var(--violet-500);
+  font-size: clamp(32px, 2.917vw, 56px);
+  font-weight: 700;
+  line-height: 118%;
+  letter-spacing: -2.8px;
+  text-align: center;
+}
+.camp-benefits__list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(0, 588px))[2];
+  grid-template-columns: repeat(2, minmax(0, 588px));
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1196px;
+}
+.camp-benefits__item {
+  min-width: 0;
+}
+.camp-benefits__item article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 20px;
+  min-height: 150px;
+  padding: 20px;
+  border-radius: 16px;
+  background-color: var(--white);
+  -webkit-box-shadow: 0 0 25px rgba(37, 37, 37, 0.06);
+  box-shadow: 0 0 25px rgba(37, 37, 37, 0.06);
+}
+.camp-benefits__item h3 {
+  color: var(--violet-500);
+  font-size: clamp(16px, 1.042vw, 20px);
+  font-weight: 600;
+  line-height: 128%;
+  letter-spacing: -1px;
+}
+.camp-benefits__image {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 110px;
+  flex: 0 0 110px;
+  width: 110px;
+  height: 110px;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.camp-benefits__cloud {
+  position: absolute;
+  z-index: 0;
+  width: 240px;
+  height: 120px;
+  opacity: 0.65;
+  background: radial-gradient(ellipse at 22% 76%, #e5f3fa 0 34px, transparent 35px), radial-gradient(ellipse at 48% 58%, #e5f3fa 0 54px, transparent 55px), radial-gradient(ellipse at 73% 70%, #e5f3fa 0 42px, transparent 43px), -webkit-gradient(linear, left top, left bottom, from(#e5f3fa), to(#e5f3fa)) 24px 70px/170px 45px no-repeat;
+  background: radial-gradient(ellipse at 22% 76%, #e5f3fa 0 34px, transparent 35px), radial-gradient(ellipse at 48% 58%, #e5f3fa 0 54px, transparent 55px), radial-gradient(ellipse at 73% 70%, #e5f3fa 0 42px, transparent 43px), linear-gradient(#e5f3fa, #e5f3fa) 24px 70px/170px 45px no-repeat;
+}
+.camp-benefits__cloud--left {
+  bottom: 22px;
+  left: -76px;
+}
+.camp-benefits__cloud--right {
+  top: 20px;
+  right: -38px;
+  -webkit-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  transform: scale(0.9);
+}
+@media (max-width: 1024px) {
+  .camp-benefits {
+    padding: 64px 0;
+  }
+  .camp-benefits__inner {
+    gap: 44px;
+  }
+  .camp-benefits__list {
+    max-width: 720px;
+  }
+}
+@media (max-width: 576px) {
+  .camp-benefits {
+    padding: 48px 0 56px;
+  }
+  .camp-benefits__inner {
+    gap: 36px;
+  }
+  .camp-benefits__title {
+    letter-spacing: -1.6px;
+  }
+  .camp-benefits__list {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .camp-benefits__item article {
+    min-height: 118px;
+    padding: 12px;
+    gap: 14px;
+  }
+  .camp-benefits__image {
+    -ms-flex-preferred-size: 86px;
+    flex-basis: 86px;
+    width: 86px;
+    height: 86px;
+  }
+  .camp-benefits__cloud {
+    opacity: 0.45;
+    -webkit-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    transform: scale(0.7);
+  }
+  .camp-benefits__cloud--left {
+    left: -120px;
+  }
+  .camp-benefits__cloud--right {
+    right: -120px;
+  }
+}
+/*# sourceMappingURL=camp-benefits.css.map */
