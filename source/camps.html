@@ -6,6 +6,17 @@
   @include('partials/header.html')
 
   <main>
+    <section class="camp-page-hero" aria-labelledby="camp-page-hero-title">
+      <img class="camp-page-hero__art" src="img/camp/camp-hero.svg" alt="" aria-hidden="true">
+    <div class="container camp-page-hero__container">
+        <div class="camp-page-hero__content">
+          <h1 id="camp-page-hero-title">Табори з Logika: подаруйте<br>дитині незабутні емоції</h1>
+          <p>Відпочиваємо та розвиваємося разом!</p>
+          <a class="camp-page-hero__cta btn btn--violet" href="#camp-booking">Залишити заявку <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
     <section class="camp-highlights" aria-labelledby="camp-highlights-title">
       <div class="container">
         <h2 class="camp-highlights__title" id="camp-highlights-title">Табори з Logika - це:</h2>
@@ -68,7 +79,7 @@
       </div>
     </section>
 
-    <section class="camp-booking" aria-labelledby="camp-booking-title">
+    <section class="camp-booking" id="camp-booking" aria-labelledby="camp-booking-title">
       <div class="container">
         <h2 class="camp-booking__title" id="camp-booking-title">Встигніть забронювати<br>незабутні спогади</h2>
 
