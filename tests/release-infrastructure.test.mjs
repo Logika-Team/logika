@@ -143,3 +143,21 @@ test('release scripts support host-specific WP-CLI command secrets', () => {
   assert.match(deployScript, /wp_cli --path="\$DEPLOY_SITE_ROOT" theme activate logika-theme/);
   assert.match(deployScript, /wp_cli --path="\$DEPLOY_SITE_ROOT" plugin activate logika-core logika-leads/);
 });
+
+test('WordPress integration bootstrap seeds baseline homepage ACF content', () => {
+  const prepareScript = readFileSync(join(root, 'scripts/release/prepare-wordpress-tests.sh'), 'utf8');
+  const frontPagePosition = prepareScript.indexOf('wp option update --path=wordpress page_on_front "$home_id"');
+  const seedPosition = prepareScript.indexOf('wp eval-file --path=wordpress scripts/seed-home-texts.php');
+  const cachePosition = prepareScript.indexOf('wp cache flush --path=wordpress');
+
+  assert.notEqual(frontPagePosition, -1);
+  assert.notEqual(seedPosition, -1);
+  assert.ok(
+    seedPosition > frontPagePosition,
+    'homepage ACF seed must run after page_on_front is configured',
+  );
+  assert.ok(
+    seedPosition < cachePosition,
+    'homepage ACF seed should run before the final cache flush',
+  );
+});

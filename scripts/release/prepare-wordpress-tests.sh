@@ -24,4 +24,5 @@ if [[ -z "$home_id" ]]; then
 fi
 wp option update --path=wordpress show_on_front page
 wp option update --path=wordpress page_on_front "$home_id"
+wp eval-file --path=wordpress scripts/seed-home-texts.php
 wp cache flush --path=wordpress
