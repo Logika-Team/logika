@@ -2,12 +2,13 @@
 
 .media-section {
     padding: clamp(40px, 7.813vw, 80px) 0;
+    overflow: hidden;
 
     &__wrapp {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 60px;
+        gap: clamp(32px, 4.688vw, 60px);
     }
 
     &__top {
@@ -36,6 +37,7 @@
 
     &__title {
         text-align: center;
+        color: var(--violet-500);
     }
 
     &__text {
@@ -55,6 +57,146 @@
         & > div {
             height: 400px;
             background-color: red;
+        }
+    }
+
+    &__cards {
+        width: 100%;
+        max-width: 980px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: clamp(22px, 3.125vw, 40px) clamp(24px, 3.906vw, 50px);
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    &__card {
+        position: relative;
+        min-height: clamp(190px, 20.833vw, 240px);
+        display: flex;
+        align-items: flex-end;
+        padding: clamp(92px, 11.719vw, 150px) 20px 26px;
+        border-radius: 22px;
+        overflow: visible;
+        color: var(--white);
+
+        &:nth-child(1) {
+            transform: rotate(3deg);
+        }
+
+        &:nth-child(2) {
+            transform: rotate(-4deg);
+        }
+
+        &:nth-child(3) {
+            transform: rotate(3deg);
+        }
+
+        &:nth-child(4) {
+            transform: rotate(-4deg);
+        }
+
+        &:nth-child(5) {
+            transform: rotate(3deg);
+        }
+
+        &:nth-child(6) {
+            transform: rotate(-4deg);
+        }
+
+        h3 {
+            margin: 0;
+            font-size: clamp(18px, 1.667vw, 24px);
+            font-weight: 700;
+            line-height: 110%;
+            letter-spacing: -0.96px;
+            color: inherit;
+        }
+
+        p {
+            margin: 0;
+            font-size: clamp(11px, 0.903vw, 13px);
+            font-weight: 600;
+            line-height: 125%;
+            letter-spacing: -0.52px;
+            color: inherit;
+        }
+    }
+
+    &__card--yellow {
+        background-color: var(--yellow);
+        color: var(--violet-500);
+    }
+
+    &__card--violet {
+        background-color: var(--violet-100);
+    }
+
+    &__card--green {
+        background-color: var(--green);
+    }
+
+    &__card-content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__card-img {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 50%;
+        width: min(85%, 290px);
+        height: auto;
+        pointer-events: none;
+        transform: translate(-50%, -34%);
+    }
+
+    &__card--platform {
+        margin-top: 18px;
+    }
+
+    &__card--projects {
+        margin-top: 24px;
+    }
+
+    &__card--open-lessons {
+        margin-top: 18px;
+    }
+
+    &__card--online-city {
+        margin-top: 18px;
+    }
+
+    &__card--teachers {
+        margin-top: 28px;
+    }
+
+    &__card--game-method {
+        margin-top: 18px;
+    }
+
+    @include tablet {
+        &__cards {
+            max-width: 680px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @include mobile {
+        &__cards {
+            max-width: 340px;
+            grid-template-columns: 1fr;
+            gap: 34px;
+        }
+
+        &__card {
+            min-height: 210px;
+            padding-top: 120px;
         }
     }
 }
