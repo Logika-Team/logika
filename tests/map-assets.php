@@ -12,11 +12,16 @@ if ( str_contains( $script, "fetch('img/maps/ukraine-regions.svg')" ) || ! str_c
 	exit( 1 );
 }
 
-foreach ( array( 'citiesEndpoint', 'branchesEndpoint', 'fetchCities', 'moveHeroForm', 'restoreHeroForm' ) as $contract ) {
+foreach ( array( 'citiesEndpoint', 'branchesEndpoint', 'fetchMap', 'fetchCities', 'moveHeroForm', 'restoreHeroForm' ) as $contract ) {
 	if ( ! str_contains( $script, $contract ) && ! str_contains( $functions, $contract ) ) {
 		fwrite( STDERR, "School map is missing {$contract}.\n" );
 		exit( 1 );
 	}
+}
+
+if ( str_contains( $script, 'requestJson(config.mapUrl)' ) ) {
+	fwrite( STDERR, "School map SVG must be read as text, not JSON.\n" );
+	exit( 1 );
 }
 
 if ( str_contains( $script, 'const dnipro' ) || str_contains( $script, "selectRegion('dnipropetrovsk')" ) ) {

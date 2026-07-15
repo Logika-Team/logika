@@ -39,6 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
     return response.json();
   });
 
+  const fetchMap = () => fetch(config.mapUrl).then((response) => {
+    if (!response.ok) throw new Error('Map asset could not be loaded');
+    return response.text();
+  });
+
   const fetchCities = () => requestJson(config.citiesEndpoint);
 
   const setFrame = (city, branches) => {
@@ -157,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!config.mapUrl || !config.citiesEndpoint || !config.branchesEndpoint) return;
 
-  Promise.all([requestJson(config.mapUrl), fetchCities()])
+  Promise.all([fetchMap(), fetchCities()])
     .then(([svg, cityList]) => {
       const citiesByRegion = cityList.reduce((groups, city) => {
         const label = city.region?.label;

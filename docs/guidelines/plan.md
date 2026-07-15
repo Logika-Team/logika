@@ -129,6 +129,7 @@ Goal: implement the core editable data model.
 - [x] Add schema input fields.
 - [x] Add fallback content fields.
 - [x] Add admin helper labels/instructions.
+- [x] Add dynamic article editorial fields, shared media-centre controls and a fixed post template.
 
 ### Admin usability
 
@@ -306,13 +307,13 @@ Goal: implement city context and map-driven selection.
 - [x] Store selected city in browser.
 - [x] Resolve city from direct `/cities/{slug}/` URL.
 - [x] Make city URL context higher priority than stored city.
-- [ ] Implement interactive region map.
+- [x] Implement interactive region map.
 - [x] Load city list from WordPress data.
 - [x] Show cities by selected region.
-- [ ] Load map city branches from WordPress and reuse the hero form in online mode.
+- [x] Load map city branches from WordPress and reuse the hero form in online mode.
 - [x] Update navbar after city selection.
 - [ ] Update local blocks where supported.
-- [ ] Update Google Maps/address block after city selection.
+- [x] Update Google Maps/address block after city selection.
 - [ ] Ensure selected city does not break canonical/cache rules.
 
 Exit criteria:
@@ -580,7 +581,12 @@ Exit criteria:
 - [ ] Retry queue is clean or explained.
 - [ ] Post-MVP backlog is documented.
 
-## 20. Agent update protocol
+## 20. CTA navigation
+
+- [x] Route navigation CTAs to course catalogues, camps, media centre, or the lead form.
+- [x] Verify canonical destinations in the WordPress runtime.
+
+## 21. Agent update protocol
 
 When an agent completes work:
 
@@ -595,3 +601,9 @@ Example note:
 ```text
 Note: CRM adapter implemented with fake client only; production credentials are still blocked.
 ```
+
+## 22. Dropdown "Курси"
+
+- [x] Add a focused source-page check for Ukrainian course labels and the minimalist menu contract.
+- [x] Replace the two English labels and restyle only the desktop `.sub-menu` card without changing its hover interaction.
+- [x] Build the theme assets and run the focused check.
