@@ -41,19 +41,17 @@ fi
 
 curl_bin="${CURL_BIN:-curl}"
 base_url="${base_url%/}"
+curl_args=(--fail --silent --show-error --location --max-time 20 --retry 2 --retry-delay 10 --retry-all-errors)
 
-"$curl_bin" --fail --silent --show-error --location --max-time 20 "$base_url/" >/dev/null
-"$curl_bin" --fail --silent --show-error --location --max-time 20 "$base_url/wp-json/" >/dev/null
-phone_headers="$("$curl_bin" --fail --silent --show-error --location --max-time 20 --head "$base_url/wp-json/logika/v1/phone-country")"
-if ! grep -qi '^cache-control:.*no-store' <<<"$phone_headers"; then
-  echo "Phone-country endpoint must return Cache-Control: no-store" >&2
+homepage="$("$curl_bin" "${curl_args[@]}" "$base_url/")"
+if ! grep -q 'data-logika-lead-form' <<<"$homepage"; then
+  echo "Homepage must render the Logika lead form" >&2
   exit 1
 fi
 
 if ((expect_noindex)); then
-  robots="$("$curl_bin" --fail --silent --show-error --location --max-time 20 "$base_url/robots.txt")"
-  if ! grep -qi 'noindex' <<<"$robots"; then
-    echo "Staging robots.txt must contain noindex" >&2
+  if ! grep -qi 'noindex' <<<"$homepage"; then
+    echo "Staging homepage must contain noindex" >&2
     exit 1
   fi
 fi

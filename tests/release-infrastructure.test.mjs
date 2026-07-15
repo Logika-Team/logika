@@ -143,6 +143,12 @@ test('release scripts support host-specific WP-CLI command secrets', () => {
   const deployScript = readFileSync(join(root, 'scripts/release/deploy.sh'), 'utf8');
   assert.match(deployScript, /wp_cli --path="\$DEPLOY_SITE_ROOT" theme activate logika-theme/);
   assert.match(deployScript, /wp_cli --path="\$DEPLOY_SITE_ROOT" plugin activate logika-core logika-leads/);
+
+  const preflightScript = readFileSync(join(root, 'scripts/release/preflight.sh'), 'utf8');
+  assert.match(preflightScript, /rest_get_server\(\)->get_routes\(\)/);
+  assert.match(preflightScript, /\/logika\/v1\/phone-country/);
+  assert.match(preflightScript, /no-store/);
+  assert.doesNotMatch(preflightScript, /rest route list/);
 });
 
 test('WordPress integration bootstrap seeds baseline homepage ACF content', () => {
@@ -171,4 +177,15 @@ test('WordPress integration bootstrap creates managed editor pages', () => {
   }
 
   assert.match(prepareScript, /wp post create --path=wordpress --post_type=page/);
+});
+
+test('staging smoke checks public homepage without REST rate-limit coupling', () => {
+  const smokeScript = readFileSync(join(root, 'scripts/release/smoke.sh'), 'utf8');
+
+  assert.match(smokeScript, /data-logika-lead-form/);
+  assert.match(smokeScript, /noindex/);
+  assert.match(smokeScript, /--retry 2/);
+  assert.doesNotMatch(smokeScript, /wp-json/);
+  assert.doesNotMatch(smokeScript, /rest_route/);
+  assert.doesNotMatch(smokeScript, /--head/);
 });
