@@ -8,3 +8,4 @@ graphify-out/
 build/img/camp/
 source/img/camp/
 build/css/**/*.map
+build/css/blocks/sections/camp-page-hero.css
