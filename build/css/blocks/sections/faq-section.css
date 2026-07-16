@@ -12,6 +12,12 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: clamp(257px, 36.111vw, 520px);
+  height: clamp(349px, 59.444vw, 856px);
+}
+.faq-section__left-bg picture,
+.faq-section__left-bg img {
+  width: 100%;
 }
 .faq-section__right-bg {
   position: absolute;
@@ -39,6 +45,9 @@
   -ms-flex-align: center;
   align-items: center;
   gap: clamp(24px, 3.125vw, 32px);
+}
+.faq-section__title {
+  text-align: center;
 }
 .faq-section .accordion {
   max-width: 954px;

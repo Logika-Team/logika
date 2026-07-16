@@ -1,6 +1,6 @@
 @import "../../general/mixins";
 
-.faq-banner-section {
+.course-banner-section {
     position: relative;
 
     &__blocks {
@@ -73,8 +73,8 @@
     &__right {
         position: relative;
         display: flex;
-        padding-left: clamp(60px, 6.771vw, 130px);
-        padding-right: clamp(60px, 4.688vw, 90px);
+        padding-left: clamp(30px, 3.906vw, 75px);
+        padding-right: clamp(30px, 2.083vw, 40px);
     }
 
     &__right-bg {
@@ -88,8 +88,8 @@
         display: flex;
 
         @media screen and (min-width: 768px) {
-            max-width: 483px;
-            height: 479px;
+            max-width: 590px;
+            height: 605px;
         }
 
         picture,
@@ -113,7 +113,7 @@
         }
 
         @media screen and (max-width: 1024px) {
-            top: 0;
+            top: -35px;
         }
     }
 }

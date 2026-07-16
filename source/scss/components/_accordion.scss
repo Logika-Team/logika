@@ -57,6 +57,25 @@
     .editor {
         padding-top: 22px;
         max-width: 832px;
+
+        ul, ol {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+
+            li {
+                font-size: clamp(14px, 1.25vw, 18px);
+                font-weight: 600;
+                line-height: 140%; /* 25.2px */
+                letter-spacing: -0.9px;
+                color: var(--violet-500);
+            }
+        }
+
+        ul li {
+            list-style: disc;
+            list-style-position: inside;
+        }
     }
 
     &--mode {
