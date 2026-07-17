@@ -1,84 +1,50 @@
 .accordion{
     display: flex;
     flex-direction: column;
-    gap: clamp(20px, 2.778vw, 40px);
+    gap: 30px;
 
     &__item{
         display: flex;
         flex-direction: column;
-        padding-bottom: clamp(20px, 2.083vw, 30px);
+        padding-bottom: 30px;
         border-bottom: 1px solid var(--grey-100);
     }
 
     &__btn {
-        position: relative;
         width: 100%;
         display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
         text-align: left;
         transition: all .3s ease;
+
+        span {
+            display: flex;
+
+            svg {
+                fill: var(--cl-g);
+            }
+        }
 
         &.active{
             &.h5 {
                 color: var(--violet-100);
             }
-
-            &::after {
-                opacity: 0;
-                visibility: hidden;
+            .accordion__btn-icon {
+                transform: scale(-1);
             }
-
-            &::before {
-                background-color: var(--violet-100);
-            }
-        }
-
-        &::before,
-        &::after {
-            content: "";
-            position: absolute;
-            background-color: var(--violet-300);
-            right: 0;
-            height: 2px;
-            width: 13px;
-            top: 50%;
-            transform: translateY(-50%);
-            transition: all 0.3s ease;
-        }
-
-        &::after {
-            transform: translateY(-50%) rotate(90deg);
-        }
-
-        &::before {
-            transform: translateY(-50%) rotate(0deg);
         }
     }
 
     .editor {
         padding-top: 22px;
         max-width: 832px;
-
-        ul, ol {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-
-            li {
-                font-size: clamp(14px, 1.25vw, 18px);
-                font-weight: 600;
-                line-height: 140%; /* 25.2px */
-                letter-spacing: -0.9px;
-                color: var(--violet-500);
-            }
-        }
-
-        ul li {
-            list-style: disc;
-            list-style-position: inside;
-        }
     }
 
     &--mode {
+        gap: clamp(20px, 2.778vw, 40px);
+
         & > li {
             padding: clamp(15px, 2.083vw, 30px);
             border: 1px solid var(--violet-100);
@@ -89,24 +55,44 @@
                 border: clamp(3px, 0.347vw, 5px) solid var(--violet-100);
             }
         }
-        
-        button {
+
+        .accordion__btn {
+            position: relative;
             padding-right: 30px;
-            font-size: 28px;
             font-size: clamp(18px, 1.944vw, 28px);
             font-weight: 600;
-            line-height: 128%; /* 35.84px */
+            line-height: 128%;
             letter-spacing: -1.4px;
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: 0;
+                width: 13px;
+                height: 2px;
+                background-color: var(--violet-300);
+                transform: translateY(-50%);
+                transition: all .3s ease;
+            }
+
+            &::after {
+                transform: translateY(-50%) rotate(90deg);
+            }
+
+            &.active::after {
+                opacity: 0;
+                visibility: hidden;
+            }
         }
 
-        .editor {
-            p {
-                font-size: clamp(14px, 1.25vw, 18px);
-                font-weight: 600;
-                line-height: 140%; /* 25.2px */
-                letter-spacing: -0.9px;
-                color: var(--violet-500);
-            }
+        .editor p {
+            font-size: clamp(14px, 1.25vw, 18px);
+            font-weight: 600;
+            line-height: 140%;
+            letter-spacing: -0.9px;
+            color: var(--violet-500);
         }
     }
 }

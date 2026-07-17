@@ -1,16 +1,37 @@
 .btn {
   width: 100%;
-  padding: clamp(12px, 1.111vw, 16px);
+  padding: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
   border-radius: 12px;
   font-family: var(--font-primary);
-  font-size: clamp(14px, 1.111vw, 16px);
+  font-size: clamp(14px, 2.083vw, 16px);
   line-height: 140%;
   font-weight: 700;
   letter-spacing: -0.8px;
+  transition: transform .2s ease, box-shadow .2s ease;
+
+  svg {
+    transition: transform .2s ease;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--violet-100);
+    outline-offset: 3px;
+  }
+
+  @media (hover: hover) {
+    &:not(.header__login):hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(41, 35, 92, .18);
+
+      svg {
+        transform: translateX(4px);
+      }
+    }
+  }
 
   &--yellow {
     background-color: var(--yellow);

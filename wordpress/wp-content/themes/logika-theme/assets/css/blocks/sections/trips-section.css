@@ -1,0 +1,184 @@
+/* stylelint-disable */
+/* stylelint-disable */
+/* stylelint-disable */
+.trips-section {
+  overflow: hidden;
+  position: relative;
+  padding: clamp(20px, 7.813vw, 80px) 0;
+}
+.trips-section__wrapp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: clamp(20px, 3.906vw, 40px);
+}
+.trips-section__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 20px;
+}
+@media screen and (min-width: 1025px) {
+  .trips-section__info {
+    width: calc(100% - 100px);
+  }
+}
+@media screen and (max-width: 1024px) {
+  .trips-section__title {
+    text-align: center;
+  }
+}
+.trips-section__tags {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.trips-section__tags li {
+  padding: 10px 20px;
+  background-color: var(--light-blue);
+  border-radius: 56px;
+}
+@media screen and (max-width: 1024px) {
+  .trips-section__tags {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+.trips-section__slider {
+  width: 100%;
+  margin-top: clamp(20px, 3.906vw, 40px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+@media screen and (min-width: 1025px) {
+  .trips-section__slider {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .trips-section__slider {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+.trips-section__slider .swiper-container {
+  width: 100%;
+}
+@media screen and (min-width: 1241px) {
+  .trips-section__slider .swiper-container {
+    padding-left: calc((100vw - 1440px) / 2);
+  }
+}
+@media screen and (min-width: 577px) and (max-width: 1240px) {
+  .trips-section__slider .swiper-container {
+    padding-left: clamp(16px, 3.125vw, 60px);
+  }
+}
+.trips-section__slider .swiper-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.trips-section__slider .swiper-slide {
+  width: 100%;
+}
+@media screen and (min-width: 577px) {
+  .trips-section__slider .swiper-slide {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: auto;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+  }
+}
+.trips-section__controls {
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 6px;
+}
+@media screen and (min-width: 1025px) {
+  .trips-section__controls {
+    margin-top: -92px;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .trips-section__controls {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+.trips-section__control {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  color: var(--white);
+  background-color: var(--violet-100);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
+}
+.trips-section__control svg {
+  fill: var(--white);
+}
+.trip-card {
+  width: 100%;
+  height: clamp(365px, 27.778vw, 400px);
+  border-radius: 20px;
+  display: flex;
+  overflow: hidden;
+}
+@media screen and (min-width: 577px) {
+  .trip-card {
+    max-width: clamp(320px, 32.292vw, 465px);
+  }
+}
+.trip-card picture,
+.trip-card img {
+  width: 100%;
+  height: 100%;
+}
+/*# sourceMappingURL=trips-section.css.map */

@@ -7,17 +7,47 @@
       "skillPath": "skills/blueprint/SKILL.md",
       "computedHash": "c93470fd807a46b5f0ed140d43115e94555b72618c0fc4dfb1f6f01bb7bd4b1a"
     },
+    "cloudflare-development": {
+      "source": "mindrally/skills",
+      "sourceType": "github",
+      "skillPath": "cloudflare-development/SKILL.md",
+      "computedHash": "9ffaae6f0b7b60d2b9bd1c7569927d8bbfe88f7243823b79b4f741017fba7e0b"
+    },
     "design-systems": {
       "source": "automattic/wordpress-agent-skills",
       "sourceType": "github",
       "skillPath": "claude-cowork/wp-site-creator/skills/design-systems/SKILL.md",
       "computedHash": "8d8bdab552acbc58446a63c74cf39991a1eecddcc4d688d5dc016081411bec0e"
     },
-    "graphify": {
-      "source": "howell5/willhong-skills",
+    "docker-patterns": {
+      "source": "affaan-m/everything-claude-code",
       "sourceType": "github",
-      "skillPath": "skills/graphify/SKILL.md",
-      "computedHash": "80456681e8ee5e57700fcca889a46179f81354a76559744cee8977c97d1faf66"
+      "skillPath": "skills/docker-patterns/SKILL.md",
+      "computedHash": "b9b2764274bb4e4d1c398bf0214b528b547edc4847690b861b0b1ef5d8900934"
+    },
+    "mysql": {
+      "source": "planetscale/database-skills",
+      "sourceType": "github",
+      "skillPath": "skills/mysql/SKILL.md",
+      "computedHash": "6cb0725d61db4940f9eab79436753fe4ecb261f57ae8a08b2ac28676f82cbecc"
+    },
+    "nginx-configuration": {
+      "source": "aj-geddes/useful-ai-prompts",
+      "sourceType": "github",
+      "skillPath": "skills/nginx-configuration/SKILL.md",
+      "computedHash": "30535fb54fb19ddcbad3697da291fbd22ea60f0c245d55be41ae9043f68bfd4a"
+    },
+    "obsidian-markdown": {
+      "source": "kepano/obsidian-skills",
+      "sourceType": "github",
+      "skillPath": "skills/obsidian-markdown/SKILL.md",
+      "computedHash": "0f47297035d7824e7bf0f1984e8145a59a123e2258b5d54c9ac9642f9f77e177"
+    },
+    "obsidian-vault": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "skillPath": "skills/personal/obsidian-vault/SKILL.md",
+      "computedHash": "5c08eda96fd76a71793c0a8cb91bef41d518586654a14af4f2edf8f8fd0f96a7"
     },
     "php-best-practices": {
       "source": "asyrafhussin/agent-skills",
@@ -36,6 +66,12 @@
       "sourceType": "github",
       "skillPath": "skills/popups/SKILL.md",
       "computedHash": "95c5cb45dcbb05362168255d97ee68d53a5916d8de779bd08f5f70c9b0cabd36"
+    },
+    "ssh": {
+      "source": "openhands/skills",
+      "sourceType": "github",
+      "skillPath": "skills/ssh/SKILL.md",
+      "computedHash": "fce12f5956e18506381eb81278e10cb34c4f2221a68ca9e2bcdeb729f9b6f7f5"
     },
     "validation-patterns": {
       "source": "wshaddix/dotnet-skills",
@@ -84,6 +120,12 @@
       "sourceType": "github",
       "skillPath": "toolchains/php/frameworks/wordpress/wordpress-testing-qa/SKILL.md",
       "computedHash": "9b970a6191be35fe350fb7f4d0e65e9d00d446ff583fab00b749f5a31acdd015"
+    },
+    "wp-wpcli-and-ops": {
+      "source": "automattic/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/wp-wpcli-and-ops/SKILL.md",
+      "computedHash": "b04471067f1577112c37870ee564cd06f0787487dc764edf4229f73e3b5981ca"
     }
   }
 }

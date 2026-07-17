@@ -61,10 +61,12 @@ final class CityApi {
 
 		return new WP_REST_Response(
 				array_map(
-					static fn( \WP_Post $city ): array => array(
-						'id'     => $city->ID,
-						'label'  => get_field( 'city_selected_label', $city->ID ) ?: $city->post_title,
-						'url'    => get_permalink( $city ),
+				static fn( \WP_Post $city ): array => array(
+					'id'     => $city->ID,
+					'label'  => get_field( 'city_selected_label', $city->ID ) ?: $city->post_title,
+					'show_on_map' => '1' === get_post_meta( $city->ID, 'city_show_on_map', true ),
+					'slug'   => CitySlug::for( $city ),
+						'url'    => CitySlug::url( $city ),
 						'lat'    => (float) get_field( 'city_lat', $city->ID ),
 						'lng'    => (float) get_field( 'city_lng', $city->ID ),
 						'region' => self::region( $city->ID ),

@@ -40,9 +40,10 @@ final class ContentTypes {
 		self::registerPostType( 'camp', 'Табір', 'Табори', true, true, 'camps' );
 		self::registerPostType( 'review', 'Відгук', 'Відгуки', false, false );
 		self::registerPostType( 'faq_item', 'FAQ', 'FAQ', false, false );
+		self::registerPostType( 'article_author', 'Автор статей', 'Автори статей', false, false, '', array( 'title' ) );
 	}
 
-	private static function registerPostType( string $postType, string $singular, string $plural, bool $public, bool $hasArchive, string $slug = '' ): void {
+	private static function registerPostType( string $postType, string $singular, string $plural, bool $public, bool $hasArchive, string $slug = '', array $supports = array( 'title', 'thumbnail' ) ): void {
 		register_post_type(
 			$postType,
 			array(
@@ -54,7 +55,7 @@ final class ContentTypes {
 				'publicly_queryable' => $public,
 				'rewrite'            => $public ? array( 'slug' => $slug ?: $postType ) : false,
 				'menu_icon'          => 'dashicons-welcome-learn-more',
-				'supports'           => array( 'title', 'thumbnail' ),
+				'supports'           => $supports,
 			)
 		);
 	}

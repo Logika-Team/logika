@@ -1,7 +1,6 @@
 @import "../../general/mixins";
 
 .testimonials-section {
-    overflow: hidden;
     padding: clamp(40px, 7.813vw, 80px) 0;
 
     &__wrapp {

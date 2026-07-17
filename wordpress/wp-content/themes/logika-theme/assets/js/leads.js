@@ -241,7 +241,7 @@ document.querySelectorAll('[data-logika-city-select]').forEach((root) => {
     dropdown.hidden = false;
     search.focus();
   };
-  const selectCity = (city) => {
+  const selectCity = (city, updateContext = false, focus = false) => {
     valueInput.value = String(city.id);
     label.textContent = cityOptionLabel(city.label);
     root.classList.add('has-value');
@@ -252,7 +252,8 @@ document.querySelectorAll('[data-logika-city-select]').forEach((root) => {
     });
     valueInput.dispatchEvent(new Event('change', { bubbles: true }));
     close();
-    trigger.focus();
+    if (focus) trigger.focus();
+    if (updateContext) window.logikaCityContext?.set(city);
   };
   const setRegionState = (button, isOpen) => {
     button.closest('.main-form__city-region')?.classList.toggle('is-open', isOpen);
@@ -288,13 +289,13 @@ document.querySelectorAll('[data-logika-city-select]').forEach((root) => {
   const renderCities = (cities) => {
     const groups = cities.reduce((regions, city) => {
       const region = city.region || {};
-      const key = region.slug || 'other';
+      const key = region.label === 'Інші міста' ? 'other' : region.slug || 'other';
       if (!regions[key]) regions[key] = { region, cities: [] };
       regions[key].cities.push(city);
       return regions;
     }, {});
 
-    Object.values(groups).forEach((group) => {
+    Object.values(groups).sort((a, b) => (a.region.label === 'Онлайн' ? 2 : Number(a.region.label === 'Інші міста')) - (b.region.label === 'Онлайн' ? 2 : Number(b.region.label === 'Інші міста'))).forEach((group) => {
       const item = document.createElement('li');
       const regionButton = document.createElement('button');
       const citiesList = document.createElement('ul');
@@ -314,7 +315,7 @@ document.querySelectorAll('[data-logika-city-select]').forEach((root) => {
         citiesList.hidden = !nextState;
       });
 
-      group.cities.forEach((city) => {
+      group.cities.sort((a, b) => Number(a.label === 'Онлайн') - Number(b.label === 'Онлайн')).forEach((city) => {
         const cityItem = document.createElement('li');
         const option = document.createElement('button');
         option.className = 'main-form__city-option';
@@ -323,7 +324,7 @@ document.querySelectorAll('[data-logika-city-select]').forEach((root) => {
         option.textContent = cityOptionLabel(city.label);
         option.setAttribute('role', 'option');
         option.setAttribute('aria-selected', 'false');
-        option.addEventListener('click', () => selectCity(city));
+        option.addEventListener('click', () => selectCity(city, true, true));
         cityItem.append(option);
         citiesList.append(cityItem);
       });
@@ -351,8 +352,29 @@ document.querySelectorAll('[data-logika-city-select]').forEach((root) => {
     if (!root.contains(event.target)) close();
   });
 
-  cityRequest.then(renderCities).catch(() => { empty.hidden = false; });
+  const initial = window.logikaCityContext?.get();
+  if (initial) selectCity(initial);
+  Promise.all([cityRequest, window.logikaCityContext?.load() || Promise.resolve([])])
+    .then(([cities]) => {
+      renderCities(cities);
+      const city = window.logikaCityContext?.get();
+      if (city) selectCity(city);
+    })
+    .catch(() => { empty.hidden = false; });
+  window.addEventListener('logika:city-change', ({ detail }) => selectCity(detail.city));
 });
+
+const syncContextCity = (city) => {
+  if (!city) return;
+  document.querySelectorAll('[data-logika-lead-form] input[name="city_id"]').forEach((input) => {
+    if (input.closest('[data-logika-city-select]')) return;
+    input.value = String(city.id);
+    input.dispatchEvent(new Event('change', { bubbles: true }));
+  });
+};
+
+window.addEventListener('logika:city-change', ({ detail }) => syncContextCity(detail.city));
+window.logikaCityContext?.load().then(() => syncContextCity(window.logikaCityContext?.get()));
 const setStatus = (status, message) => {
   if (!status) return;
   status.hidden = false;

@@ -5,7 +5,7 @@
   --content-width-mode: 1920px;
   --content-width-mini: 952px;
 
-  --container-offset: clamp(16px, 3.125vw, 60px);
+  --container-offset: clamp(16px, 5.859vw, 60px);
   --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
 
     // --------------- default JS variables ---------------

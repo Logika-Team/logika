@@ -3,6 +3,7 @@
   "title": "Місто",
   "fields": [
     {"key":"field_city_external_id","label":"Зовнішній ID","name":"city_external_id","type":"text"},
+    {"key":"field_city_url_slug","label":"URL-ідентифікатор","name":"city_url_slug","type":"text","instructions":"Латиницею, наприклад akademmistechko. Якщо поле порожнє, сайт створить латинський URL із назви міста."},
     {"key":"field_city_region","label":"Регіон","name":"city_region","type":"taxonomy","taxonomy":"region","field_type":"select","required":1,"return_format":"id"},
     {"key":"field_city_lat","label":"Широта","name":"city_lat","type":"number","step":"0.000001"},
     {"key":"field_city_lng","label":"Довгота","name":"city_lng","type":"number","step":"0.000001"},

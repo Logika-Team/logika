@@ -94,13 +94,6 @@
                       <li>
                         <a href="#">
                           <svg width='40' height='40'>
-                            <use href='img/sprite/sprite.svg#Telegram-filled'></use>
-                          </svg>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <svg width='40' height='40'>
                             <use href='img/sprite/sprite.svg#Threads-filled'></use>
                           </svg>
                         </a>
@@ -228,14 +221,14 @@
         </div>
       </div>
     </section>
-
+    
     <section class="related-section">
       <div class="container">
-        <div class="related-section__wrapp">
+        <div class="related-section__wrapp"> 
           <h2 class="related-section__title h2">Читайте також</h2>
 
           <ul class="related-section__items">
-            <li class="related-section__item">
+            <li class="related-section__item"> 
               <div class="article-card">
                 <div class="article-card__thumbnail">
                   <picture>
@@ -272,7 +265,7 @@
               </div>
             </li>
 
-            <li class="related-section__item">
+            <li class="related-section__item"> 
               <div class="article-card">
                 <div class="article-card__thumbnail">
                   <picture>
@@ -309,7 +302,7 @@
               </div>
             </li>
 
-            <li class="related-section__item">
+            <li class="related-section__item"> 
               <div class="article-card">
                 <div class="article-card__thumbnail">
                   <picture>

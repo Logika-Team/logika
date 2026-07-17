@@ -6,9 +6,10 @@
   @include('partials/header.html')
 
   <main>
-    <section class="camp-page-hero" aria-laчцbelledby="camp-page-hero-title">
+    <section class="camp-page-hero" aria-labelledby="camp-page-hero-title">
       <img class="camp-page-hero__art" src="img/camp/camp-hero.svg" alt="" aria-hidden="true">
-    <div class="container camp-page-hero__container">
+
+      <div class="container camp-page-hero__container">
         <div class="camp-page-hero__content">
           <h1 id="camp-page-hero-title">Табори з Logika: подаруйте<br>дитині незабутні емоції</h1>
           <p>Відпочиваємо та розвиваємося разом!</p>
@@ -144,7 +145,108 @@
       <section class="gallery-section">
         <div class="container">
           <div class="gallery-section__wrapp">
-            Gallery Images
+            <div class="gallery-section__slider">
+              <div class='swiper-container'>
+                <ul class='swiper-wrapper'>
+                  <div class="swiper-slide">
+                    <div class="gallery-card">
+                        <picture>
+                          <source type='image/webp' srcset='img/gallery/gallery.webp'>
+                          <img width='345' height='272' src='img/gallery/gallery.png' alt=''>
+                        </picture>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="gallery-card">
+                        <picture>
+                          <source type='image/webp' srcset='img/gallery/gallery2.webp'>
+                          <img width='345' height='272' src='img/gallery/gallery2.png' alt=''>
+                        </picture>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="gallery-card">
+                        <picture>
+                          <source type='image/webp' srcset='img/gallery/gallery3.webp'>
+                          <img width='345' height='272' src='img/gallery/gallery3.png' alt=''>
+                        </picture>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="gallery-card">
+                        <picture>
+                          <source type='image/webp' srcset='img/gallery/gallery4.webp'>
+                          <img width='345' height='272' src='img/gallery/gallery4.png' alt=''>
+                        </picture>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="gallery-card">
+                        <picture>
+                          <source type='image/webp' srcset='img/gallery/gallery.webp'>
+                          <img width='345' height='272' src='img/gallery/gallery.png' alt=''>
+                        </picture>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="gallery-card">
+                        <picture>
+                          <source type='image/webp' srcset='img/gallery/gallery2.webp'>
+                          <img width='345' height='272' src='img/gallery/gallery2.png' alt=''>
+                        </picture>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="gallery-card">
+                        <picture>
+                          <source type='image/webp' srcset='img/gallery/gallery3.webp'>
+                          <img width='345' height='272' src='img/gallery/gallery3.png' alt=''>
+                        </picture>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="gallery-card">
+                        <picture>
+                          <source type='image/webp' srcset='img/gallery/gallery4.webp'>
+                          <img width='345' height='272' src='img/gallery/gallery4.png' alt=''>
+                        </picture>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="gallery-card">
+                        <picture>
+                          <source type='image/webp' srcset='img/gallery/gallery.webp'>
+                          <img width='345' height='272' src='img/gallery/gallery.png' alt=''>
+                        </picture>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="gallery-card">
+                        <picture>
+                          <source type='image/webp' srcset='img/gallery/gallery2.webp'>
+                          <img width='345' height='272' src='img/gallery/gallery2.png' alt=''>
+                        </picture>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="gallery-card">
+                        <picture>
+                          <source type='image/webp' srcset='img/gallery/gallery3.webp'>
+                          <img width='345' height='272' src='img/gallery/gallery3.png' alt=''>
+                        </picture>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="gallery-card">
+                        <picture>
+                          <source type='image/webp' srcset='img/gallery/gallery4.webp'>
+                          <img width='345' height='272' src='img/gallery/gallery4.png' alt=''>
+                        </picture>
+                    </div>
+                  </div>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>

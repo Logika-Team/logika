@@ -11,13 +11,13 @@
         display: flex;
         justify-content: space-between;
         gap: 20px;
-        overflow: hidden;
     }
 
     &__bg {
         display: flex;
         position: absolute;
         inset: 0;
+        pointer-events: none;
     }
 
     &__left {

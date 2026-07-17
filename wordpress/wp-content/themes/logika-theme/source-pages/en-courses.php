@@ -24,7 +24,7 @@
                 <img width='330' height='301' src='img/en-courses/en-courses.svg' alt='boy-character'>
               </div>
             </div>
-
+            
             <div class="banner-section__right">
               <form class="banner-section__form main-form">
                 <div class="main-form__title h5">
@@ -293,7 +293,7 @@
                 <p class="test-section__text">Допоможемо визначити рівень підготовки, інтереси та формат навчання, щоб дитині було комфортно й цікаво навчатися з перших занять.</p>
               </div>
 
-              <a href="#" class="test-section__link btn btn--yellow">
+              <a href="#lead-form" class="test-section__link btn btn--yellow">
                 Пройти тестування
                 <svg width='20' height='20'>
                   <use href='img/sprite/sprite.svg#arrow-right'></use>

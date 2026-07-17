@@ -1,8 +1,6 @@
 @import "../../general/mixins";
 
 .services-section {
-    overflow: hidden;
-
     position: relative;
     padding: clamp(40px, 7.813vw, 80px) 0;
 
@@ -142,5 +140,6 @@
         &-about {
             width: fit-content;
         }
+
     }
 }

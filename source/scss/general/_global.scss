@@ -3,6 +3,7 @@ html {
   width: 100%;
   height: 100%;
   max-width: 100dvw;
+  overflow-x: hidden;
   scroll-behavior: smooth;
   will-change: font-size;
 }
@@ -273,19 +274,3 @@ select:-webkit-autofill:focus {
   transition: opacity var(--transition-time);
 }
 
-.fade.animate-open {
-  opacity: 1;
-  transition: opacity var(--transition-time);
-}
-
-.fadeInUp {
-  opacity: 0;
-  transform: translateY(-100px);
-  transition: opacity var(--transition-time), transform var(--transition-time);
-}
-
-.fadeInUp.animate-open {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity var(--transition-time), transform var(--transition-time);
-}

@@ -12,7 +12,7 @@ if ( str_contains( $script, "fetch('img/maps/ukraine-regions.svg')" ) || ! str_c
 	exit( 1 );
 }
 
-foreach ( array( 'branchesEndpoint', 'fetchMap', 'logikaCityContext', 'moveHeroForm', 'restoreHeroForm' ) as $contract ) {
+foreach ( array( 'branchesEndpoint', 'fetchMap', 'logikaCityContext', 'cloneNode(true)', 'onlinePanel.append(onlineForm)' ) as $contract ) {
 	if ( ! str_contains( $script, $contract ) && ! str_contains( $functions, $contract ) ) {
 		fwrite( STDERR, "School map is missing {$contract}.\n" );
 		exit( 1 );
@@ -21,6 +21,16 @@ foreach ( array( 'branchesEndpoint', 'fetchMap', 'logikaCityContext', 'moveHeroF
 
 if ( ! str_contains( $script, ".cta-form[data-logika-lead-form]" ) ) {
 	fwrite( STDERR, "School map must reuse the CTA form when a page has no hero form.\n" );
+	exit( 1 );
+}
+
+if ( ! str_contains( $script, '[data-map-online-form]' ) ) {
+	fwrite( STDERR, "School map must prefer a page-specific online form source.\n" );
+	exit( 1 );
+}
+
+if ( str_contains( $script, 'onlinePanel.append(heroForm)' ) ) {
+	fwrite( STDERR, "School map must keep the hero lead form in place.\n" );
 	exit( 1 );
 }
 
@@ -41,6 +51,18 @@ if ( str_contains( $script, 'requestJson(config.mapUrl)' ) ) {
 
 if ( str_contains( $script, 'const dnipro' ) || str_contains( $script, "selectRegion('dnipropetrovsk')" ) ) {
 	fwrite( STDERR, "School map must not preselect or hardcode Dnipro.\n" );
+	exit( 1 );
+}
+
+foreach ( array( 'show_on_map', 'unavailableRegions' ) as $contract ) {
+	if ( ! str_contains( $script . $scss, $contract ) ) {
+		fwrite( STDERR, "School map is missing {$contract}.\n" );
+		exit( 1 );
+	}
+}
+
+if ( ! str_contains( $script, 'city.region?.label === regionNames.zaporizhia' ) || str_contains( $script, "'kherson', 'zaporizhia'" ) || str_contains( $script . $scss, 'school-map__city-marker' ) ) {
+	fwrite( STDERR, "Zaporizhzhia must be a violet region without auto-selection or a separate marker.\n" );
 	exit( 1 );
 }
 

@@ -17,6 +17,8 @@ const accParrent = [...document.querySelectorAll("[data-accordion-init]")];
 const marqueeSectionSlider = document.querySelectorAll('.marquee-section__slider');
 const englishSectionSlider = document.querySelectorAll('.english-section__slider');
 const categoriesCoursesSlider = document.querySelectorAll('.categories-section__slider');
+const tripsSectionSlider = document.querySelectorAll('.trips-section__slider');
+const gallerySectionSlider = document.querySelectorAll('.gallery-section__slider');
 const campGalleries = document.querySelectorAll('[data-camp-gallery]');
 
 //------------------------------------------------
@@ -66,6 +68,7 @@ const addClassInArray = (arr, customClass) => {
     item.classList.add(customClass);
   });
 }
+
 const removeCustomClass = (item, customClass = "active") => {
   item.classList.remove(customClass);
 };
@@ -185,6 +188,40 @@ document.addEventListener("DOMContentLoaded", function () {
   elementHeight(header, "header-height");
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const leadModal = document.querySelector('[data-logika-lead-modal]');
+  if (!leadModal) return;
+  const closeButtons = leadModal.querySelectorAll('[data-logika-lead-modal-close]');
+  const firstInput = leadModal.querySelector('input[name="name"]');
+  const courseInput = leadModal.querySelector('input[name="course_id"]');
+  let trigger = null;
+  const closeLeadModal = () => {
+    leadModal.hidden = true;
+    enableScroll();
+    trigger?.focus();
+  };
+  const openLeadModal = (nextTrigger) => {
+    trigger = nextTrigger;
+    courseInput.value = nextTrigger.dataset.logikaCourseId || '';
+    leadModal.hidden = false;
+    disableScroll();
+    window.setTimeout(() => firstInput?.focus(), 0);
+  };
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('a[href]');
+    if (!link || new URL(link.href, window.location.href).hash !== '#lead-form') return;
+    event.preventDefault();
+    openLeadModal(link);
+  });
+  closeButtons.forEach((button) => button.addEventListener('click', closeLeadModal));
+  leadModal.addEventListener('click', (event) => {
+    if (event.target === leadModal) closeLeadModal();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !leadModal.hidden) closeLeadModal();
+  });
+});
+
 //----accordion----------------------------------
 window.addEventListener("DOMContentLoaded", () => {
   accParrent &&
@@ -285,6 +322,11 @@ window.addEventListener("DOMContentLoaded", () => {
           const defaultOpenButton = accordionParrent.querySelector(
             `[data-id="${currentId}"]`
           );
+
+          if (!defaultOpenContent || !defaultOpenButton) {
+            return;
+          }
+
           openedAccordion = defaultOpenContent;
 
           toggleAccordionButton(defaultOpenButton);
@@ -358,13 +400,13 @@ document.addEventListener("DOMContentLoaded", function () {
     dropdownToggles.forEach((toggle) => {
       toggle.addEventListener("click", function () {
         const parentItem = this.closest(".header__nav-item");
-
+  
         document.querySelectorAll(".header__nav-item.active").forEach((item) => {
           if (item !== parentItem) {
             item.classList.remove("active");
           }
         });
-
+  
         parentItem.classList.toggle("active");
       });
     });
@@ -439,13 +481,13 @@ document.addEventListener("DOMContentLoaded", function () {
         slidesPerView: "auto",
         speed: 4000,
         loop: true,
-        allowTouchMove: false,
-
+        allowTouchMove: false, 
+        
         autoplay: {
-          delay: 0,
+          delay: 0, 
           disableOnInteraction: false,
         },
-
+        
         observer: true,
         observeParents: true,
       });
@@ -476,7 +518,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (categoriesCoursesSlider.length > 0) {
     categoriesCoursesSlider.forEach(function (slider) {
       const container = slider.querySelector(".swiper-container");
-
+      
       // Піднімаємося до спільного батька (сесії), щоб знайти кнопки, які лежать вище в HTML
       const parentSection = slider.closest('.categories-section');
       const nextBtn = parentSection ? parentSection.querySelector(".swiper-button-next") : null;
@@ -499,6 +541,25 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
+  tripsSectionSlider.forEach(function (slider) {
+    const container = slider.querySelector('.swiper-container');
+    const section = slider.closest('.trips-section');
+
+    if (container && section) {
+      new Swiper(container, { speed: 1800, loop: true, observer: true, observeParents: true, watchSlidesProgress: true, navigation: { nextEl: section.querySelector('.swiper-button-next'), prevEl: section.querySelector('.swiper-button-prev') }, breakpoints: { 320: { slidesPerView: 1.2, centeredSlides: true, spaceBetween: 10 }, 577: { slidesPerView: 'auto', centeredSlides: false, spaceBetween: 20 } } });
+    }
+  });
+
+  gallerySectionSlider.forEach(function (slider) {
+    const container = slider.querySelector('.swiper-container');
+    let instance = null;
+    const toggle = () => {
+      if (window.innerWidth <= 1024 && !instance) instance = new Swiper(container, { speed: 1800, loop: true, observer: true, observeParents: true, watchSlidesProgress: true, spaceBetween: 10, breakpoints: { 320: { slidesPerView: 1.2, spaceBetween: 10 }, 576: { slidesPerView: 2, spaceBetween: 15 } } });
+      if (window.innerWidth > 1024 && instance) { instance.destroy(true, true); instance = null; }
+    };
+    if (container) { toggle(); window.addEventListener('resize', toggle); }
+  });
 
 
 });

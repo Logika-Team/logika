@@ -8,7 +8,8 @@
 
 h1,
 .h1 {
-  font-size: clamp(36px, 4.167vw, 60px);
+  // margin-bottom: 10px;
+  font-size: 60px;
   line-height: 115%;
   font-weight: 700;
   letter-spacing: -3px;
@@ -17,7 +18,7 @@ h1,
 
 h2,
 .h2 {
-  font-size: clamp(32px, 3.889vw, 56px);
+  font-size: clamp(32px, 7.292vw, 56px);
   line-height: 118%;
   font-weight: 700;
   letter-spacing: -2.8px;
@@ -26,7 +27,7 @@ h2,
 
 h3,
 .h3 {
-  font-size: clamp(30px, 3.194vw, 46px);
+  font-size: 46px;
   line-height: 118%;
   font-weight: 700;
   letter-spacing: -2.3px;
@@ -35,7 +36,7 @@ h3,
 
 h4,
 .h4 {
-  font-size: clamp(18px, 1.944vw, 28px);
+  font-size: 28px;
   line-height: 128%;
   font-weight: 600;
   letter-spacing: -1.4px;
@@ -44,7 +45,7 @@ h4,
 
 h5,
 .h5 {
-  font-size: clamp(16px, 1.389vw, 20px);
+  font-size: 20px;
   line-height: 140%;
   font-weight: 700;
   letter-spacing: -1px;

@@ -1,6 +1,7 @@
 @import "../blocks/header.scss";
 @import "../blocks/mobile-menu.scss";
 @import "../blocks/footer.scss";
+@import "../blocks/lead-modal.scss";
 
 // ----------------- SECTION BLOCKS -----------------
 @import "../blocks/sections/banner-section.scss";
@@ -9,6 +10,9 @@
 @import "../blocks/sections/camp-benefits.scss";
 @import "../blocks/sections/camp-activities.scss";
 @import "../blocks/sections/camp-details.scss";
+@import "../blocks/sections/trips-section.scss";
+@import "../blocks/sections/details-section.scss";
+@import "../blocks/sections/gallery-section.scss";
 @import "../blocks/sections/camp-highlights.scss";
 @import "../blocks/sections/camp-formats.scss";
 @import "../blocks/sections/camp-booking.scss";
@@ -24,6 +28,7 @@
 @import "../blocks/sections/media-section.scss";
 @import "../blocks/sections/cta-section.scss";
 @import "../blocks/sections/faq-section.scss";
+@import "../blocks/sections/faq-banner-section.scss";
 @import "../blocks/sections/certificates-section.scss";
 @import "../blocks/sections/partners-section.scss";
 
@@ -43,16 +48,6 @@
 @import "../blocks/sections/en-courses-section.scss";
 @import "../blocks/sections/test-section.scss";
 @import "../blocks/sections/en-about-section.scss";
-
 @import "../blocks/sections/course-banner-section.scss";
 @import "../blocks/sections/learn-section.scss";
 @import "../blocks/sections/process-section.scss";
-
-
-// ----------------- SECTION FAQ PAGE-----------------
-@import "../blocks/sections/faq-banner-section.scss";
-
-// ----------------- SECTION CAMPS AND CAMP PAGES -----------------
-@import "../blocks/sections/trips-section.scss";
-@import "../blocks/sections/details-section.scss";
-@import "../blocks/sections/gallery-section.scss";

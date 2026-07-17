@@ -43,6 +43,7 @@
     &__top-bg {
         display: flex;
         position: absolute;
+        pointer-events: none;
         left: 0;
         top: 0;
         right: 0;
@@ -51,6 +52,7 @@
     &__bottom-bg {
         display: flex;
         position: absolute;
+        pointer-events: none;
         bottom: 0;
         right: 0;
     }

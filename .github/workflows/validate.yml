@@ -1,0 +1,46 @@
+name: Validate WordPress release
+
+on:
+  pull_request:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm run html
+      - name: PHP syntax
+        run: |
+          find wordpress/wp-content/themes/logika-theme wordpress/wp-content/plugins/logika-core wordpress/wp-content/plugins/logika-leads -type f -name '*.php' -print0 \
+            | xargs -0 -n1 php -l
+      - name: Install DDEV
+        run: curl --fail --silent --show-error --location https://ddev.com/install.sh | bash -s v1.25.3
+      - name: WordPress integration tests
+        run: scripts/release/run-wordpress-tests.sh
+      - name: Release tooling tests
+        run: node --test tests/release-infrastructure.test.mjs
+      - name: Secret scan
+        run: |
+          for path in \
+            .github \
+            docs \
+            scripts \
+            tests \
+            wordpress/wp-content/themes/logika-theme \
+            wordpress/wp-content/plugins/logika-core \
+            wordpress/wp-content/plugins/logika-leads \
+            package.json \
+            package-lock.json
+          do
+            docker run --rm -v "$PWD:/repo" ghcr.io/gitleaks/gitleaks:v8.24.2 dir --redact --verbose "/repo/$path"
+          done

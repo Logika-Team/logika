@@ -1,12 +1,26 @@
 node_modules
 .env
-
-# Local/derived artifacts
 .worktrees/
-graphify-out/
+release-artifacts/
 
-# Build artifacts in source branch workflows
-build/img/camp/
-source/img/camp/
-build/css/**/*.map
-build/css/blocks/sections/camp-page-hero.css
+# Local Graphify outputs and repo-local installs.
+graphify-out/
+.graphify/
+.graphify-*
+.agents/skills/graphify/
+.codex/skills/graphify/
+docs/graphify.md
+
+wordpress/*
+!wordpress/wp-content/
+wordpress/wp-content/*
+!wordpress/wp-content/mu-plugins/
+wordpress/wp-content/mu-plugins/*
+!wordpress/wp-content/mu-plugins/logika-acf-ai.php
+!wordpress/wp-content/plugins/
+!wordpress/wp-content/themes/
+wordpress/wp-content/plugins/*
+!wordpress/wp-content/plugins/logika-core/
+!wordpress/wp-content/plugins/logika-leads/
+wordpress/wp-content/themes/*
+!wordpress/wp-content/themes/logika-theme/

@@ -4,6 +4,22 @@ declare(strict_types=1);
 
 require dirname(__DIR__) . '/wordpress/wp-load.php';
 
+register_shutdown_function(
+	static function (): void {
+		foreach ( array( 'active-map-branch', 'inactive-map-branch', 'draft-map-branch' ) as $slug ) {
+			$branch = get_page_by_path( $slug, OBJECT, 'branch' );
+			if ( $branch instanceof WP_Post ) {
+				wp_delete_post( $branch->ID, true );
+			}
+		}
+
+		$city = get_page_by_path( 'map-api-city', OBJECT, 'city' );
+		if ( $city instanceof WP_Post ) {
+			wp_delete_post( $city->ID, true );
+		}
+	}
+);
+
 $request = new WP_REST_Request( 'GET', '/logika/v1/cities' );
 $response = rest_do_request( $request );
 $cities = $response->get_data();
@@ -19,10 +35,40 @@ if ( ! in_array( 'Київ', $labels, true ) || ! in_array( 'Львів', $label
 	exit( 1 );
 }
 
+if ( array_intersect( array( 'Академмістечко', 'Контрактова', 'Онлайн', 'Місто для карти' ), $labels ) || in_array( 'Інші міста', array_column( array_column( $cities, 'region' ), 'label' ), true ) ) {
+	fwrite( STDERR, "City selector API exposes invalid city or region entries.\n" );
+	exit( 1 );
+}
+
 $kyiv = current( array_filter( $cities, static fn( array $city ): bool => 'Київ' === $city['label'] ) );
 $bila_tserkva = current( array_filter( $cities, static fn( array $city ): bool => 'Біла Церква' === $city['label'] ) );
-if ( empty( $kyiv['region']['label'] ) || 'Київська область' !== $kyiv['region']['label'] || empty( $bila_tserkva['region']['label'] ) || $kyiv['region']['label'] !== $bila_tserkva['region']['label'] ) {
+if ( empty( $kyiv['region']['label'] ) || 'місто Київ' !== $kyiv['region']['label'] || empty( $bila_tserkva['region']['label'] ) || 'Київська область' !== $bila_tserkva['region']['label'] ) {
 	fwrite( STDERR, "City selector API does not expose city regions for grouped selector UI.\n" );
+	exit( 1 );
+}
+
+$map_cities = array_values( array_filter( $cities, static fn( array $city ): bool => true === ( $city['show_on_map'] ?? null ) ) );
+if ( 98 !== count( $map_cities ) || true !== ( $kyiv['show_on_map'] ?? null ) ) {
+	fwrite( STDERR, "Map must expose the 98 current Tilda cities.\n" );
+	exit( 1 );
+}
+
+foreach ( array( 'Донецька область', 'Луганська область', 'Херсонська область' ) as $region ) {
+	if ( array_filter( $map_cities, static fn( array $city ): bool => $region === ( $city['region']['label'] ?? '' ) ) ) {
+		fwrite( STDERR, "Map must not expose cities in {$region}.\n" );
+		exit( 1 );
+	}
+}
+
+$zaporizhzhia = array_values( array_filter( $map_cities, static fn( array $city ): bool => 'Запорізька область' === ( $city['region']['label'] ?? '' ) ) );
+if ( array( 'Запоріжжя' ) !== array_column( $zaporizhzhia, 'label' ) ) {
+	fwrite( STDERR, "Map must expose only Zaporizhzhia in the Zaporizhzhia region.\n" );
+	exit( 1 );
+}
+
+$novyi_rozdil = current( array_filter( $cities, static fn( array $city ): bool => 'Новий Розділ' === $city['label'] ) );
+if ( 'Львівська область' !== ( $novyi_rozdil['region']['label'] ?? '' ) ) {
+	fwrite( STDERR, "Новий Розділ must belong to Львівська область.\n" );
 	exit( 1 );
 }
 

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+(() => {
   const map = document.querySelector('[data-school-map]');
 
   if (!map) return;
@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ternopil: 'Тернопільська область', vinnytsia: 'Вінницька область', volyn: 'Волинська область',
     zakarpattia: 'Закарпатська область', zaporizhia: 'Запорізька область', zhytomyr: 'Житомирська область'
   };
+  const unavailableRegions = new Set(['crimea', 'donetsk', 'luhansk', 'kherson']);
   const canvas = map.querySelector('[data-map-canvas]');
   const layout = map.querySelector('.school-map__layout');
   const details = map.querySelector('[data-map-details]');
@@ -29,13 +30,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const frame = map.querySelector('[data-map-frame]');
   const config = { mapUrl: 'img/maps/ukraine-regions.svg', ...(window.logikaThemeAssets || {}) };
   const onlinePanel = document.createElement('div');
-  const heroForm = document.querySelector('.banner-section__form[data-logika-lead-form], .cta-form[data-logika-lead-form]');
-  const formOrigin = heroForm?.parentNode;
-  const formNextSibling = heroForm?.nextSibling;
+  const heroForm = document.querySelector('[data-map-online-form] .banner-section__form[data-logika-lead-form], .banner-section__form[data-logika-lead-form], .cta-form[data-logika-lead-form]');
+  const onlineForm = heroForm?.cloneNode(true);
   let selectedCity = null;
 
   onlinePanel.className = 'school-map__online';
   onlinePanel.hidden = true;
+  onlineForm?.querySelectorAll('[id]').forEach((element) => {
+    const id = `online-${element.id}`;
+    onlineForm.querySelectorAll(`[aria-describedby="${element.id}"]`).forEach((input) => input.setAttribute('aria-describedby', id));
+    element.id = id;
+  });
+  if (onlineForm) onlinePanel.append(onlineForm);
   layout?.before(onlinePanel);
   details.hidden = true;
 
@@ -92,7 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const selectCity = (city, persist = true) => {
     selectedCity = city;
-    if (persist) cityContext.set(city);
+    if (persist) {
+      cityContext.set(city, true);
+    }
     cityTitle.textContent = city.label.toUpperCase();
     details.hidden = false;
     locationsCount.textContent = 'Завантажуємо локації...';
@@ -140,17 +148,14 @@ document.addEventListener('DOMContentLoaded', () => {
     renderRegion(regionId, citiesByRegion);
   };
 
-  const moveHeroForm = () => {
-    if (!heroForm) return;
-    onlinePanel.append(heroForm);
+  const showOnlineForm = () => {
+    if (!onlineForm) return;
     onlinePanel.hidden = false;
     layout.hidden = true;
     details.hidden = true;
   };
 
-  const restoreHeroForm = () => {
-    if (!heroForm || !formOrigin) return;
-    formOrigin.insertBefore(heroForm, formNextSibling);
+  const hideOnlineForm = () => {
     onlinePanel.hidden = true;
     layout.hidden = false;
     details.hidden = !selectedCity;
@@ -158,8 +163,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const setMode = (mode) => {
     map.querySelectorAll('[data-map-mode]').forEach((button) => button.classList.toggle('is-active', button.dataset.mapMode === mode));
-    if ('online' === mode) moveHeroForm();
-    else restoreHeroForm();
+    if ('online' === mode) showOnlineForm();
+    else hideOnlineForm();
   };
 
   map.querySelectorAll('[data-map-mode]').forEach((button) => {
@@ -171,13 +176,14 @@ document.addEventListener('DOMContentLoaded', () => {
   Promise.all([fetchMap(), cityContext.load()])
     .then(([svg, cityList]) => {
       const citiesByRegion = cityList.reduce((groups, city) => {
+        if (!city.show_on_map) return groups;
         const label = city.region?.label;
         if (!label) return groups;
         groups.set(label, [...(groups.get(label) || []), city]);
         return groups;
       }, new Map());
       const selectContextCity = (city) => {
-        if (!city) return;
+        if (!city || city.region?.label === regionNames.zaporizhia) return;
         const regionId = Object.entries(regionNames).find(([, label]) => label === city.region?.label)?.[0];
         if (!regionId) return;
         selectRegion(regionId, citiesByRegion);
@@ -187,7 +193,13 @@ document.addEventListener('DOMContentLoaded', () => {
       canvas.innerHTML = svg;
       canvas.querySelectorAll('path[id]').forEach((path) => {
         const regionId = path.id;
-        if (!regionNames[regionId] || !citiesByRegion.has(regionNames[regionId])) return;
+        if (!regionNames[regionId]) return;
+        if (unavailableRegions.has(regionId)) {
+          path.classList.add('is-unavailable');
+          path.setAttribute('aria-hidden', 'true');
+          return;
+        }
+        if (!citiesByRegion.has(regionNames[regionId])) return;
         path.dataset.region = regionId;
         path.setAttribute('role', 'button');
         path.setAttribute('tabindex', '0');
@@ -209,4 +221,4 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(() => {
       canvas.textContent = 'Не вдалося завантажити карту областей.';
     });
-});
+})();

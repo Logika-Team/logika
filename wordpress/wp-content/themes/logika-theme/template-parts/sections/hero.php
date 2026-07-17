@@ -6,7 +6,7 @@ $page_id    = get_option( 'page_on_front' );
 $title      = get_field( 'home_hero_title', $page_id ) ?: 'Найбільша в Україні школа програмування для дітей 7-17 років';
 $subtitle   = get_field( 'home_hero_text', $page_id ) ?: 'Перші результати вже через 4 тижні';
 $cta_label  = get_field( 'cta_primary_label', 'option' ) ?: 'Спробувати безкоштовно';
-$privacy_url = get_field( 'global_privacy_policy_url', 'option' ) ?: '#';
+$privacy_url = get_field( 'global_privacy_policy_url', 'option' ) ?: home_url( '/privacy-policy/' );
 $assets     = get_template_directory_uri() . '/assets/img';
 $trust_items = (array) get_field( 'home_trust_items', $page_id );
 ?>

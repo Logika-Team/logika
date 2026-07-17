@@ -1,0 +1,72 @@
+name: Deploy WordPress staging
+
+on:
+  push:
+    branches:
+      - wordpress
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  validate:
+    uses: ./.github/workflows/validate.yml
+
+  deploy:
+    needs: validate
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+      url: https://staging.logika.resumemyhost.miy.link
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build immutable release artifact
+        id: artifact
+        run: |
+          mkdir -p release-artifacts
+          echo "path=$(scripts/release/build-artifact.sh --output-dir release-artifacts)" >> "$GITHUB_OUTPUT"
+      - name: Upload release artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: wordpress-release
+          path: release-artifacts/
+          retention-days: 30
+      - name: Configure SSH trust
+        env:
+          DEPLOY_SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+      - name: Deploy the staged artifact
+        env:
+          DEPLOY_HOST: ${{ secrets.SSH_HOST }}
+          DEPLOY_USER: ${{ secrets.SSH_USER }}
+          DEPLOY_PORT: ${{ secrets.SSH_PORT }}
+          DEPLOY_ROOT: ${{ secrets.DEPLOY_ROOT }}
+          DEPLOY_SITE_ROOT: ${{ secrets.DEPLOY_SITE_ROOT }}
+          WP_CLI_BIN: ${{ secrets.WP_CLI_BIN }}
+        run: scripts/release/deploy.sh --artifact "${{ steps.artifact.outputs.path }}"
+      - name: Import pending staging database dump
+        env:
+          DEPLOY_HOST: ${{ secrets.SSH_HOST }}
+          DEPLOY_USER: ${{ secrets.SSH_USER }}
+          DEPLOY_PORT: ${{ secrets.SSH_PORT }}
+          DEPLOY_ROOT: ${{ secrets.DEPLOY_ROOT }}
+          DEPLOY_SITE_ROOT: ${{ secrets.DEPLOY_SITE_ROOT }}
+          WP_CLI_BIN: ${{ secrets.WP_CLI_BIN }}
+        run: scripts/release/import-staging-db.sh
+      - name: Read-only server preflight
+        env:
+          DEPLOY_HOST: ${{ secrets.SSH_HOST }}
+          DEPLOY_USER: ${{ secrets.SSH_USER }}
+          DEPLOY_PORT: ${{ secrets.SSH_PORT }}
+          DEPLOY_SITE_ROOT: ${{ secrets.DEPLOY_SITE_ROOT }}
+          WP_CLI_BIN: ${{ secrets.WP_CLI_BIN }}
+        run: scripts/release/preflight.sh
+      - name: Staging smoke checks
+        run: scripts/release/smoke.sh --base-url https://staging.logika.resumemyhost.miy.link --expect-noindex

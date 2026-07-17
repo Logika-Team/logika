@@ -188,6 +188,46 @@ document.addEventListener("DOMContentLoaded", function () {
   elementHeight(header, "header-height");
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const leadModal = document.querySelector('[data-logika-lead-modal]');
+  if (!leadModal) return;
+
+  const closeButtons = leadModal.querySelectorAll('[data-logika-lead-modal-close]');
+  const firstInput = leadModal.querySelector('input[name="name"]');
+  const courseInput = leadModal.querySelector('input[name="course_id"]');
+  let trigger = null;
+
+  const closeLeadModal = () => {
+    leadModal.hidden = true;
+    enableScroll();
+    trigger?.focus();
+  };
+
+  const openLeadModal = (nextTrigger) => {
+    trigger = nextTrigger;
+    courseInput.value = nextTrigger.dataset.logikaCourseId || '';
+    leadModal.hidden = false;
+    disableScroll();
+    window.setTimeout(() => firstInput?.focus(), 0);
+  };
+
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('a[href]');
+    if (!link || new URL(link.href, window.location.href).hash !== '#lead-form') return;
+
+    event.preventDefault();
+    openLeadModal(link);
+  });
+
+  closeButtons.forEach((button) => button.addEventListener('click', closeLeadModal));
+  leadModal.addEventListener('click', (event) => {
+    if (event.target === leadModal) closeLeadModal();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !leadModal.hidden) closeLeadModal();
+  });
+});
+
 //----accordion----------------------------------
 window.addEventListener("DOMContentLoaded", () => {
   accParrent &&
@@ -201,8 +241,8 @@ window.addEventListener("DOMContentLoaded", () => {
           accordionParrent.dataset.single &&
           accordionParrent.dataset.breakpoint
         ) {
-          multipleSetting = accordionParrent.dataset.single;
-          breakpoinSetting = accordionParrent.dataset.breakpoint; 
+          multipleSetting = accordionParrent.dataset.single; // true - включает сингл аккордион
+          breakpoinSetting = accordionParrent.dataset.breakpoint; // брейкпоинт сингл режима (если он true)
         }
 
         const getAccordions = function (dataName = "[data-id]") {
@@ -215,29 +255,18 @@ window.addEventListener("DOMContentLoaded", () => {
         const closeAccordion = function (accordion, className = "active") {
           accordion.style.maxHeight = 0;
           removeCustomClass(accordion, className);
-
-          const itemParent = accordion.closest('.accordion__item');
-          if (itemParent) {
-            removeCustomClass(itemParent, className);
-          }
         };
 
         const openAccordion = function (accordion, className = "active") {
           accordion.style.maxHeight = accordion.scrollHeight + "px";
           addCustomClass(accordion, className);
-
-          // Добавляем active на родительский li (.accordion__item)
-          const itemParent = accordion.closest('.accordion__item');
-          if (itemParent) {
-            addCustomClass(itemParent, className);
-          }
         };
 
         const toggleAccordionButton = function (button, className = "active") {
           const childParrent = button.closest('.menu-has-child');
           toggleCustomClass(button, className);
 
-          if (childParrent) {
+          if(childParrent) {
             toggleCustomClass(childParrent, className);
           }
         };
@@ -299,6 +328,11 @@ window.addEventListener("DOMContentLoaded", () => {
           const defaultOpenButton = accordionParrent.querySelector(
             `[data-id="${currentId}"]`
           );
+
+          if (!defaultOpenContent || !defaultOpenButton) {
+            return;
+          }
+
           openedAccordion = defaultOpenContent;
 
           toggleAccordionButton(defaultOpenButton);
@@ -514,90 +548,25 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  if (tripsSectionSlider.length > 0) {
-    tripsSectionSlider.forEach(function (slider) {
-      const container = slider.querySelector(".swiper-container");
-      
-      const parentSection = slider.closest('.trips-section');
-      const nextBtn = parentSection ? parentSection.querySelector(".swiper-button-next") : null;
-      const prevBtn = parentSection ? parentSection.querySelector(".swiper-button-prev") : null;
+  tripsSectionSlider.forEach(function (slider) {
+    const container = slider.querySelector('.swiper-container');
+    const section = slider.closest('.trips-section');
 
-      if (container) {
-        const mainSwiper = new Swiper(container, {
-          speed: 1800,
-          loop: true,
-          observer: true,
-          observeParents: true,
-          watchSlidesProgress: true,
-          navigation: {
-            nextEl: nextBtn, 
-            prevEl: prevBtn,
-          },
-          breakpoints: {
-            320: {
-              slidesPerView: 1.2,
-              centeredSlides: true,
-              spaceBetween: 10,   
-            },
-            577: {
-              slidesPerView: 'auto',
-              centeredSlides: false,
-              spaceBetween: 20,
-            },
-          },
-        });
-      }
-    });
-  }
+    if (container && section) {
+      new Swiper(container, { speed: 1800, loop: true, observer: true, observeParents: true, watchSlidesProgress: true, navigation: { nextEl: section.querySelector('.swiper-button-next'), prevEl: section.querySelector('.swiper-button-prev') }, breakpoints: { 320: { slidesPerView: 1.2, centeredSlides: true, spaceBetween: 10 }, 577: { slidesPerView: 'auto', centeredSlides: false, spaceBetween: 20 } } });
+    }
+  });
 
-  if (gallerySectionSlider.length > 0) {
-    gallerySectionSlider.forEach(function (slider) {
-      const container = slider.querySelector(".swiper-container");
-      if (!container) return;
+  gallerySectionSlider.forEach(function (slider) {
+    const container = slider.querySelector('.swiper-container');
+    let instance = null;
+    const toggle = () => {
+      if (window.innerWidth <= 1024 && !instance) instance = new Swiper(container, { speed: 1800, loop: true, observer: true, observeParents: true, watchSlidesProgress: true, spaceBetween: 10, breakpoints: { 320: { slidesPerView: 1.2, spaceBetween: 10 }, 576: { slidesPerView: 2, spaceBetween: 15 } } });
+      if (window.innerWidth > 1024 && instance) { instance.destroy(true, true); instance = null; }
+    };
+    if (container) { toggle(); window.addEventListener('resize', toggle); }
+  });
 
-      let mainSwiper = null; 
-
-      const initOrDestroySlider = () => {
-        const windowWidth = window.innerWidth; 
-
-        if (windowWidth <= 1024) {
-          if (!mainSwiper) {
-            mainSwiper = new Swiper(container, {
-              speed: 1800,
-              loop: true,
-              observer: true,
-              observeParents: true,
-              watchSlidesProgress: true,
-              spaceBetween: 10,
-              breakpoints: {
-                320: {
-                  slidesPerView: 1.2,
-                  spaceBetween: 10,   
-                },
-                576: {
-                  slidesPerView: 2,
-                  spaceBetween: 15,   
-                },
-              },
-            });
-          }
-        } else {
-          if (mainSwiper) {
-            mainSwiper.destroy(true, true);
-            mainSwiper = null;
-          }
-        }
-      };
-
-      initOrDestroySlider();
-
-      let resizeTimeout;
-      window.addEventListener("resize", () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(initOrDestroySlider, 150);
-      });
-    });
-  }
 
 });
 
@@ -670,4 +639,3 @@ if (select.length) {
     });
   });
 }
-

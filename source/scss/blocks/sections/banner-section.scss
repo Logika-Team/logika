@@ -7,10 +7,9 @@
 
     &__main-bg {
         position: absolute;
-        inset: 0;
+        top: 16px;
+        right: 0;
         display: flex;
-        width: 100%;
-        height: 100%;
     }
 
     &__wrapp {
@@ -100,9 +99,10 @@
     }
 
     &__form {
+        // flex-shrink: 0;
         max-width: 480px;
         width: 100%;
-        padding: clamp(20px, 2.778vw, 40px) clamp(20px, 2.083vw, 30px);
+        padding: 40px 30px;
         border-radius: 30px;
         background-color: var(--violet-100);
     }

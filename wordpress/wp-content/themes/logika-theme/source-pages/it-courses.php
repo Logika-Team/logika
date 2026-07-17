@@ -24,7 +24,7 @@
                 <img width='440' height='225' src='img/boy-character.svg' alt='boy-character'>
               </div>
             </div>
-
+            
             <div class="banner-section__right">
               <form class="banner-section__form main-form">
                 <div class="main-form__title h5">
@@ -260,11 +260,11 @@
       </div>
     </section>
 
-    <section class="categories-section" id="years7">
+    <section class="categories-section" id="years7"> 
       <div class="container">
         <div class="categories-section__wrapp">
           <div class="categories-section__top">
-            <h2 class="categories-section__title">Курси для дітей 7-8 років</h2>
+            <h2 class="categories-section__title">Курси для дітей 7-8 років</h2>  
 
             <div class="categories-section__controls">
               <div class="categories-section__controls-btn swiper-button-prev">
@@ -288,7 +288,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -328,11 +328,11 @@
       </div>
     </section>
 
-    <section class="categories-section" id="years9">
+    <section class="categories-section" id="years9"> 
       <div class="container">
         <div class="categories-section__wrapp">
           <div class="categories-section__top">
-            <h2 class="categories-section__title">Курси для дітей 9-11 років</h2>
+            <h2 class="categories-section__title">Курси для дітей 9-11 років</h2>  
 
             <div class="categories-section__controls">
               <div class="categories-section__controls-btn swiper-button-prev">
@@ -356,7 +356,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -392,7 +392,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -428,7 +428,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -468,11 +468,11 @@
       </div>
     </section>
 
-    <section class="categories-section" id="years12">
+    <section class="categories-section" id="years12"> 
       <div class="container">
         <div class="categories-section__wrapp">
           <div class="categories-section__top">
-            <h2 class="categories-section__title">Курси для дітей 12-14 років</h2>
+            <h2 class="categories-section__title">Курси для дітей 12-14 років</h2>  
 
             <div class="categories-section__controls">
               <div class="categories-section__controls-btn swiper-button-prev">
@@ -496,7 +496,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -532,7 +532,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -568,7 +568,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -604,7 +604,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -640,7 +640,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -676,7 +676,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -712,7 +712,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -748,7 +748,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -784,7 +784,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -820,7 +820,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -856,7 +856,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -892,7 +892,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -932,11 +932,11 @@
       </div>
     </section>
 
-    <section class="categories-section" id="years14">
+    <section class="categories-section" id="years14"> 
       <div class="container">
         <div class="categories-section__wrapp">
           <div class="categories-section__top">
-            <h2 class="categories-section__title">Курси для дітей 14-17 років</h2>
+            <h2 class="categories-section__title">Курси для дітей 14-17 років</h2>  
 
             <div class="categories-section__controls">
               <div class="categories-section__controls-btn swiper-button-prev">
@@ -960,7 +960,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -996,7 +996,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -1032,7 +1032,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -1068,7 +1068,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -1104,7 +1104,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -1140,7 +1140,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -1176,7 +1176,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -1212,7 +1212,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -1248,7 +1248,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -1284,7 +1284,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -1320,7 +1320,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>
@@ -1356,7 +1356,7 @@
                   <li class='swiper-slide'>
                     <div class="course-card">
                       <span class="course-card__label">7-8 років</span>
-
+                      
                       <div class="course-card__media">
                         <div class="course-card__bg">
                           <img width='359' height='223' src='img/courses/course-bg.svg' alt=''>

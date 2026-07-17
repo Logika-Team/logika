@@ -26,6 +26,9 @@ if (cityRoot && cityTrigger && window.logikaCityContext) {
   cityTrigger.setAttribute('role', 'button');
   cityTrigger.setAttribute('aria-expanded', 'false');
 
+  const initial = window.logikaCityContext.get();
+  if (initial && cityLabel) cityLabel.textContent = initial.label;
+
   const close = () => {
     cityRoot.classList.remove('header__location--open');
     cityTrigger.setAttribute('aria-expanded', 'false');
@@ -54,7 +57,7 @@ if (cityRoot && cityTrigger && window.logikaCityContext) {
       return regions;
     }, {});
 
-    Object.values(groups).forEach((group) => {
+    Object.values(groups).sort((a, b) => Number(a.region.label === 'Інші міста') - Number(b.region.label === 'Інші міста')).forEach((group) => {
       const item = document.createElement('li');
       const button = document.createElement('button');
       const citiesList = document.createElement('ul');
@@ -90,7 +93,7 @@ if (cityRoot && cityTrigger && window.logikaCityContext) {
         }
 
         option.addEventListener('click', () => {
-          window.logikaCityContext.set(city);
+          window.logikaCityContext.set(city, true);
           close();
         });
         cityItem.append(option);
