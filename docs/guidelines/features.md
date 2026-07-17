@@ -1,7 +1,7 @@
 # Features: Logika School
 
-Date: 2026-07-10
-Source: `project-scope.md`
+Date: 2026-07-10  
+Source: `project-scope.md`  
 Implementation stack: WordPress + ACF Pro + custom theme + `logika-core`
 
 ## 1. Project goal
@@ -178,6 +178,12 @@ Recommended approach:
 - on open, verify saved city;
 - if user is on city URL, URL has priority over stored city;
 - update saved value on new city selection.
+
+Branch map behavior:
+
+- a published active branch needs only its city and full address to appear on the map;
+- explicit branch coordinates or a Google Maps URL override automatic address lookup;
+- when a city has several branches, selecting an address in the list updates the map without changing the page layout.
 
 City context source priority:
 
@@ -437,8 +443,10 @@ Requirements:
 - cities should have SEO title, description, H1, intro, SEO text, FAQ, local blocks.
 - courses require SEO title, description, H1, FAQ, Course schema inputs.
 - articles need answer-first summary, author/expert, related content.
+- editors select one reusable article author with a photo; legacy article author fields remain a fallback until content is migrated.
 - managers can create a complete article from one fixed editor template: cover, author, body, sidebar promotion, selected courses, related articles, CTA and inline FAQ.
 - article table of contents is generated from visible H2/H3 headings; only published related content may appear publicly.
+- article card shows global Instagram, Telegram and YouTube links plus a persistent-cookie unique browser view count.
 - schema should be built from visible content.
 
 Acceptance criteria:

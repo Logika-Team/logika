@@ -24,13 +24,13 @@
               </div>
 
               <div class="course-banner-section__btns">
-                <button class="course-banner-section__btn btn btn--violet">
+                <a class="course-banner-section__btn btn btn--violet" href="#lead-form">
                   Залишити заявку
                   <svg width='20' height='20'>
                     <use href='img/sprite/sprite.svg#arrow-right'></use>
                   </svg>
-                </button>
-                <a class="course-banner-section__btn btn btn--bordered-violet">
+                </a>
+                <a class="course-banner-section__btn btn btn--bordered-violet" href="#course-program">
                   Програма курсу
                   <svg width='20' height='20'>
                     <use href='img/sprite/sprite.svg#icon-more'></use>
@@ -190,12 +190,12 @@
                 </a>
               </div>
             </li>
-          </div>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section class="portfilio-section">
+    <section class="portfolio-section portfolio-section--course">
       <div class="portfolio-section__wrapp">
         <div class="container">
           <h2 class="portfolio-section__title">Проекти наших учнів</h2>
@@ -207,7 +207,7 @@
       </div>
     </section>
 
-    <section class="faq-section">
+    <section class="faq-section" id="course-program">
       <div class="faq-section__left-bg">
         <img src="img/faq/faq-left-bg.svg" alt="">
       </div>

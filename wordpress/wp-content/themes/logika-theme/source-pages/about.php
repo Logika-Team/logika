@@ -82,7 +82,7 @@
               <p>Крім основного навчання проводимо сезонні інтелектуальні квести з призами, їздимо в IT-табори до Карпат та заохочуємо до навчання різноманітними способами.</p>
               <strong>Наша основна мета – навчити цікаво, легко та ефективно!</strong>
             </div>
-            <a class="about-history__cta" href="#lead-form">Безкоштовний пробний урок&nbsp; →</a>
+            <a class="about-history__cta btn" href="#lead-form">Безкоштовний пробний урок&nbsp; →</a>
           </div>
           <div class="about-history__image">
             <img src="img/about/anniversary-full.png" alt="Logika святкує чотири роки">
@@ -205,7 +205,7 @@
                 </a>
               </div>
             </li>
-          </div>
+          </ul>
         </div>
       </div>
     </section>

@@ -21,20 +21,24 @@
 		var sources = settings.sources[field.get('key')];
 		var index = rowIndex(field);
 
-		return sources ? (sources[index] || '') : '';
+		return sources ? (sources[index] || sources[0] || '') : '';
 	}
 
 	function error(profile) {
 		return 'Оберіть зображення щонайменше ' + profile.width + ' × ' + profile.height + ' px з такими самими пропорціями.';
 	}
 
-	function isValid(attachment, profile) {
+	function isRelaxed(field) {
+		return settings.relaxedFields.indexOf(field.get('key')) !== -1;
+	}
+
+	function isValid(attachment, profile, field) {
 		var image = attachment.attributes || attachment;
 		var type = image.mime || image.mime_type;
 		var ratio = Number(image.width) / Number(image.height);
 		var expected = profile.width / profile.height;
 
-		return ['image/jpeg', 'image/png', 'image/webp'].indexOf(type) !== -1 && Number(image.width) >= profile.width && Number(image.height) >= profile.height && Math.abs(ratio / expected - 1) <= 0.02;
+		return ['image/jpeg', 'image/png', 'image/webp'].indexOf(type) !== -1 && (isRelaxed(field) || Number(image.width) >= profile.width && Number(image.height) >= profile.height && Math.abs(ratio / expected - 1) <= 0.02);
 	}
 
 	function choose(field) {
@@ -47,7 +51,7 @@
 			library: field.get('library'),
 			allowedTypes: field.get('mime_types'),
 			select: function (attachment) {
-				if (!isValid(attachment, fieldProfile)) {
+				if (fieldProfile && !isValid(attachment, fieldProfile, field)) {
 					field.showNotice({ text: error(fieldProfile), type: 'error' });
 					return;
 				}
@@ -105,7 +109,9 @@
 		field.$el
 			.addClass('logika-image-override-field')
 			.css({ width: '100%', maxWidth: 'none', flexBasis: '100%' });
-		field.$el.children('.acf-label').hide();
+		if (fieldProfile) {
+			field.$el.children('.acf-label').hide();
+		}
 		input = field.$el.find('.acf-input').first().css({ width: '100%', maxWidth: 'none' });
 		input.children('.acf-image-uploader').addClass('logika-image-override-native').hide();
 		panel = $('<div class="logika-image-override-panel" style="width:100%;max-width:none"></div>').prependTo(input);
@@ -129,9 +135,11 @@
 				field.removeAttachment();
 				syncPreview(field);
 			});
-		$('<p class="description logika-image-override-description"></p>')
-			.text('PNG, WebP або JPEG; щонайменше ' + fieldProfile.width + ' × ' + fieldProfile.height + ' px із такими самими пропорціями.')
-			.appendTo(panel);
+		if (fieldProfile && !isRelaxed(field)) {
+			$('<p class="description logika-image-override-description"></p>')
+				.text('PNG, WebP або JPEG; щонайменше ' + fieldProfile.width + ' × ' + fieldProfile.height + ' px із такими самими пропорціями.')
+				.appendTo(panel);
+		}
 		syncPreview(field);
 	}
 

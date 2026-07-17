@@ -13,9 +13,24 @@ foreach ( array( 'about.html', 'faq.html', 'it-courses.html', 'en-courses.html',
 	}
 }
 
-foreach ( array( 1018 => '/media-center/test-routing-post/', 1019 => '/courses/test-routing-course/', 1020 => '/camps/test-routing-camp/' ) as $post_id => $path ) {
-	if ( ! str_ends_with( get_permalink( $post_id ), $path ) ) {
-		$errors[] = "Post {$post_id} does not use {$path}.";
+$created_posts = array();
+foreach (
+	array(
+		'post'   => array( 'test-routing-post', '/media-center/test-routing-post/' ),
+		'course' => array( 'test-routing-course', '/courses/test-routing-course/' ),
+		'camp'   => array( 'test-routing-camp', '/camps/test-routing-camp/' ),
+	) as $post_type => $route
+) {
+	$post = get_page_by_path( $route[0], OBJECT, $post_type );
+	if ( ! $post ) {
+		$post_id         = wp_insert_post( array( 'post_type' => $post_type, 'post_status' => 'publish', 'post_title' => 'Routing fixture', 'post_name' => $route[0] ) );
+		$created_posts[] = $post_id;
+	} else {
+		$post_id = $post->ID;
+	}
+	$permalink = get_permalink( $post_id );
+	if ( ! is_string( $permalink ) || ! str_ends_with( $permalink, $route[1] ) ) {
+		$errors[] = "Post {$post_id} does not use {$route[1]}.";
 	}
 }
 
@@ -26,7 +41,7 @@ foreach (
 		array( '<a href="#" class="english-level__link btn">Обрати курс</a>', 'index', '/#lead-form' ),
 		array( '<a href="#" class="transformation-section__link btn">Запис на безкоштовний урок</a>', 'index', '/#lead-form' ),
 		array( '<a href="#" class="archive-section__promo-link btn">Дізнатись більше</a>', 'media-center', '/camps/' ),
-		array( '<a href="#" class="news-section__btn btn">Переглянути усі</a>', 'media-center', '/media-center/' ),
+		array( '<a href="#" class="news-section__btn btn">Переглянути усі</a>', 'media-center', '/blog/' ),
 	) as $case
 ) {
 	list( $markup, $source, $path ) = $case;
@@ -44,13 +59,9 @@ if ( ! str_contains( $home_markup, '<section id="lead-form" class="banner-sectio
 	$errors[] = 'The CTA anchor is not at the top of the hero section.';
 }
 
-if ( ! str_contains( Logika_Theme_Course_Page::render( 1019 ), 'href="' . esc_url( home_url( '/#lead-form' ) ) . '"' ) ) {
-	$errors[] = 'Course CTA does not link to the lead form.';
-}
-
-foreach ( array( 'src/CampPage.php', 'template-parts/sections/course-list.php' ) as $file ) {
-	if ( str_contains( file_get_contents( get_template_directory() . '/' . $file ) ?: '', 'href="#lead-form"' ) ) {
-		$errors[] = "{$file} uses a missing local lead-form anchor.";
+foreach ( array( 'Course' => Logika_Theme_Course_Page::render( 1019 ), 'Camp' => Logika_Theme_Camp_Page::render( 1020 ) ) as $kind => $markup ) {
+	if ( ! str_contains( $markup, 'href="#lead-form"' ) || ! str_contains( $markup, 'id="lead-form"' ) ) {
+		$errors[] = "{$kind} CTA does not have a local lead-form target.";
 	}
 }
 
@@ -63,6 +74,10 @@ foreach ( glob( get_template_directory() . '/source-pages/*.php' ) as $file ) {
 			$errors[] = "Navigation CTA remains unlinked in {$file}.";
 		}
 	}
+}
+
+foreach ( $created_posts as $post_id ) {
+	wp_delete_post( $post_id, true );
 }
 
 if ( $errors ) {

@@ -2,37 +2,447 @@
   "key": "group_logika_global",
   "title": "Глобальні налаштування",
   "fields": [
-    {"key":"field_global_phone","label":"Основний телефон","name":"global_phone","type":"text","required":1},
-    {"key":"field_global_email","label":"Публічний email","name":"global_email","type":"email"},
-    {"key":"field_global_messengers","label":"Месенджери","name":"global_messengers","type":"repeater","layout":"table","sub_fields":[{"key":"field_global_messenger_label","label":"Назва","name":"label","type":"text"},{"key":"field_global_messenger_url","label":"Посилання","name":"url","type":"url"},{"key":"field_global_messenger_icon","label":"Іконка","name":"icon","type":"image","return_format":"id"}]},
-    {"key":"field_global_social_links","label":"Соціальні мережі","name":"global_social_links","type":"repeater","layout":"table","sub_fields":[{"key":"field_global_social_label","label":"Назва","name":"label","type":"text"},{"key":"field_global_social_url","label":"Посилання","name":"url","type":"url"},{"key":"field_global_social_icon","label":"Іконка","name":"icon","type":"image","return_format":"id"}]},
-    {"key":"field_global_default_city","label":"Місто за замовчуванням","name":"global_default_city","type":"post_object","post_type":["city"],"return_format":"id"},
-    {"key":"field_global_fallback_image","label":"Резервне зображення","name":"global_fallback_image","type":"image","return_format":"id"},
-    {"key":"field_global_footer_text","label":"Текст у футері","name":"global_footer_text","type":"wysiwyg"},
-    {"key":"field_global_privacy_policy_url","label":"Посилання на політику приватності","name":"global_privacy_policy_url","type":"url","required":1},
-    {"key":"field_cta_primary_label","label":"Основний CTA","name":"cta_primary_label","type":"text"},
-    {"key":"field_cta_secondary_label","label":"Додатковий CTA","name":"cta_secondary_label","type":"text"},
-    {"key":"field_cta_trial_lesson_text","label":"Текст пробного уроку","name":"cta_trial_lesson_text","type":"textarea"},
-    {"key":"field_cta_consultation_text","label":"Текст консультації","name":"cta_consultation_text","type":"textarea"},
-    {"key":"field_form_privacy_text_version","label":"Версія тексту приватності","name":"form_privacy_text_version","type":"text","required":1},
-    {"key":"field_form_default_success_message","label":"Повідомлення про успіх","name":"form_default_success_message","type":"textarea","required":1},
-    {"key":"field_form_default_error_message","label":"Безпечне повідомлення про помилку","name":"form_default_error_message","type":"textarea","required":1},
-    {"key":"field_form_allowed_ids","label":"Дозволені ID форм","name":"form_allowed_ids","type":"repeater","required":1,"layout":"table","sub_fields":[{"key":"field_form_allowed_id","label":"ID форми","name":"form_id","type":"text"},{"key":"field_form_allowed_label","label":"Підпис","name":"label","type":"text"}]},
-    {"key":"field_seo_default_title_template","label":"Шаблон SEO-заголовка","name":"seo_default_title_template","type":"text"},
-    {"key":"field_seo_default_description_template","label":"Шаблон SEO-опису","name":"seo_default_description_template","type":"textarea"},
-    {"key":"field_schema_organization_name","label":"Назва організації","name":"schema_organization_name","type":"text","required":1},
-    {"key":"field_schema_organization_logo","label":"Логотип організації","name":"schema_organization_logo","type":"image","return_format":"id"},
-    {"key":"field_schema_organization_url","label":"URL організації","name":"schema_organization_url","type":"url","required":1},
-    {"key":"field_schema_same_as","label":"Офіційні профілі","name":"schema_same_as","type":"repeater","layout":"table","sub_fields":[{"key":"field_schema_same_as_url","label":"URL","name":"url","type":"url"}]},
-    {"key":"field_fallback_reviews","label":"Резервні відгуки","name":"fallback_reviews","type":"relationship","post_type":["review"],"return_format":"id"},
-    {"key":"field_fallback_faq","label":"Резервні FAQ","name":"fallback_faq","type":"relationship","post_type":["faq_item"],"return_format":"id"},
-    {"key":"field_fallback_no_branch_text","label":"Текст без філій","name":"fallback_no_branch_text","type":"textarea"},
-    {"key":"field_fallback_no_camp_text","label":"Текст без таборів","name":"fallback_no_camp_text","type":"textarea"},
-    {"key":"field_fallback_no_course_text","label":"Текст без курсів","name":"fallback_no_course_text","type":"textarea"},
-    {"key":"field_media_center_search_placeholder","label":"Placeholder пошуку медіацентру","name":"media_center_search_placeholder","type":"text","default_value":"Пошук по статтях"},
-    {"key":"field_media_center_topics","label":"Тематичні посилання медіацентру","name":"media_center_topics","type":"repeater","layout":"table","button_label":"Додати посилання","sub_fields":[{"key":"field_media_center_topic_label","label":"Назва","name":"label","type":"text","required":1},{"key":"field_media_center_topic_url","label":"Посилання","name":"url","type":"url","required":1}]}
+    {
+      "key": "field_global_tab_contacts",
+      "label": "Бренд і контакти",
+      "name": "",
+      "type": "tab"
+    },
+    {
+      "key": "field_global_phone",
+      "label": "Основний телефон",
+      "name": "global_phone",
+      "type": "text",
+      "required": 1,
+      "instructions": "Вкажіть значення для поля «Основний телефон»."
+    },
+    {
+      "key": "field_global_email",
+      "label": "Публічний email",
+      "name": "global_email",
+      "type": "email",
+      "instructions": "Вкажіть значення для поля «Публічний email»."
+    },
+    {
+      "key": "field_global_header_logo",
+      "label": "Логотип у шапці",
+      "name": "global_header_logo",
+      "type": "image",
+      "return_format": "id",
+      "instructions": "Оберіть зображення для «Логотип у шапці». Після вибору в полі буде показано мініатюру.",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_global_footer_logo",
+      "label": "Логотип у футері",
+      "name": "global_footer_logo",
+      "type": "image",
+      "return_format": "id",
+      "instructions": "Оберіть зображення для «Логотип у футері». Після вибору в полі буде показано мініатюру.",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_global_messengers",
+      "label": "Месенджери",
+      "name": "global_messengers",
+      "type": "repeater",
+      "layout": "table",
+      "sub_fields": [
+        {
+          "key": "field_global_messenger_label",
+          "label": "Назва",
+          "name": "label",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Назва»."
+        },
+        {
+          "key": "field_global_messenger_url",
+          "label": "Посилання",
+          "name": "url",
+          "type": "url",
+          "instructions": "Вкажіть значення для поля «Посилання»."
+        },
+        {
+          "key": "field_global_messenger_icon",
+          "label": "Іконка",
+          "name": "icon",
+          "type": "image",
+          "return_format": "id",
+          "instructions": "Оберіть зображення для «Іконка». Після вибору в полі буде показано мініатюру.",
+          "preview_size": "medium"
+        }
+      ],
+      "instructions": "Додавайте рядки та змінюйте їхній порядок перетягуванням."
+    },
+    {
+      "key": "field_global_social_links",
+      "label": "Соціальні мережі",
+      "name": "global_social_links",
+      "type": "repeater",
+      "layout": "table",
+      "sub_fields": [
+        {
+          "key": "field_global_social_label",
+          "label": "Назва",
+          "name": "label",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Назва»."
+        },
+        {
+          "key": "field_global_social_url",
+          "label": "Посилання",
+          "name": "url",
+          "type": "url",
+          "instructions": "Вкажіть значення для поля «Посилання»."
+        },
+        {
+          "key": "field_global_social_icon",
+          "label": "Іконка",
+          "name": "icon",
+          "type": "image",
+          "return_format": "id",
+          "instructions": "Оберіть зображення для «Іконка». Після вибору в полі буде показано мініатюру.",
+          "preview_size": "medium"
+        }
+      ],
+      "instructions": "Додавайте рядки та змінюйте їхній порядок перетягуванням."
+    },
+    {
+      "key": "field_global_default_city",
+      "label": "Місто за замовчуванням",
+      "name": "global_default_city",
+      "type": "post_object",
+      "post_type": [
+        "city"
+      ],
+      "return_format": "id",
+      "instructions": "Оберіть один пов’язаний запис для поля «Місто за замовчуванням»."
+    },
+    {
+      "key": "field_global_fallback_image",
+      "label": "Резервне зображення",
+      "name": "global_fallback_image",
+      "type": "image",
+      "return_format": "id",
+      "instructions": "Оберіть зображення для «Резервне зображення». Після вибору в полі буде показано мініатюру.",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_global_footer_accreditation",
+      "label": "Опис школи у футері",
+      "name": "global_footer_accreditation",
+      "type": "textarea",
+      "instructions": "Введіть редакторський текст для поля «Опис школи у футері»."
+    },
+    {
+      "key": "field_global_footer_text",
+      "label": "Текст у футері",
+      "name": "global_footer_text",
+      "type": "wysiwyg",
+      "instructions": "Введіть редакторський текст для поля «Текст у футері»."
+    },
+    {
+      "key": "field_global_footer_copyright",
+      "label": "Копірайт",
+      "name": "global_footer_copyright",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Копірайт»."
+    },
+    {
+      "key": "field_global_privacy_policy_url",
+      "label": "Посилання на політику приватності",
+      "name": "global_privacy_policy_url",
+      "type": "url",
+      "required": 1,
+      "instructions": "Вкажіть значення для поля «Посилання на політику приватності»."
+    },
+    {
+      "key": "field_global_tab_cta_forms",
+      "label": "CTA та форми",
+      "name": "",
+      "type": "tab"
+    },
+    {
+      "key": "field_cta_primary_label",
+      "label": "Основний CTA",
+      "name": "cta_primary_label",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Основний CTA»."
+    },
+    {
+      "key": "field_cta_secondary_label",
+      "label": "Додатковий CTA",
+      "name": "cta_secondary_label",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Додатковий CTA»."
+    },
+    {
+      "key": "field_cta_trial_lesson_text",
+      "label": "Текст пробного уроку",
+      "name": "cta_trial_lesson_text",
+      "type": "textarea",
+      "instructions": "Введіть редакторський текст для поля «Текст пробного уроку»."
+    },
+    {
+      "key": "field_cta_consultation_text",
+      "label": "Текст консультації",
+      "name": "cta_consultation_text",
+      "type": "textarea",
+      "instructions": "Введіть редакторський текст для поля «Текст консультації»."
+    },
+    {
+      "key": "field_form_privacy_text_version",
+      "label": "Версія тексту приватності",
+      "name": "form_privacy_text_version",
+      "type": "text",
+      "required": 1,
+      "instructions": "Вкажіть значення для поля «Версія тексту приватності»."
+    },
+    {
+      "key": "field_form_default_success_message",
+      "label": "Повідомлення про успіх",
+      "name": "form_default_success_message",
+      "type": "textarea",
+      "required": 1,
+      "instructions": "Введіть редакторський текст для поля «Повідомлення про успіх»."
+    },
+    {
+      "key": "field_form_default_error_message",
+      "label": "Безпечне повідомлення про помилку",
+      "name": "form_default_error_message",
+      "type": "textarea",
+      "required": 1,
+      "instructions": "Введіть редакторський текст для поля «Безпечне повідомлення про помилку»."
+    },
+    {
+      "key": "field_form_allowed_ids",
+      "label": "Дозволені ID форм",
+      "name": "form_allowed_ids",
+      "type": "repeater",
+      "required": 1,
+      "layout": "table",
+      "sub_fields": [
+        {
+          "key": "field_form_allowed_id",
+          "label": "ID форми",
+          "name": "form_id",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «ID форми»."
+        },
+        {
+          "key": "field_form_allowed_label",
+          "label": "Підпис",
+          "name": "label",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Підпис»."
+        }
+      ],
+      "instructions": "Додавайте рядки та змінюйте їхній порядок перетягуванням."
+    },
+    {
+      "key": "field_global_tab_seo_schema",
+      "label": "SEO та Schema",
+      "name": "",
+      "type": "tab"
+    },
+    {
+      "key": "field_seo_default_title_template",
+      "label": "Шаблон SEO-заголовка",
+      "name": "seo_default_title_template",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Шаблон SEO-заголовка»."
+    },
+    {
+      "key": "field_seo_default_description_template",
+      "label": "Шаблон SEO-опису",
+      "name": "seo_default_description_template",
+      "type": "textarea",
+      "instructions": "Введіть редакторський текст для поля «Шаблон SEO-опису»."
+    },
+    {
+      "key": "field_schema_organization_name",
+      "label": "Назва організації",
+      "name": "schema_organization_name",
+      "type": "text",
+      "required": 1,
+      "instructions": "Вкажіть значення для поля «Назва організації»."
+    },
+    {
+      "key": "field_schema_organization_logo",
+      "label": "Логотип організації",
+      "name": "schema_organization_logo",
+      "type": "image",
+      "return_format": "id",
+      "instructions": "Оберіть зображення для «Логотип організації». Після вибору в полі буде показано мініатюру.",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_schema_organization_url",
+      "label": "URL організації",
+      "name": "schema_organization_url",
+      "type": "url",
+      "required": 1,
+      "instructions": "Вкажіть значення для поля «URL організації»."
+    },
+    {
+      "key": "field_schema_same_as",
+      "label": "Офіційні профілі",
+      "name": "schema_same_as",
+      "type": "repeater",
+      "layout": "table",
+      "sub_fields": [
+        {
+          "key": "field_schema_same_as_url",
+          "label": "URL",
+          "name": "url",
+          "type": "url",
+          "instructions": "Вкажіть значення для поля «URL»."
+        }
+      ],
+      "instructions": "Додавайте рядки та змінюйте їхній порядок перетягуванням."
+    },
+    {
+      "key": "field_global_tab_shared_sections",
+      "label": "Спільні секції",
+      "name": "",
+      "type": "tab"
+    },
+    {
+      "key": "field_global_partners",
+      "label": "Партнери",
+      "name": "global_partners",
+      "type": "repeater",
+      "layout": "table",
+      "button_label": "Додати партнера",
+      "sub_fields": [
+        {
+          "key": "field_global_partner_name",
+          "label": "Назва",
+          "name": "name",
+          "type": "text",
+          "required": 1,
+          "instructions": "Вкажіть значення для поля «Назва»."
+        },
+        {
+          "key": "field_global_partner_image",
+          "label": "Логотип",
+          "name": "image",
+          "type": "image",
+          "return_format": "id",
+          "required": 1,
+          "instructions": "Оберіть зображення для «Логотип». Після вибору в полі буде показано мініатюру.",
+          "preview_size": "medium"
+        },
+        {
+          "key": "field_global_partner_url",
+          "label": "Посилання",
+          "name": "url",
+          "type": "url",
+          "instructions": "Вкажіть значення для поля «Посилання»."
+        }
+      ],
+      "instructions": "Додавайте рядки та змінюйте їхній порядок перетягуванням."
+    },
+    {
+      "key": "field_global_certificates",
+      "label": "Сертифікати",
+      "name": "global_certificates",
+      "type": "gallery",
+      "return_format": "id",
+      "instructions": "Додайте зображення та змінюйте їхній порядок перетягуванням. Мініатюри видно без відкриття медіатеки.",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_fallback_reviews",
+      "label": "Резервні відгуки",
+      "name": "fallback_reviews",
+      "type": "relationship",
+      "post_type": [
+        "review"
+      ],
+      "return_format": "id",
+      "instructions": "Оберіть потрібні записи та розташуйте їх у порядку публічного показу."
+    },
+    {
+      "key": "field_fallback_faq",
+      "label": "Резервні FAQ",
+      "name": "fallback_faq",
+      "type": "relationship",
+      "post_type": [
+        "faq_item"
+      ],
+      "return_format": "id",
+      "instructions": "Оберіть потрібні записи та розташуйте їх у порядку публічного показу."
+    },
+    {
+      "key": "field_fallback_no_branch_text",
+      "label": "Текст без філій",
+      "name": "fallback_no_branch_text",
+      "type": "textarea",
+      "instructions": "Введіть редакторський текст для поля «Текст без філій»."
+    },
+    {
+      "key": "field_fallback_no_camp_text",
+      "label": "Текст без таборів",
+      "name": "fallback_no_camp_text",
+      "type": "textarea",
+      "instructions": "Введіть редакторський текст для поля «Текст без таборів»."
+    },
+    {
+      "key": "field_fallback_no_course_text",
+      "label": "Текст без курсів",
+      "name": "fallback_no_course_text",
+      "type": "textarea",
+      "instructions": "Введіть редакторський текст для поля «Текст без курсів»."
+    },
+    {
+      "key": "field_media_center_search_placeholder",
+      "label": "Placeholder пошуку медіацентру",
+      "name": "media_center_search_placeholder",
+      "type": "text",
+      "default_value": "Пошук по статтях",
+      "instructions": "Вкажіть значення для поля «Placeholder пошуку медіацентру»."
+    },
+    {
+      "key": "field_media_center_topics",
+      "label": "Тематичні посилання медіацентру",
+      "name": "media_center_topics",
+      "type": "repeater",
+      "layout": "table",
+      "button_label": "Додати посилання",
+      "sub_fields": [
+        {
+          "key": "field_media_center_topic_label",
+          "label": "Назва",
+          "name": "label",
+          "type": "text",
+          "required": 1,
+          "instructions": "Вкажіть значення для поля «Назва»."
+        },
+        {
+          "key": "field_media_center_topic_url",
+          "label": "Посилання",
+          "name": "url",
+          "type": "url",
+          "required": 1,
+          "instructions": "Вкажіть значення для поля «Посилання»."
+        }
+      ],
+      "instructions": "Додавайте рядки та змінюйте їхній порядок перетягуванням."
+    }
   ],
-  "location": [[{"param":"options_page","operator":"==","value":"logika-settings"}]],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "logika-settings"
+      }
+    ]
+  ],
   "active": true,
-  "show_in_rest": true
+  "show_in_rest": true,
+  "allow_ai_access": true,
+  "ai_description": "Структуровані редакторські поля Logika: Глобальні налаштування.",
+  "modified": 1784251458
 }

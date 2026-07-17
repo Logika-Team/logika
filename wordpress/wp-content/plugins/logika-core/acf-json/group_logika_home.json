@@ -1,2245 +1,2619 @@
 {
-    "key": "group_logika_home",
-    "title": "Головна сторінка",
-    "fields": [
-        {
-            "key": "field_home_editor_note",
-            "label": "Де редагувати",
-            "name": "",
-            "aria-label": "",
-            "type": "message",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "Ці поля показуються на сторінці, вибраній як головна: Сторінки → Головна. Тексти та зображення нижче змінюють блоки головної сторінки.",
-            "new_lines": "wpautop",
-            "esc_html": 0
-        },
-        {
-            "key": "field_home_image_gallery",
-            "label": "Галерея зображень головної",
-            "name": "home_image_gallery",
-            "aria-label": "",
-            "type": "gallery",
-            "instructions": "Довідкова галерея з поточними зображеннями головної сторінки та прев'ю. Вона не підміняє всі зображення автоматично, щоб не ламати вихідну верстку.",
-            "required": 0,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "library": "all",
-            "min": "",
-            "max": "",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "insert": "append",
-            "preview_size": "medium"
-        },
-        {
-            "key": "field_home_hero_title",
-            "label": "Заголовок hero",
-            "name": "home_hero_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Головний H1 на першому екрані головної сторінки.",
-            "required": 1,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_hero_text",
-            "label": "Текст hero",
-            "name": "home_hero_text",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "Підзаголовок під H1 на першому екрані.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "new_lines": "",
-            "maxlength": "",
-            "placeholder": "",
-            "rows": ""
-        },
-        {
-            "key": "field_home_hero_boy_image",
-            "label": "Зображення дитини в hero",
-            "name": "home_hero_boy_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Замінює велике зображення дитини ліворуч у першому екрані.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 0,
-            "min_height": 0,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": ""
-        },
-        {
-            "key": "field_home_hero_character_image",
-            "label": "Персонаж біля форми",
-            "name": "home_hero_character_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Замінює маленького персонажа Logika біля форми заявки.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 0,
-            "min_height": 0,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": ""
-        },
-        {
-            "key": "field_home_hero_boy_image_override",
-            "label": "Замінити зображення дитини в hero",
-            "name": "home_hero_boy_image_override",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Необовʼязкова публічна заміна. Порожнє поле залишає поточний дизайн.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": { "width": "", "class": "", "id": "" },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 440,
-            "min_height": 225,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": "jpg,jpeg,png,webp"
-        },
-        {
-            "key": "field_home_hero_character_image_override",
-            "label": "Замінити персонажа біля форми",
-            "name": "home_hero_character_image_override",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Необовʼязкова публічна заміна. Порожнє поле залишає поточний дизайн.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": { "width": "", "class": "", "id": "" },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 97,
-            "min_height": 146,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": "jpg,jpeg,png,webp"
-        },
-        {
-            "key": "field_home_trust_items",
-            "label": "Переваги під hero",
-            "name": "home_trust_items",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "min": 0,
-            "max": 0,
-            "rows_per_page": 20,
-            "button_label": "Додати рядок",
-            "collapsed": "",
-            "sub_fields": [
-                {
-                    "key": "field_home_trust_item_text",
-                    "label": "Текст",
-                    "name": "text",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_home_trust_items"
-                },
-                {
-                    "key": "field_home_trust_item_icon",
-                    "label": "Іконка",
-                    "name": "icon",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": 0,
-                    "min_height": 0,
-                    "min_size": 0,
-                    "max_width": 0,
-                    "max_height": 0,
-                    "max_size": 0,
-                    "mime_types": "",
-                    "parent_repeater": "field_home_trust_items"
-                },
-                {
-                    "key": "field_home_trust_item_icon_override",
-                    "label": "",
-                    "name": "icon_override",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": { "width": "100", "class": "", "id": "" },
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": 56,
-                    "min_height": 56,
-                    "min_size": 0,
-                    "max_width": 0,
-                    "max_height": 0,
-                    "max_size": 0,
-                    "mime_types": "jpg,jpeg,png,webp",
-                    "parent_repeater": "field_home_trust_items"
-                }
-            ]
-        },
-        {
-            "key": "field_home_english_title",
-            "label": "Заголовок секції англійської",
-            "name": "home_english_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_english_text",
-            "label": "Текст секції англійської",
-            "name": "home_english_text",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "new_lines": "",
-            "maxlength": "",
-            "placeholder": "",
-            "rows": ""
-        },
-        {
-            "key": "field_home_english_cta_url",
-            "label": "Посилання CTA англійської",
-            "name": "home_english_cta_url",
-            "aria-label": "",
-            "type": "url",
-            "instructions": "",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
-            "key": "field_home_english_levels",
-            "label": "Рівні англійської",
-            "name": "home_english_levels",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "min": 0,
-            "max": 0,
-            "rows_per_page": 20,
-            "button_label": "Додати рядок",
-            "collapsed": "",
-            "sub_fields": [
-                {
-                    "key": "field_home_english_level_age",
-                    "label": "Вік",
-                    "name": "age",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_home_english_levels"
-                },
-                {
-                    "key": "field_home_english_level_title",
-                    "label": "Назва",
-                    "name": "title",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_home_english_levels"
-                },
-                {
-                    "key": "field_home_english_level_text",
-                    "label": "Опис",
-                    "name": "text",
-                    "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "new_lines": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "rows": "",
-                    "parent_repeater": "field_home_english_levels"
-                },
-                {
-                    "key": "field_home_english_level_image",
-                    "label": "Зображення",
-                    "name": "image",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "Картинка цього рівня англійської. Натисніть на превʼю, щоб замінити.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": 0,
-                    "min_height": 0,
-                    "min_size": 0,
-                    "max_width": 0,
-                    "max_height": 0,
-                    "max_size": 0,
-                    "mime_types": "",
-                    "parent_repeater": "field_home_english_levels"
-                },
-                {
-                    "key": "field_home_english_level_image_override",
-                    "label": "Замінити зображення",
-                    "name": "image_override",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "Необовʼязкова публічна заміна. Порожнє поле залишає поточний дизайн.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": { "width": "", "class": "", "id": "" },
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": 179,
-                    "min_height": 258,
-                    "min_size": 0,
-                    "max_width": 0,
-                    "max_height": 0,
-                    "max_size": 0,
-                    "mime_types": "jpg,jpeg,png,webp",
-                    "parent_repeater": "field_home_english_levels"
-                }
-            ]
-        },
-        {
-            "key": "field_home_tab_hero",
-            "label": "Hero та форма",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_home_form_badge",
-            "label": "Форма: акцент",
-            "name": "home_form_badge",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Текст у виділеному span над полями форми.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_form_text",
-            "label": "Форма: опис",
-            "name": "home_form_text",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "Опис у заголовку форми.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "new_lines": "",
-            "maxlength": "",
-            "placeholder": "",
-            "rows": ""
-        },
-        {
-            "key": "field_home_form_button",
-            "label": "Форма: кнопка",
-            "name": "home_form_button",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Текст кнопки у першій формі.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_form_consent",
-            "label": "Форма: згода",
-            "name": "home_form_consent",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "Текст згоди під кнопкою форми без назви посилання.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "new_lines": "",
-            "maxlength": "",
-            "placeholder": "",
-            "rows": ""
-        },
-        {
-            "key": "field_home_form_age_placeholder",
-            "label": "Форма: плейсхолдер віку",
-            "name": "home_form_age_placeholder",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Текст першого пункту dropdown для вибору віку дитини у формі на головній.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Вік дитини (від 7 до 17)",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_form_age_options",
-            "label": "Форма: варіанти віку",
-            "name": "home_form_age_options",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "Список варіантів dropdown віку дитини. Якщо список порожній, сайт покаже стандартні варіанти від 7 до 17 років.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "table",
-            "min": 0,
-            "max": 0,
-            "rows_per_page": 20,
-            "button_label": "Додати вік",
-            "collapsed": "",
-            "sub_fields": [
-                {
-                    "key": "field_home_form_age_option_value",
-                    "label": "Значення",
-                    "name": "value",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Число, яке буде відправлено у заявку, наприклад 7.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_home_form_age_options"
-                },
-                {
-                    "key": "field_home_form_age_option_label",
-                    "label": "Підпис",
-                    "name": "label",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Текст у dropdown, наприклад 7 років.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_home_form_age_options"
-                }
-            ]
-        },
-        {
-            "key": "field_home_tab_marquee",
-            "label": "Бігучий рядок",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_home_marquee_items",
-            "label": "Тексти бігучого рядка",
-            "name": "home_marquee_items",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "Редагує короткі фрази у бігучому рядку під hero.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "min": 0,
-            "max": 0,
-            "rows_per_page": 20,
-            "button_label": "Додати рядок",
-            "collapsed": "",
-            "sub_fields": [
-                {
-                    "key": "field_home_marquee_items_text",
-                    "label": "Текст",
-                    "name": "text",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_home_marquee_items"
-                }
-            ]
-        },
-        {
-            "key": "field_home_tab_programming",
-            "label": "Курси програмування",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_home_programming_title",
-            "label": "Заголовок секції програмування",
-            "name": "home_programming_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "H2 секції курсів програмування.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_programming_courses",
-            "label": "Картки курсів програмування",
-            "name": "home_programming_courses",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "Тексти карток курсів у порядку відображення.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "min": 0,
-            "max": 0,
-            "rows_per_page": 20,
-            "button_label": "Додати рядок",
-            "collapsed": "",
-            "sub_fields": [
-                {
-                    "key": "field_home_programming_courses_image",
-                    "label": "Превʼю картки",
-                    "name": "image",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "Картинка цієї картки курсу. Натисніть на превʼю, щоб замінити.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": 0,
-                    "min_height": 0,
-                    "min_size": 0,
-                    "max_width": 0,
-                    "max_height": 0,
-                    "max_size": 0,
-                    "mime_types": "",
-                    "parent_repeater": "field_home_programming_courses"
-                },
-                {
-                    "key": "field_home_programming_courses_icon",
-                    "label": "Іконка картки",
-                    "name": "icon",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "Мала іконка цієї картки курсу. Натисніть на превʼю, щоб замінити.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": 0,
-                    "min_height": 0,
-                    "min_size": 0,
-                    "max_width": 0,
-                    "max_height": 0,
-                    "max_size": 0,
-                    "mime_types": "",
-                    "parent_repeater": "field_home_programming_courses"
-                },
-                {
-                    "key": "field_home_programming_courses_image_override",
-                    "label": "Замінити превʼю картки",
-                    "name": "image_override",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "Необовʼязкова публічна заміна. Порожнє поле залишає поточний дизайн.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": { "width": "", "class": "", "id": "" },
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": 1176,
-                    "min_height": 1022,
-                    "min_size": 0,
-                    "max_width": 0,
-                    "max_height": 0,
-                    "max_size": 0,
-                    "mime_types": "jpg,jpeg,png,webp",
-                    "parent_repeater": "field_home_programming_courses"
-                },
-                {
-                    "key": "field_home_programming_courses_icon_override",
-                    "label": "Замінити іконку картки",
-                    "name": "icon_override",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "Необовʼязкова публічна заміна. Порожнє поле залишає поточний дизайн.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": { "width": "", "class": "", "id": "" },
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": 246,
-                    "min_height": 209,
-                    "min_size": 0,
-                    "max_width": 0,
-                    "max_height": 0,
-                    "max_size": 0,
-                    "mime_types": "jpg,jpeg,png,webp",
-                    "parent_repeater": "field_home_programming_courses"
-                },
-                {
-                    "key": "field_home_programming_courses_age",
-                    "label": "Вік",
-                    "name": "age",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_home_programming_courses"
-                },
-                {
-                    "key": "field_home_programming_courses_title",
-                    "label": "Заголовок",
-                    "name": "title",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_home_programming_courses"
-                },
-                {
-                    "key": "field_home_programming_courses_tags",
-                    "label": "Теги",
-                    "name": "tags",
-                    "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "new_lines": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "rows": "",
-                    "parent_repeater": "field_home_programming_courses"
-                },
-                {
-                    "key": "field_home_programming_courses_text",
-                    "label": "Опис",
-                    "name": "text",
-                    "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "new_lines": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "rows": "",
-                    "parent_repeater": "field_home_programming_courses"
-                },
-                {
-                    "key": "field_home_programming_courses_lesson_label",
-                    "label": "Кнопка пробного уроку",
-                    "name": "lesson_label",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_home_programming_courses"
-                },
-                {
-                    "key": "field_home_programming_courses_about_label",
-                    "label": "Кнопка про курси",
-                    "name": "about_label",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_home_programming_courses"
-                }
-            ]
-        },
-        {
-            "key": "field_home_tab_english",
-            "label": "Англійська",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_home_english_subtitle",
-            "label": "Підзаголовок англійської",
-            "name": "home_english_subtitle",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Підзаголовок під H2 секції англійської.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_english_cta_label",
-            "label": "Кнопка англійської",
-            "name": "home_english_cta_label",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Текст CTA у секції англійської.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_english_next_label",
-            "label": "Кнопка слайдера англійської",
-            "name": "home_english_next_label",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Текст кнопки переходу до наступних курсів.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_tab_transformation",
-            "label": "Трансформація",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_home_transformation_title",
-            "label": "Заголовок трансформації",
-            "name": "home_transformation_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "H2 секції про трансформацію дитини.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_transformation_before_image",
-            "label": "Було: зображення",
-            "name": "home_transformation_before_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Превʼю картинки “Було”. Натисніть, щоб замінити її в секції трансформації.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 0,
-            "min_height": 0,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": ""
-        },
-        {
-            "key": "field_home_transformation_after_image",
-            "label": "Стало: зображення",
-            "name": "home_transformation_after_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Превʼю картинки “Стало”. Натисніть, щоб замінити її в секції трансформації.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 0,
-            "min_height": 0,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": ""
-        },
-        {
-            "key": "field_home_transformation_before_image_override",
-            "label": "Замінити зображення «Було»",
-            "name": "home_transformation_before_image_override",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Необовʼязкова публічна заміна. Порожнє поле залишає поточний дизайн.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": { "width": "", "class": "", "id": "" },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 1420,
-            "min_height": 869,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": "jpg,jpeg,png,webp"
-        },
-        {
-            "key": "field_home_transformation_after_image_override",
-            "label": "Замінити зображення «Стало»",
-            "name": "home_transformation_after_image_override",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Необовʼязкова публічна заміна. Порожнє поле залишає поточний дизайн.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": { "width": "", "class": "", "id": "" },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 1420,
-            "min_height": 870,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": "jpg,jpeg,png,webp"
-        },
-        {
-            "key": "field_home_transformation_cta_label",
-            "label": "Кнопка трансформації",
-            "name": "home_transformation_cta_label",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Текст CTA у секції трансформації.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_transformation_before_label",
-            "label": "Було: мітка",
-            "name": "home_transformation_before_label",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Мітка лівої картки трансформації.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_transformation_before_text",
-            "label": "Було: текст",
-            "name": "home_transformation_before_text",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Текст лівої картки трансформації.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_transformation_after_label",
-            "label": "Стало: мітка",
-            "name": "home_transformation_after_label",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Мітка правої картки трансформації.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_transformation_after_text",
-            "label": "Стало: текст",
-            "name": "home_transformation_after_text",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Текст правої картки трансформації.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_tab_onboarding",
-            "label": "Як розпочати",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_home_onboarding_title",
-            "label": "Заголовок онбордингу",
-            "name": "home_onboarding_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "H2 секції з кроками старту навчання.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_onboarding_steps",
-            "label": "Кроки старту навчання",
-            "name": "home_onboarding_steps",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "Тексти карток у секції “Як розпочати навчання”.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "min": 0,
-            "max": 0,
-            "rows_per_page": 20,
-            "button_label": "Додати рядок",
-            "collapsed": "",
-            "sub_fields": [
-                {
-                    "key": "field_home_onboarding_steps_image",
-                    "label": "Превʼю кроку",
-                    "name": "image",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "Картинка цього кроку. Натисніть на превʼю, щоб замінити.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": 0,
-                    "min_height": 0,
-                    "min_size": 0,
-                    "max_width": 0,
-                    "max_height": 0,
-                    "max_size": 0,
-                    "mime_types": "",
-                    "parent_repeater": "field_home_onboarding_steps"
-                },
-                {
-                    "key": "field_home_onboarding_steps_image_override",
-                    "label": "Замінити превʼю кроку",
-                    "name": "image_override",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "Необовʼязкова публічна заміна. Порожнє поле залишає поточний дизайн.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": { "width": "", "class": "", "id": "" },
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": 327,
-                    "min_height": 282,
-                    "min_size": 0,
-                    "max_width": 0,
-                    "max_height": 0,
-                    "max_size": 0,
-                    "mime_types": "jpg,jpeg,png,webp",
-                    "parent_repeater": "field_home_onboarding_steps"
-                },
-                {
-                    "key": "field_home_onboarding_steps_title",
-                    "label": "Заголовок",
-                    "name": "title",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_home_onboarding_steps"
-                },
-                {
-                    "key": "field_home_onboarding_steps_text",
-                    "label": "Опис",
-                    "name": "text",
-                    "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "new_lines": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "rows": "",
-                    "parent_repeater": "field_home_onboarding_steps"
-                },
-                {
-                    "key": "field_home_onboarding_steps_button",
-                    "label": "Кнопка",
-                    "name": "button",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_home_onboarding_steps"
-                }
-            ]
-        },
-        {
-            "key": "field_home_tab_social",
-            "label": "Довіра, проєкти, локації",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_home_testimonials_title",
-            "label": "Заголовок відгуків",
-            "name": "home_testimonials_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "H2 секції довіри та відгуків.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_portfolio_title",
-            "label": "Заголовок проєктів",
-            "name": "home_portfolio_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "H2 секції проєктів учнів.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_portfolio_items",
-            "label": "Картки проєктів учнів",
-            "name": "home_portfolio_items",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "Додайте картки у потрібному порядку. Порожній список показує базові картки з дизайну.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": { "width": "", "class": "", "id": "" },
-            "layout": "block",
-            "pagination": 0,
-            "min": 0,
-            "max": 0,
-            "collapsed": "field_home_portfolio_item_student_name",
-            "button_label": "Додати картку",
-            "sub_fields": [
-                {
-                    "key": "field_home_portfolio_item_variant",
-                    "label": "Тип картки",
-                    "name": "variant",
-                    "type": "button_group",
-                    "instructions": "Головна картка показує зображення проєкту, відео та CTA.",
-                    "required": true,
-                    "choices": { "standard": "Звичайна", "featured": "Головна" },
-                    "default_value": "standard",
-                    "return_format": "value",
-                    "layout": "horizontal"
-                },
-                {
-                    "key": "field_home_portfolio_item_student_name",
-                    "label": "Ім’я учня",
-                    "name": "student_name",
-                    "type": "text",
-                    "instructions": "Наприклад: Максим.",
-                    "required": true
-                },
-                {
-                    "key": "field_home_portfolio_item_student_age",
-                    "label": "Вік",
-                    "name": "student_age",
-                    "type": "text",
-                    "instructions": "Наприклад: 12 років.",
-                    "required": true
-                },
-                {
-                    "key": "field_home_portfolio_item_course",
-                    "label": "Курс",
-                    "name": "course",
-                    "type": "text",
-                    "instructions": "Назва курсу на мітці картки.",
-                    "required": true
-                },
-                {
-                    "key": "field_home_portfolio_item_topic",
-                    "label": "Тема",
-                    "name": "topic",
-                    "type": "text",
-                    "instructions": "Додаткова мітка для звичайної картки.",
-                    "required": false
-                },
-                {
-                    "key": "field_home_portfolio_item_description",
-                    "label": "Опис проєкту",
-                    "name": "description",
-                    "type": "textarea",
-                    "instructions": "Коротко опишіть результат учня.",
-                    "required": true,
-                    "rows": 3,
-                    "new_lines": ""
-                },
-                {
-                    "key": "field_home_portfolio_item_student_image",
-                    "label": "Фото учня",
-                    "name": "student_image",
-                    "type": "image",
-                    "instructions": "Потрібне для звичайної картки.",
-                    "required": false,
-                    "conditional_logic": [[{ "field": "field_home_portfolio_item_variant", "operator": "==", "value": "standard" }]],
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "mime_types": "jpg,jpeg,png,webp"
-                },
-                {
-                    "key": "field_home_portfolio_item_project_image",
-                    "label": "Зображення проєкту",
-                    "name": "project_image",
-                    "type": "image",
-                    "instructions": "Потрібне для головної картки.",
-                    "required": false,
-                    "conditional_logic": [[{ "field": "field_home_portfolio_item_variant", "operator": "==", "value": "featured" }]],
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "mime_types": "jpg,jpeg,png,webp"
-                },
-                {
-                    "key": "field_home_portfolio_item_video_url",
-                    "label": "Посилання на відеовідгук",
-                    "name": "video_url",
-                    "type": "url",
-                    "instructions": "Необов’язкове посилання для головної картки.",
-                    "required": false,
-                    "conditional_logic": [[{ "field": "field_home_portfolio_item_variant", "operator": "==", "value": "featured" }]]
-                },
-                {
-                    "key": "field_home_portfolio_item_cta_label",
-                    "label": "Текст CTA",
-                    "name": "cta_label",
-                    "type": "text",
-                    "instructions": "Наприклад: Безкоштовний пробний урок.",
-                    "required": false,
-                    "conditional_logic": [[{ "field": "field_home_portfolio_item_variant", "operator": "==", "value": "featured" }]]
-                },
-                {
-                    "key": "field_home_portfolio_item_cta_url",
-                    "label": "Посилання CTA",
-                    "name": "cta_url",
-                    "type": "url",
-                    "instructions": "Необов’язкове посилання для головної картки.",
-                    "required": false,
-                    "conditional_logic": [[{ "field": "field_home_portfolio_item_variant", "operator": "==", "value": "featured" }]]
-                }
-            ]
-        },
-        {
-            "key": "field_home_locations_title",
-            "label": "Заголовок локацій",
-            "name": "home_locations_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "H2 секції локацій.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_locations_text",
-            "label": "Текст локацій",
-            "name": "home_locations_text",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "Опис під заголовком локацій.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "new_lines": "",
-            "maxlength": "",
-            "placeholder": "",
-            "rows": ""
-        },
-        {
-            "key": "field_home_media_title",
-            "label": "Заголовок медіа-центру",
-            "name": "home_media_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "H2 секції медіа-центру.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_media_text",
-            "label": "Текст медіа-центру",
-            "name": "home_media_text",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "Опис під заголовком медіа-центру.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "new_lines": "",
-            "maxlength": "",
-            "placeholder": "",
-            "rows": ""
-        },
-        {
-            "key": "field_home_tab_media",
-            "label": "Медіа-центр",
-            "name": "",
-            "type": "tab",
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_home_media_lesson_link",
-            "label": "Кнопка запису на урок",
-            "name": "home_media_lesson_link",
-            "type": "link",
-            "return_format": "array",
-            "instructions": "Порожнє поле залишає перехід до форми запису."
-        },
-        {
-            "key": "field_home_media_archive_link",
-            "label": "Кнопка Медіа-центру",
-            "name": "home_media_archive_link",
-            "type": "link",
-            "return_format": "array",
-            "instructions": "Порожнє поле веде до Медіа-центру."
-        },
-        {
-            "key": "field_home_media_news",
-            "label": "Блок новин",
-            "name": "home_media_news",
-            "type": "group",
-            "sub_fields": [
-                {"key":"field_home_media_news_tag_primary","label":"Перший підпис","name":"tag_primary","type":"text"},
-                {"key":"field_home_media_news_tag_secondary","label":"Другий підпис","name":"tag_secondary","type":"text"},
-                {"key":"field_home_media_news_image","label":"Ілюстрація","name":"image","type":"image","return_format":"id","preview_size":"medium","library":"all","mime_types":"jpg,jpeg,png,webp,svg"},
-                {"key":"field_home_media_news_title","label":"Заголовок","name":"title","type":"text"},
-                {"key":"field_home_media_news_text","label":"Текст","name":"text","type":"textarea","rows":3},
-                {"key":"field_home_media_news_link","label":"Кнопка","name":"link","type":"link","return_format":"array"}
-            ]
-        },
-        {
-            "key": "field_home_media_contest",
-            "label": "Блок конкурсів",
-            "name": "home_media_contest",
-            "type": "group",
-            "sub_fields": [
-                {"key":"field_home_media_contest_label","label":"Підпис","name":"label","type":"text"},
-                {"key":"field_home_media_contest_image","label":"Ілюстрація","name":"image","type":"image","return_format":"id","preview_size":"medium","library":"all","mime_types":"jpg,jpeg,png,webp,svg"},
-                {"key":"field_home_media_contest_title","label":"Заголовок","name":"title","type":"textarea","rows":2,"instructions":"Новий рядок зберігається у заголовку."},
-                {"key":"field_home_media_contest_text","label":"Текст","name":"text","type":"textarea","rows":3},
-                {"key":"field_home_media_contest_link","label":"Кнопка","name":"link","type":"link","return_format":"array"}
-            ]
-        },
-        {
-            "key": "field_home_media_offer",
-            "label": "Акція 1=2",
-            "name": "home_media_offer",
-            "type": "group",
-            "sub_fields": [
-                {"key":"field_home_media_offer_label","label":"Підпис","name":"label","type":"text"},
-                {"key":"field_home_media_offer_background","label":"Фонове зображення","name":"background","type":"image","return_format":"id","preview_size":"medium","library":"all","mime_types":"jpg,jpeg,png,webp,svg"},
-                {"key":"field_home_media_offer_image","label":"Ілюстрація","name":"image","type":"image","return_format":"id","preview_size":"medium","library":"all","mime_types":"jpg,jpeg,png,webp,svg"},
-                {"key":"field_home_media_offer_title","label":"Заголовок","name":"title","type":"text"},
-                {"key":"field_home_media_offer_subtitle","label":"Підзаголовок","name":"subtitle","type":"text"},
-                {"key":"field_home_media_offer_text","label":"Текст","name":"text","type":"textarea","rows":3},
-                {"key":"field_home_media_offer_link","label":"Кнопка","name":"link","type":"link","return_format":"array"}
-            ]
-        },
-        {
-            "key": "field_home_media_discount",
-            "label": "Акція зі знижкою",
-            "name": "home_media_discount",
-            "type": "group",
-            "sub_fields": [
-                {"key":"field_home_media_discount_label","label":"Підпис","name":"label","type":"text"},
-                {"key":"field_home_media_discount_image","label":"Ілюстрація","name":"image","type":"image","return_format":"id","preview_size":"medium","library":"all","mime_types":"jpg,jpeg,png,webp,svg"},
-                {"key":"field_home_media_discount_title","label":"Заголовок","name":"title","type":"text"},
-                {"key":"field_home_media_discount_subtitle","label":"Підзаголовок","name":"subtitle","type":"text"},
-                {"key":"field_home_media_discount_text","label":"Текст","name":"text","type":"textarea","rows":3},
-                {"key":"field_home_media_discount_link","label":"Кнопка","name":"link","type":"link","return_format":"array"}
-            ]
-        },
-        {
-            "key": "field_home_media_race",
-            "label": "Блок LogiRace",
-            "name": "home_media_race",
-            "type": "group",
-            "sub_fields": [
-                {"key":"field_home_media_race_label","label":"Підпис","name":"label","type":"text"},
-                {"key":"field_home_media_race_image","label":"Ілюстрація","name":"image","type":"image","return_format":"id","preview_size":"medium","library":"all","mime_types":"jpg,jpeg,png,webp,svg"},
-                {"key":"field_home_media_race_title","label":"Заголовок","name":"title","type":"textarea","rows":2,"instructions":"Новий рядок зберігається у заголовку."},
-                {"key":"field_home_media_race_text","label":"Текст","name":"text","type":"textarea","rows":4},
-                {"key":"field_home_media_race_link","label":"Кнопка","name":"link","type":"link","return_format":"array"}
-            ]
-        },
-        {
-            "key": "field_home_media_posts",
-            "label": "Статті в блоці",
-            "name": "home_media_posts",
-            "type": "relationship",
-            "post_type": ["post"],
-            "filters": ["search"],
-            "return_format": "id",
-            "min": 0,
-            "max": 3,
-            "instructions": "Оберіть до трьох статей і перетягніть їх у потрібний порядок. Порожнє поле покаже три останні статті."
-        },
-        {
-            "key": "field_home_tab_cta_faq",
-            "label": "CTA та FAQ",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_home_cta_title",
-            "label": "Заголовок CTA",
-            "name": "home_cta_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "H2 фінального CTA-блоку.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_faq_title",
-            "label": "Заголовок FAQ",
-            "name": "home_faq_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "H2 секції питань та відповідей.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_faq_items",
-            "label": "Питання та відповіді",
-            "name": "home_faq_items",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "Питання та відповіді FAQ на головній сторінці.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "min": 0,
-            "max": 0,
-            "rows_per_page": 20,
-            "button_label": "Додати рядок",
-            "collapsed": "",
-            "sub_fields": [
-                {
-                    "key": "field_home_faq_items_question",
-                    "label": "Питання",
-                    "name": "question",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_home_faq_items"
-                },
-                {
-                    "key": "field_home_faq_items_answer",
-                    "label": "Відповідь",
-                    "name": "answer",
-                    "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "new_lines": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "rows": "",
-                    "parent_repeater": "field_home_faq_items"
-                }
-            ]
-        },
-        {
-            "key": "field_home_tab_certificates_partners",
-            "label": "Сертифікати та партнери",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_home_certificates_title",
-            "label": "Заголовок сертифікатів",
-            "name": "home_certificates_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "H2 секції подарункових сертифікатів.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_certificates_subtitle",
-            "label": "Підзаголовок сертифікатів",
-            "name": "home_certificates_subtitle",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "Текст h5 у секції сертифікатів.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "new_lines": "",
-            "maxlength": "",
-            "placeholder": "",
-            "rows": ""
-        },
-        {
-            "key": "field_home_certificates_text",
-            "label": "Текст сертифікатів",
-            "name": "home_certificates_text",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "Опис у секції сертифікатів.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "new_lines": "",
-            "maxlength": "",
-            "placeholder": "",
-            "rows": ""
-        },
-        {
-            "key": "field_home_certificates_button",
-            "label": "Кнопка сертифікатів",
-            "name": "home_certificates_button",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Текст кнопки у секції сертифікатів.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_certificates_image",
-            "label": "Зображення сертифіката",
-            "name": "home_certificates_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Превʼю картинки сертифіката. Натисніть, щоб замінити її в секції.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 0,
-            "min_height": 0,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": ""
-        },
-        {
-            "key": "field_home_certificates_image_override",
-            "label": "Замінити зображення сертифіката",
-            "name": "home_certificates_image_override",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Необовʼязкова публічна заміна. Порожнє поле залишає поточний дизайн.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": { "width": "", "class": "", "id": "" },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 1065,
-            "min_height": 752,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": "jpg,jpeg,png,webp"
-        },
-        {
-            "key": "field_home_partners_title",
-            "label": "Заголовок партнерів",
-            "name": "home_partners_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "H2 секції партнерів.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_home_partners_items",
-            "label": "Логотипи партнерів",
-            "name": "home_partners_items",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "Превʼю логотипів партнерів у порядку відображення. Натисніть на логотип, щоб замінити.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "min": 0,
-            "max": 0,
-            "rows_per_page": 20,
-            "button_label": "Додати рядок",
-            "collapsed": "",
-            "sub_fields": [
-                {
-                    "key": "field_home_partners_items_name",
-                    "label": "Назва",
-                    "name": "name",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Внутрішня назва для редактора.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_home_partners_items"
-                },
-                {
-                    "key": "field_home_partners_items_image",
-                    "label": "Логотип",
-                    "name": "image",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "Превʼю логотипа партнера. Натисніть, щоб замінити.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": 0,
-                    "min_height": 0,
-                    "min_size": 0,
-                    "max_width": 0,
-                    "max_height": 0,
-                    "max_size": 0,
-                    "mime_types": "",
-                    "parent_repeater": "field_home_partners_items"
-                },
-                {
-                    "key": "field_home_partners_items_image_override",
-                    "label": "Замінити логотип",
-                    "name": "image_override",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "Необовʼязкова публічна заміна. Порожнє поле залишає поточний дизайн.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": { "width": "", "class": "", "id": "" },
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": 458,
-                    "min_height": 270,
-                    "min_size": 0,
-                    "max_width": 0,
-                    "max_height": 0,
-                    "max_size": 0,
-                    "mime_types": "jpg,jpeg,png,webp",
-                    "parent_repeater": "field_home_partners_items"
-                }
-            ]
+  "key": "group_logika_home",
+  "title": "Головна сторінка",
+  "fields": [
+    {
+      "key": "field_home_editor_note",
+      "label": "Де редагувати",
+      "name": "",
+      "aria-label": "",
+      "type": "message",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "Ці поля показуються на сторінці, вибраній як головна: Сторінки → Головна. Тексти та зображення нижче змінюють блоки головної сторінки.",
+      "new_lines": "wpautop",
+      "esc_html": 0
+    },
+    {
+      "key": "field_home_image_gallery",
+      "label": "Галерея зображень головної",
+      "name": "home_image_gallery",
+      "aria-label": "",
+      "type": "gallery",
+      "instructions": "Довідкова галерея з поточними зображеннями головної сторінки та прев'ю. Вона не підміняє всі зображення автоматично, щоб не ламати вихідну верстку.",
+      "required": 0,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "library": "all",
+      "min": "",
+      "max": "",
+      "min_width": "",
+      "min_height": "",
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": "",
+      "insert": "append",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_home_hero_title",
+      "label": "Заголовок hero",
+      "name": "home_hero_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Головний H1 на першому екрані головної сторінки.",
+      "required": 1,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_hero_text",
+      "label": "Текст hero",
+      "name": "home_hero_text",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Підзаголовок під H1 на першому екрані.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "new_lines": "",
+      "maxlength": "",
+      "placeholder": "",
+      "rows": ""
+    },
+    {
+      "key": "field_home_hero_boy_image",
+      "label": "Зображення дитини в hero",
+      "name": "home_hero_boy_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Замінює велике зображення дитини ліворуч у першому екрані.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_home_hero_character_image",
+      "label": "Персонаж біля форми",
+      "name": "home_hero_character_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Замінює маленького персонажа Logika біля форми заявки.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_home_hero_boy_image_override",
+      "label": "Замінити зображення дитини в hero",
+      "name": "home_hero_boy_image_override",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Необовʼязкова публічна заміна. Порожнє поле залишає поточний дизайн.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 440,
+      "min_height": 225,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": "jpg,jpeg,png,webp"
+    },
+    {
+      "key": "field_home_hero_character_image_override",
+      "label": "Замінити персонажа біля форми",
+      "name": "home_hero_character_image_override",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Необовʼязкова публічна заміна. Порожнє поле залишає поточний дизайн.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 97,
+      "min_height": 146,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": "jpg,jpeg,png,webp"
+    },
+    {
+      "key": "field_home_trust_items",
+      "label": "Переваги під hero",
+      "name": "home_trust_items",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "Додавайте рядки та змінюйте їхній порядок перетягуванням.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "min": 0,
+      "max": 0,
+      "rows_per_page": 20,
+      "button_label": "Додати рядок",
+      "collapsed": "",
+      "sub_fields": [
+        {
+          "key": "field_home_trust_item_text",
+          "label": "Текст",
+          "name": "text",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Текст».",
+          "required": 1,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_home_trust_items"
+        },
+        {
+          "key": "field_home_trust_item_icon",
+          "label": "Іконка",
+          "name": "icon",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "Оберіть зображення для «Іконка». Після вибору в полі буде показано мініатюру.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "min_width": 0,
+          "min_height": 0,
+          "min_size": 0,
+          "max_width": 0,
+          "max_height": 0,
+          "max_size": 0,
+          "mime_types": "",
+          "parent_repeater": "field_home_trust_items"
+        },
+        {
+          "key": "field_home_trust_item_icon_override",
+          "label": "",
+          "name": "icon_override",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "Оберіть зображення для «icon_override». Після вибору в полі буде показано мініатюру.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "100",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "min_width": 56,
+          "min_height": 56,
+          "min_size": 0,
+          "max_width": 0,
+          "max_height": 0,
+          "max_size": 0,
+          "mime_types": "jpg,jpeg,png,webp",
+          "parent_repeater": "field_home_trust_items"
         }
-    ],
-    "location": [
-        [
+      ]
+    },
+    {
+      "key": "field_home_english_title",
+      "label": "Заголовок секції англійської",
+      "name": "home_english_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Заголовок секції англійської».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_english_text",
+      "label": "Текст секції англійської",
+      "name": "home_english_text",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Введіть редакторський текст для поля «Текст секції англійської».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "new_lines": "",
+      "maxlength": "",
+      "placeholder": "",
+      "rows": ""
+    },
+    {
+      "key": "field_home_english_cta_url",
+      "label": "Посилання CTA англійської",
+      "name": "home_english_cta_url",
+      "aria-label": "",
+      "type": "url",
+      "instructions": "Вкажіть значення для поля «Посилання CTA англійської».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": ""
+    },
+    {
+      "key": "field_home_english_levels",
+      "label": "Рівні англійської",
+      "name": "home_english_levels",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "Додавайте рядки та змінюйте їхній порядок перетягуванням.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "min": 0,
+      "max": 0,
+      "rows_per_page": 20,
+      "button_label": "Додати рядок",
+      "collapsed": "",
+      "sub_fields": [
+        {
+          "key": "field_home_english_level_age",
+          "label": "Вік",
+          "name": "age",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Вік».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_home_english_levels"
+        },
+        {
+          "key": "field_home_english_level_title",
+          "label": "Назва",
+          "name": "title",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Назва».",
+          "required": 1,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_home_english_levels"
+        },
+        {
+          "key": "field_home_english_level_text",
+          "label": "Опис",
+          "name": "text",
+          "aria-label": "",
+          "type": "textarea",
+          "instructions": "Введіть редакторський текст для поля «Опис».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "new_lines": "",
+          "maxlength": "",
+          "placeholder": "",
+          "rows": "",
+          "parent_repeater": "field_home_english_levels"
+        },
+        {
+          "key": "field_home_english_level_image",
+          "label": "Зображення",
+          "name": "image",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "Картинка цього рівня англійської. Натисніть на превʼю, щоб замінити.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "min_width": 0,
+          "min_height": 0,
+          "min_size": 0,
+          "max_width": 0,
+          "max_height": 0,
+          "max_size": 0,
+          "mime_types": "",
+          "parent_repeater": "field_home_english_levels"
+        },
+        {
+          "key": "field_home_english_level_image_override",
+          "label": "Замінити зображення",
+          "name": "image_override",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "Необовʼязкова публічна заміна. Порожнє поле залишає поточний дизайн.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "min_width": 179,
+          "min_height": 258,
+          "min_size": 0,
+          "max_width": 0,
+          "max_height": 0,
+          "max_size": 0,
+          "mime_types": "jpg,jpeg,png,webp",
+          "parent_repeater": "field_home_english_levels"
+        }
+      ]
+    },
+    {
+      "key": "field_home_tab_hero",
+      "label": "Hero та форма",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_home_form_badge",
+      "label": "Форма: акцент",
+      "name": "home_form_badge",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Текст у виділеному span над полями форми.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_form_text",
+      "label": "Форма: опис",
+      "name": "home_form_text",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Опис у заголовку форми.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "new_lines": "",
+      "maxlength": "",
+      "placeholder": "",
+      "rows": ""
+    },
+    {
+      "key": "field_home_form_button",
+      "label": "Форма: кнопка",
+      "name": "home_form_button",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Текст кнопки у першій формі.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_form_consent",
+      "label": "Форма: згода",
+      "name": "home_form_consent",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Текст згоди під кнопкою форми без назви посилання.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "new_lines": "",
+      "maxlength": "",
+      "placeholder": "",
+      "rows": ""
+    },
+    {
+      "key": "field_home_form_age_placeholder",
+      "label": "Форма: плейсхолдер віку",
+      "name": "home_form_age_placeholder",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Текст першого пункту dropdown для вибору віку дитини у формі на головній.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Вік дитини (від 7 до 17)",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_form_age_options",
+      "label": "Форма: варіанти віку",
+      "name": "home_form_age_options",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "Список варіантів dropdown віку дитини. Якщо список порожній, сайт покаже стандартні варіанти від 7 до 17 років.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "table",
+      "min": 0,
+      "max": 0,
+      "rows_per_page": 20,
+      "button_label": "Додати вік",
+      "collapsed": "",
+      "sub_fields": [
+        {
+          "key": "field_home_form_age_option_value",
+          "label": "Значення",
+          "name": "value",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Число, яке буде відправлено у заявку, наприклад 7.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_home_form_age_options"
+        },
+        {
+          "key": "field_home_form_age_option_label",
+          "label": "Підпис",
+          "name": "label",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Текст у dropdown, наприклад 7 років.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_home_form_age_options"
+        }
+      ]
+    },
+    {
+      "key": "field_home_tab_marquee",
+      "label": "Бігучий рядок",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_home_marquee_items",
+      "label": "Тексти бігучого рядка",
+      "name": "home_marquee_items",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "Редагує короткі фрази у бігучому рядку під hero.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "min": 0,
+      "max": 0,
+      "rows_per_page": 20,
+      "button_label": "Додати рядок",
+      "collapsed": "",
+      "sub_fields": [
+        {
+          "key": "field_home_marquee_items_text",
+          "label": "Текст",
+          "name": "text",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Текст».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_home_marquee_items"
+        }
+      ]
+    },
+    {
+      "key": "field_home_tab_programming",
+      "label": "Курси програмування",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_home_programming_title",
+      "label": "Заголовок секції програмування",
+      "name": "home_programming_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "H2 секції курсів програмування.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_programming_courses",
+      "label": "Картки курсів програмування",
+      "name": "home_programming_courses",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "Тексти карток курсів у порядку відображення.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "min": 0,
+      "max": 0,
+      "rows_per_page": 20,
+      "button_label": "Додати рядок",
+      "collapsed": "",
+      "sub_fields": [
+        {
+          "key": "field_home_programming_courses_image",
+          "label": "Превʼю картки",
+          "name": "image",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "Картинка цієї картки курсу. Натисніть на превʼю, щоб замінити.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "min_width": 0,
+          "min_height": 0,
+          "min_size": 0,
+          "max_width": 0,
+          "max_height": 0,
+          "max_size": 0,
+          "mime_types": "",
+          "parent_repeater": "field_home_programming_courses"
+        },
+        {
+          "key": "field_home_programming_courses_icon",
+          "label": "Іконка картки",
+          "name": "icon",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "Мала іконка цієї картки курсу. Натисніть на превʼю, щоб замінити.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "min_width": 0,
+          "min_height": 0,
+          "min_size": 0,
+          "max_width": 0,
+          "max_height": 0,
+          "max_size": 0,
+          "mime_types": "",
+          "parent_repeater": "field_home_programming_courses"
+        },
+        {
+          "key": "field_home_programming_courses_image_override",
+          "label": "Замінити превʼю картки",
+          "name": "image_override",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "Необовʼязкова публічна заміна. Порожнє поле залишає поточний дизайн.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "min_width": 0,
+          "min_height": 0,
+          "min_size": 0,
+          "max_width": 0,
+          "max_height": 0,
+          "max_size": 0,
+          "mime_types": "jpg,jpeg,png,webp",
+          "parent_repeater": "field_home_programming_courses"
+        },
+        {
+          "key": "field_home_programming_courses_icon_override",
+          "label": "Замінити іконку картки",
+          "name": "icon_override",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "Необовʼязкова публічна заміна. Порожнє поле залишає поточний дизайн.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "min_width": 0,
+          "min_height": 0,
+          "min_size": 0,
+          "max_width": 0,
+          "max_height": 0,
+          "max_size": 0,
+          "mime_types": "jpg,jpeg,png,webp",
+          "parent_repeater": "field_home_programming_courses"
+        },
+        {
+          "key": "field_home_programming_courses_age",
+          "label": "Вік",
+          "name": "age",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Вік».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_home_programming_courses"
+        },
+        {
+          "key": "field_home_programming_courses_title",
+          "label": "Заголовок",
+          "name": "title",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Заголовок».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_home_programming_courses"
+        },
+        {
+          "key": "field_home_programming_courses_tags",
+          "label": "Теги",
+          "name": "tags",
+          "aria-label": "",
+          "type": "textarea",
+          "instructions": "Введіть редакторський текст для поля «Теги».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "new_lines": "",
+          "maxlength": "",
+          "placeholder": "",
+          "rows": "",
+          "parent_repeater": "field_home_programming_courses"
+        },
+        {
+          "key": "field_home_programming_courses_chips",
+          "label": "Клікабельні чипи курсів",
+          "name": "chips",
+          "aria-label": "",
+          "type": "repeater",
+          "instructions": "Додайте назву чипа та посилання на сторінку курсу. Якщо посилання порожнє, використовується тимчасова сторінка курсу.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "layout": "table",
+          "pagination": 0,
+          "min": 0,
+          "max": 0,
+          "collapsed": "",
+          "button_label": "Додати чип",
+          "rows_per_page": 20,
+          "sub_fields": [
             {
-                "param": "page_type",
-                "operator": "==",
-                "value": "front_page"
+              "key": "field_home_programming_courses_chips_label",
+              "label": "Назва",
+              "name": "label",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "Вкажіть назву чипа.",
+              "required": true,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": "",
+              "placeholder": "",
+              "prepend": "",
+              "append": "",
+              "parent_repeater": "field_home_programming_courses_chips"
+            },
+            {
+              "key": "field_home_programming_courses_chips_url",
+              "label": "Посилання",
+              "name": "url",
+              "aria-label": "",
+              "type": "url",
+              "instructions": "Залиште порожнім для тимчасової сторінки courses/programming-projects/.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "placeholder": "",
+              "parent_repeater": "field_home_programming_courses_chips"
             }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": [],
-    "active": true,
-    "description": "",
-    "show_in_rest": true,
-    "display_title": "",
-    "allow_ai_access": false,
-    "ai_description": "",
-    "modified": 1784244720
+          ],
+          "parent_repeater": "field_home_programming_courses"
+        },
+        {
+          "key": "field_home_programming_courses_text",
+          "label": "Опис",
+          "name": "text",
+          "aria-label": "",
+          "type": "textarea",
+          "instructions": "Введіть редакторський текст для поля «Опис».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "new_lines": "",
+          "maxlength": "",
+          "placeholder": "",
+          "rows": "",
+          "parent_repeater": "field_home_programming_courses"
+        },
+        {
+          "key": "field_home_programming_courses_lesson_label",
+          "label": "Кнопка пробного уроку",
+          "name": "lesson_label",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Кнопка пробного уроку».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_home_programming_courses"
+        },
+        {
+          "key": "field_home_programming_courses_about_label",
+          "label": "Кнопка про курси",
+          "name": "about_label",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Кнопка про курси».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_home_programming_courses"
+        }
+      ]
+    },
+    {
+      "key": "field_home_tab_english",
+      "label": "Англійська",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_home_english_subtitle",
+      "label": "Підзаголовок англійської",
+      "name": "home_english_subtitle",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Підзаголовок під H2 секції англійської.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_english_cta_label",
+      "label": "Кнопка англійської",
+      "name": "home_english_cta_label",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Текст CTA у секції англійської.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_english_next_label",
+      "label": "Кнопка слайдера англійської",
+      "name": "home_english_next_label",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Текст кнопки переходу до наступних курсів.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_tab_transformation",
+      "label": "Трансформація",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_home_transformation_title",
+      "label": "Заголовок трансформації",
+      "name": "home_transformation_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "H2 секції про трансформацію дитини.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_transformation_before_image",
+      "label": "Було: зображення",
+      "name": "home_transformation_before_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Превʼю картинки “Було”. Натисніть, щоб замінити її в секції трансформації.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_home_transformation_after_image",
+      "label": "Стало: зображення",
+      "name": "home_transformation_after_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Превʼю картинки “Стало”. Натисніть, щоб замінити її в секції трансформації.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_home_transformation_before_image_override",
+      "label": "Замінити зображення «Було»",
+      "name": "home_transformation_before_image_override",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Необовʼязкова публічна заміна. Порожнє поле залишає поточний дизайн.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 1420,
+      "min_height": 869,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": "jpg,jpeg,png,webp"
+    },
+    {
+      "key": "field_home_transformation_after_image_override",
+      "label": "Замінити зображення «Стало»",
+      "name": "home_transformation_after_image_override",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Необовʼязкова публічна заміна. Порожнє поле залишає поточний дизайн.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 1420,
+      "min_height": 870,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": "jpg,jpeg,png,webp"
+    },
+    {
+      "key": "field_home_transformation_cta_label",
+      "label": "Кнопка трансформації",
+      "name": "home_transformation_cta_label",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Текст CTA у секції трансформації.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_transformation_before_label",
+      "label": "Було: мітка",
+      "name": "home_transformation_before_label",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Мітка лівої картки трансформації.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_transformation_before_text",
+      "label": "Було: текст",
+      "name": "home_transformation_before_text",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Текст лівої картки трансформації.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_transformation_after_label",
+      "label": "Стало: мітка",
+      "name": "home_transformation_after_label",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Мітка правої картки трансформації.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_transformation_after_text",
+      "label": "Стало: текст",
+      "name": "home_transformation_after_text",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Текст правої картки трансформації.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_tab_onboarding",
+      "label": "Як розпочати",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_home_onboarding_title",
+      "label": "Заголовок онбордингу",
+      "name": "home_onboarding_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "H2 секції з кроками старту навчання.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_onboarding_steps",
+      "label": "Кроки старту навчання",
+      "name": "home_onboarding_steps",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "Тексти карток у секції “Як розпочати навчання”.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "min": 0,
+      "max": 0,
+      "rows_per_page": 20,
+      "button_label": "Додати рядок",
+      "collapsed": "",
+      "sub_fields": [
+        {
+          "key": "field_home_onboarding_steps_image",
+          "label": "Превʼю кроку",
+          "name": "image",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "Картинка цього кроку. Натисніть на превʼю, щоб замінити.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "min_width": 0,
+          "min_height": 0,
+          "min_size": 0,
+          "max_width": 0,
+          "max_height": 0,
+          "max_size": 0,
+          "mime_types": "",
+          "parent_repeater": "field_home_onboarding_steps"
+        },
+        {
+          "key": "field_home_onboarding_steps_image_override",
+          "label": "Замінити превʼю кроку",
+          "name": "image_override",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "Необовʼязкова публічна заміна. Порожнє поле залишає поточний дизайн.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "min_width": 327,
+          "min_height": 282,
+          "min_size": 0,
+          "max_width": 0,
+          "max_height": 0,
+          "max_size": 0,
+          "mime_types": "jpg,jpeg,png,webp",
+          "parent_repeater": "field_home_onboarding_steps"
+        },
+        {
+          "key": "field_home_onboarding_steps_title",
+          "label": "Заголовок",
+          "name": "title",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Заголовок».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_home_onboarding_steps"
+        },
+        {
+          "key": "field_home_onboarding_steps_text",
+          "label": "Опис",
+          "name": "text",
+          "aria-label": "",
+          "type": "textarea",
+          "instructions": "Введіть редакторський текст для поля «Опис».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "new_lines": "",
+          "maxlength": "",
+          "placeholder": "",
+          "rows": "",
+          "parent_repeater": "field_home_onboarding_steps"
+        },
+        {
+          "key": "field_home_onboarding_steps_button",
+          "label": "Кнопка",
+          "name": "button",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Кнопка».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_home_onboarding_steps"
+        }
+      ]
+    },
+    {
+      "key": "field_home_tab_social",
+      "label": "Довіра, проєкти, локації",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_home_testimonials_title",
+      "label": "Заголовок відгуків",
+      "name": "home_testimonials_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "H2 секції довіри та відгуків.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_portfolio_title",
+      "label": "Заголовок проєктів",
+      "name": "home_portfolio_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "H2 секції проєктів учнів.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_portfolio_items",
+      "label": "Картки проєктів учнів",
+      "name": "home_portfolio_items",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "Додайте картки у потрібному порядку. Порожній список показує базові картки з дизайну.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "pagination": 0,
+      "min": 0,
+      "max": 0,
+      "collapsed": "field_home_portfolio_item_student_name",
+      "button_label": "Додати картку",
+      "sub_fields": [
+        {
+          "key": "field_home_portfolio_item_variant",
+          "label": "Тип картки",
+          "name": "variant",
+          "type": "button_group",
+          "instructions": "Головна картка показує зображення проєкту, відео та CTA.",
+          "required": true,
+          "choices": {
+            "standard": "Звичайна",
+            "featured": "Головна"
+          },
+          "default_value": "standard",
+          "return_format": "value",
+          "layout": "horizontal"
+        },
+        {
+          "key": "field_home_portfolio_item_student_name",
+          "label": "Ім’я учня",
+          "name": "student_name",
+          "type": "text",
+          "instructions": "Наприклад: Максим.",
+          "required": true
+        },
+        {
+          "key": "field_home_portfolio_item_student_age",
+          "label": "Вік",
+          "name": "student_age",
+          "type": "text",
+          "instructions": "Наприклад: 12 років.",
+          "required": true
+        },
+        {
+          "key": "field_home_portfolio_item_course",
+          "label": "Курс",
+          "name": "course",
+          "type": "text",
+          "instructions": "Назва курсу на мітці картки.",
+          "required": true
+        },
+        {
+          "key": "field_home_portfolio_item_topic",
+          "label": "Тема",
+          "name": "topic",
+          "type": "text",
+          "instructions": "Додаткова мітка для звичайної картки.",
+          "required": false
+        },
+        {
+          "key": "field_home_portfolio_item_description",
+          "label": "Опис проєкту",
+          "name": "description",
+          "type": "textarea",
+          "instructions": "Коротко опишіть результат учня.",
+          "required": true,
+          "rows": 3,
+          "new_lines": ""
+        },
+        {
+          "key": "field_home_portfolio_item_student_image",
+          "label": "Фото учня",
+          "name": "student_image",
+          "type": "image",
+          "instructions": "Потрібне для звичайної картки.",
+          "required": false,
+          "conditional_logic": [
+            [
+              {
+                "field": "field_home_portfolio_item_variant",
+                "operator": "==",
+                "value": "standard"
+              }
+            ]
+          ],
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "mime_types": "jpg,jpeg,png,webp"
+        },
+        {
+          "key": "field_home_portfolio_item_project_image",
+          "label": "Зображення проєкту",
+          "name": "project_image",
+          "type": "image",
+          "instructions": "Потрібне для головної картки.",
+          "required": false,
+          "conditional_logic": [
+            [
+              {
+                "field": "field_home_portfolio_item_variant",
+                "operator": "==",
+                "value": "featured"
+              }
+            ]
+          ],
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "mime_types": "jpg,jpeg,png,webp"
+        },
+        {
+          "key": "field_home_portfolio_item_video_url",
+          "label": "Посилання на відеовідгук",
+          "name": "video_url",
+          "type": "url",
+          "instructions": "Необов’язкове посилання для головної картки.",
+          "required": false,
+          "conditional_logic": [
+            [
+              {
+                "field": "field_home_portfolio_item_variant",
+                "operator": "==",
+                "value": "featured"
+              }
+            ]
+          ]
+        },
+        {
+          "key": "field_home_portfolio_item_cta_label",
+          "label": "Текст CTA",
+          "name": "cta_label",
+          "type": "text",
+          "instructions": "Наприклад: Безкоштовний пробний урок.",
+          "required": false,
+          "conditional_logic": [
+            [
+              {
+                "field": "field_home_portfolio_item_variant",
+                "operator": "==",
+                "value": "featured"
+              }
+            ]
+          ]
+        },
+        {
+          "key": "field_home_portfolio_item_cta_url",
+          "label": "Посилання CTA",
+          "name": "cta_url",
+          "type": "url",
+          "instructions": "Необов’язкове посилання для головної картки.",
+          "required": false,
+          "conditional_logic": [
+            [
+              {
+                "field": "field_home_portfolio_item_variant",
+                "operator": "==",
+                "value": "featured"
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "key": "field_home_locations_title",
+      "label": "Заголовок локацій",
+      "name": "home_locations_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "H2 секції локацій.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_locations_text",
+      "label": "Текст локацій",
+      "name": "home_locations_text",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Опис під заголовком локацій.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "new_lines": "",
+      "maxlength": "",
+      "placeholder": "",
+      "rows": ""
+    },
+    {
+      "key": "field_home_tab_media",
+      "label": "Медіа-центр",
+      "name": "",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_home_media_title",
+      "label": "Заголовок медіа-центру",
+      "name": "home_media_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "H2 секції медіа-центру.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_media_text",
+      "label": "Текст медіа-центру",
+      "name": "home_media_text",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Опис під заголовком медіа-центру.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "new_lines": "",
+      "maxlength": "",
+      "placeholder": "",
+      "rows": ""
+    },
+    {
+      "key": "field_home_media_lesson_link",
+      "label": "Кнопка запису на урок",
+      "name": "home_media_lesson_link",
+      "type": "link",
+      "return_format": "array",
+      "instructions": "Порожнє поле залишає перехід до форми запису."
+    },
+    {
+      "key": "field_home_media_archive_link",
+      "label": "Кнопка Медіа-центру",
+      "name": "home_media_archive_link",
+      "type": "link",
+      "return_format": "array",
+      "instructions": "Порожнє поле веде до Медіа-центру."
+    },
+    {
+      "key": "field_home_media_news",
+      "label": "Блок новин",
+      "name": "home_media_news",
+      "type": "group",
+      "sub_fields": [
+        {
+          "key": "field_home_media_news_tag_primary",
+          "label": "Перший підпис",
+          "name": "tag_primary",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Перший підпис»."
+        },
+        {
+          "key": "field_home_media_news_tag_secondary",
+          "label": "Другий підпис",
+          "name": "tag_secondary",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Другий підпис»."
+        },
+        {
+          "key": "field_home_media_news_image",
+          "label": "Ілюстрація",
+          "name": "image",
+          "type": "image",
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "mime_types": "jpg,jpeg,png,webp,svg",
+          "instructions": "Оберіть зображення для «Ілюстрація». Після вибору в полі буде показано мініатюру."
+        },
+        {
+          "key": "field_home_media_news_title",
+          "label": "Заголовок",
+          "name": "title",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Заголовок»."
+        },
+        {
+          "key": "field_home_media_news_text",
+          "label": "Текст",
+          "name": "text",
+          "type": "textarea",
+          "rows": 3,
+          "instructions": "Введіть редакторський текст для поля «Текст»."
+        },
+        {
+          "key": "field_home_media_news_link",
+          "label": "Кнопка",
+          "name": "link",
+          "type": "link",
+          "return_format": "array",
+          "instructions": "Вкажіть значення для поля «Кнопка»."
+        }
+      ],
+      "instructions": "Заповніть складові поля секції «Блок новин»."
+    },
+    {
+      "key": "field_home_media_contest",
+      "label": "Блок конкурсів",
+      "name": "home_media_contest",
+      "type": "group",
+      "sub_fields": [
+        {
+          "key": "field_home_media_contest_label",
+          "label": "Підпис",
+          "name": "label",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Підпис»."
+        },
+        {
+          "key": "field_home_media_contest_image",
+          "label": "Ілюстрація",
+          "name": "image",
+          "type": "image",
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "mime_types": "jpg,jpeg,png,webp,svg",
+          "instructions": "Оберіть зображення для «Ілюстрація». Після вибору в полі буде показано мініатюру."
+        },
+        {
+          "key": "field_home_media_contest_title",
+          "label": "Заголовок",
+          "name": "title",
+          "type": "textarea",
+          "rows": 2,
+          "instructions": "Новий рядок зберігається у заголовку."
+        },
+        {
+          "key": "field_home_media_contest_text",
+          "label": "Текст",
+          "name": "text",
+          "type": "textarea",
+          "rows": 3,
+          "instructions": "Введіть редакторський текст для поля «Текст»."
+        },
+        {
+          "key": "field_home_media_contest_link",
+          "label": "Кнопка",
+          "name": "link",
+          "type": "link",
+          "return_format": "array",
+          "instructions": "Вкажіть значення для поля «Кнопка»."
+        }
+      ],
+      "instructions": "Заповніть складові поля секції «Блок конкурсів»."
+    },
+    {
+      "key": "field_home_media_offer",
+      "label": "Акція 1=2",
+      "name": "home_media_offer",
+      "type": "group",
+      "sub_fields": [
+        {
+          "key": "field_home_media_offer_label",
+          "label": "Підпис",
+          "name": "label",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Підпис»."
+        },
+        {
+          "key": "field_home_media_offer_background",
+          "label": "Фонове зображення",
+          "name": "background",
+          "type": "image",
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "mime_types": "jpg,jpeg,png,webp,svg",
+          "instructions": "Оберіть зображення для «Фонове зображення». Після вибору в полі буде показано мініатюру."
+        },
+        {
+          "key": "field_home_media_offer_image",
+          "label": "Ілюстрація",
+          "name": "image",
+          "type": "image",
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "mime_types": "jpg,jpeg,png,webp,svg",
+          "instructions": "Оберіть зображення для «Ілюстрація». Після вибору в полі буде показано мініатюру."
+        },
+        {
+          "key": "field_home_media_offer_title",
+          "label": "Заголовок",
+          "name": "title",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Заголовок»."
+        },
+        {
+          "key": "field_home_media_offer_subtitle",
+          "label": "Підзаголовок",
+          "name": "subtitle",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Підзаголовок»."
+        },
+        {
+          "key": "field_home_media_offer_text",
+          "label": "Текст",
+          "name": "text",
+          "type": "textarea",
+          "rows": 3,
+          "instructions": "Введіть редакторський текст для поля «Текст»."
+        },
+        {
+          "key": "field_home_media_offer_link",
+          "label": "Кнопка",
+          "name": "link",
+          "type": "link",
+          "return_format": "array",
+          "instructions": "Вкажіть значення для поля «Кнопка»."
+        }
+      ],
+      "instructions": "Заповніть складові поля секції «Акція 1=2»."
+    },
+    {
+      "key": "field_home_media_discount",
+      "label": "Акція зі знижкою",
+      "name": "home_media_discount",
+      "type": "group",
+      "sub_fields": [
+        {
+          "key": "field_home_media_discount_label",
+          "label": "Підпис",
+          "name": "label",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Підпис»."
+        },
+        {
+          "key": "field_home_media_discount_image",
+          "label": "Ілюстрація",
+          "name": "image",
+          "type": "image",
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "mime_types": "jpg,jpeg,png,webp,svg",
+          "instructions": "Оберіть зображення для «Ілюстрація». Після вибору в полі буде показано мініатюру."
+        },
+        {
+          "key": "field_home_media_discount_title",
+          "label": "Заголовок",
+          "name": "title",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Заголовок»."
+        },
+        {
+          "key": "field_home_media_discount_subtitle",
+          "label": "Підзаголовок",
+          "name": "subtitle",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Підзаголовок»."
+        },
+        {
+          "key": "field_home_media_discount_text",
+          "label": "Текст",
+          "name": "text",
+          "type": "textarea",
+          "rows": 3,
+          "instructions": "Введіть редакторський текст для поля «Текст»."
+        },
+        {
+          "key": "field_home_media_discount_link",
+          "label": "Кнопка",
+          "name": "link",
+          "type": "link",
+          "return_format": "array",
+          "instructions": "Вкажіть значення для поля «Кнопка»."
+        }
+      ],
+      "instructions": "Заповніть складові поля секції «Акція зі знижкою»."
+    },
+    {
+      "key": "field_home_media_race",
+      "label": "Блок LogiRace",
+      "name": "home_media_race",
+      "type": "group",
+      "sub_fields": [
+        {
+          "key": "field_home_media_race_label",
+          "label": "Підпис",
+          "name": "label",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Підпис»."
+        },
+        {
+          "key": "field_home_media_race_image",
+          "label": "Ілюстрація",
+          "name": "image",
+          "type": "image",
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "mime_types": "jpg,jpeg,png,webp,svg",
+          "instructions": "Оберіть зображення для «Ілюстрація». Після вибору в полі буде показано мініатюру."
+        },
+        {
+          "key": "field_home_media_race_title",
+          "label": "Заголовок",
+          "name": "title",
+          "type": "textarea",
+          "rows": 2,
+          "instructions": "Новий рядок зберігається у заголовку."
+        },
+        {
+          "key": "field_home_media_race_text",
+          "label": "Текст",
+          "name": "text",
+          "type": "textarea",
+          "rows": 4,
+          "instructions": "Введіть редакторський текст для поля «Текст»."
+        },
+        {
+          "key": "field_home_media_race_link",
+          "label": "Кнопка",
+          "name": "link",
+          "type": "link",
+          "return_format": "array",
+          "instructions": "Вкажіть значення для поля «Кнопка»."
+        }
+      ],
+      "instructions": "Заповніть складові поля секції «Блок LogiRace»."
+    },
+    {
+      "key": "field_home_media_posts",
+      "label": "Статті в блоці",
+      "name": "home_media_posts",
+      "type": "relationship",
+      "post_type": [
+        "post"
+      ],
+      "filters": [
+        "search"
+      ],
+      "return_format": "id",
+      "min": 0,
+      "max": 3,
+      "instructions": "Оберіть до трьох статей і перетягніть їх у потрібний порядок. Порожнє поле покаже три останні статті."
+    },
+    {
+      "key": "field_home_tab_cta_faq",
+      "label": "CTA та FAQ",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_home_cta_title",
+      "label": "Заголовок CTA",
+      "name": "home_cta_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "H2 фінального CTA-блоку.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_faq_title",
+      "label": "Заголовок FAQ",
+      "name": "home_faq_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "H2 секції питань та відповідей.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_faq_items",
+      "label": "Питання та відповіді",
+      "name": "home_faq_items",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "Питання та відповіді FAQ на головній сторінці.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "min": 0,
+      "max": 0,
+      "rows_per_page": 20,
+      "button_label": "Додати рядок",
+      "collapsed": "",
+      "sub_fields": [
+        {
+          "key": "field_home_faq_items_question",
+          "label": "Питання",
+          "name": "question",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Питання».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_home_faq_items"
+        },
+        {
+          "key": "field_home_faq_items_answer",
+          "label": "Відповідь",
+          "name": "answer",
+          "aria-label": "",
+          "type": "textarea",
+          "instructions": "Введіть редакторський текст для поля «Відповідь».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "new_lines": "",
+          "maxlength": "",
+          "placeholder": "",
+          "rows": "",
+          "parent_repeater": "field_home_faq_items"
+        }
+      ]
+    },
+    {
+      "key": "field_home_tab_certificates_partners",
+      "label": "Сертифікати та партнери",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_home_certificates_title",
+      "label": "Заголовок сертифікатів",
+      "name": "home_certificates_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "H2 секції подарункових сертифікатів.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_certificates_subtitle",
+      "label": "Підзаголовок сертифікатів",
+      "name": "home_certificates_subtitle",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Текст h5 у секції сертифікатів.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "new_lines": "",
+      "maxlength": "",
+      "placeholder": "",
+      "rows": ""
+    },
+    {
+      "key": "field_home_certificates_text",
+      "label": "Текст сертифікатів",
+      "name": "home_certificates_text",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Опис у секції сертифікатів.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "new_lines": "",
+      "maxlength": "",
+      "placeholder": "",
+      "rows": ""
+    },
+    {
+      "key": "field_home_certificates_button",
+      "label": "Кнопка сертифікатів",
+      "name": "home_certificates_button",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Текст кнопки у секції сертифікатів.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_certificates_image",
+      "label": "Зображення сертифіката",
+      "name": "home_certificates_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Превʼю картинки сертифіката. Натисніть, щоб замінити її в секції.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_home_certificates_image_override",
+      "label": "Замінити зображення сертифіката",
+      "name": "home_certificates_image_override",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Необовʼязкова публічна заміна. Порожнє поле залишає поточний дизайн.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 1065,
+      "min_height": 752,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": "jpg,jpeg,png,webp"
+    },
+    {
+      "key": "field_home_partners_title",
+      "label": "Заголовок партнерів",
+      "name": "home_partners_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "H2 секції партнерів.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_home_partners_items",
+      "label": "Логотипи партнерів",
+      "name": "home_partners_items",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "Превʼю логотипів партнерів у порядку відображення. Натисніть на логотип, щоб замінити.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "min": 0,
+      "max": 0,
+      "rows_per_page": 20,
+      "button_label": "Додати рядок",
+      "collapsed": "",
+      "sub_fields": [
+        {
+          "key": "field_home_partners_items_name",
+          "label": "Назва",
+          "name": "name",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Внутрішня назва для редактора.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_home_partners_items"
+        },
+        {
+          "key": "field_home_partners_items_image",
+          "label": "Логотип",
+          "name": "image",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "Превʼю логотипа партнера. Натисніть, щоб замінити.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "min_width": 0,
+          "min_height": 0,
+          "min_size": 0,
+          "max_width": 0,
+          "max_height": 0,
+          "max_size": 0,
+          "mime_types": "",
+          "parent_repeater": "field_home_partners_items"
+        },
+        {
+          "key": "field_home_partners_items_image_override",
+          "label": "Замінити логотип",
+          "name": "image_override",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "Необовʼязкова публічна заміна. Порожнє поле залишає поточний дизайн.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "min_width": 458,
+          "min_height": 270,
+          "min_size": 0,
+          "max_width": 0,
+          "max_height": 0,
+          "max_size": 0,
+          "mime_types": "jpg,jpeg,png,webp",
+          "parent_repeater": "field_home_partners_items"
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_type",
+        "operator": "==",
+        "value": "front_page"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": [],
+  "active": true,
+  "description": "",
+  "show_in_rest": true,
+  "display_title": "",
+  "allow_ai_access": true,
+  "ai_description": "Структуровані редакторські поля Logika: Головна сторінка.",
+  "modified": 1784298127
 }

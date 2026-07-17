@@ -2,26 +2,499 @@
   "key": "group_logika_page_about",
   "title": "Сторінка: About",
   "fields": [
-    {"key":"field_about_tab_hero","label":"Hero","type":"tab"},
-    {"key":"field_about_hero_title","label":"Заголовок hero","name":"about_hero_title","type":"text"},
-    {"key":"field_about_hero_text","label":"Текст hero","name":"about_hero_text","type":"textarea"},
-    {"key":"field_about_hero_image","label":"Зображення hero","name":"about_hero_image","type":"image","return_format":"id"},
-    {"key":"field_about_tab_story","label":"Про школу","type":"tab"},
-    {"key":"field_about_stats_title","label":"Заголовок показників","name":"about_stats_title","type":"text"},
-    {"key":"field_about_stats_items","label":"Показники","name":"about_stats_items","type":"repeater","layout":"table","sub_fields":[{"key":"field_about_stats_item_icon","label":"Іконка","name":"icon","type":"image","return_format":"id"},{"key":"field_about_stats_item_text","label":"Текст","name":"text","type":"text"}]},
-    {"key":"field_about_outcomes_title","label":"Заголовок результатів","name":"about_outcomes_title","type":"text"},
-    {"key":"field_about_history_title","label":"Заголовок історії","name":"about_history_title","type":"text"},
-    {"key":"field_about_history_text","label":"Текст історії","name":"about_history_text","type":"wysiwyg","tabs":"visual"},
-    {"key":"field_about_history_image","label":"Зображення історії","name":"about_history_image","type":"image","return_format":"id"},
-    {"key":"field_about_tab_texts","label":"Тексти сторінки","type":"tab"},
-    {"key":"field_about_benefits_title","label":"Заголовок переваг","name":"about_benefits_title","type":"text"},
-    {"key":"field_about_page_texts","label":"Додаткові тексти сторінки","name":"about_page_texts","type":"repeater","layout":"table","sub_fields":[{"key":"field_about_page_texts_source","label":"Оригінальний текст","name":"source","type":"textarea","readonly":1},{"key":"field_about_page_texts_value","label":"Текст","name":"value","type":"textarea"}]},
-    {"key":"field_about_tab_content","label":"Добірки","type":"tab"},
-    {"key":"field_about_featured_reviews","label":"Відгуки","name":"about_featured_reviews","type":"relationship","post_type":["review"],"return_format":"id","filters":["search"]},
-    {"key":"field_about_featured_faq","label":"FAQ","name":"about_featured_faq","type":"relationship","post_type":["faq_item"],"return_format":"id","filters":["search"]},
-    {"key":"field_about_featured_posts","label":"Матеріали","name":"about_featured_posts","type":"relationship","post_type":["post"],"return_format":"id","filters":["search"]}
+    {
+      "key": "field_about_tab_hero",
+      "label": "Hero",
+      "type": "tab",
+      "name": ""
+    },
+    {
+      "key": "field_about_hero_title",
+      "label": "Заголовок hero",
+      "name": "about_hero_title",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Заголовок hero»."
+    },
+    {
+      "key": "field_about_hero_text",
+      "label": "Текст hero",
+      "name": "about_hero_text",
+      "type": "textarea",
+      "instructions": "Введіть редакторський текст для поля «Текст hero»."
+    },
+    {
+      "key": "field_about_hero_image",
+      "label": "Зображення hero",
+      "name": "about_hero_image",
+      "type": "image",
+      "return_format": "id",
+      "instructions": "Оберіть зображення для «Зображення hero». Після вибору в полі буде показано мініатюру.",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_about_tab_story",
+      "label": "Про школу",
+      "type": "tab",
+      "name": ""
+    },
+    {
+      "key": "field_about_stats_title",
+      "label": "Заголовок показників",
+      "name": "about_stats_title",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Заголовок показників»."
+    },
+    {
+      "key": "field_about_stats_items",
+      "label": "Показники",
+      "name": "about_stats_items",
+      "type": "repeater",
+      "layout": "table",
+      "sub_fields": [
+        {
+          "key": "field_about_stats_item_icon",
+          "label": "Іконка",
+          "name": "icon",
+          "type": "image",
+          "return_format": "id",
+          "instructions": "Оберіть зображення для «Іконка». Після вибору в полі буде показано мініатюру.",
+          "preview_size": "medium"
+        },
+        {
+          "key": "field_about_stats_item_text",
+          "label": "Текст",
+          "name": "text",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Текст»."
+        }
+      ],
+      "instructions": "Додавайте рядки та змінюйте їхній порядок перетягуванням."
+    },
+    {
+      "key": "field_about_outcomes_title",
+      "label": "Заголовок результатів",
+      "name": "about_outcomes_title",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Заголовок результатів»."
+    },
+    {
+      "key": "field_about_history_title",
+      "label": "Заголовок історії",
+      "name": "about_history_title",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Заголовок історії»."
+    },
+    {
+      "key": "field_about_history_text",
+      "label": "Текст історії",
+      "name": "about_history_text",
+      "type": "wysiwyg",
+      "tabs": "visual",
+      "instructions": "Введіть редакторський текст для поля «Текст історії»."
+    },
+    {
+      "key": "field_about_history_image",
+      "label": "Зображення історії",
+      "name": "about_history_image",
+      "type": "image",
+      "return_format": "id",
+      "instructions": "Оберіть зображення для «Зображення історії». Після вибору в полі буде показано мініатюру.",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_about_tab_texts",
+      "label": "Тексти сторінки",
+      "type": "tab",
+      "name": ""
+    },
+    {
+      "key": "field_about_benefits_title",
+      "label": "Заголовок переваг",
+      "name": "about_benefits_title",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Заголовок переваг»."
+    },
+    {
+      "key": "field_about_tab_content",
+      "label": "Добірки",
+      "type": "tab",
+      "name": ""
+    },
+    {
+      "key": "field_about_featured_reviews",
+      "label": "Відгуки",
+      "name": "about_featured_reviews",
+      "type": "relationship",
+      "post_type": [
+        "review"
+      ],
+      "return_format": "id",
+      "filters": [
+        "search"
+      ],
+      "instructions": "Оберіть потрібні записи та розташуйте їх у порядку публічного показу."
+    },
+    {
+      "key": "field_about_featured_faq",
+      "label": "FAQ",
+      "name": "about_featured_faq",
+      "type": "relationship",
+      "post_type": [
+        "faq_item"
+      ],
+      "return_format": "id",
+      "filters": [
+        "search"
+      ],
+      "instructions": "Оберіть потрібні записи та розташуйте їх у порядку публічного показу."
+    },
+    {
+      "key": "field_about_featured_posts",
+      "label": "Матеріали",
+      "name": "about_featured_posts",
+      "type": "relationship",
+      "post_type": [
+        "post"
+      ],
+      "return_format": "id",
+      "filters": [
+        "search"
+      ],
+      "instructions": "Оберіть потрібні записи та розташуйте їх у порядку публічного показу."
+    },
+    {
+      "key": "field_about_tab_directions",
+      "label": "Напрямки",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_about_directions_title",
+      "label": "Заголовок напрямків",
+      "name": "about_directions_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок напрямків»."
+    },
+    {
+      "key": "field_about_directions_items",
+      "label": "Напрямки",
+      "name": "about_directions_items",
+      "type": "repeater",
+      "instructions": "Додавайте елементи та змінюйте їхній порядок перетягуванням.",
+      "layout": "block",
+      "button_label": "Додати елемент",
+      "sub_fields": [
+        {
+          "key": "field_about_direction_title",
+          "label": "Назва",
+          "name": "title",
+          "type": "text",
+          "instructions": "Заповніть поле «Назва»."
+        },
+        {
+          "key": "field_about_direction_text",
+          "label": "Опис",
+          "name": "text",
+          "type": "textarea",
+          "instructions": "Заповніть поле «Опис»."
+        },
+        {
+          "key": "field_about_direction_image",
+          "label": "Зображення",
+          "name": "image",
+          "type": "image",
+          "instructions": "Заповніть поле «Зображення».",
+          "return_format": "id",
+          "preview_size": "medium"
+        },
+        {
+          "key": "field_about_direction_link",
+          "label": "Посилання",
+          "name": "link",
+          "type": "link",
+          "instructions": "Заповніть поле «Посилання».",
+          "return_format": "array"
+        }
+      ]
+    },
+    {
+      "key": "field_about_tab_outcomes",
+      "label": "Результати",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_about_outcome_items",
+      "label": "Результати",
+      "name": "about_outcome_items",
+      "type": "repeater",
+      "instructions": "Додавайте елементи та змінюйте їхній порядок перетягуванням.",
+      "layout": "block",
+      "button_label": "Додати елемент",
+      "sub_fields": [
+        {
+          "key": "field_about_outcome_title",
+          "label": "Назва",
+          "name": "title",
+          "type": "text",
+          "instructions": "Заповніть поле «Назва»."
+        },
+        {
+          "key": "field_about_outcome_text",
+          "label": "Опис",
+          "name": "text",
+          "type": "textarea",
+          "instructions": "Заповніть поле «Опис»."
+        },
+        {
+          "key": "field_about_outcome_image",
+          "label": "Зображення",
+          "name": "image",
+          "type": "image",
+          "instructions": "Заповніть поле «Зображення».",
+          "return_format": "id",
+          "preview_size": "medium"
+        }
+      ]
+    },
+    {
+      "key": "field_about_tab_gallery",
+      "label": "Галерея",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_about_gallery_title",
+      "label": "Заголовок галереї",
+      "name": "about_gallery_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок галереї»."
+    },
+    {
+      "key": "field_about_gallery",
+      "label": "Галерея",
+      "name": "about_gallery",
+      "type": "gallery",
+      "instructions": "Заповніть поле «Галерея».",
+      "return_format": "id",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_about_tab_media",
+      "label": "Переваги",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_about_media_title",
+      "label": "Заголовок переваг",
+      "name": "about_media_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок переваг»."
+    },
+    {
+      "key": "field_about_media_items",
+      "label": "Картки переваг",
+      "name": "about_media_items",
+      "type": "repeater",
+      "instructions": "Додавайте елементи та змінюйте їхній порядок перетягуванням.",
+      "layout": "block",
+      "button_label": "Додати елемент",
+      "sub_fields": [
+        {
+          "key": "field_about_media_item_title",
+          "label": "Заголовок",
+          "name": "title",
+          "type": "text",
+          "instructions": "Заповніть поле «Заголовок»."
+        },
+        {
+          "key": "field_about_media_item_text",
+          "label": "Текст",
+          "name": "text",
+          "type": "textarea",
+          "instructions": "Заповніть поле «Текст»."
+        },
+        {
+          "key": "field_about_media_item_image",
+          "label": "Зображення",
+          "name": "image",
+          "type": "image",
+          "instructions": "Заповніть поле «Зображення».",
+          "return_format": "id",
+          "preview_size": "medium"
+        }
+      ]
+    },
+    {
+      "key": "field_about_tab_onboarding",
+      "label": "Як почати",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_about_onboarding_title",
+      "label": "Заголовок",
+      "name": "about_onboarding_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок»."
+    },
+    {
+      "key": "field_about_onboarding_items",
+      "label": "Кроки",
+      "name": "about_onboarding_items",
+      "type": "repeater",
+      "instructions": "Додавайте елементи та змінюйте їхній порядок перетягуванням.",
+      "layout": "block",
+      "button_label": "Додати елемент",
+      "sub_fields": [
+        {
+          "key": "field_about_onboarding_item_title",
+          "label": "Заголовок",
+          "name": "title",
+          "type": "text",
+          "instructions": "Заповніть поле «Заголовок»."
+        },
+        {
+          "key": "field_about_onboarding_item_text",
+          "label": "Текст",
+          "name": "text",
+          "type": "textarea",
+          "instructions": "Заповніть поле «Текст»."
+        },
+        {
+          "key": "field_about_onboarding_item_image",
+          "label": "Зображення",
+          "name": "image",
+          "type": "image",
+          "instructions": "Заповніть поле «Зображення».",
+          "return_format": "id",
+          "preview_size": "medium"
+        }
+      ]
+    },
+    {
+      "key": "field_about_tab_map",
+      "label": "Карта шкіл",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_about_map_title",
+      "label": "Заголовок карти",
+      "name": "about_map_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок карти»."
+    },
+    {
+      "key": "field_about_map_text",
+      "label": "Опис карти",
+      "name": "about_map_text",
+      "type": "textarea",
+      "instructions": "Заповніть поле «Опис карти»."
+    },
+    {
+      "key": "field_about_tab_cta",
+      "label": "CTA",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_about_cta_title",
+      "label": "Заголовок CTA",
+      "name": "about_cta_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок CTA»."
+    },
+    {
+      "key": "field_about_cta_subtitle",
+      "label": "Підзаголовок CTA",
+      "name": "about_cta_subtitle",
+      "type": "text",
+      "instructions": "Заповніть поле «Підзаголовок CTA»."
+    },
+    {
+      "key": "field_about_cta_image",
+      "label": "Зображення CTA",
+      "name": "about_cta_image",
+      "type": "image",
+      "instructions": "Заповніть поле «Зображення CTA».",
+      "return_format": "id",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_about_tab_reviews",
+      "label": "Відгуки",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_about_reviews_title",
+      "label": "Заголовок відгуків",
+      "name": "about_reviews_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок відгуків»."
+    },
+    {
+      "key": "field_about_tab_faq",
+      "label": "FAQ",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_about_faq_title",
+      "label": "Заголовок FAQ",
+      "name": "about_faq_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок FAQ»."
+    },
+    {
+      "key": "field_about_tab_shared",
+      "label": "Спільні блоки",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_about_use_global_certificates",
+      "label": "Використовувати глобальні сертифікати",
+      "name": "about_use_global_certificates",
+      "type": "true_false",
+      "instructions": "Заповніть поле «Використовувати глобальні сертифікати».",
+      "ui": 1,
+      "default_value": 0
+    },
+    {
+      "key": "field_about_use_global_partners",
+      "label": "Використовувати глобальних партнерів",
+      "name": "about_use_global_partners",
+      "type": "true_false",
+      "instructions": "Заповніть поле «Використовувати глобальних партнерів».",
+      "ui": 1,
+      "default_value": 0
+    }
   ],
-  "location": [[{"param":"page_template","operator":"==","value":"templates/page-about.php"}]],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "templates/page-about.php"
+      }
+    ]
+  ],
   "active": true,
-  "show_in_rest": true
+  "show_in_rest": true,
+  "allow_ai_access": true,
+  "ai_description": "Структуровані редакторські поля Logika: Сторінка: About.",
+  "modified": 1784277373
 }

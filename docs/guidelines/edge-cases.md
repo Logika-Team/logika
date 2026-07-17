@@ -1,7 +1,7 @@
 # Edge Cases: Logika School
 
-Date: 2026-07-10
-Project: Logika School
+Date: 2026-07-10  
+Project: Logika School  
 Stack: WordPress + ACF Pro + `logika-theme` + `logika-core` + `logika-leads`
 
 ## 1. Purpose
@@ -92,7 +92,7 @@ Rule:
 
 | Edge case | Risk | Expected behavior |
 |---|---|---|
-| Branch has address but no coordinates | Marker missing | Render address list; omit marker |
+| Branch has address but no coordinates | Marker missing | Resolve the marker from `address + city + Україна` |
 | Branch has coordinates but no address | Bad UX | Do not render public branch until address exists |
 | Branch coordinates are invalid | Broken map viewport | Skip marker and log/report issue |
 | Google Maps API fails | Empty map area | Show address list and external Google Maps links |

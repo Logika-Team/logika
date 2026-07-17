@@ -6,6 +6,7 @@ namespace Logika\Core;
 
 final class HomepageImageOverrides {
 	private const MIME_TYPES = array( 'image/jpeg', 'image/png', 'image/webp' );
+	private const RELAXED_FIELDS = array( 'field_home_programming_courses_image_override', 'field_home_programming_courses_icon_override' );
 	private const RATIO_TOLERANCE = 0.02;
 	private const LEGACY_FIELDS = array(
 		'field_home_hero_boy_image_override' => 'field_home_hero_boy_image',
@@ -60,9 +61,8 @@ final class HomepageImageOverrides {
 
 	public static function enqueueAssets(): void {
 		$screen = get_current_screen();
-		$post_id = isset( $_GET['post'] ) ? absint( wp_unslash( $_GET['post'] ) ) : 0;
 
-		if ( ! $screen || 'page' !== $screen->post_type || (int) get_option( 'page_on_front' ) !== $post_id || ! function_exists( 'acf_get_field' ) ) {
+		if ( ! $screen || ! function_exists( 'acf_get_field' ) ) {
 			return;
 		}
 
@@ -79,6 +79,7 @@ final class HomepageImageOverrides {
 			'logikaHomepageImageOverrides',
 			array(
 				'profiles' => self::PROFILES,
+				'relaxedFields' => self::RELAXED_FIELDS,
 				'legacyFields' => self::LEGACY_FIELDS,
 				'sources' => self::sources(),
 			)
@@ -98,6 +99,9 @@ final class HomepageImageOverrides {
 		$id = (int) $value;
 		if ( $id <= 0 || ! in_array( get_post_mime_type( $id ), self::MIME_TYPES, true ) ) {
 			return 'Оберіть зображення у форматі PNG, WebP або JPEG.';
+		}
+		if ( in_array( $field['key'], self::RELAXED_FIELDS, true ) ) {
+			return true;
 		}
 
 		$metadata = wp_get_attachment_metadata( $id );

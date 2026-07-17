@@ -31,11 +31,22 @@
     }
   };
 
+  const forget = () => {
+    try {
+      localStorage.removeItem(storageKey);
+      localStorage.removeItem(legacyStorageKey);
+    } catch (error) {
+      // The current page still works when browser storage is unavailable.
+    }
+  };
+
   const cityFromPath = () => {
     const match = window.location.pathname.match(/^\/cities\/([^/]+)(?:\/|$)/);
     const cached = cachedCity();
-    return match ? cities.find((city) => new URL(city.url, window.location.origin).pathname === `/cities/${match[1]}/`)
-      || (cached?.url && new URL(cached.url, window.location.origin).pathname === `/cities/${match[1]}/` ? cached : null) : null;
+    if (!match) return null;
+    const city = cities.find((item) => new URL(item.url, window.location.origin).pathname === `/cities/${match[1]}/`);
+    if (city || cities.length) return city || null;
+    return cached?.url && new URL(cached.url, window.location.origin).pathname === `/cities/${match[1]}/` ? cached : null;
   };
 
   const get = () => cityFromPath() || cities.find((city) => String(city.id) === String(storedId())) || cachedCity();
@@ -64,6 +75,9 @@
         if (city) {
           remember(city);
           syncHomeLinks(city);
+        } else if (cities.length) {
+          forget();
+          if (/^\/cities\/[^/]+(?:\/|$)/.test(window.location.pathname)) window.location.replace('/');
         }
         return cities;
       })

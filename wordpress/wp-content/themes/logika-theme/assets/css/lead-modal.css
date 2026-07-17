@@ -1,0 +1,259 @@
+.modal {
+	--transition-time: 0.3s;
+	position: fixed;
+	inset: 0;
+	z-index: 50;
+	background: rgba(0, 0, 0, 0.4);
+	backdrop-filter: blur(2.5px);
+	overflow-y: auto;
+	overflow-x: hidden;
+	text-align: center;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity var(--transition-time), visibility var(--transition-time);
+}
+
+.modal[hidden] {
+	display: none;
+}
+
+.modal.is-open {
+	opacity: 1;
+	visibility: visible;
+}
+
+.modal__container {
+	position: relative;
+	width: auto;
+	margin: 30px auto;
+	display: none;
+	vertical-align: middle;
+	cursor: default;
+	opacity: 0;
+	transform: translateY(16px) scale(0.98);
+	transition: opacity var(--transition-time) ease, transform var(--transition-time) ease;
+}
+
+.modal__container.modal-open {
+	display: inline-block;
+}
+
+.modal.is-open .modal__container {
+	opacity: 1;
+	transform: translateY(0) scale(1);
+}
+
+.modal__container.is-lesson > div {
+	max-width: 560px;
+}
+
+.modal__container.is-lesson .modal-close {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+}
+
+.modal__wrapper {
+	overflow: hidden;
+	width: 100vw;
+	margin: 0 auto;
+	position: relative;
+	background: var(--white);
+	text-align: initial;
+	border-radius: 25px;
+	box-shadow: 0 0 25px 0 rgba(37, 37, 37, 0.06);
+}
+
+.modal__wrapper:has(.modal-form .main-form__select-wrap.is-open),
+.modal__wrapper:has(.modal-form .iti--phone-dropdown-open) {
+	overflow: visible;
+}
+
+@media screen and (max-width: 1024px) {
+	.modal__wrapper {
+		width: 92vw;
+	}
+}
+
+.modal__close {
+	flex-shrink: 0;
+	width: 24px;
+	height: 24px;
+	border-radius: 0;
+	background: transparent;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.modal__close img {
+	display: block;
+	width: 24px;
+	height: 24px;
+	transition: transform 0.3s ease-in-out;
+}
+
+.modal__close:hover img {
+	transform: scale(1.1);
+}
+
+.modal__lesson-image {
+	display: flex;
+	border-radius: 25px 25px 0 0;
+	overflow: hidden;
+}
+
+.modal-form {
+	padding: 45px 40px;
+	display: flex;
+	flex-direction: column;
+	gap: clamp(20px, 2.083vw, 30px);
+	border-radius: 0 0 25px 25px;
+	background: var(--white);
+}
+
+.modal-form__labels {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.modal-form__label {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.modal-form__label > span {
+	font-size: 20px;
+	line-height: 140%;
+	font-weight: 400;
+	color: var(--black);
+}
+
+.modal-form__input {
+	height: clamp(44px, 3.611vw, 52px);
+	display: flex;
+	align-items: center;
+	padding: 0 16px;
+	border: 1px solid #c9c9c9;
+	border-radius: 5px;
+	font-family: var(--font-primary);
+	font-size: 14px;
+	line-height: 140%;
+	font-weight: 400;
+	color: var(--black);
+}
+
+.modal-form__text {
+	font-size: 12px;
+	line-height: 140%;
+	font-weight: 500;
+	letter-spacing: -0.6px;
+	text-align: center;
+	color: var(--black);
+}
+
+.modal-form__text a {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.modal-form .main-form__phone-wrap {
+	position: relative;
+}
+
+.modal-form .main-form__phone-wrap .iti {
+    width: 100%;
+}
+
+.modal .modal-form .iti--phone-dropdown-open .main-form__phone,
+.modal .modal-form .iti--phone-dropdown-up .main-form__phone,
+.modal .modal-form .iti--phone-dropdown-open .iti__selected-flag,
+.modal .modal-form .iti--phone-dropdown-up .iti__selected-flag {
+	border-radius: 5px;
+}
+
+.modal .modal-form .iti--phone-dropdown-open .iti__selected-flag,
+.modal .modal-form .iti--phone-dropdown-up .iti__selected-flag {
+	border-radius: 5px 0 0 5px;
+}
+
+.modal .modal-form .iti--inline-dropdown .iti__dropdown-content,
+.modal .modal-form .iti--phone-dropdown-up.iti--inline-dropdown .iti__dropdown-content {
+	border-radius: 0;
+}
+
+.modal .modal-form .iti--phone-dropdown-up.iti--inline-dropdown .iti__dropdown-content {
+	top: auto;
+	bottom: 100%;
+	margin-bottom: 0;
+}
+
+.modal .modal-form .main-form__select-wrap.is-open .main-form__age-trigger {
+	border-radius: 5px;
+}
+
+.modal .modal-form .main-form__select-wrap.is-open .main-form__age-dropdown {
+	top: auto;
+	bottom: 100%;
+	border-radius: 0;
+}
+
+body:has(.modal.is-open .iti--phone-dropdown-open) .iti--fullscreen-popup,
+body:has(.modal.is-open .iti--phone-dropdown-open) .iti--fullscreen-popup .iti__dropdown-content {
+    border-radius: 0;
+}
+
+.modal-form .main-form__age-trigger {
+	width: 100%;
+	height: clamp(44px, 3.611vw, 52px);
+	padding: 0 16px;
+	border: 1px solid #c9c9c9;
+	border-radius: 5px;
+	font-family: var(--font-primary);
+	font-size: 14px;
+	line-height: 140%;
+	font-weight: 400;
+	color: var(--grey-500);
+	text-align: left;
+}
+
+
+.modal-form .main-form__status {
+	color: var(--violet-500);
+}
+
+@media screen and (max-width: 576px) {
+	.modal {
+		padding: 0;
+	}
+
+	.modal__wrapper {
+		width: 100%;
+		min-height: 100%;
+		border-radius: 0;
+	}
+
+	.modal__lesson-image,
+	.modal-form {
+		border-radius: 0;
+	}
+
+	.modal__container {
+		width: 100%;
+		margin: 0;
+	}
+
+	.modal-form {
+		padding: 30px 20px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.modal,
+	.modal__container {
+		transition-duration: 0.01ms;
+	}
+}

@@ -2,20 +2,176 @@
   "key": "group_logika_page_faq",
   "title": "Сторінка: FAQ",
   "fields": [
-    {"key":"field_faq_page_tab_hero","label":"Hero","type":"tab"},
-    {"key":"field_faq_page_hero_title","label":"Заголовок hero","name":"faq_page_hero_title","type":"text"},
-    {"key":"field_faq_page_hero_text","label":"Текст hero","name":"faq_page_hero_text","type":"textarea"},
-    {"key":"field_faq_page_hero_image","label":"Зображення hero","name":"faq_page_hero_image","type":"image","return_format":"id"},
-    {"key":"field_faq_page_tab_sections","label":"Секції","type":"tab"},
-    {"key":"field_faq_page_list_title","label":"Заголовок FAQ","name":"faq_page_list_title","type":"text"},
-    {"key":"field_faq_page_reviews_title","label":"Заголовок відгуків","name":"faq_page_reviews_title","type":"text"},
-    {"key":"field_faq_page_cta_title","label":"Заголовок консультації","name":"faq_page_cta_title","type":"text"},
-    {"key":"field_faq_page_texts","label":"Додаткові тексти сторінки","name":"faq_page_texts","type":"repeater","layout":"table","sub_fields":[{"key":"field_faq_page_texts_source","label":"Оригінальний текст","name":"source","type":"textarea","readonly":1},{"key":"field_faq_page_texts_value","label":"Текст","name":"value","type":"textarea"}]},
-    {"key":"field_faq_page_tab_content","label":"Добірки","type":"tab"},
-    {"key":"field_faq_page_featured_faq","label":"FAQ","name":"faq_page_featured_faq","type":"relationship","post_type":["faq_item"],"return_format":"id","filters":["search"]},
-    {"key":"field_faq_page_featured_reviews","label":"Відгуки","name":"faq_page_featured_reviews","type":"relationship","post_type":["review"],"return_format":"id","filters":["search"]}
+    {
+      "key": "field_faq_page_tab_hero",
+      "label": "Hero",
+      "type": "tab",
+      "name": ""
+    },
+    {
+      "key": "field_faq_page_hero_title",
+      "label": "Заголовок hero",
+      "name": "faq_page_hero_title",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Заголовок hero»."
+    },
+    {
+      "key": "field_faq_page_hero_text",
+      "label": "Текст hero",
+      "name": "faq_page_hero_text",
+      "type": "textarea",
+      "instructions": "Введіть редакторський текст для поля «Текст hero»."
+    },
+    {
+      "key": "field_faq_page_hero_image",
+      "label": "Зображення hero",
+      "name": "faq_page_hero_image",
+      "type": "image",
+      "return_format": "id",
+      "instructions": "Оберіть зображення для «Зображення hero». Після вибору в полі буде показано мініатюру.",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_faq_page_hero_icon",
+      "label": "Персонаж hero",
+      "name": "faq_page_hero_icon",
+      "type": "image",
+      "return_format": "id",
+      "instructions": "Оберіть малого персонажа праворуч у hero. Мініатюра та кнопки заміни доступні без відкриття медіатеки.",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_faq_page_tab_sections",
+      "label": "Секції",
+      "type": "tab",
+      "name": ""
+    },
+    {
+      "key": "field_faq_page_list_title",
+      "label": "Заголовок FAQ",
+      "name": "faq_page_list_title",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Заголовок FAQ»."
+    },
+    {
+      "key": "field_faq_page_reviews_title",
+      "label": "Заголовок відгуків",
+      "name": "faq_page_reviews_title",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Заголовок відгуків»."
+    },
+    {
+      "key": "field_faq_page_cta_title",
+      "label": "Заголовок консультації",
+      "name": "faq_page_cta_title",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Заголовок консультації»."
+    },
+    {
+      "key": "field_faq_page_tab_content",
+      "label": "Добірки",
+      "type": "tab",
+      "name": ""
+    },
+    {
+      "key": "field_faq_page_featured_faq",
+      "label": "FAQ",
+      "name": "faq_page_featured_faq",
+      "type": "relationship",
+      "post_type": [
+        "faq_item"
+      ],
+      "return_format": "id",
+      "filters": [
+        "search"
+      ],
+      "instructions": "Оберіть потрібні записи та розташуйте їх у порядку публічного показу."
+    },
+    {
+      "key": "field_faq_page_featured_reviews",
+      "label": "Відгуки",
+      "name": "faq_page_featured_reviews",
+      "type": "relationship",
+      "post_type": [
+        "review"
+      ],
+      "return_format": "id",
+      "filters": [
+        "search"
+      ],
+      "instructions": "Оберіть потрібні записи та розташуйте їх у порядку публічного показу."
+    },
+    {
+      "key": "field_faq_page_tab_list",
+      "label": "FAQ",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_faq_page_tab_reviews_new",
+      "label": "Відгуки",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_faq_page_tab_map",
+      "label": "Карта шкіл",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_faq_page_map_title",
+      "label": "Заголовок карти",
+      "name": "faq_page_map_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок карти»."
+    },
+    {
+      "key": "field_faq_page_map_text",
+      "label": "Опис карти",
+      "name": "faq_page_map_text",
+      "type": "textarea",
+      "instructions": "Заповніть поле «Опис карти»."
+    },
+    {
+      "key": "field_faq_page_tab_cta",
+      "label": "CTA",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_faq_page_cta_subtitle",
+      "label": "Підзаголовок CTA",
+      "name": "faq_page_cta_subtitle",
+      "type": "text",
+      "instructions": "Заповніть поле «Підзаголовок CTA»."
+    },
+    {
+      "key": "field_faq_page_cta_image",
+      "label": "Зображення CTA",
+      "name": "faq_page_cta_image",
+      "type": "image",
+      "instructions": "Заповніть поле «Зображення CTA».",
+      "return_format": "id",
+      "preview_size": "medium"
+    }
   ],
-  "location": [[{"param":"page_template","operator":"==","value":"templates/page-faq.php"}]],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "templates/page-faq.php"
+      }
+    ]
+  ],
   "active": true,
-  "show_in_rest": true
+  "show_in_rest": true,
+  "allow_ai_access": true,
+  "ai_description": "Структуровані редакторські поля Logika: Сторінка: FAQ.",
+  "modified": 1784281465
 }

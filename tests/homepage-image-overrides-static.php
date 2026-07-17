@@ -26,11 +26,13 @@ $markup_source = (string) file_get_contents( $markup );
 $json_source   = (string) file_get_contents( $json );
 $fields        = json_decode( (string) file_get_contents( $json ), true, 512, JSON_THROW_ON_ERROR );
 $field_keys    = array();
+$field_map     = array();
 
-$collect = static function ( array $items ) use ( &$collect, &$field_keys ): void {
+$collect = static function ( array $items ) use ( &$collect, &$field_keys, &$field_map ): void {
 	foreach ( $items as $item ) {
 		if ( isset( $item['key'] ) ) {
 			$field_keys[] = $item['key'];
+			$field_map[ $item['key'] ] = $item;
 		}
 
 		if ( ! empty( $item['sub_fields'] ) && is_array( $item['sub_fields'] ) ) {
@@ -47,7 +49,8 @@ foreach ( $expected as $field_key ) {
 	}
 }
 
-if ( ! preg_match( '/"key": "field_home_trust_item_icon_override".*?"label": "".*?"instructions": "".*?"wrapper": \{ "width": "100"/s', $json_source ) ) {
+$trust_override = $field_map['field_home_trust_item_icon_override'] ?? null;
+if ( ! $trust_override || '' !== ( $trust_override['label'] ?? null ) || '' === ( $trust_override['instructions'] ?? '' ) || '100' !== ( $trust_override['wrapper']['width'] ?? '' ) ) {
 	$errors[] = 'Trust icon override still renders an ACF label column instead of a full-width replacement panel.';
 }
 
@@ -71,6 +74,19 @@ foreach ( array( 'logika-image-override-native', 'logika-image-override-panel', 
 	if ( ! str_contains( $admin_script, $needle ) ) {
 		$errors[] = "Homepage image override UI does not provide {$needle}.";
 	}
+}
+
+$override_source = (string) file_get_contents( $root . '/wordpress/wp-content/plugins/logika-core/src/HomepageImageOverrides.php' );
+if ( str_contains( $override_source, "'page' !== " . '$screen->post_type' ) || str_contains( $override_source, "get_option( 'page_on_front' )" ) ) {
+	$errors[] = 'Image replacement controls are still restricted to the front page.';
+}
+
+if ( ! str_contains( $admin_script, 'if (!field || !fieldProfile) {' ) ) {
+	$errors[] = 'Image replacement controls must leave ordinary ACF Image fields to their native preview.';
+}
+
+if ( ! str_contains( $admin_script, 'sources[index] || sources[0]' ) ) {
+	$errors[] = 'Repeated homepage cards do not reuse their standard preview for every row.';
 }
 
 foreach ( array( 'home_hero_boy_image_override', 'home_hero_character_image_override', 'image_override' ) as $needle ) {

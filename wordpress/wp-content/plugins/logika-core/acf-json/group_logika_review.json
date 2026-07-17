@@ -1,289 +1,301 @@
 {
-    "key": "group_logika_review",
-    "title": "Відгук",
-    "fields": [
-        {
-            "key": "field_review_external_id",
-            "label": "Зовнішній ID",
-            "name": "review_external_id",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_review_author_name",
-            "label": "Ім'я автора",
-            "name": "review_author_name",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Публічне ім'я, яке буде видно в картці відгуку.",
-            "required": 1,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placeholder": "Наприклад: Олена Коваль",
-            "default_value": "",
-            "maxlength": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_review_author_role",
-            "label": "Роль автора",
-            "name": "review_author_role",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Короткий підпис під ім'ям: мама учня, тато учениці, студент тощо.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placeholder": "Наприклад: мама учня",
-            "default_value": "Мама учня",
-            "maxlength": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_review_text",
-            "label": "Текст відгуку",
-            "name": "review_text",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "Основний текст відгуку, який відображається на сайті.",
-            "required": 1,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "<p>Дитина із задоволенням ходить на заняття, а ми бачимо реальний прогрес уже після перших уроків.<\/p>",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
-        },
-        {
-            "key": "field_review_rating",
-            "label": "Оцінка",
-            "name": "review_rating",
-            "aria-label": "",
-            "type": "number",
-            "instructions": "",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "min": 1,
-            "max": 5,
-            "default_value": "",
-            "step": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_review_photo",
-            "label": "Фото",
-            "name": "review_photo",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 0,
-            "min_height": 0,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": ""
-        },
-        {
-            "key": "field_review_related_city",
-            "label": "Місто",
-            "name": "review_related_city",
-            "aria-label": "",
-            "type": "post_object",
-            "instructions": "",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "city"
-            ],
-            "return_format": "id",
-            "taxonomy": [],
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 1,
-            "bidirectional_target": []
-        },
-        {
-            "key": "field_review_related_course",
-            "label": "Курс",
-            "name": "review_related_course",
-            "aria-label": "",
-            "type": "post_object",
-            "instructions": "",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "course"
-            ],
-            "return_format": "id",
-            "taxonomy": [],
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 1,
-            "bidirectional_target": []
-        },
-        {
-            "key": "field_review_is_global",
-            "label": "Глобальний відгук",
-            "name": "review_is_global",
-            "aria-label": "",
-            "type": "true_false",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": 0,
-            "message": "",
-            "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_review_is_approved",
-            "label": "Схвалений",
-            "name": "review_is_approved",
-            "aria-label": "",
-            "type": "true_false",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": 0,
-            "message": "",
-            "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_review_card_label",
-            "label": "Мітка картки",
-            "name": "review_card_label",
-            "type": "text",
-            "instructions": "Наприклад: назва курсу або «Відгук батьків».",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": { "width": "", "class": "", "id": "" },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_review_display_order",
-            "label": "Порядок показу",
-            "name": "review_display_order",
-            "type": "number",
-            "instructions": "Менше число показується раніше.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": { "width": "", "class": "", "id": "" },
-            "default_value": "",
-            "min": 0,
-            "max": "",
-            "step": 1,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_review_video_url",
-            "label": "Посилання на відеовідгук",
-            "name": "review_video_url",
-            "type": "url",
-            "instructions": "Необов'язкове посилання на опубліковане відео.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": { "width": "", "class": "", "id": "" },
-            "default_value": "",
-            "placeholder": "https://",
-            "prepend": "",
-            "append": ""
-        }
-    ],
-    "location": [
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "review"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "acf_after_title",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": [],
-    "active": true,
-    "description": "",
-    "show_in_rest": true,
-    "display_title": "",
-    "allow_ai_access": false,
-    "ai_description": "",
-    "modified": 1783750065
+  "key": "group_logika_review",
+  "title": "Відгук",
+  "fields": [
+    {
+      "key": "field_review_external_id",
+      "label": "Зовнішній ID",
+      "name": "review_external_id",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Зовнішній ID».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_review_author_name",
+      "label": "Ім'я автора",
+      "name": "review_author_name",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Публічне ім'я, яке буде видно в картці відгуку.",
+      "required": 1,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placeholder": "Наприклад: Олена Коваль",
+      "default_value": "",
+      "maxlength": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_review_author_role",
+      "label": "Роль автора",
+      "name": "review_author_role",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Короткий підпис під ім'ям: мама учня, тато учениці, студент тощо.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placeholder": "Наприклад: мама учня",
+      "default_value": "Мама учня",
+      "maxlength": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_review_text",
+      "label": "Текст відгуку",
+      "name": "review_text",
+      "aria-label": "",
+      "type": "wysiwyg",
+      "instructions": "Основний текст відгуку, який відображається на сайті.",
+      "required": 1,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "<p>Дитина із задоволенням ходить на заняття, а ми бачимо реальний прогрес уже після перших уроків.</p>",
+      "tabs": "all",
+      "toolbar": "full",
+      "media_upload": 1,
+      "delay": 0
+    },
+    {
+      "key": "field_review_rating",
+      "label": "Оцінка",
+      "name": "review_rating",
+      "aria-label": "",
+      "type": "number",
+      "instructions": "Вкажіть значення для поля «Оцінка».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "min": 1,
+      "max": 5,
+      "default_value": "",
+      "step": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_review_photo",
+      "label": "Фото",
+      "name": "review_photo",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Оберіть зображення для «Фото». Після вибору в полі буде показано мініатюру.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_review_related_city",
+      "label": "Місто",
+      "name": "review_related_city",
+      "aria-label": "",
+      "type": "post_object",
+      "instructions": "Оберіть один пов’язаний запис для поля «Місто».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "post_type": [
+        "city"
+      ],
+      "return_format": "id",
+      "taxonomy": [],
+      "allow_null": 0,
+      "multiple": 0,
+      "ui": 1,
+      "bidirectional_target": []
+    },
+    {
+      "key": "field_review_related_course",
+      "label": "Курс",
+      "name": "review_related_course",
+      "aria-label": "",
+      "type": "post_object",
+      "instructions": "Оберіть один пов’язаний запис для поля «Курс».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "post_type": [
+        "course"
+      ],
+      "return_format": "id",
+      "taxonomy": [],
+      "allow_null": 0,
+      "multiple": 0,
+      "ui": 1,
+      "bidirectional_target": []
+    },
+    {
+      "key": "field_review_is_global",
+      "label": "Глобальний відгук",
+      "name": "review_is_global",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "Увімкніть опцію, коли «Глобальний відгук» має діяти на публічному сайті.",
+      "required": 1,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 0,
+      "message": "",
+      "ui": 0,
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_review_is_approved",
+      "label": "Схвалений",
+      "name": "review_is_approved",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "Увімкніть опцію, коли «Схвалений» має діяти на публічному сайті.",
+      "required": 1,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 0,
+      "message": "",
+      "ui": 0,
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_review_card_label",
+      "label": "Мітка картки",
+      "name": "review_card_label",
+      "type": "text",
+      "instructions": "Наприклад: назва курсу або «Відгук батьків».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_review_display_order",
+      "label": "Порядок показу",
+      "name": "review_display_order",
+      "type": "number",
+      "instructions": "Менше число показується раніше.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "min": 0,
+      "max": "",
+      "step": 1,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_review_video_url",
+      "label": "Посилання на відеовідгук",
+      "name": "review_video_url",
+      "type": "url",
+      "instructions": "Необов'язкове посилання на опубліковане відео.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "https://",
+      "prepend": "",
+      "append": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "review"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "acf_after_title",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": [],
+  "active": true,
+  "description": "",
+  "show_in_rest": true,
+  "display_title": "",
+  "allow_ai_access": true,
+  "ai_description": "Структуровані редакторські поля Logika: Відгук.",
+  "modified": 1784251458
 }

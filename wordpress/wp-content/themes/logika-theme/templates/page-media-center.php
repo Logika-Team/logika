@@ -1,5 +1,5 @@
 <?php
 /** Template Name: Media Center */
 get_header();
-logika_theme_render_source_page( 'media-center' );
+Logika_Theme_Fixed_Page::render( 'media-center', get_queried_object_id() );
 get_footer();

@@ -27,7 +27,7 @@ if (cityRoot && cityTrigger && window.logikaCityContext) {
   cityTrigger.setAttribute('aria-expanded', 'false');
 
   const initial = window.logikaCityContext.get();
-  if (initial && cityLabel) cityLabel.textContent = initial.label;
+  if (cityLabel) cityLabel.textContent = initial?.label || 'Оберіть місто';
 
   const close = () => {
     cityRoot.classList.remove('header__location--open');
@@ -113,7 +113,7 @@ if (cityRoot && cityTrigger && window.logikaCityContext) {
     cities = items;
     const current = window.logikaCityContext.get();
     renderCities(current);
-    if (current && cityLabel) cityLabel.textContent = current.label;
+    if (cityLabel) cityLabel.textContent = current?.label || 'Оберіть місто';
   });
 
   window.addEventListener('logika:city-change', ({ detail }) => {

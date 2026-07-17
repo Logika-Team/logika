@@ -2,23 +2,516 @@
   "key": "group_logika_camp",
   "title": "Табір",
   "fields": [
-    {"key":"field_camp_external_id","label":"Зовнішній ID","name":"camp_external_id","type":"text"},
-    {"key":"field_camp_start_date","label":"Дата початку","name":"camp_start_date","type":"date_picker","return_format":"Y-m-d"},
-    {"key":"field_camp_end_date","label":"Дата завершення","name":"camp_end_date","type":"date_picker","return_format":"Y-m-d"},
-    {"key":"field_camp_season","label":"Сезон","name":"camp_season","type":"text"},
-    {"key":"field_camp_format","label":"Формат навчання","name":"camp_format","type":"taxonomy","taxonomy":"learning_format","field_type":"select","required":1,"return_format":"id"},
-    {"key":"field_camp_related_cities","label":"Міста","name":"camp_related_cities","type":"relationship","post_type":["city"],"return_format":"id"},
-    {"key":"field_camp_related_course","label":"Пов'язаний курс","name":"camp_related_course","type":"post_object","post_type":["course"],"return_format":"id"},
-    {"key":"field_camp_program","label":"Програма","name":"camp_program","type":"repeater","layout":"block","sub_fields":[{"key":"field_camp_program_title","label":"Заголовок","name":"title","type":"text"},{"key":"field_camp_program_description","label":"Опис","name":"description","type":"wysiwyg"},{"key":"field_camp_program_items","label":"Пункти","name":"items","type":"repeater","layout":"table","sub_fields":[{"key":"field_camp_program_item_text","label":"Пункт","name":"item_text","type":"text"}]}]},
-    {"key":"field_camp_gallery","label":"Галерея","name":"camp_gallery","type":"gallery","return_format":"id"},
-    {"key":"field_camp_cta_label","label":"Текст CTA","name":"camp_cta_label","type":"text"},
-    {"key":"field_camp_is_active","label":"Активний табір","name":"camp_is_active","type":"true_false","required":1,"default_value":1},
-    {"key":"field_camp_expired_state_text","label":"Повідомлення після завершення","name":"camp_expired_state_text","type":"textarea"},
-    {"key":"field_camp_seo_title","label":"SEO-заголовок","name":"camp_seo_title","type":"text"},
-    {"key":"field_camp_seo_description","label":"SEO-опис","name":"camp_seo_description","type":"textarea"}
+    {
+      "key": "field_camp_external_id",
+      "label": "Зовнішній ID",
+      "name": "camp_external_id",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Зовнішній ID»."
+    },
+    {
+      "key": "field_camp_start_date",
+      "label": "Дата початку",
+      "name": "camp_start_date",
+      "type": "date_picker",
+      "return_format": "Y-m-d",
+      "instructions": "Вкажіть значення для поля «Дата початку»."
+    },
+    {
+      "key": "field_camp_end_date",
+      "label": "Дата завершення",
+      "name": "camp_end_date",
+      "type": "date_picker",
+      "return_format": "Y-m-d",
+      "instructions": "Вкажіть значення для поля «Дата завершення»."
+    },
+    {
+      "key": "field_camp_season",
+      "label": "Сезон",
+      "name": "camp_season",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Сезон»."
+    },
+    {
+      "key": "field_camp_format",
+      "label": "Формат навчання",
+      "name": "camp_format",
+      "type": "taxonomy",
+      "taxonomy": "learning_format",
+      "field_type": "select",
+      "required": 1,
+      "return_format": "id",
+      "instructions": "Оберіть значення для поля «Формат навчання»."
+    },
+    {
+      "key": "field_camp_related_cities",
+      "label": "Міста",
+      "name": "camp_related_cities",
+      "type": "relationship",
+      "post_type": [
+        "city"
+      ],
+      "return_format": "id",
+      "instructions": "Оберіть потрібні записи та розташуйте їх у порядку публічного показу."
+    },
+    {
+      "key": "field_camp_related_course",
+      "label": "Пов'язаний курс",
+      "name": "camp_related_course",
+      "type": "post_object",
+      "post_type": [
+        "course"
+      ],
+      "return_format": "id",
+      "instructions": "Оберіть один пов’язаний запис для поля «Пов'язаний курс»."
+    },
+    {
+      "key": "field_camp_program",
+      "label": "Програма",
+      "name": "camp_program",
+      "type": "repeater",
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_camp_program_title",
+          "label": "Заголовок",
+          "name": "title",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Заголовок»."
+        },
+        {
+          "key": "field_camp_program_description",
+          "label": "Опис",
+          "name": "description",
+          "type": "wysiwyg",
+          "instructions": "Введіть редакторський текст для поля «Опис»."
+        },
+        {
+          "key": "field_camp_program_items",
+          "label": "Пункти",
+          "name": "items",
+          "type": "repeater",
+          "layout": "table",
+          "sub_fields": [
+            {
+              "key": "field_camp_program_item_text",
+              "label": "Пункт",
+              "name": "item_text",
+              "type": "text",
+              "instructions": "Вкажіть значення для поля «Пункт»."
+            }
+          ],
+          "instructions": "Додавайте рядки та змінюйте їхній порядок перетягуванням."
+        }
+      ],
+      "instructions": "Додавайте рядки та змінюйте їхній порядок перетягуванням."
+    },
+    {
+      "key": "field_camp_gallery",
+      "label": "Галерея",
+      "name": "camp_gallery",
+      "type": "gallery",
+      "return_format": "id",
+      "instructions": "Додайте зображення та змінюйте їхній порядок перетягуванням. Мініатюри видно без відкриття медіатеки.",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_camp_cta_label",
+      "label": "Текст CTA",
+      "name": "camp_cta_label",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Текст CTA»."
+    },
+    {
+      "key": "field_camp_is_active",
+      "label": "Активний табір",
+      "name": "camp_is_active",
+      "type": "true_false",
+      "required": 1,
+      "default_value": 1,
+      "instructions": "Увімкніть опцію, коли «Активний табір» має діяти на публічному сайті."
+    },
+    {
+      "key": "field_camp_expired_state_text",
+      "label": "Повідомлення після завершення",
+      "name": "camp_expired_state_text",
+      "type": "textarea",
+      "instructions": "Введіть редакторський текст для поля «Повідомлення після завершення»."
+    },
+    {
+      "key": "field_camp_seo_title",
+      "label": "SEO-заголовок",
+      "name": "camp_seo_title",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «SEO-заголовок»."
+    },
+    {
+      "key": "field_camp_seo_description",
+      "label": "SEO-опис",
+      "name": "camp_seo_description",
+      "type": "textarea",
+      "instructions": "Введіть редакторський текст для поля «SEO-опис»."
+    },
+    {
+      "key": "field_camp_tab_hero",
+      "label": "Hero",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_camp_hero_text",
+      "label": "Текст hero",
+      "name": "camp_hero_text",
+      "type": "textarea",
+      "instructions": "Заповніть поле «Текст hero»."
+    },
+    {
+      "key": "field_camp_hero_image",
+      "label": "Зображення hero",
+      "name": "camp_hero_image",
+      "type": "image",
+      "instructions": "Заповніть поле «Зображення hero».",
+      "return_format": "id",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_camp_hero_images",
+      "label": "Фотографії hero",
+      "name": "camp_hero_images",
+      "type": "gallery",
+      "return_format": "id",
+      "instructions": "Додайте чотири фотографії hero у порядку: руки, басейн, команда, гори. Мініатюри видно одразу, порядок змінюється перетягуванням.",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_camp_tab_benefits",
+      "label": "Переваги",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_camp_benefits_title",
+      "label": "Заголовок переваг",
+      "name": "camp_benefits_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок переваг»."
+    },
+    {
+      "key": "field_camp_benefits",
+      "label": "Переваги",
+      "name": "camp_benefits",
+      "type": "repeater",
+      "instructions": "Додавайте елементи та змінюйте їхній порядок перетягуванням.",
+      "layout": "block",
+      "button_label": "Додати елемент",
+      "sub_fields": [
+        {
+          "key": "field_camp_benefit_item_title",
+          "label": "Заголовок",
+          "name": "title",
+          "type": "text",
+          "instructions": "Заповніть поле «Заголовок»."
+        },
+        {
+          "key": "field_camp_benefit_item_text",
+          "label": "Текст",
+          "name": "text",
+          "type": "textarea",
+          "instructions": "Заповніть поле «Текст»."
+        },
+        {
+          "key": "field_camp_benefit_item_image",
+          "label": "Зображення",
+          "name": "image",
+          "type": "image",
+          "instructions": "Заповніть поле «Зображення».",
+          "return_format": "id",
+          "preview_size": "medium"
+        }
+      ]
+    },
+    {
+      "key": "field_camp_tab_activities",
+      "label": "Активності",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_camp_activities_title",
+      "label": "Заголовок активностей",
+      "name": "camp_activities_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок активностей»."
+    },
+    {
+      "key": "field_camp_activities",
+      "label": "Активності",
+      "name": "camp_activities",
+      "type": "repeater",
+      "instructions": "Додавайте елементи та змінюйте їхній порядок перетягуванням.",
+      "layout": "block",
+      "button_label": "Додати елемент",
+      "sub_fields": [
+        {
+          "key": "field_camp_activity_item_title",
+          "label": "Заголовок",
+          "name": "title",
+          "type": "text",
+          "instructions": "Заповніть поле «Заголовок»."
+        },
+        {
+          "key": "field_camp_activity_item_text",
+          "label": "Текст",
+          "name": "text",
+          "type": "textarea",
+          "instructions": "Заповніть поле «Текст»."
+        },
+        {
+          "key": "field_camp_activity_item_image",
+          "label": "Зображення",
+          "name": "image",
+          "type": "image",
+          "instructions": "Заповніть поле «Зображення».",
+          "return_format": "id",
+          "preview_size": "medium"
+        }
+      ]
+    },
+    {
+      "key": "field_camp_tab_program",
+      "label": "Програма",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_camp_program_title_new",
+      "label": "Заголовок програми",
+      "name": "camp_program_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок програми»."
+    },
+    {
+      "key": "field_camp_tab_trips",
+      "label": "Поїздки",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_camp_trips_title",
+      "label": "Заголовок поїздок",
+      "name": "camp_trips_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок поїздок»."
+    },
+    {
+      "key": "field_camp_trips",
+      "label": "Поїздки",
+      "name": "camp_trips",
+      "type": "repeater",
+      "instructions": "Додавайте елементи та змінюйте їхній порядок перетягуванням.",
+      "layout": "block",
+      "button_label": "Додати елемент",
+      "sub_fields": [
+        {
+          "key": "field_camp_trip_item_title",
+          "label": "Заголовок",
+          "name": "title",
+          "type": "text",
+          "instructions": "Заповніть поле «Заголовок»."
+        },
+        {
+          "key": "field_camp_trip_item_text",
+          "label": "Текст",
+          "name": "text",
+          "type": "textarea",
+          "instructions": "Заповніть поле «Текст»."
+        },
+        {
+          "key": "field_camp_trip_item_image",
+          "label": "Зображення",
+          "name": "image",
+          "type": "image",
+          "instructions": "Заповніть поле «Зображення».",
+          "return_format": "id",
+          "preview_size": "medium"
+        }
+      ]
+    },
+    {
+      "key": "field_camp_tab_details",
+      "label": "Деталі",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_camp_details_title",
+      "label": "Заголовок деталей",
+      "name": "camp_details_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок деталей»."
+    },
+    {
+      "key": "field_camp_details",
+      "label": "Деталі",
+      "name": "camp_details",
+      "type": "repeater",
+      "instructions": "Додавайте елементи та змінюйте їхній порядок перетягуванням.",
+      "layout": "block",
+      "button_label": "Додати елемент",
+      "sub_fields": [
+        {
+          "key": "field_camp_detail_item_title",
+          "label": "Заголовок",
+          "name": "title",
+          "type": "text",
+          "instructions": "Заповніть поле «Заголовок»."
+        },
+        {
+          "key": "field_camp_detail_item_text",
+          "label": "Текст",
+          "name": "text",
+          "type": "textarea",
+          "instructions": "Заповніть поле «Текст»."
+        },
+        {
+          "key": "field_camp_detail_item_image",
+          "label": "Зображення",
+          "name": "image",
+          "type": "image",
+          "instructions": "Заповніть поле «Зображення».",
+          "return_format": "id",
+          "preview_size": "medium"
+        }
+      ]
+    },
+    {
+      "key": "field_camp_tab_booking",
+      "label": "Бронювання",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_camp_booking_title",
+      "label": "Заголовок бронювання",
+      "name": "camp_booking_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок бронювання»."
+    },
+    {
+      "key": "field_camp_booking_text",
+      "label": "Текст бронювання",
+      "name": "camp_booking_text",
+      "type": "textarea",
+      "instructions": "Заповніть поле «Текст бронювання»."
+    },
+    {
+      "key": "field_camp_booking_image",
+      "label": "Зображення бронювання",
+      "name": "camp_booking_image",
+      "type": "image",
+      "instructions": "Заповніть поле «Зображення бронювання».",
+      "return_format": "id",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_camp_tab_gallery",
+      "label": "Галерея",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_camp_gallery_title",
+      "label": "Заголовок галереї",
+      "name": "camp_gallery_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок галереї»."
+    },
+    {
+      "key": "field_camp_tab_reviews",
+      "label": "Відгуки",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_camp_reviews_title",
+      "label": "Заголовок відгуків",
+      "name": "camp_reviews_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок відгуків»."
+    },
+    {
+      "key": "field_camp_related_reviews",
+      "label": "Відгуки",
+      "name": "camp_related_reviews",
+      "type": "relationship",
+      "instructions": "Заповніть поле «Відгуки».",
+      "post_type": [
+        "review"
+      ],
+      "filters": [
+        "search",
+        "post_type"
+      ],
+      "elements": [
+        "featured_image"
+      ],
+      "return_format": "id"
+    },
+    {
+      "key": "field_camp_tab_faq",
+      "label": "FAQ",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_camp_faq_title",
+      "label": "Заголовок FAQ",
+      "name": "camp_faq_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок FAQ»."
+    },
+    {
+      "key": "field_camp_related_faq",
+      "label": "FAQ",
+      "name": "camp_related_faq",
+      "type": "relationship",
+      "instructions": "Заповніть поле «FAQ».",
+      "post_type": [
+        "faq_item"
+      ],
+      "filters": [
+        "search",
+        "post_type"
+      ],
+      "elements": [
+        "featured_image"
+      ],
+      "return_format": "id"
+    }
   ],
-  "location": [[{"param":"post_type","operator":"==","value":"camp"}]],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "camp"
+      }
+    ]
+  ],
   "active": true,
   "position": "acf_after_title",
-  "show_in_rest": true
+  "show_in_rest": true,
+  "allow_ai_access": true,
+  "ai_description": "Структуровані редакторські поля Logika: Табір.",
+  "modified": 1784281465
 }

@@ -2,26 +2,293 @@
   "key": "group_logika_city",
   "title": "Місто",
   "fields": [
-    {"key":"field_city_external_id","label":"Зовнішній ID","name":"city_external_id","type":"text"},
-    {"key":"field_city_url_slug","label":"URL-ідентифікатор","name":"city_url_slug","type":"text","instructions":"Латиницею, наприклад akademmistechko. Якщо поле порожнє, сайт створить латинський URL із назви міста."},
-    {"key":"field_city_region","label":"Регіон","name":"city_region","type":"taxonomy","taxonomy":"region","field_type":"select","required":1,"return_format":"id"},
-    {"key":"field_city_lat","label":"Широта","name":"city_lat","type":"number","step":"0.000001"},
-    {"key":"field_city_lng","label":"Довгота","name":"city_lng","type":"number","step":"0.000001"},
-    {"key":"field_city_index_status","label":"Статус індексації","name":"city_index_status","type":"select","required":1,"choices":{"index":"Індексувати","noindex":"Не індексувати","review":"На перевірці"},"default_value":"review","return_format":"value"},
-    {"key":"field_city_selected_label","label":"Підпис у виборі міста","name":"city_selected_label","type":"text"},
-    {"key":"field_city_intro","label":"Вступ","name":"city_intro","type":"textarea"},
-    {"key":"field_city_seo_text","label":"SEO-текст","name":"city_seo_text","type":"wysiwyg"},
-    {"key":"field_city_seo_title","label":"SEO-заголовок","name":"city_seo_title","type":"text"},
-    {"key":"field_city_seo_description","label":"SEO-опис","name":"city_seo_description","type":"textarea"},
-    {"key":"field_city_schema_local_business","label":"LocalBusiness","name":"city_schema_local_business","type":"group","sub_fields":[{"key":"field_city_schema_name","label":"Назва","name":"name","type":"text"},{"key":"field_city_schema_description","label":"Опис","name":"description","type":"textarea"},{"key":"field_city_schema_telephone","label":"Телефон","name":"telephone","type":"text"},{"key":"field_city_schema_address","label":"Адреса","name":"address","type":"text"},{"key":"field_city_schema_price_range","label":"Ціновий діапазон","name":"price_range","type":"text"},{"key":"field_city_schema_same_as","label":"Профілі","name":"same_as","type":"url"}]},
-    {"key":"field_city_fallback_image","label":"Резервне зображення","name":"city_fallback_image","type":"image","return_format":"id"},
-    {"key":"field_city_related_courses","label":"Пов'язані курси","name":"city_related_courses","type":"relationship","post_type":["course"],"return_format":"id"},
-    {"key":"field_city_related_camps","label":"Пов'язані табори","name":"city_related_camps","type":"relationship","post_type":["camp"],"return_format":"id"},
-    {"key":"field_city_related_reviews","label":"Пов'язані відгуки","name":"city_related_reviews","type":"relationship","post_type":["review"],"return_format":"id"},
-    {"key":"field_city_related_faq","label":"Пов'язані FAQ","name":"city_related_faq","type":"relationship","post_type":["faq_item"],"return_format":"id"}
+    {
+      "key": "field_city_quick_guide",
+      "label": "Як додати місто за 1 хвилину",
+      "name": "",
+      "type": "message",
+      "message": "<strong>Як додати місто за 1 хвилину:</strong><br><strong>1.</strong> Введіть назву міста в полі вище.<br><strong>2.</strong> Оберіть один регіон нижче.<br><strong>3.</strong> Натисніть «Опублікувати». Решту полів можна заповнити пізніше — URL створиться автоматично, а місто матиме статус «На перевірці».",
+      "new_lines": "wpautop",
+      "esc_html": 0
+    },
+    {
+      "key": "field_city_tab_main",
+      "label": "Основне",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_city_region",
+      "label": "Регіон",
+      "name": "city_region",
+      "type": "taxonomy",
+      "taxonomy": "region",
+      "field_type": "select",
+      "required": 1,
+      "return_format": "id",
+      "add_term": 0,
+      "save_terms": 1,
+      "load_terms": 1,
+      "instructions": "Оберіть область, у якій розташоване місто. Цей вибір визначає групування міста на карті та у списках."
+    },
+    {
+      "key": "field_city_show_on_map",
+      "label": "Показувати на карті",
+      "name": "city_show_on_map",
+      "type": "true_false",
+      "default_value": 1,
+      "ui": 1,
+      "instructions": "Увімкнено для нових міст. Після збереження додайте адресу філії за посиланням нижче."
+    },
+    {
+      "key": "field_city_selected_label",
+      "label": "Назва у виборі міста",
+      "name": "city_selected_label",
+      "type": "text",
+      "placeholder": "Наприклад, Львів",
+      "instructions": "Необов’язково. Залиште порожнім, щоб у меню використовувалася основна назва міста."
+    },
+    {
+      "key": "field_city_intro",
+      "label": "Короткий опис міста",
+      "name": "city_intro",
+      "type": "textarea",
+      "rows": 3,
+      "instructions": "Необов’язково. Коротко опишіть навчання Logika у цьому місті; порожнє поле не заважає публікації."
+    },
+    {
+      "key": "field_city_tab_map",
+      "label": "Карта",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_city_lat",
+      "label": "Широта центру міста",
+      "name": "city_lat",
+      "type": "number",
+      "step": "0.000001",
+      "placeholder": "49.839700",
+      "instructions": "Необов’язково. Перша координата з Google Maps, наприклад 49.839700 для Львова. Точні адреси шкіл задаються у розділі «Філії»."
+    },
+    {
+      "key": "field_city_lng",
+      "label": "Довгота центру міста",
+      "name": "city_lng",
+      "type": "number",
+      "step": "0.000001",
+      "placeholder": "24.029700",
+      "instructions": "Необов’язково. Друга координата з Google Maps, наприклад 24.029700 для Львова. Для карти потрібно заповнити обидві координати."
+    },
+    {
+      "key": "field_city_fallback_image",
+      "label": "Резервне зображення міста",
+      "name": "city_fallback_image",
+      "type": "image",
+      "return_format": "id",
+      "preview_size": "medium",
+      "instructions": "Необов’язково. Використовується там, де немає окремого локального зображення; після вибору тут буде видима мініатюра."
+    },
+    {
+      "key": "field_city_tab_home_overrides",
+      "label": "Контент міста",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_city_home_hero_title",
+      "label": "Заголовок Hero",
+      "name": "city_home_hero_title",
+      "type": "text",
+      "instructions": "Необов’язково. Залиште порожнім, щоб використати заголовок із Головної сторінки."
+    },
+    {
+      "key": "field_city_home_hero_text",
+      "label": "Текст Hero",
+      "name": "city_home_hero_text",
+      "type": "textarea",
+      "rows": 3,
+      "instructions": "Необов’язково. Залиште порожнім, щоб використати текст із Головної сторінки."
+    },
+    {
+      "key": "field_city_home_hero_image",
+      "label": "Зображення Hero",
+      "name": "city_home_hero_image",
+      "type": "image",
+      "return_format": "id",
+      "preview_size": "medium",
+      "instructions": "Необов’язково. Залиште порожнім, щоб використати зображення з Головної сторінки; вибране зображення відображається тут мініатюрою."
+    },
+    {
+      "key": "field_city_home_locations_title",
+      "label": "Заголовок карти",
+      "name": "city_home_locations_title",
+      "type": "text",
+      "instructions": "Необов’язково. Локальний заголовок секції карти; порожнє поле успадковує Головну сторінку."
+    },
+    {
+      "key": "field_city_home_locations_text",
+      "label": "Опис карти",
+      "name": "city_home_locations_text",
+      "type": "textarea",
+      "rows": 3,
+      "instructions": "Необов’язково. Локальний опис секції карти; порожнє поле успадковує Головну сторінку."
+    },
+    {
+      "key": "field_city_home_cta_title",
+      "label": "Заголовок CTA",
+      "name": "city_home_cta_title",
+      "type": "text",
+      "instructions": "Необов’язково. Локальний заклик до дії; порожнє поле успадковує Головну сторінку."
+    },
+    {
+      "key": "field_city_home_media_title",
+      "label": "Заголовок медіацентру",
+      "name": "city_home_media_title",
+      "type": "text",
+      "instructions": "Необов’язково. Порожнє поле успадковує заголовок із Головної сторінки."
+    },
+    {
+      "key": "field_city_home_media_text",
+      "label": "Опис медіацентру",
+      "name": "city_home_media_text",
+      "type": "textarea",
+      "rows": 3,
+      "instructions": "Необов’язково. Порожнє поле успадковує опис із Головної сторінки."
+    },
+    {
+      "key": "field_city_home_faq_title",
+      "label": "Заголовок FAQ",
+      "name": "city_home_faq_title",
+      "type": "text",
+      "instructions": "Необов’язково. Порожнє поле успадковує заголовок FAQ із Головної сторінки."
+    },
+    {
+      "key": "field_city_tab_home_relations",
+      "label": "Добірки",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_city_related_courses",
+      "label": "Курси для міста",
+      "name": "city_related_courses",
+      "type": "relationship",
+      "post_type": ["course"],
+      "return_format": "id",
+      "instructions": "Необов’язково. Оберіть курси та перетягніть їх у потрібному порядку показу. Новий курс: «Курси → Додати новий»."
+    },
+    {
+      "key": "field_city_related_camps",
+      "label": "Табори для міста",
+      "name": "city_related_camps",
+      "type": "relationship",
+      "post_type": ["camp"],
+      "return_format": "id",
+      "instructions": "Необов’язково. Оберіть опубліковані табори та впорядкуйте їх перетягуванням."
+    },
+    {
+      "key": "field_city_related_reviews",
+      "label": "Відгуки для міста",
+      "name": "city_related_reviews",
+      "type": "relationship",
+      "post_type": ["review"],
+      "return_format": "id",
+      "instructions": "Необов’язково. Якщо нічого не вибрано, сайт використає загальні підтверджені відгуки. Порядок змінюється перетягуванням."
+    },
+    {
+      "key": "field_city_related_faq",
+      "label": "FAQ для міста",
+      "name": "city_related_faq",
+      "type": "relationship",
+      "post_type": ["faq_item"],
+      "return_format": "id",
+      "instructions": "Необов’язково. Якщо нічого не вибрано, сайт використає загальні активні FAQ. Порядок змінюється перетягуванням."
+    },
+    {
+      "key": "field_city_tab_seo",
+      "label": "SEO і технічне",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_city_index_status",
+      "label": "Статус індексації",
+      "name": "city_index_status",
+      "type": "select",
+      "required": 1,
+      "choices": {
+        "index": "Індексувати",
+        "noindex": "Не індексувати",
+        "review": "На перевірці"
+      },
+      "default_value": "review",
+      "return_format": "value",
+      "instructions": "Нове місто автоматично має статус «На перевірці». Оберіть «Індексувати» лише після перевірки контенту та адрес."
+    },
+    {
+      "key": "field_city_url_slug",
+      "label": "URL-ідентифікатор",
+      "name": "city_url_slug",
+      "type": "text",
+      "placeholder": "lviv",
+      "instructions": "Зазвичай не заповнюйте: сайт автоматично створить латинський URL із назви. Вкажіть вручну лише коли потрібна особлива адреса."
+    },
+    {
+      "key": "field_city_external_id",
+      "label": "Зовнішній ID",
+      "name": "city_external_id",
+      "type": "text",
+      "instructions": "Технічне необов’язкове поле для імпорту або CRM. Під час ручного створення міста залиште порожнім."
+    },
+    {
+      "key": "field_city_seo_text",
+      "label": "SEO-текст",
+      "name": "city_seo_text",
+      "type": "wysiwyg",
+      "instructions": "Необов’язковий видимий текст про місто. Не додавайте сюди інформацію, якої немає на сторінці."
+    },
+    {
+      "key": "field_city_seo_title",
+      "label": "SEO-заголовок",
+      "name": "city_seo_title",
+      "type": "text",
+      "instructions": "Необов’язково. Залиште порожнім, щоб SEO-плагін сформував заголовок зі стандартного шаблону."
+    },
+    {
+      "key": "field_city_seo_description",
+      "label": "SEO-опис",
+      "name": "city_seo_description",
+      "type": "textarea",
+      "rows": 3,
+      "instructions": "Необов’язково. Короткий опис для пошукової видачі; порожнє поле використовує стандартний SEO-шаблон."
+    },
+    {
+      "key": "field_city_schema_local_business",
+      "label": "Дані LocalBusiness",
+      "name": "city_schema_local_business",
+      "type": "group",
+      "instructions": "Необов’язково. Заповнюйте лише перевірені дані, які також видимі відвідувачу сторінки.",
+      "sub_fields": [
+        {"key": "field_city_schema_name", "label": "Назва", "name": "name", "type": "text", "instructions": "Назва локального представництва; порожнє поле використовує назву міста."},
+        {"key": "field_city_schema_description", "label": "Опис", "name": "description", "type": "textarea", "instructions": "Короткий фактичний опис локального представництва."},
+        {"key": "field_city_schema_telephone", "label": "Телефон", "name": "telephone", "type": "text", "placeholder": "+380…", "instructions": "Локальний контактний телефон у міжнародному форматі."},
+        {"key": "field_city_schema_address", "label": "Адреса", "name": "address", "type": "text", "instructions": "Вказуйте лише реальну видиму адресу представництва."},
+        {"key": "field_city_schema_price_range", "label": "Ціновий діапазон", "name": "price_range", "type": "text", "placeholder": "₴₴", "instructions": "Необов’язково. Заповнюйте лише після погодження бізнесом."},
+        {"key": "field_city_schema_same_as", "label": "Локальний профіль", "name": "same_as", "type": "url", "instructions": "Необов’язково. Посилання на офіційний профіль саме цього міста."}
+      ]
+    }
   ],
-  "location": [[{"param":"post_type","operator":"==","value":"city"}]],
+  "location": [[{"param": "post_type", "operator": "==", "value": "city"}]],
   "active": true,
   "position": "acf_after_title",
-  "show_in_rest": true
+  "show_in_rest": true,
+  "allow_ai_access": true,
+  "ai_description": "Структуровані редакторські поля Logika: Місто.",
+  "modified": 1784290623
 }

@@ -44,11 +44,13 @@ update_field( 'article_faq_items', array( array( 'question' => 'Чи безпе�
 $socials = static function ( $value, $post_id, array $field ) {
 	return 'global_social_links' === $field['name'] ? array( array( 'label' => 'Instagram', 'url' => 'https://instagram.com/logika' ), array( 'label' => 'Telegram', 'url' => 'https://t.me/logika' ), array( 'label' => 'YouTube', 'url' => 'https://youtube.com/@logika' ) ) : $value;
 };
-add_filter( 'acf/pre_load_value', $socials, 10, 3 );
+$default_social_output = Logika_Theme_Article_Page::render( $article_id );
+add_filter( 'acf/format_value', $socials, 20, 3 );
+acf_flush_value_cache( 'options', 'global_social_links' );
 
 $output = Logika_Theme_Article_Page::render( $article_id );
-remove_filter( 'acf/pre_load_value', $socials, 10 );
-$default_social_output = Logika_Theme_Article_Page::render( $article_id );
+remove_filter( 'acf/format_value', $socials, 20 );
+acf_flush_value_cache( 'options', 'global_social_links' );
 $errors = array();
 
 foreach ( array( 'Динамічна стаття', 'Тестова авторка', 'article-section__author-photo', 'https://instagram.com/logika', 'https://t.me/logika', 'https://youtube.com/@logika', 'Instagram-filled', 'Facebook-filed', 'Youtube-filled', 'Telegram-filled', 'data-article-view-count', '&lt;script&gt;bad()', 'Опублікована пов’язана стаття', 'data-logika-lead-form', 'Надіслати заявку', 'cta-section__top-bg', 'faq-section__left-bg', 'Чи безпечна відповідь?', '<strong>Так.</strong>' ) as $expected ) {

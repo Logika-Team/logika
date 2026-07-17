@@ -20,9 +20,10 @@ foreach ( $pages as $slug => $expectation ) {
 		$errors[] = "Missing {$slug} page.";
 		continue;
 	}
+	$page_id = (int) $page->ID;
 
-	$original = get_field( $expectation['field'], $page->ID );
-	update_field( $expectation['field'], $expectation['value'], $page->ID );
+	$original = get_field( $expectation['field'], $page_id );
+	update_field( $expectation['field'], $expectation['value'], $page_id );
 
 	ob_start();
 	logika_theme_render_source_page( 'english-courses' === $slug ? 'en-courses' : $slug );
@@ -33,28 +34,11 @@ foreach ( $pages as $slug => $expectation ) {
 	}
 
 	if ( null === $original || false === $original || '' === $original ) {
-		delete_post_meta( $page->ID, $expectation['field'] );
-		delete_post_meta( $page->ID, '_' . $expectation['field'] );
+		delete_post_meta( $page_id, $expectation['field'] );
+		delete_post_meta( $page_id, '_' . $expectation['field'] );
 	} else {
-		update_field( $expectation['field'], $original, $page->ID );
+		update_field( $expectation['field'], $original, $page_id );
 	}
-}
-
-$about_page = get_page_by_path( 'about' );
-$about_rows = $about_page ? (array) get_field( 'about_page_texts', $about_page->ID ) : array();
-if ( ! $about_page || ! $about_rows ) {
-	$errors[] = 'About page text fixture is unavailable.';
-} else {
-	$original_rows = $about_rows;
-	$about_rows[0]['value'] = 'About ACF additional text';
-	update_field( 'about_page_texts', $about_rows, $about_page->ID );
-	ob_start();
-	logika_theme_render_source_page( 'about' );
-	$markup = (string) ob_get_clean();
-	if ( ! str_contains( $markup, 'About ACF additional text' ) ) {
-		$errors[] = 'About does not render an additional page text.';
-	}
-	update_field( 'about_page_texts', $original_rows, $about_page->ID );
 }
 
 $faq_page = get_page_by_path( 'faq' );
@@ -69,8 +53,16 @@ if ( ! $faq_page || ! $faq_item ) {
 	ob_start();
 	logika_theme_render_source_page( 'faq' );
 	$markup = (string) ob_get_clean();
-	if ( ! str_contains( $markup, (string) get_field( 'faq_question', $faq_item->ID ) ) ) {
-		$errors[] = 'FAQ page does not render its selected FAQ entity.';
+	$question = (string) get_field( 'faq_question', $faq_item->ID );
+	if ( $question && str_contains( $markup, $question ) ) {
+		$errors[] = 'FAQ page renders an inactive FAQ entity.';
+	}
+	update_field( 'faq_is_active', 1, $faq_item->ID );
+	ob_start();
+	logika_theme_render_source_page( 'faq' );
+	$markup = (string) ob_get_clean();
+	if ( $question && ! str_contains( $markup, $question ) ) {
+		$errors[] = 'FAQ page does not render its active selected FAQ entity.';
 	}
 	update_field( 'faq_page_featured_faq', $original, $faq_page->ID );
 	update_field( 'faq_is_active', $original_active, $faq_item->ID );

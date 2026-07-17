@@ -1,7 +1,7 @@
 # Content Model: Logika School CMS
 
-Date: 2026-07-10
-Project: Logika School
+Date: 2026-07-10  
+Project: Logika School  
 Stack: WordPress + ACF Pro + `logika-theme` + `logika-core` + `logika-leads`
 
 ## 1. Purpose
@@ -108,6 +108,7 @@ Fields:
 |---|---|---:|---|
 | `city_external_id` | Text | no | stable key for imports when available |
 | `city_region` | Taxonomy or Select | yes | should map to `region` taxonomy |
+| `city_show_on_map` | True/False | yes | enabled by default only for newly created cities |
 | `city_lat` | Number | no | map coordinate |
 | `city_lng` | Number | no | map coordinate |
 | `city_index_status` | Select | yes | `index`, `noindex`, `review` |
@@ -154,6 +155,16 @@ Rendering rules:
 - if local branches do not exist, render online/contact CTA or agreed fallback;
 - schema must include only visible page content.
 
+Editor workflow:
+
+- a manager can create a city by entering its title, selecting one region and publishing;
+- a new city is shown on the map by default; an explicit saved `0` remains authoritative for imported or disabled cities;
+- after saving, «Додати адресу філії» opens a new branch with the city preselected;
+- the URL is generated from the title when `city_url_slug` is empty, and the default index status is `review`;
+- a second city with the same canonical URL is blocked and links to the existing editor screen;
+- the ACF region selector saves and loads the canonical `region` taxonomy term; the duplicate native taxonomy metabox is hidden;
+- optional map, local content, relationships, SEO and technical settings are separated into named tabs with Ukrainian instructions.
+
 ### 4.2. `branch`
 
 Purpose:
@@ -178,7 +189,7 @@ Fields:
 | `branch_external_id` | Text | no | import identity when available |
 | `branch_city_id` | Post Object | yes | linked `city` |
 | `branch_address` | Textarea | yes | human-readable address |
-| `branch_address_hash` | Text | yes | stable dedupe key |
+| `branch_address_hash` | Read-only Text | no | generated automatically from city ID and normalized address |
 | `branch_lat` | Number | no | map coordinate |
 | `branch_lng` | Number | no | map coordinate |
 | `branch_phone` | Text | no | branch phone if different from global |
@@ -202,6 +213,7 @@ Deduplication:
 
 - preferred key: `branch_external_id`;
 - fallback key: `city_slug + address_hash`.
+- manual branch saves regenerate the same hash from the selected city and normalized address; editors never enter it manually.
 
 ### 4.3. `course`
 
@@ -865,3 +877,34 @@ Do not rename ACF field names without migration plan.
 ## 16. Marketing pages
 
 About, IT Courses, English Courses, FAQ and Media Center use page-specific ACF Local JSON groups bound to their WordPress page template. Static headings and media are page fields; reusable courses, FAQ, reviews and posts remain their own CPT/Post data and are selected in page relationship fields.
+
+Media Center groups its populated fields into `Hero`, `Переваги`, `Новини`, `Статті`, `Пропозиції`, `CTA`, `FAQ` and `Blog`; empty placeholder tabs are not part of the editor contract.
+
+Every ACF Image field uses one shared editor control with an immediate preview plus «Замінити зображення» and «Повернути стандартне». Clearing an image restores the source-markup asset; Gallery fields retain the native ACF thumbnail grid and drag-and-drop order. Image-bearing compound sections use Repeaters or Gallery: `it_courses_catalog_cards`, `media_center_benefits` and `camp_hero_images` are the canonical owners of their visible media.
+
+## Shared section contract
+
+- Fixed templates and the controlled generic builder reuse the same section parts: course selection, reviews, FAQ, Gallery, school map, CTA, partners and certificates.
+- A selected Relationship keeps editor order. Public output includes only published courses, active FAQ and approved reviews.
+- Global Options owns header/footer brand media, contacts, social links, privacy URL and shared partner/certificate collections. WordPress Menus own header and footer navigation.
+- Local JSON Tabs use canonical empty `name` values, allowing all field groups to be inspected by the strict ACF MCP schema without creating meta keys.
+
+### Fixed marketing pages and Legal
+
+About, IT Courses, English Courses, FAQ and Media Center keep the original source-page DOM and fixed section order. ACF values are injected into the existing elements, so editing content never switches the page to a second markup implementation. `/courses/` reads the same IT Courses page settings.
+
+`group_logika_legal` is shared by Privacy Policy, Ukrainian/overseas offers and the licence page. It stores an intro, ordered WYSIWYG sections with optional anchors and an ordered Gallery; these values are injected into the existing `article-section__editor` shell.
+
+### Course and Camp surfaces
+
+- A new Course is created once through `Курси → Додати новий`; every Course selector exposes that native create link and selects the same CPT entity.
+- Course single sections are Hero, learning outcomes, process/program, portfolio, local course FAQ, reviews, map, CTA and shared FAQ. `single-course.php` keeps the source DOM and injects the Course ACF model into it.
+- Camp single sections are Hero, benefits, activities, program, trips, details, booking, Gallery, reviews and FAQ. `single-camp.php` keeps the source DOM and injects the Camp ACF model into it.
+- `/camps/` uses the `camp_archive` Options payload registered under Global Settings. Only published Camps with `camp_is_active=1` appear in its format/catalog section.
+
+### City, Blog and generic Pages
+
+- `/cities/{slug}/` renders the Home architecture. Non-empty City Home fields override the corresponding Home value only for that request; every other section inherits Home/Global data.
+- City FAQ and reviews are Relationship selections. Public rendering preserves their order and excludes inactive FAQ and unapproved reviews.
+- `/blog/` reads its heading and filter labels from the Media Center page group; articles remain standard published Posts and `post_content` remains the article body.
+- `templates/page-builder.php` is the only Flexible Content page template. Its approved layouts are `hero`, `rich_text`, `gallery`, `course_selection`, `reviews`, `faq`, `partners`, `school_map` and `cta`; an empty builder renders `post_content`.

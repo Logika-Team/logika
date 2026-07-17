@@ -54,6 +54,13 @@ if ( str_contains( $script, 'const dnipro' ) || str_contains( $script, "selectRe
 	exit( 1 );
 }
 
+foreach ( array( 'branch.address', 'setFrame(city, branches[0])', "item.addEventListener('click'", 'item.tabIndex = 0' ) as $contract ) {
+	if ( ! str_contains( $script, $contract ) ) {
+		fwrite( STDERR, "School map must resolve and select branches by their saved address.\n" );
+		exit( 1 );
+	}
+}
+
 foreach ( array( 'show_on_map', 'unavailableRegions' ) as $contract ) {
 	if ( ! str_contains( $script . $scss, $contract ) ) {
 		fwrite( STDERR, "School map is missing {$contract}.\n" );

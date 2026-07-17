@@ -21,11 +21,11 @@ if ( ! str_contains( (string) file_get_contents( $importer ), "get_post_meta( \$
 	$errors[] = 'Tilda review importer must hash raw review meta rather than formatted WYSIWYG output.';
 }
 
-if ( ! is_file( $renderer ) || ! str_contains( (string) file_get_contents( $renderer ), "'post_type'      => 'review'" ) ) {
+if ( ! is_file( $renderer ) || ! str_contains( (string) file_get_contents( $renderer ), 'Logika_Theme_Entities::reviews' ) ) {
 	$errors[] = 'Testimonials renderer must query review posts.';
 }
 
-if ( ! str_contains( (string) file_get_contents( $renderer ), "'posts_per_page' => 12" ) ) {
+if ( ! str_contains( (string) file_get_contents( $renderer ), 'array_slice( Logika_Theme_Entities::reviews( $ids ), 0, 12 )' ) ) {
 	$errors[] = 'Testimonials renderer must keep the existing 12-card block size.';
 }
 

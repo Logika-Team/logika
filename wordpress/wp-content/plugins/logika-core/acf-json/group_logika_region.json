@@ -2,11 +2,43 @@
   "key": "group_logika_region",
   "title": "Регіон",
   "fields": [
-    {"key":"field_region_map_code","label":"Код карти","name":"region_map_code","type":"text"},
-    {"key":"field_region_is_active","label":"Активний на карті","name":"region_is_active","type":"true_false","required":1,"default_value":1},
-    {"key":"field_region_sort_order","label":"Порядок сортування","name":"region_sort_order","type":"number","min":0}
+    {
+      "key": "field_region_map_code",
+      "label": "Код карти",
+      "name": "region_map_code",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Код карти»."
+    },
+    {
+      "key": "field_region_is_active",
+      "label": "Активний на карті",
+      "name": "region_is_active",
+      "type": "true_false",
+      "required": 1,
+      "default_value": 1,
+      "instructions": "Увімкніть опцію, коли «Активний на карті» має діяти на публічному сайті."
+    },
+    {
+      "key": "field_region_sort_order",
+      "label": "Порядок сортування",
+      "name": "region_sort_order",
+      "type": "number",
+      "min": 0,
+      "instructions": "Вкажіть значення для поля «Порядок сортування»."
+    }
   ],
-  "location": [[{"param":"taxonomy","operator":"==","value":"region"}]],
+  "location": [
+    [
+      {
+        "param": "taxonomy",
+        "operator": "==",
+        "value": "region"
+      }
+    ]
+  ],
   "active": true,
-  "show_in_rest": true
+  "show_in_rest": true,
+  "allow_ai_access": true,
+  "ai_description": "Структуровані редакторські поля Logika: Регіон.",
+  "modified": 1784251458
 }

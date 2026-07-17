@@ -2,16 +2,85 @@
   "key": "group_logika_faq",
   "title": "FAQ",
   "fields": [
-    {"key":"field_faq_question","label":"Питання","name":"faq_question","type":"text","required":1},
-    {"key":"field_faq_answer","label":"Відповідь","name":"faq_answer","type":"wysiwyg","required":1},
-    {"key":"field_faq_context","label":"Контекст","name":"faq_context","type":"taxonomy","taxonomy":"faq_context","field_type":"select","return_format":"id"},
-    {"key":"field_faq_related_city","label":"Місто","name":"faq_related_city","type":"post_object","post_type":["city"],"return_format":"id"},
-    {"key":"field_faq_related_course","label":"Курс","name":"faq_related_course","type":"post_object","post_type":["course"],"return_format":"id"},
-    {"key":"field_faq_sort_order","label":"Порядок сортування","name":"faq_sort_order","type":"number","min":0},
-    {"key":"field_faq_is_active","label":"Активне","name":"faq_is_active","type":"true_false","required":1,"default_value":1}
+    {
+      "key": "field_faq_question",
+      "label": "Питання",
+      "name": "faq_question",
+      "type": "text",
+      "required": 1,
+      "instructions": "Вкажіть значення для поля «Питання»."
+    },
+    {
+      "key": "field_faq_answer",
+      "label": "Відповідь",
+      "name": "faq_answer",
+      "type": "wysiwyg",
+      "required": 1,
+      "instructions": "Введіть редакторський текст для поля «Відповідь»."
+    },
+    {
+      "key": "field_faq_context",
+      "label": "Контекст",
+      "name": "faq_context",
+      "type": "taxonomy",
+      "taxonomy": "faq_context",
+      "field_type": "select",
+      "return_format": "id",
+      "instructions": "Оберіть значення для поля «Контекст»."
+    },
+    {
+      "key": "field_faq_related_city",
+      "label": "Місто",
+      "name": "faq_related_city",
+      "type": "post_object",
+      "post_type": [
+        "city"
+      ],
+      "return_format": "id",
+      "instructions": "Оберіть один пов’язаний запис для поля «Місто»."
+    },
+    {
+      "key": "field_faq_related_course",
+      "label": "Курс",
+      "name": "faq_related_course",
+      "type": "post_object",
+      "post_type": [
+        "course"
+      ],
+      "return_format": "id",
+      "instructions": "Оберіть один пов’язаний запис для поля «Курс»."
+    },
+    {
+      "key": "field_faq_sort_order",
+      "label": "Порядок сортування",
+      "name": "faq_sort_order",
+      "type": "number",
+      "min": 0,
+      "instructions": "Вкажіть значення для поля «Порядок сортування»."
+    },
+    {
+      "key": "field_faq_is_active",
+      "label": "Активне",
+      "name": "faq_is_active",
+      "type": "true_false",
+      "required": 1,
+      "default_value": 1,
+      "instructions": "Увімкніть опцію, коли «Активне» має діяти на публічному сайті."
+    }
   ],
-  "location": [[{"param":"post_type","operator":"==","value":"faq_item"}]],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "faq_item"
+      }
+    ]
+  ],
   "active": true,
   "position": "acf_after_title",
-  "show_in_rest": true
+  "show_in_rest": true,
+  "allow_ai_access": true,
+  "ai_description": "Структуровані редакторські поля Logika: FAQ.",
+  "modified": 1784251458
 }

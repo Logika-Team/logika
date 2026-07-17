@@ -1,5 +1,5 @@
 <?php
 /** Template Name: About */
 get_header();
-logika_theme_render_source_page( 'about' );
+Logika_Theme_Fixed_Page::render( 'about', get_queried_object_id() );
 get_footer();

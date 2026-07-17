@@ -26,13 +26,17 @@
             width: 52px;
             height: 52px;
             border-radius: 50%;
-            background-color: var(--grey-100);
+            background-color: var(--violet-100);
             display: flex;
             align-items: center;
             justify-content: center;
 
             svg {
                 fill: var(--white);
+            }
+
+            &.swiper-button-disabled {
+                background-color: var(--grey-100);
             }
         }
     }

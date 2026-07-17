@@ -74,9 +74,9 @@ const removeCustomClass = (item, customClass = "active") => {
 };
 
 const disableScroll = () => {
-  const fixBlocks = document?.querySelectorAll(".fixed-block");
+  const fixBlocks = document?.querySelectorAll(".fixed-block:not(.header)");
   const pagePosition = window.scrollY;
-  const paddingOffset = `${window.innerWidth - bodyEl.offsetWidth}px`;
+  const paddingOffset = `${window.innerWidth - htmlEl.clientWidth}px`;
 
   htmlEl.style.scrollBehavior = "none";
   fixBlocks.forEach((el) => {
@@ -89,7 +89,7 @@ const disableScroll = () => {
 };
 
 const enableScroll = () => {
-  const fixBlocks = document?.querySelectorAll(".fixed-block");
+  const fixBlocks = document?.querySelectorAll(".fixed-block:not(.header)");
   const body = document.body;
   const pagePosition = parseInt(bodyEl.dataset.position, 10);
   fixBlocks.forEach((el) => {
@@ -189,27 +189,37 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const leadModal = document.querySelector('[data-logika-lead-modal]');
+  const leadModal = document.querySelector('[data-logika-modal]');
   if (!leadModal) return;
-  const closeButtons = leadModal.querySelectorAll('[data-logika-lead-modal-close]');
+  const modalContainer = leadModal.querySelector('[data-target="lesson"]');
+  if (!modalContainer) return;
+  const closeButtons = leadModal.querySelectorAll('.modal-close');
   const firstInput = leadModal.querySelector('input[name="name"]');
   const courseInput = leadModal.querySelector('input[name="course_id"]');
   let trigger = null;
   const closeLeadModal = () => {
+    modalContainer.classList.remove('modal-open');
+    leadModal.classList.remove('is-open');
     leadModal.hidden = true;
     enableScroll();
     trigger?.focus();
   };
   const openLeadModal = (nextTrigger) => {
     trigger = nextTrigger;
-    courseInput.value = nextTrigger.dataset.logikaCourseId || '';
+    if (courseInput) courseInput.value = nextTrigger.dataset.logikaCourseId || '';
+    modalContainer.classList.add('modal-open');
     leadModal.hidden = false;
+    window.requestAnimationFrame(() => window.requestAnimationFrame(() => leadModal.classList.add('is-open')));
     disableScroll();
-    window.setTimeout(() => firstInput?.focus(), 0);
+    window.setTimeout(() => firstInput?.focus({ preventScroll: true }), 0);
   };
   document.addEventListener('click', (event) => {
-    const link = event.target.closest('a[href]');
-    if (!link || new URL(link.href, window.location.href).hash !== '#lead-form') return;
+    const link = event.target.closest('a[href], button[data-path="lesson"]');
+    if (!link) return;
+    if (link.matches('a[href]')) {
+      const url = new URL(link.href, window.location.href);
+      if (url.origin !== window.location.origin || url.hash !== '#lead-form') return;
+    }
     event.preventDefault();
     openLeadModal(link);
   });
@@ -219,6 +229,42 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && !leadModal.hidden) closeLeadModal();
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const campModal = document.querySelector('[data-logika-camp-modal]');
+  if (!campModal) return;
+  const modalContainer = campModal.querySelector('[data-target="camps"]');
+  if (!modalContainer) return;
+  const closeButtons = campModal.querySelectorAll('.modal-close');
+  let trigger = null;
+  const closeCampModal = () => {
+    modalContainer.classList.remove('modal-open');
+    campModal.classList.remove('is-open');
+    campModal.hidden = true;
+    enableScroll();
+    trigger?.focus();
+  };
+  const openCampModal = (nextTrigger) => {
+    trigger = nextTrigger;
+    modalContainer.classList.add('modal-open');
+    campModal.hidden = false;
+    window.requestAnimationFrame(() => window.requestAnimationFrame(() => campModal.classList.add('is-open')));
+    disableScroll();
+  };
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('a[data-path="camps"], button[data-path="camps"]');
+    if (!link) return;
+    event.preventDefault();
+    openCampModal(link);
+  });
+  closeButtons.forEach((button) => button.addEventListener('click', closeCampModal));
+  campModal.addEventListener('click', (event) => {
+    if (event.target === campModal) closeCampModal();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !campModal.hidden) closeCampModal();
   });
 });
 

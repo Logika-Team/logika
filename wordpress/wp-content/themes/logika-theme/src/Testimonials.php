@@ -3,17 +3,8 @@
 declare(strict_types=1);
 
 final class Logika_Theme_Testimonials {
-	public static function apply( string $markup ): string {
-		$reviews = get_posts(
-			array(
-				'post_type'      => 'review',
-				'post_status'    => 'publish',
-				'posts_per_page' => 12,
-				'meta_key'       => 'review_display_order',
-				'orderby'        => array( 'meta_value_num' => 'ASC', 'date' => 'DESC' ),
-				'meta_query'     => array( array( 'key' => 'review_is_approved', 'value' => '1' ) ),
-			)
-		);
+	public static function apply( string $markup, ?array $ids = null ): string {
+		$reviews = array_filter( array_map( 'get_post', array_slice( Logika_Theme_Entities::reviews( $ids ), 0, 12 ) ) );
 
 		if ( ! $reviews ) {
 			return $markup;

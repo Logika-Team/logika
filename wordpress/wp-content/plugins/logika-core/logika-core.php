@@ -22,6 +22,8 @@ require_once LOGIKA_CORE_PATH . 'src/CityApi.php';
 require_once LOGIKA_CORE_PATH . 'src/MediaApi.php';
 require_once LOGIKA_CORE_PATH . 'src/ArticleViews.php';
 require_once LOGIKA_CORE_PATH . 'src/HomepageImageOverrides.php';
+require_once LOGIKA_CORE_PATH . 'src/AdminUi.php';
+require_once LOGIKA_CORE_PATH . 'src/ContentMigration.php';
 
 Logika\Core\AcfJson::register();
 add_action( 'init', array( Logika\Core\ContentTypes::class, 'register' ) );
@@ -30,6 +32,8 @@ add_action( 'rest_api_init', array( Logika\Core\CityApi::class, 'register' ) );
 add_action( 'rest_api_init', array( Logika\Core\MediaApi::class, 'register' ) );
 add_action( 'rest_api_init', array( Logika\Core\ArticleViews::class, 'register' ) );
 Logika\Core\HomepageImageOverrides::register();
+Logika\Core\AdminUi::register();
+Logika\Core\ContentMigration::register();
 
 register_activation_hook(
 	__FILE__,

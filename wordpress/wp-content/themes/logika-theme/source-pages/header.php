@@ -2,7 +2,7 @@
   <div class="header__top">
     <div class="container">
       <div class="header__top-box">
-        <div class="header__contact">
+        <div class="header__contact header__contact--tel">
           <div class="header__contact-heading">
             <svg width='16' height='16'>
               <use href='img/sprite/sprite.svg#icon-phone'></use>
@@ -12,7 +12,7 @@
           <a class="header__contact-link" href="tel:+380931707440" target="_blank">+ 38 (093) 170-74-40</a>
         </div>
 
-        <div class="header__contact">
+        <div class="header__contact header__contact--email">
           <div class="header__contact-heading">
             <svg width='16' height='16'>
               <use href='img/sprite/sprite.svg#icon-email'></use>
@@ -52,7 +52,6 @@
         <a class="header__logo logo" href="/">
           <img width='323' height='53' src='img/main-logo.svg?v=20260717' alt='Logika'>
         </a>
-
       </div>
 
       <div class="mobile">
@@ -72,7 +71,8 @@
             </div>
           </div>
 
-          <nav class="header__nav" data-single='true' data-breakpoint='576' data-accordion-init>
+          <div class="header__wrapp">
+            <nav class="header__nav" data-single='true' data-breakpoint='576' data-accordion-init>
             <ul class="menu">
               <li class="menu-item">
                 <a class="menu-link" href="/about/">Про Logika</a>
@@ -108,24 +108,25 @@
                 <a class="menu-link" href="#">Контакти</a>
               </li>
             </ul>
-          </nav>
+            </nav>
 
-          <div class="header__controls">
-            <a class="header__login btn" href="https://student.logikaschool.com.ua/login">
-              <svg width='16' height='16'>
-                <use href='img/sprite/sprite.svg#icon-person'></use>
-              </svg>
-              <span>Увійти</span>
-            </a>
+            <div class="header__controls">
+              <a class="header__login btn" href="https://student.logikaschool.com.ua/login">
+                <svg width='16' height='16'>
+                  <use href='img/sprite/sprite.svg#icon-person'></use>
+                </svg>
+                <span>Увійти</span>
+              </a>
 
-            <a class="header__lesson btn btn--yellow" href="#">
-              Пробний урок
-              <svg width='20' height='20'>
-                <use href='img/sprite/sprite.svg#arrow-right'></use>
-              </svg>
-            </a>
+              <a class="header__lesson btn btn--yellow" href="#">
+                Пробний урок
+                <svg width='20' height='20'>
+                  <use href='img/sprite/sprite.svg#arrow-right'></use>
+                </svg>
+              </a>
 
 
+            </div>
           </div>
         </div>
       </div>

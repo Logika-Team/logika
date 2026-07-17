@@ -10,6 +10,14 @@ $course_id = $course ? (int) $course->ID : (int) wp_insert_post( array( 'post_ty
 update_field( 'course_age_min', 9, $course_id );
 update_field( 'course_age_max', 12, $course_id );
 update_field( 'course_short_description', 'Опис із ACF для сторінки курсу.', $course_id );
+update_field( 'course_hero_text', 'Перший текст hero із ACF.', $course_id );
+update_field( 'course_hero_additional_text', 'Другий текст hero із ACF.', $course_id );
+update_field( 'course_hero_cta_label', 'Записатися на курс', $course_id );
+update_field( 'course_program_anchor_label', 'До програми', $course_id );
+update_field( 'course_process_title', 'Процес із ACF', $course_id );
+update_field( 'course_process_items', array( array( 'title' => 'Практика', 'text' => 'Етап із ACF.', 'cta_label' => 'Обрати курс' ) ), $course_id );
+update_field( 'course_portfolio_title', 'Портфоліо із ACF', $course_id );
+update_field( 'course_projects', array( array( 'project_title' => 'Проєкт учня', 'project_description' => 'Опис проєкту.' ) ), $course_id );
 update_field( 'course_program', array( array( 'title' => 'Перший модуль', 'description' => '<p>Опис модуля з ACF.</p>', 'items' => array( array( 'item_text' => 'Навичка з програми' ) ) ) ), $course_id );
 $format = term_exists( 'Онлайн', 'learning_format' );
 $format_id = is_array( $format ) ? $format['term_id'] : (int) $format;
@@ -24,12 +32,28 @@ update_field( 'faq_question', 'Чи є FAQ для курсу?', $faq_id );
 update_field( 'faq_answer', '<p>Так, це відповідь курсу.</p>', $faq_id );
 update_field( 'faq_related_course', $course_id, $faq_id );
 update_field( 'faq_is_active', 1, $faq_id );
+update_field( 'course_related_faq', array( $faq_id ), $course_id );
 
-$output = Logika_Theme_Course_Page::render( $course_id );
+ob_start();
+Logika_Theme_Source_Markup::renderPage( 'it-course', $course_id );
+$output = (string) ob_get_clean();
 
-if ( ! str_contains( $output, '9-12 років' ) || ! str_contains( $output, 'Онлайн' ) || ! str_contains( $output, 'Опис із ACF для сторінки курсу.' ) || ! str_contains( $output, 'Перший модуль' ) || ! str_contains( $output, 'Навичка з програми' ) || ! str_contains( $output, 'Чи є FAQ для курсу?' ) ) {
-	fwrite( STDERR, "Course page does not render ACF fields.\n" );
+if ( ! str_contains( $output, 'Перший текст hero із ACF.' ) || ! str_contains( $output, 'Другий текст hero із ACF.' ) || ! str_contains( $output, 'Обрати курс' ) || ! str_contains( $output, 'Проєкт учня' ) || ! str_contains( $output, 'Перший модуль' ) || ! str_contains( $output, 'Чи є FAQ для курсу?' ) || ! str_contains( $output, 'data-logika-course-id="' . $course_id . '"' ) ) {
+	fwrite( STDERR, "Course source markup does not render ACF content and context.\n" );
 	exit( 1 );
 }
 
-echo "Course page uses WordPress content.\n";
+foreach ( array( 'course_learn_items', 'course_process_items', 'course_projects', 'course_program', 'course_related_faq' ) as $field ) {
+	update_field( $field, array(), $course_id );
+}
+
+ob_start();
+Logika_Theme_Source_Markup::renderPage( 'it-course', $course_id );
+$empty_output = (string) ob_get_clean();
+
+if ( str_contains( $empty_output, 'learn-section' ) || str_contains( $empty_output, 'process-section' ) || str_contains( $empty_output, 'portfolio-section' ) || substr_count( $empty_output, 'faq-section' ) > 1 ) {
+	fwrite( STDERR, "Course source markup keeps empty optional sections.\n" );
+	exit( 1 );
+}
+
+echo "Course source markup uses WordPress content.\n";

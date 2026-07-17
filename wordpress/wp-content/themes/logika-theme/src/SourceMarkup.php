@@ -34,7 +34,7 @@ final class Logika_Theme_Source_Markup {
 		'city.html'         => '/',
 	);
 
-	public static function renderPage( string $source ): void {
+	public static function renderPage( string $source, int $context_id = 0 ): void {
 		$markup = self::read( $source );
 
 		if ( '' === $markup ) {
@@ -45,20 +45,132 @@ final class Logika_Theme_Source_Markup {
 			$markup = self::applyHomepageValues( $markup );
 		}
 
-		$markup = self::replacePrivacyPolicyLinks( Logika_Theme_Page_Content::apply( $markup, $source ) );
+		$markup = self::replacePrivacyPolicyLinks( Logika_Theme_Page_Content::apply( $markup, $source, $context_id ) );
 		if ( 'index' === $source || 'en-courses' === $source ) {
 			$markup = self::applyEnglishCourseContext( $markup );
 		}
 
-		$markup = Logika_Theme_Testimonials::apply( self::routeNavigationLinks( self::applyLeadForms( $markup ), $source ) );
+		$review_ids = $context_id && 'index' === $source ? array_map( 'absint', (array) get_field( 'city_related_reviews', $context_id ) ) : self::reviewIds( $source, $context_id );
+		$markup     = Logika_Theme_Testimonials::apply( self::routeNavigationLinks( self::applyLeadForms( $markup ), $source ), $review_ids ?: null );
 
 		if ( preg_match( '#<main(?:\s[^>]*)?>.*?</main>#is', $markup, $matches ) ) {
 			echo self::rewriteAssets( $matches[0] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 
+	private static function reviewIds( string $source, int $context_id = 0 ): ?array {
+		$field = array(
+			'about' => 'about_featured_reviews',
+			'it-courses' => 'it_courses_featured_reviews',
+			'en-courses' => 'english_courses_featured_reviews',
+			'faq' => 'faq_page_featured_reviews',
+			'camps' => 'camp_archive_reviews',
+			'camp' => 'camp_related_reviews',
+			'it-course' => 'course_related_reviews',
+		)[ $source ] ?? '';
+		if ( ! $field ) {
+			return null;
+		}
+		$context = 'camps' === $source ? 'camp_archive' : ( $context_id ?: get_queried_object_id() );
+		$ids = array_map( 'absint', (array) get_field( $field, $context ) );
+
+		return $ids ?: null;
+	}
+
 	public static function renderFragment( string $fragment ): void {
-		echo self::rewriteAssets( self::replacePrivacyPolicyLinks( self::routeNavigationLinks( self::read( $fragment ), $fragment ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		$markup = self::applyGlobalLayout( self::read( $fragment ), $fragment );
+		echo self::rewriteAssets( self::replacePrivacyPolicyLinks( self::routeNavigationLinks( $markup, $fragment ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+
+	private static function applyGlobalLayout( string $markup, string $fragment ): string {
+		if ( ! function_exists( 'get_field' ) || ! in_array( $fragment, array( 'header', 'footer' ), true ) ) {
+			return $markup;
+		}
+
+		$phone = trim( (string) get_field( 'global_phone', 'option' ) );
+		$email = trim( (string) get_field( 'global_email', 'option' ) );
+		if ( $phone ) {
+			$markup = (string) preg_replace( '#href="tel:[^"]+"#', 'href="tel:' . esc_attr( (string) preg_replace( '/[^0-9+]/', '', $phone ) ) . '"', $markup );
+			$markup = self::replaceAnchorText( $markup, 'header__contact-link', $phone );
+			$markup = self::replaceAnchorText( $markup, 'footer__tel', $phone );
+		}
+		if ( $email ) {
+			$markup = (string) preg_replace( '#href="mailto:[^"]+"#', 'href="mailto:' . esc_attr( $email ) . '"', $markup );
+			$markup = self::replaceAnchorText( $markup, 'header__contact-link', $email, 2 );
+			$markup = self::replaceAnchorText( $markup, 'footer__email', $email );
+		}
+
+		$logo_field = 'header' === $fragment ? 'global_header_logo' : 'global_footer_logo';
+		$logo_url   = wp_get_attachment_image_url( (int) get_field( $logo_field, 'option' ), 'full' );
+		if ( $logo_url ) {
+			$markup = (string) preg_replace( '#(<a\b[^>]*class="[^"]*' . $fragment . '__logo[^"]*"[^>]*>\s*<img\b[^>]*\bsrc=)(["\']).*?\2#s', '$1$2' . esc_url( $logo_url ) . '$2', $markup, 1 );
+		}
+
+		$socials = (array) get_field( 'global_social_links', 'option' );
+		if ( $socials ) {
+			$class  = 'header' === $fragment ? 'header__socials-links' : 'footer__socials';
+			$markup = self::applySocialLinks( $markup, $class, $socials );
+		}
+
+		if ( 'header' === $fragment ) {
+			$menu = wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'menu', 'fallback_cb' => false, 'echo' => false, 'walker' => new Logika_Theme_Menu_Walker() ) );
+			if ( is_string( $menu ) && '' !== $menu ) {
+				$markup = (string) preg_replace( '#(<nav class="header__nav"[^>]*>).*?(</nav>)#s', '$1' . $menu . '$2', $markup, 1 );
+			}
+			return $markup;
+		}
+
+		$accreditation = trim( (string) get_field( 'global_footer_accreditation', 'option' ) );
+		$copyright     = trim( (string) get_field( 'global_footer_copyright', 'option' ) );
+		if ( $accreditation ) {
+			$markup = (string) preg_replace( '#(<div class="footer__accreditation">).*?(</div>)#s', '$1' . esc_html( $accreditation ) . '$2', $markup, 1 );
+		}
+		if ( $copyright ) {
+			$markup = (string) preg_replace( '#(<div class="footer__bottom-left">\s*<p>).*?(</p>)#s', '$1' . esc_html( $copyright ) . '$2', $markup, 1 );
+		}
+		$privacy_url = trim( (string) get_field( 'global_privacy_policy_url', 'option' ) );
+		if ( $privacy_url ) {
+			$markup = (string) preg_replace( '#(<a class="footer__policy" href=")[^"]+#', '$1' . esc_url( $privacy_url ), $markup, 1 );
+		}
+		foreach ( array( 'footer_navigation' => 'navigation', 'footer_information' => 'information' ) as $location => $block ) {
+			$menu = wp_nav_menu( array( 'theme_location' => $location, 'container' => false, 'items_wrap' => '%3$s', 'fallback_cb' => false, 'echo' => false ) );
+			if ( is_string( $menu ) && '' !== $menu ) {
+				$markup = (string) preg_replace( '#(<div class="footer__' . $block . '">.*?<ul class="footer__menu">).*?(</ul>)#s', '$1' . $menu . '$2', $markup, 1 );
+			}
+		}
+
+		return $markup;
+	}
+
+	private static function applySocialLinks( string $markup, string $class, array $socials ): string {
+		return (string) preg_replace_callback(
+			'#<ul class="' . preg_quote( $class, '#' ) . '">.*?</ul>#s',
+			static function ( array $list ) use ( $socials ): string {
+				$index = 0;
+				return (string) preg_replace_callback(
+					'#(<a\b[^>]*\bhref=)(["\']).*?\2#s',
+					static function ( array $anchor ) use ( $socials, &$index ): string {
+						$url = esc_url( (string) ( $socials[ $index++ ]['url'] ?? '' ) );
+						return $url ? $anchor[1] . $anchor[2] . $url . $anchor[2] : $anchor[0];
+					},
+					$list[0]
+				);
+			},
+			$markup,
+			1
+		);
+	}
+
+	private static function replaceAnchorText( string $markup, string $class, string $text, int $occurrence = 1 ): string {
+		$count = 0;
+		return (string) preg_replace_callback(
+			'#(<a\b[^>]*class="[^"]*' . preg_quote( $class, '#' ) . '[^"]*"[^>]*>).*?(</a>)#s',
+			static function ( array $matches ) use ( $text, $occurrence, &$count ): string {
+				++$count;
+				return $count === $occurrence ? $matches[1] . esc_html( $text ) . $matches[2] : $matches[0];
+			},
+			$markup
+		);
 	}
 
 	public static function routeNavigationLinks( string $markup, string $source ): string {
@@ -96,7 +208,11 @@ final class Logika_Theme_Source_Markup {
 		}
 
 		if ( str_contains( $class, 'news-section__btn' ) ) {
-			return '/media-center/';
+			return '/blog/';
+		}
+
+		if ( 'index' === $source && str_contains( $class, 'btn' ) && 'Дізнатись більше' === trim( $label ) ) {
+			return '/#lead-form';
 		}
 
 		if ( str_contains( $class, 'menu-link' ) && 'Курси' === trim( $label ) ) {
@@ -305,13 +421,18 @@ final class Logika_Theme_Source_Markup {
 			return $markup;
 		}
 
-		$cards = array_filter( array_map( static fn( array $row ): string => self::portfolioCard( $row ), $rows ) );
+		$cards = self::portfolioCards( $rows );
 
 		if ( ! $cards ) {
 			return $markup;
 		}
 
 		return (string) preg_replace( '#(<ul class="portfolio-section__slider">).*?(</ul>)#s', '$1' . implode( '', $cards ) . '$2', $markup, 1 );
+	}
+
+	/** @return string[] */
+	public static function portfolioCards( array $rows ): array {
+		return array_values( array_filter( array_map( static fn( array $row ): string => self::portfolioCard( $row ), $rows ) ) );
 	}
 
 	private static function portfolioCard( array $row ): string {
@@ -603,7 +724,7 @@ final class Logika_Theme_Source_Markup {
 		$index = 0;
 
 		return (string) preg_replace_callback(
-			'#<li class="services-section__item">.*?</li>#s',
+			'#<li class="services-section__item">.*?</li>(?=\s*<li class="services-section__item">|\s*</ul>\s*</div>\s*</div>\s*</section>)#s',
 			static function ( array $matches ) use ( $rows, $defaults, &$index ): string {
 				$item = $matches[0];
 				$row = $rows[ $index ] ?? null;
@@ -621,9 +742,15 @@ final class Logika_Theme_Source_Markup {
 					}
 				}
 
-				$tags = self::lines( (string) ( $row['tags'] ?? '' ) );
-				if ( $tags ) {
-					$list = implode( '', array_map( static fn( string $tag ): string => '<li class="h5">' . esc_html( $tag ) . '</li>', $tags ) );
+				$chips = is_array( $row['chips'] ?? null ) ? $row['chips'] : array();
+				if ( ! $chips ) {
+					$chips = array_map( static fn( string $tag ): array => array( 'label' => $tag ), self::lines( (string) ( $row['tags'] ?? '' ) ) );
+				}
+				if ( $chips ) {
+					$list = implode( '', array_map( static function ( array $chip ): string {
+						$url = esc_url( trim( (string) ( $chip['url'] ?? '' ) ) ) ?: esc_url( home_url( '/courses/programming-projects/' ) );
+						return '<li><a href="' . $url . '" class="h5">' . esc_html( (string) ( $chip['label'] ?? '' ) ) . '</a></li>';
+					}, $chips ) );
 					$item = (string) preg_replace( '#<ul class="services-section__item-tags">.*?</ul>#s', '<ul class="services-section__item-tags">' . $list . '</ul>', $item, 1 );
 				}
 

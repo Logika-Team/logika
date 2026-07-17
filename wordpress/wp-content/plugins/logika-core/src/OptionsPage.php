@@ -19,5 +19,15 @@ final class OptionsPage {
 				'redirect'   => false,
 			)
 		);
+		acf_add_options_sub_page(
+			array(
+				'page_title'  => 'Архів таборів',
+				'menu_title'  => 'Архів таборів',
+				'menu_slug'   => 'logika-camp-archive',
+				'parent_slug' => 'logika-settings',
+				'post_id'     => 'camp_archive',
+				'capability'  => 'edit_pages',
+			)
+		);
 	}
 }

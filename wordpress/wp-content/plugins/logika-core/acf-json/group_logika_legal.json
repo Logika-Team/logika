@@ -1,0 +1,103 @@
+{
+  "key": "group_logika_legal",
+  "title": "Юридична сторінка",
+  "fields": [
+    {
+      "key": "field_legal_tab_intro",
+      "label": "Вступ",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_legal_intro_title",
+      "label": "Заголовок",
+      "name": "legal_intro_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок»."
+    },
+    {
+      "key": "field_legal_intro_text",
+      "label": "Вступний текст",
+      "name": "legal_intro_text",
+      "type": "wysiwyg",
+      "instructions": "Заповніть поле «Вступний текст»."
+    },
+    {
+      "key": "field_legal_tab_sections",
+      "label": "Розділи",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_legal_sections",
+      "label": "Розділи документа",
+      "name": "legal_sections",
+      "type": "repeater",
+      "instructions": "Додавайте елементи та змінюйте їхній порядок перетягуванням.",
+      "layout": "block",
+      "button_label": "Додати елемент",
+      "sub_fields": [
+        {
+          "key": "field_legal_section_anchor",
+          "label": "Якір",
+          "name": "anchor",
+          "type": "text",
+          "instructions": "Заповніть поле «Якір»."
+        },
+        {
+          "key": "field_legal_section_heading",
+          "label": "Заголовок",
+          "name": "heading",
+          "type": "text",
+          "instructions": "Заповніть поле «Заголовок»."
+        },
+        {
+          "key": "field_legal_section_content",
+          "label": "Текст",
+          "name": "content",
+          "type": "wysiwyg",
+          "instructions": "Заповніть поле «Текст»."
+        }
+      ]
+    },
+    {
+      "key": "field_legal_tab_gallery",
+      "label": "Зображення",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_legal_gallery",
+      "label": "Галерея документа",
+      "name": "legal_gallery",
+      "type": "gallery",
+      "instructions": "Заповніть поле «Галерея документа».",
+      "return_format": "id",
+      "preview_size": "medium"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "templates/page-legal.php"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": [],
+  "active": true,
+  "description": "Структурований вступ, розділи та зображення юридичних сторінок.",
+  "show_in_rest": true,
+  "allow_ai_access": true,
+  "ai_description": "Редагування юридичних сторінок Logika українською мовою.",
+  "modified": 1784274845
+}

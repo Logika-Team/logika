@@ -1,5 +1,5 @@
 <?php
 /** Template Name: English Courses */
 get_header();
-logika_theme_render_source_page( 'en-courses' );
+Logika_Theme_Fixed_Page::render( 'en-courses', get_queried_object_id() );
 get_footer();

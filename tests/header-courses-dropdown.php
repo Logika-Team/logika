@@ -5,6 +5,7 @@ declare(strict_types=1);
 $header = file_get_contents( __DIR__ . '/../wordpress/wp-content/themes/logika-theme/source-pages/header.php' );
 $styles = file_get_contents( __DIR__ . '/../source/scss/blocks/_header.scss' );
 $theme_css = file_get_contents( __DIR__ . '/../wordpress/wp-content/themes/logika-theme/assets/css/style.css' );
+$minified_theme_css = preg_replace( '/\s+/', '', $theme_css );
 
 foreach ( array( 'IT Курси', 'Курси англійської' ) as $label ) {
 	if ( ! str_contains( $header, $label ) ) {
@@ -35,7 +36,7 @@ foreach ( array( 'max-height: 0', 'transform: translate(-50%, -8px)', 'transitio
 }
 
 foreach ( array( 'max-height:0', 'transform:translate(-50%,-8px)', 'max-height:160px' ) as $style ) {
-	if ( ! str_contains( $theme_css, $style ) ) {
+	if ( ! str_contains( $minified_theme_css, $style ) ) {
 		fwrite( STDERR, "Theme CSS is missing rebuilt opening animation: {$style}.\n" );
 		exit( 1 );
 	}

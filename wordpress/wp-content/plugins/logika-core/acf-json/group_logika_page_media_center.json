@@ -2,23 +2,305 @@
   "key": "group_logika_page_media_center",
   "title": "Сторінка: Media Center",
   "fields": [
-    {"key":"field_media_center_tab_hero","label":"Hero","type":"tab"},
-    {"key":"field_media_center_hero_title","label":"Заголовок hero","name":"media_center_hero_title","type":"text"},
-    {"key":"field_media_center_hero_image","label":"Зображення hero","name":"media_center_hero_image","type":"image","return_format":"id"},
-    {"key":"field_media_center_tags","label":"Теги hero","name":"media_center_tags","type":"repeater","layout":"table","sub_fields":[{"key":"field_media_center_tag_label","label":"Назва","name":"label","type":"text"}]},
-    {"key":"field_media_center_tab_sections","label":"Секції","type":"tab"},
-    {"key":"field_media_center_benefits_title","label":"Заголовок переваг","name":"media_center_benefits_title","type":"text"},
-    {"key":"field_media_center_news_title","label":"Заголовок новин","name":"media_center_news_title","type":"text"},
-    {"key":"field_media_center_articles_title","label":"Заголовок статей","name":"media_center_articles_title","type":"text"},
-    {"key":"field_media_center_discount_title","label":"Заголовок акції","name":"media_center_discount_title","type":"text"},
-    {"key":"field_media_center_page_texts","label":"Додаткові тексти сторінки","name":"media_center_page_texts","type":"repeater","layout":"table","sub_fields":[{"key":"field_media_center_page_texts_source","label":"Оригінальний текст","name":"source","type":"textarea","readonly":1},{"key":"field_media_center_page_texts_value","label":"Текст","name":"value","type":"textarea"}]},
-    {"key":"field_media_center_tab_content","label":"Добірки","type":"tab"},
-    {"key":"field_media_center_featured_post","label":"Головний матеріал","name":"media_center_featured_post","type":"post_object","post_type":["post"],"return_format":"id"},
-    {"key":"field_media_center_news","label":"Новини","name":"media_center_news","type":"relationship","post_type":["post"],"return_format":"id","filters":["search"]},
-    {"key":"field_media_center_articles","label":"Статті","name":"media_center_articles","type":"relationship","post_type":["post"],"return_format":"id","filters":["search"]},
-    {"key":"field_media_center_offers","label":"Пропозиції","name":"media_center_offers","type":"relationship","post_type":["post"],"return_format":"id","filters":["search"]}
+    {
+      "key": "field_media_center_tab_hero",
+      "label": "Hero",
+      "type": "tab",
+      "name": ""
+    },
+    {
+      "key": "field_media_center_hero_title",
+      "label": "Заголовок hero",
+      "name": "media_center_hero_title",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Заголовок hero»."
+    },
+    {
+      "key": "field_media_center_hero_image",
+      "label": "Зображення hero",
+      "name": "media_center_hero_image",
+      "type": "image",
+      "return_format": "id",
+      "instructions": "Оберіть зображення для «Зображення hero». Після вибору в полі буде показано мініатюру.",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_media_center_hero_background_image",
+      "label": "Зображення другого промо hero",
+      "name": "media_center_hero_background_image",
+      "type": "image",
+      "return_format": "id",
+      "instructions": "Оберіть зображення другого промо-блоку hero. Мініатюра та кнопки заміни доступні одразу.",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_media_center_tags",
+      "label": "Теги hero",
+      "name": "media_center_tags",
+      "type": "repeater",
+      "layout": "table",
+      "sub_fields": [
+        {
+          "key": "field_media_center_tag_label",
+          "label": "Назва",
+          "name": "label",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Назва»."
+        }
+      ],
+      "instructions": "Додавайте рядки та змінюйте їхній порядок перетягуванням."
+    },
+    {
+      "key": "field_media_center_tab_sections",
+      "label": "Переваги",
+      "type": "tab",
+      "name": ""
+    },
+    {
+      "key": "field_media_center_benefits_title",
+      "label": "Заголовок переваг",
+      "name": "media_center_benefits_title",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Заголовок переваг»."
+    },
+    {
+      "key": "field_media_center_benefits",
+      "label": "Переваги",
+      "name": "media_center_benefits",
+      "type": "repeater",
+      "layout": "block",
+      "instructions": "Кожна картка має власний текст і зображення. Змінюйте порядок перетягуванням.",
+      "sub_fields": [
+        {
+          "key": "field_media_center_benefit_title",
+          "label": "Заголовок",
+          "name": "title",
+          "type": "text",
+          "instructions": "Вкажіть заголовок картки переваги."
+        },
+        {
+          "key": "field_media_center_benefit_text",
+          "label": "Опис",
+          "name": "text",
+          "type": "textarea",
+          "instructions": "Вкажіть короткий опис картки переваги."
+        },
+        {
+          "key": "field_media_center_benefit_image",
+          "label": "Зображення",
+          "name": "image",
+          "type": "image",
+          "return_format": "id",
+          "instructions": "Оберіть зображення картки. Мініатюра та кнопки заміни доступні одразу.",
+          "preview_size": "medium"
+        }
+      ]
+    },
+    {
+      "key": "field_media_center_tab_news_new",
+      "label": "Новини",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_media_center_news_title",
+      "label": "Заголовок новин",
+      "name": "media_center_news_title",
+      "type": "text",
+      "instructions": "Вкажіть заголовок секції новин."
+    },
+    {
+      "key": "field_media_center_news",
+      "label": "Новини",
+      "name": "media_center_news",
+      "type": "relationship",
+      "post_type": [
+        "post"
+      ],
+      "return_format": "id",
+      "filters": [
+        "search"
+      ],
+      "instructions": "Оберіть новини та розташуйте їх у порядку публічного показу."
+    },
+    {
+      "key": "field_media_center_tab_articles_new",
+      "label": "Статті",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_media_center_articles_title",
+      "label": "Заголовок статей",
+      "name": "media_center_articles_title",
+      "type": "text",
+      "instructions": "Вкажіть заголовок секції корисних статей."
+    },
+    {
+      "key": "field_media_center_featured_post",
+      "label": "Головний матеріал",
+      "name": "media_center_featured_post",
+      "type": "post_object",
+      "post_type": [
+        "post"
+      ],
+      "return_format": "id",
+      "instructions": "Оберіть матеріал для головної картки Media Center."
+    },
+    {
+      "key": "field_media_center_articles",
+      "label": "Статті",
+      "name": "media_center_articles",
+      "type": "relationship",
+      "post_type": [
+        "post"
+      ],
+      "return_format": "id",
+      "filters": [
+        "search"
+      ],
+      "instructions": "Оберіть статті та розташуйте їх у порядку публічного показу."
+    },
+    {
+      "key": "field_media_center_tab_offers_new",
+      "label": "Пропозиції",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_media_center_discount_title",
+      "label": "Заголовок акції",
+      "name": "media_center_discount_title",
+      "type": "text",
+      "instructions": "Вкажіть заголовок секції пропозицій."
+    },
+    {
+      "key": "field_media_center_offers",
+      "label": "Пропозиції",
+      "name": "media_center_offers",
+      "type": "relationship",
+      "post_type": [
+        "post"
+      ],
+      "return_format": "id",
+      "filters": [
+        "search"
+      ],
+      "instructions": "Оберіть пропозиції та розташуйте їх у порядку публічного показу."
+    },
+    {
+      "key": "field_media_center_tab_cta",
+      "label": "CTA",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_media_center_cta_title",
+      "label": "Заголовок CTA",
+      "name": "media_center_cta_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок CTA»."
+    },
+    {
+      "key": "field_media_center_cta_subtitle",
+      "label": "Підзаголовок CTA",
+      "name": "media_center_cta_subtitle",
+      "type": "text",
+      "instructions": "Заповніть поле «Підзаголовок CTA»."
+    },
+    {
+      "key": "field_media_center_cta_image",
+      "label": "Зображення CTA",
+      "name": "media_center_cta_image",
+      "type": "image",
+      "instructions": "Заповніть поле «Зображення CTA».",
+      "return_format": "id",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_media_center_tab_faq",
+      "label": "FAQ",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_media_center_faq_title",
+      "label": "Заголовок FAQ",
+      "name": "media_center_faq_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок FAQ»."
+    },
+    {
+      "key": "field_media_center_featured_faq",
+      "label": "FAQ",
+      "name": "media_center_featured_faq",
+      "type": "relationship",
+      "instructions": "Заповніть поле «FAQ».",
+      "post_type": [
+        "faq_item"
+      ],
+      "filters": [
+        "search",
+        "post_type"
+      ],
+      "elements": [
+        "featured_image"
+      ],
+      "return_format": "id"
+    },
+    {
+      "key": "field_media_center_tab_blog",
+      "label": "Blog",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_media_center_blog_title",
+      "label": "Заголовок Blog",
+      "name": "media_center_blog_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок Blog»."
+    },
+    {
+      "key": "field_media_center_blog_sort_new_label",
+      "label": "Сортування: новіші",
+      "name": "media_center_blog_sort_new_label",
+      "type": "text",
+      "instructions": "Заповніть поле «Сортування: новіші»."
+    },
+    {
+      "key": "field_media_center_blog_sort_old_label",
+      "label": "Сортування: старіші",
+      "name": "media_center_blog_sort_old_label",
+      "type": "text",
+      "instructions": "Заповніть поле «Сортування: старіші»."
+    },
+    {
+      "key": "field_media_center_blog_years_label",
+      "label": "Фільтр років",
+      "name": "media_center_blog_years_label",
+      "type": "text",
+      "instructions": "Заповніть поле «Фільтр років»."
+    }
   ],
-  "location": [[{"param":"page_template","operator":"==","value":"templates/page-media-center.php"}]],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "templates/page-media-center.php"
+      }
+    ]
+  ],
   "active": true,
-  "show_in_rest": true
+  "show_in_rest": true,
+  "allow_ai_access": true,
+  "ai_description": "Структуровані редакторські поля Logika: Сторінка: Media Center.",
+  "modified": 1784281465
 }

@@ -48,8 +48,8 @@ if ( empty( $kyiv['region']['label'] ) || 'місто Київ' !== $kyiv['regio
 }
 
 $map_cities = array_values( array_filter( $cities, static fn( array $city ): bool => true === ( $city['show_on_map'] ?? null ) ) );
-if ( 98 !== count( $map_cities ) || true !== ( $kyiv['show_on_map'] ?? null ) ) {
-	fwrite( STDERR, "Map must expose the 98 current Tilda cities.\n" );
+if ( 98 > count( $map_cities ) || true !== ( $kyiv['show_on_map'] ?? null ) ) {
+	fwrite( STDERR, "Map must expose the current Tilda cities and allow manual additions.\n" );
 	exit( 1 );
 }
 

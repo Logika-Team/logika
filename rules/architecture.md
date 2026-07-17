@@ -12,7 +12,7 @@ The project is implemented as a manageable WordPress CMS:
 
 Main principle:
 
-> We do not copy static HTML pages as-is. We transform markup into a WordPress component system: `template-parts`, theme templates and dynamic data from ACF/CPT.
+> The supplied HTML is the visual contract. WordPress templates preserve its DOM/classes and inject dynamic ACF/CPT data into that structure; reusable sections may be extracted only when their rendered markup remains identical.
 
 The theme must not contain final business content expected to be edited by client. In HTML/PHP only:
 
@@ -206,6 +206,8 @@ Example pattern:
 ```
 
 If component is reused, pass explicit data, for example through `$args` in `get_template_part()`.
+
+Current shared section contract: `course-selection`, `reviews`, `faq`, `gallery`, `school-map`, `cta`, `partners` and `certificates`. Relationship-backed sections use `Logika_Theme_Entities` so publication, activation and approval rules are identical on every surface.
 
 ## 7. ACF Pro: where and how
 
@@ -636,3 +638,9 @@ Minimum list:
 Project architecture:
 
 > Use ready HTML markup as frontend source, migrate it into custom WordPress theme `logika-theme`, and move all repeated data to `logika-core` + ACF Pro. Manager edits cities, branches, courses, camps, reviews, FAQ and global settings in admin. Theme only renders this data via templates and components. City and repetitive sections are generated from templates instead of hand-built pages.
+
+City URLs resolve through Front Page and `Logika_Theme_City_Page` applies request-scoped formatted ACF overrides; City data is never copied into Home meta. `Logika_Theme_Generic_Page` is the sole Flexible Content dispatcher and accepts only the nine documented layouts. Blog labels belong to the Media Center page group, while standard Posts and `post_content` remain the editorial source of article data.
+
+ACF Image editor controls are registered once by `logika-core` for every ACF content surface. Page/CPT fields continue to own data, while the theme injects attachment URLs into the unchanged source DOM; PNG and matching WebP source values are replaced together. Empty image values preserve the source asset instead of removing structural markup.
+
+Fixed marketing, Course, Camp and Legal surfaces use `Logika_Theme_Source_Markup` as their only public DOM implementation. `Logika_Theme_Page_Content` is the only adapter allowed to apply ACF values on those surfaces, and it must preserve section wrappers, grid classes and slider shells. Any future renderer must pass source-section parity tests before it can replace this adapter.

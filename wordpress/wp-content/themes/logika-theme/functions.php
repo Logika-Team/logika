@@ -5,13 +5,18 @@ declare(strict_types=1);
 defined( 'ABSPATH' ) || exit;
 
 require_once get_template_directory() . '/src/LeadForm.php';
+require_once get_template_directory() . '/src/MenuWalker.php';
+require_once get_template_directory() . '/src/Entities.php';
 require_once get_template_directory() . '/src/PageContent.php';
+require_once get_template_directory() . '/src/FixedPage.php';
+require_once get_template_directory() . '/src/GenericPage.php';
 require_once get_template_directory() . '/src/ArticlePage.php';
 require_once get_template_directory() . '/src/SourceMarkup.php';
 require_once get_template_directory() . '/src/Testimonials.php';
 require_once get_template_directory() . '/src/CityPage.php';
 require_once get_template_directory() . '/src/CoursePage.php';
 require_once get_template_directory() . '/src/CampPage.php';
+require_once get_template_directory() . '/src/CampArchive.php';
 require_once get_template_directory() . '/src/CitySeo.php';
 require_once get_template_directory() . '/src/CitySchema.php';
 require_once get_template_directory() . '/src/CityFaqSchema.php';
@@ -25,7 +30,13 @@ function logika_theme_setup(): void {
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'html5', array( 'style', 'script', 'navigation-widgets' ) );
-	register_nav_menus( array( 'primary' => 'Головне меню' ) );
+	register_nav_menus(
+		array(
+			'primary'            => 'Головне меню',
+			'footer_navigation'  => 'Футер: навігація',
+			'footer_information' => 'Футер: інформація',
+		)
+	);
 }
 add_action( 'after_setup_theme', 'logika_theme_setup' );
 
@@ -33,6 +44,7 @@ function logika_theme_assets(): void {
 	$uri     = get_template_directory_uri() . '/assets';
 	$version = wp_get_theme()->get( 'Version' );
 	$style_version = (string) filemtime( get_template_directory() . '/assets/css/style.css' );
+	$adaptive_style_version = (string) filemtime( get_template_directory() . '/assets/css/adaptive.css' );
 	$main_version = (string) filemtime( get_template_directory() . '/assets/js/main.js' );
 	$map_version = (string) filemtime( get_template_directory() . '/assets/js/camp-map.js' );
 	$city_context_version = (string) filemtime( get_template_directory() . '/assets/js/city-context.js' );
@@ -46,9 +58,17 @@ function logika_theme_assets(): void {
 	$leads_version = (string) filemtime( get_template_directory() . '/assets/js/leads.js' );
 	$phone_dropup_version = (string) filemtime( get_template_directory() . '/assets/css/phone-dropdown-dropup.css' );
 	$home_media_center_version = (string) filemtime( get_template_directory() . '/assets/css/blocks/sections/media-section.css' );
+	$lead_modal_style_version = (string) filemtime( get_template_directory() . '/assets/css/lead-modal.css' );
 	wp_enqueue_style( 'logika-intl-tel-input', $uri . '/css/vendor/intl-tel-input/intlTelInput.min.css', array(), '20.1.0' );
 	wp_enqueue_style( 'logika-theme', $uri . '/css/style.css', array( 'logika-intl-tel-input' ), $style_version );
+	wp_enqueue_style( 'logika-theme-adaptive', $uri . '/css/adaptive.css', array( 'logika-theme' ), $adaptive_style_version );
 	wp_add_inline_style( 'logika-theme', '@media (hover:hover){.header__login:hover{transform:none;box-shadow:none}.header__login:hover svg{transform:none}}.search-form__input::-webkit-search-cancel-button{width:18px;height:18px;margin-right:2px;background:url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 18 18\'%3E%3Cpath d=\'m4 4 10 10M14 4 4 14\' fill=\'none\' stroke=\'%23602B7A\' stroke-linecap=\'round\' stroke-width=\'1.5\'/%3E%3C/svg%3E") center/contain no-repeat;-webkit-appearance:none;cursor:pointer}' );
+	wp_add_inline_style( 'logika-theme', '.services-section__item-media{aspect-ratio:588/431}.services-section__item-image{position:absolute;bottom:0;margin-top:0}.services-section__items>li:nth-child(2) .services-section__item-ages{top:auto;right:auto;bottom:0;left:-67px}.services-section__items>li:nth-child(4) .services-section__item-ages{top:auto;right:auto;bottom:0;left:-67px}.services-section__items>li:nth-child(2) .services-section__item-icon{top:43px;right:-67px;bottom:auto;left:auto}.services-section__items>li:nth-child(4) .services-section__item-icon{top:43px;right:-67px;bottom:auto;left:auto}.services-section__items>li:nth-child(3) .services-section__item-image{transform:scale(.9);transform-origin:center bottom}.services-section__items>li:nth-child(4) .services-section__item-image{transform:scale(.9);transform-origin:center bottom}.services-section__item-btns{position:relative;z-index:2}' );
+	wp_add_inline_style( 'logika-theme', '.categories-section__controls-btn{background-color:var(--violet-100)}.categories-section__controls-btn.swiper-button-disabled{background-color:var(--grey-100)}' );
+	wp_enqueue_style( 'logika-lead-modal', $uri . '/css/lead-modal.css', array( 'logika-theme' ), $lead_modal_style_version );
+	if ( is_post_type_archive( 'camp' ) || is_page( 'camps' ) ) {
+		wp_enqueue_style( 'logika-camp-modal', $uri . '/css/camp-modal.css', array( 'logika-lead-modal' ), (string) filemtime( get_template_directory() . '/assets/css/camp-modal.css' ) );
+	}
 	wp_enqueue_style( 'logika-school-map-style', $uri . '/css/blocks/sections/school-map.css', array( 'logika-theme' ), $map_style_version );
 	wp_enqueue_style( 'logika-faq-banner-style', $uri . '/css/blocks/sections/faq-banner-section.css', array( 'logika-theme' ), $faq_banner_style_version );
 	if ( is_page( 'faq' ) ) {
@@ -63,7 +83,7 @@ function logika_theme_assets(): void {
 		}
 	}
 	if ( is_singular( 'course' ) ) {
-		foreach ( array( 'course-banner-section', 'learn-section', 'process-section' ) as $section ) {
+		foreach ( array( 'course-banner-section', 'learn-section', 'process-section', 'portfolio-section' ) as $section ) {
 			wp_enqueue_style( "logika-{$section}", "{$uri}/css/blocks/sections/{$section}.css", array( 'logika-theme' ), (string) filemtime( get_template_directory() . "/assets/css/blocks/sections/{$section}.css" ) );
 		}
 	}
@@ -95,6 +115,15 @@ function logika_theme_render_lead_modal(): void {
 	get_template_part( 'template-parts/components/lead-modal' );
 }
 add_action( 'wp_footer', 'logika_theme_render_lead_modal' );
+
+function logika_theme_render_camp_modal(): void {
+	if ( ! is_post_type_archive( 'camp' ) && ! is_page( 'camps' ) ) {
+		return;
+	}
+
+	get_template_part( 'template-parts/components/camp-modal' );
+}
+add_action( 'wp_footer', 'logika_theme_render_camp_modal' );
 
 add_action( 'rest_api_init', array( 'Logika_Theme_Phone_Country', 'register' ) );
 add_filter( 'wp_robots', array( 'Logika_Theme_City_Seo', 'robots' ) );

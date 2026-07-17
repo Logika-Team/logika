@@ -7,8 +7,8 @@
 
    <main>
     <section class="banner-section">
-      <div class="banner-section__bg">
-        <img src="img/main-hero/main-hero-bg.svg" alt="">
+      <div class="banner-section__main-bg">
+        <img src="img/main-hero/main-pattern.svg" alt="">
       </div>
 
       <div class="container">
@@ -16,12 +16,15 @@
           <div class="banner-section__blocks">
             <div class="banner-section__left">
               <div class="banner-section__info">
-                <h1>Найбільша в Україні школа програмування для дітей 7-17 років</h1>
-                <h4>Перші результати вже через 4 тижні</h4>
+                <h1 class="banner-section__title">Найбільша в Україні школа програмування для дітей 7-17 років</h1>
+                <div class="banner-section__subtitle h4">Перші результати вже через 4 тижні</div>
               </div>
 
               <div class="banner-section__character-boy">
                 <img width='440' height='225' src='img/boy-character.svg' alt='boy-character'>
+                <div class="banner-section__decor">
+                  <img src="img/main-hero/main-hero-bg.svg" alt="">
+                </div>
               </div>
             </div>
             
@@ -293,11 +296,11 @@
                 <div class="services-section__item-content">
                   <div class="services-section__item-title h3">Серйознi навички для серйозних цiлей</div>
                   <ul class="services-section__item-tags">
-                    <li class="h5">Python Start</li>
-                    <li class="h5">Python Mastery</li>
-                    <li class="h5">Графічний дизайн</li>
-                    <li class="h5">Графічний дизайн 2.0</li>
-                    <li class="h5">Створення веб-сайтів</li>
+                    <li><a href="/courses/programming-projects/" class="h5">Python Start</a></li>
+                    <li><a href="/courses/programming-projects/" class="h5">Python Mastery</a></li>
+                    <li><a href="/courses/programming-projects/" class="h5">Графічний дизайн</a></li>
+                    <li><a href="/courses/programming-projects/" class="h5">Графічний дизайн 2.0</a></li>
+                    <li><a href="/courses/programming-projects/" class="h5">Створення веб-сайтів</a></li>
                   </ul>
                   <p class="services-section__item-excerpt">Поглиблюємо знання в програмуванні, працюємо над реальними проєктами та формуємо навички, які стануть основою для подальшого розвитку в IT.</p>
                   <div class="services-section__item-btns">

@@ -64,22 +64,22 @@
             <li class="camp-formats__item">
               <img src="img/camp/formats/summer.jpg" alt="Літній морський пейзаж">
               <span class="camp-formats__season">Літо</span>
-              <a href="camp.html">Переглянути табори</a>
+              <a href="camp.html" data-path="camps">Переглянути табори</a>
             </li>
             <li class="camp-formats__item">
               <img src="img/camp/formats/autumn.jpg" alt="Осінні гори">
               <span class="camp-formats__season">Осінь</span>
-              <a href="camp.html">Переглянути табори</a>
+              <a href="camp.html" data-path="camps">Переглянути табори</a>
             </li>
             <li class="camp-formats__item">
               <img src="img/camp/formats/winter.jpg" alt="Засніжені гори взимку">
               <span class="camp-formats__season">Зима</span>
-              <a href="camp.html">Переглянути табори</a>
+              <a href="camp.html" data-path="camps">Переглянути табори</a>
             </li>
             <li class="camp-formats__item">
               <img src="img/camp/formats/spring.jpg" alt="Весняний гірський луг">
               <span class="camp-formats__season">Весна</span>
-              <a href="camp.html">Переглянути табори</a>
+              <a href="camp.html" data-path="camps">Переглянути табори</a>
             </li>
           </ul>
         </div>

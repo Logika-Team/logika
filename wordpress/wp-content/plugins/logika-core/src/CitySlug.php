@@ -19,7 +19,11 @@ final class CitySlug {
 
 		$slug = (string) get_post_meta( $city->ID, 'city_url_slug', true );
 
-		return sanitize_title( $slug ?: strtr( mb_strtolower( $city->post_title, 'UTF-8' ), self::TRANSLITERATION ) );
+		return $slug ? sanitize_title( $slug ) : self::fromTitle( $city->post_title );
+	}
+
+	public static function fromTitle( string $title ): string {
+		return sanitize_title( strtr( mb_strtolower( $title, 'UTF-8' ), self::TRANSLITERATION ) );
 	}
 
 	public static function url( int|WP_Post $city ): string {

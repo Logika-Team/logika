@@ -1,0 +1,126 @@
+.modal__container.is-camps > div {
+  max-width: 1336px;
+  border: 1px solid #f0f0f0;
+}
+
+.modal__camps {
+  padding: clamp(20px, 3.906vw, 40px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3.906vw, 40px);
+}
+
+.modal__camps-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.modal__camps .modal__close {
+  width: 36px;
+  height: 36px;
+  border-radius: 56px;
+  background: #f0f0f0;
+}
+
+.modal__camps-items {
+  display: grid;
+  gap: clamp(20px, 3.906vw, 40px);
+}
+
+@media screen and (min-width: 1025px) {
+  .modal__camps-items {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .modal__camps-items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .modal__camps-items {
+    grid-template-columns: 100%;
+    max-height: 420px;
+    overflow-y: auto;
+  }
+}
+
+.modal__camps-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 2.604vw, 20px);
+}
+
+.modal__camps-image {
+  height: clamp(160px, 18vw, 246px);
+  display: flex;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.modal__camps-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal__camps-dates {
+  width: max-content;
+  position: absolute;
+  z-index: 2;
+  top: 4px;
+  left: 4px;
+  padding: clamp(5px, 0.781vw, 6px) clamp(8px, 2.604vw, 20px);
+  border: 4px solid var(--white);
+  border-radius: 65px;
+  background: var(--green);
+  color: var(--white);
+  font-size: clamp(12px, 1.042vw, 16px);
+  font-weight: 700;
+  line-height: 118%;
+  letter-spacing: -0.8px;
+}
+
+.modal__camps-info {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(5px, 1.302vw, 10px);
+}
+
+.modal__camps-info > span {
+  color: var(--violet-500);
+  font-size: clamp(18px, 1.302vw, 20px);
+  font-weight: 600;
+  line-height: 128%;
+  letter-spacing: -1px;
+}
+
+.modal__camps-info > p {
+  color: var(--grey-500);
+}
+
+.modal__camps-link {
+  width: 100%;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@media screen and (max-width: 576px) {
+  .modal[data-logika-camp-modal] .modal__container {
+    width: auto;
+    margin: 30px auto;
+  }
+
+  .modal[data-logika-camp-modal] .modal__wrapper {
+    width: 92vw;
+    min-height: 0;
+    border-radius: 25px;
+  }
+}

@@ -38,6 +38,12 @@ Rules for agents and developers:
 - [x] Preserve the shared selected city as a hidden `city_id` in the modal lead submission.
 - [x] Cover the modal contract with a regression test and verify it in local DDEV.
 
+### 2026-07-17: Перенесення готової модалки заявки
+
+- [x] Замінити lesson-модалку на готову біло-жовту розмітку з pulled `main`.
+- [x] Зберегти спільні country code, вік дитини, token, idempotency та REST submit.
+- [x] Перевірити всі CTA та живе надсилання заявки в DDEV.
+
 ### 2026-07-15: Lead form error contrast
 
 - [x] Set phone and submit error messages to the existing bright-red validation colour.
@@ -53,12 +59,25 @@ Rules for agents and developers:
 - [x] Safely transfer only the confirmed homepage, camp, camps, course and FAQ static sections into the WordPress theme.
 - [x] Preserve SourceMarkup/ACF rendering and verify the affected DDEV routes.
 
+### 2026-07-17: Індивідуальні сторінки курсів
+
+- [x] Залишити курс CPT єдиним джерелом даних і підключити до `it-course` усі ACF-тексти та зображення.
+- [x] Приховувати порожні необов’язкові секції та передавати ID курсу у заявку.
+
 ### 2026-07-17: Синхронізація карти шкіл з Tilda
 
 - [x] Синхронізувати 98 актуальних міст, їхні назви та регіони з картою Tilda.
 - [x] Показувати на карті лише синхронізовані міста; недоступні області зробити сірими.
 - [x] Показувати Запорізьку область фіолетовою та інтерактивною, як місто Київ, без окремого маркера.
 - [x] Не відкривати Запоріжжя автоматично на карті.
+
+### 2026-07-17: Уніфікація ACF усього публічного сайту
+
+- [x] Зафіксувати runtime baseline, DDEV snapshot, MCP Adapter і чистий ACF Local JSON sync.
+- [x] Уніфікувати Global Options, меню, instructions і preview усіх Image/Gallery.
+- [ ] Замінити generic `*_page_texts` секційними полями маркетингових і legal Pages.
+- [x] Підключити Course, Camp, City, Blog, Article і generic Pages до затвердженої ACF-моделі.
+- [ ] Завершити ідемпотентну міграцію, live/admin QA та документацію.
 
 Checkbox meaning:
 
@@ -680,3 +699,34 @@ Note: CRM adapter implemented with fake client only; production credentials are 
 
 - [x] Додати ACF-поля для текстів, зображень, посилань і фіксованих промо-карток секції.
 - [x] Виводити до трьох обраних статей у порядку ACF; за порожньої добірки показувати останні доступні публікації.
+
+## 28. ACF без зміни візуальної структури
+
+- [x] Вимкнути й видалити структурні cutover-перемикачі, які підміняли вихідний DOM.
+- [x] Повернути About, IT/English Courses, FAQ, Media Center, Course/Camp і Legal до єдиного source-markup renderer.
+- [ ] Завершити підключення всіх ACF полів усередині вихідних класів; уже підключені fixed-page тексти/зображення, курси, FAQ, відгуки, Camp cards, Gallery та основні Course/Camp Repeaters.
+- [x] Перевірити публічні маршрути, admin preview зображень, порядок Gallery, дублікати ACF keys і повторний запуск міграції.
+
+## 29. Єдине керування зображеннями
+
+- [x] Підключити кнопки «Замінити зображення» і «Повернути стандартне» до кожного ACF Image-поля в адмінці.
+- [x] Додати відсутні image slots для IT-каталогу, FAQ hero, Media Center benefits/promos і Camp hero Gallery.
+- [x] Зберегти source DOM та синхронно замінювати PNG/WebP у `<picture>`.
+- [x] Перевірити Local JSON sync, ідемпотентну міграцію, frontend smoke та репрезентативні admin-екрани.
+
+## 30. Швидке створення міста
+
+- [x] Залишити на першій вкладці лише зрозумілі редакторські поля та додати коротку інструкцію створення.
+- [x] Згрупувати карту, локальний контент, добірки й технічні поля в окремі вкладки з українськими підказками.
+- [x] Зробити ACF-вибір регіону єдиним джерелом таксономії та прибрати дубльований metabox.
+- [x] Перевірити контракт редактора, Local JSON sync і публічні city-маршрути.
+- [x] Додати керований прапорець показу на карті з безпечним default лише для нових міст.
+- [x] Додати швидкий перехід до нової філії з автоматично вибраним містом і хешем адреси.
+- [x] Заблокувати дублікати канонічного city URL та ідемпотентно об’єднати дубль Берестина.
+- [x] Показувати точку філії за збереженою адресою без обов’язкового ручного введення координат.
+
+## 31. Media Center: заповнений редактор
+
+- [x] Прибрати порожні Tab-заглушки та розкласти наявні поля за секціями Hero, переваг, новин, статей, пропозицій, CTA, FAQ і Blog.
+- [x] Ідемпотентно заповнити головний матеріал, не перезаписуючи редакторські значення.
+- [x] Перевірити заповнені вкладки в реальному wp-admin і збереження публічної верстки.

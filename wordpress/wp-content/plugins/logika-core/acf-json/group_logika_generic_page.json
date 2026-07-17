@@ -1,0 +1,309 @@
+{
+  "key": "group_logika_generic_page",
+  "title": "Конструктор звичайної сторінки",
+  "fields": [
+    {
+      "key": "field_generic_sections",
+      "label": "Секції сторінки",
+      "name": "generic_sections",
+      "type": "flexible_content",
+      "instructions": "Додавайте секції та змінюйте їхній порядок перетягуванням.",
+      "layouts": {
+        "layout_generic_hero": {
+          "key": "layout_generic_hero",
+          "name": "hero",
+          "label": "Hero",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_generic_hero_title",
+              "label": "Заголовок",
+              "name": "title",
+              "type": "text",
+              "instructions": "Заповніть поле «Заголовок»."
+            },
+            {
+              "key": "field_generic_hero_text",
+              "label": "Текст",
+              "name": "text",
+              "type": "textarea",
+              "instructions": "Заповніть поле «Текст»."
+            },
+            {
+              "key": "field_generic_hero_image",
+              "label": "Зображення",
+              "name": "image",
+              "type": "image",
+              "instructions": "Заповніть поле «Зображення».",
+              "return_format": "id",
+              "preview_size": "medium"
+            },
+            {
+              "key": "field_generic_hero_cta",
+              "label": "Кнопка",
+              "name": "cta",
+              "type": "link",
+              "instructions": "Заповніть поле «Кнопка».",
+              "return_format": "array"
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_generic_rich_text": {
+          "key": "layout_generic_rich_text",
+          "name": "rich_text",
+          "label": "Текст",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_generic_rich_title",
+              "label": "Заголовок",
+              "name": "title",
+              "type": "text",
+              "instructions": "Заповніть поле «Заголовок»."
+            },
+            {
+              "key": "field_generic_rich_content",
+              "label": "Текст",
+              "name": "content",
+              "type": "wysiwyg",
+              "instructions": "Заповніть поле «Текст»."
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_generic_gallery": {
+          "key": "layout_generic_gallery",
+          "name": "gallery",
+          "label": "Галерея",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_generic_gallery_title",
+              "label": "Заголовок",
+              "name": "title",
+              "type": "text",
+              "instructions": "Заповніть поле «Заголовок»."
+            },
+            {
+              "key": "field_generic_gallery_images",
+              "label": "Зображення",
+              "name": "images",
+              "type": "gallery",
+              "instructions": "Заповніть поле «Зображення».",
+              "return_format": "id",
+              "preview_size": "medium"
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_generic_courses": {
+          "key": "layout_generic_courses",
+          "name": "course_selection",
+          "label": "Курси",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_generic_courses_title",
+              "label": "Заголовок",
+              "name": "title",
+              "type": "text",
+              "instructions": "Заповніть поле «Заголовок»."
+            },
+            {
+              "key": "field_generic_courses_items",
+              "label": "Курси",
+              "name": "items",
+              "type": "relationship",
+              "instructions": "Заповніть поле «Курси».",
+              "post_type": [
+                "course"
+              ],
+              "filters": [
+                "search",
+                "post_type"
+              ],
+              "elements": [
+                "featured_image"
+              ],
+              "return_format": "id"
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_generic_reviews": {
+          "key": "layout_generic_reviews",
+          "name": "reviews",
+          "label": "Відгуки",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_generic_reviews_title",
+              "label": "Заголовок",
+              "name": "title",
+              "type": "text",
+              "instructions": "Заповніть поле «Заголовок»."
+            },
+            {
+              "key": "field_generic_reviews_items",
+              "label": "Відгуки",
+              "name": "items",
+              "type": "relationship",
+              "instructions": "Заповніть поле «Відгуки».",
+              "post_type": [
+                "review"
+              ],
+              "filters": [
+                "search",
+                "post_type"
+              ],
+              "elements": [
+                "featured_image"
+              ],
+              "return_format": "id"
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_generic_faq": {
+          "key": "layout_generic_faq",
+          "name": "faq",
+          "label": "FAQ",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_generic_faq_title",
+              "label": "Заголовок",
+              "name": "title",
+              "type": "text",
+              "instructions": "Заповніть поле «Заголовок»."
+            },
+            {
+              "key": "field_generic_faq_items",
+              "label": "FAQ",
+              "name": "items",
+              "type": "relationship",
+              "instructions": "Заповніть поле «FAQ».",
+              "post_type": [
+                "faq_item"
+              ],
+              "filters": [
+                "search",
+                "post_type"
+              ],
+              "elements": [
+                "featured_image"
+              ],
+              "return_format": "id"
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_generic_partners": {
+          "key": "layout_generic_partners",
+          "name": "partners",
+          "label": "Партнери",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_generic_partners_title",
+              "label": "Заголовок",
+              "name": "title",
+              "type": "text",
+              "instructions": "Заповніть поле «Заголовок»."
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_generic_map": {
+          "key": "layout_generic_map",
+          "name": "school_map",
+          "label": "Карта шкіл",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_generic_map_title",
+              "label": "Заголовок",
+              "name": "title",
+              "type": "text",
+              "instructions": "Заповніть поле «Заголовок»."
+            },
+            {
+              "key": "field_generic_map_text",
+              "label": "Опис",
+              "name": "text",
+              "type": "textarea",
+              "instructions": "Заповніть поле «Опис»."
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_generic_cta": {
+          "key": "layout_generic_cta",
+          "name": "cta",
+          "label": "CTA",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_generic_cta_title",
+              "label": "Заголовок",
+              "name": "title",
+              "type": "text",
+              "instructions": "Заповніть поле «Заголовок»."
+            },
+            {
+              "key": "field_generic_cta_subtitle",
+              "label": "Підзаголовок",
+              "name": "subtitle",
+              "type": "text",
+              "instructions": "Заповніть поле «Підзаголовок»."
+            },
+            {
+              "key": "field_generic_cta_image",
+              "label": "Зображення",
+              "name": "image",
+              "type": "image",
+              "instructions": "Заповніть поле «Зображення».",
+              "return_format": "id",
+              "preview_size": "medium"
+            }
+          ],
+          "min": "",
+          "max": ""
+        }
+      },
+      "button_label": "Додати секцію",
+      "min": "",
+      "max": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "templates/page-builder.php"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": [],
+  "active": true,
+  "description": "Контрольований набір перевикористовуваних секцій для звичайних сторінок.",
+  "show_in_rest": true,
+  "allow_ai_access": true,
+  "ai_description": "Конструктор звичайних сторінок Logika з контрольованих секцій.",
+  "modified": 1784275910
+}

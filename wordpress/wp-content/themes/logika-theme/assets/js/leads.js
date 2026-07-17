@@ -134,6 +134,7 @@ document.querySelectorAll('[data-logika-phone-input], input[type="tel"][name="ph
       nationalMode: true,
       separateDialCode: true,
       showSelectedDialCode: true,
+      ...(input.closest('.modal') ? { useFullscreenPopup: false } : {}),
       strictMode: true,
       utilsScript: leadConfig.phoneUtilsUrl,
     });
@@ -144,7 +145,7 @@ document.querySelectorAll('[data-logika-phone-input], input[type="tel"][name="ph
     input.addEventListener('open:countrydropdown', () => {
       const iti = input.closest('.iti');
       iti?.classList.add('iti--phone-dropdown-open');
-      iti?.classList.remove('iti--phone-dropdown-up');
+      iti?.classList.toggle('iti--phone-dropdown-up', Boolean(input.closest('.modal')));
     });
     input.addEventListener('close:countrydropdown', () => input.closest('.iti')?.classList.remove('iti--phone-dropdown-open', 'iti--phone-dropdown-up'));
 
@@ -452,6 +453,7 @@ document.querySelectorAll('[data-logika-lead-form]').forEach((form) => {
     data.phone = phone ? phone.getNumber() : (data.phone || data.tel);
     data.child_age ||= data.age;
     key.value ||= createLeadKey();
+    data.idempotency_key = key.value;
     setSubmitError(form, false);
     setStatus(status, 'Надсилаємо заявку…');
 

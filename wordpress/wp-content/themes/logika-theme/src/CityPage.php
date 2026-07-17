@@ -3,6 +3,62 @@
 declare(strict_types=1);
 
 final class Logika_Theme_City_Page {
+	private static int $active_city_id = 0;
+
+	public static function renderHome( int $city_id ): void {
+		self::$active_city_id = $city_id;
+		add_filter( 'acf/format_value', array( self::class, 'inheritHomeValue' ), 20, 3 );
+
+		try {
+			Logika_Theme_Source_Markup::renderPage( 'index', $city_id );
+		} finally {
+			remove_filter( 'acf/format_value', array( self::class, 'inheritHomeValue' ), 20 );
+			self::$active_city_id = 0;
+		}
+	}
+
+	public static function inheritHomeValue( mixed $value, mixed $post_id, array $field ): mixed {
+		if ( ! self::$active_city_id || (int) $post_id !== (int) get_option( 'page_on_front' ) ) {
+			return $value;
+		}
+
+		$map = array(
+			'home_hero_title'              => 'city_home_hero_title',
+			'home_hero_text'               => 'city_home_hero_text',
+			'home_hero_boy_image_override' => 'city_home_hero_image',
+			'home_locations_title'         => 'city_home_locations_title',
+			'home_locations_text'          => 'city_home_locations_text',
+			'home_cta_title'                => 'city_home_cta_title',
+			'home_media_title'              => 'city_home_media_title',
+			'home_media_text'               => 'city_home_media_text',
+			'home_faq_title'                => 'city_home_faq_title',
+		);
+		$name = (string) ( $field['name'] ?? '' );
+		if ( isset( $map[ $name ] ) ) {
+			$override = get_field( $map[ $name ], self::$active_city_id );
+			return self::hasValue( $override ) ? $override : $value;
+		}
+
+		if ( 'home_faq_items' === $name ) {
+			$ids = Logika_Theme_Entities::faqs( (array) get_field( 'city_related_faq', self::$active_city_id ) );
+			if ( $ids ) {
+				return array_map(
+					static fn( int $id ): array => array(
+						'question' => get_field( 'faq_question', $id ) ?: get_the_title( $id ),
+						'answer'   => get_field( 'faq_answer', $id ),
+					),
+					$ids
+				);
+			}
+		}
+
+		return $value;
+	}
+
+	private static function hasValue( mixed $value ): bool {
+		return is_array( $value ) ? (bool) $value : '' !== trim( (string) $value );
+	}
+
 	public static function render_reviews( int $city_id ): string {
 		$reviews = self::related_posts( $city_id, 'city_related_reviews', 'fallback_reviews', 'review', 'review_is_approved' );
 

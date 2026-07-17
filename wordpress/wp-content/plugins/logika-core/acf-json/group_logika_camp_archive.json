@@ -1,0 +1,266 @@
+{
+  "key": "group_logika_camp_archive",
+  "title": "Архів таборів",
+  "fields": [
+    {
+      "key": "field_camp_archive_tab_hero",
+      "label": "Hero",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_camp_archive_hero_title",
+      "label": "Заголовок hero",
+      "name": "camp_archive_hero_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок hero»."
+    },
+    {
+      "key": "field_camp_archive_hero_text",
+      "label": "Текст hero",
+      "name": "camp_archive_hero_text",
+      "type": "textarea",
+      "instructions": "Заповніть поле «Текст hero»."
+    },
+    {
+      "key": "field_camp_archive_hero_image",
+      "label": "Зображення hero",
+      "name": "camp_archive_hero_image",
+      "type": "image",
+      "instructions": "Заповніть поле «Зображення hero».",
+      "return_format": "id",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_camp_archive_tab_benefits",
+      "label": "Переваги",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_camp_archive_benefits_title",
+      "label": "Заголовок переваг",
+      "name": "camp_archive_benefits_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок переваг»."
+    },
+    {
+      "key": "field_camp_archive_benefits",
+      "label": "Переваги",
+      "name": "camp_archive_benefits",
+      "type": "repeater",
+      "instructions": "Додавайте елементи та змінюйте їхній порядок перетягуванням.",
+      "layout": "block",
+      "button_label": "Додати елемент",
+      "sub_fields": [
+        {
+          "key": "field_camp_archive_benefit_item_title",
+          "label": "Заголовок",
+          "name": "title",
+          "type": "text",
+          "instructions": "Заповніть поле «Заголовок»."
+        },
+        {
+          "key": "field_camp_archive_benefit_item_text",
+          "label": "Текст",
+          "name": "text",
+          "type": "textarea",
+          "instructions": "Заповніть поле «Текст»."
+        },
+        {
+          "key": "field_camp_archive_benefit_item_image",
+          "label": "Зображення",
+          "name": "image",
+          "type": "image",
+          "instructions": "Заповніть поле «Зображення».",
+          "return_format": "id",
+          "preview_size": "medium"
+        }
+      ]
+    },
+    {
+      "key": "field_camp_archive_tab_formats",
+      "label": "Формати",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_camp_archive_formats_title",
+      "label": "Заголовок форматів",
+      "name": "camp_archive_formats_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок форматів»."
+    },
+    {
+      "key": "field_camp_archive_tab_booking",
+      "label": "Бронювання",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_camp_archive_booking_title",
+      "label": "Заголовок бронювання",
+      "name": "camp_archive_booking_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок бронювання»."
+    },
+    {
+      "key": "field_camp_archive_booking_text",
+      "label": "Текст бронювання",
+      "name": "camp_archive_booking_text",
+      "type": "textarea",
+      "instructions": "Заповніть поле «Текст бронювання»."
+    },
+    {
+      "key": "field_camp_archive_booking_image",
+      "label": "Зображення бронювання",
+      "name": "camp_archive_booking_image",
+      "type": "image",
+      "instructions": "Заповніть поле «Зображення бронювання».",
+      "return_format": "id",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_camp_archive_tab_history",
+      "label": "Історія",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_camp_archive_history_title",
+      "label": "Заголовок історії",
+      "name": "camp_archive_history_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок історії»."
+    },
+    {
+      "key": "field_camp_archive_history_text",
+      "label": "Текст історії",
+      "name": "camp_archive_history_text",
+      "type": "wysiwyg",
+      "instructions": "Заповніть поле «Текст історії»."
+    },
+    {
+      "key": "field_camp_archive_history_image",
+      "label": "Зображення історії",
+      "name": "camp_archive_history_image",
+      "type": "image",
+      "instructions": "Заповніть поле «Зображення історії».",
+      "return_format": "id",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_camp_archive_tab_gallery",
+      "label": "Галерея",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_camp_archive_gallery_title",
+      "label": "Заголовок галереї",
+      "name": "camp_archive_gallery_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок галереї»."
+    },
+    {
+      "key": "field_camp_archive_gallery",
+      "label": "Галерея",
+      "name": "camp_archive_gallery",
+      "type": "gallery",
+      "instructions": "Заповніть поле «Галерея».",
+      "return_format": "id",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_camp_archive_tab_reviews",
+      "label": "Відгуки",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_camp_archive_reviews_title",
+      "label": "Заголовок відгуків",
+      "name": "camp_archive_reviews_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок відгуків»."
+    },
+    {
+      "key": "field_camp_archive_reviews",
+      "label": "Відгуки",
+      "name": "camp_archive_reviews",
+      "type": "relationship",
+      "instructions": "Заповніть поле «Відгуки».",
+      "post_type": [
+        "review"
+      ],
+      "filters": [
+        "search",
+        "post_type"
+      ],
+      "elements": [
+        "featured_image"
+      ],
+      "return_format": "id"
+    },
+    {
+      "key": "field_camp_archive_tab_faq",
+      "label": "FAQ",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_camp_archive_faq_title",
+      "label": "Заголовок FAQ",
+      "name": "camp_archive_faq_title",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок FAQ»."
+    },
+    {
+      "key": "field_camp_archive_faq",
+      "label": "FAQ",
+      "name": "camp_archive_faq",
+      "type": "relationship",
+      "instructions": "Заповніть поле «FAQ».",
+      "post_type": [
+        "faq_item"
+      ],
+      "filters": [
+        "search",
+        "post_type"
+      ],
+      "elements": [
+        "featured_image"
+      ],
+      "return_format": "id"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "logika-camp-archive"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": [],
+  "active": true,
+  "description": "Секції публічного архіву таборів.",
+  "show_in_rest": true,
+  "allow_ai_access": true,
+  "ai_description": "Налаштування сторінки архіву таборів Logika.",
+  "modified": 1784275457
+}

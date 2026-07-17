@@ -2,19 +2,149 @@
   "key": "group_logika_branch",
   "title": "Філія",
   "fields": [
-    {"key":"field_branch_external_id","label":"Зовнішній ID","name":"branch_external_id","type":"text"},
-    {"key":"field_branch_city_id","label":"Місто","name":"branch_city_id","type":"post_object","post_type":["city"],"required":1,"return_format":"id"},
-    {"key":"field_branch_address","label":"Адреса","name":"branch_address","type":"textarea","required":1},
-    {"key":"field_branch_address_hash","label":"Хеш адреси","name":"branch_address_hash","type":"text","required":1},
-    {"key":"field_branch_lat","label":"Широта","name":"branch_lat","type":"number","step":"0.000001"},
-    {"key":"field_branch_lng","label":"Довгота","name":"branch_lng","type":"number","step":"0.000001"},
-    {"key":"field_branch_phone","label":"Телефон","name":"branch_phone","type":"text"},
-    {"key":"field_branch_schedule","label":"Розклад","name":"branch_schedule","type":"repeater","layout":"table","sub_fields":[{"key":"field_branch_schedule_day","label":"Дні","name":"day_label","type":"text"},{"key":"field_branch_schedule_time","label":"Час","name":"time_label","type":"text"}]},
-    {"key":"field_branch_google_maps_url","label":"Посилання на карту","name":"branch_google_maps_url","type":"url"},
-    {"key":"field_branch_is_active","label":"Активна філія","name":"branch_is_active","type":"true_false","required":1,"default_value":1}
+    {
+      "key": "field_branch_quick_guide",
+      "label": "Як додати адресу філії",
+      "name": "",
+      "type": "message",
+      "message": "<strong>Як додати адресу філії:</strong><br><strong>1.</strong> Введіть назву філії або району в полі вище.<br><strong>2.</strong> Перевірте місто та вкажіть повну адресу.<br><strong>3.</strong> Натисніть «Опублікувати» — карта знайде адресу й покаже точку автоматично.",
+      "new_lines": "wpautop",
+      "esc_html": 0
+    },
+    {
+      "key": "field_branch_tab_main",
+      "label": "Основне",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_branch_city_id",
+      "label": "Місто",
+      "name": "branch_city_id",
+      "type": "post_object",
+      "post_type": ["city"],
+      "required": 1,
+      "return_format": "id",
+      "instructions": "Оберіть місто, до якого належить ця філія. Якщо ви перейшли з картки міста, значення вже заповнене."
+    },
+    {
+      "key": "field_branch_address",
+      "label": "Повна адреса",
+      "name": "branch_address",
+      "type": "textarea",
+      "required": 1,
+      "rows": 3,
+      "placeholder": "Наприклад, вул. Шевченка, 10, 2 поверх",
+      "instructions": "Вкажіть вулицю та номер будинку. Карта знайде адресу й покаже точку автоматично; місто додасться до пошуку самостійно."
+    },
+    {
+      "key": "field_branch_is_active",
+      "label": "Показувати філію на сайті",
+      "name": "branch_is_active",
+      "type": "true_false",
+      "required": 1,
+      "default_value": 1,
+      "ui": 1,
+      "instructions": "Увімкнено для нової філії. Вимкніть, якщо адреса тимчасово не повинна відображатися публічно."
+    },
+    {
+      "key": "field_branch_tab_map_contacts",
+      "label": "Карта і контакти",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_branch_lat",
+      "label": "Широта",
+      "name": "branch_lat",
+      "type": "number",
+      "step": "0.000001",
+      "placeholder": "49.839700",
+      "instructions": "Необов’язково. Заповнюйте лише разом із довготою, якщо автоматична точка за адресою неточна."
+    },
+    {
+      "key": "field_branch_lng",
+      "label": "Довгота",
+      "name": "branch_lng",
+      "type": "number",
+      "step": "0.000001",
+      "placeholder": "24.029700",
+      "instructions": "Необов’язково. Заповнюйте лише разом із широтою, якщо автоматична точка за адресою неточна."
+    },
+    {
+      "key": "field_branch_phone",
+      "label": "Телефон філії",
+      "name": "branch_phone",
+      "type": "text",
+      "placeholder": "+380…",
+      "instructions": "Необов’язково. Вкажіть лише локальний номер, якщо він відрізняється від загального номера Logika."
+    },
+    {
+      "key": "field_branch_schedule",
+      "label": "Розклад роботи",
+      "name": "branch_schedule",
+      "type": "repeater",
+      "layout": "table",
+      "button_label": "Додати години роботи",
+      "instructions": "Необов’язково. Додавайте рядки та змінюйте їхній порядок перетягуванням.",
+      "sub_fields": [
+        {
+          "key": "field_branch_schedule_day",
+          "label": "Дні",
+          "name": "day_label",
+          "type": "text",
+          "placeholder": "Пн–Пт",
+          "instructions": "Дні або діапазон днів."
+        },
+        {
+          "key": "field_branch_schedule_time",
+          "label": "Час",
+          "name": "time_label",
+          "type": "text",
+          "placeholder": "10:00–19:00",
+          "instructions": "Години роботи для вказаних днів."
+        }
+      ]
+    },
+    {
+      "key": "field_branch_google_maps_url",
+      "label": "Посилання Google Maps",
+      "name": "branch_google_maps_url",
+      "type": "url",
+      "placeholder": "https://maps.google.com/…",
+      "instructions": "Необов’язково. Вставте посилання «Поділитися» з Google Maps для цієї адреси."
+    },
+    {
+      "key": "field_branch_tab_technical",
+      "label": "Технічне",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_branch_external_id",
+      "label": "Зовнішній ID",
+      "name": "branch_external_id",
+      "type": "text",
+      "instructions": "Необов’язкове поле для імпорту або CRM. Під час ручного створення залиште порожнім."
+    },
+    {
+      "key": "field_branch_address_hash",
+      "label": "Хеш адреси",
+      "name": "branch_address_hash",
+      "type": "text",
+      "required": 0,
+      "readonly": 1,
+      "instructions": "Створюється автоматично з міста й нормалізованої адреси. Редагувати вручну не потрібно."
+    }
   ],
-  "location": [[{"param":"post_type","operator":"==","value":"branch"}]],
+  "location": [[{"param": "post_type", "operator": "==", "value": "branch"}]],
   "active": true,
   "position": "acf_after_title",
-  "show_in_rest": true
+  "show_in_rest": true,
+  "allow_ai_access": true,
+  "ai_description": "Структуровані редакторські поля Logika: Філія.",
+  "modified": 1784290623
 }

@@ -55,17 +55,20 @@
     return response.text();
   });
 
-  const setFrame = (city, branches) => {
-    const branch = branches.find(({ lat, lng }) => lat || lng);
-    const lat = branch?.lat || city.lat;
-    const lng = branch?.lng || city.lng;
-    const mapUrl = branch?.map_url;
+  const setFrame = (city, branch = {}) => {
+    const mapUrl = branch.map_url;
 
-    if (lat || lng) {
-      frame.src = `https://www.google.com/maps?q=${encodeURIComponent(`${lat},${lng}`)}&output=embed`;
+    if (branch.lat && branch.lng) {
+      frame.src = `https://www.google.com/maps?q=${encodeURIComponent(`${branch.lat},${branch.lng}`)}&output=embed`;
       frame.title = `Карта шкіл у місті ${city.label}`;
     } else if (mapUrl) {
       frame.src = mapUrl;
+      frame.title = `Карта шкіл у місті ${city.label}`;
+    } else if (branch.address) {
+      frame.src = `https://www.google.com/maps?q=${encodeURIComponent(`${branch.address}, ${city.label}, Україна`)}&output=embed`;
+      frame.title = `Карта філії ${branch.label}`;
+    } else if (city.lat && city.lng) {
+      frame.src = `https://www.google.com/maps?q=${encodeURIComponent(`${city.lat},${city.lng}`)}&output=embed`;
       frame.title = `Карта шкіл у місті ${city.label}`;
     } else {
       frame.removeAttribute('src');
@@ -91,9 +94,17 @@
         address.textContent = branch.address;
         item.append(address);
       }
+      item.tabIndex = 0;
+      item.addEventListener('click', () => setFrame(city, branch));
+      item.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          setFrame(city, branch);
+        }
+      });
       schools.append(item);
     });
-    setFrame(city, branches);
+    setFrame(city, branches[0]);
   };
 
   const selectCity = (city, persist = true) => {

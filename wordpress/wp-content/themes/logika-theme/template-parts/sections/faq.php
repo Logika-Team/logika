@@ -24,21 +24,16 @@ $accordion_default    = (string) $faq_section_args['accordion_default'];
 $accordion_breakpoint = (string) $faq_section_args['accordion_breakpoint'];
 $accordion_single     = (string) ( 'false' === (string) $faq_section_args['accordion_single'] ? 'false' : 'true' );
 
+$faq_ids = Logika_Theme_Entities::faqs( array_key_exists( 'items', $faq_section_args ) ? (array) $faq_section_args['items'] : null );
 $faq = new WP_Query(
 	array(
 		'post_type'      => 'faq_item',
 		'post_status'    => 'publish',
 		'posts_per_page' => -1,
 		'no_found_rows'  => true,
-		'orderby'        => 'menu_order title',
+		'post__in'       => $faq_ids ?: array( 0 ),
+		'orderby'        => 'post__in',
 		'order'          => 'ASC',
-		'meta_query'     => array(
-			array(
-				'key'     => 'faq_is_active',
-				'value'   => '1',
-				'compare' => '=',
-			),
-		),
 	)
 );
 ?>
@@ -62,7 +57,7 @@ $faq = new WP_Query(
 						<?php $id = 'faq-' . get_the_ID(); ?>
 						<li class="accordion__item">
 							<button class="accordion__btn h5" data-id="<?php echo esc_attr( $id ); ?>"><?php echo esc_html( get_field( 'faq_question' ) ?: get_the_title() ); ?></button>
-							<div class="accordion__content" data-content="<?php echo esc_attr( $id ); ?>"><div class="editor"><?php echo wp_kses_post( get_field( 'faq_answer' ) ); ?></div></div>
+							<div class="accordion__content" data-content="<?php echo esc_attr( $id ); ?>"><div class="editor"><?php echo wp_kses_post( (string) get_field( 'faq_answer' ) ); ?></div></div>
 						</li>
 					<?php endwhile; ?>
 				</ul>
