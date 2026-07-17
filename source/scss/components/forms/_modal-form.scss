@@ -1,5 +1,5 @@
 .modal-form {
-    padding: 45px 40px;
+    padding: clamp(20px, 5.859vw, 45px) clamp(20px, 5.208vw, 40px);
     display: flex;
     flex-direction: column;
     gap: clamp(20px, 2.083vw, 30px);
@@ -45,12 +45,14 @@
         text-align: center;
 
         a {
+            display: inline;
             text-decoration-line: underline;
             text-decoration-style: solid;
             text-decoration-skip-ink: auto;
             text-decoration-thickness: auto;
             text-underline-offset: auto;
             text-underline-position: from-font;
+            word-break: keep-all;
         }
     }
 }

@@ -1,15 +1,23 @@
 @import "../../general/mixins";
 
 .certificates-section {
-    padding: clamp(40px, 7.813vw, 80px) 0;
+    padding: clamp(20px, 4.167vw, 80px) 0;
 
     &__wrapp {
         position: relative;
         background-color: var(--yellow);
-        padding: clamp(40px, 7.813vw, 80px) 0;
+        padding: clamp(20px, 5.556vw, 80px) 0;
+        overflow: hidden;
+    }
+
+    &__bg {
+        position: absolute;
+        inset: 0;
     }
 
     &__box {
+        position: relative;
+        z-index: 1;
         display: flex;
         align-items: center;
         gap: clamp(20px, 3.906vw, 40px);

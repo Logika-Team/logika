@@ -4,7 +4,7 @@
 .banner-section {
   overflow: hidden;
   position: relative;
-  padding: clamp(45px, 6.25vw, 90px) 0 clamp(40px, 4.167vw, 60px);
+  padding: clamp(45px, 4.688vw, 90px) 0 clamp(40px, 3.125vw, 60px);
 }
 .banner-section__main-bg {
   position: absolute;
@@ -481,5 +481,9 @@
     font-size: 13px;
     letter-spacing: -0.35px;
   }
+}
+
+.about-hero {
+  padding: clamp(20px, 3.125vw, 60px) 0 clamp(20px, 4.167vw, 80px);
 }
 /*# sourceMappingURL=banner-section.css.map */

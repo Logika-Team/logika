@@ -2,7 +2,7 @@
 /* stylelint-disable */
 /* stylelint-disable */
 .test-section {
-  padding: clamp(40px, 7.813vw, 80px) 0;
+  padding: clamp(40px, 4.167vw, 80px) 0;
 }
 .test-section__wrapp {
   position: relative;

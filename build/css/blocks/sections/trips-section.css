@@ -4,7 +4,7 @@
 .trips-section {
   overflow: hidden;
   position: relative;
-  padding: clamp(20px, 7.813vw, 80px) 0;
+  padding: clamp(20px, 4.167vw, 80px) 0;
 }
 .trips-section__wrapp {
   display: -webkit-box;

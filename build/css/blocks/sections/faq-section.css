@@ -3,7 +3,7 @@
 /* stylelint-disable */
 .faq-section {
   position: relative;
-  padding: clamp(32px, 4.444vw, 64px) 0;
+  padding: clamp(20px, 4.167vw, 80px) 0;
 }
 .faq-section__left-bg {
   position: absolute;
