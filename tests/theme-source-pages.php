@@ -32,6 +32,12 @@ if ( ! function_exists( 'logika_theme_render_source_page' ) ) {
 		$errors[] = 'Homepage lead form has no non-visual submission status.';
 	}
 
+	foreach ( array( 'media-section__cards-layout', 'media-section__news', 'media-section__promos', 'media-section__blog-list', 'media-section__background' ) as $marker ) {
+		if ( ! str_contains( $homepage, $marker ) ) {
+			$errors[] = "Homepage media center is missing {$marker}.";
+		}
+	}
+
 	if ( ! str_contains( $homepage, 'name="child_age"' ) || ! str_contains( $homepage, 'main-form__select' ) || ! str_contains( $homepage, 'data-logika-age-select' ) || ! str_contains( $homepage, 'main-form__age-dropdown' ) ) {
 		$errors[] = 'Homepage lead form does not render the child age dropdown contract.';
 	}
@@ -80,6 +86,9 @@ if ( ! is_readable( "{$theme_path}/assets/css/style.css" ) || ! is_readable( "{$
 }
 
 $theme_css = is_readable( "{$theme_path}/assets/css/style.css" ) ? file_get_contents( "{$theme_path}/assets/css/style.css" ) : '';
+if ( str_contains( $theme_css, '.media-section__box>div{height:400px;background-color:red}' ) ) {
+	$errors[] = 'Homepage media center still contains the red debug layout rule.';
+}
 if ( ! str_contains( $theme_css, 'main-form__honeypot' ) || ! str_contains( $theme_css, 'position:absolute' ) ) {
 	$errors[] = 'Lead form honeypot is visible in layout.';
 }
@@ -109,6 +118,14 @@ foreach ( array( 'logika-intl-tel-input', 'logika-intl-tel-input-i18n-uk', 'phon
 	if ( ! str_contains( $functions_php, $asset_contract ) ) {
 		$errors[] = "Theme assets do not expose {$asset_contract}.";
 	}
+}
+
+if ( ! str_contains( $functions_php, 'logika-home-media-center' ) || ! is_readable( "{$theme_path}/assets/css/blocks/sections/media-section.css" ) ) {
+	$errors[] = 'Homepage media center stylesheet is missing.';
+}
+
+if ( ! str_contains( $functions_php, "get_query_var( 'logika_city' )" ) ) {
+	$errors[] = 'Homepage media center stylesheet is missing on city homepages.';
 }
 
 $leads_js = is_readable( "{$theme_path}/assets/js/leads.js" ) ? file_get_contents( "{$theme_path}/assets/js/leads.js" ) : '';

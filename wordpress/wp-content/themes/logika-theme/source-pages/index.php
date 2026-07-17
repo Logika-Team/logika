@@ -24,7 +24,7 @@
                 <img width='440' height='225' src='img/boy-character.svg' alt='boy-character'>
               </div>
             </div>
-
+            
             <div class="banner-section__right">
               <form class="banner-section__form main-form">
                 <div class="main-form__title h5">
@@ -46,7 +46,7 @@
                   </svg>
                 </button>
 
-                <p class="main-form__text">Натискаючи, ви погоджуєтесь із <a href="#">Політикою конфіденційності</a></p>
+                <p class="main-form__text">Натискаючи, ви погоджуєтесь із<a href="#">Політикою конфіденційності</a></p>
               </form>
 
               <div class="banner-section__character-logika">
@@ -200,7 +200,7 @@
                       <img src='img/services/service1.svg' alt=''>
                   </div>
                 </div>
-
+                
                 <div class="services-section__item-content">
                   <div class="services-section__item-title h3">Перший крок у свiт технологiй</div>
                   <ul class="services-section__item-tags">
@@ -244,7 +244,7 @@
                       <img src='img/services/service1.svg' alt=''>
                   </div>
                 </div>
-
+                
                 <div class="services-section__item-content">
                   <div class="services-section__item-title h3">Вiд iгор до власних проектiв</div>
                   <ul class="services-section__item-tags">
@@ -289,7 +289,7 @@
                       <img src='img/services/service1.svg' alt=''>
                   </div>
                 </div>
-
+                
                 <div class="services-section__item-content">
                   <div class="services-section__item-title h3">Серйознi навички для серйозних цiлей</div>
                   <ul class="services-section__item-tags">
@@ -336,7 +336,7 @@
                       <img src='img/services/service1.svg' alt=''>
                   </div>
                 </div>
-
+                
                 <div class="services-section__item-content">
                   <div class="services-section__item-title h3">Перший крок у IT-кар'єру</div>
                   <ul class="services-section__item-tags">
@@ -615,7 +615,7 @@
                   <img width='368' height='280' src='img/onbording/onbording1.svg' alt=''>
                 </div>
               </div>
-
+              
               <div class="onboarding-section__item-content">
                 <div class="onboarding-section__item-title h3">Залишiть заявку</div>
 
@@ -636,7 +636,7 @@
                   <img width='368' height='280' src='img/onbording/onbording2.svg' alt=''>
                 </div>
               </div>
-
+              
               <div class="onboarding-section__item-content">
                 <div class="onboarding-section__item-title h3">Відвідайте безкоштовний пробний урок</div>
 
@@ -657,7 +657,7 @@
                   <img width='368' height='280' src='img/onbording/onbording3.svg' alt=''>
                 </div>
               </div>
-
+              
               <div class="onboarding-section__item-content">
                 <div class="onboarding-section__item-title h3">Розпочніть навчання та отримайте результат</div>
 
@@ -1099,20 +1099,79 @@
           </div>
 
           <div class="media-section__box">
-            <div class="media-section__info">
+            <div class="media-section__cards-layout">
+            <div class="media-section__news">
+              <article class="media-section__feature">
+                <div class="media-section__feature-tags">
+                  <span>Logika Новини</span>
+                  <span>Корисне для батьків</span>
+                </div>
+                <img class="media-section__figma-art" src="img/media-center/figma/news.svg" alt="">
+              </article>
+              <div class="media-section__feature-copy">
+                <h3>Що нового у Logika</h3>
+                <p>Актуальні новини, події та важливі оновлення школи.</p>
+                <a href="/media-center.html" class="btn btn--yellow">Перейти до розділу <svg width='20' height='20'><use href='img/sprite/sprite.svg#arrow-right'></use></svg></a>
+              </div>
 
+              <article class="media-section__contest">
+                <img class="media-section__background" src="img/media-center/figma/contest-art.svg" alt="" aria-hidden="true">
+                <span class="media-section__label">Logika Конкурси</span>
+                <div>
+                  <h3>Конкурси від<br>Logika</h3>
+                  <p>Беріть участь у хакатонах, змаганнях, творчих ініціативах і отримуйте нагороди за призові місця.</p>
+                </div>
+                <a href="/media-center.html" class="btn btn--yellow">Переглянути усі конкурси <svg width='20' height='20'><use href='img/sprite/sprite.svg#arrow-right'></use></svg></a>
+              </article>
             </div>
 
-            <div class="media-section__promo">
-
+            <div class="media-section__promos">
+              <article class="media-section__promo media-section__promo--offer">
+                <span class="media-section__label">Акція</span>
+                <img class="media-section__background" src="img/media-center/figma/offer-background.svg" alt="">
+                <img class="media-section__figma-art" src="img/media-center/figma/offer.svg" alt="">
+                <div><h3>1=2</h3><h4>на усі курси 14-17 років</h4><p>Купуйте один курс та отримуйте другий у подарунок</p></div>
+                <a href="#" class="btn btn--yellow">Дізнатись більше <svg width='20' height='20'><use href='img/sprite/sprite.svg#arrow-right'></use></svg></a>
+              </article>
+              <article class="media-section__promo media-section__promo--discount">
+                <span class="media-section__label">Акція</span>
+                <img class="media-section__figma-art" src="img/media-center/figma/discount.svg" alt="">
+                <div><h3>-10%</h3><h4>на обрані курси</h4><p>Спробуйте навчання за вигідною ціною</p></div>
+                <a href="#" class="btn btn--yellow">Дізнатись більше <svg width='20' height='20'><use href='img/sprite/sprite.svg#arrow-right'></use></svg></a>
+              </article>
+              <article class="media-section__race">
+                <span class="media-section__label">Конкурс</span>
+                <img class="media-section__figma-art" src="img/media-center/figma/race.svg" alt="">
+                <h3>LogiRace<br>2026</h3>
+                <p>Уявіть майбутнє і створіть свій світ на Червоній планеті: ландшафт, технології, роботів, транспорт, ресурси та екосистему.</p>
+                <a href="#" class="btn btn--yellow">Дізнатись більше <svg width='20' height='20'><use href='img/sprite/sprite.svg#arrow-right'></use></svg></a>
+              </article>
             </div>
 
-            <div class="media-section__blog">
-
+            <div class="media-section__blog-list">
+              <article class="media-section__post">
+                <img src="img/media-center/blog-placeholder.png" alt="Мама з дитиною навчаються за ноутбуком">
+                <span class="media-section__label">Logika Блог</span>
+                <h3>Як направити захоплення дитини комп'ютером у перспективну навичку?</h3>
+                <p><span><img src="img/media-center/proicons_calendar.svg" alt="">07.02.2022</span><span><img src="img/media-center/formkit_time.svg" alt="">5хв</span><span><img src="img/media-center/proicons_eye.svg" alt="">25</span></p>
+              </article>
+              <article class="media-section__post">
+                <img src="img/media-center/blog-placeholder.png" alt="Мама з дитиною навчаються за ноутбуком">
+                <span class="media-section__label">Logika Блог</span>
+                <h3>Як направити захоплення дитини комп'ютером у перспективну навичку?</h3>
+                <p><span><img src="img/media-center/proicons_calendar.svg" alt="">07.02.2022</span><span><img src="img/media-center/formkit_time.svg" alt="">5хв</span><span><img src="img/media-center/proicons_eye.svg" alt="">25</span></p>
+              </article>
+              <article class="media-section__post">
+                <img src="img/media-center/blog-placeholder.png" alt="Мама з дитиною навчаються за ноутбуком">
+                <span class="media-section__label">Logika Блог</span>
+                <h3>Як направити захоплення дитини комп'ютером у перспективну навичку?</h3>
+                <p><span><img src="img/media-center/proicons_calendar.svg" alt="">07.02.2022</span><span><img src="img/media-center/formkit_time.svg" alt="">5хв</span><span><img src="img/media-center/proicons_eye.svg" alt="">25</span></p>
+              </article>
+            </div>
             </div>
           </div>
 
-
+          
         </div>
       </div>
     </section>
@@ -1345,7 +1404,7 @@
               </picture>
             </li>
           </ul>
-
+          
         </div>
       </div>
     </section>

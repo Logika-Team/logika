@@ -15,7 +15,7 @@ Main rule:
 
 > Test behavior through public interfaces, not implementation internals.
 
-A good test answers: "What does user, editor, manager or system receive?"  
+A good test answers: "What does user, editor, manager or system receive?"
 A bad test breaks on private refactors while user-facing behavior is unchanged.
 
 ## 2. Test development approach

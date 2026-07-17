@@ -137,6 +137,10 @@ ensure_page faq 'FAQ' 'templates/page-faq.php' >/dev/null
 ensure_page it-courses 'Курси програмування' 'templates/page-it-courses.php' >/dev/null
 ensure_page english-courses 'Курси англійської' 'templates/page-english-courses.php' >/dev/null
 ensure_page media-center 'Медіацентр' 'templates/page-media-center.php' >/dev/null
+ensure_page privacy-policy 'Політика конфіденційності' >/dev/null
+ensure_page contractoffer 'Договір оферти' >/dev/null
+ensure_page contractoffer-overseas 'Договір оферти для клієнтів поза межами України' >/dev/null
+ensure_page litsenziia 'Освітня ліцензія' >/dev/null
 wp_cli --path="$DEPLOY_SITE_ROOT" rewrite structure '/%postname%/'
 wp_cli --path="$DEPLOY_SITE_ROOT" rewrite flush --hard
 wp_cli --path="$DEPLOY_SITE_ROOT" cache flush

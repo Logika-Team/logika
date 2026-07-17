@@ -57,7 +57,7 @@ if (cityRoot && cityTrigger && window.logikaCityContext) {
       return regions;
     }, {});
 
-    Object.values(groups).forEach((group) => {
+    Object.values(groups).sort((a, b) => Number(a.region.label === 'Інші міста') - Number(b.region.label === 'Інші міста')).forEach((group) => {
       const item = document.createElement('li');
       const button = document.createElement('button');
       const citiesList = document.createElement('ul');

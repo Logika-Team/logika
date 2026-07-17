@@ -1736,6 +1736,111 @@
             "rows": ""
         },
         {
+            "key": "field_home_tab_media",
+            "label": "Медіа-центр",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_home_media_lesson_link",
+            "label": "Кнопка запису на урок",
+            "name": "home_media_lesson_link",
+            "type": "link",
+            "return_format": "array",
+            "instructions": "Порожнє поле залишає перехід до форми запису."
+        },
+        {
+            "key": "field_home_media_archive_link",
+            "label": "Кнопка Медіа-центру",
+            "name": "home_media_archive_link",
+            "type": "link",
+            "return_format": "array",
+            "instructions": "Порожнє поле веде до Медіа-центру."
+        },
+        {
+            "key": "field_home_media_news",
+            "label": "Блок новин",
+            "name": "home_media_news",
+            "type": "group",
+            "sub_fields": [
+                {"key":"field_home_media_news_tag_primary","label":"Перший підпис","name":"tag_primary","type":"text"},
+                {"key":"field_home_media_news_tag_secondary","label":"Другий підпис","name":"tag_secondary","type":"text"},
+                {"key":"field_home_media_news_image","label":"Ілюстрація","name":"image","type":"image","return_format":"id","preview_size":"medium","library":"all","mime_types":"jpg,jpeg,png,webp,svg"},
+                {"key":"field_home_media_news_title","label":"Заголовок","name":"title","type":"text"},
+                {"key":"field_home_media_news_text","label":"Текст","name":"text","type":"textarea","rows":3},
+                {"key":"field_home_media_news_link","label":"Кнопка","name":"link","type":"link","return_format":"array"}
+            ]
+        },
+        {
+            "key": "field_home_media_contest",
+            "label": "Блок конкурсів",
+            "name": "home_media_contest",
+            "type": "group",
+            "sub_fields": [
+                {"key":"field_home_media_contest_label","label":"Підпис","name":"label","type":"text"},
+                {"key":"field_home_media_contest_image","label":"Ілюстрація","name":"image","type":"image","return_format":"id","preview_size":"medium","library":"all","mime_types":"jpg,jpeg,png,webp,svg"},
+                {"key":"field_home_media_contest_title","label":"Заголовок","name":"title","type":"textarea","rows":2,"instructions":"Новий рядок зберігається у заголовку."},
+                {"key":"field_home_media_contest_text","label":"Текст","name":"text","type":"textarea","rows":3},
+                {"key":"field_home_media_contest_link","label":"Кнопка","name":"link","type":"link","return_format":"array"}
+            ]
+        },
+        {
+            "key": "field_home_media_offer",
+            "label": "Акція 1=2",
+            "name": "home_media_offer",
+            "type": "group",
+            "sub_fields": [
+                {"key":"field_home_media_offer_label","label":"Підпис","name":"label","type":"text"},
+                {"key":"field_home_media_offer_background","label":"Фонове зображення","name":"background","type":"image","return_format":"id","preview_size":"medium","library":"all","mime_types":"jpg,jpeg,png,webp,svg"},
+                {"key":"field_home_media_offer_image","label":"Ілюстрація","name":"image","type":"image","return_format":"id","preview_size":"medium","library":"all","mime_types":"jpg,jpeg,png,webp,svg"},
+                {"key":"field_home_media_offer_title","label":"Заголовок","name":"title","type":"text"},
+                {"key":"field_home_media_offer_subtitle","label":"Підзаголовок","name":"subtitle","type":"text"},
+                {"key":"field_home_media_offer_text","label":"Текст","name":"text","type":"textarea","rows":3},
+                {"key":"field_home_media_offer_link","label":"Кнопка","name":"link","type":"link","return_format":"array"}
+            ]
+        },
+        {
+            "key": "field_home_media_discount",
+            "label": "Акція зі знижкою",
+            "name": "home_media_discount",
+            "type": "group",
+            "sub_fields": [
+                {"key":"field_home_media_discount_label","label":"Підпис","name":"label","type":"text"},
+                {"key":"field_home_media_discount_image","label":"Ілюстрація","name":"image","type":"image","return_format":"id","preview_size":"medium","library":"all","mime_types":"jpg,jpeg,png,webp,svg"},
+                {"key":"field_home_media_discount_title","label":"Заголовок","name":"title","type":"text"},
+                {"key":"field_home_media_discount_subtitle","label":"Підзаголовок","name":"subtitle","type":"text"},
+                {"key":"field_home_media_discount_text","label":"Текст","name":"text","type":"textarea","rows":3},
+                {"key":"field_home_media_discount_link","label":"Кнопка","name":"link","type":"link","return_format":"array"}
+            ]
+        },
+        {
+            "key": "field_home_media_race",
+            "label": "Блок LogiRace",
+            "name": "home_media_race",
+            "type": "group",
+            "sub_fields": [
+                {"key":"field_home_media_race_label","label":"Підпис","name":"label","type":"text"},
+                {"key":"field_home_media_race_image","label":"Ілюстрація","name":"image","type":"image","return_format":"id","preview_size":"medium","library":"all","mime_types":"jpg,jpeg,png,webp,svg"},
+                {"key":"field_home_media_race_title","label":"Заголовок","name":"title","type":"textarea","rows":2,"instructions":"Новий рядок зберігається у заголовку."},
+                {"key":"field_home_media_race_text","label":"Текст","name":"text","type":"textarea","rows":4},
+                {"key":"field_home_media_race_link","label":"Кнопка","name":"link","type":"link","return_format":"array"}
+            ]
+        },
+        {
+            "key": "field_home_media_posts",
+            "label": "Статті в блоці",
+            "name": "home_media_posts",
+            "type": "relationship",
+            "post_type": ["post"],
+            "filters": ["search"],
+            "return_format": "id",
+            "min": 0,
+            "max": 3,
+            "instructions": "Оберіть до трьох статей і перетягніть їх у потрібний порядок. Порожнє поле покаже три останні статті."
+        },
+        {
             "key": "field_home_tab_cta_faq",
             "label": "CTA та FAQ",
             "name": "",
@@ -2136,5 +2241,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1783755753
+    "modified": 1784244720
 }

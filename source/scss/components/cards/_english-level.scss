@@ -52,6 +52,13 @@
         }
     }
 
+    &__link {
+        align-self: stretch;
+        height: 44px;
+        padding: 0;
+        gap: 4px;
+    }
+
 
     @include mobile {
         position: relative;

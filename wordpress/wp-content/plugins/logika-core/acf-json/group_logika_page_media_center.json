@@ -10,6 +10,8 @@
     {"key":"field_media_center_benefits_title","label":"Заголовок переваг","name":"media_center_benefits_title","type":"text"},
     {"key":"field_media_center_news_title","label":"Заголовок новин","name":"media_center_news_title","type":"text"},
     {"key":"field_media_center_articles_title","label":"Заголовок статей","name":"media_center_articles_title","type":"text"},
+    {"key":"field_media_center_discount_title","label":"Заголовок акції","name":"media_center_discount_title","type":"text"},
+    {"key":"field_media_center_page_texts","label":"Додаткові тексти сторінки","name":"media_center_page_texts","type":"repeater","layout":"table","sub_fields":[{"key":"field_media_center_page_texts_source","label":"Оригінальний текст","name":"source","type":"textarea","readonly":1},{"key":"field_media_center_page_texts_value","label":"Текст","name":"value","type":"textarea"}]},
     {"key":"field_media_center_tab_content","label":"Добірки","type":"tab"},
     {"key":"field_media_center_featured_post","label":"Головний матеріал","name":"media_center_featured_post","type":"post_object","post_type":["post"],"return_format":"id"},
     {"key":"field_media_center_news","label":"Новини","name":"media_center_news","type":"relationship","post_type":["post"],"return_format":"id","filters":["search"]},

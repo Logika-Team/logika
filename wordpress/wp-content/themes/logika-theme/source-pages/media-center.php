@@ -18,18 +18,13 @@
                 </svg>
               </span>
             </label>
-            <button class="search-form__btn" type="submit" aria-label="Шукати статті">
-              <svg width='30' height='30'>
-                <use href='img/sprite/sprite.svg#icon-search'></use>
-              </svg>
-            </button>
             <div class="search-form__suggestions" data-media-search-suggestions role="listbox" hidden></div>
           </form>
 
           <ul class="tags">
-            <li>Акції</li>
-            <li>Logika Новини</li>
-            <li>Logika Блог</li>
+            <li><a href="#media-offers">Акції</a></li>
+            <li><a href="#media-news">Logika Новини</a></li>
+            <li><a href="#media-articles">Logika Блог</a></li>
           </ul>
 
         </div>
@@ -41,52 +36,7 @@
           <h1 class="archive-section__title">Logika Медіа-центр</h1>
 
           <div class="archive-section__box">
-            <div class="archive-section__main" data-media-featured>
-              <div class="news-card">
-                <div class="news-card__thumbnail">
-                  <picture>
-                    <source type='image/webp' srcset='img/posts/article-post.webp'>
-                    <img width='265' height='202' src='img/posts/article-post.png' alt=''>
-                  </picture>
-                </div>
-
-                <div class="news-card__info">
-                  <div class="news-card__top">
-                    <ul class="news-card__tags">
-                      <li class="news-card__tag">
-                        Logika Блог
-                      </li>
-                      <li class="news-card__tag">Корисне для батьків</li>
-                    </ul>
-
-                    <ul class="news-card__details">
-                      <li>
-                        <svg width='18' height='18'>
-                          <use href='img/sprite/sprite.svg#icon-calendar'></use>
-                        </svg>
-                        <p>07.02.2022</p>
-                      </li>
-                      <li>
-                        <svg width='18' height='18'>
-                          <use href='img/sprite/sprite.svg#icon-readtime'></use>
-                        </svg>
-                        <p>5хв</p>
-                      </li>
-                      <li>
-                        <svg width='18' height='18'>
-                          <use href='img/sprite/sprite.svg#icon-eye'></use>
-                        </svg>
-                        <p>25</p>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <a class="news-card__title" href="/article.html">Як направити захоплення дитини комп'ютером у перспективну навичку?</a>
-
-                  <p class="news-card__descr">Дитяча пристрасть до цифрових гаджетів часто викликає у батьків негативну реакцію. Однак завдяки комп’ютерним іграм дитина може зробити перші кроки у світ IT.</p>
-                </div>
-              </div>
-            </div>
+            <div class="archive-section__main" data-media-featured></div>
 
             <div class="archive-section__promos">
               <div class="archive-section__promo">
@@ -193,9 +143,9 @@
       </div>
     </section>
 
-    <section class="news-section">
+    <section class="news-section" id="media-news">
       <div class="container">
-        <div class="news-section__wrapp">
+        <div class="news-section__wrapp"> 
           <div class="news-section__top">
             <h2 class="news-section__title h2">Новини</h2>
 
@@ -207,99 +157,13 @@
             </a>
           </div>
 
-          <ul class="news-section__items" data-media-list>
-            <li class="news-section__item">
-              <div class="news-card">
-                <div class="news-card__thumbnail">
-                  <picture>
-                    <source type='image/webp' srcset='img/posts/article-post.webp'>
-                    <img width='265' height='202' src='img/posts/article-post.png' alt=''>
-                  </picture>
-                </div>
-
-                <div class="news-card__info">
-                  <ul class="news-card__tags">
-                    <li class="news-card__tag">
-                      Logika Блог
-                    </li>
-                    <li class="news-card__tag">Корисне для батьків</li>
-                  </ul>
-
-                  <a class="news-card__title" href="/article.html">Як направити захоплення дитини комп'ютером у перспективну навичку?</a>
-
-                  <ul class="news-card__details">
-                    <li>
-                      <svg width='18' height='18'>
-                        <use href='img/sprite/sprite.svg#icon-calendar'></use>
-                      </svg>
-                      <p>07.02.2022</p>
-                    </li>
-                    <li>
-                      <svg width='18' height='18'>
-                        <use href='img/sprite/sprite.svg#icon-readtime'></use>
-                      </svg>
-                      <p>5хв</p>
-                    </li>
-                    <li>
-                      <svg width='18' height='18'>
-                        <use href='img/sprite/sprite.svg#icon-eye'></use>
-                      </svg>
-                      <p>25</p>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </li>
-
-            <li class="news-section__item">
-              <div class="news-card">
-                <div class="news-card__thumbnail">
-                  <picture>
-                    <source type='image/webp' srcset='img/posts/article-post.webp'>
-                    <img width='265' height='202' src='img/posts/article-post.png' alt=''>
-                  </picture>
-                </div>
-
-                <div class="news-card__info">
-                  <ul class="news-card__tags">
-                    <li class="news-card__tag">
-                      Logika Блог
-                    </li>
-                    <li class="news-card__tag">Корисне для батьків</li>
-                  </ul>
-
-                  <a class="news-card__title" href="/article.html">Як направити захоплення дитини комп'ютером у перспективну навичку?</a>
-
-                  <ul class="news-card__details">
-                    <li>
-                      <svg width='18' height='18'>
-                        <use href='img/sprite/sprite.svg#icon-calendar'></use>
-                      </svg>
-                      <p>07.02.2022</p>
-                    </li>
-                    <li>
-                      <svg width='18' height='18'>
-                        <use href='img/sprite/sprite.svg#icon-readtime'></use>
-                      </svg>
-                      <p>5хв</p>
-                    </li>
-                    <li>
-                      <svg width='18' height='18'>
-                        <use href='img/sprite/sprite.svg#icon-eye'></use>
-                      </svg>
-                      <p>25</p>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </li>
-          </ul>
+          <ul class="news-section__items" data-media-list></ul>
         </div>
     </section>
 
-    <section class="articles-section">
+    <section class="articles-section" id="media-articles">
       <div class="container">
-        <div class="articles-section__wrapp">
+        <div class="articles-section__wrapp"> 
           <div class="articles-section__top">
             <h2 class="articles-section__title h2">Корисні статті</h2>
 
@@ -312,14 +176,14 @@
           </div>
 
           <ul class="articles-section__items" data-media-articles>
-            <li class="articles-section__item">
+            <li class="articles-section__item"> 
               <div class="article-card">
-                <div class="article-card__thumbnail">
+                <a class="article-card__thumbnail" href="/article.html">
                   <picture>
                     <source type='image/webp' srcset='img/posts/article-post.webp'>
                     <img width='465' height='235' src='img/posts/article-post.png' alt=''>
                   </picture>
-                </div>
+                </a>
 
                 <div class="article-card__info">
                   <a class="article-card__title" href="/article.html">Як направити захоплення дитини комп'ютером у перспективну навичку?</a>
@@ -349,14 +213,14 @@
               </div>
             </li>
 
-            <li class="articles-section__item">
+            <li class="articles-section__item"> 
               <div class="article-card">
-                <div class="article-card__thumbnail">
+                <a class="article-card__thumbnail" href="/article.html">
                   <picture>
                     <source type='image/webp' srcset='img/posts/article-post.webp'>
                     <img width='465' height='235' src='img/posts/article-post.png' alt=''>
                   </picture>
-                </div>
+                </a>
 
                 <div class="article-card__info">
                   <a class="article-card__title" href="/article.html">Як направити захоплення дитини комп'ютером у перспективну навичку?</a>
@@ -386,14 +250,14 @@
               </div>
             </li>
 
-            <li class="articles-section__item">
+            <li class="articles-section__item"> 
               <div class="article-card">
-                <div class="article-card__thumbnail">
+                <a class="article-card__thumbnail" href="/article.html">
                   <picture>
                     <source type='image/webp' srcset='img/posts/article-post.webp'>
                     <img width='465' height='235' src='img/posts/article-post.png' alt=''>
                   </picture>
-                </div>
+                </a>
 
                 <div class="article-card__info">
                   <a class="article-card__title" href="/article.html">Як направити захоплення дитини комп'ютером у перспективну навичку?</a>
@@ -426,13 +290,13 @@
         </div>
     </section>
 
-    <section class="offers-section">
+    <section class="offers-section" id="media-offers">
       <div class="container">
-        <div class="offers-section__wrapp">
+        <div class="offers-section__wrapp"> 
           <h2 class="offers-section__title h2">Акції</h2>
 
           <ul class="offers-section__items">
-            <li class="offers-section__item">
+            <li class="offers-section__item"> 
               <div class="offer-card">
                 <div class="offer-card__promo">
                   <div class="offer-card__details">
@@ -459,13 +323,13 @@
                     </span>
                     <p>діє до 10.04.26</p>
                   </div>
-
+                  
                 </div>
 
               </div>
             </li>
 
-            <li class="offers-section__item">
+            <li class="offers-section__item"> 
               <div class="offer-card">
                 <div class="offer-card__promo">
                   <div class="offer-card__details">
@@ -492,13 +356,13 @@
                     </span>
                     <p>діє до 10.04.26</p>
                   </div>
-
+                  
                 </div>
 
               </div>
             </li>
 
-            <li class="offers-section__item">
+            <li class="offers-section__item"> 
               <div class="offer-card">
                 <div class="offer-card__promo">
                   <div class="offer-card__details">
@@ -525,7 +389,7 @@
                     </span>
                     <p>діє до 10.04.26</p>
                   </div>
-
+                  
                 </div>
 
               </div>

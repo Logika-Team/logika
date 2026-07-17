@@ -1,7 +1,7 @@
 # Project: Logika School
 
-Date: 2026-07-10  
-Project: Logika School  
+Date: 2026-07-10
+Project: Logika School
 Source: existing HTML/CSS/JS source in `source/`
 
 ## Brief description

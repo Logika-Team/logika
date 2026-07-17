@@ -28,8 +28,16 @@ $cities = array(
 	array( 'Кривий Ріг', 'kryvyi-rih', 'Дніпропетровська область', 47.9105, 33.3918 ),
 	array( 'Маріуполь', 'mariupol', 'Донецька область', 47.0971, 37.5434 ),
 	array( 'Чорноморськ', 'chornomorsk', 'Одеська область', 46.3017, 30.6569 ),
-	array( 'Онлайн', 'online', 'Онлайн', 50.4501, 30.5234 ),
 );
+
+$seeded_labels = array_column( $cities, 0 );
+foreach ( require __DIR__ . '/tilda-school-map-cities.php' as $region => $labels ) {
+	foreach ( $labels as $label ) {
+		if ( ! in_array( $label, $seeded_labels, true ) ) {
+			$cities[] = array( $label, sanitize_title( $label ), $region, 0.0, 0.0 );
+		}
+	}
+}
 
 foreach ( $cities as $city ) {
 	list( $title, $slug, $region, $lat, $lng ) = $city;

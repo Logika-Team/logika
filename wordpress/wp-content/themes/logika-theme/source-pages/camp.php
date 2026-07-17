@@ -315,16 +315,149 @@
 
     <section class="trips-section">
       <div class="container">
-        <div class="trips-section__wrapp">
-          <h2>Виїзні екскурсії:</h2>
+        <div class="trips-section__info">
+          <h2 class="trips-section__title">Виїзні екскурсії:</h2>
+
+          <ul class="trips-section__tags">
+            <li class="h5">озеро Синевір</li>
+            <li class="h5">Екопарк "Долина вовків"</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="trips-section__slider">
+        <div class='swiper-container'>
+          <ul class='swiper-wrapper'>
+            <li class='swiper-slide'>
+              <div class="trip-card">
+                <picture>
+                  <source type='image/webp' srcset='img/trips/trip-img1.webp'>
+                  <img width='465' height='400' src='img/trips/trip-img1.png' alt=''>
+                </picture>
+              </div>
+            </li>
+            <li class='swiper-slide'>
+              <div class="trip-card">
+                <picture>
+                  <source type='image/webp' srcset='img/trips/trip-img2.webp'>
+                  <img width='465' height='400' src='img/trips/trip-img2.png' alt=''>
+                </picture>
+              </div>
+            </li>
+            <li class='swiper-slide'>
+              <div class="trip-card">
+                <picture>
+                  <source type='image/webp' srcset='img/trips/trip-img3.webp'>
+                  <img width='465' height='400' src='img/trips/trip-img3.png' alt=''>
+                </picture>
+              </div>
+            </li>
+            <li class='swiper-slide'>
+              <div class="trip-card">
+                <picture>
+                  <source type='image/webp' srcset='img/trips/trip-img1.webp'>
+                  <img width='465' height='400' src='img/trips/trip-img1.png' alt=''>
+                </picture>
+              </div>
+            </li>
+            <li class='swiper-slide'>
+              <div class="trip-card">
+                <picture>
+                  <source type='image/webp' srcset='img/trips/trip-img2.webp'>
+                  <img width='465' height='400' src='img/trips/trip-img2.png' alt=''>
+                </picture>
+              </div>
+            </li>
+            <li class='swiper-slide'>
+              <div class="trip-card">
+                <picture>
+                  <source type='image/webp' srcset='img/trips/trip-img3.webp'>
+                  <img width='465' height='400' src='img/trips/trip-img3.png' alt=''>
+                </picture>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="container">
+          <div class="trips-section__controls">
+            <button class='trips-section__control swiper-btn swiper-button-prev'>
+              <svg width='30' height='30'>
+                <use href='img/sprite/sprite.svg#icon-arrow-left'></use>
+              </svg>
+            </button>
+            <button class='trips-section__control swiper-btn swiper-button-next'>
+              <svg width='30' height='30'>
+                <use href='img/sprite/sprite.svg#icon-arrow-right'></use>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="details-section">
+      <div class="details-section__left-bg">
+        <img width="354" height="207" src="img/details/details-left-bg.svg" alt="">
+      </div>
+
+      <div class="details-section__right-bg">
+        <img width="342" height="139" src="img/details/details-right-bg.svg" alt="">
+      </div>
+
       <div class="container">
         <div class="details-section__wrapp">
-          <h2>У вартість входить:</h2>
+          <h2 class="details-section__title">У вартість входить:</h2>
+
+            <ul class="details-section__items">
+              <li class="details-section__item">
+                <span class="details-section__item-icon">
+                  <img width='36' height='36' src='img/details/details-icon1.svg' alt='boy-character'>
+                </span>
+                <div class="details-section__item-heading h4">Проживання</div>
+                <p class="details-section__item-text">Сучасний курортний комплекс з великою територією, природою та атмосферою справжнього відпочинку преміум класу</p>
+              </li>
+
+              <li class="details-section__item">
+                <span class="details-section__item-icon">
+                  <img width='36' height='36' src='img/details/details-icon2.svg' alt='boy-character'>
+                </span>
+                <div class="details-section__item-heading h4">Харчування</div>
+                <p class="details-section__item-text">С4-разове преміальне харчування, щоб енергії вистачило на всі рейди</p>
+              </li>
+
+              <li class="details-section__item">
+                <span class="details-section__item-icon">
+                  <img width='36' height='36' src='img/details/details-icon3.svg' alt='boy-character'>
+                </span>
+                <div class="details-section__item-heading h4">Speaking clubs</div>
+                <p class="details-section__item-text">Спілкування з native-спікерами. Прокачуємо скіли англійської без нудних підручників</p>
+              </li>
+
+              <li class="details-section__item">
+                <span class="details-section__item-icon">
+                  <img width='36' height='36' src='img/details/details-icon4.svg' alt='boy-character'>
+                </span>
+                <div class="details-section__item-heading h4">Розваги</div>
+                <p class="details-section__item-text">Щодня новий ігровий всесвіт: від виїзних екскурсій до Львова до нічних вечірок та дискотек</p>
+              </li>
+
+              <li class="details-section__item">
+                <span class="details-section__item-icon">
+                  <img width='36' height='36' src='img/details/details-icon5.svg' alt='boy-character'>
+                </span>
+                <div class="details-section__item-heading h4">Страхування</div>
+                <p class="details-section__item-text">Ми дбаємо про безпеку та комфорт дітей під час усіх активностей.</p>
+              </li>
+
+              <li class="details-section__item">
+                <span class="details-section__item-icon">
+                  <img width='36' height='36' src='img/details/details-icon6.svg' alt='boy-character'>
+                </span>
+                <div class="details-section__item-heading h4">Супровід</div>
+                <p class="details-section__item-text">Професійна команда школи Logika</p>
+              </li>
+            </ul>
         </div>
       </div>
     </section>
@@ -381,7 +514,108 @@
     <section class="gallery-section">
       <div class="container">
         <div class="gallery-section__wrapp">
-          <h2>Gallery</h2>
+          <div class="gallery-section__slider">
+            <div class='swiper-container'>
+              <ul class='swiper-wrapper'>
+                <div class="swiper-slide">
+                  <div class="gallery-card">
+                      <picture>
+                        <source type='image/webp' srcset='img/gallery/gallery.webp'>
+                        <img width='345' height='272' src='img/gallery/gallery.png' alt=''>
+                      </picture>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="gallery-card">
+                      <picture>
+                        <source type='image/webp' srcset='img/gallery/gallery2.webp'>
+                        <img width='345' height='272' src='img/gallery/gallery2.png' alt=''>
+                      </picture>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="gallery-card">
+                      <picture>
+                        <source type='image/webp' srcset='img/gallery/gallery3.webp'>
+                        <img width='345' height='272' src='img/gallery/gallery3.png' alt=''>
+                      </picture>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="gallery-card">
+                      <picture>
+                        <source type='image/webp' srcset='img/gallery/gallery4.webp'>
+                        <img width='345' height='272' src='img/gallery/gallery4.png' alt=''>
+                      </picture>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="gallery-card">
+                      <picture>
+                        <source type='image/webp' srcset='img/gallery/gallery.webp'>
+                        <img width='345' height='272' src='img/gallery/gallery.png' alt=''>
+                      </picture>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="gallery-card">
+                      <picture>
+                        <source type='image/webp' srcset='img/gallery/gallery2.webp'>
+                        <img width='345' height='272' src='img/gallery/gallery2.png' alt=''>
+                      </picture>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="gallery-card">
+                      <picture>
+                        <source type='image/webp' srcset='img/gallery/gallery3.webp'>
+                        <img width='345' height='272' src='img/gallery/gallery3.png' alt=''>
+                      </picture>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="gallery-card">
+                      <picture>
+                        <source type='image/webp' srcset='img/gallery/gallery4.webp'>
+                        <img width='345' height='272' src='img/gallery/gallery4.png' alt=''>
+                      </picture>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="gallery-card">
+                      <picture>
+                        <source type='image/webp' srcset='img/gallery/gallery.webp'>
+                        <img width='345' height='272' src='img/gallery/gallery.png' alt=''>
+                      </picture>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="gallery-card">
+                      <picture>
+                        <source type='image/webp' srcset='img/gallery/gallery2.webp'>
+                        <img width='345' height='272' src='img/gallery/gallery2.png' alt=''>
+                      </picture>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="gallery-card">
+                      <picture>
+                        <source type='image/webp' srcset='img/gallery/gallery3.webp'>
+                        <img width='345' height='272' src='img/gallery/gallery3.png' alt=''>
+                      </picture>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="gallery-card">
+                      <picture>
+                        <source type='image/webp' srcset='img/gallery/gallery4.webp'>
+                        <img width='345' height='272' src='img/gallery/gallery4.png' alt=''>
+                      </picture>
+                  </div>
+                </div>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>

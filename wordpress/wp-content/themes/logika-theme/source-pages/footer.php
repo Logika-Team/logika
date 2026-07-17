@@ -53,14 +53,14 @@
                 <a href="#">Вакансії</a>
               </li>
               <li>
-                <a href="#">Договір оферти <p>(для клієнтів в Україні)</p></a>
+                <a href="/contractoffer/">Договір оферти <p>(для клієнтів в Україні)</p></a>
               </li>
               <li>
-                <a href="#">Договір оферти <p>(для клієнтів поза межами України)</p></a>
+                <a href="/contractoffer-overseas/">Договір оферти <p>(для клієнтів поза межами України)</p></a>
               </li>
-              <li>
-                <a href="#">Освітня ліцензія</a>
-              </li>
+			  <li>
+				<a href="/litsenziia/">Освітня ліцензія</a>
+			  </li>
             </ul>
           </div>
 
@@ -70,14 +70,14 @@
 
               <ul class="footer__socials">
                 <li>
-                  <a href="#" target="_blank">
+                  <a href="https://www.instagram.com/logika_it_school/" target="_blank">
                     <svg width='46' height='46'>
                       <use href='img/sprite/sprite.svg#Instagram'></use>
                     </svg>
                   </a>
                 </li>
                 <li>
-                  <a href="#" target="_blank">
+                  <a href="https://www.facebook.com/logika.it.school" target="_blank">
                     <svg width='46' height='46'>
                       <use href='img/sprite/sprite.svg#Facebook'></use>
                     </svg>

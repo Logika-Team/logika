@@ -1,0 +1,122 @@
+@import "../../general/mixins"; 
+
+.trips-section {
+    overflow: hidden;
+    position: relative;
+    padding: clamp(20px, 7.813vw, 80px) 0;
+
+    &__wrapp {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(20px, 3.906vw, 40px);
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        @media screen and (min-width: 1025px) {
+            width: calc(100% - 100px);
+        }
+    }
+
+    &__title {
+        @media screen and (max-width: 1024px) {
+            text-align: center;
+        }
+    }
+
+    &__tags {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        li {
+            padding: 10px 20px;
+            background-color: var(--light-blue);
+            border-radius: 56px;
+        }
+
+        @media screen and (max-width: 1024px) {
+            justify-content: center;
+        }
+    }
+    
+    &__slider {
+        width: 100%;
+        margin-top: clamp(20px, 3.906vw, 40px);
+        display: flex;
+
+        @media screen and (min-width: 1025px) {
+            flex-direction: column-reverse;
+        }
+
+        @media screen and (max-width: 1024px) {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+
+        .swiper-container {
+            width: 100%;
+            
+            @media screen and (min-width: 1241px) {
+                padding-left: calc((100vw - 1440px) / 2); 
+            }
+            
+            @media screen and (min-width: 577px) and (max-width: 1240px) {
+                padding-left: clamp(16px, 3.125vw, 60px);
+            }
+        }
+
+        .swiper-wrapper {
+            display: flex;
+        }
+
+        .swiper-slide {
+            width: 100%;
+
+            @media screen and (min-width: 577px) {
+                width: fit-content;
+                height: auto;
+                flex-shrink: 0; 
+            }
+        }
+    }
+
+    &__controls {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        @media screen and (min-width: 1025px) {
+            margin-top: -92px; 
+            justify-content: flex-end;
+        }
+
+        @media screen and (max-width: 1024px) {
+            justify-content: center;
+        }
+    }
+
+    &__control {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        color: var(--white);
+        background-color: var(--violet-100);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color .2s ease;
+        
+        svg {
+            fill: var(--white);
+        }
+    }
+
+}

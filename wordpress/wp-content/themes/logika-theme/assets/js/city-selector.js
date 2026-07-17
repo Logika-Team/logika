@@ -51,13 +51,13 @@ if (cityRoot && cityTrigger && window.logikaCityContext) {
     list.replaceChildren();
     const groups = cities.reduce((regions, city) => {
       const region = city.region || {};
-      const key = region.slug || 'other';
+      const key = region.label === 'Інші міста' ? 'other' : region.slug || 'other';
       if (!regions[key]) regions[key] = { region, cities: [] };
       regions[key].cities.push(city);
       return regions;
     }, {});
 
-    Object.values(groups).forEach((group) => {
+    Object.values(groups).sort((a, b) => (a.region.label === 'Онлайн' ? 2 : Number(a.region.label === 'Інші міста')) - (b.region.label === 'Онлайн' ? 2 : Number(b.region.label === 'Інші міста'))).forEach((group) => {
       const item = document.createElement('li');
       const button = document.createElement('button');
       const citiesList = document.createElement('ul');
@@ -78,7 +78,7 @@ if (cityRoot && cityTrigger && window.logikaCityContext) {
         citiesList.hidden = !nextState;
       });
 
-      group.cities.forEach((city) => {
+      group.cities.sort((a, b) => Number(a.label === 'Онлайн') - Number(b.label === 'Онлайн')).forEach((city) => {
         const cityItem = document.createElement('li');
         const option = document.createElement('button');
         option.className = 'header__city-option';

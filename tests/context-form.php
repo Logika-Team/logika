@@ -26,4 +26,13 @@ if ( ! str_contains( $form, 'data-logika-phone-input' ) || ! str_contains( $form
 	exit( 1 );
 }
 
+ob_start();
+get_template_part( 'template-parts/forms/lead' );
+$default_form = (string) ob_get_clean();
+
+if ( ! str_contains( $default_form, 'name="city_id" value="0"' ) ) {
+	fwrite( STDERR, "Shared lead form does not keep a city context field.\n" );
+	exit( 1 );
+}
+
 echo "Context lead form renders verified entity IDs.\n";

@@ -13,4 +13,11 @@ foreach ( array( 'archive-section', 'articles-section', 'offers-section', 'media
 	}
 }
 
+foreach ( array( 'href="#media-offers"', 'href="#media-news"', 'href="#media-articles"', 'id="media-offers"', 'id="media-news"', 'id="media-articles"' ) as $anchor ) {
+	if ( ! str_contains( $page, $anchor ) ) {
+		fwrite( STDERR, "Media center topic anchor is missing {$anchor}.\n" );
+		exit( 1 );
+	}
+}
+
 echo "Media center keeps the full main HTML structure.\n";

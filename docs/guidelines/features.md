@@ -1,7 +1,7 @@
 # Features: Logika School
 
-Date: 2026-07-10  
-Source: `project-scope.md`  
+Date: 2026-07-10
+Source: `project-scope.md`
 Implementation stack: WordPress + ACF Pro + custom theme + `logika-core`
 
 ## 1. Project goal

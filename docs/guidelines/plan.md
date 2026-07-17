@@ -18,10 +18,25 @@ Rules for agents and developers:
 - use the repo-local `.agents/skills/acf-pro` skill for future ACF Pro field model, Local JSON, options page, and template output work;
 - update this plan when scope changes.
 
-### 2026-07-15: Smooth lead CTA scroll
+### 2026-07-16: ACF-контент маркетингових сторінок
 
-- [ ] Add a homepage-only smooth-scroll handler for `/#lead-form` CTA links.
-- [ ] Cover the handler contract with a static regression test and run theme checks.
+- [x] Перенести унікальні тексти сторінок About, IT Courses, English Courses, FAQ і Media Center до наявних ACF Local JSON груп.
+- [x] Зберегти тексти CPT, спільних форм і карти у їхніх поточних джерелах даних.
+- [x] Перевірити ACF dry-run sync, ідемпотентне початкове наповнення та рендеринг сторінок.
+
+### 2026-07-16: Автори та перегляди статей
+
+- [x] Додати окремий непублічний CPT автора статей, ACF-фото та вибір автора у записі.
+- [x] Вивести Instagram, Telegram і YouTube з глобальних ACF-посилань у картці статті.
+- [x] Додати захищений від повторного браузерного обліку REST-лічильник переглядів і перевірити його в DDEV.
+
+### 2026-07-16: Lead CTA modal
+
+- [x] Render one accessible lead-form modal through the shared footer hook.
+- [x] Open it from all same-site `#lead-form` CTAs and support close button, backdrop click and Escape.
+- [x] Preserve the selected English course as a hidden `course_id` in the modal lead submission.
+- [x] Preserve the shared selected city as a hidden `city_id` in the modal lead submission.
+- [x] Cover the modal contract with a regression test and verify it in local DDEV.
 
 ### 2026-07-15: Lead form error contrast
 
@@ -32,6 +47,18 @@ Rules for agents and developers:
 - [x] Extend the existing media feed API with a published-articles search parameter.
 - [x] Connect the media-centre search form and cover both API and browser-script contracts.
 - [x] Show debounced article suggestions directly below the search field.
+
+### 2026-07-17: Static `main` page migration
+
+- [x] Safely transfer only the confirmed homepage, camp, camps, course and FAQ static sections into the WordPress theme.
+- [x] Preserve SourceMarkup/ACF rendering and verify the affected DDEV routes.
+
+### 2026-07-17: Синхронізація карти шкіл з Tilda
+
+- [x] Синхронізувати 98 актуальних міст, їхні назви та регіони з картою Tilda.
+- [x] Показувати на карті лише синхронізовані міста; недоступні області зробити сірими.
+- [x] Показувати Запорізьку область фіолетовою та інтерактивною, як місто Київ, без окремого маркера.
+- [x] Не відкривати Запоріжжя автоматично на карті.
 
 Checkbox meaning:
 
@@ -461,6 +488,7 @@ Goal: preserve search value and make structured data data-driven.
 - [ ] Create Tilda URL inventory.
 - [x] Import 13 Tilda blog articles with media-library images and original slugs.
 - [ ] Create redirect map.
+- [x] Redirect legacy `/map/{slug}` city URLs directly to canonical `/cities/{slug}/` URLs.
 - [ ] Apply 301 redirects before launch.
 - [ ] Check critical old URLs.
 
@@ -642,3 +670,13 @@ Note: CRM adapter implemented with fake client only; production credentials are 
 - [x] Перенести секцію проєктів з source-розмітки до теми WordPress.
 - [x] Додати Local JSON повторювач ACF для редагування карток і безпечний fallback.
 - [x] Зібрати assets та перевірити PHP-контракт і браузерний рендер.
+
+## 26. Порядок міст
+
+- [x] Перенести «Інші міста» та «Онлайн» у кінець списків у шапці й формах.
+- [x] Нормалізувати ключ «Інші міста», щоб API-варианты не створювали дубль групи.
+
+## 27. Медіа-центр на головній
+
+- [x] Додати ACF-поля для текстів, зображень, посилань і фіксованих промо-карток секції.
+- [x] Виводити до трьох обраних статей у порядку ACF; за порожньої добірки показувати останні доступні публікації.

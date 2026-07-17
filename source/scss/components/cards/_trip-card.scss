@@ -1,0 +1,17 @@
+.trip-card {
+    width: 100%;
+    height: clamp(365px, 27.778vw, 400px);
+    border-radius: 20px;
+    display: flex;
+    overflow: hidden;
+
+    @media screen and (min-width: 577px) {
+        max-width: clamp(320px, 32.292vw, 465px);
+    }
+
+    picture,
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}

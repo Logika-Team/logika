@@ -79,6 +79,7 @@
   }
 
   &__canvas {
+    position: relative;
     min-height: 534px;
 
     svg {
@@ -109,7 +110,8 @@
       }
     }
 
-    path#crimea {
+    path#crimea,
+    path.is-unavailable {
       cursor: default;
       fill: #d9d9d9;
       pointer-events: none;

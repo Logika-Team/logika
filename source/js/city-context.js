@@ -39,6 +39,7 @@
   };
 
   const get = () => cityFromPath() || cities.find((city) => String(city.id) === String(storedId())) || cachedCity();
+  const isHomepage = () => /^\/(?:cities\/[^/]+\/?)?$/.test(window.location.pathname);
 
   const syncHomeLinks = (city) => {
     if (!city?.url) return;
@@ -76,7 +77,10 @@
     remember(city);
     syncHomeLinks(city);
     window.dispatchEvent(new CustomEvent('logika:city-change', { detail: { city } }));
-    if (openCityPage && city.url) window.location.assign( city.url );
+    if (openCityPage && city.url) {
+      if (isHomepage() && window.history?.replaceState) window.history.replaceState({ cityId: city.id }, '', city.url);
+      else window.location.assign( city.url );
+    }
   };
 
   const initial = get();

@@ -93,12 +93,36 @@
         pointer-events: none;
     }
 
-    &__feature-tags,
+    &__background {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        pointer-events: none;
+    }
+
+    &__feature &__figma-art { transform: translateY(30px); }
+
+    &__feature-tags {
+        position: absolute;
+        top: 40px;
+        left: 40px;
+        z-index: 1;
+        display: flex;
+        align-items: flex-start;
+        padding: 0;
+        gap: 6px;
+        width: 401px;
+        height: 45px;
+    }
+
+    &__feature-tags span,
     &__label {
         position: relative;
         z-index: 1;
         display: flex;
-        gap: 8px;
         width: fit-content;
         padding: 9px 16px;
         border-radius: 24px;
@@ -107,6 +131,9 @@
         font-size: 13px;
         font-weight: 700;
     }
+    &__feature-tags span:first-child { width: 172px; height: 45px; padding: 10px 20px; justify-content: center; background: #efddfa; border: 1px solid #d6c1e3; border-radius: 46px; }
+    &__feature-tags span:nth-child(2) { width: 223px; height: 45px; padding: 10px 20px; justify-content: center; background: #dedbff; border: 1px solid #c3c0e6; border-radius: 46px; }
+    &__feature-tags span { box-sizing: border-box; white-space: nowrap; font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 600; line-height: 140%; letter-spacing: -0.05em; color: #602b7a; }
 
     &__feature-characters {
         position: absolute;
@@ -148,13 +175,21 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        padding: 32px;
-        background: #d9f1ff linear-gradient(135deg, rgba(255, 255, 255, .5), transparent);
+        padding: 37px;
+        background: #ddf0fb;
     }
 
-    &__contest > :not(.media-section__figma-art),
+    &__contest .media-section__figma-art {
+        inset: -15px 0 auto auto;
+        width: 300px;
+        height: 300px;
+        clip-path: none;
+        object-fit: contain;
+    }
+
+    &__contest > :not(.media-section__figma-art):not(.media-section__background),
     &__promo > :not(.media-section__figma-art),
-    &__race > :not(.media-section__figma-art) { position: relative; z-index: 1; }
+    &__race > :not(.media-section__figma-art) { position: relative; z-index: 2; }
 
     &__contest h3 { font-size: 36px; line-height: 1.05; }
     &__contest p { max-width: 390px; font-size: 14px; }
@@ -162,23 +197,155 @@
     &__promo,
     &__race { padding: 26px; color: var(--white); background: var(--violet-500); }
 
+    &__promo--offer { background: #602b7a; }
+
+    &__promo--discount { background: #602b7a; }
+
+    &__promo--discount .media-section__figma-art {
+        inset: -18px 0 auto auto;
+        width: 233px;
+        height: 207px;
+        object-fit: contain;
+    }
+
     &__promo { min-height: 284px; display: flex; flex-direction: column; justify-content: space-between; }
     &__promo > img:not(.media-section__figma-art) { display: none; }
+
+    &__promo--offer .media-section__figma-art {
+        inset: 0 0 auto auto;
+        width: 169px;
+        height: 142px;
+        object-fit: contain;
+    }
     &__promo h3, &__promo h4, &__race h3 { color: var(--white); }
     &__promo h3 { font-size: 42px; line-height: .9; }
     &__promo h4 { margin: 0; font-size: 24px; line-height: 1; }
-    &__promo p, &__race p { font-size: 12px; color: var(--white); }
+    &__promo p, &__race p {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 140%;
+        letter-spacing: -0.05em;
+        color: #d0d0d0;
+    }
+    &__promo p { margin-top: 10px; }
     &__promo .btn, &__race .btn, &__contest .btn, &__feature-copy .btn { width: 100%; justify-content: center; }
-    &__race { min-height: 461px; display: flex; flex-direction: column; gap: 18px; background: #5f2782 radial-gradient(circle at 80% 15%, #9edb10 0 4px, transparent 5px) 0 0 / 38px 38px; }
+    &__promo .btn, &__race .btn { border-radius: 44px; }
+    &__news .btn, &__contest .btn { border-radius: 44px; }
+    &__promo .media-section__label,
+    &__race .media-section__label,
+    &__contest .media-section__label {
+        background: #efddfa;
+        border: 1px solid #d6c1e3;
+        border-radius: 46px;
+        color: #602b7a;
+    }
+    &__feature .media-section__label {
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 172px;
+        height: 45px;
+        padding: 10px 20px;
+        gap: 10px;
+        background: #efddfa;
+        border: 1px solid #d6c1e3;
+        border-radius: 46px;
+        color: #602b7a;
+    }
+    &__contest .media-section__label {
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        height: 45px;
+        padding: 10px 20px;
+        white-space: nowrap;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 140%;
+        letter-spacing: -0.05em;
+    }
+    &__race { min-height: 461px; display: flex; flex-direction: column; gap: 18px; background: #602b7a; }
+    &__race .media-section__figma-art { inset: 0 0 auto auto; width: 178px; height: 210px; object-fit: contain; }
+    &__race .media-section__label {
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        padding: 10px 20px;
+        gap: 10px;
+        background: #efddfa;
+        border: 1px solid #d6c1e3;
+        border-radius: 46px;
+        color: #602b7a;
+        height: 45px;
+        padding: 10px 20px;
+        white-space: nowrap;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 140%;
+        letter-spacing: -0.05em;
+    }
     &__race h3 { font-size: 42px; line-height: .95; margin-top: 22px; }
-    &__race .btn { margin-top: auto; }
+    &__race p {
+        position: absolute !important;
+        top: 200px !important;
+        left: 26px;
+        width: 236px;
+        height: 110px;
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 140%;
+        letter-spacing: -0.05em;
+        color: #d0d0d0;
+    }
+    &__race .btn {
+        position: absolute;
+        top: 358px;
+        left: 40px;
+        width: 387px;
+        height: 63px;
+        padding: 15px 25px;
+        gap: 6px;
+        border-radius: 44px;
+        background: #ffd631;
+        box-shadow: 0 0 15px rgba(236, 186, 22, .35);
+    }
 
     &__blog-list { gap: 18px; }
-    &__post { display: grid; gap: 10px; }
-    &__post img { width: 100%; height: 110px; border-radius: 18px; object-fit: cover; }
-    &__post h3 { font-size: 16px; line-height: 1.1; }
-    &__post p { font-size: 11px; }
-    &__post .media-section__label { padding: 7px 12px; font-size: 11px; }
+    &__post {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: 225px;
+        height: 343px;
+        gap: 20px;
+    }
+    &__post > img { width: 225px; height: 143px; border-radius: 18px; object-fit: cover; }
+    &__post h3 {
+        width: 225px;
+        height: 120px;
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 118%;
+        letter-spacing: -0.05em;
+        color: #2f2535;
+    }
+    &__post p { display: flex; align-items: center; gap: 12px; margin: 0; font-size: 16px; color: #8c8c8c; }
+    &__post p span { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+    &__post p img { width: 24px; height: 24px; border-radius: 0; object-fit: contain; }
+    &__post .media-section__label { padding: 10px 20px; font-size: 16px; }
 
     &__cards {
         width: 100%;

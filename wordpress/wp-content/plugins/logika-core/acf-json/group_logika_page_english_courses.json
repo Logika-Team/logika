@@ -10,6 +10,8 @@
     {"key":"field_english_courses_catalog_title","label":"Заголовок каталогу","name":"english_courses_catalog_title","type":"text"},
     {"key":"field_english_courses_test_title","label":"Заголовок тестування","name":"english_courses_test_title","type":"text"},
     {"key":"field_english_courses_about_title","label":"Заголовок про навчання","name":"english_courses_about_title","type":"text"},
+    {"key":"field_english_courses_test_text","label":"Текст тестування","name":"english_courses_test_text","type":"textarea"},
+    {"key":"field_english_courses_page_texts","label":"Додаткові тексти сторінки","name":"english_courses_page_texts","type":"repeater","layout":"table","sub_fields":[{"key":"field_english_courses_page_texts_source","label":"Оригінальний текст","name":"source","type":"textarea","readonly":1},{"key":"field_english_courses_page_texts_value","label":"Текст","name":"value","type":"textarea"}]},
     {"key":"field_english_courses_tab_content","label":"Добірки","type":"tab"},
     {"key":"field_english_courses_featured_courses","label":"Курси","name":"english_courses_featured_courses","type":"relationship","post_type":["course"],"return_format":"id","filters":["search"]},
     {"key":"field_english_courses_featured_reviews","label":"Відгуки","name":"english_courses_featured_reviews","type":"relationship","post_type":["review"],"return_format":"id","filters":["search"]},

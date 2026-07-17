@@ -6,113 +6,82 @@
   @include('partials/header.html')
 
   <main>
-    <section class="banner-section">
+    <section class="faq-banner-section">
       <div class="container">
-        <div class="banner-section__wrapp">
-          <div class="banner-section__blocks">
-            <div class="banner-section__left">
-              <div class="banner-section__info">
-                <h1>Часті запитання про навчання в Logika</h1>
-                <p>Зібрали відповіді на найпоширеніші запитання батьків і дітей про курси, формати навчання, розклад, вартість, викладачів, проєкти, табори та можливості приєднатися до команди Logika.</p>
+        <div class="faq-banner-section__wrapp">
+          <div class="breadcrumbs">
+            <a href="/">Головна</a> / Питання-відповідь
+          </div>
+
+          <div class="faq-banner-section__blocks">
+            <div class="faq-banner-section__left">
+              <span class="faq-banner-section__label h5">FAQ</span>
+
+              <div class="faq-banner-section__info">
+                <h1 class="faq-banner-section__title">Часті запитання про навчання в Logika</h1>
+                <p class="faq-banner-section__text">Зібрали відповіді на найпоширеніші запитання батьків і дітей про курси, формати навчання, розклад, вартість, викладачів, проєкти, табори та можливості приєднатися до команди Logika.</p>
+              </div>
+
+              <div class="faq-banner-section__btns">
+                <a class="faq-banner-section__btn btn btn--bordered-violet" href="#faq">
+                  Найпоширеніші питання
+                  <svg width='20' height='20'>
+                    <use href='img/sprite/sprite.svg#icon-more'></use>
+                  </svg>
+                </a>
+                <a class="faq-banner-section__btn btn btn--violet" href="#lead-form">
+                  Безкоштовний пробний урок
+                  <svg width='20' height='20'>
+                    <use href='img/sprite/sprite.svg#arrow-right'></use>
+                  </svg>
+                </a>
               </div>
             </div>
 
-            <div class="banner-section__right">
-
+            <div class="faq-banner-section__right">
+              <div class="faq-banner-section__media">
+                <img width='483' height='479' src='img/faq/faq-image.svg' alt='boy-character'>
+              </div>
+              <div class="faq-banner-section__character-logika">
+                <img width='110' height='136' src='img/faq/faq-icon.svg' alt='boy-character'>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="faq-section">
-      <div class="faq-section__left-bg">
-        <img src="img/faq/faq-left-bg.svg" alt="">
-      </div>
-
-      <div class="faq-section__right-bg">
-        <img src="img/faq/faq-right-bg.svg" alt="">
-      </div>
-
-      <div class="container">
-        <div class="faq-section__wrapp">
-          <h2>Найпоширеніші питання</h2>
-
-          <ul class='accordion' data-default="1" data-single='true' data-breakpoint='576' data-accordion-init>
-            <li class='accordion__item'>
-              <button class='accordion__btn h5' data-id='1'>
-                Скільки коштує навчання в Logika?
-              </button>
-              <div class='accordion__content' data-content='1'>
-                <div class="editor">
-                  <p>Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.</p>
-                </div>
-              </div>
-            </li>
-            <li class='accordion__item'>
-              <button class='accordion__btn h5' data-id='2'>
-                З якого віку можна навчатися в Logika?
-              </button>
-              <div class='accordion__content' data-content='2'>
-                <div class="editor">
-                  <p>Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.</p>
-                </div>
-              </div>
-            </li>
-            <li class='accordion__item'>
-              <button class='accordion__btn h5' data-id='3'>
-                Чи потрібен досвід у програмуванні або англійській?
-              </button>
-              <div class='accordion__content' data-content='3'>
-                <div class="editor">
-                  <p>Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.</p>
-                </div>
-              </div>
-            </li>
-            <li class='accordion__item'>
-              <button class='accordion__btn h5' data-id='4'>
-                Як проходять заняття?
-              </button>
-              <div class='accordion__content' data-content='4'>
-                <div class="editor">
-                  <p>Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.</p>
-                </div>
-              </div>
-            </li>
-            <li class='accordion__item'>
-              <button class='accordion__btn h5' data-id='5'>
-                Що отримає дитина під час навчання?
-              </button>
-              <div class='accordion__content' data-content='5'>
-                <div class="editor">
-                  <p>Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.</p>
-                </div>
-              </div>
-            </li>
-            <li class='accordion__item'>
-              <button class='accordion__btn h5' data-id='6'>
-                Як записатися на безкоштовний пробний урок?
-              </button>
-              <div class='accordion__content' data-content='6'>
-                <div class="editor">
-                  <p>Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.</p>
-                </div>
-              </div>
-            </li>
-            <li class='accordion__item'>
-              <button class='accordion__btn h5' data-id='7'>
-                Чим Logika відрізняється від інших шкіл?
-              </button>
-              <div class='accordion__content' data-content='7'>
-                <div class="editor">
-                  <p>Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.</p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
+    <?php
+      get_template_part(
+        'template-parts/sections/faq',
+        null,
+        array(
+          'section_id'           => 'faq',
+          'section_title'        => 'Найпоширеніші питання',
+          'with_backgrounds'     => true,
+          'accordion_class'      => 'accordion accordion--mode',
+          'accordion_breakpoint' => '1920',
+          'fallback_faq_items'   => array(
+            array(
+              'question' => 'З якого віку дитина може навчатися в Logika?',
+              'answer'   => 'Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.',
+            ),
+            array(
+              'question' => 'З якого віку можна навчатися в Logika?',
+              'answer'   => 'Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.',
+            ),
+            array(
+              'question' => 'Чи потрібен досвід у програмуванні або англійській?',
+              'answer'   => 'Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.',
+            ),
+            array(
+              'question' => 'Як проходять заняття?',
+              'answer'   => 'Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.',
+            ),
+          ),
+        )
+      );
+    ?>
 
     <section class="testimonials-section">
       <div class="container">
@@ -403,6 +372,27 @@
         </div>
       </div>
     </section>
+
+    <div data-map-online-form hidden>
+      <form class="banner-section__form main-form">
+        <div class="main-form__title h5">
+          <span>Перший урок — безкоштовно.</span>
+          Залиште заявку за 30 секунд — ми зателефонуємо і підберемо зручний час
+        </div>
+        <div class="main-form__inputs">
+          <input class="main-form__input" type="text" name="name" placeholder="Ім’я">
+          <input class="main-form__input" type="tel" name="tel" placeholder="Номер телефону">
+          <input class="main-form__input" type="text" name="age" placeholder="Вік дитини (від 7 до 17)">
+        </div>
+        <button class="main-form__btn btn btn--yellow">
+          Спробувати безкоштовно
+          <svg width='20' height='20'>
+            <use href='img/sprite/sprite.svg#arrow-right'></use>
+          </svg>
+        </button>
+        <p class="main-form__text">Натискаючи, ви погоджуєтесь із <a href="#">Політикою конфіденційності</a></p>
+      </form>
+    </div>
 
     <section class="school-map" data-school-map aria-labelledby="school-map-title">
       <div class="container">

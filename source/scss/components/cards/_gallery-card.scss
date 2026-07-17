@@ -1,0 +1,13 @@
+.gallery-card {
+    display: flex;
+
+    picture,
+    img {
+        width: 100%;
+        border-radius: 25px;
+    }
+
+    @media screen and (max-width: 1024px) {
+        height: 465px;
+    }
+}

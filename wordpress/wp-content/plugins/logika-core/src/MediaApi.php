@@ -30,6 +30,9 @@ final class MediaApi {
 						'sanitize_callback' => static fn( $value ): string => sanitize_text_field( (string) $value ),
 						'validate_callback' => static fn( $value ): bool => strlen( (string) $value ) <= 300,
 					),
+					'all' => array(
+						'sanitize_callback' => 'rest_sanitize_boolean',
+					),
 				),
 			)
 		);
@@ -38,7 +41,7 @@ final class MediaApi {
 	public static function index( WP_REST_Request $request ): WP_REST_Response {
 		$city_id = absint( $request->get_param( 'city' ) );
 		$search  = trim( (string) $request->get_param( 'search' ) );
-		$limit   = $search ? self::SEARCH_LIMIT : self::LIMIT;
+		$limit   = rest_sanitize_boolean( $request->get_param( 'all' ) ) ? -1 : ( $search ? self::SEARCH_LIMIT : self::LIMIT );
 
 		if ( ! $city_id ) {
 			return new WP_REST_Response( self::cards( new WP_Query( self::latest_query( $search ) ) ) );
@@ -60,25 +63,30 @@ final class MediaApi {
 					'order'          => 'DESC',
 					'meta_key'       => 'post_related_city',
 					'meta_value'     => (string) $city_id,
+					'meta_query'     => self::visibility_query(),
 					's'              => $search,
 				)
 			)
 		);
 		$remaining = $limit - count( $local );
-		$common = $remaining > 0 ? self::cards(
+		$common = -1 === $limit || $remaining > 0 ? self::cards(
 			new WP_Query(
 				array(
 					'post_type'      => 'post',
 					'post_status'    => 'publish',
-					'posts_per_page' => $remaining,
+					'posts_per_page' => -1 === $limit ? -1 : $remaining,
 					'orderby'        => 'date',
 					'order'          => 'DESC',
-						'meta_query'     => array(
+					'meta_query'     => array(
+						'relation' => 'AND',
+						array(
 						'relation' => 'OR',
 						array( 'key' => 'post_related_city', 'compare' => 'NOT EXISTS' ),
 						array( 'key' => 'post_related_city', 'value' => '', 'compare' => '=' ),
 						array( 'key' => 'post_related_city', 'value' => '0' ),
 						),
+						self::visibility_query(),
+					),
 						's'              => $search,
 				)
 			)
@@ -97,6 +105,7 @@ final class MediaApi {
 			'posts_per_page' => $search ? self::SEARCH_LIMIT : self::LIMIT,
 			'orderby'        => 'date',
 			'order'          => 'DESC',
+			'meta_query'     => self::visibility_query(),
 		);
 
 		if ( $search ) {
@@ -104,6 +113,17 @@ final class MediaApi {
 		}
 
 		return $query;
+	}
+
+	/**
+	 * @return array<string, mixed>
+	 */
+	private static function visibility_query(): array {
+		return array(
+			'relation' => 'OR',
+			array( 'key' => 'post_hide_from_blog', 'compare' => 'NOT EXISTS' ),
+			array( 'key' => 'post_hide_from_blog', 'value' => '0', 'compare' => '=' ),
+		);
 	}
 
 	/**

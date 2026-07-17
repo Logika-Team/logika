@@ -82,7 +82,7 @@
               <p>Крім основного навчання проводимо сезонні інтелектуальні квести з призами, їздимо в IT-табори до Карпат та заохочуємо до навчання різноманітними способами.</p>
               <strong>Наша основна мета – навчити цікаво, легко та ефективно!</strong>
             </div>
-            <a class="about-history__cta" href="#form">Безкоштовний пробний урок&nbsp; →</a>
+            <a class="about-history__cta" href="#lead-form">Безкоштовний пробний урок&nbsp; →</a>
           </div>
           <div class="about-history__image">
             <img src="img/about/anniversary-full.png" alt="Logika святкує чотири роки">
@@ -149,7 +149,7 @@
                   <img width='368' height='280' src='img/onbording/onbording1.svg' alt=''>
                 </div>
               </div>
-
+              
               <div class="onboarding-section__item-content">
                 <div class="onboarding-section__item-title h3">Залишiть заявку</div>
 
@@ -170,7 +170,7 @@
                   <img width='368' height='280' src='img/onbording/onbording2.svg' alt=''>
                 </div>
               </div>
-
+              
               <div class="onboarding-section__item-content">
                 <div class="onboarding-section__item-title h3">Відвідайте безкоштовний пробний урок</div>
 
@@ -191,7 +191,7 @@
                   <img width='368' height='280' src='img/onbording/onbording3.svg' alt=''>
                 </div>
               </div>
-
+              
               <div class="onboarding-section__item-content">
                 <div class="onboarding-section__item-title h3">Розпочніть навчання та отримайте результат</div>
 
@@ -768,7 +768,7 @@
               </picture>
             </li>
           </ul>
-
+          
         </div>
       </div>
     </section>

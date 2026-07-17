@@ -31,6 +31,10 @@ managed_pages=(
   'it-courses:IT Courses'
   'english-courses:English Courses'
   'media-center:Media Center'
+  'privacy-policy:Privacy Policy'
+  'contractoffer:Contract Offer'
+  'contractoffer-overseas:Contract Offer Overseas'
+  'litsenziia:Освітня ліцензія'
 )
 
 for page in "${managed_pages[@]}"; do

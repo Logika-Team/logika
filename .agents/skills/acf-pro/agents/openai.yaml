@@ -1,0 +1,4 @@
+interface:
+  display_name: "ACF Pro"
+  short_description: "Build and maintain ACF Pro field models"
+  default_prompt: "Use $acf-pro to plan and implement safe ACF Pro field groups for a WordPress project."

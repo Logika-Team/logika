@@ -1,7 +1,7 @@
 # Design System: Logika School
 
-Date: 2026-07-10  
-Project: Logika School  
+Date: 2026-07-10
+Project: Logika School
 Visual language source: ready HTML/SCSS/JS markup in `source/`
 
 ## 1. Purpose of the design system

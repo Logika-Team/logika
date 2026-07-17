@@ -27,14 +27,14 @@
 
           <ul class="header__socials-links">
             <li>
-              <a href="#" target="_blank">
+              <a href="https://www.instagram.com/logika_it_school/" target="_blank">
                 <svg width='24' height='24'>
                   <use href='img/sprite/sprite.svg#instagram-color'></use>
                 </svg>
               </a>
             </li>
             <li>
-              <a href="#" target="_blank">
+              <a href="https://www.facebook.com/logika.it.school" target="_blank">
                 <svg width='24' height='24'>
                   <use href='img/sprite/sprite.svg#facebook-color'></use>
                 </svg>
@@ -50,12 +50,9 @@
     <div class="header__box">
       <div class="header__left">
         <a class="header__logo logo" href="/">
-          <img width='129' height='54' src='img/main-logo.svg' alt='Logika'>
+          <img width='323' height='53' src='img/main-logo.svg?v=20260717' alt='Logika'>
         </a>
 
-        <div class="header__accreditation">
-          Найбільша в Україні школа програмування та англійської мови для учнів 7-16 років
-        </div>
       </div>
 
       <div class="mobile">
@@ -114,6 +111,13 @@
           </nav>
 
           <div class="header__controls">
+            <a class="header__login btn" href="https://student.logikaschool.com.ua/login">
+              <svg width='16' height='16'>
+                <use href='img/sprite/sprite.svg#icon-person'></use>
+              </svg>
+              <span>Увійти</span>
+            </a>
+
             <a class="header__lesson btn btn--yellow" href="#">
               Пробний урок
               <svg width='20' height='20'>

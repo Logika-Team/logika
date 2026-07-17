@@ -6,26 +6,191 @@
   @include('partials/header.html')
 
   <main>
-    <section class="course-banner">
+    <section class="course-banner-section">
       <div class="container">
-        <div class="course-banner__wrapp">
-          <h1>Основи фронтенд розробки</h1>
+        <div class="course-banner-section__wrapp">
+          <div class="breadcrumbs">
+            Головна / Питання-відповідь
+          </div>
+
+          <div class="course-banner-section__blocks">
+            <div class="course-banner-section__left">
+              <span class="course-banner-section__label h5">для дітей 14-17 рокiв</span>
+
+              <div class="course-banner-section__info">
+                <h1 class="course-banner-section__title">Основи фронтенд розробки</h1>
+                <p class="course-banner-section__text">Якщо ви маєте творчий підхід до роботи, бажаєте розробляти і створювати динамічні інтерфейси, вам однозначно дорога у фронтенд.</p>
+                <p class="course-banner-section__text">Frontend – це публічна частина web-додатків (веб-сайтів), з якою користувач може взаємодіяти і контактувати напряму. По суті, фронтенд – це все те, що бачить користувач при відкритті web-сторінки.</p>
+              </div>
+
+              <div class="course-banner-section__btns">
+                <button class="course-banner-section__btn btn btn--violet">
+                  Залишити заявку
+                  <svg width='20' height='20'>
+                    <use href='img/sprite/sprite.svg#arrow-right'></use>
+                  </svg>
+                </button>
+                <a class="course-banner-section__btn btn btn--bordered-violet">
+                  Програма курсу
+                  <svg width='20' height='20'>
+                    <use href='img/sprite/sprite.svg#icon-more'></use>
+                  </svg>
+                </a>
+              </div>
+
+            </div>
+
+            <div class="course-banner-section__right">
+              <div class="course-banner-section__media">
+                <img width='590' height='605' src='img/course/it-course-image.svg' alt='boy-character'>
+              </div>
+              <div class="course-banner-section__right-bg">
+                <img src="img/faq/faq-bg.svg" alt="">
+              </div>
+              <div class="course-banner-section__character-logika">
+                <img width='110' height='136' src='img/course/course-icon.svg' alt='boy-character'>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="learn-section">
+      <div class="learn-section__bg">
+        <img src="img/learn/learn-bg.svg" alt="">
+      </div>
+
       <div class="container">
         <div class="learn-section__wrapp">
-          <h1>На курсі учні навчаються</h1>
+          <h2 class="learn-section__title">На курсі учні навчаються</h2>
+
+          <div class="learn-section__box">
+            <ul class="learn-section__items">
+              <li class="learn-section__item">
+                <span>
+                  <img width='36' height='36' src='img/learn/learn-icon1.svg' alt='boy-character'>
+                </span>
+                <p>Використовувати основні інструменти HTML, CSS</p>
+              </li>
+
+              <li class="learn-section__item">
+                <span>
+                  <img width='36' height='36' src='img/learn/learn-icon2.svg' alt='boy-character'>
+                </span>
+                <p>Писати власний JavaScript-код</p>
+              </li>
+
+              <li class="learn-section__item">
+                <span>
+                  <img width='36' height='36' src='img/learn/learn-icon3.svg' alt='boy-character'>
+                </span>
+                <p>Виконувати просту верстку та базовий функціонал</p>
+              </li>
+
+              <li class="learn-section__item">
+                <span>
+                  <img width='36' height='36' src='img/learn/learn-icon4.svg' alt='boy-character'>
+                </span>
+                <p>Зі специфікою роботи веб-хостингів та серверів</p>
+              </li>
+
+              <li class="learn-section__item">
+                <span>
+                  <img width='36' height='36' src='img/learn/learn-icon5.svg' alt='boy-character'>
+                </span>
+                <p>Працювати з інструментами Git та Github</p>
+              </li>
+
+              <li class="learn-section__item">
+                <span>
+                  <img width='36' height='36' src='img/learn/learn-icon6.svg' alt='boy-character'>
+                </span>
+                <p>Опубліковувати, підтримувати та просувати проекти</p>
+              </li>
+
+            </ul>
+
+            <div class="learn-section__media">
+              <div class="learn-section__icon">
+                <img width='127' height='156' src='img/learn/learn-icon.svg' alt='boy-character'>
+              </div>
+
+              <div class="learn-section__image">
+                <picture>
+                  <source type='image/webp' srcset='img/learn/learn-image.webp'>
+                  <img width='607' height='465' src='img/learn/learn-image.png' alt=''>
+                </picture>
+              </div>
+
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="process-section">
+      <div class="process-section__left-bg">
+        <img src="img/course/process-left-bg.svg" alt="">
+      </div>
+
+      <div class="process-section__right-bg">
+        <img src="img/course/process-left-bg.svg" alt="">
+      </div>
+
       <div class="container">
         <div class="process-section__wrapp">
-          <h1>Кожне заняття – теорія і практика</h1>
+          <h2 class="process-section__title">Кожне заняття – теорія і практика</h2>
+
+          <ul class="process-section__items">
+            <li class="process-section__item">
+              <div class="process-section__item-media">
+                <div class="process-section__item-image">
+                  <picture>
+                    <source type='image/webp' srcset='img/course/process-img1.webp'>
+                    <img width='368' height='280' src='img/course/process-img1.png' alt=''>
+                  </picture>
+                </div>
+              </div>
+
+              <div class="process-section__item-content">
+                <div class="process-section__item-title h3">Як проходять уроки?</div>
+
+                <p class="process-section__item-excerpt">На кожному занятті вивчаємо новий інструмент і застосовуємо знання на практиці. Вчимося працювати індивідуально та в команді, проходимо всі етaпи фронтенд розробки.</p>
+
+                <a href="#" class="process-section__item-lesson btn btn--violet">
+                  Залишити заявку
+                  <svg width='20' height='20'>
+                    <use href='img/sprite/sprite.svg#arrow-right'></use>
+                  </svg>
+                </a>
+              </div>
+            </li>
+
+            <li class="process-section__item">
+              <div class="process-section__item-media">
+                <div class="process-section__item-image">
+                  <picture>
+                    <source type='image/webp' srcset='img/course/process-img2.webp'>
+                    <img width='368' height='280' src='img/course/process-img2.png' alt=''>
+                  </picture>
+                </div>
+              </div>
+
+              <div class="process-section__item-content">
+                <div class="process-section__item-title h3">Проєктний підхід</div>
+
+                <p class="process-section__item-excerpt">Учні вивчать не тільки стек HTML/CSS/JS, а й повний цикл створення проекту: від дизайну інтерфейсів та розробки у VSCode до хостингу, публікації та просування готового сайту. Станьте розробником, який розуміє весь процес «під ключ».</p>
+
+                <a href="#" class="process-section__item-lesson btn btn--green">
+                  Залишити заявку
+                  <svg width='20' height='20'>
+                    <use href='img/sprite/sprite.svg#arrow-right'></use>
+                  </svg>
+                </a>
+              </div>
+            </li>
+          </div>
         </div>
       </div>
     </section>
@@ -53,22 +218,27 @@
 
       <div class="container">
         <div class="faq-section__wrapp">
-          <h2>Програма курсу</h2>
+          <h2 class="faq-section__title">Програма курсу</h2>
 
-          <ul class='accordion' data-default="1" data-single='true' data-breakpoint='576' data-accordion-init>
+          <ul class='accordion accordion--mode' data-default="1" data-single='true' data-breakpoint='576' data-accordion-init>
             <li class='accordion__item'>
               <button class='accordion__btn h5' data-id='1'>
-                Скільки коштує навчання в Logika?
+                Модуль 1. Старт у фронтенді
               </button>
               <div class='accordion__content' data-content='1'>
                 <div class="editor">
-                  <p>Вартість залежить від обраного формату навчання, пакета занять, міста, можливих пільг і поточних знижок. Залиште заявку, і менеджер допоможе підібрати оптимальний варіант та розрахує фінальну вартість.</p>
+                  <ul>
+                    <li>Знайомство з фронтендом. HTML</li>
+                    <li>Знайомство з CSS: додаємо стилів</li>
+                    <li>Знайомство з JavaScript: змінні та DOM</li>
+                    <li>Бліц-презентація. HTML/CSS/JS: сайт-візитка</li>
+                  </ul>
                 </div>
               </div>
             </li>
             <li class='accordion__item'>
               <button class='accordion__btn h5' data-id='2'>
-                З якого віку можна навчатися в Logika?
+                Модуль 2. Стилі і вебдизайн
               </button>
               <div class='accordion__content' data-content='2'>
                 <div class="editor">
@@ -78,7 +248,7 @@
             </li>
             <li class='accordion__item'>
               <button class='accordion__btn h5' data-id='3'>
-                Чи потрібен досвід у програмуванні або англійській?
+                Модуль 3. Програмування мовою JavaScript
               </button>
               <div class='accordion__content' data-content='3'>
                 <div class="editor">
@@ -88,7 +258,7 @@
             </li>
             <li class='accordion__item'>
               <button class='accordion__btn h5' data-id='4'>
-                Як проходять заняття?
+                Модуль 4. Проєкт "Квіз"
               </button>
               <div class='accordion__content' data-content='4'>
                 <div class="editor">
@@ -98,7 +268,7 @@
             </li>
             <li class='accordion__item'>
               <button class='accordion__btn h5' data-id='5'>
-                Що отримає дитина під час навчання?
+                Модуль 5. Git та командна робота
               </button>
               <div class='accordion__content' data-content='5'>
                 <div class="editor">
@@ -108,7 +278,7 @@
             </li>
             <li class='accordion__item'>
               <button class='accordion__btn h5' data-id='6'>
-                Як записатися на безкоштовний пробний урок?
+                Модуль 6. Бібліотеки та аналітика
               </button>
               <div class='accordion__content' data-content='6'>
                 <div class="editor">
@@ -118,7 +288,7 @@
             </li>
             <li class='accordion__item'>
               <button class='accordion__btn h5' data-id='7'>
-                Чим Logika відрізняється від інших шкіл?
+                Модуль 7. Реліз
               </button>
               <div class='accordion__content' data-content='7'>
                 <div class="editor">
@@ -526,9 +696,9 @@
 
       <div class="container">
         <div class="faq-section__wrapp">
-          <h2>Питання та відповіді</h2>
+          <h2 class="faq-section__title">Питання та відповіді</h2>
 
-          <ul class='accordion' data-default="1" data-single='true' data-breakpoint='576' data-accordion-init>
+          <ul class='accordion' data-default="1" data-single='true' data-breakpoint='1920' data-accordion-init>
             <li class='accordion__item'>
               <button class='accordion__btn h5' data-id='1'>
                 Скільки коштує навчання в Logika?

@@ -1,0 +1,14 @@
+{
+  "key": "group_logika_article_author",
+  "title": "Автор статей",
+  "fields": [
+    {"key":"field_article_author_photo","label":"Фото автора","name":"article_author_photo","type":"image","return_format":"id","mime_types":"jpg,jpeg,png,webp","min_width":70,"min_height":70,"instructions":"Фото для картки автора у статті."}
+  ],
+  "location": [[{"param":"post_type","operator":"==","value":"article_author"}]],
+  "active": true,
+  "position": "acf_after_title",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "show_in_rest": true
+}

@@ -4,7 +4,7 @@ $branches = array(
 	array( 'city' => 'Первомайськ', 'address' => 'вул. Грушевського, 19', 'external_id' => 'tilda:24997928:1' ),
 	array( 'city' => 'Українка', 'address' => 'просп. Дніпровський 5, (2 поверх),', 'external_id' => 'tilda:24998618:1' ),
 	array( 'city' => 'Лук\'янівська', 'address' => 'Вул. Глубочицька, 40 ,', 'external_id' => 'tilda:25005444:1' ),
-	array( 'city' => 'Контрактова', 'address' => 'Вул. Верхній Вал, 42-Г', 'external_id' => 'tilda:25005676:1' ),
+	array( 'city' => 'Київ', 'label' => 'Контрактова', 'address' => 'Вул. Верхній Вал, 42-Г', 'external_id' => 'tilda:25005676:1' ),
 	array( 'city' => 'Ніжин', 'address' => 'вул. Шевченка, 2 ,', 'external_id' => 'tilda:25006622:1' ),
 	array( 'city' => 'Прилуки', 'address' => 'вул. Земська, 18', 'external_id' => 'tilda:25121812:1' ),
 	array( 'city' => 'Софіївська Борщагівка', 'address' => 'вул.Івана Франка, 5 ,', 'external_id' => 'tilda:25122302:1' ),
@@ -120,10 +120,11 @@ $skipped = 0;
 
 foreach ( $branches as $data ) {
 	$city_id = $city_ids[ mb_strtolower( $data['city'] ) ] ?? 0;
+	$city_label = $data['label'] ?? $data['city'];
 
 	if ( ! $city_id ) {
 		++$skipped;
-		fwrite( STDERR, "Місто не знайдено: {$data['city']}\n" );
+		fwrite( STDERR, "Місто не знайдено: {$city_label}\n" );
 		continue;
 	}
 
@@ -140,7 +141,7 @@ foreach ( $branches as $data ) {
 	$branch_id = $branch instanceof WP_Post ? $branch->ID : wp_insert_post(
 		array(
 			'post_type'   => 'branch',
-			'post_title'  => 'Logika — ' . $data['city'],
+			'post_title'  => 'Logika — ' . $city_label,
 			'post_status' => 'publish',
 		),
 		true
@@ -148,7 +149,7 @@ foreach ( $branches as $data ) {
 
 	if ( is_wp_error( $branch_id ) ) {
 		++$skipped;
-		fwrite( STDERR, "Не вдалося зберегти філію: {$data['city']}\n" );
+		fwrite( STDERR, "Не вдалося зберегти філію: {$city_label}\n" );
 		continue;
 	}
 

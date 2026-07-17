@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "logika-wordpress": {
+      "type": "stdio",
+      "command": "./scripts/wp-mcp.sh",
+      "args": [
+        "mcp-adapter",
+        "serve",
+        "--server=mcp-adapter-default-server",
+        "--user=logika_mcp"
+      ]
+    }
+  }
+}

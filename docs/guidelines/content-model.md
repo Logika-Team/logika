@@ -1,7 +1,7 @@
 # Content Model: Logika School CMS
 
-Date: 2026-07-10  
-Project: Logika School  
+Date: 2026-07-10
+Project: Logika School
 Stack: WordPress + ACF Pro + `logika-theme` + `logika-core` + `logika-leads`
 
 ## 1. Purpose

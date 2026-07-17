@@ -23,6 +23,11 @@ if ( ! str_contains( $context, 'JSON.stringify(city)' ) || ! str_contains( $cont
 	exit( 1 );
 }
 
+if ( ! str_contains( $selector, "region.label === 'Інші міста' ? 'other'" ) || ! str_contains( $selector, "a.region.label === 'Інші міста'" ) || ! str_contains( $selector, "a.region.label === 'Онлайн'" ) || ! str_contains( $selector, "a.label === 'Онлайн'" ) ) {
+	fwrite( STDERR, "Header city selector must render Other cities and Online last.\n" );
+	exit( 1 );
+}
+
 if ( ! str_contains( $functions, '$city_selector_version' ) || ! str_contains( $functions, "'logika-city-selector', \$uri . '/js/city-selector.js', array( 'logika-city-context' ), \$city_selector_version" ) ) {
 	fwrite( STDERR, "City selector assets must receive a fresh version after a persistence fix.\n" );
 	exit( 1 );
@@ -38,6 +43,11 @@ if ( ! str_contains( $context, 'const syncHomeLinks' ) || ! str_contains( $conte
 	exit( 1 );
 }
 
+if ( ! str_contains( $context, 'const isHomepage' ) || ! str_contains( $context, 'window.history?.replaceState' ) ) {
+	fwrite( STDERR, "Changing city on the homepage must not reload it.\n" );
+	exit( 1 );
+}
+
 if ( ! str_contains( $routing, "'index.php?logika_city=\$matches[1]'" ) || str_contains( $routing, '^cities/([^/]+)/(.+)/?$' ) || ! str_contains( $routing, 'resolveCityHomepage' ) ) {
 	fwrite( STDERR, "Only the city homepage may use a city-prefixed URL.\n" );
 	exit( 1 );
@@ -49,6 +59,11 @@ if ( ! str_contains( $map, 'Object.entries(regionNames).find' ) || ! str_contain
 }
 
 $leads = $read( $root . '/wordpress/wp-content/themes/logika-theme/assets/js/leads.js' );
+if ( ! str_contains( $leads, "region.label === 'Інші міста' ? 'other'" ) || ! str_contains( $leads, "a.region.label === 'Інші міста'" ) || ! str_contains( $leads, "a.region.label === 'Онлайн'" ) || ! str_contains( $leads, "a.label === 'Онлайн'" ) ) {
+	fwrite( STDERR, "Lead form city selectors must render Other cities and Online last.\n" );
+	exit( 1 );
+}
+
 if ( ! str_contains( $leads, "window.addEventListener('logika:city-change'" ) || ! str_contains( $leads, 'window.logikaCityContext?.get()' ) ) {
 	fwrite( STDERR, "Lead forms must inherit the shared selected city.\n" );
 	exit( 1 );

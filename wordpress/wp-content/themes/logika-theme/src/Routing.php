@@ -5,11 +5,13 @@ declare(strict_types=1);
 defined( 'ABSPATH' ) || exit;
 
 final class Logika_Theme_Routing {
-	private const REWRITE_VERSION = '6';
+	private const REWRITE_VERSION = '7';
 
 	private const LEGACY_ROUTES = array(
-		'about.html' => '/about/', 'faq.html' => '/faq/', 'it-courses.html' => '/it-courses/', 'en-courses.html' => '/english-courses/', 'camps.html' => '/camps/', 'media-center.html' => '/media-center/', 'article.html' => '/media-center/', 'it-course.html' => '/courses/', 'camp.html' => '/camps/', 'city.html' => '/',
+		'about.html' => '/about/', 'faq.html' => '/faq/', 'it-courses.html' => '/it-courses/', 'en-courses.html' => '/english-courses/', 'camps.html' => '/camps/', 'media-center.html' => '/media-center/', 'article.html' => '/media-center/', 'it-course.html' => '/courses/', 'camp.html' => '/camps/', 'city.html' => '/', 'litsenziia.html' => '/litsenziia/',
 	);
+
+	private const LEGACY_CITY_SLUGS = array( 'map/kuiv' => 'kyiv' );
 
 	public static function register(): void {
 		add_action( 'init', array( self::class, 'rewriteRules' ), 20 );
@@ -21,17 +23,24 @@ final class Logika_Theme_Routing {
 		add_filter( 'redirect_canonical', array( self::class, 'redirectCanonical' ), 10, 2 );
 		add_action( 'template_redirect', array( self::class, 'validateContextCity' ), 1 );
 		add_action( 'template_redirect', array( self::class, 'redirectLegacy' ) );
+		add_filter( 'template_include', array( self::class, 'blogTemplate' ) );
 	}
 
 	public static function rewriteRules(): void {
 		add_rewrite_rule( '^cities/([^/]+)/?$', 'index.php?logika_city=$matches[1]', 'top' );
 		add_rewrite_rule( '^media-center/([^/]+)/?$', 'index.php?post_type=post&name=$matches[1]', 'top' );
+		add_rewrite_rule( '^blog/?$', 'index.php?logika_blog=1', 'top' );
 	}
 
 	public static function queryVars( array $vars ): array {
 		$vars[] = 'logika_city';
+		$vars[] = 'logika_blog';
 
 		return $vars;
+	}
+
+	public static function blogTemplate( string $template ): string {
+		return get_query_var( 'logika_blog' ) ? get_template_directory() . '/templates/page-blog.php' : $template;
 	}
 
 	public static function resolveCityHomepage( WP $wp ): void {
@@ -83,8 +92,20 @@ final class Logika_Theme_Routing {
 		nocache_headers();
 	}
 
+	public static function legacyCityUrl( string $path ): ?string {
+		$slug = self::LEGACY_CITY_SLUGS[ $path ] ?? ( str_starts_with( $path, 'map/' ) ? substr( $path, 4 ) : '' );
+		$city = $slug ? \Logika\Core\CitySlug::find( $slug ) : null;
+
+		return $city instanceof WP_Post ? \Logika\Core\CitySlug::url( $city ) : null;
+	}
+
 	public static function redirectLegacy(): void {
 		$path = trim( (string) wp_parse_url( (string) ( $_SERVER['REQUEST_URI'] ?? '' ), PHP_URL_PATH ), '/' ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		$city_url = self::legacyCityUrl( $path );
+		if ( $city_url ) {
+			wp_safe_redirect( $city_url, 301 );
+			exit;
+		}
 
 		if ( isset( self::LEGACY_ROUTES[ $path ] ) ) {
 			wp_safe_redirect( home_url( self::LEGACY_ROUTES[ $path ] ), 301 );

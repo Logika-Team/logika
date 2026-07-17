@@ -1,7 +1,7 @@
 # API: Contracts and payload formats for Logika School
 
-Date: 2026-07-10  
-Project: Logika School  
+Date: 2026-07-10
+Project: Logika School
 Stack: WordPress REST API + `logika-core` + `logika-leads` + CRM/webhook
 
 ## 1. Document purpose

@@ -25,6 +25,8 @@ tests=(
   tests/city-faq-schema.php
   tests/city-schema.php
   tests/city-seo.php
+
+  tests/legacy-city-redirect.php
   tests/course-schema.php
   tests/context-form.php
   tests/editor-experience.php
@@ -38,5 +40,6 @@ for test_file in "${tests[@]}"; do
 
   if [[ "$test_file" == "tests/city-page.php" ]]; then
     ddev exec wp eval-file --path=wordpress scripts/seed-cities.php
+    ddev exec wp eval-file --path=wordpress scripts/sync-tilda-school-map.php
   fi
 done

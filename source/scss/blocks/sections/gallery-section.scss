@@ -1,0 +1,25 @@
+@import "../../general/mixins";
+
+.gallery-section {
+    overflow: hidden;
+    position: relative;
+    padding: clamp(40px, 7.813vw, 80px) 0;
+
+    &__slider {
+        @media screen and (min-width: 577px) {
+            width: 100%;
+        }
+
+        @media screen and (max-width: 576px) {
+            width: 100vw;
+        }
+
+        .swiper-wrapper {
+            @media screen and (min-width: 1025px) {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+        }
+    }
+}
