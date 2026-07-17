@@ -2,6 +2,7 @@
 
 .transformation-section {
     padding: clamp(40px, 7.813vw, 80px) 0;
+    overflow: hidden;
 
     &__wrapp {
         display: flex;

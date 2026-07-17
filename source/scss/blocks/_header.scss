@@ -9,7 +9,7 @@
     }
 
     &__top {
-        padding: 10px 0;
+        padding: clamp(6px, 1.302vw, 10px) 0;
         background-color: var(--violet-100);
         
         &-box {
@@ -17,6 +17,10 @@
             align-items: center;
             justify-content: flex-end;
             gap: 47.5px;
+
+            @include small-tablet {
+                justify-content: space-between;
+            }
         }
     }
 
@@ -34,6 +38,10 @@
             font-weight: 600;
             letter-spacing: -0.7px;
             color: var(--white);
+
+            @include small-tablet {
+                display: none;
+            }
         }
 
         &-link {
@@ -49,6 +57,12 @@
             text-underline-offset: auto;
             text-underline-position: from-font;
         }
+
+        &--email {
+            @include small-tablet {
+                display: none;
+            }
+        }
     }
 
     &__socials {
@@ -62,6 +76,10 @@
             font-weight: 600;
             letter-spacing: -0.7px;
             color: var(--white);
+
+            @include small-tablet {
+                display: none;
+            }
         }
 
         &-links {
@@ -71,6 +89,13 @@
 
             a {
                 display: flex;
+
+                @include small-tablet {
+                    svg {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
             }
         }
     }
@@ -78,24 +103,28 @@
     &__left {
         display: flex;
         align-items: center;
-        gap: 20px;
-
+        gap: clamp(10px, 1.042vw, 20px);
     }
 
     &__accreditation {
+        flex-shrink: 0;
         max-width: 180px;
         font-size: 12px;
         line-height: 120%;
         font-weight: 600;
         color: var(--violet-100);
+
+        @include small-tablet {
+            display: none;
+        }
     }
 
     &__box {
-        padding: 20px 0;
+        padding: clamp(16px, 1.389vw, 20px) 0;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 20px;
+        gap: clamp(10px, 1.042vw, 20px);
     }
 
     &__location {
@@ -111,6 +140,15 @@
         border: 1px solid var(--grey-100);
         border-radius: 36px;
         background-color: var(--white);
+
+        @include for-desktop {
+            max-width: clamp(190px, 10.938vw, 210px);
+            flex-shrink: 0;
+        }
+
+        @include desktop {
+            max-width: clamp(190px, 10.938vw, 210px);
+        }
 
         &-trigger {
             display: flex;
@@ -334,7 +372,21 @@
         }
     }
 
+    &__wrapp {
+        display: flex;
 
+        @include for-desktop {
+            align-items: center;
+            gap: clamp(10px, 1.042vw, 20px);
+        }
+
+        @include desktop {
+            flex-wrap: wrap-reverse;
+            align-items: flex-end;
+            justify-content: flex-end;
+            gap: 5px;
+        }
+    }
 
     &__nav {
         @include for-tablet {
@@ -527,11 +579,14 @@
 
     &__controls {
         flex-shrink: 0;
-        border-left: 1px solid var(--light-blue);
-        padding-left: 6px;
         display: flex;
         align-items: center;
         gap: 6px;
+
+        @include for-desktop {
+            border-left: 1px solid var(--light-blue);
+            padding-left: 6px;
+        }
 
         .btn {
             width: max-content;

@@ -9,14 +9,14 @@
   --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
 
     // --------------- default JS variables ---------------
-    --header-height: 125px;
+    --header-height: 138px;
  
     @include tablet{
-      --header-height: 110px;
+      --header-height: 130px;
     }
 
     @include mobile {
-      --header-height: 190px;
+      --header-height: 127px;
     }
 
   // --------------- default font-family variables ---------------

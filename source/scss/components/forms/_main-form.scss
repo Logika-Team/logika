@@ -501,17 +501,19 @@
         font-size: 12px;
         line-height: 140%;
         font-weight: 500;
-        color: var(--light-blue);
+        color: var(--grey-100);
         letter-spacing: -0.6px;
         text-align: center;
 
         a {
+            display: inline;
             text-decoration-line: underline;
             text-decoration-style: solid;
             text-decoration-skip-ink: auto;
             text-decoration-thickness: auto;
             text-underline-offset: auto;
             text-underline-position: from-font;
+            word-break: keep-all;
         }
     }
 }
