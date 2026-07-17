@@ -1,7 +1,7 @@
 <?php
 
 $cities = array(
-	array( 'Київ', 'kyiv', 'Київська область', 50.4501, 30.5234 ),
+	array( 'Київ', 'kyiv', 'місто Київ', 50.4501, 30.5234 ),
 	array( 'Львів', 'lviv', 'Львівська область', 49.8397, 24.0297 ),
 	array( 'Одеса', 'odesa', 'Одеська область', 46.4825, 30.7233 ),
 	array( 'Харків', 'kharkiv', 'Харківська область', 49.9935, 36.2304, array( 'Харьков' ) ),
@@ -29,6 +29,15 @@ $cities = array(
 	array( 'Маріуполь', 'mariupol', 'Донецька область', 47.0971, 37.5434 ),
 	array( 'Чорноморськ', 'chornomorsk', 'Одеська область', 46.3017, 30.6569 ),
 );
+
+$seeded_labels = array_column( $cities, 0 );
+foreach ( require __DIR__ . '/tilda-school-map-cities.php' as $region => $labels ) {
+	foreach ( $labels as $label ) {
+		if ( ! in_array( $label, $seeded_labels, true ) ) {
+			$cities[] = array( $label, sanitize_title( $label ), $region, 0.0, 0.0 );
+		}
+	}
+}
 
 foreach ( $cities as $city ) {
 	list( $title, $slug, $region, $lat, $lng ) = $city;
