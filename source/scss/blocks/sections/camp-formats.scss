@@ -4,12 +4,11 @@
   padding: clamp(20px, 5.556vw, 80px) 0;
   background: rgba(221, 240, 251, .4);
 
-
   &__wrapp {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 85px
+    gap: clamp(20px, 4.427vw, 85px);
   }
 
    &__title {
@@ -19,8 +18,21 @@
   &__list {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap: clamp(20px, 3.906vw, 40px) 20px;
+
+    @include for-tablet {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include tablet {
+      @include for-small-tablet {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @include small-tablet {
+      grid-template-columns: 100%;
+    }
   }
 
   &__item {
@@ -41,14 +53,14 @@
       width: max-content;
       position: absolute;
       z-index: 2;
-      padding: 13px 20px;
-      top: -50px;
+      padding: clamp(7px, 0.903vw, 13px) clamp(13px, 1.389vw, 20px);
+      top: calc(-1 * clamp(20px, 3.472vw, 50px));
       left: 50%;
       transform: rotate(-6deg) translateX(-50%);
-      border: 8px solid var(--white);
+      border: clamp(4px, 0.556vw, 8px) solid var(--white);
       background-color: var(--green);
       border-radius: 65px;
-      font-size: 28px;
+      font-size: clamp(18px, 1.944vw, 28px);
       line-height: 118%;
       font-weight: 700;
       letter-spacing: -1.8px;

@@ -1,6 +1,7 @@
+@import "../../general/mixins";
+
 .camp-page-hero {
   position: relative;
-  aspect-ratio: 1920 / 850;
   min-height: 450px;
   overflow: hidden;
   background: rgba(221, 240, 251, .4);
