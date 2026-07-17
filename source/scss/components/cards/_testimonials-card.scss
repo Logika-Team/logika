@@ -52,10 +52,13 @@
     }
 
     &__decor {
+        width: min(100%, 220px);
+        aspect-ratio: 1 / 1;
+        align-self: flex-start;
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: 213px;
+        border-radius: 50%;
         overflow: hidden;
 
         picture, img {

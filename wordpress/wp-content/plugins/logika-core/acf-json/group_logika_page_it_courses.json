@@ -33,7 +33,7 @@
     },
     {
       "key": "field_it_courses_tab_sections",
-      "label": "Секції",
+      "label": "Каталог курсів",
       "type": "tab",
       "name": ""
     },
@@ -112,7 +112,7 @@
     },
     {
       "key": "field_it_courses_tab_texts",
-      "label": "Тексти сторінки",
+      "label": "Відгуки",
       "type": "tab",
       "name": ""
     },
@@ -124,8 +124,44 @@
       "instructions": "Вкажіть значення для поля «Заголовок відгуків»."
     },
     {
+      "key": "field_it_courses_testimonials_image_1",
+      "label": "Велике фото 1",
+      "name": "testimonials_image_1",
+      "type": "image",
+      "instructions": "Перше велике фото у блоці відгуків.",
+      "return_format": "id",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_it_courses_testimonials_image_2",
+      "label": "Велике фото 2",
+      "name": "testimonials_image_2",
+      "type": "image",
+      "instructions": "Друге велике фото у блоці відгуків.",
+      "return_format": "id",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_it_courses_testimonials_image_3",
+      "label": "Велике фото 3",
+      "name": "testimonials_image_3",
+      "type": "image",
+      "instructions": "Третє велике фото у блоці відгуків.",
+      "return_format": "id",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_it_courses_testimonials_image_4",
+      "label": "Велике фото 4",
+      "name": "testimonials_image_4",
+      "type": "image",
+      "instructions": "Четверте велике фото у блоці відгуків.",
+      "return_format": "id",
+      "preview_size": "medium"
+    },
+    {
       "key": "field_it_courses_tab_content",
-      "label": "Добірки",
+      "label": "Добірки та відгуки",
       "type": "tab",
       "name": ""
     },
@@ -172,25 +208,20 @@
       "instructions": "Оберіть потрібні записи та розташуйте їх у порядку публічного показу."
     },
     {
-      "key": "field_it_courses_tab_marquee",
-      "label": "Бігучий рядок",
-      "name": "",
-      "type": "tab",
-      "instructions": ""
-    },
-    {
-      "key": "field_it_courses_tab_catalog",
-      "label": "Каталог курсів",
-      "name": "",
-      "type": "tab",
-      "instructions": ""
-    },
-    {
       "key": "field_it_courses_tab_age_categories",
       "label": "Вікові категорії",
       "name": "",
       "type": "tab",
       "instructions": ""
+    },
+    {
+      "key": "field_it_courses_age_category_course_images_note",
+      "label": "Зображення карток курсів",
+      "name": "",
+      "type": "message",
+      "message": "Зображення конкретної картки редагується в «Курси → потрібний курс → Основне → Зображення картки».",
+      "new_lines": "wpautop",
+      "esc_html": 0
     },
     {
       "key": "field_it_courses_age_categories",
@@ -246,13 +277,6 @@
           ]
         }
       ]
-    },
-    {
-      "key": "field_it_courses_tab_reviews_new",
-      "label": "Відгуки",
-      "name": "",
-      "type": "tab",
-      "instructions": ""
     },
     {
       "key": "field_it_courses_tab_map",

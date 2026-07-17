@@ -28,7 +28,7 @@
   const schools = map.querySelector('[data-map-schools]');
   const locationsCount = map.querySelector('[data-map-locations-count]');
   const frame = map.querySelector('[data-map-frame]');
-  const config = { mapUrl: 'img/maps/ukraine-regions.svg', ...(window.logikaThemeAssets || {}) };
+  const config = { mapUrl: 'img/maps/ukraine-regions.svg', branchIconUrl: '', ...(window.logikaThemeAssets || {}) };
   const onlinePanel = document.createElement('div');
   const heroForm = document.querySelector('[data-map-online-form] .banner-section__form[data-logika-lead-form], .banner-section__form[data-logika-lead-form], .cta-form[data-logika-lead-form]');
   const onlineForm = heroForm?.cloneNode(true);
@@ -93,6 +93,14 @@
         const address = document.createElement('span');
         address.textContent = branch.address;
         item.append(address);
+      }
+      if (config.branchIconUrl) {
+        const icon = document.createElement('img');
+        icon.className = 'school-map__school-icon';
+        icon.src = config.branchIconUrl;
+        icon.alt = '';
+        icon.setAttribute('aria-hidden', 'true');
+        item.append(icon);
       }
       item.tabIndex = 0;
       item.addEventListener('click', () => setFrame(city, branch));

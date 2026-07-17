@@ -20,8 +20,13 @@
 	function source(field) {
 		var sources = settings.sources[field.get('key')];
 		var index = rowIndex(field);
+		var originalImage = original(field);
 
-		return sources ? (sources[index] || sources[0] || '') : '';
+		return originalImage ? (originalImage.url || originalImage.source_url || '') : (sources ? (sources[index] || sources[0] || '') : '');
+	}
+
+	function original(field) {
+		return settings.originals[field.get('key')] || null;
 	}
 
 	function error(profile) {
@@ -56,11 +61,18 @@
 					return;
 				}
 
-				field.render(attachment);
+				setAttachment(field, attachment);
 				setSelectedPreview(field, attachment);
 				syncPreview(field);
 			}
 		});
+	}
+
+	function setAttachment(field, attachment) {
+		var image = attachment && (attachment.attributes || attachment);
+
+		acf.val(field.$input(), String(image && image.id || ''));
+		field.render(attachment);
 	}
 
 	function setSelectedPreview(field, attachment) {
@@ -73,7 +85,8 @@
 	}
 
 	function syncPreview(field) {
-		var hasValue = Boolean(field.val());
+		var originalImage = original(field);
+		var hasValue = Boolean(field.val()) && (!originalImage || Number(field.val()) !== Number(originalImage.id));
 		var selectedUrl = field.$el.find('.acf-image-uploader img').attr('src');
 
 		if (selectedUrl) {
@@ -97,7 +110,9 @@
 		var panel;
 
 		if (!field || !fieldProfile) {
-			return;
+			if (!field || (!original(field) && field.get('key') !== 'field_review_photo' && settings.managedFields.indexOf(field.get('key')) === -1)) {
+				return;
+			}
 		}
 
 		if (field.$el.data('logika-image-override')) {
@@ -116,7 +131,7 @@
 		input.children('.acf-image-uploader').addClass('logika-image-override-native').hide();
 		panel = $('<div class="logika-image-override-panel" style="width:100%;max-width:none"></div>').prependTo(input);
 		if (source(field)) {
-			$('<div class="logika-image-override-current"><p><strong>Поточне зображення</strong></p><img alt="Поточне зображення" style="max-width:300px;height:auto"></div>')
+			$('<div class="logika-image-override-current"><p><strong>Оригінальне зображення</strong></p><img alt="Оригінальне зображення" style="max-width:300px;height:auto"></div>')
 				.find('img').attr('src', source(field)).end()
 				.appendTo(panel);
 		}
@@ -132,7 +147,13 @@
 			.appendTo(actions)
 			.on('click', function (event) {
 				event.preventDefault();
-				field.removeAttachment();
+				var originalImage = original(field);
+				if (originalImage) {
+					setAttachment(field, originalImage);
+					setSelectedPreview(field, originalImage);
+				} else {
+					field.removeAttachment();
+				}
 				syncPreview(field);
 			});
 		if (fieldProfile && !isRelaxed(field)) {

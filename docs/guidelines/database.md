@@ -1,7 +1,7 @@
 # Database: MySQL schema for Logika School
 
-Date: 2026-07-10
-Project: Logika School
+Date: 2026-07-10  
+Project: Logika School  
 Stack: WordPress + MySQL + ACF Pro + `logika-core` + `logika-leads`
 
 ## 1. Core principle

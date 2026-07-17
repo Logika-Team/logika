@@ -8,6 +8,7 @@ $city = get_page_by_path( 'test-city', OBJECT, 'city' );
 $city_id = $city ? (int) $city->ID : (int) wp_insert_post( array( 'post_type' => 'city', 'post_name' => 'test-city', 'post_title' => 'Тестове місто', 'post_status' => 'publish' ) );
 $branch = get_page_by_path( 'test-branch', OBJECT, 'branch' );
 $branch_id = $branch ? (int) $branch->ID : (int) wp_insert_post( array( 'post_type' => 'branch', 'post_name' => 'test-branch', 'post_title' => 'Тестова філія', 'post_status' => 'publish' ) );
+wp_update_post( array( 'ID' => $branch_id, 'post_status' => 'publish' ) );
 
 update_field( 'city_intro', 'Вступ із ACF для міської сторінки.', $city_id );
 update_field( 'city_seo_text', '<p>SEO-текст із ACF для міста.</p>', $city_id );

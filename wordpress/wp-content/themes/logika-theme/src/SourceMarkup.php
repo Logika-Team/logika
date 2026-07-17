@@ -51,7 +51,8 @@ final class Logika_Theme_Source_Markup {
 		}
 
 		$review_ids = $context_id && 'index' === $source ? array_map( 'absint', (array) get_field( 'city_related_reviews', $context_id ) ) : self::reviewIds( $source, $context_id );
-		$markup     = Logika_Theme_Testimonials::apply( self::routeNavigationLinks( self::applyLeadForms( $markup ), $source ), $review_ids ?: null );
+		$image_context = 'camps' === $source ? 'camp_archive' : ( $context_id ?: ( 'index' === $source ? 0 : get_queried_object_id() ) );
+		$markup        = Logika_Theme_Testimonials::apply( self::routeNavigationLinks( self::applyLeadForms( $markup ), $source ), $review_ids ?: null, $image_context );
 
 		if ( preg_match( '#<main(?:\s[^>]*)?>.*?</main>#is', $markup, $matches ) ) {
 			echo self::rewriteAssets( $matches[0] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

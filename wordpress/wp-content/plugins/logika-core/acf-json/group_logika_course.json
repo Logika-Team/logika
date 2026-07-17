@@ -3,6 +3,14 @@
     "title": "Курс",
     "fields": [
         {
+            "key": "field_course_tab_basics",
+            "label": "Основне",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_course_external_id",
             "label": "Зовнішній ID",
             "name": "course_external_id",
@@ -678,6 +686,26 @@
             ],
             "elements": [],
             "bidirectional_target": []
+        },
+        {
+            "key": "field_course_card_description",
+            "label": "Опис картки",
+            "name": "course_card_description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Короткий опис для картки в каталозі курсів: не більше 100 символів.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "new_lines": "",
+            "maxlength": 100,
+            "placeholder": "",
+            "rows": 2
         },
         {
             "key": "field_course_card_image",

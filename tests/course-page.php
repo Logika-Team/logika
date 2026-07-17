@@ -17,7 +17,7 @@ update_field( 'course_program_anchor_label', 'До програми', $course_id
 update_field( 'course_process_title', 'Процес із ACF', $course_id );
 update_field( 'course_process_items', array( array( 'title' => 'Практика', 'text' => 'Етап із ACF.', 'cta_label' => 'Обрати курс' ) ), $course_id );
 update_field( 'course_portfolio_title', 'Портфоліо із ACF', $course_id );
-update_field( 'course_projects', array( array( 'project_title' => 'Проєкт учня', 'project_description' => 'Опис проєкту.' ) ), $course_id );
+	update_field( 'course_projects', array( array( 'student_name' => 'Проєкт учня', 'course' => 'Frontend', 'description' => 'Опис проєкту.' ) ), $course_id );
 update_field( 'course_program', array( array( 'title' => 'Перший модуль', 'description' => '<p>Опис модуля з ACF.</p>', 'items' => array( array( 'item_text' => 'Навичка з програми' ) ) ) ), $course_id );
 $format = term_exists( 'Онлайн', 'learning_format' );
 $format_id = is_array( $format ) ? $format['term_id'] : (int) $format;

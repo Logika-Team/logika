@@ -112,6 +112,12 @@ update_field(
 			'age' => '14-17 рокiв',
 			'title' => "Перший крок у IT-кар'єру",
 			'tags' => "Python Expert\nPython Advanced\nОснови фронтенд розробки\nКомп'ютерна грамотність для дорослих",
+			'chips' => array(
+				array( 'label' => 'Python Expert', 'url' => home_url( '/courses/python-expert/' ) ),
+				array( 'label' => 'Python Advanced', 'url' => home_url( '/courses/python-advanced/' ) ),
+				array( 'label' => 'Основи фронтенд розробки', 'url' => home_url( '/courses/frontend/' ) ),
+				array( 'label' => "Комп'ютерна грамотність для дорослих", 'url' => home_url( '/courses/computer-literacy-14/' ) ),
+			),
 			'text' => 'Готуємо до перших кроків у кар’єрі: даємо практичні знання, знайомимо з сучасними технологіями та вчимо мислити як розробник.',
 			'lesson_label' => 'Запис на безкоштовний урок',
 			'about_label' => 'Ознайомитись з курсами',

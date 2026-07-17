@@ -1,0 +1,24 @@
+{
+  "key": "group_logika_testimonials_images",
+  "title": "Фото блоку відгуків",
+  "fields": [
+    { "key": "field_testimonials_images_tab", "label": "Фото відгуків", "name": "", "type": "tab", "placement": "top" },
+    { "key": "field_testimonials_image_1", "label": "Велике фото 1", "name": "testimonials_image_1", "type": "image", "instructions": "Перше велике фото у блоці відгуків.", "return_format": "id", "preview_size": "medium", "library": "all" },
+    { "key": "field_testimonials_image_2", "label": "Велике фото 2", "name": "testimonials_image_2", "type": "image", "instructions": "Друге велике фото у блоці відгуків.", "return_format": "id", "preview_size": "medium", "library": "all" },
+    { "key": "field_testimonials_image_3", "label": "Велике фото 3", "name": "testimonials_image_3", "type": "image", "instructions": "Третє велике фото у блоці відгуків.", "return_format": "id", "preview_size": "medium", "library": "all" },
+    { "key": "field_testimonials_image_4", "label": "Велике фото 4", "name": "testimonials_image_4", "type": "image", "instructions": "Четверте велике фото у блоці відгуків.", "return_format": "id", "preview_size": "medium", "library": "all" }
+  ],
+  "location": [
+    [ { "param": "post_type", "operator": "==", "value": "page" }, { "param": "page_type", "operator": "!=", "value": "front_page" }, { "param": "page_template", "operator": "!=", "value": "templates/page-it-courses.php" } ],
+    [ { "param": "post_type", "operator": "==", "value": "city" } ],
+    [ { "param": "post_type", "operator": "==", "value": "course" } ],
+    [ { "param": "post_type", "operator": "==", "value": "camp" } ]
+  ],
+  "position": "acf_after_title",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true,
+  "show_in_rest": true,
+  "modified": 1784251459
+}

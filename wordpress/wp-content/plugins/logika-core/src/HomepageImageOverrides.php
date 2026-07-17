@@ -5,6 +5,10 @@ declare(strict_types=1);
 namespace Logika\Core;
 
 final class HomepageImageOverrides {
+	private const REVIEW_PHOTO_FIELD = 'field_review_photo';
+	private const REVIEW_ORIGINAL_PHOTO_META = 'review_original_photo';
+	private const TESTIMONIAL_FIELDS = array( 'field_home_testimonials_image_1', 'field_home_testimonials_image_2', 'field_home_testimonials_image_3', 'field_home_testimonials_image_4', 'field_testimonials_image_1', 'field_testimonials_image_2', 'field_testimonials_image_3', 'field_testimonials_image_4', 'field_camp_archive_testimonials_image_1', 'field_camp_archive_testimonials_image_2', 'field_camp_archive_testimonials_image_3', 'field_camp_archive_testimonials_image_4' );
+	private const MANAGED_FIELDS = array( 'field_it_courses_hero_image', 'field_it_courses_catalog_card_image', 'field_it_courses_catalog_card_background', 'field_it_courses_testimonials_image_1', 'field_it_courses_testimonials_image_2', 'field_it_courses_testimonials_image_3', 'field_it_courses_testimonials_image_4', 'field_it_courses_cta_image', 'field_course_card_image', 'field_course_hero_image', 'field_course_hero_background_image', 'field_course_hero_character_image', 'field_course_learn_image', 'field_course_learn_background_image', 'field_course_learn_character_image', 'field_course_learn_item_image', 'field_course_process_background_image', 'field_course_process_item_image', 'field_course_project_image', 'field_course_project_student_image', 'field_course_cta_image', 'field_course_cta_character_image', 'field_course_cta_top_background_image', 'field_course_cta_bottom_background_image', 'field_course_faq_left_background_image', 'field_course_faq_right_background_image' );
 	private const MIME_TYPES = array( 'image/jpeg', 'image/png', 'image/webp' );
 	private const RELAXED_FIELDS = array( 'field_home_programming_courses_image_override', 'field_home_programming_courses_icon_override' );
 	private const RATIO_TOLERANCE = 0.02;
@@ -57,6 +61,8 @@ final class HomepageImageOverrides {
 	public static function register(): void {
 		add_filter( 'acf/validate_value', array( self::class, 'validateValue' ), 10, 4 );
 		add_action( 'admin_enqueue_scripts', array( self::class, 'enqueueAssets' ) );
+		add_action( 'acf/save_post', array( self::class, 'captureReviewOriginalPhoto' ), 1 );
+		add_action( 'acf/save_post', array( self::class, 'captureReviewOriginalPhoto' ), 20 );
 	}
 
 	public static function enqueueAssets(): void {
@@ -80,10 +86,24 @@ final class HomepageImageOverrides {
 			array(
 				'profiles' => self::PROFILES,
 				'relaxedFields' => self::RELAXED_FIELDS,
+				'managedFields' => self::MANAGED_FIELDS,
 				'legacyFields' => self::LEGACY_FIELDS,
 				'sources' => self::sources(),
+				'originals' => array_merge( self::reviewOriginals(), self::testimonialDefaults() ),
 			)
 		);
+	}
+
+	public static function captureReviewOriginalPhoto( mixed $post_id ): void {
+		$post_id = (int) $post_id;
+		if ( $post_id <= 0 || 'review' !== get_post_type( $post_id ) || (int) get_post_meta( $post_id, self::REVIEW_ORIGINAL_PHOTO_META, true ) > 0 ) {
+			return;
+		}
+
+		$photo_id = (int) get_post_meta( $post_id, 'review_photo', true );
+		if ( $photo_id > 0 ) {
+			update_post_meta( $post_id, self::REVIEW_ORIGINAL_PHOTO_META, $photo_id );
+		}
 	}
 
 	/**
@@ -132,6 +152,27 @@ final class HomepageImageOverrides {
 			static fn( array $paths ): array => array_map( static fn( string $path ): string => $base . $path, $paths ),
 			self::SOURCE_PATHS
 		);
+	}
+
+	/** @return array<string, array<string, mixed>> */
+	private static function reviewOriginals(): array {
+		$post_id = isset( $_GET['post'] ) ? absint( $_GET['post'] ) : 0;
+		if ( ! $post_id || 'review' !== get_post_type( $post_id ) ) {
+			return array();
+		}
+
+		self::captureReviewOriginalPhoto( $post_id );
+		$photo = wp_prepare_attachment_for_js( (int) get_post_meta( $post_id, self::REVIEW_ORIGINAL_PHOTO_META, true ) );
+
+		return is_array( $photo ) ? array( self::REVIEW_PHOTO_FIELD => $photo ) : array();
+	}
+
+	/** @return array<string, array<string, mixed>> */
+	private static function testimonialDefaults(): array {
+		$attachment = (int) ( get_posts( array( 'post_type' => 'attachment', 'post_status' => 'inherit', 'fields' => 'ids', 'posts_per_page' => 1, 'meta_key' => '_logika_source_path', 'meta_value' => 'theme/assets/img/testimonials/testimonial.png' ) )[0] ?? 0 );
+		$image      = $attachment ? wp_prepare_attachment_for_js( $attachment ) : null;
+
+		return is_array( $image ) ? array_fill_keys( self::TESTIMONIAL_FIELDS, $image ) : array();
 	}
 
 	/** @return array{width: int, height: int} */

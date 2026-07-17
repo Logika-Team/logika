@@ -192,6 +192,46 @@
       "instructions": "Заповніть поле «Заголовок відгуків»."
     },
     {
+      "key": "field_camp_archive_testimonials_image_1",
+      "label": "Велике фото 1",
+      "name": "testimonials_image_1",
+      "type": "image",
+      "instructions": "Перше велике фото у блоці відгуків.",
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all"
+    },
+    {
+      "key": "field_camp_archive_testimonials_image_2",
+      "label": "Велике фото 2",
+      "name": "testimonials_image_2",
+      "type": "image",
+      "instructions": "Друге велике фото у блоці відгуків.",
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all"
+    },
+    {
+      "key": "field_camp_archive_testimonials_image_3",
+      "label": "Велике фото 3",
+      "name": "testimonials_image_3",
+      "type": "image",
+      "instructions": "Третє велике фото у блоці відгуків.",
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all"
+    },
+    {
+      "key": "field_camp_archive_testimonials_image_4",
+      "label": "Велике фото 4",
+      "name": "testimonials_image_4",
+      "type": "image",
+      "instructions": "Четверте велике фото у блоці відгуків.",
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all"
+    },
+    {
       "key": "field_camp_archive_reviews",
       "label": "Відгуки",
       "name": "camp_archive_reviews",

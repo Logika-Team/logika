@@ -395,7 +395,7 @@ final class Logika_Theme_Page_Content {
 					$age = $min ? $min . ( $max ? '-' . $max : '+' ) . ' років' : '';
 					$card = $age ? self::replaceLeaf( $card, '#(<span class="course-card__label">)(.*?)(</span>)#s', $age ) : $card;
 					$card = self::replaceLeaf( $card, '#(<span class="course-card__title h4">)(.*?)(</span>)#s', get_the_title( $id ) );
-					$text = trim( (string) get_field( 'course_short_description', $id ) );
+					$text = trim( (string) get_field( 'course_card_description', $id ) ) ?: trim( (string) get_field( 'course_short_description', $id ) );
 					$card = $text ? self::replaceLeaf( $card, '#(<p class="course-card__descr">)(.*?)(</p>)#s', $text ) : $card;
 					$image = (int) get_field( 'course_card_image', $id );
 					$url = $image ? wp_get_attachment_image_url( $image, 'large' ) : false;

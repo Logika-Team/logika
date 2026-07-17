@@ -220,12 +220,6 @@ select:-webkit-autofill:focus {
   transition: max-height 0.2s;
 }
 
-[data-btn-modal] {
-  svg {
-    pointer-events: none;
-  }
-}
-
 .dis-scroll {
   position: fixed;
   top: 0;
@@ -269,8 +263,4 @@ select:-webkit-autofill:focus {
   }
 }
 
-.fade {
-  opacity: 0;
-  transition: opacity var(--transition-time);
-}
 

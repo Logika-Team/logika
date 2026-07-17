@@ -60,6 +60,31 @@ final class ContentMigration {
 		return self::$report;
 	}
 
+	public static function migrateHomepageTestimonials( bool $dry_run = false ): array {
+		self::start( $dry_run );
+		foreach ( range( 1, 4 ) as $index ) {
+			self::fill( "home_testimonials_image_{$index}", '@asset:testimonials/testimonial.png', (int) get_option( 'page_on_front' ) );
+		}
+
+		return self::$report;
+	}
+
+	public static function migrateTestimonials( bool $dry_run = false ): array {
+		self::start( $dry_run );
+		$contexts = array_merge(
+			array_map( static fn( string $path ): int => (int) ( get_page_by_path( $path )?->ID ?? 0 ), array( 'about', 'it-courses', 'english-courses', 'faq' ) ),
+			array_map( 'intval', get_posts( array( 'post_type' => array( 'city', 'course', 'camp' ), 'post_status' => array( 'publish', 'draft', 'private' ), 'posts_per_page' => -1, 'fields' => 'ids' ) ) ),
+			array( 'camp_archive' )
+		);
+		foreach ( array_filter( $contexts ) as $context ) {
+			foreach ( range( 1, 4 ) as $index ) {
+				self::fill( "testimonials_image_{$index}", '@asset:testimonials/testimonial.png', $context );
+			}
+		}
+
+		return self::$report;
+	}
+
 	public static function migrateCitySlug( string $slug, bool $dry_run = false ): array {
 		self::start( $dry_run );
 		$slug   = sanitize_title( $slug );

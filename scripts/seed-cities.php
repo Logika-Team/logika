@@ -30,15 +30,6 @@ $cities = array(
 	array( 'Чорноморськ', 'chornomorsk', 'Одеська область', 46.3017, 30.6569 ),
 );
 
-$seeded_labels = array_column( $cities, 0 );
-foreach ( require __DIR__ . '/tilda-school-map-cities.php' as $region => $labels ) {
-	foreach ( $labels as $label ) {
-		if ( ! in_array( $label, $seeded_labels, true ) ) {
-			$cities[] = array( $label, sanitize_title( $label ), $region, 0.0, 0.0 );
-		}
-	}
-}
-
 foreach ( $cities as $city ) {
 	list( $title, $slug, $region, $lat, $lng ) = $city;
 	$aliases = $city[5] ?? array();

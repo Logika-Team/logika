@@ -104,6 +104,7 @@
         display: flex;
         align-items: center;
         gap: clamp(10px, 1.042vw, 20px);
+
     }
 
     &__accreditation {
@@ -372,6 +373,8 @@
         }
     }
 
+
+
     &__wrapp {
         display: flex;
 
@@ -579,17 +582,19 @@
 
     &__controls {
         flex-shrink: 0;
+        border-left: 1px solid var(--light-blue);
+        padding-left: 6px;
         display: flex;
         align-items: center;
         gap: 6px;
 
-        @include for-desktop {
-            border-left: 1px solid var(--light-blue);
-            padding-left: 6px;
-        }
-
         .btn {
             width: max-content;
+        }
+
+        @include tablet {
+            border-left: 0;
+            padding-left: 0;
         }
     }
 
