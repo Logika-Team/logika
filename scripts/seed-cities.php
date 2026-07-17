@@ -31,8 +31,10 @@ $cities = array(
 );
 
 $seeded_labels = array_column( $cities, 0 );
+$map_labels    = array();
 foreach ( require __DIR__ . '/tilda-school-map-cities.php' as $region => $labels ) {
 	foreach ( $labels as $label ) {
+		$map_labels[] = $label;
 		if ( ! in_array( $label, $seeded_labels, true ) ) {
 			$cities[] = array( $label, sanitize_title( $label ), $region, 0.0, 0.0 );
 		}
@@ -90,6 +92,7 @@ foreach ( $cities as $city ) {
 	update_field( 'city_region', $term_id, $post_id );
 	update_field( 'city_lat', $lat, $post_id );
 	update_field( 'city_lng', $lng, $post_id );
+	update_field( 'city_show_on_map', in_array( $title, $map_labels, true ) ? 1 : 0, $post_id );
 	update_field( 'city_index_status', 'index', $post_id );
 	update_field( 'city_selected_label', $title, $post_id );
 	update_field( 'city_intro', "Logika у місті {$title}: курси програмування та англійської для дітей і підлітків.", $post_id );
