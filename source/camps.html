@@ -58,30 +58,52 @@
 
       <section class="camp-formats" aria-labelledby="camp-formats-title">
         <div class="container">
-          <h2 class="camp-formats__title" id="camp-formats-title">Оберіть свій формат</h2>
+          <div class="camp-formats__wrapp">
+            <h2 class="camp-formats__title" id="camp-formats-title">Оберіть свій формат</h2>
 
-          <ul class="camp-formats__list">
-            <li class="camp-formats__item">
-              <img src="img/camp/formats/summer.jpg" alt="Літній морський пейзаж">
-              <span class="camp-formats__season">Літо</span>
-              <a href="camp.html">Переглянути табори</a>
-            </li>
-            <li class="camp-formats__item">
-              <img src="img/camp/formats/autumn.jpg" alt="Осінні гори">
-              <span class="camp-formats__season">Осінь</span>
-              <a href="camp.html">Переглянути табори</a>
-            </li>
-            <li class="camp-formats__item">
-              <img src="img/camp/formats/winter.jpg" alt="Засніжені гори взимку">
-              <span class="camp-formats__season">Зима</span>
-              <a href="camp.html">Переглянути табори</a>
-            </li>
-            <li class="camp-formats__item">
-              <img src="img/camp/formats/spring.jpg" alt="Весняний гірський луг">
-              <span class="camp-formats__season">Весна</span>
-              <a href="camp.html">Переглянути табори</a>
-            </li>
-          </ul>
+            <ul class="camp-formats__list">
+              <li class="camp-formats__item">
+                <span class="camp-formats__item-season">Літо</span>
+
+                <div class="camp-formats__item-image">
+                  <img src="img/camp/formats/summer.jpg" alt="Літній морський пейзаж">
+                  
+                </div>
+
+                <button class="camp-formats__item-btn btn btn--white" data-path="camps">Переглянути табори</button>
+              </li>
+
+              <li class="camp-formats__item">
+                <span class="camp-formats__item-season">Осінь</span>
+
+                <div class="camp-formats__item-image">
+                  <img src="img/camp/formats/autumn.jpg" alt="Осінні гори">
+                </div>
+
+                <button class="camp-formats__item-btn btn btn--white" data-path="camps">Переглянути табори</button>
+              </li>
+
+              <li class="camp-formats__item">
+                <span class="camp-formats__item-season">Зима</span>
+
+                <div class="camp-formats__item-image">
+                  <img src="img/camp/formats/winter.jpg" alt="Засніжені гори взимку">
+                </div>
+
+                <button class="camp-formats__item-btn btn btn--white" data-path="camps">Переглянути табори</button>
+              </li>
+
+              <li class="camp-formats__item">
+                <span class="camp-formats__item-season">Весна</span>
+
+                <div class="camp-formats__item-image">
+                  <img src="img/camp/formats/spring.jpg" alt="Весняний гірський луг">
+                </div>
+
+                <button class="camp-formats__item-btn btn btn--white" data-path="camps">Переглянути табори</button>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -632,9 +654,12 @@
   </main>
 
   @include('partials/footer.html')
+  @include('partials/modals.html')
 
   <script src="js/swiper.js"></script>
+  <script type="module" src="js/modals.js"></script>
   <script defer src="js/main.js"></script>
+  <script defer src="js/camp-map.js"></script>
 </body>
 
 

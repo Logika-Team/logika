@@ -26,6 +26,8 @@
   inset: 0;
 }
 .english-section__left {
+  position: relative;
+  z-index: 1;
   padding: 0px 80px;
   display: -webkit-box;
   display: -ms-flexbox;

@@ -2,6 +2,7 @@
 
 .faq-banner-section {
     position: relative;
+    z-index: 1;
 
     &__blocks {
         padding: clamp(20px, 4.861vw, 70px) 0 clamp(45px, 5.556vw, 80px);

@@ -29,7 +29,7 @@
                     <use href='img/sprite/sprite.svg#icon-more'></use>
                   </svg>
                 </a>
-                <button class="faq-banner-section__btn btn btn--violet">
+                <button class="faq-banner-section__btn btn btn--violet" data-path="lesson">
                   Безкоштовний пробний урок
                   <svg width='20' height='20'>
                     <use href='img/sprite/sprite.svg#arrow-right'></use>
@@ -500,8 +500,10 @@
   </main>
 
   @include('partials/footer.html')
+  @include('partials/modals.html')
 
   <script src="js/swiper.js"></script>
+  <script type="module" src="js/modals.js"></script>
   <script defer src="js/main.js"></script>
   <script defer src="js/camp-map.js"></script>
 </body>

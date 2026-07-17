@@ -134,21 +134,19 @@
           </nav>
 
           <div class="header__controls">
-            <a class="header__login btn" href="#">
+            <a class="header__login btn" href="https://student.logikaschool.com.ua/login" target="_blank">
               <svg width='16' height='16'>
                 <use href='img/sprite/sprite.svg#icon-person'></use>
               </svg>
               <span>Увійти</span>
             </a>
 
-            <a class="header__lesson btn btn--yellow" href="#">
+            <button class="header__lesson btn btn--yellow" data-path="lesson">
               Пробний урок
               <svg width='20' height='20'>
                 <use href='img/sprite/sprite.svg#arrow-right'></use>
               </svg>
-            </a>
-
-
+            </button>
           </div>
         </div>
       </div>
@@ -943,12 +941,12 @@
             Найбільша в Україні школа програмування та англійської мови для учнів 7-16 років
           </div>
 
-          <a class="btn btn--yellow" href="#">
+          <button class="btn btn--yellow" data-path="lesson">
             Спробувати безкоштовно
             <svg width='20' height='20'>
               <use href='img/sprite/sprite.svg#arrow-right'></use>
             </svg>
-          </a>
+          </button>
         </div>
 
         <div class="footer__box">
@@ -1039,8 +1037,146 @@
     </div>
   </div>
 </footer>
+  <div class="modal">
+    <div class="modal__container is-lesson" data-target="lesson">
+        <div class="modal__wrapper">
+            <div class="modal__close modal-close">
+                <svg width='24' height='24'>
+                    <use href='img/sprite/sprite.svg#icon-close'></use>
+                </svg>
+            </div>
+            
+            <div class="modal__lesson">
+                <div class="modal__lesson-image">
+                    <img width='560' height='300' src='img/modal-image.webp' alt=''>
+                </div>
+
+                <form class="modal__form modal-form">
+                    <div class="modal-form__labels">
+                        <label class="modal-form__label">
+                            <span>Ім’я</span>
+                            <input class="modal-form__input" type="text" name="name" placeholder="Ім’я Прізвище">
+                        </label>
+                        <label class="modal-form__label">
+                            <span>Телефон у форматі 380:</span>
+                            <input class="modal-form__input" type="tel" name="tel" placeholder="380">
+                        </label>
+                        <label class="modal-form__label">
+                            <span>Вік дитини</span>
+                            <input class="modal-form__input" type="text" name="name" placeholder="Вік дитини">
+                        </label>
+                    </div>
+
+                    <button class="modal-form__btn btn btn--yellow">Надіслати</button>
+
+                    <p class="modal-form__text">Натискаючи, ви погоджуєтесь із <a href="#">Політикою конфіденційності</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal__container is-camps" data-target="camps">
+        <div class="modal__wrapper">
+            <div class="modal__camps">
+                <div class="modal__camps-top">
+                    <div class="modal__camps-title h4">Оберіть зміну</div>
+
+                    <div class="modal__close modal-close">
+                        <svg width='24' height='24'>
+                            <use href='img/sprite/sprite.svg#icon-close'></use>
+                        </svg>
+                    </div>
+                </div>
+
+                <ul class="modal__camps-items">
+                    <li class="modal__camps-item">
+                        <div class="modal__camps-image">
+                            <picture>
+                                <source type='image/webp' srcset='img/.webp'>
+                                <img width='100' height='100' src='img/' alt=''>
+                            </picture>
+                        </div>
+
+                        <div class="modal__camps-dates">
+                            27.06 - 06.07
+                        </div>
+
+                        <div class="modal__camps-info">
+                            <span>Фестиваль професій</span>
+                            <p>Це справжні пригоди, у які поринають всі мешканці табору на весь термін путівки.</p>
+                        </div>
+
+                        <a class="modal__camps-link btn btn--violet" href="/camp.html">Дізнатись більше</a>
+                    </li>
+
+                    <li class="modal__camps-item">
+                        <div class="modal__camps-image">
+                            <picture>
+                                <source type='image/webp' srcset='img/.webp'>
+                                <img width='100' height='100' src='img/' alt=''>
+                            </picture>
+                        </div>
+
+                        <div class="modal__camps-dates">
+                            27.06 - 06.07
+                        </div>
+
+                        <div class="modal__camps-info">
+                            <span>Фестиваль професій</span>
+                            <p>Це справжні пригоди, у які поринають всі мешканці табору на весь термін путівки.</p>
+                        </div>
+
+                        <a class="modal__camps-link btn btn--violet" href="/camp.html">Дізнатись більше</a>
+                    </li>
+
+                    <li class="modal__camps-item">
+                        <div class="modal__camps-image">
+                            <picture>
+                                <source type='image/webp' srcset='img/.webp'>
+                                <img width='100' height='100' src='img/' alt=''>
+                            </picture>
+                        </div>
+
+                        <div class="modal__camps-dates">
+                            27.06 - 06.07
+                        </div>
+
+                        <div class="modal__camps-info">
+                            <span>Фестиваль професій</span>
+                            <p>Це справжні пригоди, у які поринають всі мешканці табору на весь термін путівки.</p>
+                        </div>
+
+                        <a class="modal__camps-link btn btn--violet" href="/camp.html">Дізнатись більше</a>
+                    </li>
+
+                    <li class="modal__camps-item">
+                        <div class="modal__camps-image">
+                            <picture>
+                                <source type='image/webp' srcset='img/.webp'>
+                                <img width='100' height='100' src='img/' alt=''>
+                            </picture>
+                        </div>
+
+                        <div class="modal__camps-dates">
+                            27.06 - 06.07
+                        </div>
+
+                        <div class="modal__camps-info">
+                            <span>Фестиваль професій</span>
+                            <p>Це справжні пригоди, у які поринають всі мешканці табору на весь термін путівки.</p>
+                        </div>
+
+                        <a class="modal__camps-link btn btn--violet" href="/camp.html">Дізнатись більше</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
 
   <script src="js/swiper.js"></script>
+  <script type="module" src="js/modals.js"></script>
   <script defer src="js/main.js"></script>
   <script defer src="js/camp-map.js"></script>
 </body>
