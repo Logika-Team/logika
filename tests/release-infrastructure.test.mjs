@@ -28,12 +28,18 @@ test('build artifact contains only managed WordPress components and release meta
       env: { ...process.env, RELEASE_SOURCE_IGNORE_OUTSIDE_EDITS: '1' },
     }).trim();
     const manifest = JSON.parse(readFileSync(join(outputDir, 'release-manifest.json'), 'utf8'));
+    const releaseFiles = execFileSync('tar', ['-xOzf', artifactPath, 'release-files.sha256']);
     const archiveEntries = execFileSync('tar', ['-tzf', artifactPath], { encoding: 'utf8' })
       .trim()
       .split('\n')
       .filter(Boolean);
 
     assert.equal(manifest.commitSha, run('git', ['rev-parse', 'HEAD']).trim());
+    assert.equal(
+      manifest.releaseId,
+      createHash('sha256').update(releaseFiles).digest('hex').slice(0, 40),
+    );
+    assert.notEqual(manifest.releaseId, manifest.commitSha);
     assert.equal(manifest.migrations.required, false);
     assert.deepEqual(manifest.components, [
       'wordpress/wp-content/themes/logika-theme',
@@ -41,6 +47,11 @@ test('build artifact contains only managed WordPress components and release meta
       'wordpress/wp-content/plugins/logika-leads',
     ]);
     assert.ok(archiveEntries.includes('release-manifest.json'));
+    assert.ok(archiveEntries.includes('release-files.sha256'));
+    assert.match(
+      releaseFiles.toString(),
+      /wordpress\/wp-content\/themes\/logika-theme\/assets\/js\/main\.js$/m,
+    );
     assert.ok(archiveEntries.some((entry) => entry.startsWith('wordpress/wp-content/themes/logika-theme/')));
     assert.ok(archiveEntries.some((entry) => entry.startsWith('wordpress/wp-content/plugins/logika-core/')));
     assert.ok(archiveEntries.some((entry) => entry.startsWith('wordpress/wp-content/plugins/logika-leads/')));
@@ -59,6 +70,7 @@ test('build artifact contains only managed WordPress components and release meta
     );
     assert.ok(archiveEntries.every((entry) => (
       entry === 'release-manifest.json'
+      || entry === 'release-files.sha256'
       || entry === 'wordpress/'
       || entry === 'wordpress/wp-content/'
       || entry === 'wordpress/wp-content/themes/'
@@ -74,12 +86,15 @@ test('build artifact contains only managed WordPress components and release meta
 
 test('artifact builder stages freshly built theme runtime assets', () => {
   const builder = readFileSync(join(root, 'scripts/release/build-artifact.sh'), 'utf8');
+  const deploy = readFileSync(join(root, 'scripts/release/deploy.sh'), 'utf8');
 
   assert.match(builder, /npm run backend/);
   for (const assetDir of ['css', 'img']) {
     assert.match(builder, new RegExp(`build/\\$asset_dir`));
   }
   assert.match(builder, /tar -C "\$staging_dir" -cf - "\$component"/);
+  assert.match(deploy, /sha256sum -c release-files\.sha256/);
+  assert.ok(deploy.indexOf('sha256sum -c release-files.sha256') < deploy.indexOf('current.next'));
 });
 
 test('canonical source guard runs before an artifact build', () => {
@@ -95,54 +110,6 @@ test('canonical source guard runs before an artifact build', () => {
   assert.match(guard, /release-source-acknowledgements/);
   assert.ok(existsSync(join(root, 'scripts/release/release-source-acknowledgements')));
   assert.ok(builder.indexOf('release-source-status.sh') < builder.indexOf('npm run backend'));
-});
-
-test('release file manifest covers the staged WordPress runtime', () => {
-  const outputDir = mkdtempSync(join(tmpdir(), 'logika-release-manifest-test-'));
-
-  try {
-    const artifactPath = run('./scripts/release/build-artifact.sh', [
-      '--source-root', root,
-      '--output-dir', outputDir,
-    ], {
-      env: { ...process.env, RELEASE_SOURCE_IGNORE_OUTSIDE_EDITS: '1' },
-    }).trim();
-    const archiveEntries = execFileSync('tar', ['-tzf', artifactPath], { encoding: 'utf8' });
-    const deploy = readFileSync(join(root, 'scripts/release/deploy.sh'), 'utf8');
-
-    assert.match(archiveEntries, /^release-files\.sha256$/m);
-    assert.match(
-      execFileSync('tar', ['-xOzf', artifactPath, 'release-files.sha256'], { encoding: 'utf8' }),
-      /wordpress\/wp-content\/themes\/logika-theme\/assets\/js\/main\.js$/m,
-    );
-    assert.match(deploy, /sha256sum -c release-files\.sha256/);
-    assert.ok(deploy.indexOf('sha256sum -c release-files.sha256') < deploy.indexOf('current.next'));
-  } finally {
-    rmSync(outputDir, { recursive: true, force: true });
-  }
-});
-
-test('release id changes with the staged runtime manifest', () => {
-  const outputDir = mkdtempSync(join(tmpdir(), 'logika-release-id-test-'));
-
-  try {
-    const artifactPath = run('./scripts/release/build-artifact.sh', [
-      '--source-root', root,
-      '--output-dir', outputDir,
-    ], {
-      env: { ...process.env, RELEASE_SOURCE_IGNORE_OUTSIDE_EDITS: '1' },
-    }).trim();
-    const manifest = JSON.parse(readFileSync(join(outputDir, 'release-manifest.json'), 'utf8'));
-    const releaseFiles = execFileSync('tar', ['-xOzf', artifactPath, 'release-files.sha256']);
-
-    assert.equal(
-      manifest.releaseId,
-      createHash('sha256').update(releaseFiles).digest('hex').slice(0, 40),
-    );
-    assert.notEqual(manifest.releaseId, manifest.commitSha);
-  } finally {
-    rmSync(outputDir, { recursive: true, force: true });
-  }
 });
 
 test('deploy refuses to connect until every required target parameter is supplied', () => {
@@ -202,6 +169,8 @@ test('release workflows enforce staged approval and document the readiness bound
   assert.match(productionWorkflow, /ref: wordpress/);
   assert.match(productionWorkflow, /environment:\s*\n\s*name: production/);
   assert.match(productionWorkflow, /staging_run_id/);
+  assert.match(productionWorkflow, /releaseId/);
+  assert.match(productionWorkflow, /RELEASE_ARTIFACT/);
   assert.match(validationWorkflow, /npm ci/);
   assert.match(validationWorkflow, /npm run build/);
   assert.match(validationWorkflow, /npm run html/);

@@ -35,7 +35,10 @@ jobs:
         run: |
           test -f release-manifest.json
           test "$(node -p "require('./release-manifest.json').commitSha")" = "${{ inputs.release_sha }}"
-          test -f "logika-wordpress-${{ inputs.release_sha }}.tar.gz"
+          release_id="$(node -p "require('./release-manifest.json').releaseId")"
+          release_artifact="logika-wordpress-${release_id}.tar.gz"
+          test -f "$release_artifact"
+          echo "RELEASE_ARTIFACT=$release_artifact" >> "$GITHUB_ENV"
       - name: Configure SSH trust
         env:
           DEPLOY_SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -64,7 +67,7 @@ jobs:
           DEPLOY_ROOT: ${{ secrets.DEPLOY_ROOT }}
           DEPLOY_SITE_ROOT: ${{ secrets.DEPLOY_SITE_ROOT }}
           WP_CLI_BIN: ${{ secrets.WP_CLI_BIN }}
-        run: scripts/release/deploy.sh --artifact "logika-wordpress-${{ inputs.release_sha }}.tar.gz"
+        run: scripts/release/deploy.sh --artifact "$RELEASE_ARTIFACT"
       - name: Read-only server preflight
         env:
           DEPLOY_HOST: ${{ secrets.SSH_HOST }}
