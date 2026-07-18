@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 $header = file_get_contents( __DIR__ . '/../wordpress/wp-content/themes/logika-theme/source-pages/header.php' );
+$static_header = file_get_contents( __DIR__ . '/../source/partials/header.html' );
 $styles = file_get_contents( __DIR__ . '/../source/scss/blocks/_header.scss' );
 $theme_css = file_get_contents( __DIR__ . '/../wordpress/wp-content/themes/logika-theme/assets/css/style.css' );
 $minified_theme_css = preg_replace( '/\s+/', '', $theme_css );
@@ -10,6 +11,13 @@ $minified_theme_css = preg_replace( '/\s+/', '', $theme_css );
 foreach ( array( 'IT Курси', 'Курси англійської' ) as $label ) {
 	if ( ! str_contains( $header, $label ) ) {
 		fwrite( STDERR, "Course dropdown does not use Ukrainian label: {$label}.\n" );
+		exit( 1 );
+	}
+}
+
+foreach ( array( $header, $static_header ) as $navbar ) {
+	if ( ! str_contains( $navbar, 'href="/vacancies/">Вакансії</a>' ) || str_contains( $navbar, 'href="#">Контакти</a>' ) ) {
+		fwrite( STDERR, "Navbar must link to the Ukrainian vacancies page.\n" );
 		exit( 1 );
 	}
 }

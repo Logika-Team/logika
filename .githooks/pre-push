@@ -1,0 +1,8 @@
+#!/bin/sh
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+    if [ "$local_ref" != refs/heads/wordpress ] || [ "$remote_ref" != refs/heads/wordpress ]; then
+        echo 'WordPress worktree: push only refs/heads/wordpress to refs/heads/wordpress.' >&2
+        exit 1
+    fi
+done

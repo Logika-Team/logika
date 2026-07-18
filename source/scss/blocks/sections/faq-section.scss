@@ -2,6 +2,7 @@
 
 .faq-section {
     position: relative;
+    overflow: hidden;
     padding: clamp(32px, 4.444vw, 64px) 0;
 
     &__left-bg {
@@ -9,6 +10,7 @@
         top: -20%;
         left: 0;
         display: flex;
+        pointer-events: none;
     }
 
     &__right-bg {
@@ -16,6 +18,7 @@
         bottom: -5%;
         right: 0;
         display: flex;
+        pointer-events: none;
     }
 
     &__wrapp {

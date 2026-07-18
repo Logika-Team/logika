@@ -680,3 +680,44 @@ if (select.length) {
     });
   });
 }
+
+document.querySelectorAll('.portfolio-section__viewport').forEach((viewport) => {
+  viewport.querySelectorAll('img').forEach((image) => { image.draggable = false; });
+  let startX = 0;
+  let startScrollLeft = 0;
+  let dragged = false;
+
+  viewport.addEventListener('pointerdown', (event) => {
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+    if (event.target.closest('a, button, input, select, textarea')) return;
+
+    startX = event.clientX;
+    startScrollLeft = viewport.scrollLeft;
+    dragged = false;
+    viewport.classList.add('is-dragging');
+    viewport.setPointerCapture(event.pointerId);
+  });
+
+  viewport.addEventListener('pointermove', (event) => {
+    if (!viewport.hasPointerCapture(event.pointerId)) return;
+
+    const deltaX = event.clientX - startX;
+    dragged ||= Math.abs(deltaX) > 4;
+    viewport.scrollLeft = startScrollLeft - deltaX;
+  });
+
+  const stopDragging = (event) => {
+    viewport.classList.remove('is-dragging');
+    if (viewport.hasPointerCapture(event.pointerId)) viewport.releasePointerCapture(event.pointerId);
+  };
+
+  viewport.addEventListener('pointerup', stopDragging);
+  viewport.addEventListener('pointercancel', stopDragging);
+  viewport.addEventListener('click', (event) => {
+    if (!dragged) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    dragged = false;
+  }, true);
+});

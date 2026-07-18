@@ -41,14 +41,14 @@ foreach ( array( 'img/details/details-icon1.svg', 'img/gallery/gallery.png', 'im
 $script = file_get_contents( "{$theme}/assets/js/main.js" ) ?: '';
 $functions = file_get_contents( "{$theme}/functions.php" ) ?: '';
 
-foreach ( array( 'tripsSectionSlider', 'gallerySectionSlider' ) as $marker ) {
+foreach ( array( 'tripsSectionSlider', 'gallerySectionSlider', 'campsHighlightsSlider' ) as $marker ) {
 	if ( ! str_contains( $script, $marker ) ) {
 		fwrite( STDERR, "Theme slider script is missing {$marker}.\n" );
 		exit( 1 );
 	}
 }
 
-foreach ( array( "array( 'trips-section', 'details-section', 'gallery-section' )", "array( 'course-banner-section', 'learn-section', 'process-section' )", 'wp_enqueue_style( "logika-{$section}"' ) as $style ) {
+foreach ( array( "array( 'trips-section', 'details-section', 'gallery-section' )", "array( 'course-banner-section', 'learn-section', 'process-section', 'portfolio-section' )", 'wp_enqueue_style( "logika-{$section}"' ) as $style ) {
 	if ( ! str_contains( $functions, $style ) ) {
 		fwrite( STDERR, "Theme does not enqueue the required section styles: {$style}.\n" );
 		exit( 1 );

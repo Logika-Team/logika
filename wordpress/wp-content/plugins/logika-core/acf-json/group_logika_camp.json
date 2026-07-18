@@ -167,6 +167,20 @@
       "instructions": "Заповніть поле «Текст hero»."
     },
     {
+      "key": "field_camp_hero_dates_text",
+      "label": "Дати у hero",
+      "name": "camp_hero_dates_text",
+      "type": "text",
+      "instructions": "Короткий рядок з датами або змінами, що показується під заголовком."
+    },
+    {
+      "key": "field_camp_hero_form_title",
+      "label": "Текст форми hero",
+      "name": "camp_hero_form_title",
+      "type": "textarea",
+      "instructions": "Текст над полями форми hero. Новий рядок зберігається."
+    },
+    {
       "key": "field_camp_hero_image",
       "label": "Зображення hero",
       "name": "camp_hero_image",
@@ -183,6 +197,67 @@
       "return_format": "id",
       "instructions": "Додайте чотири фотографії hero у порядку: руки, басейн, команда, гори. Мініатюри видно одразу, порядок змінюється перетягуванням.",
       "preview_size": "medium"
+    },
+    {
+      "key": "field_camp_hero_facts",
+      "label": "Факти hero",
+      "name": "camp_hero_facts",
+      "type": "repeater",
+      "instructions": "Додайте картки з короткою інформацією про зміну у потрібному порядку.",
+      "layout": "table",
+      "button_label": "Додати факт",
+      "sub_fields": [
+        {
+          "key": "field_camp_hero_fact_label",
+          "label": "Підпис",
+          "name": "label",
+          "type": "text"
+        },
+        {
+          "key": "field_camp_hero_fact_value",
+          "label": "Значення",
+          "name": "value",
+          "type": "text"
+        },
+        {
+          "key": "field_camp_hero_fact_icon",
+          "label": "Іконка",
+          "name": "icon",
+          "type": "image",
+          "return_format": "id",
+          "preview_size": "medium"
+        }
+      ]
+    },
+    {
+      "key": "field_camp_tab_card",
+      "label": "Картка зміни",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_camp_card_image",
+      "label": "Зображення картки",
+      "name": "camp_card_image",
+      "type": "image",
+      "instructions": "Показується у вікні вибору зміни.",
+      "return_format": "id",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_camp_card_description",
+      "label": "Опис картки",
+      "name": "camp_card_description",
+      "type": "textarea",
+      "instructions": "Короткий опис зміни у вікні вибору зміни."
+    },
+    {
+      "key": "field_camp_card_dates",
+      "label": "Дати картки",
+      "name": "camp_card_dates",
+      "type": "textarea",
+      "instructions": "Точний рядок з датами або змінами для картки формату."
     },
     {
       "key": "field_camp_tab_benefits",
@@ -387,6 +462,60 @@
           "instructions": "Заповніть поле «Зображення».",
           "return_format": "id",
           "preview_size": "medium"
+        },
+        {
+          "key": "field_camp_detail_item_gallery",
+          "label": "Фотографії",
+          "name": "gallery",
+          "type": "gallery",
+          "instructions": "Додайте фотографії локації у порядку показу.",
+          "return_format": "id",
+          "preview_size": "medium"
+        }
+      ]
+    },
+    {
+      "key": "field_camp_tab_includes",
+      "label": "У вартість входить",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_camp_includes_title",
+      "label": "Заголовок переліку",
+      "name": "camp_includes_title",
+      "type": "text",
+      "instructions": "Заповніть заголовок блоку, що входить у вартість."
+    },
+    {
+      "key": "field_camp_includes",
+      "label": "Що входить у вартість",
+      "name": "camp_includes",
+      "type": "repeater",
+      "instructions": "Додайте пункти та змінюйте їхній порядок перетягуванням.",
+      "layout": "block",
+      "button_label": "Додати пункт",
+      "sub_fields": [
+        {
+          "key": "field_camp_include_item_title",
+          "label": "Заголовок",
+          "name": "title",
+          "type": "text"
+        },
+        {
+          "key": "field_camp_include_item_text",
+          "label": "Текст",
+          "name": "text",
+          "type": "textarea"
+        },
+        {
+          "key": "field_camp_include_item_icon",
+          "label": "Іконка",
+          "name": "icon",
+          "type": "image",
+          "return_format": "id",
+          "preview_size": "medium"
         }
       ]
     },
@@ -419,6 +548,37 @@
       "instructions": "Заповніть поле «Зображення бронювання».",
       "return_format": "id",
       "preview_size": "medium"
+    },
+    {
+      "key": "field_camp_booking_benefits",
+      "label": "Переваги бронювання",
+      "name": "camp_booking_benefits",
+      "type": "repeater",
+      "instructions": "Додайте короткі переваги поруч із формою.",
+      "layout": "table",
+      "button_label": "Додати перевагу",
+      "sub_fields": [
+        {
+          "key": "field_camp_booking_benefit_text",
+          "label": "Текст",
+          "name": "text",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "key": "field_camp_booking_form_title",
+      "label": "Текст над формою",
+      "name": "camp_booking_form_title",
+      "type": "textarea",
+      "instructions": "Текст над полями форми. Новий рядок зберігається."
+    },
+    {
+      "key": "field_camp_booking_submit_label",
+      "label": "Текст кнопки форми",
+      "name": "camp_booking_submit_label",
+      "type": "text",
+      "instructions": "Заповніть текст кнопки бронювання."
     },
     {
       "key": "field_camp_tab_gallery",
@@ -465,6 +625,44 @@
         "featured_image"
       ],
       "return_format": "id"
+    },
+    {
+      "key": "field_camp_tab_extra_sections",
+      "label": "Додаткові блоки",
+      "name": "",
+      "type": "tab",
+      "instructions": ""
+    },
+    {
+      "key": "field_camp_extra_sections",
+      "label": "Додаткові блоки",
+      "name": "camp_extra_sections",
+      "type": "repeater",
+      "instructions": "Використовуйте для унікальних блоків табору: розклад, програми, екскурсії або важливі умови.",
+      "layout": "block",
+      "button_label": "Додати блок",
+      "sub_fields": [
+        {
+          "key": "field_camp_extra_section_title",
+          "label": "Заголовок",
+          "name": "title",
+          "type": "text"
+        },
+        {
+          "key": "field_camp_extra_section_text",
+          "label": "Текст",
+          "name": "text",
+          "type": "wysiwyg"
+        },
+        {
+          "key": "field_camp_extra_section_images",
+          "label": "Фотографії",
+          "name": "images",
+          "type": "gallery",
+          "return_format": "id",
+          "preview_size": "medium"
+        }
+      ]
     },
     {
       "key": "field_camp_tab_faq",

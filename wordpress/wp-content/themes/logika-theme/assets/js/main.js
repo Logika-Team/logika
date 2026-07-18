@@ -19,6 +19,7 @@ const englishSectionSlider = document.querySelectorAll('.english-section__slider
 const categoriesCoursesSlider = document.querySelectorAll('.categories-section__slider');
 const tripsSectionSlider = document.querySelectorAll('.trips-section__slider');
 const gallerySectionSlider = document.querySelectorAll('.gallery-section__slider');
+const campsHighlightsSlider = document.querySelectorAll('.camp-highlights__slider');
 const campGalleries = document.querySelectorAll('[data-camp-gallery]');
 
 //------------------------------------------------
@@ -196,10 +197,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeButtons = leadModal.querySelectorAll('.modal-close');
   const firstInput = leadModal.querySelector('input[name="name"]');
   const courseInput = leadModal.querySelector('input[name="course_id"]');
+	const formIdInput = leadModal.querySelector('input[name="form_id"]');
+	const ageField = leadModal.querySelector('[data-logika-age-field]');
+	const ageInput = ageField?.querySelector('select[name="child_age"]');
+	const messageField = leadModal.querySelector('[data-logika-message-field]');
+	const messageInput = messageField?.querySelector('[data-logika-message-input]');
+	const modalTitle = leadModal.querySelector('[data-logika-modal-title]');
   let trigger = null;
   const closeLeadModal = () => {
     modalContainer.classList.remove('modal-open');
     leadModal.classList.remove('is-open');
+    leadModal.classList.remove('is-director-message');
     leadModal.hidden = true;
     enableScroll();
     trigger?.focus();
@@ -207,6 +215,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const openLeadModal = (nextTrigger) => {
     trigger = nextTrigger;
     if (courseInput) courseInput.value = nextTrigger.dataset.logikaCourseId || '';
+		const formId = nextTrigger.dataset.logikaFormId || 'trial_lesson';
+		const isGiftCertificate = formId === 'gift_certificate';
+		const isDirectorMessage = formId === 'director_message';
+		if (formIdInput) formIdInput.value = formId;
+		if (modalTitle) modalTitle.textContent = isDirectorMessage ? 'Відправити лист директору' : 'Перший урок — безкоштовно.';
+		leadModal.classList.toggle('is-director-message', isDirectorMessage);
+		if (ageField) ageField.hidden = isGiftCertificate || isDirectorMessage;
+		if (ageInput) {
+			ageInput.disabled = isGiftCertificate || isDirectorMessage;
+			ageInput.required = !isGiftCertificate && !isDirectorMessage;
+		}
+		if (messageField) messageField.hidden = !isDirectorMessage;
+		if (messageInput) messageInput.required = isDirectorMessage;
     modalContainer.classList.add('modal-open');
     leadModal.hidden = false;
     window.requestAnimationFrame(() => window.requestAnimationFrame(() => leadModal.classList.add('is-open')));
@@ -607,6 +628,43 @@ document.addEventListener("DOMContentLoaded", function () {
     if (container) { toggle(); window.addEventListener('resize', toggle); }
   });
 
+  if (campsHighlightsSlider.length > 0) {
+    campsHighlightsSlider.forEach(function (slider) {
+      const container = slider.querySelector(".swiper-container");
+      if (!container) return;
+
+      let mainSwiper = null;
+
+      const initOrDestroySlider = () => {
+        const windowWidth = window.innerWidth;
+
+        if (windowWidth <= 1024) {
+          if (!mainSwiper) {
+            mainSwiper = new Swiper(container, {
+              speed: 1800,
+              loop: true,
+              observer: true,
+              observeParents: true,
+              watchSlidesProgress: true,
+              spaceBetween: 10,
+              slidesPerView: "auto",
+            });
+          }
+        } else if (mainSwiper) {
+          mainSwiper.destroy(true, true);
+          mainSwiper = null;
+        }
+      };
+
+      initOrDestroySlider();
+
+      let resizeTimeout;
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(initOrDestroySlider, 150);
+      });
+    });
+  }
 
 });
 
@@ -679,3 +737,44 @@ if (select.length) {
     });
   });
 }
+
+document.querySelectorAll('.portfolio-section__viewport').forEach((viewport) => {
+  viewport.querySelectorAll('img').forEach((image) => { image.draggable = false; });
+  let startX = 0;
+  let startScrollLeft = 0;
+  let dragged = false;
+
+  viewport.addEventListener('pointerdown', (event) => {
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+    if (event.target.closest('a, button, input, select, textarea')) return;
+
+    startX = event.clientX;
+    startScrollLeft = viewport.scrollLeft;
+    dragged = false;
+    viewport.classList.add('is-dragging');
+    viewport.setPointerCapture(event.pointerId);
+  });
+
+  viewport.addEventListener('pointermove', (event) => {
+    if (!viewport.hasPointerCapture(event.pointerId)) return;
+
+    const deltaX = event.clientX - startX;
+    dragged ||= Math.abs(deltaX) > 4;
+    viewport.scrollLeft = startScrollLeft - deltaX;
+  });
+
+  const stopDragging = (event) => {
+    viewport.classList.remove('is-dragging');
+    if (viewport.hasPointerCapture(event.pointerId)) viewport.releasePointerCapture(event.pointerId);
+  };
+
+  viewport.addEventListener('pointerup', stopDragging);
+  viewport.addEventListener('pointercancel', stopDragging);
+  viewport.addEventListener('click', (event) => {
+    if (!dragged) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    dragged = false;
+  }, true);
+});

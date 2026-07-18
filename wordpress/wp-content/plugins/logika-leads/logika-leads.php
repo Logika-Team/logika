@@ -14,6 +14,7 @@ require_once __DIR__ . '/src/Token.php';
 require_once __DIR__ . '/src/Service.php';
 require_once __DIR__ . '/src/Rest.php';
 require_once __DIR__ . '/src/Crm.php';
+require_once __DIR__ . '/src/DirectorEmail.php';
 require_once __DIR__ . '/src/Admin.php';
 
 register_activation_hook( __FILE__, 'logika_leads_activate' );

@@ -150,11 +150,16 @@ final class Logika_Theme_Page_Content {
 		$markup = self::applySectionFields( $markup, $source, $page_id );
 		$markup = self::applyGallery( $markup, $source, $page_id );
 		$markup = self::applyRepeaters( $markup, $source, $page_id );
-		$markup = 'camps' === $source ? self::applyCampCards( $markup ) : $markup;
 		$markup = 'it-courses' === $source ? self::applyItCategories( $markup, $page_id ) : $markup;
 		$markup = 'it-courses' === $source ? self::applyItCatalogCards( $markup, $page_id ) : $markup;
 		$markup = 'camp' === $source ? self::applyCampDetails( $markup, $page_id ) : $markup;
 		$markup = 'camp' === $source ? self::applyCampHeroImages( $markup, $page_id ) : $markup;
+		$markup = 'camp' === $source ? self::applyCampHeroDates( $markup, $page_id ) : $markup;
+		$markup = 'camp' === $source ? self::applyCampHeroFacts( $markup, $page_id ) : $markup;
+		$markup = 'camp' === $source ? self::applyCampTrips( $markup, $page_id ) : $markup;
+		$markup = 'camp' === $source ? self::applyCampIncludes( $markup, $page_id ) : $markup;
+		$markup = 'camp' === $source ? self::applyCampExtraSections( $markup, $page_id ) : $markup;
+		$markup = 'camp' === $source ? self::applyCampBooking( $markup, $page_id ) : $markup;
 		$markup = 'it-course' === $source ? self::applyCourseLearn( $markup, $page_id ) : $markup;
 		$markup = 'it-course' === $source ? self::applyCoursePage( $markup, $page_id ) : $markup;
 		$markup = 'about' === $source ? self::applyAboutImageRows( $markup, $page_id ) : $markup;
@@ -417,32 +422,6 @@ final class Logika_Theme_Page_Content {
 		);
 	}
 
-	private static function applyCampCards( string $markup ): string {
-		$ids = get_posts( array( 'post_type' => 'camp', 'post_status' => 'publish', 'posts_per_page' => -1, 'fields' => 'ids', 'no_found_rows' => true, 'meta_query' => array( array( 'key' => 'camp_is_active', 'value' => '1' ) ) ) );
-		if ( ! $ids || ! preg_match( '#(<ul class="camp-formats__list">)(.*?)(</ul>)#s', $markup, $list ) ) {
-			return $markup;
-		}
-		preg_match_all( '#<li class="camp-formats__item">.*?</li>#s', $list[2], $templates );
-		if ( ! $templates[0] ) {
-			return $markup;
-		}
-		$items = '';
-		foreach ( array_values( $ids ) as $index => $id ) {
-			$item = $templates[0][ $index % count( $templates[0] ) ];
-			$title = get_the_title( $id );
-			$item = self::replaceLeaf( $item, '#(<span class="camp-formats__(?:season|item-season)">)(.*?)(</span>)#s', $title );
-			$item = (string) preg_replace( '#(<a\b[^>]*href=)(["\']).*?\2#', '$1$2' . esc_url( get_permalink( $id ) ) . '$2', $item, 1 );
-			$image = (int) get_field( 'camp_hero_image', $id );
-			$url = $image ? wp_get_attachment_image_url( $image, 'large' ) : false;
-			if ( $url ) {
-				$item = (string) preg_replace( '#(\bsrc=)(["\']).*?\2#', '$1$2' . esc_url( $url ) . '$2', $item, 1 );
-			}
-			$items .= $item;
-		}
-
-		return str_replace( $list[0], $list[1] . $items . $list[3], $markup );
-	}
-
 	private static function applyRepeaters( string $markup, string $source, int|string $context ): string {
 		$configs = array(
 			'about' => array(
@@ -487,12 +466,149 @@ final class Logika_Theme_Page_Content {
 				$text = trim( (string) ( $row['text'] ?? '' ) );
 				$section = $title ? self::replaceLeaf( $section, '#(<h2\b[^>]*>)(.*?)(</h2>)#s', $title ) : $section;
 				$section = $text ? self::replaceLeaf( $section, '#(<div class="camp-details__copy">.*?<p>)(.*?)(</p>)#s', $text ) : $section;
-				$image = (int) ( $row['image'] ?? 0 );
-				$url = $image ? wp_get_attachment_image_url( $image, 'large' ) : false;
-				return $url ? (string) preg_replace( '#(<div class="camp-details__main-image">.*?<img\b[^>]*\bsrc=)(["\']).*?\2#s', '$1$2' . esc_url( $url ) . '$2', $section, 1 ) : $section;
+				$images = array_values( array_filter( array_map( 'absint', (array) ( $row['gallery'] ?? array() ) ) ) );
+				if ( ! $images && ! empty( $row['image'] ) ) {
+					$images[] = absint( $row['image'] );
+				}
+				$urls = array_values( array_filter( array_map( static fn( int $image ): string|false => wp_get_attachment_image_url( $image, 'large' ), $images ) ) );
+				if ( ! $urls ) {
+					return $section;
+				}
+				$section = (string) preg_replace( '#(<div class="camp-details__main-image">.*?<img\b[^>]*\bsrc=)(["\']).*?\2#s', '$1$2' . esc_url( $urls[0] ) . '$2', $section, 1 );
+				$thumbs = '';
+				foreach ( $urls as $image_index => $url ) {
+					$thumbs .= '<li><button class="camp-details__thumb' . ( 0 === $image_index ? ' is-active' : '' ) . '" type="button" data-gallery-thumb="' . esc_url( $url ) . '" aria-label="Показати фото ' . esc_attr( (string) ( $image_index + 1 ) ) . '" aria-pressed="' . ( 0 === $image_index ? 'true' : 'false' ) . '"><img src="' . esc_url( $url ) . '" alt=""></button></li>';
+				}
+				return (string) preg_replace( '#(<ul class="camp-details__thumbs">).*?(</ul>)#s', '$1' . $thumbs . '$2', $section, 1 );
 			},
 			$markup
 		);
+	}
+
+	private static function applyCampHeroFacts( string $markup, int|string $context ): string {
+		$rows = array_values( array_filter( (array) get_field( 'camp_hero_facts', $context ), 'is_array' ) );
+		if ( ! $rows || ! preg_match( '#(<ul class="banner-section__bar">)(.*?)(</ul>)#s', $markup, $list ) ) {
+			return $markup;
+		}
+		preg_match_all( '#<li>.*?</li>#s', $list[2], $templates );
+		if ( ! $templates[0] ) {
+			return $markup;
+		}
+		$items = '';
+		foreach ( $rows as $index => $row ) {
+			$item  = $templates[0][ min( $index, count( $templates[0] ) - 1 ) ];
+			$label = trim( (string) ( $row['label'] ?? '' ) );
+			$value = trim( (string) ( $row['value'] ?? '' ) );
+			$item  = $label ? self::replaceLeaf( $item, '#(<p>\s*<span>)(.*?)(</span>)#s', $label ) : $item;
+			$item  = $value ? self::replaceLeaf( $item, '#(<strong>)(.*?)(</strong>)#s', $value ) : $item;
+			$url   = wp_get_attachment_image_url( absint( $row['icon'] ?? 0 ), 'large' );
+			$items .= $url ? (string) preg_replace( '#(<img\b[^>]*\bsrc=)(["\']).*?\2#', '$1$2' . esc_url( $url ) . '$2', $item, 1 ) : $item;
+		}
+
+		return str_replace( $list[0], $list[1] . $items . $list[3], $markup );
+	}
+
+	private static function applyCampHeroDates( string $markup, int|string $context ): string {
+		$dates = trim( (string) get_field( 'camp_hero_dates_text', $context ) );
+		if ( ! $dates ) {
+			$start = (string) get_field( 'camp_start_date', $context );
+			$end   = (string) get_field( 'camp_end_date', $context );
+			$dates = $start ? wp_date( 'd.m.Y', strtotime( $start ) ) . ( $end ? ' - ' . wp_date( 'd.m.Y', strtotime( $end ) ) : '' ) : '';
+		}
+		if ( $dates ) {
+			$markup = self::replaceLeaf( $markup, '#(<div class="banner-section__info">.*?<h4>)(.*?)(</h4>)#s', $dates );
+		}
+		$form_title = trim( (string) get_field( 'camp_hero_form_title', $context ) );
+		if ( $form_title ) {
+			$markup = (string) preg_replace( '#(<div class="main-form__title h5">).*?(</div>)#s', '$1' . nl2br( esc_html( $form_title ) ) . '$2', $markup, 1 );
+		}
+		$cta_label = trim( (string) get_field( 'camp_cta_label', $context ) );
+		if ( $cta_label ) {
+			$markup = (string) preg_replace( '#(<button class="main-form__btn btn btn--yellow" type="submit">).*?(\s*<svg)#s', '$1' . esc_html( $cta_label ) . '$2', $markup, 1 );
+			$markup = (string) preg_replace( '#(<a class="camp-details__cta btn btn--violet" href="\#form">).*?(\s*<svg)#s', '$1' . esc_html( $cta_label ) . '$2', $markup );
+		}
+
+		return $markup;
+	}
+
+	private static function applyCampTrips( string $markup, int|string $context ): string {
+		$rows = array_values( array_filter( (array) get_field( 'camp_trips', $context ), 'is_array' ) );
+		if ( ! $rows || ! preg_match( '#<section class="trips-section">.*?</section>#s', $markup, $match ) ) {
+			return $markup;
+		}
+		$section = $match[0];
+		$title   = trim( (string) get_field( 'camp_trips_title', $context ) );
+		$section = $title ? self::replaceLeaf( $section, '#(<h2 class="trips-section__title">)(.*?)(</h2>)#s', $title ) : $section;
+		$tags    = array_filter( array_map( static fn( array $row ): string => trim( (string) ( $row['title'] ?? '' ) ), $rows ) );
+		if ( $tags ) {
+			$section = (string) preg_replace( '#(<ul class="trips-section__tags">).*?(</ul>)#s', '$1' . implode( '', array_map( static fn( string $tag ): string => '<li class="h5">' . esc_html( $tag ) . '</li>', $tags ) ) . '$2', $section, 1 );
+		}
+		if ( preg_match( '#(<ul class=["\']swiper-wrapper["\']>)(.*?)(</ul>)#s', $section, $list ) && preg_match( '#<li class=["\']swiper-slide["\']>.*?</li>#s', $list[2], $template ) ) {
+			$slides = '';
+			foreach ( $rows as $row ) {
+				$url = wp_get_attachment_image_url( absint( $row['image'] ?? 0 ), 'large' );
+				if ( ! $url ) {
+					continue;
+				}
+				$slide = (string) preg_replace( '#\b(src|srcset)=(["\']).*?\2#', '$1=$2' . esc_url( $url ) . '$2', $template[0] );
+				$slides .= (string) preg_replace( '#(<img\b[^>]*\balt=)(["\']).*?\2#', '$1$2' . esc_attr( (string) ( $row['title'] ?? '' ) ) . '$2', $slide, 1 );
+			}
+			$section = $slides ? str_replace( $list[0], $list[1] . $slides . $list[3], $section ) : $section;
+		}
+
+		return str_replace( $match[0], $section, $markup );
+	}
+
+	private static function applyCampIncludes( string $markup, int|string $context ): string {
+		$rows = array_values( array_filter( (array) get_field( 'camp_includes', $context ), 'is_array' ) );
+		if ( ! $rows ) {
+			return $markup;
+		}
+		$title = trim( (string) get_field( 'camp_includes_title', $context ) );
+		if ( $title ) {
+			$markup = self::replaceLeaf( $markup, '#(<h2 class="details-section__title">)(.*?)(</h2>)#s', $title );
+		}
+
+		return self::replaceListRows( $markup, 'details-section__items', 'details-section__item', $rows, 'card' );
+	}
+
+	private static function applyCampBooking( string $markup, int|string $context ): string {
+		$rows = array_values( array_filter( (array) get_field( 'camp_booking_benefits', $context ), 'is_array' ) );
+		if ( $rows && preg_match( '#(<div class="camp-booking__benefits">\s*<ul>)(.*?)(</ul>)#s', $markup, $list ) ) {
+			$items = implode( '', array_map( static fn( array $row ): string => '<li>' . esc_html( (string) ( $row['text'] ?? '' ) ) . '</li>', $rows ) );
+			$markup = str_replace( $list[0], $list[1] . $items . $list[3], $markup );
+		}
+		$form_title = trim( (string) get_field( 'camp_booking_form_title', $context ) );
+		if ( $form_title ) {
+			$markup = (string) preg_replace( '#(<div class="camp-booking__form-title">).*?(</div>)#s', '$1' . nl2br( esc_html( $form_title ) ) . '$2', $markup, 1 );
+		}
+		$submit_label = trim( (string) get_field( 'camp_booking_submit_label', $context ) );
+		if ( $submit_label ) {
+			$markup = (string) preg_replace( '#(<button class="camp-booking__submit btn btn--yellow" type="submit">).*?(\s*<span)#s', '$1' . esc_html( $submit_label ) . '$2', $markup, 1 );
+		}
+
+		return $markup;
+	}
+
+	private static function applyCampExtraSections( string $markup, int|string $context ): string {
+		$rows = array_values( array_filter( (array) get_field( 'camp_extra_sections', $context ), 'is_array' ) );
+		if ( ! $rows ) {
+			return self::removeSection( $markup, 'camp-extra' );
+		}
+		$items = '';
+		foreach ( $rows as $row ) {
+			$title  = trim( (string) ( $row['title'] ?? '' ) );
+			$text   = wp_kses_post( (string) ( $row['text'] ?? '' ) );
+			$images = array_values( array_filter( array_map( 'absint', (array) ( $row['images'] ?? array() ) ) ) );
+			$gallery = '';
+			foreach ( $images as $image ) {
+				$url = wp_get_attachment_image_url( $image, 'large' );
+				$gallery .= $url ? '<li><img src="' . esc_url( $url ) . '" alt=""></li>' : '';
+			}
+			$items .= '<article class="camp-extra__item">' . ( $title ? '<h2>' . esc_html( $title ) . '</h2>' : '' ) . ( $text ? '<div class="camp-extra__text">' . $text . '</div>' : '' ) . ( $gallery ? '<ul class="camp-extra__gallery">' . $gallery . '</ul>' : '' ) . '</article>';
+		}
+
+		return (string) preg_replace( '#(<div class="camp-extra__list">).*?(</div>\s*</div>\s*</section>)#s', '$1' . $items . '$2', $markup, 1 );
 	}
 
 	private static function replaceListRows( string $markup, string $list_class, string $item_class, array $rows, string $mode ): string {
@@ -562,7 +678,17 @@ final class Logika_Theme_Page_Content {
 	private static function applyGallery( string $markup, string $source, int|string $context ): string {
 		$field = array( 'camps' => 'camp_archive_gallery', 'camp' => 'camp_gallery' )[ $source ] ?? '';
 		$images = $field ? array_values( array_filter( array_map( 'absint', (array) get_field( $field, $context ) ) ) ) : array();
-		if ( ! $images || ! preg_match( '#(<ul class=["\']swiper-wrapper["\']>)(.*?)(</ul>)#s', $markup, $list ) || ! preg_match( '#(?:<div class="swiper-slide">.*?</div>\s*</div>|<li class="swiper-slide">.*?</div>\s*</li>)#s', $list[2], $slide ) ) {
+		if ( ! $images ) {
+			return $markup;
+		}
+		$target = $markup;
+		if ( 'camp' === $source ) {
+			if ( ! preg_match( '#<section class="gallery-section">.*?</section>#s', $markup, $section ) ) {
+				return $markup;
+			}
+			$target = $section[0];
+		}
+		if ( ! preg_match( '#(<ul class=["\']swiper-wrapper["\']>)(.*?)(</ul>)#s', $target, $list ) || ! preg_match( '#(?:<div class="swiper-slide">.*?</div>\s*</div>|<li class="swiper-slide">.*?</div>\s*</li>)#s', $list[2], $slide ) ) {
 			return $markup;
 		}
 		$slides = '';
@@ -576,7 +702,12 @@ final class Logika_Theme_Page_Content {
 			$slides .= $item;
 		}
 
-		return $slides ? str_replace( $list[0], $list[1] . $slides . $list[3], $markup ) : $markup;
+		if ( ! $slides ) {
+			return $markup;
+		}
+		$target = str_replace( $list[0], $list[1] . $slides . $list[3], $target );
+
+		return 'camp' === $source ? str_replace( $section[0], $target, $markup ) : $target;
 	}
 
 	private static function applySectionFields( string $markup, string $source, int|string $context ): string {

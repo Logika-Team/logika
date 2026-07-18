@@ -40,6 +40,18 @@ function logika_theme_setup(): void {
 }
 add_action( 'after_setup_theme', 'logika_theme_setup' );
 
+function logika_theme_favicon(): void {
+	$path = get_theme_file_path( '/assets/img/favicon.svg' );
+
+	if ( ! is_file( $path ) ) {
+		return;
+	}
+
+	$uri = add_query_arg( 'ver', (string) filemtime( $path ), get_theme_file_uri( '/assets/img/favicon.svg' ) );
+	printf( "<link rel=\"icon\" type=\"image/svg+xml\" href=\"%s\">\n", esc_url( $uri ) );
+}
+add_action( 'wp_head', 'logika_theme_favicon', 1 );
+
 function logika_theme_assets(): void {
 	$uri     = get_template_directory_uri() . '/assets';
 	$version = wp_get_theme()->get( 'Version' );
@@ -58,19 +70,30 @@ function logika_theme_assets(): void {
 	$leads_version = (string) filemtime( get_template_directory() . '/assets/js/leads.js' );
 	$phone_dropup_version = (string) filemtime( get_template_directory() . '/assets/css/phone-dropdown-dropup.css' );
 	$home_media_center_version = (string) filemtime( get_template_directory() . '/assets/css/blocks/sections/media-section.css' );
+	$home_media_center_mobile_version = (string) filemtime( get_template_directory() . '/assets/css/blocks/sections/media-section-mobile.css' );
+	$home_nizhyn_school_version = (string) filemtime( get_template_directory() . '/assets/css/blocks/sections/nizhyn-school.css' );
+	$home_city_seo_version = (string) filemtime( get_template_directory() . '/assets/js/homepage-city-seo.js' );
 	$lead_modal_style_version = (string) filemtime( get_template_directory() . '/assets/css/lead-modal.css' );
+	$director_feedback_style_version = (string) filemtime( get_template_directory() . '/assets/css/blocks/sections/director-feedback.css' );
+	$vacancies_style_version = (string) filemtime( get_template_directory() . '/assets/css/blocks/sections/vacancies.css' );
+	$vacancies_lightbox_version = (string) filemtime( get_template_directory() . '/assets/js/vacancies-lightbox.js' );
+	$vacancies_details_dialog_version = (string) filemtime( get_template_directory() . '/assets/js/vacancies-details-dialog.js' );
 	wp_enqueue_style( 'logika-intl-tel-input', $uri . '/css/vendor/intl-tel-input/intlTelInput.min.css', array(), '20.1.0' );
 	wp_enqueue_style( 'logika-theme', $uri . '/css/style.css', array( 'logika-intl-tel-input' ), $style_version );
 	wp_enqueue_style( 'logika-course-card', $uri . '/css/course-card.css', array( 'logika-theme' ), (string) filemtime( get_template_directory() . '/assets/css/course-card.css' ) );
 	wp_enqueue_style( 'logika-theme-adaptive', $uri . '/css/adaptive.css', array( 'logika-theme' ), $adaptive_style_version );
 	wp_add_inline_style( 'logika-theme', '@media (hover:hover){.header__login:hover{transform:none;box-shadow:none}.header__login:hover svg{transform:none}}.search-form__input::-webkit-search-cancel-button{width:18px;height:18px;margin-right:2px;background:url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 18 18\'%3E%3Cpath d=\'m4 4 10 10M14 4 4 14\' fill=\'none\' stroke=\'%23602B7A\' stroke-linecap=\'round\' stroke-width=\'1.5\'/%3E%3C/svg%3E") center/contain no-repeat;-webkit-appearance:none;cursor:pointer}' );
+	wp_add_inline_style( 'logika-theme', '.header{position:sticky;top:0}' );
+	wp_add_inline_style( 'logika-theme', '.banner-section__subtitle{color:var(--violet-100)}.banner-section .main-form__title>span{color:var(--light-blue)}.banner-section__bar{box-shadow:0 0 25px 0 rgba(37,37,37,.12)}' );
+	wp_add_inline_style( 'logika-theme', '.header .btn,.footer .btn,.header__location-region-toggle{font-weight:600}' );
 	wp_add_inline_style( 'logika-theme', '.services-section__item-media{aspect-ratio:588/431}.services-section__item-image{position:absolute;bottom:0;margin-top:0}.services-section__items>li:nth-child(2) .services-section__item-ages{top:auto;right:auto;bottom:0;left:-67px}.services-section__items>li:nth-child(4) .services-section__item-ages{top:auto;right:auto;bottom:0;left:-67px}.services-section__items>li:nth-child(2) .services-section__item-icon{top:43px;right:-67px;bottom:auto;left:auto}.services-section__items>li:nth-child(4) .services-section__item-icon{top:43px;right:-67px;bottom:auto;left:auto}.services-section__items>li:nth-child(3) .services-section__item-image{transform:scale(.9);transform-origin:center bottom}.services-section__items>li:nth-child(4) .services-section__item-image{transform:scale(.9);transform-origin:center bottom}.services-section__item-btns{position:relative;z-index:2}' );
 	wp_add_inline_style( 'logika-theme', '.categories-section__controls-btn{background-color:var(--violet-100)}.categories-section__controls-btn.swiper-button-disabled{background-color:var(--grey-100)}' );
+	wp_add_inline_style( 'logika-theme', '.faq-section{overflow:hidden}.faq-section__left-bg,.faq-section__right-bg{pointer-events:none}' );
 	wp_add_inline_style( 'logika-theme', '.testimonials-section__box{width:100%}.testimonials-section__items{grid-template-columns:repeat(6,minmax(0,1fr))}.testimonials-card__decor{width:min(100%,220px);aspect-ratio:1/1;align-self:flex-start;border-radius:50%;overflow:hidden}.testimonials-card__decor picture,.testimonials-card__decor img{width:100%;height:100%;object-fit:cover}' );
 	wp_enqueue_style( 'logika-lead-modal', $uri . '/css/lead-modal.css', array( 'logika-theme' ), $lead_modal_style_version );
 	if ( is_post_type_archive( 'camp' ) || is_page( 'camps' ) ) {
 		wp_enqueue_style( 'logika-camp-modal', $uri . '/css/camp-modal.css', array( 'logika-lead-modal' ), (string) filemtime( get_template_directory() . '/assets/css/camp-modal.css' ) );
-		foreach ( array( 'camp-booking', 'camp-formats', 'camp-highlights', 'camp-page-hero' ) as $section ) {
+		foreach ( array( 'camp-booking', 'camp-extra', 'camp-formats', 'camp-highlights', 'camp-page-hero' ) as $section ) {
 			wp_enqueue_style( "logika-{$section}", "{$uri}/css/blocks/sections/{$section}.css", array( 'logika-theme' ), (string) filemtime( get_template_directory() . "/assets/css/blocks/sections/{$section}.css" ) );
 		}
 	}
@@ -79,11 +102,23 @@ function logika_theme_assets(): void {
 	if ( is_page( 'faq' ) ) {
 		wp_enqueue_style( 'logika-faq-accordion', $uri . '/css/faq-accordion.css', array( 'logika-theme' ), $faq_accordion_style_version );
 	}
+	if ( is_page( 'vacancies' ) ) {
+		wp_enqueue_style( 'logika-vacancies', $uri . '/css/blocks/sections/vacancies.css', array( 'logika-theme' ), $vacancies_style_version );
+		wp_enqueue_script( 'logika-vacancies-lightbox', $uri . '/js/vacancies-lightbox.js', array( 'logika-theme' ), $vacancies_lightbox_version, true );
+		wp_enqueue_script( 'logika-vacancies-details-dialog', $uri . '/js/vacancies-details-dialog.js', array( 'logika-theme' ), $vacancies_details_dialog_version, true );
+	}
 	if ( is_front_page() || get_query_var( 'logika_city' ) ) {
+		wp_enqueue_style( 'logika-director-feedback', $uri . '/css/blocks/sections/director-feedback.css', array( 'logika-theme' ), $director_feedback_style_version );
 		wp_enqueue_style( 'logika-home-media-center', $uri . '/css/blocks/sections/media-section.css', array( 'logika-theme' ), $home_media_center_version );
+		wp_enqueue_style( 'logika-home-media-center-mobile', $uri . '/css/blocks/sections/media-section-mobile.css', array( 'logika-home-media-center' ), $home_media_center_mobile_version );
+	}
+	if ( is_front_page() || get_query_var( 'logika_city' ) ) {
+		wp_enqueue_style( 'logika-home-nizhyn-school', $uri . '/css/blocks/sections/nizhyn-school.css', array( 'logika-theme' ), $home_nizhyn_school_version );
+		wp_enqueue_script( 'logika-home-city-seo', $uri . '/js/homepage-city-seo.js', array( 'logika-city-context' ), $home_city_seo_version, true );
+		wp_localize_script( 'logika-home-city-seo', 'logikaHomepageCitySeo', array( 'endpoint' => esc_url_raw( rest_url( 'logika/v1/cities/' ) ) ) );
 	}
 	if ( is_singular( 'camp' ) || is_post_type_archive( 'camp' ) ) {
-		foreach ( array( 'trips-section', 'details-section', 'gallery-section' ) as $section ) {
+		foreach ( array( 'trips-section', 'details-section', 'gallery-section', 'camp-extra' ) as $section ) {
 			wp_enqueue_style( "logika-{$section}", "{$uri}/css/blocks/sections/{$section}.css", array( 'logika-theme' ), (string) filemtime( get_template_directory() . "/assets/css/blocks/sections/{$section}.css" ) );
 		}
 	}
@@ -98,16 +133,16 @@ function logika_theme_assets(): void {
 	wp_enqueue_script( 'logika-city-context', $uri . '/js/city-context.js', array(), $city_context_version, true );
 	wp_localize_script( 'logika-city-context', 'logikaCityContextConfig', array( 'endpoint' => esc_url_raw( rest_url( 'logika/v1/cities' ) ) ) );
 	wp_enqueue_script( 'logika-school-map', $uri . '/js/camp-map.js', array( 'logika-city-context' ), $map_version, true );
-	wp_localize_script( 'logika-school-map', 'logikaThemeAssets', array( 'mapUrl' => esc_url_raw( $uri . '/img/maps/ukraine-regions.svg' ), 'branchIconUrl' => esc_url_raw( $uri . '/img/icons/solar_route-outline.svg' ), 'branchesEndpoint' => esc_url_raw( rest_url( 'logika/v1/cities/' ) ) ) );
+	wp_localize_script( 'logika-school-map', 'logikaThemeAssets', array( 'mapUrl' => esc_url_raw( $uri . '/img/maps/ukraine-regions.svg?ver=' . $map_version ), 'branchIconUrl' => esc_url_raw( $uri . '/img/icons/solar_route-outline.svg' ), 'branchesEndpoint' => esc_url_raw( rest_url( 'logika/v1/cities/' ) ) ) );
 	wp_enqueue_script( 'logika-intl-tel-input', $uri . '/js/vendor/intl-tel-input/intlTelInput.min.js', array(), '20.1.0', true );
 	wp_enqueue_script( 'logika-intl-tel-input-i18n-uk', $uri . '/js/vendor/intl-tel-input/i18n-uk.js', array( 'logika-intl-tel-input' ), $version, true );
 	wp_enqueue_script( 'logika-leads', $uri . '/js/leads.js', array( 'logika-intl-tel-input-i18n-uk', 'logika-city-context' ), $leads_version, true );
 	wp_localize_script( 'logika-leads', 'logikaLead', array( 'endpoint' => esc_url_raw( rest_url( 'logika/v1/leads' ) ), 'tokenEndpoint' => esc_url_raw( rest_url( 'logika/v1/forms/token' ) ), 'cityEndpoint' => esc_url_raw( rest_url( 'logika/v1/cities' ) ), 'phoneCountryDefault' => 'UA', 'phoneCountryEndpoint' => esc_url_raw( rest_url( 'logika/v1/phone-country' ) ), 'phoneUtilsUrl' => esc_url_raw( $uri . '/js/vendor/intl-tel-input/utils.js' ) ) );
 	wp_enqueue_script( 'logika-city-selector', $uri . '/js/city-selector.js', array( 'logika-city-context' ), $city_selector_version, true );
-	if ( is_page( 'media-center' ) || get_query_var( 'logika_blog' ) ) {
+	if ( is_page( 'media-center' ) || get_query_var( 'logika_blog' ) || get_query_var( 'logika_media_category' ) ) {
 		wp_enqueue_style( 'logika-media-search', $uri . '/css/media-search.css', array( 'logika-theme' ), $media_search_version );
 		wp_enqueue_script( 'logika-media-center', $uri . '/js/media-center.js', array( 'logika-city-context' ), $media_center_version, true );
-		wp_localize_script( 'logika-media-center', 'logikaMediaCenter', array( 'endpoint' => esc_url_raw( rest_url( 'logika/v1/media' ) ) ) );
+		wp_localize_script( 'logika-media-center', 'logikaMediaCenter', array( 'endpoint' => esc_url_raw( rest_url( 'logika/v1/media' ) ), 'category' => sanitize_key( (string) get_query_var( 'logika_media_category' ) ) ) );
 	}
 	if ( is_singular( 'post' ) ) {
 		wp_enqueue_script( 'logika-article-views', $uri . '/js/article-views.js', array(), $article_views_version, true );
@@ -144,7 +179,7 @@ function logika_theme_is_managed_page( int $post_id ): bool {
 
 	$slug = (string) get_post_field( 'post_name', $post_id );
 
-	return (int) get_option( 'page_on_front' ) === $post_id || in_array( $slug, array( 'about', 'faq', 'it-courses', 'english-courses', 'media-center', 'privacy-policy', 'contractoffer', 'contractoffer-overseas', 'litsenziia' ), true );
+	return (int) get_option( 'page_on_front' ) === $post_id || in_array( $slug, array( 'about', 'faq', 'it-courses', 'english-courses', 'media-center', 'privacy-policy', 'contractoffer', 'contractoffer-overseas', 'litsenziia', 'vacancies' ), true );
 }
 
 add_filter(

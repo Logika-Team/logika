@@ -7,6 +7,7 @@ final class Logika_Leads_Service {
 		global $wpdb;
 		$name = sanitize_text_field( (string) ( $input['name'] ?? '' ) );
 		$phone = self::phone( (string) ( $input['phone'] ?? '' ) );
+		$message = sanitize_textarea_field( (string) ( $input['message'] ?? '' ) );
 		$key = sanitize_text_field( (string) ( $input['idempotency_key'] ?? '' ) );
 		$form_id = sanitize_key( (string) ( $input['form_id'] ?? '' ) );
 		$source_url = self::source_url( (string) ( $input['source_url'] ?? '' ) );
@@ -18,7 +19,7 @@ final class Logika_Leads_Service {
 			return new WP_Error( 'invalid_phone', 'Некоректний номер телефону.' );
 		}
 
-		if ( ! $name || ! $key || ! $form_id || empty( $input['consent_accepted'] ) ) {
+		if ( ! $name || ! $key || ! $form_id || empty( $input['consent_accepted'] ) || ( 'director_message' === $form_id && ! $message ) ) {
 			return new WP_Error( 'invalid_lead', 'Некоректні дані заявки.' );
 		}
 
@@ -30,7 +31,7 @@ final class Logika_Leads_Service {
 
 		$lead_id = wp_generate_uuid4();
 		$now = current_time( 'mysql', true );
-		$inserted = $wpdb->insert( $table, array( 'lead_id' => $lead_id, 'idempotency_key' => $key, 'form_id' => $form_id, 'crm_provider' => 'null', 'crm_status' => 'not_configured', 'name' => $name, 'phone' => $phone, 'phone_hash' => hash( 'sha256', $phone ), 'child_age' => absint( $input['child_age'] ?? 0 ) ?: null, 'source_url' => $source_url, 'city_id' => $city_id, 'course_id' => $course_id, 'camp_id' => $camp_id, 'consent_accepted' => 1, 'consent_text_version' => sanitize_text_field( (string) ( $input['consent_text_version'] ?? '' ) ), 'payload_json' => wp_json_encode( array( 'form_id' => $form_id ) ), 'created_at' => $now, 'updated_at' => $now ), array( '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d', '%s', '%d', '%d', '%d', '%d', '%s', '%s', '%s', '%s', '%s' ) );
+		$inserted = $wpdb->insert( $table, array( 'lead_id' => $lead_id, 'idempotency_key' => $key, 'form_id' => $form_id, 'crm_provider' => 'null', 'crm_status' => 'not_configured', 'name' => $name, 'phone' => $phone, 'message' => $message ?: null, 'phone_hash' => hash( 'sha256', $phone ), 'child_age' => absint( $input['child_age'] ?? 0 ) ?: null, 'source_url' => $source_url, 'city_id' => $city_id, 'course_id' => $course_id, 'camp_id' => $camp_id, 'consent_accepted' => 1, 'consent_text_version' => sanitize_text_field( (string) ( $input['consent_text_version'] ?? '' ) ), 'payload_json' => wp_json_encode( array( 'form_id' => $form_id, 'message' => $message ) ), 'created_at' => $now, 'updated_at' => $now ), array( '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d', '%s', '%d', '%d', '%d', '%d', '%s', '%s', '%s', '%s' ) );
 
 		if ( false === $inserted ) {
 			return new WP_Error( 'lead_storage_failed', 'Не вдалося зберегти заявку.' );

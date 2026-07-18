@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 $page_id    = get_option( 'page_on_front' );
-$title      = get_field( 'home_hero_title', $page_id ) ?: 'Найбільша в Україні школа програмування для дітей 7-17 років';
+$title      = get_field( 'home_hero_title', $page_id ) ?: 'Програмування та англійська мова для дітей 7-30 років';
 $subtitle   = get_field( 'home_hero_text', $page_id ) ?: 'Перші результати вже через 4 тижні';
 $cta_label  = get_field( 'cta_primary_label', 'option' ) ?: 'Спробувати безкоштовно';
 $privacy_url = get_field( 'global_privacy_policy_url', 'option' ) ?: home_url( '/privacy-policy/' );

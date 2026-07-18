@@ -6,6 +6,7 @@ require dirname(__DIR__) . '/wordpress/wp-load.php';
 
 $source_page = file_get_contents( get_template_directory() . '/source-pages/faq.php' ) ?: '';
 $buttons = file_get_contents( dirname( __DIR__ ) . '/source/scss/general/_buttons.scss' ) ?: '';
+$faq_section = file_get_contents( dirname( __DIR__ ) . '/source/scss/blocks/sections/faq-section.scss' ) ?: '';
 $faq_style = file_get_contents( get_template_directory() . '/assets/css/blocks/sections/faq-banner-section.css' ) ?: '';
 $accordion = file_get_contents( dirname( __DIR__ ) . '/source/scss/components/_accordion.scss' ) ?: '';
 $faq_accordion_style = file_get_contents( get_template_directory() . '/assets/css/faq-accordion.css' ) ?: '';
@@ -68,6 +69,11 @@ if ( ! str_contains( $faq_accordion_style, '.accordion--mode>li' ) || ! str_cont
 
 if ( ! str_contains( $main_js, 'if (!defaultOpenContent || !defaultOpenButton)') ) {
 	fwrite( STDERR, "FAQ accordion crashes when its default item is absent.\n" );
+	exit( 1 );
+}
+
+if ( ! str_contains( $faq_section, "position: relative;\n    overflow: hidden;" ) || 2 !== substr_count( $faq_section, 'pointer-events: none;' ) || ! str_contains( $theme_functions, '.faq-section{overflow:hidden}.faq-section__left-bg,.faq-section__right-bg{pointer-events:none}' ) ) {
+	fwrite( STDERR, "FAQ decorations can overlap or block the preceding section.\n" );
 	exit( 1 );
 }
 

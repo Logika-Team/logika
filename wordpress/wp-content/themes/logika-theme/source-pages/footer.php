@@ -50,7 +50,7 @@
 
             <ul class="footer__menu">
               <li>
-                <a href="#">Вакансії</a>
+                <a href="/vacancies/">Вакансії</a>
               </li>
               <li>
                 <a href="/contractoffer/">Договір оферти <p>(для клієнтів в Україні)</p></a>
@@ -80,6 +80,13 @@
                   <a href="https://www.facebook.com/logika.it.school" target="_blank">
                     <svg width='46' height='46'>
                       <use href='img/sprite/sprite.svg#Facebook'></use>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.tiktok.com/@logika_fun?lang=uk-UA" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                    <svg width='46' height='46'>
+                      <use href='img/sprite/sprite.svg#TikTok-footer'></use>
                     </svg>
                   </a>
                 </li>

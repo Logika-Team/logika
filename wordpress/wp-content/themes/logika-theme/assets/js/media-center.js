@@ -125,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const url = new URL(config.endpoint, window.location.origin);
       const city = context.get();
       if (city) url.searchParams.set('city', city.id);
+	  if (config.category) url.searchParams.set('category', config.category);
       url.searchParams.set('search', search);
       fetch(url)
         .then((response) => response.ok ? response.json() : [])
@@ -228,6 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const id = ++requestId;
     const url = new URL(config.endpoint, window.location.origin);
     if (city) url.searchParams.set('city', city.id);
+	if (config.category) url.searchParams.set('category', config.category);
     if (search) url.searchParams.set('search', search);
     if (isBlog) url.searchParams.set('all', '1');
     root.setAttribute('aria-busy', 'true');

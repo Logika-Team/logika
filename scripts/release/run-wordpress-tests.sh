@@ -22,9 +22,17 @@ tests=(
   tests/course-page.php
   tests/camp-page.php
   tests/city-api.php
+  tests/city-hero.php
+  tests/city-home-inheritance.php
+  tests/city-selection-assets.php
+  tests/city-post-tags.php
+  tests/homepage-city-seo.php
   tests/city-faq-schema.php
   tests/city-schema.php
   tests/city-seo.php
+
+  tests/routing.php
+  tests/media-api.php
 
   tests/legacy-city-redirect.php
   tests/course-schema.php

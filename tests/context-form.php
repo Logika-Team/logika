@@ -6,7 +6,7 @@ require dirname(__DIR__) . '/wordpress/wp-load.php';
 
 $city = get_page_by_path( 'test-city', OBJECT, 'city' );
 $course = get_page_by_path( 'test-course', OBJECT, 'course' );
-$camp = get_page_by_path( 'test-camp', OBJECT, 'camp' );
+$camp = get_page_by_path( 'summer-camp', OBJECT, 'camp' );
 ob_start();
 get_template_part( 'template-parts/forms/lead', null, array( 'city_id' => $city->ID, 'course_id' => $course->ID, 'camp_id' => $camp->ID ) );
 $form = (string) ob_get_clean();

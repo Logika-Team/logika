@@ -17,8 +17,13 @@ foreach (
 		'class="modal__container is-camps"',
 		'data-target="camps"',
 		'Оберіть зміну',
-		'Фестиваль професій',
 		'Дізнатись більше',
+		"'post_type'      => 'camp'",
+		"'key' => 'camp_is_active'",
+		"get_field( 'camp_archive_formats', 'camp_archive' )",
+		'\'post__in\'       => $selected_ids',
+		'get_permalink( $camp_id )',
+		'camp_card_description',
 	) as $marker
 ) {
 	if ( ! str_contains( $component, $marker ) ) {
@@ -44,14 +49,16 @@ foreach ( array( '[data-logika-camp-modal]', 'data-path="camps"', 'Escape' ) as 
 	}
 }
 
-foreach ( array( '.modal__camps', '.modal__camps-items', '.modal__camps-link' ) as $marker ) {
+foreach ( array( '.modal__camps', '.modal__camps-items', '.modal__camps-link', 'font-family: var(--font-primary)' ) as $marker ) {
 	if ( ! str_contains( $style, $marker ) ) {
 		$errors[] = "Camp modal styles are missing {$marker}.";
 	}
 }
 
-if ( substr_count( $page, 'data-path="camps"' ) !== 4 ) {
-	$errors[] = 'All four camp format cards must open the camp modal.';
+foreach ( array( 'camp-formats__item-season', 'Літо', 'Осінь', 'Зима', 'Весна', 'data-path="camps"' ) as $marker ) {
+	if ( ! str_contains( $page, $marker ) ) {
+		$errors[] = "Camp format season selector is missing {$marker}.";
+	}
 }
 
 if ( $errors ) {

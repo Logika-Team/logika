@@ -34,6 +34,12 @@ final class Logika_Theme_City_Page {
 			'home_faq_title'                => 'city_home_faq_title',
 		);
 		$name = (string) ( $field['name'] ?? '' );
+		if ( 'home_hero_title' === $name || 'home_hero_text' === $name ) {
+			$hero = \Logika\Core\CityHero::resolve( self::$active_city_id );
+
+			return $hero['home_hero_title' === $name ? 'title' : 'text'];
+		}
+
 		if ( isset( $map[ $name ] ) ) {
 			$override = get_field( $map[ $name ], self::$active_city_id );
 			return self::hasValue( $override ) ? $override : $value;

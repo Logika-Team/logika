@@ -12,7 +12,7 @@ $assets = get_template_directory_uri() . '/assets';
 			</button>
 			<div class="modal__lesson">
 				<div class="modal__lesson-image"><img width="560" height="300" src="<?php echo esc_url( $assets . '/img/modal-image.webp' ); ?>" alt=""></div>
-				<h2 class="visually-hidden" id="lead-modal-title">Перший урок — безкоштовно.</h2>
+				<h2 class="modal__lesson-title visually-hidden" id="lead-modal-title" data-logika-modal-title>Перший урок — безкоштовно.</h2>
 				<?php get_template_part( 'template-parts/forms/lead', null, array( 'class' => 'modal-form', 'presentation' => 'modal' ) ); ?>
 			</div>
 		</div>

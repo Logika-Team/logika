@@ -558,3 +558,7 @@ Acceptance criteria:
 - what to show if city has no branch?
 - what to show if city has no local camps?
 - should city selection on homepage navigate immediately to `/cities/{slug}/` or update blocks without navigation?
+
+## 19. Feature: careers page
+
+The `/vacancies/` page is a fixed, ACF-managed page for current Logika roles. It preserves Tilda team media and vacancy copy, uses the existing Google application form, and does not create a separate HR lead flow.

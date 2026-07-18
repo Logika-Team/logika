@@ -10,17 +10,6 @@
       "instructions": ""
     },
     {
-      "key": "field_post_related_city",
-      "label": "Пов'язане місто",
-      "name": "post_related_city",
-      "type": "post_object",
-      "post_type": [
-        "city"
-      ],
-      "return_format": "id",
-      "instructions": "Оберіть місто для локальної статті. Залиште порожнім для загальної статті."
-    },
-    {
       "key": "field_post_related_course",
       "label": "Пов'язаний курс",
       "name": "post_related_course",

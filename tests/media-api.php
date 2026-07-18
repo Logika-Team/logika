@@ -8,7 +8,9 @@ function logika_media_api_post( string $slug, string $title, string $status, str
 	$post = get_page_by_path( $slug, OBJECT, 'post' );
 	$post_id = $post instanceof WP_Post ? $post->ID : wp_insert_post( array( 'post_type' => 'post', 'post_name' => $slug, 'post_title' => $title, 'post_status' => $status ) );
 	wp_update_post( array( 'ID' => $post_id, 'post_title' => $title, 'post_status' => $status, 'post_date' => $date, 'post_date_gmt' => get_gmt_from_date( $date ) ) );
-	update_field( 'post_related_city', $city_id, $post_id );
+	if ( $city_id ) {
+		wp_add_post_tags( $post_id, array( \Logika\Core\CityPostTags::tagId( $city_id ) ) );
+	}
 
 	return (int) $post_id;
 }
@@ -24,6 +26,10 @@ register_shutdown_function(
 		foreach ( array( 'media-api-city', 'other-media-api-city' ) as $slug ) {
 			$post = get_page_by_path( $slug, OBJECT, 'city' );
 			if ( $post instanceof WP_Post ) {
+				$tag = get_term_by( 'slug', \Logika\Core\CitySlug::for( $post ), 'post_tag' );
+				if ( $tag ) {
+					wp_delete_term( $tag->term_id, 'post_tag' );
+				}
 				wp_delete_post( $post->ID, true );
 			}
 		}
@@ -36,14 +42,16 @@ $other_city = get_page_by_path( 'other-media-api-city', OBJECT, 'city' );
 $other_city_id = $other_city instanceof WP_Post ? $other_city->ID : wp_insert_post( array( 'post_type' => 'city', 'post_name' => 'other-media-api-city', 'post_title' => 'Інше місто для медіа', 'post_status' => 'publish' ) );
 $date = static fn( int $seconds ): string => wp_date( 'Y-m-d H:i:s', time() - $seconds, wp_timezone() );
 
-logika_media_api_post( 'media-api-local-new', 'Локальна нова стаття', 'publish', $date( 60 ), $city_id );
+$news_id = logika_media_api_post( 'media-api-local-new', 'Локальна нова стаття', 'publish', $date( 60 ), $city_id );
 logika_media_api_post( 'media-api-local-old', 'Локальна стара стаття', 'publish', $date( 120 ), $city_id );
-logika_media_api_post( 'media-api-common-new', 'Загальна нова стаття', 'publish', $date( 180 ) );
+$offer_id = logika_media_api_post( 'media-api-common-new', 'Загальна нова стаття', 'publish', $date( 180 ) );
 logika_media_api_post( 'media-api-common-old', 'Загальна стара стаття', 'publish', $date( 240 ) );
 logika_media_api_post( 'media-api-other-city', 'Чужа міська стаття', 'publish', $date( 30 ), $other_city_id );
 logika_media_api_post( 'media-api-draft', 'Чернетка міста', 'draft', $date( 30 ), $city_id );
 logika_media_api_post( 'media-api-search-published', 'Унікальний пошук медіа', 'publish', $date( 300 ) );
 logika_media_api_post( 'media-api-search-draft', 'Унікальний пошук медіа чернетка', 'draft', $date( 300 ) );
+wp_set_object_terms( $news_id, 'news', 'category', false );
+wp_set_object_terms( $offer_id, 'offers', 'category', false );
 
 $request = new WP_REST_Request( 'GET', '/logika/v1/media' );
 $request->set_param( 'city', $city_id );
@@ -76,6 +84,16 @@ $search_titles = array_column( rest_do_request( $search )->get_data(), 'title' )
 
 if ( array( 'Унікальний пошук медіа' ) !== $search_titles ) {
 	fwrite( STDERR, "Media API search must return only matching published articles.\n" );
+	exit( 1 );
+}
+
+$category = new WP_REST_Request( 'GET', '/logika/v1/media' );
+$category->set_param( 'category', 'news' );
+$category->set_param( 'city', $city_id );
+$category_titles = array_column( rest_do_request( $category )->get_data(), 'title' );
+
+if ( array( 'Локальна нова стаття' ) !== $category_titles ) {
+	fwrite( STDERR, "Media API category filter must return only matching published articles.\n" );
 	exit( 1 );
 }
 

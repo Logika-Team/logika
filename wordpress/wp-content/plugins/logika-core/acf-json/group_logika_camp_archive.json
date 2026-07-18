@@ -95,6 +95,20 @@
       "instructions": "Заповніть поле «Заголовок форматів»."
     },
     {
+      "key": "field_camp_archive_formats",
+      "label": "Формати таборів",
+      "name": "camp_archive_formats",
+      "type": "relationship",
+      "instructions": "Оберіть табори у порядку показу карток на сторінці.",
+      "post_type": [
+        "camp"
+      ],
+      "return_format": "id",
+      "filters": [
+        "search"
+      ]
+    },
+    {
       "key": "field_camp_archive_tab_booking",
       "label": "Бронювання",
       "name": "",

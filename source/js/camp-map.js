@@ -18,7 +18,9 @@
     ternopil: 'Тернопільська область', vinnytsia: 'Вінницька область', volyn: 'Волинська область',
     zakarpattia: 'Закарпатська область', zaporizhia: 'Запорізька область', zhytomyr: 'Житомирська область'
   };
-  const unavailableRegions = new Set(['crimea', 'donetsk', 'luhansk', 'kherson']);
+  const unavailableRegions = new Set(['crimea', 'donetsk', 'luhansk', 'kherson', 'sumy']);
+  const cityOnlyRegions = new Set(['zaporizhia']);
+  const cityBoundaryRegions = { 'zaporizhzhia-city': 'zaporizhia' };
   const canvas = map.querySelector('[data-map-canvas]');
   const layout = map.querySelector('.school-map__layout');
   const details = map.querySelector('[data-map-details]');
@@ -203,7 +205,7 @@
 
       canvas.innerHTML = svg;
       canvas.querySelectorAll('path[id]').forEach((path) => {
-        const regionId = path.id;
+        const regionId = cityBoundaryRegions[path.id] || path.id;
         if (!regionNames[regionId]) return;
         if (unavailableRegions.has(regionId)) {
           path.classList.add('is-unavailable');
@@ -211,6 +213,8 @@
           return;
         }
         if (!citiesByRegion.has(regionNames[regionId])) return;
+        if (cityOnlyRegions.has(regionId)) path.classList.add('is-city-only');
+        if (cityBoundaryRegions[path.id]) path.classList.add('is-city-boundary');
         path.dataset.region = regionId;
         path.setAttribute('role', 'button');
         path.setAttribute('tabindex', '0');

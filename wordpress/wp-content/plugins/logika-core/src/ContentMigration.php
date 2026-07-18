@@ -48,6 +48,7 @@ final class ContentMigration {
 		self::applyCourses();
 		self::applyCamps();
 		self::applyCampArchive();
+		MediaCategories::migrateUncategorized( $dry_run );
 		self::cleanupPlaceholders();
 
 		return self::$report;
@@ -290,7 +291,7 @@ final class ContentMigration {
 		self::fill( 'global_email', 'kiev@logikaschool.com', 'option' );
 		self::fill( 'global_header_logo', '@asset:main-logo.svg', 'option' );
 		self::fill( 'global_footer_logo', '@asset:logo.svg', 'option' );
-		self::fill( 'global_social_links', array( array( 'label' => 'Instagram', 'url' => 'https://www.instagram.com/logika_it_school/' ), array( 'label' => 'Facebook', 'url' => 'https://www.facebook.com/logika.it.school/' ), array( 'label' => 'YouTube', 'url' => 'https://www.youtube.com/channel/UCFIBb_OZ1TPuhcjZUhVbifg' ) ), 'option' );
+		self::fill( 'global_social_links', array( array( 'label' => 'Instagram', 'url' => 'https://www.instagram.com/logika_it_school/' ), array( 'label' => 'Facebook', 'url' => 'https://www.facebook.com/logika.it.school/' ), array( 'label' => 'TikTok', 'url' => 'https://www.tiktok.com/@logika_fun?lang=uk-UA' ) ), 'option' );
 		self::fill( 'global_footer_accreditation', 'Найбільша в Україні школа програмування та англійської мови для учнів 7–17 років', 'option' );
 		self::fill( 'global_footer_copyright', '© 2026 Logika', 'option' );
 		self::fill( 'global_partners', $partners, 'option' );
@@ -348,19 +349,46 @@ final class ContentMigration {
 	private static function applyCamps(): void {
 		foreach ( get_posts( array( 'post_type' => 'camp', 'post_status' => array( 'publish', 'draft', 'private' ), 'posts_per_page' => -1 ) ) as $camp ) {
 			foreach ( array(
-				'camp_hero_text' => get_the_excerpt( $camp ) ?: 'Незабутні емоції, розвиток і нові друзі разом із Logika.', 'camp_hero_image' => '@asset:camp/camp-hero.svg',
+				'camp_hero_text' => get_the_excerpt( $camp ) ?: 'Незабутні емоції, розвиток і нові друзі разом із Logika.', 'camp_hero_dates_text' => '27.06 - 06.07 (перша зміна), 21.07 - 30.07 (друга зміна)', 'camp_hero_form_title' => "Встигніть забронювати.\nЗалиште заявку за 30 секунд — ми зателефонуємо і обговоримо усі деталі", 'camp_hero_image' => '@asset:camp/camp-hero.svg', 'camp_card_image' => '@asset:camp/team.webp', 'camp_card_description' => get_the_excerpt( $camp ) ?: 'Це справжні пригоди, у які поринають усі мешканці табору на весь термін путівки.',
 				'camp_hero_images' => array( '@asset:camp/hands.png', '@asset:camp/pool.png', '@asset:camp/team.png', '@asset:camp/mountains.png' ),
+				'camp_hero_facts' => array( array( 'label' => 'Де:', 'value' => 'с. Дудки, Закарпаття', 'icon' => '@asset:banner-bar/icon-map-location-figma.svg' ), array( 'label' => 'Коли:', 'value' => '27-01 липня 2026', 'icon' => '@asset:banner-bar/icon-calendar-check-figma.svg' ), array( 'label' => 'Тривалість:', 'value' => '10 днів/9 ночей', 'icon' => '@asset:banner-bar/icon-time-outline-figma.svg' ), array( 'label' => 'Для кого:', 'value' => 'діти 10-16 років', 'icon' => '@asset:banner-bar/icon-user-group-figma.svg' ), array( 'label' => 'Акційна ціна:', 'value' => '21000 грн (при оплаті до 10.06)', 'icon' => '@asset:banner-bar/icon-hot-price-figma.svg' ), array( 'label' => 'Ціна:', 'value' => '25000 грн', 'icon' => '@asset:banner-bar/icon-price-tag-figma.svg' ) ),
 				'camp_benefits_title' => '10 днів цікавої програми та незабутніх вражень від літніх канікул', 'camp_benefits' => array( array( 'title' => 'Безлімітний басейн на свіжому повітрі', 'image' => '@asset:camp/benefits/pool.png' ), array( 'title' => 'Медична допомога 24/7 на території', 'image' => '@asset:camp/benefits/medical.png' ), array( 'title' => '4-х разове харчування (основне + перекус)', 'image' => '@asset:camp/benefits/food.png' ), array( 'title' => 'Незабутня професійна пінна вечірка', 'image' => '@asset:camp/benefits/foam.png' ) ),
 				'camp_activities_title' => 'Активності у програмі:', 'camp_activities' => array( array( 'title' => 'Акваторій Emily Resort', 'text' => 'море веселощів, гірки та водні атракціони для яскравих емоцій!', 'image' => '@asset:camp/activities/aquatoriy.png' ), array( 'title' => 'Похід у гори', 'text' => 'свіже повітря, мальовничі краєвиди та справжня команда однодумців!', 'image' => '@asset:camp/activities/mountains.png' ), array( 'title' => 'Пісні біля вогнища', 'text' => 'атмосферні вечори з гітарою, історіями та смачними маршмелоу!', 'image' => '@asset:camp/activities/campfire.png' ), array( 'title' => 'Пригоди у Львові', 'text' => 'захоплива виїзна мандрівка до міста легенд, історії та яскравих вражень', 'image' => '@asset:camp/activities/lviv.png' ), array( 'title' => 'Розваги', 'text' => 'захопливі квести у стилі популярних ігор, інтелектуальні квізи та челенджі', 'image' => '@asset:camp/activities/quests.png' ), array( 'title' => 'Яскраве табірне життя', 'text' => 'спортивні ігри та командні змагання, вечірки, дискотеки та нові друзі', 'image' => '@asset:camp/activities/team.png' ) ),
-				'camp_program_title' => 'Програма табору', 'camp_trips_title' => 'Виїзні екскурсії',
-				'camp_details_title' => 'Деталі проживання', 'camp_details' => array( array( 'title' => 'Локація', 'text' => 'Комфортна та безпечна територія.', 'image' => '@asset:camp/details/location.png' ), array( 'title' => 'Проживання', 'text' => 'Зручні кімнати й турбота команди.', 'image' => '@asset:camp/details/accommodation.png' ), array( 'title' => 'Меню', 'text' => 'Збалансоване харчування протягом дня.', 'image' => '@asset:camp/details/menu.png' ) ),
-				'camp_booking_title' => 'Встигніть забронювати незабутні спогади', 'camp_booking_text' => 'Залиште заявку — ми зателефонуємо та обговоримо всі деталі.', 'camp_booking_image' => '@asset:camp/booking-characters.svg',
+				'camp_program_title' => 'Програма табору', 'camp_trips_title' => 'Виїзні екскурсії', 'camp_trips' => array( array( 'title' => 'озеро Синевір', 'image' => '@asset:trips/trip-img1.png' ), array( 'title' => 'Екопарк «Долина вовків»', 'image' => '@asset:trips/trip-img2.png' ), array( 'title' => 'Карпати', 'image' => '@asset:trips/trip-img3.png' ) ),
+				'camp_details_title' => 'Деталі проживання', 'camp_details' => array( array( 'title' => 'Локація', 'text' => 'Комфортна та безпечна територія.', 'image' => '@asset:camp/details/location.png', 'gallery' => array( '@asset:camp/details/location.png', '@asset:camp/details/location-1.png', '@asset:camp/details/location-2.png', '@asset:camp/details/location-3.png' ) ), array( 'title' => 'Проживання', 'text' => 'Зручні кімнати й турбота команди.', 'image' => '@asset:camp/details/accommodation.png', 'gallery' => array( '@asset:camp/details/accommodation.png', '@asset:camp/details/gallery-1.png', '@asset:camp/details/gallery-2.png', '@asset:camp/details/gallery-3.png' ) ), array( 'title' => 'Меню', 'text' => 'Збалансоване харчування протягом дня.', 'image' => '@asset:camp/details/menu.png', 'gallery' => array( '@asset:camp/details/menu.png', '@asset:camp/details/gallery-1.png', '@asset:camp/details/gallery-2.png', '@asset:camp/details/gallery-4.png' ) ) ),
+				'camp_includes_title' => 'У вартість входить:', 'camp_includes' => array( array( 'title' => 'Проживання', 'text' => 'Сучасний курортний комплекс з великою територією, природою та атмосферою справжнього відпочинку преміум класу', 'icon' => '@asset:details/details-icon1.svg' ), array( 'title' => 'Харчування', 'text' => '4-разове преміальне харчування, щоб енергії вистачило на всі пригоди', 'icon' => '@asset:details/details-icon2.svg' ), array( 'title' => 'Speaking clubs', 'text' => 'Спілкування з native-спікерами без нудних підручників', 'icon' => '@asset:details/details-icon3.svg' ), array( 'title' => 'Розваги', 'text' => 'Щодня новий ігровий всесвіт: екскурсії, вечірки та дискотеки', 'icon' => '@asset:details/details-icon4.svg' ), array( 'title' => 'Страхування', 'text' => 'Ми дбаємо про безпеку та комфорт дітей під час усіх активностей.', 'icon' => '@asset:details/details-icon5.svg' ), array( 'title' => 'Супровід', 'text' => 'Професійна команда школи Logika', 'icon' => '@asset:details/details-icon6.svg' ) ),
+				'camp_booking_title' => 'Встигніть забронювати незабутні спогади', 'camp_booking_text' => 'Залиште заявку — ми зателефонуємо та обговоримо всі деталі.', 'camp_booking_image' => '@asset:camp/booking-characters.svg', 'camp_booking_benefits' => array( array( 'text' => 'Оновлена IT програма' ), array( 'text' => 'Активності, квести, турніри, ігри, дискотеки та екскурсії' ), array( 'text' => 'Безпека: вожаті поряд із дітьми 24/7' ) ), 'camp_booking_form_title' => "Встигніть забронювати.\nЗалиште заявку за 30 секунд — ми зателефонуємо і обговоримо усі деталі", 'camp_booking_submit_label' => 'Відправити',
 				'camp_gallery_title' => 'Галерея', 'camp_reviews_title' => 'Довіра, підтверджена результатами', 'camp_related_reviews' => self::entityIds( 'review', 'review_is_approved' ),
 				'camp_faq_title' => 'Питання та відповіді', 'camp_related_faq' => self::entityIds( 'faq_item', 'faq_is_active' ),
 			) as $field => $value ) {
 				self::fill( $field, $value, $camp->ID );
 			}
+			self::fillCampDetailGalleries( $camp->ID );
 		}
+	}
+
+	private static function fillCampDetailGalleries( int $camp_id ): void {
+		$details = array_values( array_filter( (array) get_field( 'camp_details', $camp_id ), 'is_array' ) );
+		$galleries = array(
+			array( '@asset:camp/details/location.png', '@asset:camp/details/location-1.png', '@asset:camp/details/location-2.png', '@asset:camp/details/location-3.png' ),
+			array( '@asset:camp/details/accommodation.png', '@asset:camp/details/gallery-1.png', '@asset:camp/details/gallery-2.png', '@asset:camp/details/gallery-3.png' ),
+			array( '@asset:camp/details/menu.png', '@asset:camp/details/gallery-1.png', '@asset:camp/details/gallery-2.png', '@asset:camp/details/gallery-4.png' ),
+		);
+		$changed = false;
+		foreach ( $details as $index => $detail ) {
+			if ( ! empty( $detail['gallery'] ) || ! isset( $galleries[ $index ] ) ) {
+				continue;
+			}
+			$details[ $index ]['gallery'] = self::resolveAssets( $galleries[ $index ] );
+			$changed = true;
+		}
+		if ( ! $changed ) {
+			return;
+		}
+		if ( ! self::$report['dry_run'] ) {
+			update_field( 'camp_details', $details, $camp_id );
+		}
+		++self::$report['changed'];
 	}
 
 	private static function applyCampArchive(): void {

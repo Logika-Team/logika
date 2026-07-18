@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 final class Logika_Leads_Schema {
-	private const VERSION = '6';
+	private const VERSION = '7';
 
 	public static function maybe_migrate(): void {
 		if ( self::VERSION !== get_option( 'logika_leads_db_version' ) ) {
@@ -31,6 +31,7 @@ final class Logika_Leads_Schema {
 			sync_lock_until datetime NULL,
 			name varchar(160) NOT NULL,
 			phone varchar(40) NOT NULL,
+			message text NULL,
 			phone_hash char(64) NOT NULL,
 			child_age tinyint(3) unsigned NULL,
 			source_url text NULL,

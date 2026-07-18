@@ -1,6 +1,7 @@
 (() => {
   const storageKey = 'logika-city';
   const legacyStorageKey = 'logika-city-id';
+  const cookieName = 'logika_city';
   const config = window.logikaCityContextConfig || {};
   let cities = [];
   let loading = null;
@@ -23,6 +24,7 @@
   })();
 
   const remember = (city) => {
+	  document.cookie = `${cookieName}=${encodeURIComponent(String(city.id))}; Path=/; Max-Age=31536000; SameSite=Lax`;
     try {
       localStorage.setItem(storageKey, JSON.stringify(city));
       localStorage.setItem(legacyStorageKey, String(city.id));
@@ -32,6 +34,7 @@
   };
 
   const forget = () => {
+	  document.cookie = `${cookieName}=; Path=/; Max-Age=0; SameSite=Lax`;
     try {
       localStorage.removeItem(storageKey);
       localStorage.removeItem(legacyStorageKey);
@@ -51,6 +54,13 @@
 
   const get = () => cityFromPath() || cities.find((city) => String(city.id) === String(storedId())) || cachedCity();
   const isHomepage = () => /^\/(?:cities\/[^/]+\/?)?$/.test(window.location.pathname);
+  const applyHero = (city) => {
+    if (!isHomepage() || !city?.hero) return;
+    const title = document.querySelector('.banner-section__title');
+    const text = document.querySelector('.banner-section__subtitle');
+    if (title && city.hero.title) title.textContent = city.hero.title;
+    if (text && city.hero.text) text.textContent = city.hero.text;
+  };
 
   const syncHomeLinks = (city) => {
     if (!city?.url) return;
@@ -75,6 +85,7 @@
         if (city) {
           remember(city);
           syncHomeLinks(city);
+          applyHero(city);
         } else if (cities.length) {
           forget();
           if (/^\/cities\/[^/]+(?:\/|$)/.test(window.location.pathname)) window.location.replace('/');
@@ -90,6 +101,7 @@
     if (!city || !city.id) return;
     remember(city);
     syncHomeLinks(city);
+    applyHero(city);
     window.dispatchEvent(new CustomEvent('logika:city-change', { detail: { city } }));
     if (openCityPage && city.url) {
       if (isHomepage() && window.history?.replaceState) window.history.replaceState({ cityId: city.id }, '', city.url);
@@ -98,12 +110,16 @@
   };
 
   const initial = get();
-  if (initial) syncHomeLinks(initial);
+  if (initial) {
+    syncHomeLinks(initial);
+    applyHero(initial);
+  }
 
   window.addEventListener('popstate', () => {
     const city = get();
     if (city) {
       syncHomeLinks(city);
+      applyHero(city);
       window.dispatchEvent(new CustomEvent('logika:city-change', { detail: { city } }));
     }
   });

@@ -462,6 +462,10 @@
       </div>
     </section>
 
+    <section class="camp-extra" aria-label="Додаткова інформація про табір">
+      <div class="container"><div class="camp-extra__list"><article class="camp-extra__item"><h2>Додаткова інформація</h2><div class="camp-extra__text"><p>Деталі програми табору.</p></div><ul class="camp-extra__gallery"></ul></article></div></div>
+    </section>
+
     <section class="camp-booking" aria-labelledby="camp-booking-title">
       <div class="container">
         <h2 class="camp-booking__title" id="camp-booking-title">Встигніть забронювати<br>незабутні спогади</h2>

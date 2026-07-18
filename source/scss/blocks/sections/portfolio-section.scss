@@ -18,11 +18,23 @@
     &__viewport {
         width: 100%;
         overflow-x: auto;
+        cursor: grab;
+        touch-action: pan-y;
         scrollbar-width: none;
+
+        &.is-dragging {
+            cursor: grabbing;
+            user-select: none;
+        }
     }
 
     &__viewport::-webkit-scrollbar {
         display: none;
+    }
+
+    &__viewport img {
+        user-select: none;
+        -webkit-user-drag: none;
     }
 
     &__slider {
@@ -128,7 +140,9 @@
 
         h3 {
             margin-top: 14px;
+            color: #fff;
             font-size: 20px;
+            font-weight: 600;
         }
 
         p {
@@ -181,13 +195,20 @@
     }
 
     &__trial {
-        display: inline-flex;
-        gap: 10px;
+        display: flex;
+        width: 310px;
+        height: 52px;
+        gap: 4px;
         align-items: center;
         justify-content: center;
         margin-top: 20px;
-        padding: 12px 20px;
-        font-size: 12px;
+        padding: 0;
+        font-family: var(--font-primary);
+        font-style: normal;
+        font-size: clamp(14px, 2.083vw, 16px);
+        line-height: 140%;
+        font-weight: 600;
+        letter-spacing: -0.8px;
         white-space: nowrap;
     }
 
@@ -209,7 +230,13 @@
         &__card--featured {
             display: flex;
             flex-basis: min(92vw, 710px);
+            order: -1;
+            flex-direction: column-reverse;
             min-height: auto;
+        }
+
+        &__trial {
+            width: 100%;
         }
 
         &__game {

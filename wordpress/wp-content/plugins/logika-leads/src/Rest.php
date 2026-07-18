@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 final class Logika_Leads_Rest {
-	private const FORM_IDS = array( 'trial_lesson', 'consultation' );
+	private const FORM_IDS = array( 'trial_lesson', 'consultation', 'gift_certificate', 'director_message' );
 
 	public static function register(): void {
 		register_rest_route( 'logika/v1', '/forms/token', array( 'methods' => WP_REST_Server::READABLE, 'callback' => array( self::class, 'token' ), 'permission_callback' => '__return_true' ) );
@@ -51,6 +51,7 @@ final class Logika_Leads_Rest {
 				'form_id'              => $form_id,
 				'name'                 => $request->get_param( 'name' ),
 				'phone'                => $request->get_param( 'phone' ),
+				'message'              => $request->get_param( 'message' ),
 				'child_age'            => $request->get_param( 'child_age' ),
 				'consent_accepted'     => rest_sanitize_boolean( $request->get_param( 'consent_accepted' ) ),
 				'consent_text_version' => $request->get_param( 'consent_text_version' ),
@@ -66,6 +67,7 @@ final class Logika_Leads_Rest {
 			return new WP_Error( $result->get_error_code() ?: 'invalid_lead', 'Перевірте дані форми.', array( 'status' => 422 ) );
 		}
 		Logika_Leads_Service::deliver( $result['lead_id'] );
+		Logika_Leads_Director_Email::send( $result['lead_id'] );
 
 		return new WP_REST_Response( $result, 201 );
 	}

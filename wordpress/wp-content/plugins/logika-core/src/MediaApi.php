@@ -33,6 +33,10 @@ final class MediaApi {
 					'all' => array(
 						'sanitize_callback' => 'rest_sanitize_boolean',
 					),
+					'category' => array(
+						'sanitize_callback' => 'sanitize_key',
+						'validate_callback' => static fn( $value ): bool => '' === $value || isset( MediaCategories::labels()[ $value ] ),
+					),
 				),
 			)
 		);
@@ -41,10 +45,11 @@ final class MediaApi {
 	public static function index( WP_REST_Request $request ): WP_REST_Response {
 		$city_id = absint( $request->get_param( 'city' ) );
 		$search  = trim( (string) $request->get_param( 'search' ) );
+		$category = (string) $request->get_param( 'category' );
 		$limit   = rest_sanitize_boolean( $request->get_param( 'all' ) ) ? -1 : ( $search ? self::SEARCH_LIMIT : self::LIMIT );
 
 		if ( ! $city_id ) {
-			return new WP_REST_Response( self::cards( new WP_Query( self::latest_query( $search ) ) ) );
+			return new WP_REST_Response( self::cards( new WP_Query( self::latest_query( $search, $category, CityPostTags::commonTaxQuery() ) ) ) );
 		}
 
 		$city = get_post( $city_id );
@@ -55,39 +60,36 @@ final class MediaApi {
 
 		$local = self::cards(
 			new WP_Query(
-				array(
+				array_merge(
+					array(
 					'post_type'      => 'post',
 					'post_status'    => 'publish',
 					'posts_per_page' => $limit,
 					'orderby'        => 'date',
 					'order'          => 'DESC',
-					'meta_key'       => 'post_related_city',
-					'meta_value'     => (string) $city_id,
 					'meta_query'     => self::visibility_query(),
+					'tax_query'      => CityPostTags::cityTaxQuery( $city_id ),
 					's'              => $search,
+					),
+					$category ? array( 'category_name' => $category ) : array()
 				)
 			)
 		);
 		$remaining = $limit - count( $local );
 		$common = -1 === $limit || $remaining > 0 ? self::cards(
 			new WP_Query(
-				array(
+				array_merge(
+					array(
 					'post_type'      => 'post',
 					'post_status'    => 'publish',
 					'posts_per_page' => -1 === $limit ? -1 : $remaining,
 					'orderby'        => 'date',
 					'order'          => 'DESC',
-					'meta_query'     => array(
-						'relation' => 'AND',
-						array(
-						'relation' => 'OR',
-						array( 'key' => 'post_related_city', 'compare' => 'NOT EXISTS' ),
-						array( 'key' => 'post_related_city', 'value' => '', 'compare' => '=' ),
-						array( 'key' => 'post_related_city', 'value' => '0' ),
-						),
-						self::visibility_query(),
+					'meta_query'     => self::visibility_query(),
+					'tax_query'      => CityPostTags::commonTaxQuery(),
+					's'              => $search,
 					),
-						's'              => $search,
+					$category ? array( 'category_name' => $category ) : array()
 				)
 			)
 		) : array();
@@ -98,7 +100,7 @@ final class MediaApi {
 	/**
 	 * @return array<string, mixed>
 	 */
-	private static function latest_query( string $search = '' ): array {
+	private static function latest_query( string $search = '', string $category = '', array $tax_query = array() ): array {
 		$query = array(
 			'post_type'      => 'post',
 			'post_status'    => 'publish',
@@ -111,6 +113,8 @@ final class MediaApi {
 		if ( $search ) {
 			$query['s'] = $search;
 		}
+		if ( $category ) { $query['category_name'] = $category; }
+		if ( $tax_query ) { $query['tax_query'] = $tax_query; }
 
 		return $query;
 	}

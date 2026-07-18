@@ -389,6 +389,7 @@ const fieldLabels = {
   city_id: 'місто',
   child_age: 'вік дитини',
   age: 'вік дитини',
+  message: 'повідомлення',
   consent_accepted: 'згоду з політикою конфіденційності',
 };
 const setFieldError = (field, show) => {

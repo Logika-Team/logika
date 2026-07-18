@@ -2,6 +2,10 @@
     padding: clamp(40px, 4.167vw, 80px) 0;
     background-color: var(--violet-100);
 
+    .btn {
+        font-weight: 700;
+    }
+
     &__wrapp {
         display: flex;
         flex-direction: column;

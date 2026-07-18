@@ -5,7 +5,7 @@ declare(strict_types=1);
 defined( 'ABSPATH' ) || exit;
 
 final class Logika_Theme_Routing {
-	private const REWRITE_VERSION = '7';
+	private const REWRITE_VERSION = '8';
 
 	private const LEGACY_ROUTES = array(
 		'about.html' => '/about/', 'faq.html' => '/faq/', 'it-courses.html' => '/it-courses/', 'en-courses.html' => '/english-courses/', 'camps.html' => '/camps/', 'media-center.html' => '/media-center/', 'article.html' => '/media-center/', 'it-course.html' => '/courses/', 'camp.html' => '/camps/', 'city.html' => '/', 'litsenziia.html' => '/litsenziia/',
@@ -23,24 +23,30 @@ final class Logika_Theme_Routing {
 		add_filter( 'redirect_canonical', array( self::class, 'redirectCanonical' ), 10, 2 );
 		add_action( 'template_redirect', array( self::class, 'validateContextCity' ), 1 );
 		add_action( 'template_redirect', array( self::class, 'redirectLegacy' ) );
+		add_action( 'template_redirect', array( self::class, 'redirectMediaCanonical' ), 2 );
 		add_filter( 'template_include', array( self::class, 'blogTemplate' ) );
 	}
 
 	public static function rewriteRules(): void {
 		add_rewrite_rule( '^cities/([^/]+)/?$', 'index.php?logika_city=$matches[1]', 'top' );
-		add_rewrite_rule( '^media-center/([^/]+)/?$', 'index.php?post_type=post&name=$matches[1]', 'top' );
-		add_rewrite_rule( '^blog/?$', 'index.php?logika_blog=1', 'top' );
+		add_rewrite_rule( '^media-center/(news|articles|offers)/([^/]+)/?$', 'index.php?post_type=post&name=$matches[2]&logika_media_category=$matches[1]', 'top' );
+		add_rewrite_rule( '^media-center/(news|articles|offers)/?$', 'index.php?logika_media_category=$matches[1]', 'top' );
+		add_rewrite_rule( '^media-center/([^/]+)/?$', 'index.php?logika_legacy_article=$matches[1]', 'top' );
+		add_rewrite_rule( '^blog/?$', 'index.php?logika_legacy_blog=1', 'top' );
 	}
 
 	public static function queryVars( array $vars ): array {
 		$vars[] = 'logika_city';
 		$vars[] = 'logika_blog';
+		$vars[] = 'logika_media_category';
+		$vars[] = 'logika_legacy_article';
+		$vars[] = 'logika_legacy_blog';
 
 		return $vars;
 	}
 
 	public static function blogTemplate( string $template ): string {
-		return get_query_var( 'logika_blog' ) ? get_template_directory() . '/templates/page-blog.php' : $template;
+		return get_query_var( 'logika_blog' ) || get_query_var( 'logika_media_category' ) ? get_template_directory() . '/templates/page-blog.php' : $template;
 	}
 
 	public static function resolveCityHomepage( WP $wp ): void {
@@ -71,7 +77,16 @@ final class Logika_Theme_Routing {
 	}
 
 	public static function postLink( string $url, WP_Post $post ): string {
-		return 'post' === $post->post_type ? home_url( '/media-center/' . $post->post_name . '/' ) : $url;
+		return 'post' === $post->post_type ? home_url( '/media-center/' . \Logika\Core\MediaCategories::for( $post ) . '/' . $post->post_name . '/' ) : $url;
+	}
+
+	public static function mediaCategory( WP_Post|int $post ): string { return \Logika\Core\MediaCategories::for( $post ); }
+	public static function mediaCategoryLabel( string $slug ): string { return \Logika\Core\MediaCategories::label( $slug ); }
+
+	public static function redirectMediaCanonical(): void {
+		if ( ! is_singular( 'post' ) || ! get_query_var( 'logika_media_category' ) ) { return; }
+		$post = get_post( get_queried_object_id() );
+		if ( $post instanceof WP_Post && get_query_var( 'logika_media_category' ) !== self::mediaCategory( $post ) ) { wp_safe_redirect( get_permalink( $post ), 301 ); exit; }
 	}
 
 	public static function redirectCanonical( $redirect, string $requested_url ) {
@@ -100,6 +115,12 @@ final class Logika_Theme_Routing {
 	}
 
 	public static function redirectLegacy(): void {
+		if ( get_query_var( 'logika_legacy_blog' ) ) { wp_safe_redirect( home_url( '/media-center/articles/' ), 301 ); exit; }
+		$legacy_article = (string) get_query_var( 'logika_legacy_article' );
+		if ( $legacy_article ) {
+			$post = get_page_by_path( $legacy_article, OBJECT, 'post' );
+			if ( $post instanceof WP_Post ) { wp_safe_redirect( get_permalink( $post ), 301 ); exit; }
+		}
 		$path = trim( (string) wp_parse_url( (string) ( $_SERVER['REQUEST_URI'] ?? '' ), PHP_URL_PATH ), '/' ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 		$city_url = self::legacyCityUrl( $path );
 		if ( $city_url ) {

@@ -137,6 +137,7 @@ ensure_page faq 'FAQ' 'templates/page-faq.php' >/dev/null
 ensure_page it-courses 'Курси програмування' 'templates/page-it-courses.php' >/dev/null
 ensure_page english-courses 'Курси англійської' 'templates/page-english-courses.php' >/dev/null
 ensure_page media-center 'Медіацентр' 'templates/page-media-center.php' >/dev/null
+ensure_page vacancies 'Вакансії' 'templates/page-vacancies.php' >/dev/null
 ensure_page privacy-policy 'Політика конфіденційності' >/dev/null
 ensure_page contractoffer 'Договір оферти' >/dev/null
 ensure_page contractoffer-overseas 'Договір оферти для клієнтів поза межами України' >/dev/null

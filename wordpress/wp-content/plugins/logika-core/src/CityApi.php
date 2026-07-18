@@ -9,6 +9,8 @@ use WP_REST_Response;
 use WP_REST_Server;
 
 final class CityApi {
+	private const DEFAULT_HOMEPAGE_SEO_VIDEO_URL = 'https://www.youtube.com/watch?v=7QN3QcMHMQ4';
+
 	public static function register(): void {
 		register_rest_route(
 			'logika/v1',
@@ -26,6 +28,21 @@ final class CityApi {
 			array(
 				'methods'             => WP_REST_Server::READABLE,
 				'callback'            => array( self::class, 'branches' ),
+				'permission_callback' => '__return_true',
+				'args'                => array(
+					'id' => array(
+						'validate_callback' => static fn( $value ): bool => is_numeric( $value ),
+					),
+				),
+			)
+		);
+
+		register_rest_route(
+			'logika/v1',
+			'/cities/(?P<id>\d+)/homepage-seo',
+			array(
+				'methods'             => WP_REST_Server::READABLE,
+				'callback'            => array( self::class, 'homepageSeo' ),
 				'permission_callback' => '__return_true',
 				'args'                => array(
 					'id' => array(
@@ -64,6 +81,7 @@ final class CityApi {
 				static fn( \WP_Post $city ): array => array(
 					'id'     => $city->ID,
 					'label'  => get_field( 'city_selected_label', $city->ID ) ?: $city->post_title,
+					'hero'   => CityHero::resolve( $city ),
 					'show_on_map' => '1' === get_post_meta( $city->ID, 'city_show_on_map', true ),
 					'slug'   => CitySlug::for( $city ),
 						'url'    => CitySlug::url( $city ),
@@ -112,6 +130,49 @@ final class CityApi {
 				$branches
 			)
 		);
+	}
+
+	public static function homepageSeo( WP_REST_Request $request ): WP_REST_Response {
+		$city = get_post( absint( $request['id'] ) );
+
+		if ( ! $city instanceof \WP_Post || 'city' !== $city->post_type || 'publish' !== $city->post_status ) {
+			return new WP_REST_Response( array( 'message' => 'Місто не знайдено.' ), 404 );
+		}
+
+		$title       = trim( sanitize_text_field( (string) get_post_meta( $city->ID, 'city_home_seo_title', true ) ) );
+		$description = trim( sanitize_textarea_field( (string) get_post_meta( $city->ID, 'city_home_seo_description', true ) ) );
+		$cta_label   = trim( sanitize_text_field( (string) get_post_meta( $city->ID, 'city_home_seo_cta_label', true ) ) );
+		$caption     = trim( sanitize_textarea_field( (string) get_post_meta( $city->ID, 'city_home_seo_video_caption', true ) ) );
+		$video_url   = esc_url_raw( (string) get_post_meta( $city->ID, 'city_home_seo_video_url', true ) ) ?: self::DEFAULT_HOMEPAGE_SEO_VIDEO_URL;
+		$illustration = self::image( absint( get_post_meta( $city->ID, 'city_home_seo_illustration', true ) ) );
+		$poster       = self::image( absint( get_post_meta( $city->ID, 'city_home_seo_video_poster', true ) ) );
+
+		if ( ! $title || ! $description || ! $cta_label || ! $caption || ! $video_url || ! $illustration || ! $poster ) {
+			return new WP_REST_Response( null );
+		}
+
+		return new WP_REST_Response(
+			array(
+				'title'        => $title,
+				'description'  => $description,
+				'cta_label'    => $cta_label,
+				'illustration' => $illustration,
+				'video'        => array(
+					'url'     => $video_url,
+					'poster'  => $poster,
+					'caption' => $caption,
+				),
+			)
+		);
+	}
+
+	private static function image( int $attachment_id ): ?array {
+		$url = $attachment_id ? wp_get_attachment_image_url( $attachment_id, 'full' ) : false;
+
+		return $url ? array(
+			'url' => esc_url_raw( $url ),
+			'alt' => sanitize_text_field( (string) get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ) ),
+		) : null;
 	}
 
 	private static function region( int $city_id ): array {

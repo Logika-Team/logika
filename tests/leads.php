@@ -19,7 +19,7 @@ $payload = array(
 	'source_url'         => home_url( '/test-source/' ),
 	'city_id'            => (int) get_page_by_path( 'test-city', OBJECT, 'city' )->ID,
 	'course_id'          => (int) get_page_by_path( 'test-course', OBJECT, 'course' )->ID,
-	'camp_id'            => (int) get_page_by_path( 'test-camp', OBJECT, 'camp' )->ID,
+	'camp_id'            => (int) get_page_by_path( 'summer-camp', OBJECT, 'camp' )->ID,
 	'idempotency_key'    => 'local-lead-test-' . wp_generate_uuid4(),
 );
 

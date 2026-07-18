@@ -16,7 +16,7 @@
           <div class="banner-section__blocks">
             <div class="banner-section__left">
               <div class="banner-section__info">
-                <h1 class="banner-section__title">Найбільша в Україні школа програмування для дітей 7-17 років</h1>
+                <h1 class="banner-section__title">Програмування та англійська мова для дітей 7-30 років</h1>
                 <div class="banner-section__subtitle h4">Перші результати вже через 4 тижні</div>
               </div>
 
@@ -586,7 +586,10 @@
 
               <span class="transformation-section__item-label">Було</span>
 
-              <div class="transformation-section__item-slogan"><p>Просто грає в ігри</p></div>
+              <div class="transformation-section__item-slogan">
+                <img class="transformation-section__item-slogan-decoration" width="190" height="180" src="img/transformation/4243.svg" alt="" aria-hidden="true">
+                <p>Просто грає в ігри</p>
+              </div>
             </li>
 
             <li class="transformation-section__item status-after">
@@ -599,7 +602,10 @@
 
               <span class="transformation-section__item-label">Стало</span>
 
-              <div class="transformation-section__item-slogan"><p>Створює власні ігри</p></div>
+              <div class="transformation-section__item-slogan">
+                <img class="transformation-section__item-slogan-decoration" width="190" height="180" src="img/transformation/421.svg" alt="" aria-hidden="true">
+                <p>Створює власні ігри</p>
+              </div>
             </li>
           </ul>
         </div>
@@ -607,6 +613,9 @@
     </section>
 
     <section class="onboarding-section">
+      <div class="onboarding-section__bg" aria-hidden="true">
+        <img src="img/onbording/group-3986.svg" alt="">
+      </div>
       <div class="container">
         <div class="onboarding-section__wrapp">
           <h2>Як розпочати навчання</h2>
@@ -1001,10 +1010,10 @@
                   <span class="portfolio-section__tag">Python Start</span>
                   <h3>Максим, 12 років</h3>
                   <p>Максим освоїв курс Python Start і вже створив свою першу комп’ютерну гру</p>
-                  <button class="portfolio-section__video" type="button">
-                    <span aria-hidden="true">▶</span>
+                  <a class="portfolio-section__video" href="https://www.youtube.com/watch?v=7QN3QcMHMQ4" target="_blank" rel="noopener noreferrer">
+                    <img src="img/portfolio/Watch.svg" alt="" aria-hidden="true">
                     Дивитись відеовідгук
-                  </button>
+                  </a>
                   <a class="portfolio-section__trial btn btn--yellow" href="#lead-form">
                     Безкоштовний пробний урок
                     <svg width="20" height="20" aria-hidden="true"><use href="img/sprite/sprite.svg#arrow-right"></use></svg>
@@ -1040,7 +1049,7 @@
       <div class="container">
         <div class="school-map__heading">
           <h2 id="school-map-title">Знайдіть свою школу або<br>навчайтесь онлайн</h2>
-          <p>Наші школи у 130 містах України - знайдіть зручний варіант поруч із вами або навчайтесь онлайн.</p>
+        <p>Наші школи у 130 містах України — знайдіть зручний варіант поруч із вами або навчайтесь онлайн.</p>
         </div>
         <div class="school-map__mode" role="group" aria-label="Формат навчання">
           <button class="is-active" type="button" data-map-mode="offline">Навчатися у нашому місті</button>
@@ -1076,7 +1085,7 @@
       </div>
     </section>
 
-    <section class="media-section">
+    <section class="media-section media-center-section">
       <div class="container">
         <div class="media-section__wrapp">
           <div class="media-section__top">
@@ -1233,6 +1242,31 @@
       </div>
     </section>
 
+    <section class="nizhyn-school" data-city-home-seo aria-labelledby="nizhyn-school-title" hidden>
+      <div class="container">
+        <div class="nizhyn-school__intro">
+          <div class="nizhyn-school__copy">
+            <h2 class="nizhyn-school__title" id="nizhyn-school-title" data-city-home-seo-title></h2>
+            <div class="nizhyn-school__description" data-city-home-seo-description></div>
+            <a class="nizhyn-school__cta btn btn--yellow" href="#lead-form" data-city-home-seo-cta>
+              <span data-city-home-seo-cta-label></span>
+              <svg width="20" height="20" aria-hidden="true"><use href="img/sprite/sprite.svg#arrow-right"></use></svg>
+            </a>
+          </div>
+          <img class="nizhyn-school__illustration" data-city-home-seo-illustration alt="">
+        </div>
+        <div class="nizhyn-school__video">
+          <img data-city-home-seo-video-poster alt="">
+          <div class="nizhyn-school__video-overlay" aria-hidden="true"></div>
+          <div class="nizhyn-school__video-caption" data-city-home-seo-video-caption></div>
+          <button class="nizhyn-school__play" type="button" data-city-home-seo-video-play aria-label="Відтворити відео" aria-controls="city-home-seo-video">
+            <span aria-hidden="true"></span>
+          </button>
+          <iframe class="nizhyn-school__video-frame" id="city-home-seo-video" data-city-home-seo-video-frame title="Відео про школу" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen hidden></iframe>
+        </div>
+      </div>
+    </section>
+
     <section class="faq-section">
       <div class="faq-section__left-bg">
         <img src="img/faq/faq-left-bg.svg" alt="">
@@ -1322,6 +1356,15 @@
       </div>
     </section>
 
+    <section class="director-feedback-section" aria-labelledby="director-feedback-title">
+      <div class="container">
+        <div class="director-feedback-section__inner">
+          <h2 id="director-feedback-title">Бажаєте залишити відгук?</h2>
+          <a class="director-feedback-section__button btn btn--violet" href="#lead-form" data-logika-form-id="director_message">Написати директору</a>
+        </div>
+      </div>
+    </section>
+
     <section class="certificates-section">
         <div class="certificates-section__wrapp">
             <div class="container">
@@ -1333,7 +1376,7 @@
                       <p>Залиште заявку, і ми зв'яжемось з вами: відповімо на будь-які запитання і допоможемо обрати курс </p>
                     </div>
 
-                    <a class="btn btn--violet" href="#">
+                    <a class="btn btn--violet" href="#lead-form" data-logika-form-id="gift_certificate">
                       Залишити заявку
                       <svg width='20' height='20'>
                         <use href='img/sprite/sprite.svg#arrow-right'></use>

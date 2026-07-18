@@ -19,6 +19,7 @@ try {
 
 	update_field( 'home_programming_title', 'Home fallback fixture', $front_id );
 	update_field( 'city_home_hero_title', 'City override fixture', $city );
+	update_field( 'city_home_hero_text', 'City hero text fixture', $city );
 	update_field( 'review_author_name', 'Selected city review', $review );
 	update_field( 'review_text', 'Visible city review fixture', $review );
 	update_field( 'review_is_approved', 1, $review );
@@ -38,7 +39,7 @@ try {
 	Logika_Theme_City_Page::renderHome( $city );
 	$html = (string) ob_get_clean();
 
-	foreach ( array( 'City override fixture', 'Home fallback fixture', 'Visible city review fixture', 'Selected city FAQ fixture?', 'Visible city answer fixture' ) as $expected ) {
+	foreach ( array( 'City override fixture', 'City hero text fixture', 'Home fallback fixture', 'Visible city review fixture', 'Selected city FAQ fixture?', 'Visible city answer fixture' ) as $expected ) {
 		if ( ! str_contains( $html, $expected ) ) {
 			$errors[] = "City Home is missing {$expected}.";
 		}

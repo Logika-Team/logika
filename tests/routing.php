@@ -14,9 +14,10 @@ foreach ( array( 'about.html', 'faq.html', 'it-courses.html', 'en-courses.html',
 }
 
 $created_posts = array();
+$default_category = (int) get_option( 'default_category' );
 foreach (
 	array(
-		'post'   => array( 'test-routing-post', '/media-center/test-routing-post/' ),
+		'post'   => array( 'test-routing-post', '/media-center/articles/test-routing-post/' ),
 		'course' => array( 'test-routing-course', '/courses/test-routing-course/' ),
 		'camp'   => array( 'test-routing-camp', '/camps/test-routing-camp/' ),
 	) as $post_type => $route
@@ -33,6 +34,53 @@ foreach (
 		$errors[] = "Post {$post_id} does not use {$route[1]}.";
 	}
 }
+
+$media_terms = array();
+foreach ( array( 'news' => 'Новини', 'articles' => 'Статті', 'offers' => 'Акції' ) as $slug => $name ) {
+	$term = get_term_by( 'slug', $slug, 'category' );
+	if ( ! $term ) {
+		$term = wp_insert_term( $name, 'category', array( 'slug' => $slug ) );
+		if ( ! is_wp_error( $term ) ) {
+			$media_terms[] = (int) $term['term_id'];
+			$term = get_term( $term['term_id'], 'category' );
+		}
+	}
+	if ( ! $term || is_wp_error( $term ) ) {
+		$errors[] = "Media category {$slug} is unavailable.";
+	}
+}
+
+$article = get_page_by_path( 'test-routing-post', OBJECT, 'post' );
+if ( $article instanceof WP_Post ) {
+	foreach ( array( 'news', 'articles', 'offers' ) as $category ) {
+		wp_set_object_terms( $article->ID, $category, 'category', false );
+		if ( ! str_ends_with( (string) get_permalink( $article ), "/media-center/{$category}/test-routing-post/" ) ) {
+			$errors[] = "Article permalink does not include {$category}.";
+		}
+	}
+	wp_set_object_terms( $article->ID, 'articles', 'category', false );
+	wp_set_object_terms( $article->ID, array( 'news', 'offers' ), 'category', false );
+	if ( array( 'news' ) !== wp_get_post_terms( $article->ID, 'category', array( 'fields' => 'slugs' ) ) ) {
+		$errors[] = 'A media article must have one canonical category.';
+	}
+	wp_set_object_terms( $article->ID, 'articles', 'category', false );
+	$breadcrumbs = Logika_Theme_Article_Page::render( $article->ID );
+	foreach ( array( '/media-center/', '/media-center/articles/', 'Медіа-центр', 'Статті' ) as $expected ) {
+		if ( ! str_contains( $breadcrumbs, $expected ) ) {
+			$errors[] = "Article breadcrumbs are missing {$expected}.";
+		}
+	}
+}
+
+$dry_run_post = wp_insert_post( array( 'post_type' => 'post', 'post_status' => 'draft', 'post_title' => 'Dry-run media fixture' ) );
+$created_posts[] = $dry_run_post;
+wp_set_object_terms( $dry_run_post, 1, 'category', false );
+update_option( 'default_category', 1 );
+Logika\Core\ContentMigration::run( true );
+if ( 1 !== (int) get_option( 'default_category' ) || array( 1 ) !== array_map( 'intval', wp_get_post_terms( $dry_run_post, 'category', array( 'fields' => 'ids' ) ) ) ) {
+	$errors[] = 'Media migration dry-run must not change categories or defaults.';
+}
+update_option( 'default_category', $default_category );
 
 foreach (
 	array(
@@ -78,6 +126,10 @@ foreach ( glob( get_template_directory() . '/source-pages/*.php' ) as $file ) {
 
 foreach ( $created_posts as $post_id ) {
 	wp_delete_post( $post_id, true );
+}
+
+foreach ( $media_terms as $term_id ) {
+	wp_delete_term( $term_id, 'category' );
 }
 
 if ( $errors ) {

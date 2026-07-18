@@ -167,6 +167,71 @@
       "instructions": "Необов’язково. Порожнє поле успадковує заголовок FAQ із Головної сторінки."
     },
     {
+      "key": "field_city_tab_home_seo",
+      "label": "SEO-секція головної",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_city_home_seo_title",
+      "label": "Заголовок",
+      "name": "city_home_seo_title",
+      "type": "text",
+      "instructions": "Заповніть усі поля секції, інакше вона не буде показана на сайті."
+    },
+    {
+      "key": "field_city_home_seo_description",
+      "label": "Опис",
+      "name": "city_home_seo_description",
+      "type": "textarea",
+      "rows": 6,
+      "new_lines": "",
+      "instructions": "Абзаци розділяйте порожнім рядком. HTML не використовується."
+    },
+    {
+      "key": "field_city_home_seo_cta_label",
+      "label": "Текст кнопки",
+      "name": "city_home_seo_cta_label",
+      "type": "text",
+      "instructions": "Кнопка завжди відкриває форму запису."
+    },
+    {
+      "key": "field_city_home_seo_illustration",
+      "label": "Ілюстрація",
+      "name": "city_home_seo_illustration",
+      "type": "image",
+      "return_format": "id",
+      "preview_size": "medium",
+      "instructions": "Окреме зображення для цього міста."
+    },
+    {
+      "key": "field_city_home_seo_video_poster",
+      "label": "Обкладинка відео",
+      "name": "city_home_seo_video_poster",
+      "type": "image",
+      "return_format": "id",
+      "preview_size": "medium",
+      "instructions": "Окрема обкладинка для відео цього міста."
+    },
+    {
+      "key": "field_city_home_seo_video_caption",
+      "label": "Підпис на обкладинці",
+      "name": "city_home_seo_video_caption",
+      "type": "textarea",
+      "rows": 2,
+      "new_lines": "",
+      "instructions": "Текст поверх обкладинки відео."
+    },
+    {
+      "key": "field_city_home_seo_video_url",
+      "label": "Посилання на відео",
+      "name": "city_home_seo_video_url",
+      "type": "url",
+      "default_value": "https://www.youtube.com/watch?v=7QN3QcMHMQ4",
+      "instructions": "Посилання на опубліковане відео YouTube, Vimeo або іншої відеоплатформи."
+    },
+    {
       "key": "field_city_tab_home_relations",
       "label": "Добірки",
       "name": "",

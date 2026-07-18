@@ -18,14 +18,18 @@ require_once LOGIKA_CORE_PATH . 'src/AcfJson.php';
 require_once LOGIKA_CORE_PATH . 'src/ContentTypes.php';
 require_once LOGIKA_CORE_PATH . 'src/OptionsPage.php';
 require_once LOGIKA_CORE_PATH . 'src/CitySlug.php';
+require_once LOGIKA_CORE_PATH . 'src/CityPostTags.php';
+require_once LOGIKA_CORE_PATH . 'src/CityHero.php';
 require_once LOGIKA_CORE_PATH . 'src/CityApi.php';
 require_once LOGIKA_CORE_PATH . 'src/MediaApi.php';
+require_once LOGIKA_CORE_PATH . 'src/MediaCategories.php';
 require_once LOGIKA_CORE_PATH . 'src/ArticleViews.php';
 require_once LOGIKA_CORE_PATH . 'src/HomepageImageOverrides.php';
 require_once LOGIKA_CORE_PATH . 'src/AdminUi.php';
 require_once LOGIKA_CORE_PATH . 'src/ContentMigration.php';
 
 Logika\Core\AcfJson::register();
+Logika\Core\MediaCategories::register();
 add_action( 'init', array( Logika\Core\ContentTypes::class, 'register' ) );
 add_action( 'acf/init', array( Logika\Core\OptionsPage::class, 'register' ) );
 add_action( 'rest_api_init', array( Logika\Core\CityApi::class, 'register' ) );
@@ -34,6 +38,7 @@ add_action( 'rest_api_init', array( Logika\Core\ArticleViews::class, 'register' 
 Logika\Core\HomepageImageOverrides::register();
 Logika\Core\AdminUi::register();
 Logika\Core\ContentMigration::register();
+Logika\Core\CityPostTags::register();
 
 register_activation_hook(
 	__FILE__,

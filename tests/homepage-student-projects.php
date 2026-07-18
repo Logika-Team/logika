@@ -55,7 +55,7 @@ try {
 	logika_theme_render_source_page( 'index' );
 	$dynamic_homepage = (string) ob_get_clean();
 
-	foreach ( array( 'Тестовий учень', 'Тестовий опис проєкту.', 'https://example.test/video', 'Тестовий CTA' ) as $value ) {
+	foreach ( array( 'Тестовий учень', 'Тестовий опис проєкту.', 'https://example.test/video', 'Тестовий CTA', 'Watch.svg' ) as $value ) {
 		if ( ! str_contains( $dynamic_homepage, $value ) ) {
 			$errors[] = "Homepage does not render editable project value {$value}.";
 		}

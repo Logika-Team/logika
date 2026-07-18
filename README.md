@@ -6,6 +6,10 @@ The site serves as a sales page so users ultimately submit an enrollment request
 It is important to enable a high level of customization so all texts and images can be changed dynamically and blog posts can be written. This is achieved with ACF Pro.  
 One of the main technical features is selecting a city on an interactive map or in the navbar, after which regional news and regional promotions for a specific location are displayed.
 
+## WordPress worktree
+
+У `.worktrees/wordpress` дозволений push лише `wordpress` → `wordpress`; захист вмикається командою `git config --worktree core.hooksPath .githooks`.
+
 ## 🔗 Links (Production / Stage)
 
 Для зручності тестування та перевірки верстки кожна сторінка доступна за прямим посиланням нижче:

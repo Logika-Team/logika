@@ -22,6 +22,7 @@ final class Logika_Theme_Article_Page {
 		$minutes = (int) self::field( 'article_reading_minutes', $post_id );
 		$minutes = $minutes > 0 ? $minutes : max( 1, (int) ceil( str_word_count( wp_strip_all_tags( $content ) ) / 180 ) );
 		$views   = (int) self::field( 'article_view_count', $post_id );
+		$category = Logika_Theme_Routing::mediaCategory( $post_id );
 
 		ob_start();
 		?>
@@ -30,7 +31,11 @@ final class Logika_Theme_Article_Page {
 		<?php self::related( $post_id ); self::cta( $post_id ); self::faq( $post_id );
 		echo '</main>';
 
-		return (string) ob_get_clean();
+		$markup = (string) ob_get_clean();
+		$old = '<div class="breadcrumbs"><a href="' . esc_url( home_url( '/' ) ) . '">Головна</a> / <a href="' . esc_url( home_url( '/media-center/' ) ) . '">Медіацентр</a> / ' . esc_html( get_the_title( $post_id ) ) . '</div>';
+		$new = '<div class="breadcrumbs"><a href="' . esc_url( home_url( '/' ) ) . '">Головна</a> / <a href="' . esc_url( home_url( '/media-center/' ) ) . '">Медіа-центр</a> / <a href="' . esc_url( home_url( '/media-center/' . $category . '/' ) ) . '">' . esc_html( Logika_Theme_Routing::mediaCategoryLabel( $category ) ) . '</a> / ' . esc_html( get_the_title( $post_id ) ) . '</div>';
+
+		return str_replace( $old, $new, $markup );
 	}
 
 	private static function content( int $post_id ): array {
@@ -96,7 +101,7 @@ final class Logika_Theme_Article_Page {
 	}
 
 	private static function related( int $post_id ): void {
-		$posts = self::published( (array) self::field( 'article_related_posts', $post_id ), 'post', 3 );
+		$posts = self::published( array_filter( (array) self::field( 'article_related_posts', $post_id ), static fn( int $id ): bool => \Logika\Core\CityPostTags::visible( $id, \Logika\Core\CityPostTags::currentCityId() ) ), 'post', 3 );
 		if ( ! $posts ) { return; }
 		?><section class="related-section"><div class="container"><div class="related-section__wrapp"><h2 class="related-section__title h2"><?php echo esc_html( self::field( 'article_related_heading', $post_id ) ?: 'Читайте також' ); ?></h2><ul class="related-section__items"><?php foreach ( $posts as $related ) : ?><li class="related-section__item"><article class="article-card"><?php $image = self::image( self::field( 'article_cover_image', $related->ID ), 'article-card__image' ); if ( $image ) : ?><div class="article-card__thumbnail"><?php echo $image; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div><?php endif; ?><div class="article-card__info"><a class="article-card__title" href="<?php echo esc_url( get_permalink( $related ) ); ?>"><?php echo esc_html( get_the_title( $related ) ); ?></a><?php if ( has_excerpt( $related ) ) : ?><p class="article-card__excerpt"><?php echo esc_html( get_the_excerpt( $related ) ); ?></p><?php endif; ?></div></article></li><?php endforeach; ?></ul></div></div></section><?php
 	}

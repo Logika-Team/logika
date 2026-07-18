@@ -1,0 +1,53 @@
+@media(min-width:768px) and (max-width:1199px){
+  .media-center-section .media-section__cards-layout{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+  .media-center-section .media-section__feature-tags{left:30px;width:calc(100% - 40px);height:auto;flex-wrap:wrap}
+  .media-center-section .media-section__feature-tags span,.media-center-section .media-section__feature-tags span:first-child,.media-center-section .media-section__feature-tags span:nth-child(2){width:auto;max-width:100%;padding:8px 12px;font-size:14px}
+  .media-center-section .media-section__contest{height:auto;min-height:0;aspect-ratio:710/410;padding:20px}
+  .media-center-section .media-section__contest .media-section__background{object-fit:contain}
+  .media-center-section .media-section__contest>div{max-width:62%}
+  .media-center-section .media-section__contest h3{font-size:24px;line-height:1.05}
+  .media-center-section .media-section__contest p{max-width:100%;font-size:10px;line-height:1.25}
+  .media-center-section .media-section__contest .btn{width:100%;height:auto;padding:10px 12px;font-size:12px}
+  .media-center-section .media-section__race{min-height:0;height:auto}
+  .media-center-section .media-section__race p{position:relative!important;top:auto!important;left:auto;width:auto;height:auto;max-width:236px}
+  .media-center-section .media-section__race .btn{position:relative;top:auto;left:auto;width:100%;height:auto}
+  .media-center-section .media-section__blog-list{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+  .media-center-section .media-section__post{width:100%;height:auto;gap:12px}
+  .media-center-section .media-section__post>img,.media-center-section .media-section__post h3{width:100%;height:auto}
+  .media-center-section .media-section__post>img{aspect-ratio:225/143}
+  .media-center-section .media-section__post h3{min-height:0}
+}
+@media(max-width:767px){
+  .media-center-section{padding:40px 0}
+  .media-center-section .media-section__wrapp{gap:30px}
+  .media-center-section .media-section__top{gap:20px}
+  .media-center-section .media-section__btns{flex-direction:column;align-items:stretch;gap:10px}
+  .media-center-section .media-section__btn-about{width:100%;justify-content:center}
+  .media-center-section .media-section__cards-layout{grid-template-columns:1fr;gap:20px}
+  .media-center-section .media-section__news,.media-center-section .media-section__promos,.media-center-section .media-section__blog-list{gap:20px}
+  .media-center-section .media-section__feature{height:auto;min-height:390px;padding:20px}
+  .media-center-section .media-section__feature-tags{top:20px;left:20px;width:calc(100% - 40px);height:auto;flex-wrap:wrap}
+  .media-center-section .media-section__feature-tags span,.media-center-section .media-section__feature-tags span:first-child,.media-center-section .media-section__feature-tags span:nth-child(2){width:auto;max-width:100%;height:auto;padding:6px 13px;font-size:12px}
+  .media-center-section .media-section__feature .media-section__figma-art{transform:none;object-fit:contain}
+  .media-center-section .media-section__feature-copy{gap:10px}
+  .media-center-section .media-section__contest,.media-center-section .media-section__promo,.media-center-section .media-section__race{min-height:0;height:auto;padding:20px;border-radius:20px}
+  .media-center-section .media-section__contest{gap:20px}
+  .media-center-section .media-section__contest .media-section__figma-art{inset:auto 0 0 auto;width:55%;height:55%;object-fit:contain}
+  .media-center-section .media-section__contest h3{font-size:30px;font-weight:700;line-height:1.18;letter-spacing:-.05em}
+  .media-center-section .media-section__contest h3{max-width:200px}
+  .media-center-section .media-section__contest p{max-width:186px;font-size:14px;font-weight:600;line-height:1.4;letter-spacing:-.05em}
+  .media-center-section .media-section__promo{gap:20px}
+  .media-center-section .media-section__promo h3{font-size:36px}
+  .media-center-section .media-section__promo h4{font-size:20px}
+  .media-center-section .media-section__promo .media-section__figma-art{inset:0 0 auto auto;width:45%;height:auto}
+  .media-center-section .media-section__race{gap:16px}
+  .media-center-section .media-section__race .media-section__figma-art{inset:0 0 auto auto;width:48%;height:auto}
+  .media-center-section .media-section__race h3{margin-top:10px;max-width:179px;font-size:30px;font-weight:700;line-height:1.18;letter-spacing:-.05em}
+  .media-center-section .media-section__race p{position:relative!important;top:auto!important;left:auto;width:auto;height:auto;max-width:192px;font-size:14px;font-weight:600;line-height:1.4;letter-spacing:-.05em}
+  .media-center-section .media-section__race .btn{position:relative;top:auto;left:auto;width:100%;height:auto}
+  .media-center-section .media-section__blog-list{display:grid;grid-template-columns:1fr;grid-column:auto}
+  .media-center-section .media-section__post{width:100%;height:auto;gap:12px}
+  .media-center-section .media-section__post>img,.media-center-section .media-section__post h3{width:100%;height:auto}
+  .media-center-section .media-section__post>img{aspect-ratio:225/143}
+  .media-center-section .media-section__post h3{min-height:0}
+}

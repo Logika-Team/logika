@@ -1,5 +1,4 @@
-<header class="header fixed-block">
-  <div class="header__top">
+<div class="header__top">
     <div class="container">
       <div class="header__top-box">
         <div class="header__contact header__contact--tel">
@@ -40,12 +39,20 @@
                 </svg>
               </a>
             </li>
+            <li>
+              <a href="https://www.tiktok.com/@logika_fun?lang=uk-UA" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                <svg width='24' height='24'>
+                  <use href='img/sprite/sprite.svg#TikTok-navbar'></use>
+                </svg>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
     </div>
   </div>
 
+<header class="header fixed-block">
   <div class="container">
     <div class="header__box">
       <div class="header__left">
@@ -105,7 +112,7 @@
                 <a class="menu-link" href="/faq/">FAQ</a>
               </li>
               <li class="menu-item">
-                <a class="menu-link" href="#">Контакти</a>
+                <a class="menu-link" href="/vacancies/">Вакансії</a>
               </li>
             </ul>
             </nav>

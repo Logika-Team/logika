@@ -1,7 +1,8 @@
 <?php
 $settings       = get_page_by_path( 'media-center' );
 $settings_id    = $settings instanceof WP_Post ? $settings->ID : 0;
-$title          = (string) ( $settings_id ? get_field( 'media_center_blog_title', $settings_id ) : '' ) ?: 'Усі статті';
+$category       = sanitize_key( (string) get_query_var( 'logika_media_category' ) );
+$title          = $category ? Logika_Theme_Routing::mediaCategoryLabel( $category ) : ( (string) ( $settings_id ? get_field( 'media_center_blog_title', $settings_id ) : '' ) ?: 'Усі статті' );
 $sort_new_label = (string) ( $settings_id ? get_field( 'media_center_blog_sort_new_label', $settings_id ) : '' ) ?: 'Спочатку новіші';
 $sort_old_label = (string) ( $settings_id ? get_field( 'media_center_blog_sort_old_label', $settings_id ) : '' ) ?: 'Спочатку старіші';
 $years_label    = (string) ( $settings_id ? get_field( 'media_center_blog_years_label', $settings_id ) : '' ) ?: 'Усі роки';

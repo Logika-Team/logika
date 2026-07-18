@@ -80,41 +80,25 @@
           <ul class="camp-formats__list">
             <li class="camp-formats__item">
               <span class="camp-formats__item-season">Літо</span>
-
-              <div class="camp-formats__item-image">
-                <img src="img/camp/formats/summer.jpg" alt="Літній морський пейзаж">
-              </div>
-
+              <div class="camp-formats__item-image"><img src="img/camp/formats/summer.jpg" alt="Літній морський пейзаж"></div>
               <button class="camp-formats__item-btn btn btn--white" data-path="camps">Переглянути табори</button>
             </li>
 
             <li class="camp-formats__item">
               <span class="camp-formats__item-season">Осінь</span>
-
-              <div class="camp-formats__item-image">
-                <img src="img/camp/formats/autumn.jpg" alt="Осінні гори">
-              </div>
-
+              <div class="camp-formats__item-image"><img src="img/camp/formats/autumn.jpg" alt="Осінні гори"></div>
               <button class="camp-formats__item-btn btn btn--white" data-path="camps">Переглянути табори</button>
             </li>
 
             <li class="camp-formats__item">
               <span class="camp-formats__item-season">Зима</span>
-
-              <div class="camp-formats__item-image">
-                <img src="img/camp/formats/winter.jpg" alt="Засніжені гори взимку">
-              </div>
-
+              <div class="camp-formats__item-image"><img src="img/camp/formats/winter.jpg" alt="Засніжені гори взимку"></div>
               <button class="camp-formats__item-btn btn btn--white" data-path="camps">Переглянути табори</button>
             </li>
 
             <li class="camp-formats__item">
               <span class="camp-formats__item-season">Весна</span>
-
-              <div class="camp-formats__item-image">
-                <img src="img/camp/formats/spring.jpg" alt="Весняний гірський луг">
-              </div>
-
+              <div class="camp-formats__item-image"><img src="img/camp/formats/spring.jpg" alt="Весняний гірський луг"></div>
               <button class="camp-formats__item-btn btn btn--white" data-path="camps">Переглянути табори</button>
             </li>
           </ul>

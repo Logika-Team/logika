@@ -398,7 +398,7 @@
       <div class="container">
         <div class="school-map__heading">
           <h2 id="school-map-title">Знайдіть свою школу або<br>навчайтесь онлайн</h2>
-          <p>Наші школи у 130 містах України - знайдіть зручний варіант поруч із вами або навчайтесь онлайн.</p>
+        <p>Наші школи у 130 містах України — знайдіть зручний варіант поруч із вами або навчайтесь онлайн.</p>
         </div>
         <div class="school-map__mode" role="group" aria-label="Формат навчання">
           <button class="is-active" type="button" data-map-mode="offline">Навчатися у нашому місті</button>

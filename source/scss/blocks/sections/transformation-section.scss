@@ -71,6 +71,7 @@
 
         &-slogan {
             position: absolute;
+            z-index: 1;
             top: 20px;
             left: 30px;
             max-width: 190px;
@@ -81,7 +82,20 @@
             letter-spacing: -1.5px;
             color: var(--white);
 
+            &-decoration {
+                position: absolute;
+                z-index: 0;
+                top: -15px;
+                left: -24px;
+                width: 190px;
+                height: 180px;
+                pointer-events: none;
+                object-fit: contain;
+            }
+
             p {
+                position: relative;
+                z-index: 1;
                 max-width: 165px;
                 width: 100%;
             }
