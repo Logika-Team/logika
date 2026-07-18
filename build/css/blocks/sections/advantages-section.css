@@ -2,7 +2,9 @@
 /* stylelint-disable */
 /* stylelint-disable */
 .advantages-section {
-  padding: clamp(40px, 7.813vw, 80px) 0;
+  position: relative;
+  padding: clamp(20px, 4.167vw, 80px) 0;
+  overflow: hidden;
 }
 .advantages-section__wrapp {
   position: relative;

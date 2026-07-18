@@ -1,7 +1,9 @@
 @import "../../general/mixins";
 
 .advantages-section {
-    padding: clamp(40px, 7.813vw, 80px) 0;
+    position: relative;
+    padding: clamp(20px, 4.167vw, 80px) 0;
+    overflow: hidden;
 
     &__wrapp {
         position: relative;

@@ -1,22 +1,63 @@
 @import "../../general/mixins";
 
 .onboarding-section {
+    position: relative;
     padding: clamp(20px, 4.167vw, 80px) 0;
     overflow: hidden;
+
+    &__bg {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        width: clamp(190px, 18.542vw, 356px);
+        height: clamp(356px, 34.167vw, 656px);
+
+        img {
+            object-fit: contain;
+        }
+
+        @include tablet {
+            display: none;
+        }
+    }
 
 
     &__wrapp {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 60px;
+        gap: clamp(40px, 3.125vw, 60px);
+    }
+
+    &__box {
+        width: 100%;
+        position: relative;
+        display: flex;
+    }
+
+    &__box-bg {
+        position: absolute;
+        z-index: -1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        @include tablet {
+            display: none;
+        }
     }
 
     &__items {
         width: 100%;
         display: flex;
         flex-direction: column;
-        gap: 80px;
+        gap: clamp(40px, 4.167vw, 80px);
         counter-reset: item-counter;
 
         li:nth-child(even) {
@@ -28,14 +69,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 90px;
+        gap: clamp(30px, 4.688vw, 90px);
         counter-increment: item-counter;
 
         &-media {
             position: relative;
             max-width: 484px;
             width: 100%;
-            height: 356px;
+            height: clamp(235px, 24.722vw, 356px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -44,14 +85,14 @@
                 content: "0" counter(item-counter);
                 position: absolute;
                 z-index: 4;
-                top: -40px;
+                top: calc(clamp(25px, 2.778vw, 40px) * -1);
                 left: 50%;
                 transform: rotate(-6deg) translateX(-50%);
-                padding: 10px 35px;
+                padding: clamp(6px, 0.694vw, 10px) clamp(30px, 2.431vw, 35px);
                 border: 6px solid var(--white);
                 background-color: var(--violet-500);
                 border-radius: 65px;
-                font-size: 36px;
+                font-size: clamp(18px, 2.5vw, 36px);
                 line-height: 118%;
                 font-weight: 700;
                 letter-spacing: -1.8px;
@@ -98,7 +139,7 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: clamp(15px, 1.563vw, 30px);
         }
 
         &-excerpt {

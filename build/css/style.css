@@ -788,7 +788,7 @@ h5,
 .h5 {
   font-size: clamp(16px, 1.389vw, 20px);
   line-height: 140%;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -1px;
   color: var(--violet-500);
 }
@@ -810,7 +810,7 @@ h5,
   font-family: var(--font-primary);
   font-size: clamp(14px, 1.111vw, 16px);
   line-height: 140%;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.8px;
 }
 .btn--yellow {
@@ -2397,7 +2397,7 @@ a .offer-card__info {
   gap: 6px;
   font-size: 14px;
   line-height: 140%; /* 19.6px */
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.7px;
   color: var(--white);
 }
@@ -2409,7 +2409,7 @@ a .offer-card__info {
 .header__contact-link {
   font-size: 14px;
   line-height: 140%; /* 19.6px */
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.7px;
   color: var(--white);
   -webkit-text-decoration-line: underline;
@@ -2483,7 +2483,7 @@ a .offer-card__info {
   max-width: 180px;
   font-size: 12px;
   line-height: 120%;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--violet-100);
 }
 @media (max-width: 767px) {
@@ -2680,6 +2680,11 @@ a .offer-card__info {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
+  font-weight: 600;
+}
+.header__lesson {
+  -webkit-box-shadow: 0 0 15px 0 rgba(236, 186, 22, 0.35);
+  box-shadow: 0 0 15px 0 rgba(236, 186, 22, 0.35);
 }
 .header .burger {
   -ms-grid-column-align: end;
@@ -2922,7 +2927,7 @@ a .offer-card__info {
   max-width: 300px;
   font-size: clamp(13px, 2.344vw, 18px);
   line-height: 140%;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--white);
 }
 @media (min-width: 1025px) {
@@ -2964,7 +2969,7 @@ a .offer-card__info {
   margin-bottom: clamp(15px, 1.953vw, 20px);
   font-size: clamp(18px, 2.734vw, 28px);
   line-height: 128%;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -1.4px;
   color: var(--white);
 }
@@ -3031,16 +3036,16 @@ a .offer-card__info {
   width: fit-content;
   font-size: clamp(14px, 1.758vw, 18px);
   line-height: 140%;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.9px;
   color: var(--white);
 }
 .footer__menu a p {
-  font-size: clamp(12px, 1.367vw, 12px);
+  font-size: clamp(12px, 1.367vw, 14px);
   font-weight: 500;
   line-height: 140%;
   letter-spacing: -0.7px;
-  color: var(--light-blue);
+  color: var(--grey-100);
 }
 .footer__socials {
   display: -webkit-box;
@@ -3099,7 +3104,7 @@ a .offer-card__info {
   width: fit-content;
   font-size: clamp(14px, 1.758vw, 18px);
   line-height: 140%;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.9px;
   color: var(--white);
 }
@@ -3220,6 +3225,8 @@ a .offer-card__info {
   }
 }
 .banner-section__info {
+  position: relative;
+  z-index: 2;
   max-width: 685px;
   width: 100%;
   display: -webkit-box;
@@ -3239,6 +3246,9 @@ a .offer-card__info {
     align-items: center;
     text-align: center;
   }
+}
+.banner-section__subtitle {
+  color: var(--violet-100);
 }
 .banner-section__character-boy {
   width: -webkit-fit-content;
@@ -5848,7 +5858,9 @@ a .offer-card__info {
 /* stylelint-disable */
 /* stylelint-disable */
 .advantages-section {
-  padding: clamp(40px, 7.813vw, 80px) 0;
+  position: relative;
+  padding: clamp(20px, 4.167vw, 80px) 0;
+  overflow: hidden;
 }
 .advantages-section__wrapp {
   position: relative;
@@ -6073,8 +6085,31 @@ a .offer-card__info {
 /* stylelint-disable */
 /* stylelint-disable */
 .onboarding-section {
+  position: relative;
   padding: clamp(20px, 4.167vw, 80px) 0;
   overflow: hidden;
+}
+.onboarding-section__bg {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: clamp(190px, 18.542vw, 356px);
+  height: clamp(356px, 34.167vw, 656px);
+}
+.onboarding-section__bg img {
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+@media (max-width: 1024px) {
+  .onboarding-section__bg {
+    display: none;
+  }
 }
 .onboarding-section__wrapp {
   display: -webkit-box;
@@ -6087,7 +6122,38 @@ a .offer-card__info {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  gap: 60px;
+  gap: clamp(40px, 3.125vw, 60px);
+}
+.onboarding-section__box {
+  width: 100%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.onboarding-section__box-bg {
+  position: absolute;
+  z-index: -1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+@media (max-width: 1024px) {
+  .onboarding-section__box-bg {
+    display: none;
+  }
 }
 .onboarding-section__items {
   width: 100%;
@@ -6098,7 +6164,7 @@ a .offer-card__info {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  gap: 80px;
+  gap: clamp(40px, 4.167vw, 80px);
   counter-reset: item-counter;
 }
 .onboarding-section__items li:nth-child(even) {
@@ -6117,14 +6183,14 @@ a .offer-card__info {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  gap: 90px;
+  gap: clamp(30px, 4.688vw, 90px);
   counter-increment: item-counter;
 }
 .onboarding-section__item-media {
   position: relative;
   max-width: 484px;
   width: 100%;
-  height: 356px;
+  height: clamp(235px, 24.722vw, 356px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6139,16 +6205,16 @@ a .offer-card__info {
   content: "0" counter(item-counter);
   position: absolute;
   z-index: 4;
-  top: -40px;
+  top: calc(clamp(25px, 2.778vw, 40px) * -1);
   left: 50%;
   -webkit-transform: rotate(-6deg) translateX(-50%);
   -ms-transform: rotate(-6deg) translateX(-50%);
   transform: rotate(-6deg) translateX(-50%);
-  padding: 10px 35px;
+  padding: clamp(6px, 0.694vw, 10px) clamp(30px, 2.431vw, 35px);
   border: 6px solid var(--white);
   background-color: var(--violet-500);
   border-radius: 65px;
-  font-size: 36px;
+  font-size: clamp(18px, 2.5vw, 36px);
   line-height: 118%;
   font-weight: 700;
   letter-spacing: -1.8px;
@@ -6207,7 +6273,7 @@ a .offer-card__info {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  gap: 30px;
+  gap: clamp(15px, 1.563vw, 30px);
 }
 .onboarding-section__item-excerpt {
   color: var(--grey-500);

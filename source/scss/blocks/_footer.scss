@@ -57,7 +57,7 @@
         max-width: 300px;
         font-size: clamp(13px, 2.344vw, 18px);
         line-height: 140%;
-        font-weight: 600;
+        font-weight: 500;
         color: var(--white);
     }
 
@@ -89,7 +89,7 @@
         margin-bottom: clamp(15px, 1.953vw, 20px);
         font-size: clamp(18px, 2.734vw, 28px);
         line-height: 128%;
-        font-weight: 600;
+        font-weight: 500;
         letter-spacing: -1.4px;
         color: var(--white);
     }
@@ -142,16 +142,16 @@
             width: fit-content;
             font-size: clamp(14px, 1.758vw, 18px);
             line-height: 140%;
-            font-weight: 600;
+            font-weight: 500;
             letter-spacing: -0.9px;
             color: var(--white);
 
             p {
-                font-size: clamp(12px, 1.367vw, 12px);
+                font-size: clamp(12px, 1.367vw, 14px);
                 font-weight: 500;
                 line-height: 140%;
                 letter-spacing: -0.7px;
-                color: var(--light-blue);
+                color: var(--grey-100);
             }
         }
     }
@@ -192,7 +192,7 @@
             width: fit-content;
             font-size: clamp(14px, 1.758vw, 18px);
             line-height: 140%;
-            font-weight: 600;
+            font-weight: 500;
             letter-spacing: -0.9px;
             color: var(--white);
             
