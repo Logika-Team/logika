@@ -1,8 +1,10 @@
 ## Канонічний WordPress release
 
 - `.worktrees/wordpress` є єдиним канонічним джерелом staging release.
-- Release містить лише версіонований власний WordPress runtime; core,
-  сторонні плагіни, uploads і серверна конфігурація лишаються на середовищі.
+- Один release містить увесь `wordpress/wp-content`; staging перемикає одну символьну лінку `wp-content` на перевірену версію.
+- `wp-content/uploads` є постійним серверним каталогом поза release і не потрапляє до архіву.
+- Release містить увесь версіонований `wp-content`; WordPress core, uploads і
+  серверна конфігурація лишаються на середовищі.
 - Зміни з інших checkout переносяться до канонічного worktree окремо та не
   копіюються неявно під час deploy.
 

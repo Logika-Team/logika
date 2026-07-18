@@ -4,7 +4,7 @@ set -euo pipefail
 
 usage() {
   cat <<'EOF'
-Usage: deploy.sh --artifact PATH
+Usage: deploy.sh --artifact PATH [--bootstrap-wp-content]
 
 Required environment:
   DEPLOY_HOST       SSH host
@@ -15,15 +15,23 @@ Required environment:
 Optional environment:
   DEPLOY_PORT       SSH port (default: 22)
   WP_CLI_BIN        WP-CLI command on the remote host (default: wp)
+
+--bootstrap-wp-content replaces an existing wp-content directory once. It requires
+ALLOW_FULL_WP_CONTENT_BOOTSTRAP=1 and moves uploads to DEPLOY_ROOT/uploads.
 EOF
 }
 
 artifact=""
+bootstrap_wp_content=0
 while (($#)); do
   case "$1" in
     --artifact)
       artifact="$2"
       shift 2
+      ;;
+    --bootstrap-wp-content)
+      bootstrap_wp_content=1
+      shift
       ;;
     --help|-h)
       usage
@@ -55,7 +63,7 @@ if grep -Eq '(^|/)\.\.(/|$)' <<<"$archive_entries"; then
   exit 1
 fi
 
-if grep -Ev '^(release-manifest\.json|release-files\.sha256|wordpress/|wordpress/wp-content/|wordpress/wp-content/(themes|plugins)/|wordpress/wp-content/(themes/logika-theme|plugins/logika-core|plugins/logika-leads)/)' <<<"$archive_entries" | grep -q .; then
+if grep -Ev '^(release-manifest\.json|release-files\.sha256|wordpress/|wordpress/wp-content/)' <<<"$archive_entries" | grep -q .; then
   echo "Release archive contains an unmanaged path" >&2
   exit 1
 fi
@@ -73,7 +81,7 @@ ssh -p "$deploy_port" "$remote" "mkdir -p '$remote_release_dir'"
 scp -P "$deploy_port" "$artifact" "$remote:$remote_release_dir/release.tar.gz"
 
 ssh -p "$deploy_port" "$remote" \
-  "DEPLOY_ROOT='$DEPLOY_ROOT' DEPLOY_SITE_ROOT='$DEPLOY_SITE_ROOT' RELEASE_ID='$release_id' WP_CLI_BIN='$wp_cli_bin' bash -s" <<'REMOTE_SCRIPT'
+  "DEPLOY_ROOT='$DEPLOY_ROOT' DEPLOY_SITE_ROOT='$DEPLOY_SITE_ROOT' RELEASE_ID='$release_id' WP_CLI_BIN='$wp_cli_bin' BOOTSTRAP_WP_CONTENT='$bootstrap_wp_content' ALLOW_FULL_WP_CONTENT_BOOTSTRAP='${ALLOW_FULL_WP_CONTENT_BOOTSTRAP:-}' bash -s" <<'REMOTE_SCRIPT'
 set -euo pipefail
 
 wp_cli() {
@@ -84,9 +92,7 @@ wp_cli() {
 release_dir="$DEPLOY_ROOT/releases/$RELEASE_ID"
 archive="$release_dir/release.tar.gz"
 expected_components=(
-  "wp-content/themes/logika-theme"
-  "wp-content/plugins/logika-core"
-  "wp-content/plugins/logika-leads"
+  "wp-content"
 )
 
 test -f "$archive"
@@ -94,6 +100,28 @@ mkdir -p "$release_dir/wordpress"
 tar -xzf "$archive" -C "$release_dir"
 test "$(sed -n 's/.*"releaseId": "\([0-9a-f]\{40\}\)".*/\1/p' "$release_dir/release-manifest.json")" = "$RELEASE_ID"
 ( cd "$release_dir" && sha256sum -c release-files.sha256 )
+
+persistent_uploads="$DEPLOY_ROOT/uploads"
+if [[ "$BOOTSTRAP_WP_CONTENT" == "1" ]]; then
+  [[ "$ALLOW_FULL_WP_CONTENT_BOOTSTRAP" == "1" ]] || { echo "Set ALLOW_FULL_WP_CONTENT_BOOTSTRAP=1 to bootstrap wp-content." >&2; exit 2; }
+  live_path="$DEPLOY_SITE_ROOT/wp-content"
+  [[ ! -L "$live_path" ]] || { echo "wp-content is already managed." >&2; exit 1; }
+  [[ -d "$live_path/uploads" ]] || { echo "Existing uploads directory is required for bootstrap." >&2; exit 1; }
+  [[ ! -e "$persistent_uploads" ]] || { echo "Persistent uploads already exist: $persistent_uploads" >&2; exit 1; }
+fi
+
+ln -s "releases/$RELEASE_ID" "$DEPLOY_ROOT/current.next"
+mv -Tf "$DEPLOY_ROOT/current.next" "$DEPLOY_ROOT/current"
+
+if [[ "$BOOTSTRAP_WP_CONTENT" == "1" ]]; then
+  live_path="$DEPLOY_SITE_ROOT/wp-content"
+  mkdir -p "$DEPLOY_ROOT/bootstrap-backups"
+  mv "$live_path/uploads" "$persistent_uploads"
+  mv "$live_path" "$DEPLOY_ROOT/bootstrap-backups/wp-content-$RELEASE_ID"
+  ln -s "$DEPLOY_ROOT/current/wordpress/wp-content" "$live_path"
+fi
+
+ln -sfn "$persistent_uploads" "$release_dir/wordpress/wp-content/uploads"
 
 for component in "${expected_components[@]}"; do
   live_path="$DEPLOY_SITE_ROOT/$component"
@@ -109,9 +137,6 @@ for component in "${expected_components[@]}"; do
     exit 1
   fi
 done
-
-ln -s "releases/$RELEASE_ID" "$DEPLOY_ROOT/current.next"
-mv -Tf "$DEPLOY_ROOT/current.next" "$DEPLOY_ROOT/current"
 wp_cli --path="$DEPLOY_SITE_ROOT" theme activate logika-theme
 wp_cli --path="$DEPLOY_SITE_ROOT" plugin activate logika-core logika-leads
 wp_cli --path="$DEPLOY_SITE_ROOT" theme is-active logika-theme

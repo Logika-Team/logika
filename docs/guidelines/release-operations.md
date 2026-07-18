@@ -1,8 +1,8 @@
 # Release operations
 
 This runbook applies to the `wordpress` deployment branch. It delivers only
-the checked-in Logika theme and plugins; production content, uploads,
-`wp-config.php` and unrelated plugins stay owned by their environment.
+the complete checked-in `wordpress/wp-content` tree. `uploads`, `wp-config.php`
+and database content stay owned by their environment.
 
 ## Canonical release source
 
@@ -67,27 +67,26 @@ Run the following only after a verified server backup and during a scheduled
 maintenance window:
 
 1. Create a non-login deploy user whose writable paths are only `DEPLOY_ROOT`
-   and the three managed component links under `DEPLOY_SITE_ROOT/wp-content`.
+   and the managed `DEPLOY_SITE_ROOT/wp-content` link.
    The user must run the server `wp` command for this one WordPress site.
 2. Create a 30-day protected backup location outside the public web root.
 3. Run `scripts/release/preflight.sh` using staging values. It must report the
    WordPress version, active `logika-theme`, active `logika-core`, active
    `logika-leads`, and the REST route inventory.
-4. Set `ALLOW_MANAGED_LINK_BOOTSTRAP=1` and run
-   `scripts/release/bootstrap-managed-links.sh` on staging. It refuses to
-   replace non-symlink directories. The first normal deploy then creates the
-   initial `current` release atomically.
+4. Build the first complete archive, then set
+   `ALLOW_FULL_WP_CONTENT_BOOTSTRAP=1` and deploy it with
+   `scripts/release/deploy.sh --bootstrap-wp-content`. It moves existing
+   uploads to `DEPLOY_ROOT/uploads` and preserves the replaced directory under
+   `DEPLOY_ROOT/bootstrap-backups/` before linking the full runtime tree.
 5. Repeat the same bootstrap on production only after the staging restore drill
    succeeds. Never run bootstrap as part of a GitHub Actions deploy job.
 
 ## Cache and smoke policy
 
-The artifact builder runs `npm run backend` and overlays the generated CSS and
-image directories onto a temporary copy of `logika-theme/assets`. Theme
-JavaScript is deployed from the managed WordPress theme and is never replaced
-by the static frontend build. The archive still excludes source files,
-`build/`, uploads, `wp-config.php` and database content; it contains the
-complete runtime theme and project plugins.
+The artifact builder packages the checked-in `wordpress/wp-content` tree
+without modifying it from static `build/` output. It excludes `uploads` and
+temporary `upgrade*` directories; the archive therefore contains every
+versioned theme, plugin, must-use plugin and runtime asset together.
 After staging the complete runtime tree, the builder writes
 `release-files.sha256`. Deploy verifies that manifest before switching
 `current`, so a truncated or changed artifact cannot become active. The

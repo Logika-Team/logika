@@ -8,7 +8,7 @@ One of the main technical features is selecting a city on an interactive map or 
 
 ## WordPress worktree
 
-У `.worktrees/wordpress` дозволений push лише `wordpress` → `wordpress`; захист вмикається командою `git config --worktree core.hooksPath .githooks`. Це єдиний локальний source staging release: перед build виконайте `scripts/release/release-source-status.sh .`. Команда зупиниться, якщо в іншому worktree є неперенесені `source/` або WordPress runtime зміни.
+У `.worktrees/wordpress` дозволений push лише `wordpress` → `wordpress`; захист вмикається командою `git config --worktree core.hooksPath .githooks`. Це єдиний локальний source staging release: перед build виконайте `scripts/release/release-source-status.sh .`. Команда зупиниться, якщо в іншому worktree є неперенесені `source/` або WordPress runtime зміни. Release пакує весь `wordpress/wp-content`; `uploads`, БД і `wp-config.php` залишаються на сервері.
 
 ## 🔗 Links (Production / Stage)
 

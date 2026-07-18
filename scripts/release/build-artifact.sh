@@ -6,7 +6,7 @@ usage() {
   cat <<'EOF'
 Usage: build-artifact.sh [--source-root PATH] [--output-dir PATH]
 
-Builds a release archive containing only the Logika WordPress theme and plugins.
+Builds a release archive containing the complete WordPress runtime content tree.
 Prints the archive path on stdout.
 EOF
 }
@@ -42,11 +42,7 @@ output_dir="$(cd "$output_dir" && pwd -P)"
 
 "$source_root/scripts/release/release-source-status.sh" "$source_root" >&2
 
-components=(
-  "wordpress/wp-content/themes/logika-theme"
-  "wordpress/wp-content/plugins/logika-core"
-  "wordpress/wp-content/plugins/logika-leads"
-)
+components=("wordpress/wp-content")
 
 for component in "${components[@]}"; do
   if [[ ! -d "$source_root/$component" ]]; then
@@ -64,18 +60,10 @@ cleanup() {
 }
 trap cleanup EXIT
 
-(
-  cd "$source_root"
-  npm run backend >&2
-)
-
-tar -C "$source_root" -cf - "${components[@]}" | tar -C "$staging_dir" -xf -
-theme_assets="$staging_dir/wordpress/wp-content/themes/logika-theme/assets"
-
-for asset_dir in css img; do
-  test -d "$source_root/build/$asset_dir"
-  tar -C "$source_root/build" -cf - "$asset_dir" | tar -C "$theme_assets" -xf -
-done
+tar -C "$source_root" \
+  --exclude='wordpress/wp-content/uploads' \
+  --exclude='wordpress/wp-content/upgrade*' \
+  -cf - "${components[@]}" | tar -C "$staging_dir" -xf -
 
 (
   cd "$staging_dir"
@@ -100,14 +88,10 @@ cat > "$staging_dir/release-manifest.json" <<EOF
   "commitTimestamp": "$commit_timestamp",
   "migrations": { "required": false },
   "components": [
-    "${components[0]}",
-    "${components[1]}",
-    "${components[2]}"
+    "${components[0]}"
   ],
   "componentChecksums": {
-    "${components[0]}": "${component_checksums[0]}",
-    "${components[1]}": "${component_checksums[1]}",
-    "${components[2]}": "${component_checksums[2]}"
+    "${components[0]}": "${component_checksums[0]}"
   }
 }
 EOF

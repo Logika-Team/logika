@@ -41,11 +41,7 @@ test('build artifact contains only managed WordPress components and release meta
     );
     assert.notEqual(manifest.releaseId, manifest.commitSha);
     assert.equal(manifest.migrations.required, false);
-    assert.deepEqual(manifest.components, [
-      'wordpress/wp-content/themes/logika-theme',
-      'wordpress/wp-content/plugins/logika-core',
-      'wordpress/wp-content/plugins/logika-leads',
-    ]);
+    assert.deepEqual(manifest.components, ['wordpress/wp-content']);
     assert.ok(archiveEntries.includes('release-manifest.json'));
     assert.ok(archiveEntries.includes('release-files.sha256'));
     assert.match(
@@ -53,16 +49,11 @@ test('build artifact contains only managed WordPress components and release meta
       /wordpress\/wp-content\/themes\/logika-theme\/assets\/js\/main\.js$/m,
     );
     assert.ok(archiveEntries.some((entry) => entry.startsWith('wordpress/wp-content/themes/logika-theme/')));
-    assert.ok(archiveEntries.some((entry) => entry.startsWith('wordpress/wp-content/plugins/logika-core/')));
-    assert.ok(archiveEntries.some((entry) => entry.startsWith('wordpress/wp-content/plugins/logika-leads/')));
-    for (const asset of ['css/style.css', 'img/sprite/sprite.svg']) {
-      const archiveAsset = `wordpress/wp-content/themes/logika-theme/assets/${asset}`;
-      assert.deepEqual(
-        execFileSync('tar', ['-xOzf', artifactPath, archiveAsset]),
-        readFileSync(join(root, 'build', asset)),
-        `${archiveAsset} must equal the current frontend build`,
-      );
-    }
+    assert.ok(archiveEntries.some((entry) => entry.startsWith('wordpress/wp-content/themes/twentytwentyfive/')));
+    assert.ok(archiveEntries.some((entry) => entry.startsWith('wordpress/wp-content/plugins/advanced-custom-fields-pro/')));
+    assert.ok(archiveEntries.some((entry) => entry.startsWith('wordpress/wp-content/mu-plugins/')));
+    assert.ok(archiveEntries.every((entry) => !entry.startsWith('wordpress/wp-content/uploads/')));
+    assert.ok(archiveEntries.every((entry) => !entry.startsWith('wordpress/wp-content/upgrade')));
     assert.deepEqual(
       execFileSync('tar', ['-xOzf', artifactPath, 'wordpress/wp-content/themes/logika-theme/assets/js/main.js']),
       readFileSync(join(root, 'wordpress/wp-content/themes/logika-theme/assets/js/main.js')),
@@ -73,26 +64,21 @@ test('build artifact contains only managed WordPress components and release meta
       || entry === 'release-files.sha256'
       || entry === 'wordpress/'
       || entry === 'wordpress/wp-content/'
-      || entry === 'wordpress/wp-content/themes/'
-      || entry === 'wordpress/wp-content/plugins/'
-      || entry.startsWith('wordpress/wp-content/themes/logika-theme/')
-      || entry.startsWith('wordpress/wp-content/plugins/logika-core/')
-      || entry.startsWith('wordpress/wp-content/plugins/logika-leads/')
+      || entry.startsWith('wordpress/wp-content/')
     )));
   } finally {
     rmSync(outputDir, { recursive: true, force: true });
   }
 });
 
-test('artifact builder stages freshly built theme runtime assets', () => {
+test('artifact builder packages the full WordPress runtime without static overlays', () => {
   const builder = readFileSync(join(root, 'scripts/release/build-artifact.sh'), 'utf8');
   const deploy = readFileSync(join(root, 'scripts/release/deploy.sh'), 'utf8');
 
-  assert.match(builder, /npm run backend/);
-  for (const assetDir of ['css', 'img']) {
-    assert.match(builder, new RegExp(`build/\\$asset_dir`));
-  }
-  assert.match(builder, /tar -C "\$staging_dir" -cf - "\$component"/);
+  assert.match(builder, /--exclude='wordpress\/wp-content\/uploads'/);
+  assert.match(builder, /--exclude='wordpress\/wp-content\/upgrade\*'/);
+  assert.doesNotMatch(builder, /npm run backend/);
+  assert.doesNotMatch(builder, /build\/\$asset_dir/);
   assert.match(deploy, /sha256sum -c release-files\.sha256/);
   assert.ok(deploy.indexOf('sha256sum -c release-files.sha256') < deploy.indexOf('current.next'));
 });
@@ -109,7 +95,7 @@ test('canonical source guard runs before an artifact build', () => {
   assert.match(guard, /\.DS_Store/);
   assert.match(guard, /release-source-acknowledgements/);
   assert.ok(existsSync(join(root, 'scripts/release/release-source-acknowledgements')));
-  assert.ok(builder.indexOf('release-source-status.sh') < builder.indexOf('npm run backend'));
+  assert.ok(builder.indexOf('release-source-status.sh') < builder.indexOf("--exclude='wordpress/wp-content/uploads'"));
 });
 
 test('deploy refuses to connect until every required target parameter is supplied', () => {
@@ -120,6 +106,17 @@ test('deploy refuses to connect until every required target parameter is supplie
     }),
     /DEPLOY_HOST is required/,
   );
+});
+
+test('deploy switches one full wp-content tree and preserves uploads', () => {
+  const deploy = readFileSync(join(root, 'scripts/release/deploy.sh'), 'utf8');
+
+  assert.match(deploy, /--bootstrap-wp-content/);
+  assert.match(deploy, /ALLOW_FULL_WP_CONTENT_BOOTSTRAP/);
+  assert.match(deploy, /persistent_uploads="\$DEPLOY_ROOT\/uploads"/);
+  assert.match(deploy, /wp-content\/uploads/);
+  assert.match(deploy, /expected_components=\(\s*"wp-content"\s*\)/);
+  assert.doesNotMatch(deploy, /plugins\/logika-core plugins\/logika-leads/);
 });
 
 test('deploy rejects traversal paths in an archive before opening SSH', () => {
