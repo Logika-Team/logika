@@ -40,6 +40,7 @@ global $post, $wp_query;
 $post = $page;
 $wp_query->queried_object = $page;
 $wp_query->queried_object_id = $page->ID;
+delete_post_meta( $page->ID, 'vacancies_team_gallery' );
 logika_theme_render_source_page( 'vacancies' );
 $markup = (string) ob_get_clean();
 
@@ -63,6 +64,11 @@ foreach ( array( 'data-vacancies-gallery-src', 'data-vacancies-lightbox', '<dial
 		fwrite( STDERR, "Vacancies team gallery is missing lightbox markup {$marker}.\n" );
 		exit( 1 );
 	}
+}
+
+if ( ! str_contains( $markup, '/assets/img/vacancies/team-01.jpg' ) ) {
+	fwrite( STDERR, "Vacancies fallback images must use theme asset URLs.\n" );
+	exit( 1 );
 }
 
 if ( ! str_contains( $lightbox_script, 'showModal' ) || ! str_contains( $lightbox_script, "event.key === 'Escape'" ) || ! str_contains( $functions, 'logika-vacancies-lightbox' ) ) {

@@ -9,7 +9,8 @@ $field = static function ( string $name, mixed $fallback ) use ( $page_id ): mix
 };
 $image = static function ( mixed $value, string $fallback ): string {
 	$url = is_numeric( $value ) ? wp_get_attachment_image_url( (int) $value, 'full' ) ?: wp_get_attachment_url( (int) $value ) : '';
-	return $url ? esc_url( $url ) : $fallback;
+	$url = $url ?: $fallback;
+	return esc_url( str_starts_with( $url, 'http' ) ? $url : get_template_directory_uri() . '/assets/' . ltrim( $url, '/' ) );
 };
 $apply_url = esc_url( (string) $field( 'vacancies_application_url', 'https://forms.gle/ikGeworjH6wnAdSt6' ) );
 $about_gallery = $field( 'vacancies_about_gallery', array( 'img/vacancies/about-1.jpg', 'img/vacancies/about-2.jpg', 'img/vacancies/about-3.jpg' ) );
