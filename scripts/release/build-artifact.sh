@@ -73,7 +73,7 @@ trap cleanup EXIT
 tar -C "$source_root" -cf - "${components[@]}" | tar -C "$staging_dir" -xf -
 theme_assets="$staging_dir/wordpress/wp-content/themes/logika-theme/assets"
 
-for asset_dir in css js img; do
+for asset_dir in css img; do
   test -d "$source_root/build/$asset_dir"
   tar -C "$source_root/build" -cf - "$asset_dir" | tar -C "$theme_assets" -xf -
 done

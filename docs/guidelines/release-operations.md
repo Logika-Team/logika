@@ -70,10 +70,12 @@ maintenance window:
 
 ## Cache and smoke policy
 
-The artifact builder runs `npm run backend` and overlays the generated CSS, JS
-and image directories onto a temporary copy of `logika-theme/assets`. The
-archive still excludes source files, `build/`, uploads, `wp-config.php` and
-database content; it contains the complete runtime theme and project plugins.
+The artifact builder runs `npm run backend` and overlays the generated CSS and
+image directories onto a temporary copy of `logika-theme/assets`. Theme
+JavaScript is deployed from the managed WordPress theme and is never replaced
+by the static frontend build. The archive still excludes source files,
+`build/`, uploads, `wp-config.php` and database content; it contains the
+complete runtime theme and project plugins.
 
 Use the preflight REST inventory as the source of truth. Configure the host or
 CDN not to cache `wp-admin`, `wp-login.php`, authenticated requests and the
