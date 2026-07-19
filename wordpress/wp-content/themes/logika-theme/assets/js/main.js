@@ -232,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
     leadModal.hidden = false;
     window.requestAnimationFrame(() => window.requestAnimationFrame(() => leadModal.classList.add('is-open')));
     disableScroll();
-    window.setTimeout(() => firstInput?.focus({ preventScroll: true }), 0);
+    window.setTimeout(() => firstInput?.focus({ preventScroll: true }), 100);
   };
   document.addEventListener('click', (event) => {
     const link = event.target.closest('a[href], button[data-path="lesson"]');
@@ -298,20 +298,15 @@ window.addEventListener("DOMContentLoaded", () => {
         let breakpoinSetting = false;
         let defaultOpenSetting;
 
-        if (
-          accordionParrent.dataset.single &&
-          accordionParrent.dataset.breakpoint
-        ) {
-          multipleSetting = accordionParrent.dataset.single; // true - включает сингл аккордион
-          breakpoinSetting = accordionParrent.dataset.breakpoint; // брейкпоинт сингл режима (если он true)
-        }
+        multipleSetting = accordionParrent.dataset.single || false;
+        breakpoinSetting = accordionParrent.dataset.breakpoint || false;
 
         const getAccordions = function (dataName = "[data-id]") {
           return accordionParrent.querySelectorAll(dataName);
         };
 
         const accordions = getAccordions();
-        let openedAccordion = null;
+        let openedAccordion = accordionParrent.querySelector(".accordion__content.active");
 
         const closeAccordion = function (accordion, className = "active") {
           accordion.style.maxHeight = 0;
@@ -338,41 +333,28 @@ window.addEventListener("DOMContentLoaded", () => {
 
         const accordionClickHandler = function (e) {
           e.preventDefault();
-          let curentDataNumber = this.dataset.id;
-
-          toggleAccordionButton(this);
-          const accordionContent = accordionParrent.querySelector(
-            `[data-content="${curentDataNumber}"]`
-          );
+          const accordionContent = this.closest(".accordion__item")?.querySelector("[data-content]");
+          if (!accordionContent) return;
           const isAccordionOpen = checkIsAccordionOpen(accordionContent);
 
           if (isAccordionOpen) {
             closeAccordion(accordionContent);
+            toggleAccordionButton(this);
             openedAccordion = null;
           } else {
-            if (openedAccordion != null) {
-              const mobileSettings = () => {
-                let containerWidth = document.documentElement.clientWidth;
-                if (
-                  containerWidth <= breakpoinSetting &&
-                  multipleSetting === "true"
-                ) {
-                  closeAccordion(openedAccordion);
-                  toggleAccordionButton(
-                    accordionParrent.querySelector(
-                      `[data-id="${openedAccordion.dataset.content}"]`
-                    )
-                  );
-                }
-              };
-
-              window.addEventListener("resize", () => {
-                mobileSettings();
-              });
-              mobileSettings();
+            if (
+              openedAccordion != null &&
+              multipleSetting === "true" &&
+              (!breakpoinSetting || document.documentElement.clientWidth <= breakpoinSetting)
+            ) {
+              closeAccordion(openedAccordion);
+              const previousButton = openedAccordion.closest(".accordion__item")?.querySelector("[data-id]");
+              if (previousButton) toggleAccordionButton(previousButton);
+              openedAccordion = null;
             }
 
             openAccordion(accordionContent);
+            toggleAccordionButton(this);
             openedAccordion = accordionContent;
           }
         };

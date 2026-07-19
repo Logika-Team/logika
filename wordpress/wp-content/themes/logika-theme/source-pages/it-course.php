@@ -195,15 +195,12 @@
       </div>
     </section>
 
-    <section class="portfolio-section portfolio-section--course">
+    <section class="portfolio-section" aria-labelledby="portfolio-title">
       <div class="portfolio-section__wrapp">
         <div class="container">
-          <h2 class="portfolio-section__title">Проекти наших учнів</h2>
+          <h2 class="portfolio-section__title" id="portfolio-title">Проєкти наших учнів</h2>
         </div>
-
-        <div class="portfolio-section__slider">
-
-        </div>
+        <div class="container portfolio-section__container"><div class="portfolio-section__viewport"><ul class="portfolio-section__slider"></ul></div></div>
       </div>
     </section>
 

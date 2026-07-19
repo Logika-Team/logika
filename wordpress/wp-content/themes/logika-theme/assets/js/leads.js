@@ -5,21 +5,34 @@ const createLeadKey = () => {
   window.crypto?.getRandomValues?.(bytes);
   return [...bytes].map((byte) => byte.toString(16).padStart(2, '0')).join('') || `${Date.now()}-${Math.random()}`;
 };
-const logikaLeadToast = (message, type = 'success') => {
+const logikaLeadToast = (message, type = 'success', trigger = document.activeElement) => {
   let toast = document.querySelector('[data-logika-lead-toast]');
   if (!toast) {
     toast = document.createElement('div');
     toast.className = 'logika-lead-toast';
     toast.dataset.logikaLeadToast = '';
-    toast.setAttribute('role', 'status');
-    toast.setAttribute('aria-live', 'polite');
+    toast.hidden = true;
+    toast.innerHTML = '<div class="logika-lead-toast__dialog" role="dialog" aria-modal="true" aria-labelledby="logika-lead-toast-title" tabindex="-1"><button class="logika-lead-toast__close" type="button" aria-label="Закрити повідомлення">×</button><div class="logika-lead-toast__content"><p class="logika-lead-toast__eyebrow">Logika</p><h2 class="logika-lead-toast__title" id="logika-lead-toast-title"></h2><p class="logika-lead-toast__text" aria-live="polite"></p><button class="logika-lead-toast__button btn btn--yellow" type="button">Зрозуміло</button></div></div>';
+    const close = () => {
+      toast.classList.remove('is-visible');
+      window.setTimeout(() => { toast.hidden = true; }, 250);
+      toast.trigger?.focus?.();
+    };
+    toast.querySelector('.logika-lead-toast__close').addEventListener('click', close);
+    toast.querySelector('.logika-lead-toast__button').addEventListener('click', close);
+    toast.addEventListener('click', (event) => { if (event.target === toast) close(); });
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && !toast.hidden) close(); });
     document.body.append(toast);
   }
-  toast.textContent = message;
-  toast.dataset.type = type;
+  toast.trigger = trigger;
+  toast.classList.toggle('is-error', type === 'error');
+  toast.querySelector('.logika-lead-toast__title').textContent = type === 'error' ? 'Щось пішло не так' : 'Дякуємо!';
+  toast.querySelector('.logika-lead-toast__text').textContent = message;
+  toast.hidden = false;
   toast.classList.add('is-visible');
+  toast.querySelector('.logika-lead-toast__dialog').focus();
   window.clearTimeout(logikaLeadToast.timeout);
-  logikaLeadToast.timeout = window.setTimeout(() => toast.classList.remove('is-visible'), 5000);
+  if (type === 'success') logikaLeadToast.timeout = window.setTimeout(() => toast.querySelector('.logika-lead-toast__close').click(), 5000);
 };
 const normalizePhoneCountry = (country) => /^[a-z]{2}$/i.test(country || '') ? country.toLowerCase() : '';
 const phoneCountryDefault = normalizePhoneCountry(leadConfig.phoneCountryDefault) || 'ua';
@@ -481,9 +494,11 @@ document.querySelectorAll('[data-logika-lead-form]').forEach((form) => {
       }
       setStatus(status, '');
       setSubmitError(form, true);
+      logikaLeadToast('Не вдалося надіслати заявку. Спробуйте ще раз або зателефонуйте нам.', 'error', button);
     } catch (error) {
       setStatus(status, '');
 	  setSubmitError(form, true);
+      logikaLeadToast('Не вдалося надіслати заявку. Спробуйте ще раз або зателефонуйте нам.', 'error', button);
 	} finally {
 	  button?.removeAttribute('disabled');
     }

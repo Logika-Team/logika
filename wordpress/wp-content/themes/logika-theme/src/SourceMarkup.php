@@ -46,7 +46,7 @@ final class Logika_Theme_Source_Markup {
 			$markup = self::applyHomepageValues( $markup );
 		}
 
-		$markup = self::replacePrivacyPolicyLinks( Logika_Theme_Page_Content::apply( $markup, $source, $context_id ) );
+		$markup = self::applyBreadcrumbs( self::replacePrivacyPolicyLinks( Logika_Theme_Page_Content::apply( $markup, $source, $context_id ) ), $source, $context_id );
 		if ( 'index' === $source || 'en-courses' === $source ) {
 			$markup = self::applyEnglishCourseContext( $markup );
 		}
@@ -259,6 +259,39 @@ final class Logika_Theme_Source_Markup {
 		return self::PAGE_SOURCES[ $slug ] ?? null;
 	}
 
+	/**
+	 * @param array<int, array{label: string, url?: string}> $items
+	 */
+	public static function breadcrumbs( array $items ): string {
+		$output = array();
+		foreach ( $items as $item ) {
+			$label = esc_html( $item['label'] );
+			$output[] = empty( $item['url'] ) ? $label : '<a href="' . esc_url( home_url( $item['url'] ) ) . '">' . $label . '</a>';
+		}
+
+		return '<div class="breadcrumbs">' . implode( '<span class="breadcrumbs__separator" aria-hidden="true">/</span>', $output ) . '</div>';
+	}
+
+	private static function applyBreadcrumbs( string $markup, string $source, int $context_id ): string {
+		if ( ! str_contains( $markup, 'class="breadcrumbs"' ) ) {
+			return $markup;
+		}
+
+		$page_id = $context_id ?: get_queried_object_id();
+		preg_match( '#<div class="breadcrumbs">(.*?)</div>#s', $markup, $current );
+		$title = trim( (string) preg_replace( '#^Головна\s*/\s*#u', '', wp_strip_all_tags( $current[1] ?? '' ) ) );
+		$title = 'it-course' === $source ? get_the_title( $page_id ) : $title;
+		$items   = array( array( 'label' => 'Головна', 'url' => '/' ) );
+		if ( 'it-course' === $source ) {
+			$items[] = array( 'label' => 'Курси', 'url' => '/it-courses/' );
+		}
+		if ( $title ) {
+			$items[] = array( 'label' => $title );
+		}
+
+		return (string) preg_replace( '#<div class="breadcrumbs">.*?</div>#s', self::breadcrumbs( $items ), $markup, 1 );
+	}
+
 	private static function read( string $source ): string {
 		$path = get_template_directory() . "/source-pages/{$source}.php";
 
@@ -457,9 +490,9 @@ final class Logika_Theme_Source_Markup {
 		}
 
 		if ( 'featured' === ( $row['variant'] ?? 'standard' ) ) {
-			$video_url = 'https://www.youtube.com/watch?v=7QN3QcMHMQ4';
+			$video_url = trim( (string) ( $row['video_url'] ?? '' ) ) ?: 'https://www.youtube.com/watch?v=7QN3QcMHMQ4';
 			$cta_label = trim( (string) ( $row['cta_label'] ?? '' ) ) ?: 'Безкоштовний пробний урок';
-			$cta_url   = '#lead-form';
+			$cta_url   = trim( (string) ( $row['cta_url'] ?? '' ) ) ?: '#lead-form';
 			$video     = '<a class="portfolio-section__video" href="' . esc_url( $video_url ) . '" target="_blank" rel="noopener noreferrer"><img src="img/portfolio/Watch.svg" alt="" aria-hidden="true">Дивитись відеовідгук</a>';
 			$image     = self::portfolioImage( $row['project_image'] ?? 0, 'Гра, створена учнем ' . $name, 'large', 'portfolio-section__game' );
 

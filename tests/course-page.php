@@ -38,7 +38,7 @@ ob_start();
 Logika_Theme_Source_Markup::renderPage( 'it-course', $course_id );
 $output = (string) ob_get_clean();
 
-if ( ! str_contains( $output, 'Перший текст hero із ACF.' ) || ! str_contains( $output, 'Другий текст hero із ACF.' ) || ! str_contains( $output, 'Обрати курс' ) || ! str_contains( $output, 'Проєкт учня' ) || ! str_contains( $output, 'Перший модуль' ) || ! str_contains( $output, 'Чи є FAQ для курсу?' ) || ! str_contains( $output, 'data-logika-course-id="' . $course_id . '"' ) ) {
+if ( ! str_contains( $output, 'Перший текст hero із ACF.' ) || ! str_contains( $output, 'Другий текст hero із ACF.' ) || ! str_contains( $output, 'Обрати курс' ) || ! str_contains( $output, 'Проєкт учня' ) || ! str_contains( $output, 'Перший модуль' ) || ! str_contains( $output, 'learn-section__items' ) || ! str_contains( $output, 'Чи є FAQ для курсу?' ) || ! str_contains( $output, 'data-logika-course-id="' . $course_id . '"' ) ) {
 	fwrite( STDERR, "Course source markup does not render ACF content and context.\n" );
 	exit( 1 );
 }

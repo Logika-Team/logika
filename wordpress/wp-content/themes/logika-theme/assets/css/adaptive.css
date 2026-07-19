@@ -345,3 +345,4 @@
 @media screen and (min-width:577px){.gallery-section__slider{width:100%}}
 @media screen and (max-width:576px){.details-section__items{-ms-grid-columns:100%;grid-template-columns:100%}.gallery-section__slider{width:100vw}}
 @media screen and (min-width:1025px){.gallery-section__slider .swiper-wrapper{display:-ms-grid;display:grid;-ms-grid-columns:(1fr)[4];grid-template-columns:repeat(4,1fr);gap:20px}}
+@media (min-width:1025px){.header__nav .sub-menu{box-shadow:none}}

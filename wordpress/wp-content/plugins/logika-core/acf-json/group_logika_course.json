@@ -1125,6 +1125,27 @@
                     "parent_repeater": "field_course_learn_items"
                 },
                 {
+                    "key": "field_course_learn_item_icon",
+                    "label": "Lucide-іконка",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Вкажіть назву SVG з assets/img/course/program-icons.",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "code",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_course_learn_items"
+                },
+                {
                     "key": "field_course_learn_item_image",
                     "label": "Зображення",
                     "name": "image",

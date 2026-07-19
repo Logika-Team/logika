@@ -30,9 +30,14 @@
   const schools = map.querySelector('[data-map-schools]');
   const locationsCount = map.querySelector('[data-map-locations-count]');
   const frame = map.querySelector('[data-map-frame]');
-  const config = { mapUrl: 'img/maps/ukraine-regions.svg', branchIconUrl: '', ...(window.logikaThemeAssets || {}) };
+  const config = {
+    mapUrl: map.dataset.mapUrl || 'img/maps/ukraine-regions.svg',
+    branchIconUrl: map.dataset.branchIconUrl || '',
+    branchesEndpoint: map.dataset.branchesEndpoint || '',
+    ...(window.logikaThemeAssets || {})
+  };
   const onlinePanel = document.createElement('div');
-  const heroForm = document.querySelector('[data-map-online-form] .banner-section__form[data-logika-lead-form], .banner-section__form[data-logika-lead-form], .cta-form[data-logika-lead-form]');
+  const heroForm = document.querySelector('[data-map-online-form] form') || document.querySelector('.banner-section__form[data-logika-lead-form], .cta-form[data-logika-lead-form]');
   const onlineForm = heroForm?.cloneNode(true);
   let selectedCity = null;
 
@@ -194,7 +199,7 @@
 
   if (!config.mapUrl) return;
 
-  Promise.all([fetchMap(), cityContext.load()])
+  Promise.all([fetchMap(), cityContext.load().catch(() => [])])
     .then(([svg, cityList]) => {
       const citiesByRegion = cityList.reduce((groups, city) => {
         if (!city.show_on_map) return groups;

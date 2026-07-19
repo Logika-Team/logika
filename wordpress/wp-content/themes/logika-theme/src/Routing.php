@@ -13,6 +13,11 @@ final class Logika_Theme_Routing {
 
 	private const LEGACY_CITY_SLUGS = array( 'map/kuiv' => 'kyiv' );
 
+	private const LEGACY_COURSE_SLUGS = array(
+		'english_a0' => 'english-a0', 'english_a1' => 'english-a1', 'english_a2' => 'english-a2',
+		'english_b1' => 'english-b1', 'english_b2' => 'english-b2', 'english_b2_1' => 'english-b2-1',
+	);
+
 	public static function register(): void {
 		add_action( 'init', array( self::class, 'rewriteRules' ), 20 );
 		add_action( 'init', array( self::class, 'flushRules' ), 99 );
@@ -46,7 +51,7 @@ final class Logika_Theme_Routing {
 	}
 
 	public static function blogTemplate( string $template ): string {
-		return get_query_var( 'logika_blog' ) || get_query_var( 'logika_media_category' ) ? get_template_directory() . '/templates/page-blog.php' : $template;
+		return get_query_var( 'logika_blog' ) || ( get_query_var( 'logika_media_category' ) && ! is_singular( 'post' ) ) ? get_template_directory() . '/templates/page-blog.php' : $template;
 	}
 
 	public static function resolveCityHomepage( WP $wp ): void {
@@ -114,6 +119,13 @@ final class Logika_Theme_Routing {
 		return $city instanceof WP_Post ? \Logika\Core\CitySlug::url( $city ) : null;
 	}
 
+	public static function legacyCourseUrl( string $path ): ?string {
+		$slug = self::LEGACY_COURSE_SLUGS[ $path ] ?? '';
+		$course = $slug ? get_page_by_path( $slug, OBJECT, 'course' ) : null;
+
+		return $course instanceof WP_Post ? get_permalink( $course ) : null;
+	}
+
 	public static function redirectLegacy(): void {
 		if ( get_query_var( 'logika_legacy_blog' ) ) { wp_safe_redirect( home_url( '/media-center/articles/' ), 301 ); exit; }
 		$legacy_article = (string) get_query_var( 'logika_legacy_article' );
@@ -125,6 +137,11 @@ final class Logika_Theme_Routing {
 		$city_url = self::legacyCityUrl( $path );
 		if ( $city_url ) {
 			wp_safe_redirect( $city_url, 301 );
+			exit;
+		}
+		$course_url = self::legacyCourseUrl( $path );
+		if ( $course_url ) {
+			wp_safe_redirect( $course_url, 301 );
 			exit;
 		}
 

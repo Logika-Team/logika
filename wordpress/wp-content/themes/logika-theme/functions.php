@@ -79,10 +79,16 @@ function logika_theme_assets(): void {
 	$vacancies_style_version = (string) filemtime( get_template_directory() . '/assets/css/blocks/sections/vacancies.css' );
 	$vacancies_lightbox_version = (string) filemtime( get_template_directory() . '/assets/js/vacancies-lightbox.js' );
 	$vacancies_details_dialog_version = (string) filemtime( get_template_directory() . '/assets/js/vacancies-details-dialog.js' );
+	$cta_style_version = (string) filemtime( get_template_directory() . '/assets/css/blocks/sections/cta-section.css' );
 	wp_enqueue_style( 'logika-intl-tel-input', $uri . '/css/vendor/intl-tel-input/intlTelInput.min.css', array(), '20.1.0' );
 	wp_enqueue_style( 'logika-theme', $uri . '/css/style.css', array( 'logika-intl-tel-input' ), $style_version );
+	wp_enqueue_style( 'logika-cta-section', $uri . '/css/blocks/sections/cta-section.css', array( 'logika-theme' ), $cta_style_version );
+	wp_enqueue_style( 'logika-breadcrumbs', $uri . '/css/breadcrumbs.css', array( 'logika-theme' ), (string) filemtime( get_template_directory() . '/assets/css/breadcrumbs.css' ) );
 	wp_enqueue_style( 'logika-course-card', $uri . '/css/course-card.css', array( 'logika-theme' ), (string) filemtime( get_template_directory() . '/assets/css/course-card.css' ) );
 	wp_enqueue_style( 'logika-theme-adaptive', $uri . '/css/adaptive.css', array( 'logika-theme' ), $adaptive_style_version );
+	if ( is_404() ) {
+		wp_enqueue_style( 'logika-404', $uri . '/css/404.css', array( 'logika-theme-adaptive' ), (string) filemtime( get_template_directory() . '/assets/css/404.css' ) );
+	}
 	wp_add_inline_style( 'logika-theme', '@media (hover:hover){.header__login:hover{transform:none;box-shadow:none}.header__login:hover svg{transform:none}}.search-form__input::-webkit-search-cancel-button{width:18px;height:18px;margin-right:2px;background:url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 18 18\'%3E%3Cpath d=\'m4 4 10 10M14 4 4 14\' fill=\'none\' stroke=\'%23602B7A\' stroke-linecap=\'round\' stroke-width=\'1.5\'/%3E%3C/svg%3E") center/contain no-repeat;-webkit-appearance:none;cursor:pointer}' );
 	wp_add_inline_style( 'logika-theme', '.header{position:sticky;top:0}' );
 	wp_add_inline_style( 'logika-theme', '.banner-section__subtitle{color:var(--violet-100)}.banner-section .main-form__title>span{color:var(--light-blue)}.banner-section__bar{box-shadow:0 0 25px 0 rgba(37,37,37,.12)}' );
@@ -116,13 +122,8 @@ function logika_theme_assets(): void {
 		wp_enqueue_style( 'logika-director-feedback', $uri . '/css/blocks/sections/director-feedback.css', array( 'logika-theme' ), $director_feedback_style_version );
 		wp_enqueue_style( 'logika-home-media-center', $uri . '/css/blocks/sections/media-section.css', array( 'logika-theme' ), $home_media_center_version );
 		wp_enqueue_style( 'logika-home-media-center-mobile', $uri . '/css/blocks/sections/media-section-mobile.css', array( 'logika-home-media-center' ), $home_media_center_mobile_version );
-	$home_banner_main_version = (string) filemtime( get_template_directory() . '/assets/css/blocks/sections/home-banner-main.css' );
 	}
 	if ( is_front_page() || get_query_var( 'logika_city' ) ) {
-		wp_enqueue_style( 'logika-home-banner-main', $uri . '/css/blocks/sections/home-banner-main.css', array( 'logika-theme-adaptive' ), $home_banner_main_version );
-		foreach ( array( 'marquee', 'services', 'english', 'transformation', 'onboarding', 'testimonials', 'portfolio', 'faq', 'certificates', 'partners' ) as $section ) {
-			wp_enqueue_style( "logika-home-{$section}-main", "{$uri}/css/blocks/sections/home-{$section}-main.css", array( 'logika-home-banner-main' ), (string) filemtime( get_template_directory() . "/assets/css/blocks/sections/home-{$section}-main.css" ) );
-		}
 		wp_enqueue_style( 'logika-home-nizhyn-school', $uri . '/css/blocks/sections/nizhyn-school.css', array( 'logika-theme' ), $home_nizhyn_school_version );
 		wp_enqueue_script( 'logika-home-city-seo', $uri . '/js/homepage-city-seo.js', array( 'logika-city-context' ), $home_city_seo_version, true );
 		wp_localize_script( 'logika-home-city-seo', 'logikaHomepageCitySeo', array( 'endpoint' => esc_url_raw( rest_url( 'logika/v1/cities/' ) ) ) );
@@ -133,6 +134,11 @@ function logika_theme_assets(): void {
 		}
 	}
 	if ( is_singular( 'course' ) ) {
+		wp_add_inline_style( 'logika-theme', '.accordion--mode .course-program-icon{flex:0 0 64px;width:64px;height:64px;padding:14px;border-radius:50%;background:var(--light-blue)}.accordion--mode .course-program-icon img{width:100%;height:100%;object-fit:contain}.accordion--mode .course-program-title{margin-right:auto}' );
+		if ( has_term( 'english', 'course_direction', get_queried_object_id() ) ) {
+			wp_enqueue_style( 'logika-english-course', $uri . '/css/english-course.css', array( 'logika-theme' ), (string) filemtime( get_template_directory() . '/assets/css/english-course.css' ) );
+			wp_add_inline_style( 'logika-english-course', '.english-course-program__items{align-items:start}' );
+		}
 		foreach ( array( 'course-banner-section', 'learn-section', 'process-section', 'portfolio-section' ) as $section ) {
 			wp_enqueue_style( "logika-{$section}", "{$uri}/css/blocks/sections/{$section}.css", array( 'logika-theme' ), (string) filemtime( get_template_directory() . "/assets/css/blocks/sections/{$section}.css" ) );
 		}

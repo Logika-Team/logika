@@ -239,13 +239,8 @@ window.addEventListener("DOMContentLoaded", () => {
         let breakpoinSetting = false;
         let defaultOpenSetting;
 
-        if (
-          accordionParrent.dataset.single &&
-          accordionParrent.dataset.breakpoint
-        ) {
-          multipleSetting = accordionParrent.dataset.single; // true - включает сингл аккордион
-          breakpoinSetting = accordionParrent.dataset.breakpoint; // брейкпоинт сингл режима (если он true)
-        }
+        multipleSetting = accordionParrent.dataset.single || false;
+        breakpoinSetting = accordionParrent.dataset.breakpoint || false;
 
         const getAccordions = function (dataName = "[data-id]") {
           return accordionParrent.querySelectorAll(dataName);
@@ -279,30 +274,25 @@ window.addEventListener("DOMContentLoaded", () => {
 
         const accordionClickHandler = function (e) {
           e.preventDefault();
-          let curentDataNumber = this.dataset.id;
-
-          toggleAccordionButton(this);
-          const accordionContent = accordionParrent.querySelector(
-            `[data-content="${curentDataNumber}"]`
-          );
+          const accordionContent = this.closest(".accordion__item")?.querySelector("[data-content]");
+          if (!accordionContent) return;
           const isAccordionOpen = checkIsAccordionOpen(accordionContent);
 
           if (isAccordionOpen) {
             closeAccordion(accordionContent);
+            toggleAccordionButton(this);
             openedAccordion = null;
           } else {
             if (openedAccordion != null) {
               const mobileSettings = () => {
                 let containerWidth = document.documentElement.clientWidth;
                 if (
-                  containerWidth <= breakpoinSetting &&
-                  multipleSetting === "true"
+                  multipleSetting === "true" &&
+                  (!breakpoinSetting || containerWidth <= breakpoinSetting)
                 ) {
                   closeAccordion(openedAccordion);
                   toggleAccordionButton(
-                    accordionParrent.querySelector(
-                      `[data-id="${openedAccordion.dataset.content}"]`
-                    )
+                    openedAccordion.closest(".accordion__item")?.querySelector("[data-id]")
                   );
                 }
               };
@@ -314,6 +304,7 @@ window.addEventListener("DOMContentLoaded", () => {
             }
 
             openAccordion(accordionContent);
+            toggleAccordionButton(this);
             openedAccordion = accordionContent;
           }
         };

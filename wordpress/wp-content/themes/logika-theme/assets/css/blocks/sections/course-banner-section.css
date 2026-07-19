@@ -102,6 +102,36 @@
   align-items: stretch;
   gap: 10px;
 }
+.course-banner-section__benefits {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0 0;
+  padding: 0;
+  color: #374C92;
+  font-weight: 600;
+  list-style: none;
+}
+.course-banner-section__benefits li {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.course-banner-section__benefits li::before {
+  flex: 0 0 auto;
+  content: "✓";
+  color: var(--green);
+}
+.course-page--a0 .course-banner-section__label,
+.course-page--b1 .course-banner-section__label { background-color: var(--green); }
+.course-page--a1 .course-banner-section__label,
+.course-page--b2-1 .course-banner-section__label { background-color: var(--violet); }
+.course-page--a2 .course-banner-section__label { background-color: var(--blue); }
+.course-page--b2 .course-banner-section__label { background-color: var(--orange); }
+.course-page--a1 .course-banner-section__right { transform: rotate(-1deg); }
+.course-page--a2 .course-banner-section__right { transform: rotate(1deg); }
+.course-page--b1 .course-banner-section__right { padding-left: clamp(50px, 6vw, 100px); }
+.course-page--b2 .course-banner-section__right { filter: saturate(1.12); }
+.course-page--b2-1 .course-banner-section__right { filter: hue-rotate(12deg) saturate(1.08); }
 .course-banner-section__right {
   position: relative;
   display: -webkit-box;

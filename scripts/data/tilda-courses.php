@@ -37,7 +37,12 @@ function logika_tilda_courses(): array {
         "cta_label": ""
       }
     ],
-    "learn_items": [],
+    "learn_items": [
+      { "text": "Розробляти мультфільми та ігри на мові програмування Scratch, ускладнюючи сюжети в міру навчання", "icon": "gamepad-2" },
+      { "text": "Базових понять та практик програмування: від складання алгоритмів до виправлення помилок", "icon": "code" },
+      { "text": "Створювати чат-боти: від написання логіки до наповнення змістом", "icon": "bot" },
+      { "text": "Застосовувати на практиці основні принципи графічного дизайну і векторної графіки", "icon": "palette" }
+    ],
     "program": [
       {
         "title": "Модуль 1. Вступ у IT",
@@ -212,7 +217,14 @@ function logika_tilda_courses(): array {
         "cta_label": ""
       }
     ],
-    "learn_items": [],
+    "learn_items": [
+      { "text": "Учні створюють 6 різних жанрових ігор, опановують програмування, дизайн і логіку ігор.", "icon": "gamepad-2" },
+      { "text": "Кожен модуль завершується готовою грою, яку можна показати друзям, батькам і навіть розмістити в Roblox.", "icon": "box" },
+      { "text": "Учні будуть створювати власні ігри на движку Roblox Studio", "icon": "code" },
+      { "text": "Застосовувати на практиці основні принципи графічного дизайну і векторної графіки", "icon": "palette" },
+      { "text": "Навчаться адаптувати гру під мобільні пристрої", "icon": "smartphone" },
+      { "text": "Учні навчаться розробляти сюжетні лінії ігор і розуміти різні ігрові стратегії", "icon": "scale" }
+    ],
     "program": [
       {
         "title": "Модуль 1. Створення гри-платформера",
@@ -381,7 +393,14 @@ function logika_tilda_courses(): array {
         "cta_label": ""
       }
     ],
-    "learn_items": [],
+    "learn_items": [
+      { "text": "Створювати концепцію та проєктувати структуру сайту", "icon": "globe" },
+      { "text": "Писати HTML і CSS-код", "icon": "code" },
+      { "text": "Застосовувати принципи UX і UI", "icon": "scale" },
+      { "text": "Створювати дизайн інтерфейсів", "icon": "palette" },
+      { "text": "Адаптувати сайт під мобільні пристрої", "icon": "smartphone" },
+      { "text": "Створювати цікаве оформлення сайтів та анімації на CSS", "icon": "video" }
+    ],
     "program": [
       {
         "title": "Модуль 1. Основи HTML і CSS",
@@ -565,7 +584,14 @@ function logika_tilda_courses(): array {
         "cta_label": ""
       }
     ],
-    "learn_items": [],
+    "learn_items": [
+      { "text": "Основам графічного дизайну: робота з кольором, композицією, перспективою", "icon": "palette" },
+      { "text": "Верстка книжок і журналів", "icon": "file-text" },
+      { "text": "Розробка бренду: логотипи, айдентика", "icon": "copy" },
+      { "text": "3D-моделювання: створення ігрових локацій та об’єктів", "icon": "box" },
+      { "text": "Анімація: покадрова анімація та створення асетів", "icon": "video" },
+      { "text": "Інфографіка: уміле поєднання даних із графічним оформленням", "icon": "chart-no-axes-combined" }
+    ],
     "program": [
       {
         "title": "Модуль 1. Ретуш і реставрація фото",
@@ -788,7 +814,14 @@ function logika_tilda_courses(): array {
         "cta_label": ""
       }
     ],
-    "learn_items": [],
+    "learn_items": [
+      { "text": "Писати код на мові Python", "icon": "code" },
+      { "text": "Створювати власні додатки", "icon": "terminal" },
+      { "text": "Вирішувати реальні завдання, застосовуючи ітеративний підхід", "icon": "bot" },
+      { "text": "Працювати з графікою та використовувати бібліотеку Turtle", "icon": "palette" },
+      { "text": "Розробляти графічні ігри для ПК, використовуючи бібліотеку PyGame", "icon": "gamepad-2" },
+      { "text": "Розбиратися в основах об'єктно-орієнтованого програмування", "icon": "school" }
+    ],
     "program": [
       {
         "title": "Модуль 1. Основи мови",
@@ -984,7 +1017,14 @@ function logika_tilda_courses(): array {
         "cta_label": ""
       }
     ],
-    "learn_items": [],
+    "learn_items": [
+      { "text": "Розширеному використанню Python", "icon": "code" },
+      { "text": "Створювати власні додатки", "icon": "terminal" },
+      { "text": "Розробки графічних інтерфейсів за допомогою бібліотеки Tkinter", "icon": "laptop-minimal" },
+      { "text": "Працювати з мультимедійними даними (звуки, зображення) за допомогою таких бібліотек, як Pillow та PyDub.", "icon": "music" },
+      { "text": "Основ Git та методів розгортання Python-проектів", "icon": "git-branch" },
+      { "text": "Завдяки набутим знанням і навичкам, учні отримують можливість розпочати кар'єру у сфері програмування", "icon": "graduation-cap" }
+    ],
     "program": [
       {
         "title": "Модуль 1. Повторення Python",
@@ -1207,7 +1247,13 @@ function logika_tilda_courses(): array {
         "cta_label": ""
       }
     ],
-    "learn_items": [],
+    "learn_items": [
+      { "text": "Вільно використовувати колекції, Python Standart Library, декоратори. А також менеджмент пам’яті, Garbage Collector та GIL, Design principles", "icon": "code" },
+      { "text": "Кодуванню, використовуючи бази даних, SQL та моделювання", "icon": "database" },
+      { "text": "Back-end розробці на сучасних FastAPI та Django", "icon": "terminal" },
+      { "text": "Розробці повноцінних конкурентоспроможних проектів", "icon": "box" },
+      { "text": "Складанню резюме та cover letter, презентації себе як розробника", "icon": "presentation" }
+    ],
     "program": [
       {
         "title": "Модуль 1. Повторення + Python Advanced",
@@ -1385,7 +1431,12 @@ function logika_tilda_courses(): array {
         "cta_label": ""
       }
     ],
-    "learn_items": [],
+    "learn_items": [
+      { "text": "Розвивати фірмовий стиль", "icon": "palette" },
+      { "text": "Створювати лендинг-сайт", "icon": "globe" },
+      { "text": "Оформлювати графічний інтерфейс YouTube каналу", "icon": "video" },
+      { "text": "Створювати дизайн інтер’єру", "icon": "house" }
+    ],
     "program": [
       {
         "title": "Модуль 1. Брендбук",
@@ -1560,7 +1611,12 @@ function logika_tilda_courses(): array {
         "cta_label": ""
       }
     ],
-    "learn_items": [],
+    "learn_items": [
+      { "text": "Створенню мобільних застосунків на Python, які працюють на Android та iOS", "icon": "smartphone" },
+      { "text": "Аналізу, візуалізації та інтерпретації даних за допомогою бібліотеки Pandas", "icon": "chart-no-axes-combined" },
+      { "text": "Розробці веб-сайтів з використанням мікрофреймворку Flask", "icon": "globe" },
+      { "text": "Програмуванню ігор у 2D і 3D середовищі з використанням скриптів, схожих на Python", "icon": "gamepad-2" }
+    ],
     "program": [
       {
         "title": "Модуль 1. Повторення",
@@ -1747,7 +1803,14 @@ function logika_tilda_courses(): array {
         "cta_label": ""
       }
     ],
-    "learn_items": [],
+    "learn_items": [
+      { "text": "Працювати з текстовими документами і швидко друкувати", "icon": "file-text" },
+      { "text": "Оформляти презентації і готувати усні виступи", "icon": "presentation" },
+      { "text": "Реєструватися на сайтах, користуватися електронною поштою та хмарними сховищами", "icon": "globe" },
+      { "text": "Активно використовувати Штучний Інтелект", "icon": "bot" },
+      { "text": "Представляти інформацію в формі таблиць та інфографіки", "icon": "chart-no-axes-combined" },
+      { "text": "Працювати в графічному редакторі, створюючи 2D зображення і 3D моделі", "icon": "palette" }
+    ],
     "program": [
       {
         "title": "Модуль 1. Вступ у IT",
@@ -1934,7 +1997,14 @@ function logika_tilda_courses(): array {
         "cta_label": ""
       }
     ],
-    "learn_items": [],
+    "learn_items": [
+      { "text": "Комп'ютер: базові поняття (порівняння ОС, встановлення додатків і тд)", "icon": "laptop-minimal" },
+      { "text": "Знайомство зі створенням сайтів", "icon": "globe" },
+      { "text": "Дистанційна робота", "icon": "house" },
+      { "text": "Google Таблиці", "icon": "chart-no-axes-combined" },
+      { "text": "Google Презентації, Документи", "icon": "presentation" },
+      { "text": "Огляд популярних IT-професій", "icon": "graduation-cap" }
+    ],
     "program": [
       {
         "title": "Урок 1 Комп’ютер. Базові поняття",
@@ -2184,7 +2254,13 @@ function logika_tilda_courses(): array {
         "cta_label": ""
       }
     ],
-    "learn_items": [],
+    "learn_items": [
+      { "text": "Використовувати основні інструменти HTML, CSS", "icon": "code" },
+      { "text": "Писати JavaScript-код", "icon": "terminal" },
+      { "text": "Працювати з інструментами Git та Github", "icon": "git-branch" },
+      { "text": "Як опублікувати, підтримувати та просувати власний проект", "icon": "globe" },
+      { "text": "Виконувати просту верстку та базовий функціонал", "icon": "laptop-minimal" }
+    ],
     "program": [
       {
         "title": "Модуль 1. Старт у фронтенді",
@@ -2380,7 +2456,14 @@ function logika_tilda_courses(): array {
         "cta_label": ""
       }
     ],
-    "learn_items": [],
+    "learn_items": [
+      { "text": "Опановувати професійну промпт-інженерію", "icon": "bot" },
+      { "text": "Створювати бази знань", "icon": "database" },
+      { "text": "Проектувати архітектуру ШІ-агентів", "icon": "box" },
+      { "text": "Працювати з автоматизацією в Make.com", "icon": "terminal" },
+      { "text": "Розробляти власні Telegram-боти", "icon": "code" },
+      { "text": "Генерувати мультимедійний контент", "icon": "video" }
+    ],
     "program": [
       {
         "title": "Модуль 1. Текстовий ШІ та створення презентацій",

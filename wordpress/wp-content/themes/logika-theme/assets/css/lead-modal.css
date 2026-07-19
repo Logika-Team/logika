@@ -17,6 +17,100 @@
 	display: none;
 }
 
+.logika-lead-toast {
+	position: fixed;
+	z-index: 100;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	padding: 20px;
+	background: rgba(26, 20, 73, 0.52);
+	backdrop-filter: blur(6px);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.logika-lead-toast[hidden] {
+	display: none;
+}
+
+.logika-lead-toast.is-visible {
+	opacity: 1;
+	visibility: visible;
+}
+
+.logika-lead-toast__dialog {
+	position: relative;
+	width: min(100%, 440px);
+	padding: 42px 30px 30px;
+	border: 1px solid rgba(255, 255, 255, 0.28);
+	border-radius: 28px;
+	background: linear-gradient(135deg, #2636bd, var(--violet-100));
+	box-shadow: 0 24px 70px rgba(17, 13, 68, 0.42);
+	color: var(--white);
+	text-align: center;
+	transform: translateY(18px) scale(0.96);
+	transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.logika-lead-toast.is-visible .logika-lead-toast__dialog {
+	transform: translateY(0) scale(1);
+}
+
+.logika-lead-toast.is-error .logika-lead-toast__dialog {
+	background: linear-gradient(135deg, #3644b8, #782f9d);
+}
+
+.logika-lead-toast__close {
+	position: absolute;
+	top: 12px;
+	right: 14px;
+	width: 34px;
+	height: 34px;
+	border: 0;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.15);
+	color: var(--white);
+	font-size: 26px;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.logika-lead-toast__eyebrow {
+	margin: 0 0 10px;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+.logika-lead-toast__title {
+	margin: 0;
+	color: var(--white);
+	font-size: clamp(28px, 5vw, 36px);
+	line-height: 1.1;
+}
+
+.logika-lead-toast__text {
+	margin: 14px auto 24px;
+	max-width: 340px;
+	font-size: 17px;
+	line-height: 1.45;
+}
+
+.logika-lead-toast__button {
+	min-width: 170px;
+	justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.logika-lead-toast,
+	.logika-lead-toast__dialog {
+		transition: none;
+	}
+}
+
 .modal.is-open {
 	opacity: 1;
 	visibility: visible;

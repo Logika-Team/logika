@@ -191,7 +191,10 @@
                             width: max-content;
                             opacity: 1;
                             visibility: visible;
-                            max-height: initial !important;
+                            max-height: 160px;
+                            transform: translate(-50%, 0);
+                            pointer-events: auto;
+                            transition-delay: 0s;
                         }
                     }
                 }
@@ -233,20 +236,30 @@
 
             .sub-menu {
                 position: absolute;
+                width: max-content;
+                max-height: 0;
                 opacity: 0;
                 visibility: hidden;
                 background-color: #fff;
                 top: 100%;
                 left: 50%;
-                transform: translateX(-50%);
+                transform: translate(-50%, -8px);
                 overflow: hidden;
-                padding: 10px 20px;
-                border-radius: 6px;
-                box-shadow: 0 4px 10px var(--grey-500);
+                padding: 12px 16px;
+                border-radius: 10px;
+                box-shadow: none;
                 z-index: 2;
                 display: flex;
                 flex-direction: column;
-                gap: 15px;
+                gap: 8px;
+                pointer-events: none;
+                transition: max-height 0.22s ease, opacity 0.16s ease, transform 0.16s ease, visibility 0.16s ease;
+
+                .menu-link {
+                    font-size: 16px;
+                    line-height: 1.25;
+                    letter-spacing: -0.8px;
+                }
 
                 &::before {
                     content: '';

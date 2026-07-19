@@ -284,8 +284,10 @@ final class Logika_Theme_Page_Content {
 			$text = trim( (string) ( $row['text'] ?? '' ) );
 			$label = $title . ( $title && $text ? ' — ' : '' ) . $text;
 			$item = $label ? self::replaceLeaf( $item, '#(<p>)(.*?)(</p>)#s', $label ) : $item;
+			$icon = sanitize_file_name( (string) ( $row['icon'] ?? '' ) );
+			$icon_path = $icon ? get_theme_file_path( 'assets/img/course/program-icons/' . $icon . '.svg' ) : '';
 			$image = (int) ( $row['image'] ?? 0 );
-			$url = $image ? wp_get_attachment_image_url( $image, 'thumbnail' ) : false;
+			$url = $icon && is_file( $icon_path ) ? get_theme_file_uri( 'assets/img/course/program-icons/' . $icon . '.svg' ) : ( $image ? wp_get_attachment_image_url( $image, 'thumbnail' ) : get_theme_file_uri( 'assets/img/course/program-icons/' . self::programIcon( $label ) . '.svg' ) );
 			if ( $url ) {
 				$item = (string) preg_replace( '#(\bsrc=)(["\']).*?\2#', '$1$2' . esc_url( $url ) . '$2', $item, 1 );
 			}
@@ -296,12 +298,25 @@ final class Logika_Theme_Page_Content {
 	}
 
 	private static function applyCoursePage( string $markup, int|string $context ): string {
+		$variant = sanitize_html_class( (string) get_field( 'course_visual_variant', $context ) );
+		if ( $variant ) {
+			$markup = (string) preg_replace( '#<main>#', '<main class="course-page course-page--' . esc_attr( $variant ) . '">', $markup, 1 );
+		}
+		$benefits = array_filter( (array) get_field( 'course_hero_benefits', $context ), 'is_array' );
+		if ( $benefits ) {
+			$items = '';
+			foreach ( $benefits as $benefit ) {
+				$text = trim( (string) ( $benefit['text'] ?? '' ) );
+				$items .= $text ? '<li>' . esc_html( $text ) . '</li>' : '';
+			}
+			$markup = $items ? (string) preg_replace( '#(<div class="course-banner-section__btns">)#', '<ul class="course-banner-section__benefits">' . $items . '</ul>$1', $markup, 1 ) : $markup;
+		}
 		$hero_cta = trim( (string) get_field( 'course_hero_cta_label', $context ) ) ?: trim( (string) get_field( 'course_cta_label', $context ) );
 		$markup = $hero_cta ? self::replaceButtonText( $markup, 'course-banner-section__btn', $hero_cta ) : $markup;
 		$markup = self::replaceButtonText( $markup, 'btn--bordered-violet', (string) get_field( 'course_program_anchor_label', $context ) );
 		$markup = self::replaceButtonText( $markup, 'cta-form__btn', (string) get_field( 'course_cta_submit_label', $context ) );
 
-		if ( ! array_filter( (array) get_field( 'course_learn_items', $context ), 'is_array' ) ) {
+		if ( ! array_filter( (array) get_field( 'course_learn_items', $context ), 'is_array' ) && ! array_filter( (array) get_field( 'course_program', $context ), 'is_array' ) ) {
 			$markup = self::removeSection( $markup, 'learn-section' );
 		}
 		if ( ! array_filter( (array) get_field( 'course_process_items', $context ), 'is_array' ) ) {
@@ -334,8 +349,12 @@ final class Logika_Theme_Page_Content {
 		if ( ! $cards ) {
 			return self::removeSection( $markup, 'portfolio-section' );
 		}
+		$source_cards = $cards;
+		while ( count( $cards ) < 5 ) {
+			$cards[] = $source_cards[ count( $cards ) % count( $source_cards ) ];
+		}
 
-		return (string) preg_replace( '#<div class="portfolio-section__slider">\s*</div>#s', '<div class="portfolio-section__viewport"><ul class="portfolio-section__slider">' . implode( '', $cards ) . '</ul></div>', $markup, 1 );
+		return (string) preg_replace( '#(<ul class="portfolio-section__slider">).*?(</ul>)#s', '$1' . implode( '', $cards ) . '$2', $markup, 1 );
 	}
 
 	private static function applyCourseContext( string $markup, int $course_id ): string {
@@ -775,6 +794,11 @@ final class Logika_Theme_Page_Content {
 
 	private static function applySelectedContent( string $markup, string $source, int|string $page_id ): string {
 		$course_field = array( 'en-courses' => 'english_courses_featured_courses' )[ $source ] ?? '';
+		if ( 'index' === $source ) {
+			$english_page = get_page_by_path( 'english-courses' );
+			$courses = $english_page instanceof WP_Post ? self::published( (array) get_field( 'english_courses_featured_courses', $english_page->ID ), 'course' ) : array();
+			$markup = $courses ? self::applyEnglishCourses( $markup, $courses ) : $markup;
+		}
 		if ( $course_field ) {
 			$courses = self::published( (array) get_field( $course_field, $page_id ), 'course' );
 			if ( $courses ) {
@@ -811,10 +835,11 @@ final class Logika_Theme_Page_Content {
 	}
 
 	private static function applyEnglishCourses( string $markup, array $courses ): string {
-		if ( ! preg_match( '#(<ul class="en-courses-section__items">)(.*?)(</ul>)#s', $markup, $list ) ) {
+		if ( ! preg_match( '#(<ul class="en-courses-section__items">)(.*?)(</ul>)#s', $markup, $list )
+			&& ! preg_match( '#(<div class="english-section__slider">.*?<ul class=["\']swiper-wrapper["\']>)(.*?)(</ul>)#s', $markup, $list ) ) {
 			return $markup;
 		}
-		preg_match_all( '#<li class=["\']en-courses-section__item["\']>.*?</li>#s', $list[2], $templates );
+		preg_match_all( '#<li class=["\'](?:en-courses-section__item|swiper-slide)["\']>.*?</li>#s', $list[2], $templates );
 		if ( ! $templates[0] ) {
 			return $markup;
 		}
@@ -828,11 +853,7 @@ final class Logika_Theme_Page_Content {
 			$item = self::replaceLeaf( $item, '#(<span class="h4">)(.*?)(</span>)#s', get_the_title( $id ) );
 			$text = trim( (string) get_field( 'course_short_description', $id ) );
 			$item = $text ? self::replaceLeaf( $item, '#(<div class="english-level__info">.*?<p>)(.*?)(</p>)#s', $text ) : $item;
-			$image = (int) get_field( 'course_card_image', $id );
-			$url = $image ? wp_get_attachment_image_url( $image, 'large' ) : false;
-			if ( $url ) {
-				$item = (string) preg_replace( '#(<div class="english-level__image">\s*<img\b[^>]*\bsrc=)(["\']).*?\2#s', '$1$2' . esc_url( $url ) . '$2', $item, 1 );
-			}
+			$item = (string) preg_replace( '#(<a\b[^>]*\bhref=)(["\']).*?\2(?=[^>]*class="[^"]*english-level__link[^"]*")#', '$1$2' . esc_url( get_permalink( $id ) ) . '$2', $item, 1 );
 			$item = (string) preg_replace( '#(<a\b[^>]*class="[^"]*english-level__link[^"]*")#', '$1 data-logika-course-id="' . esc_attr( (string) $id ) . '"', $item, 1 );
 			$items .= $item;
 		}
@@ -886,7 +907,46 @@ final class Logika_Theme_Page_Content {
 			$content .= '<ul>' . implode( '', array_map( static fn( array $point ): string => '<li>' . esc_html( (string) ( $point['item_text'] ?? '' ) ) . '</li>', $points ) ) . '</ul>';
 		}
 
-		return '<li class="accordion__item"><button class="accordion__btn h5" data-id="' . esc_attr( $id ) . '">' . esc_html( (string) ( $row['title'] ?? '' ) ) . '</button><div class="accordion__content" data-content="' . esc_attr( $id ) . '"><div class="editor">' . $content . '</div></div></li>';
+		$icon = self::programIcon( (string) ( $row['title'] ?? '' ) );
+		return '<li class="accordion__item"><button class="accordion__btn h5" data-id="' . esc_attr( $id ) . '"><span class="course-program-icon"><img src="' . esc_url( get_theme_file_uri( 'assets/img/course/program-icons/' . $icon . '.svg' ) ) . '" alt=""></span><span class="course-program-title">' . esc_html( (string) ( $row['title'] ?? '' ) ) . '</span></button><div class="accordion__content" data-content="' . esc_attr( $id ) . '"><div class="editor">' . $content . '</div></div></li>';
+	}
+
+	private static function programIcon( string $title ): string {
+		$icons = array(
+			'bot'          => 'штучн|нейромереж|chatgpt|помічник',
+			'gamepad-2'    => 'гейм|ігри|гри\\b|pygame|roblox|tycoon|квест',
+			'box'          => '3d|моделюван',
+			'chart-no-axes-combined' => 'таблиц|інфограф|аналітик',
+			'palette'      => 'дизайн|графік|анімац|figma|ретуш|малюн|ілюстрац|айдентик|брендбук|інфограф',
+			'camera'       => 'фото|відео',
+			'copy'         => 'клон',
+			'git-branch'   => '\\bgit\\b|командн',
+			'database'     => 'sql|orm|даних|таблиц|аналітик',
+			'shield-check' => 'безпек',
+			'presentation' => 'презентац',
+			'music'        => 'зву|музик',
+			'smartphone'   => 'мобільн',
+			'terminal'     => 'fastapi|django|gui|websocket|бібліотек|реліз',
+			'code'         => 'html|css|javascript|програм|python|frontend|функц|алгоритм|логік|змінн|цик',
+			'utensils'     => 'їжа|кухар|смак',
+			'plane'        => 'подорож|аеропорт',
+			'house'        => 'дім|вдома|родина',
+			'rabbit'       => 'тварин',
+			'trees'        => 'природ|погод|еко',
+			'dumbbell'     => 'спорт|здоров',
+			'shopping-bag' => 'шопінг|грош|витрат',
+			'video'        => 'кіно|youtube|телебач|медіа',
+			'wallet'       => 'бізнес|фінанс|робот',
+			'languages'    => 'мова|культур|толерант|словник',
+			'scale'        => 'злочин|правил|проблем|етич',
+			'globe'        => 'веб|сайт|інтернет|мереж|світ|міст|простір',
+		);
+		foreach ( $icons as $icon => $pattern ) {
+			if ( preg_match( '/' . $pattern . '/iu', $title ) ) {
+				return $icon;
+			}
+		}
+		return 'book-open';
 	}
 
 	private static function pageId( string $source, int $context_id = 0 ): int|string {
