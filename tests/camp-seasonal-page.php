@@ -20,8 +20,8 @@ foreach ( array( 'applyCampHeroDates', 'applyCampHeroFacts', 'applyCampHeroImage
 	}
 }
 
-if ( ! str_contains( $content, 'href="\\#form"' ) ) {
-	$errors[] = 'Camp CTA route must be escaped inside the renderer pattern.';
+if ( ! str_contains( $content, 'href="\\#lead-form"' ) ) {
+	$errors[] = 'Camp CTA route must target the shared lead modal.';
 }
 
 foreach ( array( 'get_posts( array(', 'get_permalink( $camp_id )', 'camp_card_description' ) as $marker ) {
