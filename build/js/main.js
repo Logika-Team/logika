@@ -608,46 +608,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  if (campsHighlightsSlider.length > 0) {
-    campsHighlightsSlider.forEach(function (slider) {
-      const container = slider.querySelector(".swiper-container");
-      if (!container) return;
-
-      let mainSwiper = null;
-
-      const initOrDestroySlider = () => {
-        const windowWidth = window.innerWidth;
-
-        if (windowWidth <= 1024) {
-          if (!mainSwiper) {
-            mainSwiper = new Swiper(container, {
-              speed: 1800,
-              loop: true,
-              observer: true,
-              observeParents: true,
-              watchSlidesProgress: true,
-              spaceBetween: 10,
-              slidesPerView: "auto",
-            });
-          }
-        } else {
-          if (mainSwiper) {
-            mainSwiper.destroy(true, true);
-            mainSwiper = null;
-          }
-        }
-      };
-
-      initOrDestroySlider();
-
-      let resizeTimeout;
-      window.addEventListener("resize", () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(initOrDestroySlider, 150);
-      });
-    });
-  }
-
   if (testimonialsSlider.length > 0) {
     testimonialsSlider.forEach(function (slider) {
       const container = slider.querySelector(".swiper-container");
