@@ -71,6 +71,7 @@ function logika_theme_assets(): void {
 	$phone_dropup_version = (string) filemtime( get_template_directory() . '/assets/css/phone-dropdown-dropup.css' );
 	$home_media_center_version = (string) filemtime( get_template_directory() . '/assets/css/blocks/sections/media-section.css' );
 	$home_media_center_mobile_version = (string) filemtime( get_template_directory() . '/assets/css/blocks/sections/media-section-mobile.css' );
+	$home_banner_main_version = (string) filemtime( get_template_directory() . '/assets/css/blocks/sections/home-banner-main.css' );
 	$home_nizhyn_school_version = (string) filemtime( get_template_directory() . '/assets/css/blocks/sections/nizhyn-school.css' );
 	$home_city_seo_version = (string) filemtime( get_template_directory() . '/assets/js/homepage-city-seo.js' );
 	$lead_modal_style_version = (string) filemtime( get_template_directory() . '/assets/css/lead-modal.css' );
@@ -108,11 +109,14 @@ function logika_theme_assets(): void {
 		wp_enqueue_script( 'logika-vacancies-details-dialog', $uri . '/js/vacancies-details-dialog.js', array( 'logika-theme' ), $vacancies_details_dialog_version, true );
 	}
 	if ( is_front_page() || get_query_var( 'logika_city' ) ) {
+		wp_enqueue_style( 'logika-home-banner-main', $uri . '/css/blocks/sections/home-banner-main.css', array( 'logika-theme-adaptive' ), $home_banner_main_version );
 		wp_enqueue_style( 'logika-director-feedback', $uri . '/css/blocks/sections/director-feedback.css', array( 'logika-theme' ), $director_feedback_style_version );
 		wp_enqueue_style( 'logika-home-media-center', $uri . '/css/blocks/sections/media-section.css', array( 'logika-theme' ), $home_media_center_version );
 		wp_enqueue_style( 'logika-home-media-center-mobile', $uri . '/css/blocks/sections/media-section-mobile.css', array( 'logika-home-media-center' ), $home_media_center_mobile_version );
+	$home_banner_main_version = (string) filemtime( get_template_directory() . '/assets/css/blocks/sections/home-banner-main.css' );
 	}
 	if ( is_front_page() || get_query_var( 'logika_city' ) ) {
+		wp_enqueue_style( 'logika-home-banner-main', $uri . '/css/blocks/sections/home-banner-main.css', array( 'logika-theme-adaptive' ), $home_banner_main_version );
 		wp_enqueue_style( 'logika-home-nizhyn-school', $uri . '/css/blocks/sections/nizhyn-school.css', array( 'logika-theme' ), $home_nizhyn_school_version );
 		wp_enqueue_script( 'logika-home-city-seo', $uri . '/js/homepage-city-seo.js', array( 'logika-city-context' ), $home_city_seo_version, true );
 		wp_localize_script( 'logika-home-city-seo', 'logikaHomepageCitySeo', array( 'endpoint' => esc_url_raw( rest_url( 'logika/v1/cities/' ) ) ) );
