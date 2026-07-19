@@ -2,15 +2,24 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 30px;
+    gap: clamp(15px, 2.93vw, 30px);
 
     &__top {
         display: flex;
         flex-direction: column;
         gap: 10px;
+
+        @include small-tablet {
+            align-items: center;
+            text-align: center;
+        }
     }
 
     &__title {
+        font-size: clamp(28px, 3.194vw, 46px);
+        line-height: 118%;
+        font-weight: 700;
+        letter-spacing: -2.3px;
         color: var(--white);
     }
 
@@ -18,21 +27,26 @@
         color: var(--light-blue);
     }
 
-
-
     &__inputs {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 18px;
-
         > * {
             width: 100%;
             min-width: 0;
         }
+
+        gap: 18px;
+
+        @include for-small-tablet {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        @include small-tablet {
+            grid-template-columns: 100%;
+        }
     }
 
     &__input {
-        height: 52px;
+        height: clamp(44px, 3.611vw, 52px);
         display: flex;
         align-items: center;
         padding: 0 16px;
@@ -49,16 +63,22 @@
         font-size: 12px;
         line-height: 140%;
         font-weight: 500;
-        color: var(--light-blue);
+        color: var(--grey-100);
         letter-spacing: -0.6px;
 
+        @include small-tablet {
+            text-align: center;
+        }
+
         a {
+            display: inline;
             text-decoration-line: underline;
             text-decoration-style: solid;
             text-decoration-skip-ink: auto;
             text-decoration-thickness: auto;
             text-underline-offset: auto;
             text-underline-position: from-font;
+            word-break: keep-all;
         }
     }
 

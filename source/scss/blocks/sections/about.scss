@@ -4,50 +4,49 @@
 .about-directions,
 .about-outcomes,
 .about-history {
-  padding: 80px 0;
+  padding: clamp(20px, 4.167vw, 80px) 0;
 }
 
 .about-stats {
   text-align: center;
 
-  h1,
-  h2 {
-    color: var(--violet-500);
-    font-size: 56px;
-    font-weight: 700;
-    letter-spacing: -2.8px;
-    line-height: 1.18;
+  &__title {
+    text-align: center;
   }
 
   &__list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    max-width: var(--content-width);
-    margin: 60px auto 0;
+    margin: clamp(12px, 3.125vw, 60px) auto 0;
+    display: grid;
+    gap: clamp(10px, 1.953vw, 20px);
+
+    @include for-laptop {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include laptop {
+      grid-template-columns: repeat(2, 1fr);
+    }
 
     li {
-      width: 465px;
-      min-height: 140px;
-      padding: 30px;
+      padding: clamp(20px, 2.93vw, 30px) clamp(15px, 2.93vw, 30px);
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: clamp(10px, 1.953vw, 20px);
       border: 1px solid #f0f0f0;
+      background-color: var(--white);
       border-radius: 25px;
       box-shadow: 0 0 12.5px rgba(37, 37, 37, .06);
-      color: var(--violet-500);
-      font-size: 28px;
-      font-weight: 600;
-      letter-spacing: -1.4px;
-      line-height: 1.28;
-      text-align: left;
+
+      @include small-tablet {
+        flex-direction: column;
+        text-align: center;
+        font-size: 16px;
+      }
     }
 
     img {
-      width: 80px;
-      height: 80px;
+      width: clamp(56px, 7.813vw, 80px);
+      height: clamp(56px, 7.813vw, 80px);
       object-fit: contain;
     }
   }
@@ -225,11 +224,7 @@
 }
 
 @include tablet {
-  .about-stats__list {
-    li {
-      width: calc(50% - 10px);
-    }
-  }
+
 
   .about-history__layout {
     grid-template-columns: 1fr;
@@ -264,14 +259,9 @@
 }
 
 @include mobile {
-  .about-stats__list,
   .about-directions ul,
   .about-outcomes ul {
     grid-template-columns: 1fr;
-  }
-
-  .about-stats__list li {
-    width: 100%;
   }
 
   .about-outcomes ul {
