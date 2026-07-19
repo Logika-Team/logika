@@ -571,11 +571,11 @@ final class Logika_Theme_Page_Content {
 		}
 		$form_title = trim( (string) get_field( 'camp_hero_form_title', $context ) );
 		if ( $form_title ) {
-			$markup = (string) preg_replace( '#(<div class="main-form__title h5">).*?(</div>)#s', '$1' . nl2br( esc_html( $form_title ) ) . '$2', $markup, 1 );
+			$markup = (string) preg_replace( '#(<div class="main-form__title h5">).*?(</div>)#s', '$1' . nl2br( esc_html( $form_title ) ) . '$2', $markup );
 		}
 		$cta_label = trim( (string) get_field( 'camp_cta_label', $context ) );
 		if ( $cta_label ) {
-			$markup = (string) preg_replace( '#(<button class="main-form__btn btn btn--yellow" type="submit">).*?(\s*<svg)#s', '$1' . esc_html( $cta_label ) . '$2', $markup, 1 );
+			$markup = (string) preg_replace( '#(<button class="main-form__btn btn btn--yellow" type="submit">).*?(\s*<svg)#s', '$1' . esc_html( $cta_label ) . '$2', $markup );
 			$markup = (string) preg_replace( '#(<a class="camp-details__cta btn btn--violet" href="\#lead-form" data-logika-camp-booking>).*?(\s*<svg)#s', '$1' . esc_html( $cta_label ) . '$2', $markup );
 		}
 
@@ -629,15 +629,6 @@ final class Logika_Theme_Page_Content {
 			$items = implode( '', array_map( static fn( array $row ): string => '<li>' . esc_html( (string) ( $row['text'] ?? '' ) ) . '</li>', $rows ) );
 			$markup = str_replace( $list[0], $list[1] . $items . $list[3], $markup );
 		}
-		$form_title = trim( (string) get_field( 'camp_booking_form_title', $context ) );
-		if ( $form_title ) {
-			$markup = (string) preg_replace( '#(<div class="camp-booking__form-title">).*?(</div>)#s', '$1' . nl2br( esc_html( $form_title ) ) . '$2', $markup, 1 );
-		}
-		$submit_label = trim( (string) get_field( 'camp_booking_submit_label', $context ) );
-		if ( $submit_label ) {
-			$markup = (string) preg_replace( '#(<button class="camp-booking__submit btn btn--yellow" type="submit">).*?(\\s*<span)#s', '$1' . esc_html( $submit_label ) . '$2', $markup, 1 );
-		}
-
 		return $markup;
 	}
 

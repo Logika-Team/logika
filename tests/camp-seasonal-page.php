@@ -30,6 +30,16 @@ foreach ( array( 'get_posts( array(', 'get_permalink( $camp_id )', 'camp_card_de
 	}
 }
 
+$camp_source = (string) file_get_contents( $root . '/wordpress/wp-content/themes/logika-theme/source-pages/camp.php' );
+foreach ( array( 'camp-booking__form banner-section__form main-form', 'name="city" placeholder="Ваше місто"' ) as $marker ) {
+	if ( ! str_contains( $camp_source, $marker ) ) {
+		$errors[] = "Camp booking must reuse the hero form {$marker}.";
+	}
+}
+if ( str_contains( $camp_source, 'camp-booking__camp-select' ) ) {
+	$errors[] = 'Camp booking must not keep its legacy camp selector.';
+}
+
 if ( $errors ) {
 	fwrite( STDERR, implode( PHP_EOL, $errors ) . PHP_EOL );
 	exit( 1 );

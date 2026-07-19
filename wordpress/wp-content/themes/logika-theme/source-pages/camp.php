@@ -481,35 +481,19 @@
             </div>
 
             <form class="camp-booking__form banner-section__form main-form">
-              <div class="camp-booking__form-title main-form__title h5">
+              <div class="main-form__title h5">
                 <span>Встигніть забронювати.</span>
                 Залиште заявку за 30 секунд — ми зателефонуємо і обговоримо усі деталі
               </div>
 
-              <div class="camp-booking__inputs main-form__inputs">
+              <div class="main-form__inputs">
                 <input class="main-form__input" type="text" name="name" placeholder="Ім’я">
                 <input class="main-form__input" type="tel" name="tel" placeholder="Номер телефону">
-                <select class="main-form__input" name="city" aria-label="Ваше місто">
-                  <option value="" selected disabled>Ваше місто</option>
-                  <option value="kyiv">Київ</option>
-                  <option value="lviv">Львів</option>
-                  <option value="online">Онлайн</option>
-                </select>
-                <select class="main-form__input camp-booking__camp-select" name="camp" aria-label="Оберіть табір">
-                  <option value="" selected disabled>Оберіть табір</option>
-                  <option value="greece">Табір в Греції (5.07-14.07)</option>
-                  <option value="emily">VIP табір в Emily Resort (20.06-27.06)</option>
-                  <option value="zakarpattia">Еко-табір на Закарпатті</option>
-                  <option value="online">Табір онлайн</option>
-                  <option value="city">Міський табір</option>
-                </select>
+                <input class="main-form__input" type="text" name="city" placeholder="Ваше місто">
               </div>
 
-              <button class="camp-booking__submit main-form__btn btn btn--yellow" type="submit">Відправити <span
-                  aria-hidden="true">→</span></button>
-              <p class="camp-booking__policy main-form__text">Натискаючи, ви погоджуєтесь із <a href="#">Політикою
-                  конфіденційності</a>
-              </p>
+              <button class="main-form__btn btn btn--yellow" type="submit">Забронювати місце <svg width="20" height="20"><use href="img/sprite/sprite.svg#arrow-right"></use></svg></button>
+              <p class="main-form__text">Натискаючи, ви погоджуєтесь із <a href="#">Політикою конфіденційності</a></p>
             </form>
           </div>
         </div>
