@@ -1,20 +1,32 @@
 @import "../../general/mixins";
 
 .categories-section {
-    padding: clamp(40px, 7.813vw, 80px) 0;
+    padding: clamp(20px, 4.167vw, 80px) 0;
     overflow-x: hidden;
 
     &__wrapp {
         display: flex;
         flex-direction: column;
-        gap: 40px;
+        gap: clamp(20px, 2.083vw, 40px);
     }
 
     &__top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 20px;
+        @include for-small-tablet {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        @include small-tablet {
+            display: contents;
+        }
+    }
+
+    &__title {
+        @include small-tablet {
+            text-align: center;
+        }
     }
 
     &__controls {
@@ -35,10 +47,22 @@
                 fill: var(--white);
             }
         }
+
+        @include small-tablet {
+            order: 1;
+            justify-content: center;
+            gap: 15px;
+        }
     }
 
     &__slider {
-        width: 100%;
+        @include for-small-tablet {
+            width: 100%;
+        }
+
+        @include small-tablet {
+            width: 100vw;
+        }
 
         .swiper-container {
             overflow: hidden;

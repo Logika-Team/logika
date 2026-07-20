@@ -499,8 +499,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (container) {
         const mainSwiper = new Swiper(container, {
-          slidesPerView: 3,
-          spaceBetween: 10,
           speed: 1800,
           observer: true,
           observeParents: true,
@@ -508,6 +506,24 @@ document.addEventListener("DOMContentLoaded", function () {
           navigation: {
             nextEl: nextBtn, 
             prevEl: prevBtn,
+          },
+          breakpoints: {
+            360: {
+              slidesPerView: 1.15,
+              spaceBetween: 10,
+            },
+            576: {
+              slidesPerView: 1.75,
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            991: {
+              slidesPerView: 3,
+              spaceBetween: 10,
+            },
           },
         });
       }

@@ -1,11 +1,11 @@
 .course-card {
     position: relative;
     max-width: 476px;
-    border-radius: 30px;
+    border-radius: clamp(15px, 2.93vw, 30px);
     border: 1px solid #F0F0F0;
     background: var(--white);
-    box-shadow: 0 0 25px 0 rgba(37, 37, 37, 0.06);
-    padding: 30px;
+    box-shadow: 0 0 clamp(15px, 2.441vw, 25px) 0 rgba(37, 37, 37, 0.06);
+    padding: clamp(20px, 2.93vw, 30px);
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -47,8 +47,26 @@
         justify-content: center;
     }
 
+    &__title {
+        @include tablet {
+            padding: 0 30px;
+            font-size: 23px;
+            font-weight: 600;
+            line-height: 105%; /* 24.15px */
+            letter-spacing: -1.15px;
+            text-align: center;
+        }
+    }
+
     &__descr {
         color: var(--grey-500);
+
+        @include tablet {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 140%; /* 22.4px */
+            letter-spacing: -0.8px;
+        }
     }
 
     &__btns {
