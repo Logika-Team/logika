@@ -52,12 +52,21 @@ final class Logika_Theme_Source_Markup {
 		}
 
 		$review_ids = $context_id && 'index' === $source ? array_map( 'absint', (array) get_field( 'city_related_reviews', $context_id ) ) : self::reviewIds( $source, $context_id );
-		$image_context = 'camps' === $source ? 'camp_archive' : ( $context_id ?: ( 'index' === $source ? 0 : get_queried_object_id() ) );
-		$markup        = Logika_Theme_Testimonials::apply( self::routeNavigationLinks( self::applyLeadForms( $markup ), $source ), $review_ids ?: null, $image_context );
+		$section_context = 'camps' === $source ? 'camp_archive' : ( $context_id ?: ( 'index' === $source ? (int) get_option( 'page_on_front' ) : get_queried_object_id() ) );
+		$markup          = Logika_Theme_Testimonials::apply( self::routeNavigationLinks( self::applyLeadForms( $markup ), $source ), $review_ids ?: null, $section_context );
 
 		if ( preg_match( '#<main(?:\s[^>]*)?>.*?</main>#is', $markup, $matches ) ) {
-			echo self::rewriteAssets( $matches[0] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo self::rewriteAssets( $matches[0] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
+	}
+
+	public static function renderReviewsSection( ?array $review_ids = null, int|string $section_context = 0 ): string {
+		$source = self::read( 'index' );
+		if ( '' === $source || ! preg_match( '#<section class="testimonials-section">.*?</section>#is', $source, $matches ) || ! Logika_Theme_Entities::reviews( $review_ids ) ) {
+			return '';
+		}
+
+		return self::rewriteAssets( Logika_Theme_Testimonials::apply( $matches[0], $review_ids, $section_context ) );
 	}
 
 	private static function reviewIds( string $source, int $context_id = 0 ): ?array {
@@ -501,6 +510,9 @@ final class Logika_Theme_Source_Markup {
 		}
 
 		$image = self::portfolioImage( $row['student_image'] ?? 0, $name . ', учень курсу ' . $course, 'medium', '' );
+		if ( '' === $image ) {
+			$image = self::portfolioImage( $row['project_image'] ?? 0, 'Ілюстрація проєкту ' . $name, 'medium', '' );
+		}
 		$topic = '' !== $topic ? '<span class="portfolio-section__tag portfolio-section__tag--topic">' . esc_html( $topic ) . '</span>' : '';
 
 		return '<li class="portfolio-section__card"><h3>' . esc_html( $title ) . '</h3><div class="portfolio-section__photo">' . $image . '<span class="portfolio-section__tag portfolio-section__tag--course">' . esc_html( $course ) . '</span>' . $topic . '</div><p>' . esc_html( $description ) . '</p></li>';
@@ -525,7 +537,6 @@ final class Logika_Theme_Source_Markup {
 				'home_transformation_after_label' => 'Стало',
 				'home_transformation_after_text' => 'Створює власні ігри',
 				'home_onboarding_title' => 'Як розпочати навчання',
-				'home_testimonials_title' => 'Довіра, підтверджена результатами',
 				'home_portfolio_title' => 'Проєкти наших учнів',
 				'home_locations_text' => 'Наші школи у 130 містах України - знайдіть зручний варіант поруч із вами або навчайтесь онлайн.',
 				'home_media_title' => 'Медіа-центр',
@@ -648,7 +659,7 @@ final class Logika_Theme_Source_Markup {
 
 		$layout = '<div class="media-section__news"><article class="media-section__feature"><div class="media-section__feature-tags"><span>' . esc_html( self::mediaValue( $news, 'tag_primary', 'Logika Новини' ) ) . '</span><span>' . esc_html( self::mediaValue( $news, 'tag_secondary', 'Корисне для батьків' ) ) . '</span></div><img class="media-section__figma-art" src="' . esc_url( self::mediaImage( $news, 'image', 'img/media-center/figma/news.svg' ) ) . '" alt=""></article><div class="media-section__feature-copy"><h3>' . esc_html( self::mediaValue( $news, 'title', 'Що нового у Logika' ) ) . '</h3><p>' . esc_html( self::mediaValue( $news, 'text', 'Актуальні новини, події та важливі оновлення школи.' ) ) . '</p>' . self::mediaLink( $news, 'link', '/media-center/', 'Перейти до розділу' ) . '</div><article class="media-section__contest"><img class="media-section__background" src="' . esc_url( self::mediaImage( $contest, 'image', 'img/media-center/figma/contest-art.svg' ) ) . '" alt="" aria-hidden="true"><span class="media-section__label">' . esc_html( self::mediaValue( $contest, 'label', 'Logika Конкурси' ) ) . '</span><div><h3>' . nl2br( esc_html( self::mediaValue( $contest, 'title', "Конкурси від\nLogika" ) ) ) . '</h3><p>' . esc_html( self::mediaValue( $contest, 'text', 'Беріть участь у хакатонах, змаганнях, творчих ініціативах і отримуйте нагороди за призові місця.' ) ) . '</p></div>' . self::mediaLink( $contest, 'link', '/media-center/', 'Переглянути усі конкурси' ) . '</article></div><div class="media-section__promos"><article class="media-section__promo media-section__promo--offer"><span class="media-section__label">' . esc_html( self::mediaValue( $offer, 'label', 'Акція' ) ) . '</span><img class="media-section__background" src="' . esc_url( self::mediaImage( $offer, 'background', 'img/media-center/figma/offer-background.svg' ) ) . '" alt=""><img class="media-section__figma-art" src="' . esc_url( self::mediaImage( $offer, 'image', 'img/media-center/figma/offer.svg' ) ) . '" alt=""><div><h3>' . esc_html( self::mediaValue( $offer, 'title', '1=2' ) ) . '</h3><h4>' . esc_html( self::mediaValue( $offer, 'subtitle', 'на усі курси 14-17 років' ) ) . '</h4><p>' . esc_html( self::mediaValue( $offer, 'text', 'Купуйте один курс та отримуйте другий у подарунок' ) ) . '</p></div>' . self::mediaLink( $offer, 'link', '#', 'Дізнатись більше' ) . '</article><article class="media-section__promo media-section__promo--discount"><span class="media-section__label">' . esc_html( self::mediaValue( $discount, 'label', 'Акція' ) ) . '</span><img class="media-section__figma-art" src="' . esc_url( self::mediaImage( $discount, 'image', 'img/media-center/figma/discount.svg' ) ) . '" alt=""><div><h3>' . esc_html( self::mediaValue( $discount, 'title', '-10%' ) ) . '</h3><h4>' . esc_html( self::mediaValue( $discount, 'subtitle', 'на обрані курси' ) ) . '</h4><p>' . esc_html( self::mediaValue( $discount, 'text', 'Спробуйте навчання за вигідною ціною' ) ) . '</p></div>' . self::mediaLink( $discount, 'link', '#', 'Дізнатись більше' ) . '</article><article class="media-section__race"><span class="media-section__label">' . esc_html( self::mediaValue( $race, 'label', 'Конкурс' ) ) . '</span><img class="media-section__figma-art" src="' . esc_url( self::mediaImage( $race, 'image', 'img/media-center/figma/race.svg' ) ) . '" alt=""><h3>' . nl2br( esc_html( self::mediaValue( $race, 'title', "LogiRace\n2026" ) ) ) . '</h3><p>' . esc_html( self::mediaValue( $race, 'text', 'Уявіть майбутнє і створіть свій світ на Червоній планеті: ландшафт, технології, роботів, транспорт, ресурси та екосистему.' ) ) . '</p>' . self::mediaLink( $race, 'link', '#', 'Дізнатись більше' ) . '</article></div><div class="media-section__blog-list">' . $cards . '</div>';
 
-		return (string) preg_replace( '#(<section class="media-section"[^>]*>.*?<div class="media-section__cards-layout">).*?(</div>\s*</div>\s*</div>\s*</div>\s*</section>)#s', '$1' . $layout . '$2', $markup, 1 );
+		return (string) preg_replace( '#(<section class="media-section media-center-section"[^>]*>.*?<div class="media-section__cards-layout">).*?(</div>\s*</div>\s*</div>\s*</div>\s*</section>)#s', '$1' . $layout . '$2', $markup, 1 );
 	}
 
 	private static function replaceMediaTopLink( string $markup, int $page_id, string $field, string $class ): string {
@@ -692,6 +703,14 @@ final class Logika_Theme_Source_Markup {
 	private static function homeMediaPosts( int $page_id ): array {
 		$selected = array_values( array_unique( array_filter( array_map( 'absint', (array) get_field( 'home_media_posts', $page_id ) ) ) ) );
 		$city_id  = \Logika\Core\CityPostTags::currentCityId();
+		$visibility = array( 'relation' => 'OR', array( 'key' => 'post_hide_from_blog', 'compare' => 'NOT EXISTS' ), array( 'key' => 'post_hide_from_blog', 'value' => '0', 'compare' => '=' ) );
+
+		if ( $city_id ) {
+			$local = get_posts( array( 'post_type' => 'post', 'post_status' => 'publish', 'posts_per_page' => 3, 'orderby' => 'date', 'order' => 'DESC', 'fields' => 'ids', 'meta_query' => $visibility, 'tax_query' => \Logika\Core\CityPostTags::cityTaxQuery( $city_id ) ) );
+			$common = count( $local ) < 3 ? get_posts( array( 'post_type' => 'post', 'post_status' => 'publish', 'posts_per_page' => 3 - count( $local ), 'orderby' => 'date', 'order' => 'DESC', 'fields' => 'ids', 'meta_query' => $visibility, 'tax_query' => \Logika\Core\CityPostTags::commonTaxQuery() ) ) : array();
+
+			return array_map( 'absint', array_merge( $local, $common ) );
+		}
 
 		if ( $selected ) {
 			return array_values( array_filter( $selected, static fn( int $id ): bool => 'post' === get_post_type( $id ) && 'publish' === get_post_status( $id ) && ! get_post_meta( $id, 'post_hide_from_blog', true ) && \Logika\Core\CityPostTags::visible( $id, $city_id ) ) );
@@ -707,11 +726,7 @@ final class Logika_Theme_Source_Markup {
 					'orderby'        => 'date',
 					'order'          => 'DESC',
 					'fields'         => 'ids',
-					'meta_query'     => array(
-						'relation' => 'OR',
-						array( 'key' => 'post_hide_from_blog', 'compare' => 'NOT EXISTS' ),
-						array( 'key' => 'post_hide_from_blog', 'value' => '0', 'compare' => '=' ),
-					),
+					'meta_query'     => $visibility,
 					'tax_query'      => \Logika\Core\CityPostTags::visibilityTaxQuery( $city_id ),
 				)
 			)

@@ -18,6 +18,10 @@ if ( ! $projects || 'repeater' !== $projects['type'] ) {
 	$errors[] = 'Course projects are not editable through an ACF repeater.';
 }
 
+if ( $projects && 'block' !== $projects['layout'] ) {
+	$errors[] = 'Course project cards must use the compact ACF block layout.';
+}
+
 $project_fields = $projects['sub_fields'] ?? array();
 foreach ( array( 'variant', 'student_name', 'student_age', 'course', 'topic', 'description', 'student_image', 'project_image', 'video_url', 'cta_label', 'cta_url' ) as $field_name ) {
 	if ( ! current( array_filter( $project_fields, static fn( array $item ): bool => $field_name === $item['name'] ) ) ) {

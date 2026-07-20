@@ -37,6 +37,9 @@ final class MediaApi {
 						'sanitize_callback' => 'sanitize_key',
 						'validate_callback' => static fn( $value ): bool => '' === $value || isset( MediaCategories::labels()[ $value ] ),
 					),
+					'featured' => array(
+						'sanitize_callback' => 'absint',
+					),
 				),
 			)
 		);
@@ -46,10 +49,11 @@ final class MediaApi {
 		$city_id = absint( $request->get_param( 'city' ) );
 		$search  = trim( (string) $request->get_param( 'search' ) );
 		$category = (string) $request->get_param( 'category' );
+		$featured = absint( $request->get_param( 'featured' ) );
 		$limit   = rest_sanitize_boolean( $request->get_param( 'all' ) ) ? -1 : ( $search ? self::SEARCH_LIMIT : self::LIMIT );
 
 		if ( ! $city_id ) {
-			return new WP_REST_Response( self::cards( new WP_Query( self::latest_query( $search, $category, CityPostTags::commonTaxQuery() ) ) ) );
+			return new WP_REST_Response( self::prioritize( self::cards( new WP_Query( self::latest_query( $search, $category, CityPostTags::commonTaxQuery(), $limit ) ) ), $featured, $search, $limit ) );
 		}
 
 		$city = get_post( $city_id );
@@ -94,17 +98,17 @@ final class MediaApi {
 			)
 		) : array();
 
-		return new WP_REST_Response( array_merge( $local, $common ) );
+		return new WP_REST_Response( self::prioritize( array_merge( $local, $common ), 0, $search, $limit ) );
 	}
 
 	/**
 	 * @return array<string, mixed>
 	 */
-	private static function latest_query( string $search = '', string $category = '', array $tax_query = array() ): array {
+	private static function latest_query( string $search = '', string $category = '', array $tax_query = array(), int $limit = self::LIMIT ): array {
 		$query = array(
 			'post_type'      => 'post',
 			'post_status'    => 'publish',
-			'posts_per_page' => $search ? self::SEARCH_LIMIT : self::LIMIT,
+			'posts_per_page' => $limit,
 			'orderby'        => 'date',
 			'order'          => 'DESC',
 			'meta_query'     => self::visibility_query(),
@@ -135,15 +139,25 @@ final class MediaApi {
 	 */
 	private static function cards( WP_Query $query ): array {
 		return array_map(
-			static fn( WP_Post $post ): array => array(
-				'id'      => $post->ID,
-				'title'   => get_the_title( $post ),
-				'url'     => get_permalink( $post ),
-				'date'    => get_the_date( 'd.m.Y', $post ),
-				'excerpt' => wp_trim_words( get_the_excerpt( $post ), 30 ),
-				'image'   => (string) get_the_post_thumbnail_url( $post, 'large' ),
-			),
+			static fn( WP_Post $post ): array => self::card( $post ),
 			$query->posts
 		);
+	}
+
+	/** @param list<array{id: int, title: string, url: string, date: string, excerpt: string, image: string}> $cards */
+	private static function prioritize( array $cards, int $featured_id, string $search, int $limit ): array {
+		$featured = get_post( $featured_id );
+		if ( $search || ! $featured instanceof WP_Post || 'post' !== $featured->post_type || 'publish' !== $featured->post_status || '1' === get_post_meta( $featured_id, 'post_hide_from_blog', true ) ) {
+			return $cards;
+		}
+		$cards = array_values( array_filter( $cards, static fn( array $card ): bool => $featured_id !== (int) $card['id'] ) );
+		array_unshift( $cards, self::card( $featured ) );
+
+		return -1 === $limit ? $cards : array_slice( $cards, 0, $limit );
+	}
+
+	/** @return array{id: int, title: string, url: string, date: string, excerpt: string, image: string} */
+	private static function card( WP_Post $post ): array {
+		return array( 'id' => $post->ID, 'title' => get_the_title( $post ), 'url' => get_permalink( $post ), 'date' => get_the_date( 'd.m.Y', $post ), 'excerpt' => wp_trim_words( get_the_excerpt( $post ), 30 ), 'image' => (string) get_the_post_thumbnail_url( $post, 'large' ) );
 	}
 }

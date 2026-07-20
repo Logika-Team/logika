@@ -780,3 +780,7 @@ Note: CRM adapter implemented with fake client only; production credentials are 
 - [x] Додати CTA-контекст `gift_certificate`, який відкриває спільну форму без поля віку.
 - [x] Дозволити та зберегти `gift_certificate` як `form_id`; передавати цю класифікацію до CRM.
 - [x] Додати регресійний тест для CTA, REST і CRM payload.
+
+## 36. Форматування статей Медіацентру
+
+- [x] Додати компактні H2/H3 і світло-блакитну цитату для публічної статті та Gutenberg preview.

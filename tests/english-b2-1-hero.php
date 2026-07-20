@@ -22,4 +22,19 @@ if ( ! str_contains( $hero, '/assets/img/english-levels/characters/b2-1-reader.p
 	exit( 1 );
 }
 
+if ( ! str_contains( $markup, 'href="' . home_url( '/english-courses/' ) . '">Курси</a>' ) ) {
+	fwrite( STDERR, "English course breadcrumbs must link to the English courses page.\n" );
+	exit( 1 );
+}
+
+if ( str_contains( $markup, 'class="accordion__btn" data-id="english-program-' ) && str_contains( $markup, '<span aria-hidden="true">+</span>' ) ) {
+	fwrite( STDERR, "English course program buttons must not duplicate the plus icon.\n" );
+	exit( 1 );
+}
+
+if ( str_contains( $markup, 'english-course-catalog' ) ) {
+	fwrite( STDERR, "English course catalog must be temporarily hidden.\n" );
+	exit( 1 );
+}
+
 echo "B2.1 hero text and transparent character asset are correct.\n";

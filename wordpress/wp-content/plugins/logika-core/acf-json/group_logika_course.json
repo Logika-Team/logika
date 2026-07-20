@@ -1,1952 +1,2003 @@
 {
-    "key": "group_logika_course",
-    "title": "Курс",
-    "fields": [
+  "key": "group_logika_course",
+  "title": "Курс",
+  "fields": [
+    {
+      "key": "field_course_tab_basics",
+      "label": "Основне",
+      "name": "",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_course_age_min",
+      "label": "Вік від",
+      "name": "course_age_min",
+      "aria-label": "",
+      "type": "number",
+      "instructions": "Вкажіть значення для поля «Вік від».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "min": 0,
+      "default_value": "",
+      "max": "",
+      "step": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_course_age_max",
+      "label": "Вік до",
+      "name": "course_age_max",
+      "aria-label": "",
+      "type": "number",
+      "instructions": "Вкажіть значення для поля «Вік до».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "min": 0,
+      "default_value": "",
+      "max": "",
+      "step": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_course_direction",
+      "label": "Напрям",
+      "name": "course_direction",
+      "aria-label": "",
+      "type": "taxonomy",
+      "instructions": "Оберіть значення для поля «Напрям».",
+      "required": 1,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "taxonomy": "course_direction",
+      "field_type": "select",
+      "return_format": "id",
+      "multiple": 0,
+      "allow_null": 0,
+      "add_term": 1,
+      "load_terms": 0,
+      "save_terms": 0,
+      "bidirectional_target": []
+    },
+    {
+      "key": "field_course_format",
+      "label": "Формат навчання",
+      "name": "course_format",
+      "aria-label": "",
+      "type": "taxonomy",
+      "instructions": "Оберіть значення для поля «Формат навчання».",
+      "required": 1,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "taxonomy": "learning_format",
+      "field_type": "select",
+      "return_format": "id",
+      "multiple": 0,
+      "allow_null": 0,
+      "add_term": 1,
+      "load_terms": 0,
+      "save_terms": 0,
+      "bidirectional_target": []
+    },
+    {
+      "key": "field_course_short_description",
+      "label": "Короткий опис",
+      "name": "course_short_description",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Введіть редакторський текст для поля «Короткий опис».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "new_lines": "",
+      "maxlength": "",
+      "placeholder": "",
+      "rows": ""
+    },
+    {
+      "key": "field_course_program",
+      "label": "Програма",
+      "name": "course_program",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "Додавайте рядки та змінюйте їхній порядок перетягуванням.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "min": 0,
+      "max": 0,
+      "rows_per_page": 20,
+      "button_label": "Add Row",
+      "collapsed": "",
+      "sub_fields": [
         {
-            "key": "field_course_tab_basics",
-            "label": "Основне",
-            "name": "",
-            "type": "tab",
-            "placement": "top",
-            "endpoint": 0
+          "key": "field_course_program_title",
+          "label": "Заголовок",
+          "name": "title",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Заголовок».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_course_program"
         },
         {
-            "key": "field_course_external_id",
-            "label": "Зовнішній ID",
-            "name": "course_external_id",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Вкажіть значення для поля «Зовнішній ID».",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+          "key": "field_course_program_description",
+          "label": "Опис",
+          "name": "description",
+          "aria-label": "",
+          "type": "wysiwyg",
+          "instructions": "Введіть редакторський текст для поля «Опис».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "tabs": "all",
+          "toolbar": "full",
+          "media_upload": 1,
+          "default_value": "",
+          "delay": 0,
+          "parent_repeater": "field_course_program"
         },
         {
-            "key": "field_course_age_min",
-            "label": "Вік від",
-            "name": "course_age_min",
-            "aria-label": "",
-            "type": "number",
-            "instructions": "Вкажіть значення для поля «Вік від».",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "min": 0,
-            "default_value": "",
-            "max": "",
-            "step": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_course_age_max",
-            "label": "Вік до",
-            "name": "course_age_max",
-            "aria-label": "",
-            "type": "number",
-            "instructions": "Вкажіть значення для поля «Вік до».",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "min": 0,
-            "default_value": "",
-            "max": "",
-            "step": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_course_direction",
-            "label": "Напрям",
-            "name": "course_direction",
-            "aria-label": "",
-            "type": "taxonomy",
-            "instructions": "Оберіть значення для поля «Напрям».",
-            "required": 1,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "taxonomy": "course_direction",
-            "field_type": "select",
-            "return_format": "id",
-            "multiple": 0,
-            "allow_null": 0,
-            "add_term": 1,
-            "load_terms": 0,
-            "save_terms": 0,
-            "bidirectional_target": []
-        },
-        {
-            "key": "field_course_format",
-            "label": "Формат навчання",
-            "name": "course_format",
-            "aria-label": "",
-            "type": "taxonomy",
-            "instructions": "Оберіть значення для поля «Формат навчання».",
-            "required": 1,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "taxonomy": "learning_format",
-            "field_type": "select",
-            "return_format": "id",
-            "multiple": 0,
-            "allow_null": 0,
-            "add_term": 1,
-            "load_terms": 0,
-            "save_terms": 0,
-            "bidirectional_target": []
-        },
-        {
-            "key": "field_course_short_description",
-            "label": "Короткий опис",
-            "name": "course_short_description",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "Введіть редакторський текст для поля «Короткий опис».",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "new_lines": "",
-            "maxlength": "",
-            "placeholder": "",
-            "rows": ""
-        },
-        {
-            "key": "field_course_program",
-            "label": "Програма",
-            "name": "course_program",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "Додавайте рядки та змінюйте їхній порядок перетягуванням.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "min": 0,
-            "max": 0,
-            "rows_per_page": 20,
-            "button_label": "Add Row",
-            "collapsed": "",
-            "sub_fields": [
-                {
-                    "key": "field_course_program_title",
-                    "label": "Заголовок",
-                    "name": "title",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Вкажіть значення для поля «Заголовок».",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_course_program"
-                },
-                {
-                    "key": "field_course_program_description",
-                    "label": "Опис",
-                    "name": "description",
-                    "aria-label": "",
-                    "type": "wysiwyg",
-                    "instructions": "Введіть редакторський текст для поля «Опис».",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 1,
-                    "default_value": "",
-                    "delay": 0,
-                    "parent_repeater": "field_course_program"
-                },
-                {
-                    "key": "field_course_program_items",
-                    "label": "Пункти",
-                    "name": "items",
-                    "aria-label": "",
-                    "type": "repeater",
-                    "instructions": "Додавайте рядки та змінюйте їхній порядок перетягуванням.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "layout": "table",
-                    "min": 0,
-                    "max": 0,
-                    "rows_per_page": 20,
-                    "button_label": "Add Row",
-                    "collapsed": "",
-                    "parent_repeater": "field_course_program",
-                    "sub_fields": [
-                        {
-                            "key": "field_course_program_item_text",
-                            "label": "Пункт",
-                            "name": "item_text",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "Вкажіть значення для поля «Пункт».",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "parent_repeater": "field_course_program_items"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "key": "field_course_projects",
-            "label": "Проєкти",
-            "name": "course_projects",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "Додавайте рядки та змінюйте їхній порядок перетягуванням.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "table",
-            "min": 0,
-            "max": 0,
-            "rows_per_page": 20,
-            "button_label": "Add Row",
-            "collapsed": "",
-            "sub_fields": [
-                {
-                    "key": "field_course_project_variant",
-                    "label": "Тип картки",
-                    "name": "variant",
-                    "aria-label": "",
-                    "type": "select",
-                    "instructions": "Виділена картка показує відео, зображення проєкту та кнопку.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "standard": "Звичайна",
-                        "featured": "Виділена"
-                    },
-                    "default_value": "standard",
-                    "multiple": 0,
-                    "allow_null": 0,
-                    "ui": 0,
-                    "ajax": 0,
-                    "placeholder": "",
-                    "return_format": "value",
-                    "create_options": 0,
-                    "save_options": 0,
-                    "parent_repeater": "field_course_projects"
-                },
-                {
-                    "key": "field_course_project_student_name",
-                    "label": "Ім'я учня",
-                    "name": "student_name",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Ім'я учня для картки проєкту.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_course_projects"
-                },
-                {
-                    "key": "field_course_project_student_age",
-                    "label": "Вік учня",
-                    "name": "student_age",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Наприклад: 12 років.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_course_projects"
-                },
-                {
-                    "key": "field_course_project_course",
-                    "label": "Курс",
-                    "name": "course",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Назва курсу на бейджі картки.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_course_projects"
-                },
-                {
-                    "key": "field_course_project_topic",
-                    "label": "Тема",
-                    "name": "topic",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Необов'язковий нижній бейдж звичайної картки.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_course_projects"
-                },
-                {
-                    "key": "field_course_project_card_description",
-                    "label": "Опис для картки",
-                    "name": "description",
-                    "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "Коротко опишіть створений проєкт.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "new_lines": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "rows": "",
-                    "parent_repeater": "field_course_projects"
-                },
-                {
-                    "key": "field_course_project_student_image",
-                    "label": "Фото учня",
-                    "name": "student_image",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "Для звичайної картки.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": 0,
-                    "min_height": 0,
-                    "min_size": 0,
-                    "max_width": 0,
-                    "max_height": 0,
-                    "max_size": 0,
-                    "mime_types": "",
-                    "parent_repeater": "field_course_projects"
-                },
-                {
-                    "key": "field_course_project_title",
-                    "label": "Назва",
-                    "name": "project_title",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Вкажіть значення для поля «Назва».",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_course_projects"
-                },
-                {
-                    "key": "field_course_project_description",
-                    "label": "Опис",
-                    "name": "project_description",
-                    "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "Введіть редакторський текст для поля «Опис».",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "new_lines": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "rows": "",
-                    "parent_repeater": "field_course_projects"
-                },
-                {
-                    "key": "field_course_project_image",
-                    "label": "Зображення",
-                    "name": "project_image",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "Оберіть зображення для «Зображення». Після вибору в полі буде показано мініатюру.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": 0,
-                    "min_height": 0,
-                    "min_size": 0,
-                    "max_width": 0,
-                    "max_height": 0,
-                    "max_size": 0,
-                    "mime_types": "",
-                    "parent_repeater": "field_course_projects"
-                },
-                {
-                    "key": "field_course_project_video_url",
-                    "label": "Посилання на відео",
-                    "name": "video_url",
-                    "aria-label": "",
-                    "type": "url",
-                    "instructions": "Необов'язкове посилання для виділеної картки.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "parent_repeater": "field_course_projects"
-                },
-                {
-                    "key": "field_course_project_cta_label",
-                    "label": "Текст кнопки",
-                    "name": "cta_label",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Кнопка виділеної картки.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_course_projects"
-                },
-                {
-                    "key": "field_course_project_cta_url",
-                    "label": "Посилання кнопки",
-                    "name": "cta_url",
-                    "aria-label": "",
-                    "type": "url",
-                    "instructions": "Залиште порожнім для переходу до форми заявки.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "parent_repeater": "field_course_projects"
-                }
-            ]
-        },
-        {
-            "key": "field_course_cta_label",
-            "label": "Текст CTA",
-            "name": "course_cta_label",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Вкажіть значення для поля «Текст CTA».",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_course_cta_text",
-            "label": "Опис CTA",
-            "name": "course_cta_text",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "Введіть редакторський текст для поля «Опис CTA».",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "new_lines": "",
-            "maxlength": "",
-            "placeholder": "",
-            "rows": ""
-        },
-        {
-            "key": "field_course_related_cities",
-            "label": "Доступні міста",
-            "name": "course_related_cities",
-            "aria-label": "",
-            "type": "relationship",
-            "instructions": "Оберіть потрібні записи та розташуйте їх у порядку публічного показу.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "city"
-            ],
-            "return_format": "id",
-            "taxonomy": [],
-            "min": 0,
-            "max": 0,
-            "filters": [
-                "search",
-                "post_type",
-                "taxonomy"
-            ],
-            "elements": [],
-            "bidirectional_target": []
-        },
-        {
-            "key": "field_course_related_faq",
-            "label": "FAQ",
-            "name": "course_related_faq",
-            "aria-label": "",
-            "type": "relationship",
-            "instructions": "Оберіть потрібні записи та розташуйте їх у порядку публічного показу.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "faq_item"
-            ],
-            "return_format": "id",
-            "taxonomy": [],
-            "min": 0,
-            "max": 0,
-            "filters": [
-                "search",
-                "post_type",
-                "taxonomy"
-            ],
-            "elements": [],
-            "bidirectional_target": []
-        },
-        {
-            "key": "field_course_related_reviews",
-            "label": "Відгуки",
-            "name": "course_related_reviews",
-            "aria-label": "",
-            "type": "relationship",
-            "instructions": "Оберіть потрібні записи та розташуйте їх у порядку публічного показу.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "review"
-            ],
-            "return_format": "id",
-            "taxonomy": [],
-            "min": 0,
-            "max": 0,
-            "filters": [
-                "search",
-                "post_type",
-                "taxonomy"
-            ],
-            "elements": [],
-            "bidirectional_target": []
-        },
-        {
-            "key": "field_course_card_description",
-            "label": "Опис картки",
-            "name": "course_card_description",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "Короткий опис для картки в каталозі курсів: не більше 100 символів.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "new_lines": "",
-            "maxlength": 100,
-            "placeholder": "",
-            "rows": 2
-        },
-        {
-            "key": "field_course_card_image",
-            "label": "Зображення картки",
-            "name": "course_card_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Оберіть зображення для «Зображення картки». Після вибору в полі буде показано мініатюру.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 0,
-            "min_height": 0,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": ""
-        },
-        {
-            "key": "field_course_hero_image",
-            "label": "Зображення hero",
-            "name": "course_hero_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Оберіть зображення для «Зображення hero». Після вибору в полі буде показано мініатюру.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 0,
-            "min_height": 0,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": ""
-        },
-        {
-            "key": "field_course_seo_title",
-            "label": "SEO-заголовок",
-            "name": "course_seo_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Вкажіть значення для поля «SEO-заголовок».",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_course_seo_description",
-            "label": "SEO-опис",
-            "name": "course_seo_description",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "Введіть редакторський текст для поля «SEO-опис».",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "new_lines": "",
-            "maxlength": "",
-            "placeholder": "",
-            "rows": ""
-        },
-        {
-            "key": "field_course_schema_course",
-            "label": "Дані схеми Course",
-            "name": "course_schema_course",
-            "aria-label": "",
-            "type": "group",
-            "instructions": "Заповніть складові поля секції «Дані схеми Course».",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_course_schema_name",
-                    "label": "Назва",
-                    "name": "name",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Вкажіть значення для поля «Назва».",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
-                    "key": "field_course_schema_description",
-                    "label": "Опис",
-                    "name": "description",
-                    "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "Введіть редакторський текст для поля «Опис».",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "new_lines": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "rows": ""
-                }
-            ]
-        },
-        {
-            "key": "field_course_tab_hero",
-            "label": "Hero",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_course_hero_label",
-            "label": "Мітка hero",
-            "name": "course_hero_label",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Заповніть поле «Мітка hero».",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_course_hero_text",
-            "label": "Текст hero",
-            "name": "course_hero_text",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "Заповніть поле «Текст hero».",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "new_lines": "",
-            "maxlength": "",
-            "placeholder": "",
-            "rows": ""
-        },
-        {
-            "key": "field_course_hero_additional_text",
-            "label": "Додатковий текст hero",
-            "name": "course_hero_additional_text",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "Додайте другий абзац опису курсу.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "new_lines": "",
-            "maxlength": "",
-            "placeholder": "",
-            "rows": ""
-        },
-        {
-            "key": "field_course_hero_cta_label",
-            "label": "Текст кнопки hero",
-            "name": "course_hero_cta_label",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Вкажіть текст кнопки заявки у hero.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_course_program_anchor_label",
-            "label": "Текст кнопки програми",
-            "name": "course_program_anchor_label",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Вкажіть текст кнопки переходу до програми.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_course_hero_background_image",
-            "label": "Фонове зображення hero",
-            "name": "course_hero_background_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Оберіть декоративне фонове зображення hero.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 0,
-            "min_height": 0,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": ""
-        },
-        {
-            "key": "field_course_hero_character_image",
-            "label": "Персонаж hero",
-            "name": "course_hero_character_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Оберіть декоративного персонажа hero.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 0,
-            "min_height": 0,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": ""
-        },
-        {
-            "key": "field_course_tab_learn",
-            "label": "Чому навчиться дитина",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_course_learn_title",
-            "label": "Заголовок секції",
-            "name": "course_learn_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Заповніть поле «Заголовок секції».",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_course_learn_items",
-            "label": "Навички",
-            "name": "course_learn_items",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "Додавайте елементи та змінюйте їхній порядок перетягуванням.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "button_label": "Додати елемент",
-            "min": 0,
-            "max": 0,
-            "rows_per_page": 20,
-            "collapsed": "",
-            "sub_fields": [
-                {
-                    "key": "field_course_learn_item_title",
-                    "label": "Заголовок",
-                    "name": "title",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Заповніть поле «Заголовок».",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_course_learn_items"
-                },
-                {
-                    "key": "field_course_learn_item_text",
-                    "label": "Текст",
-                    "name": "text",
-                    "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "Заповніть поле «Текст».",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "new_lines": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "rows": "",
-                    "parent_repeater": "field_course_learn_items"
-                },
-                {
-                    "key": "field_course_learn_item_icon",
-                    "label": "Lucide-іконка",
-                    "name": "icon",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Вкажіть назву SVG з assets/img/course/program-icons.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "code",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_course_learn_items"
-                },
-                {
-                    "key": "field_course_learn_item_image",
-                    "label": "Зображення",
-                    "name": "image",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "Заповніть поле «Зображення».",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": 0,
-                    "min_height": 0,
-                    "min_size": 0,
-                    "max_width": 0,
-                    "max_height": 0,
-                    "max_size": 0,
-                    "mime_types": "",
-                    "parent_repeater": "field_course_learn_items"
-                }
-            ]
-        },
-        {
-            "key": "field_course_learn_image",
-            "label": "Зображення секції",
-            "name": "course_learn_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Заповніть поле «Зображення секції».",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 0,
-            "min_height": 0,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": ""
-        },
-        {
-            "key": "field_course_learn_background_image",
-            "label": "Фонове зображення навичок",
-            "name": "course_learn_background_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Оберіть фонове зображення секції навичок.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 0,
-            "min_height": 0,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": ""
-        },
-        {
-            "key": "field_course_learn_character_image",
-            "label": "Персонаж секції навичок",
-            "name": "course_learn_character_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Оберіть декоративного персонажа секції навичок.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 0,
-            "min_height": 0,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": ""
-        },
-        {
-            "key": "field_course_tab_process",
-            "label": "Процес навчання",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_course_process_title",
-            "label": "Заголовок процесу",
-            "name": "course_process_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Заповніть поле «Заголовок процесу».",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_course_process_items",
-            "label": "Етапи навчання",
-            "name": "course_process_items",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "Додавайте картки процесу та змінюйте їхній порядок перетягуванням.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "button_label": "Додати картку",
-            "min": 0,
-            "max": 0,
-            "rows_per_page": 20,
-            "collapsed": "",
-            "sub_fields": [
-                {
-                    "key": "field_course_process_item_title",
-                    "label": "Заголовок",
-                    "name": "title",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Коротко опишіть етап навчання.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_course_process_items"
-                },
-                {
-                    "key": "field_course_process_item_text",
-                    "label": "Опис",
-                    "name": "text",
-                    "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "Поясніть, як проходить цей етап.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "new_lines": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "rows": "",
-                    "parent_repeater": "field_course_process_items"
-                },
-                {
-                    "key": "field_course_process_item_image",
-                    "label": "Зображення",
-                    "name": "image",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "Оберіть зображення картки; мініатюра відобразиться одразу.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": 0,
-                    "min_height": 0,
-                    "min_size": 0,
-                    "max_width": 0,
-                    "max_height": 0,
-                    "max_size": 0,
-                    "mime_types": "",
-                    "parent_repeater": "field_course_process_items"
-                },
-                {
-                    "key": "field_course_process_item_cta_label",
-                    "label": "Текст кнопки",
-                    "name": "cta_label",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Вкажіть текст кнопки заявки для цього етапу.",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_course_process_items"
-                }
-            ]
-        },
-        {
-            "key": "field_course_process_background_image",
-            "label": "Фонове зображення процесу",
-            "name": "course_process_background_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Оберіть декоративне фонове зображення секції процесу.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 0,
-            "min_height": 0,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": ""
-        },
-        {
-            "key": "field_course_tab_portfolio",
-            "label": "Портфоліо",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_course_portfolio_title",
-            "label": "Заголовок портфоліо",
-            "name": "course_portfolio_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Заповніть поле «Заголовок портфоліо».",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_course_tab_local_faq",
-            "label": "FAQ курсу",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_course_faq_title",
-            "label": "Заголовок програми курсу",
-            "name": "course_faq_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Заголовок аккордеона програми, який показується після проєктів учнів.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_course_faq_items",
-            "label": "Питання курсу",
-            "name": "course_faq_items",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "Додавайте елементи та змінюйте їхній порядок перетягуванням.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "button_label": "Додати елемент",
-            "min": 0,
-            "max": 0,
-            "rows_per_page": 20,
-            "collapsed": "",
-            "sub_fields": [
-                {
-                    "key": "field_course_faq_item_question",
-                    "label": "Питання",
-                    "name": "question",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Заповніть поле «Питання».",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_course_faq_items"
-                },
-                {
-                    "key": "field_course_faq_item_answer",
-                    "label": "Відповідь",
-                    "name": "answer",
-                    "aria-label": "",
-                    "type": "wysiwyg",
-                    "instructions": "Заповніть поле «Відповідь».",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 1,
-                    "default_value": "",
-                    "delay": 0,
-                    "parent_repeater": "field_course_faq_items"
-                }
-            ]
-        },
-        {
-            "key": "field_course_tab_reviews",
-            "label": "Відгуки",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_course_reviews_title",
-            "label": "Заголовок відгуків",
-            "name": "course_reviews_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Заповніть поле «Заголовок відгуків».",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_course_tab_map",
-            "label": "Карта шкіл",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_course_map_title",
-            "label": "Заголовок карти",
-            "name": "course_map_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Заповніть поле «Заголовок карти».",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_course_map_text",
-            "label": "Опис карти",
-            "name": "course_map_text",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "Заповніть поле «Опис карти».",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "new_lines": "",
-            "maxlength": "",
-            "placeholder": "",
-            "rows": ""
-        },
-        {
-            "key": "field_course_tab_cta",
-            "label": "CTA",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_course_cta_title",
-            "label": "Заголовок CTA",
-            "name": "course_cta_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Заповніть поле «Заголовок CTA».",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_course_cta_subtitle",
-            "label": "Підзаголовок CTA",
-            "name": "course_cta_subtitle",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Заповніть поле «Підзаголовок CTA».",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_course_cta_image",
-            "label": "Зображення CTA",
-            "name": "course_cta_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Заповніть поле «Зображення CTA».",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 0,
-            "min_height": 0,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": ""
-        },
-        {
-            "key": "field_course_cta_submit_label",
-            "label": "Текст кнопки CTA",
-            "name": "course_cta_submit_label",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Вкажіть текст кнопки у формі CTA.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_course_cta_character_image",
-            "label": "Персонаж CTA",
-            "name": "course_cta_character_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Оберіть декоративного персонажа CTA.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 0,
-            "min_height": 0,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": ""
-        },
-        {
-            "key": "field_course_cta_top_background_image",
-            "label": "Верхній фон CTA",
-            "name": "course_cta_top_background_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Оберіть верхнє фонове зображення CTA.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 0,
-            "min_height": 0,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": ""
-        },
-        {
-            "key": "field_course_cta_bottom_background_image",
-            "label": "Нижній фон CTA",
-            "name": "course_cta_bottom_background_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Оберіть нижнє фонове зображення CTA.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 0,
-            "min_height": 0,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": ""
-        },
-        {
-            "key": "field_course_tab_general_faq",
-            "label": "Загальний FAQ",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_course_general_faq_title",
-            "label": "Заголовок загального FAQ",
-            "name": "course_general_faq_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Заповніть поле «Заголовок загального FAQ».",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_course_faq_left_background_image",
-            "label": "Лівий фон FAQ",
-            "name": "course_faq_left_background_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Оберіть ліве фонове зображення FAQ.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 0,
-            "min_height": 0,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": ""
-        },
-        {
-            "key": "field_course_faq_right_background_image",
-            "label": "Правий фон FAQ",
-            "name": "course_faq_right_background_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Оберіть праве фонове зображення FAQ.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 0,
-            "min_height": 0,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
-            "mime_types": ""
-        }
-    ],
-    "location": [
-        [
+          "key": "field_course_program_items",
+          "label": "Пункти",
+          "name": "items",
+          "aria-label": "",
+          "type": "repeater",
+          "instructions": "Додавайте рядки та змінюйте їхній порядок перетягуванням.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "layout": "table",
+          "min": 0,
+          "max": 0,
+          "rows_per_page": 20,
+          "button_label": "Add Row",
+          "collapsed": "",
+          "parent_repeater": "field_course_program",
+          "sub_fields": [
             {
-                "param": "post_type",
-                "operator": "==",
-                "value": "course"
+              "key": "field_course_program_item_text",
+              "label": "Пункт",
+              "name": "item_text",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "Вкажіть значення для поля «Пункт».",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": "",
+              "placeholder": "",
+              "prepend": "",
+              "append": "",
+              "parent_repeater": "field_course_program_items"
             }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "acf_after_title",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": [],
-    "active": true,
-    "description": "",
-    "show_in_rest": true,
-    "display_title": "",
-    "allow_ai_access": true,
-    "ai_description": "Структуровані редакторські поля Logika: Курс.",
-    "modified": 1784299436
+          ]
+        }
+      ]
+    },
+    {
+      "key": "field_course_projects",
+      "label": "Проєкти",
+      "name": "course_projects",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "Додавайте рядки та змінюйте їхній порядок перетягуванням.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "min": 0,
+      "max": 0,
+      "rows_per_page": 20,
+      "button_label": "Add Row",
+      "collapsed": "",
+      "sub_fields": [
+        {
+          "key": "field_course_project_variant",
+          "label": "Тип картки",
+          "name": "variant",
+          "aria-label": "",
+          "type": "select",
+          "instructions": "Виділена картка показує відео, зображення проєкту та кнопку.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "choices": {
+            "standard": "Звичайна",
+            "featured": "Виділена"
+          },
+          "default_value": "standard",
+          "multiple": 0,
+          "allow_null": 0,
+          "ui": 0,
+          "ajax": 0,
+          "placeholder": "",
+          "return_format": "value",
+          "create_options": 0,
+          "save_options": 0,
+          "parent_repeater": "field_course_projects"
+        },
+        {
+          "key": "field_course_project_student_name",
+          "label": "Ім'я учня",
+          "name": "student_name",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Ім'я учня для картки проєкту.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_course_projects"
+        },
+        {
+          "key": "field_course_project_student_age",
+          "label": "Вік учня",
+          "name": "student_age",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Наприклад: 12 років.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_course_projects"
+        },
+        {
+          "key": "field_course_project_course",
+          "label": "Курс",
+          "name": "course",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Назва курсу на бейджі картки.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_course_projects"
+        },
+        {
+          "key": "field_course_project_topic",
+          "label": "Тема",
+          "name": "topic",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Необов'язковий нижній бейдж звичайної картки.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_course_projects"
+        },
+        {
+          "key": "field_course_project_card_description",
+          "label": "Опис для картки",
+          "name": "description",
+          "aria-label": "",
+          "type": "textarea",
+          "instructions": "Коротко опишіть створений проєкт.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "new_lines": "",
+          "maxlength": "",
+          "placeholder": "",
+          "rows": "",
+          "parent_repeater": "field_course_projects"
+        },
+        {
+          "key": "field_course_project_student_image",
+          "label": "Фото учня",
+          "name": "student_image",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "Для звичайної картки.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "min_width": 0,
+          "min_height": 0,
+          "min_size": 0,
+          "max_width": 0,
+          "max_height": 0,
+          "max_size": 0,
+          "mime_types": "",
+          "parent_repeater": "field_course_projects"
+        },
+        {
+          "key": "field_course_project_title",
+          "label": "Назва",
+          "name": "project_title",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Назва».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_course_projects"
+        },
+        {
+          "key": "field_course_project_description",
+          "label": "Опис",
+          "name": "project_description",
+          "aria-label": "",
+          "type": "textarea",
+          "instructions": "Введіть редакторський текст для поля «Опис».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "new_lines": "",
+          "maxlength": "",
+          "placeholder": "",
+          "rows": "",
+          "parent_repeater": "field_course_projects"
+        },
+        {
+          "key": "field_course_project_image",
+          "label": "Зображення",
+          "name": "project_image",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "Оберіть зображення для «Зображення». Після вибору в полі буде показано мініатюру.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "min_width": 0,
+          "min_height": 0,
+          "min_size": 0,
+          "max_width": 0,
+          "max_height": 0,
+          "max_size": 0,
+          "mime_types": "",
+          "parent_repeater": "field_course_projects"
+        },
+        {
+          "key": "field_course_project_video_url",
+          "label": "Посилання на відео",
+          "name": "video_url",
+          "aria-label": "",
+          "type": "url",
+          "instructions": "Необов'язкове посилання для виділеної картки.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "parent_repeater": "field_course_projects"
+        },
+        {
+          "key": "field_course_project_cta_label",
+          "label": "Текст кнопки",
+          "name": "cta_label",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Кнопка виділеної картки.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_course_projects"
+        },
+        {
+          "key": "field_course_project_cta_url",
+          "label": "Посилання кнопки",
+          "name": "cta_url",
+          "aria-label": "",
+          "type": "url",
+          "instructions": "Залиште порожнім для переходу до форми заявки.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "parent_repeater": "field_course_projects"
+        }
+      ]
+    },
+    {
+      "key": "field_course_cta_label",
+      "label": "Текст CTA",
+      "name": "course_cta_label",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Текст CTA».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_course_cta_text",
+      "label": "Опис CTA",
+      "name": "course_cta_text",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Введіть редакторський текст для поля «Опис CTA».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "new_lines": "",
+      "maxlength": "",
+      "placeholder": "",
+      "rows": ""
+    },
+    {
+      "key": "field_course_related_cities",
+      "label": "Доступні міста",
+      "name": "course_related_cities",
+      "aria-label": "",
+      "type": "relationship",
+      "instructions": "Оберіть потрібні записи та розташуйте їх у порядку публічного показу.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "post_type": [
+        "city"
+      ],
+      "return_format": "id",
+      "taxonomy": [],
+      "min": 0,
+      "max": 0,
+      "filters": [
+        "search",
+        "post_type",
+        "taxonomy"
+      ],
+      "elements": [],
+      "bidirectional_target": []
+    },
+    {
+      "key": "field_course_related_faq",
+      "label": "FAQ",
+      "name": "course_related_faq",
+      "aria-label": "",
+      "type": "relationship",
+      "instructions": "Оберіть потрібні записи та розташуйте їх у порядку публічного показу.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "post_type": [
+        "faq_item"
+      ],
+      "return_format": "id",
+      "taxonomy": [],
+      "min": 0,
+      "max": 0,
+      "filters": [
+        "search",
+        "post_type",
+        "taxonomy"
+      ],
+      "elements": [],
+      "bidirectional_target": []
+    },
+    {
+      "key": "field_course_card_description",
+      "label": "Опис картки",
+      "name": "course_card_description",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Короткий опис для картки в каталозі курсів: не більше 100 символів.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "new_lines": "",
+      "maxlength": 100,
+      "placeholder": "",
+      "rows": 2
+    },
+    {
+      "key": "field_course_card_image",
+      "label": "Зображення картки",
+      "name": "course_card_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Оберіть зображення для «Зображення картки». Після вибору в полі буде показано мініатюру.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_course_hero_image",
+      "label": "Зображення hero",
+      "name": "course_hero_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Оберіть зображення для «Зображення hero». Після вибору в полі буде показано мініатюру.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_course_tab_hero",
+      "label": "Перший екран",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_course_visual_variant",
+      "label": "Варіант оформлення",
+      "name": "course_visual_variant",
+      "type": "select",
+      "instructions": "Оберіть затверджений варіант оформлення першого екрана.",
+      "choices": {
+        "a0": "Стандартний",
+        "a1": "Варіант A1",
+        "a2": "Варіант A2",
+        "b1": "Варіант B1",
+        "b2": "Варіант B2",
+        "b2-1": "Варіант B2-1"
+      },
+      "default_value": "a0",
+      "return_format": "value",
+      "ui": 1,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_course_hero_benefits",
+      "label": "Переваги першого екрана",
+      "name": "course_hero_benefits",
+      "type": "repeater",
+      "instructions": "Додайте короткі переваги, що показуються у першому екрані.",
+      "layout": "table",
+      "button_label": "Додати перевагу",
+      "sub_fields": [
+        {
+          "key": "field_course_hero_benefit_text",
+          "label": "Текст",
+          "name": "text",
+          "type": "text",
+          "instructions": "Короткий текст переваги.",
+          "required": 1,
+          "wrapper": {
+            "width": ""
+          }
+        }
+      ]
+    },
+    {
+      "key": "field_course_hero_label",
+      "label": "Мітка hero",
+      "name": "course_hero_label",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Заповніть поле «Мітка hero».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_course_hero_text",
+      "label": "Текст hero",
+      "name": "course_hero_text",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Заповніть поле «Текст hero».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "new_lines": "",
+      "maxlength": "",
+      "placeholder": "",
+      "rows": ""
+    },
+    {
+      "key": "field_course_hero_additional_text",
+      "label": "Додатковий текст hero",
+      "name": "course_hero_additional_text",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Додайте другий абзац опису курсу.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "new_lines": "",
+      "maxlength": "",
+      "placeholder": "",
+      "rows": ""
+    },
+    {
+      "key": "field_course_hero_cta_label",
+      "label": "Текст кнопки hero",
+      "name": "course_hero_cta_label",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Вкажіть текст кнопки заявки у hero.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_course_program_anchor_label",
+      "label": "Текст кнопки програми",
+      "name": "course_program_anchor_label",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Вкажіть текст кнопки переходу до програми.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_course_hero_background_image",
+      "label": "Фонове зображення hero",
+      "name": "course_hero_background_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Оберіть декоративне фонове зображення hero.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_course_hero_character_image",
+      "label": "Персонаж hero",
+      "name": "course_hero_character_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Оберіть декоративного персонажа hero.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_course_tab_learn",
+      "label": "Чому навчиться дитина",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_course_learn_title",
+      "label": "Заголовок секції",
+      "name": "course_learn_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок секції».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_course_learn_items",
+      "label": "Навички",
+      "name": "course_learn_items",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "Додавайте елементи та змінюйте їхній порядок перетягуванням.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "button_label": "Додати елемент",
+      "min": 0,
+      "max": 0,
+      "rows_per_page": 20,
+      "collapsed": "",
+      "sub_fields": [
+        {
+          "key": "field_course_learn_item_title",
+          "label": "Заголовок",
+          "name": "title",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Заповніть поле «Заголовок».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_course_learn_items"
+        },
+        {
+          "key": "field_course_learn_item_text",
+          "label": "Текст",
+          "name": "text",
+          "aria-label": "",
+          "type": "textarea",
+          "instructions": "Заповніть поле «Текст».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "new_lines": "",
+          "maxlength": "",
+          "placeholder": "",
+          "rows": "",
+          "parent_repeater": "field_course_learn_items"
+        },
+        {
+          "key": "field_course_learn_item_icon",
+          "label": "Lucide-іконка",
+          "name": "icon",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Вкажіть назву SVG з assets/img/course/program-icons.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "code",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_course_learn_items"
+        },
+        {
+          "key": "field_course_learn_item_image",
+          "label": "Зображення",
+          "name": "image",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "Заповніть поле «Зображення».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "min_width": 0,
+          "min_height": 0,
+          "min_size": 0,
+          "max_width": 0,
+          "max_height": 0,
+          "max_size": 0,
+          "mime_types": "",
+          "parent_repeater": "field_course_learn_items"
+        }
+      ]
+    },
+    {
+      "key": "field_course_learn_image",
+      "label": "Зображення секції",
+      "name": "course_learn_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Заповніть поле «Зображення секції».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_course_learn_background_image",
+      "label": "Фонове зображення навичок",
+      "name": "course_learn_background_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Оберіть фонове зображення секції навичок.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_course_learn_character_image",
+      "label": "Персонаж секції навичок",
+      "name": "course_learn_character_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Оберіть декоративного персонажа секції навичок.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_course_tab_process",
+      "label": "Процес навчання",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_course_process_title",
+      "label": "Заголовок процесу",
+      "name": "course_process_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок процесу».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_course_process_items",
+      "label": "Етапи навчання",
+      "name": "course_process_items",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "Додавайте картки процесу та змінюйте їхній порядок перетягуванням.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "button_label": "Додати картку",
+      "min": 0,
+      "max": 0,
+      "rows_per_page": 20,
+      "collapsed": "",
+      "sub_fields": [
+        {
+          "key": "field_course_process_item_title",
+          "label": "Заголовок",
+          "name": "title",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Коротко опишіть етап навчання.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_course_process_items"
+        },
+        {
+          "key": "field_course_process_item_text",
+          "label": "Опис",
+          "name": "text",
+          "aria-label": "",
+          "type": "textarea",
+          "instructions": "Поясніть, як проходить цей етап.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "new_lines": "",
+          "maxlength": "",
+          "placeholder": "",
+          "rows": "",
+          "parent_repeater": "field_course_process_items"
+        },
+        {
+          "key": "field_course_process_item_image",
+          "label": "Зображення",
+          "name": "image",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "Оберіть зображення картки; мініатюра відобразиться одразу.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "min_width": 0,
+          "min_height": 0,
+          "min_size": 0,
+          "max_width": 0,
+          "max_height": 0,
+          "max_size": 0,
+          "mime_types": "",
+          "parent_repeater": "field_course_process_items"
+        },
+        {
+          "key": "field_course_process_item_cta_label",
+          "label": "Текст кнопки",
+          "name": "cta_label",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Вкажіть текст кнопки заявки для цього етапу.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_course_process_items"
+        }
+      ]
+    },
+    {
+      "key": "field_course_process_background_image",
+      "label": "Фонове зображення процесу",
+      "name": "course_process_background_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Оберіть декоративне фонове зображення секції процесу.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_course_tab_portfolio",
+      "label": "Портфоліо",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_course_portfolio_title",
+      "label": "Заголовок портфоліо",
+      "name": "course_portfolio_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок портфоліо».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_course_tab_local_faq",
+      "label": "FAQ курсу",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_course_faq_title",
+      "label": "Заголовок програми курсу",
+      "name": "course_faq_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Заголовок аккордеона програми, який показується після проєктів учнів.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_course_faq_items",
+      "label": "Питання курсу",
+      "name": "course_faq_items",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "Додавайте елементи та змінюйте їхній порядок перетягуванням.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "button_label": "Додати елемент",
+      "min": 0,
+      "max": 0,
+      "rows_per_page": 20,
+      "collapsed": "",
+      "sub_fields": [
+        {
+          "key": "field_course_faq_item_question",
+          "label": "Питання",
+          "name": "question",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Заповніть поле «Питання».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_course_faq_items"
+        },
+        {
+          "key": "field_course_faq_item_answer",
+          "label": "Відповідь",
+          "name": "answer",
+          "aria-label": "",
+          "type": "wysiwyg",
+          "instructions": "Заповніть поле «Відповідь».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "tabs": "all",
+          "toolbar": "full",
+          "media_upload": 1,
+          "default_value": "",
+          "delay": 0,
+          "parent_repeater": "field_course_faq_items"
+        }
+      ]
+    },
+    {
+      "key": "field_course_tab_reviews",
+      "label": "Відгуки",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_course_reviews_section",
+      "label": "Налаштування секції",
+      "name": "",
+      "type": "clone",
+      "instructions": "Задайте заголовок і ілюстрації саме для цієї сторінки. Порожні поля використовують загальні налаштування сайту.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "clone": [
+        "group_logika_testimonials_images"
+      ],
+      "display": "seamless",
+      "layout": "block",
+      "prefix_label": 0,
+      "prefix_name": 0
+    },
+    {
+      "key": "field_course_related_reviews",
+      "label": "Власна добірка відгуків",
+      "name": "course_related_reviews",
+      "aria-label": "",
+      "type": "relationship",
+      "instructions": "Оберіть відгуки лише для цієї сторінки. Залиште порожнім, щоб показати глобальну добірку.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "post_type": [
+        "review"
+      ],
+      "return_format": "id",
+      "taxonomy": [],
+      "min": 0,
+      "max": 0,
+      "filters": [
+        "search",
+        "post_type",
+        "taxonomy"
+      ],
+      "elements": [],
+      "bidirectional_target": []
+    },
+    {
+      "key": "field_course_tab_map",
+      "label": "Карта шкіл",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_course_map_title",
+      "label": "Заголовок карти",
+      "name": "course_map_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок карти».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_course_map_text",
+      "label": "Опис карти",
+      "name": "course_map_text",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Заповніть поле «Опис карти».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "new_lines": "",
+      "maxlength": "",
+      "placeholder": "",
+      "rows": ""
+    },
+    {
+      "key": "field_course_tab_cta",
+      "label": "Заклик до дії",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_course_cta_title",
+      "label": "Заголовок CTA",
+      "name": "course_cta_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок CTA».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_course_cta_subtitle",
+      "label": "Підзаголовок CTA",
+      "name": "course_cta_subtitle",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Заповніть поле «Підзаголовок CTA».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_course_cta_image",
+      "label": "Зображення CTA",
+      "name": "course_cta_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Заповніть поле «Зображення CTA».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_course_cta_submit_label",
+      "label": "Текст кнопки CTA",
+      "name": "course_cta_submit_label",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Вкажіть текст кнопки у формі CTA.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_course_cta_character_image",
+      "label": "Персонаж CTA",
+      "name": "course_cta_character_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Оберіть декоративного персонажа CTA.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_course_cta_top_background_image",
+      "label": "Верхній фон CTA",
+      "name": "course_cta_top_background_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Оберіть верхнє фонове зображення CTA.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_course_cta_bottom_background_image",
+      "label": "Нижній фон CTA",
+      "name": "course_cta_bottom_background_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Оберіть нижнє фонове зображення CTA.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_course_tab_general_faq",
+      "label": "Загальний FAQ",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_course_general_faq_title",
+      "label": "Заголовок загального FAQ",
+      "name": "course_general_faq_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Заповніть поле «Заголовок загального FAQ».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_course_faq_left_background_image",
+      "label": "Лівий фон FAQ",
+      "name": "course_faq_left_background_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Оберіть ліве фонове зображення FAQ.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_course_faq_right_background_image",
+      "label": "Правий фон FAQ",
+      "name": "course_faq_right_background_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Оберіть праве фонове зображення FAQ.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_course_tab_technical",
+      "label": "SEO та технічні дані",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_course_external_id",
+      "label": "Зовнішній ID",
+      "name": "course_external_id",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Зовнішній ID».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_course_seo_title",
+      "label": "SEO-заголовок",
+      "name": "course_seo_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «SEO-заголовок».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_course_seo_description",
+      "label": "SEO-опис",
+      "name": "course_seo_description",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Введіть редакторський текст для поля «SEO-опис».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "new_lines": "",
+      "maxlength": "",
+      "placeholder": "",
+      "rows": ""
+    },
+    {
+      "key": "field_course_schema_course",
+      "label": "Дані схеми Course",
+      "name": "course_schema_course",
+      "aria-label": "",
+      "type": "group",
+      "instructions": "Заповніть складові поля секції «Дані схеми Course».",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_course_schema_name",
+          "label": "Назва",
+          "name": "name",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Вкажіть значення для поля «Назва».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_course_schema_description",
+          "label": "Опис",
+          "name": "description",
+          "aria-label": "",
+          "type": "textarea",
+          "instructions": "Введіть редакторський текст для поля «Опис».",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "new_lines": "",
+          "maxlength": "",
+          "placeholder": "",
+          "rows": ""
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "course"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "acf_after_title",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": [],
+  "active": true,
+  "description": "",
+  "show_in_rest": true,
+  "display_title": "",
+  "allow_ai_access": true,
+  "ai_description": "Структуровані редакторські поля Logika: Курс.",
+  "modified": 1784542912
 }

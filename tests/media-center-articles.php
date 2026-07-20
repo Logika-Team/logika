@@ -51,6 +51,11 @@ foreach ( array( "document.createElement('picture')", 'news-card__thumbnail', 'n
 	}
 }
 
+if ( ! str_contains( $script, "card.image || '/wp-content/themes/logika-theme/assets/img/media-center/blog-placeholder.png'" ) ) {
+	fwrite( STDERR, "Media center cards must use the blog placeholder when an article has no image.\n" );
+	exit( 1 );
+}
+
 if ( ! str_contains( $styles, '.search-form__suggestions' ) || ! str_contains( $styles, '[hidden]' ) ) {
 	fwrite( STDERR, "Media center search suggestions need their dropdown styles.\n" );
 	exit( 1 );

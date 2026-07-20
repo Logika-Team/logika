@@ -4,7 +4,7 @@
   "fields": [
     {
       "key": "field_faq_page_tab_hero",
-      "label": "Hero",
+      "label": "Перший екран",
       "type": "tab",
       "name": ""
     },
@@ -54,13 +54,6 @@
       "instructions": "Вкажіть значення для поля «Заголовок FAQ»."
     },
     {
-      "key": "field_faq_page_reviews_title",
-      "label": "Заголовок відгуків",
-      "name": "faq_page_reviews_title",
-      "type": "text",
-      "instructions": "Вкажіть значення для поля «Заголовок відгуків»."
-    },
-    {
       "key": "field_faq_page_cta_title",
       "label": "Заголовок консультації",
       "name": "faq_page_cta_title",
@@ -88,20 +81,6 @@
       "instructions": "Оберіть потрібні записи та розташуйте їх у порядку публічного показу."
     },
     {
-      "key": "field_faq_page_featured_reviews",
-      "label": "Відгуки",
-      "name": "faq_page_featured_reviews",
-      "type": "relationship",
-      "post_type": [
-        "review"
-      ],
-      "return_format": "id",
-      "filters": [
-        "search"
-      ],
-      "instructions": "Оберіть потрібні записи та розташуйте їх у порядку публічного показу."
-    },
-    {
       "key": "field_faq_page_tab_list",
       "label": "FAQ",
       "name": "",
@@ -113,7 +92,44 @@
       "label": "Відгуки",
       "name": "",
       "type": "tab",
-      "instructions": ""
+      "instructions": "",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_faq_page_reviews_section",
+      "label": "Налаштування секції",
+      "name": "",
+      "type": "clone",
+      "instructions": "Задайте заголовок і ілюстрації саме для цієї сторінки. Порожні поля використовують загальні налаштування сайту.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "clone": [
+        "group_logika_testimonials_images"
+      ],
+      "display": "seamless",
+      "layout": "block",
+      "prefix_label": 0,
+      "prefix_name": 0
+    },
+    {
+      "key": "field_faq_page_featured_reviews",
+      "label": "Власна добірка відгуків",
+      "name": "faq_page_featured_reviews",
+      "type": "relationship",
+      "post_type": [
+        "review"
+      ],
+      "return_format": "id",
+      "filters": [
+        "search"
+      ],
+      "instructions": "Оберіть відгуки лише для цієї сторінки. Залиште порожнім, щоб показати глобальну добірку."
     },
     {
       "key": "field_faq_page_tab_map",
@@ -138,7 +154,7 @@
     },
     {
       "key": "field_faq_page_tab_cta",
-      "label": "CTA",
+      "label": "Заклик до дії",
       "name": "",
       "type": "tab",
       "instructions": ""
@@ -173,5 +189,5 @@
   "show_in_rest": true,
   "allow_ai_access": true,
   "ai_description": "Структуровані редакторські поля Logika: Сторінка: FAQ.",
-  "modified": 1784281465
+  "modified": 1784542912
 }

@@ -60,6 +60,12 @@ try {
 			$errors[] = "Homepage does not render editable project value {$value}.";
 		}
 	}
+
+	foreach ( array( 'Ян Корнієць', 'Tactical Strike Force', 'Ілля Шляпников', 'Shadow Light 2', 'Максим Кравченко', 'Chernobyl Horror' ) as $value ) {
+		if ( ! str_contains( $homepage, $value ) ) {
+			$errors[] = "Homepage fallback is missing {$value}.";
+		}
+	}
 } finally {
 	if ( false === $saved_items ) {
 		delete_post_meta( $front_page_id, 'home_portfolio_items' );

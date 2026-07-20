@@ -354,6 +354,20 @@ Automated test not added now: no WordPress harness yet. Form behavior verified m
 
 ## 10. Minimal pre-release checklist
 
+### ACF-адмінка та відгуки
+
+Для змін ACF Local JSON у WordPress worktree запускайте через DDEV:
+
+```bash
+ddev exec php /var/www/html/tests/acf-editor-contract.php
+ddev exec php /var/www/html/tests/acf-admin-unification.php
+ddev exec php /var/www/html/tests/testimonials-global-renderer.php
+ddev exec php /var/www/html/tests/reviews-section-overrides.php
+ddev exec wp --path=wordpress logika acf-migrate-reviews --dry-run --allow-root
+```
+
+Після dry-run виконайте міграцію один раз, повторіть dry-run і підтвердьте `changed: 0`. Команда читає лише legacy-поля та заповнює порожні global fallback і локальні налаштування секцій; наявні значення не перезаписуються.
+
 Before release check:
 
 - `npm run build` passes;

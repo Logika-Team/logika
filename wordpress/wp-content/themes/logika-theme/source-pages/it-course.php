@@ -32,8 +32,8 @@
                 </a>
                 <a class="course-banner-section__btn btn btn--bordered-violet" href="#course-program">
                   Програма курсу
-                  <svg width='20' height='20'>
-                    <use href='img/sprite/sprite.svg#icon-more'></use>
+                  <svg width='20' height='20' viewBox='0 0 20 20' aria-hidden='true'>
+                    <circle cx='5' cy='10' r='1.46' fill='currentColor'></circle><circle cx='10' cy='10' r='1.46' fill='currentColor'></circle><circle cx='15' cy='10' r='1.46' fill='currentColor'></circle>
                   </svg>
                 </a>
               </div>

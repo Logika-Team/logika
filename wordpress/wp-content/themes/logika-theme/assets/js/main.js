@@ -313,11 +313,21 @@ window.addEventListener("DOMContentLoaded", () => {
         const closeAccordion = function (accordion, className = "active") {
           accordion.style.maxHeight = 0;
           removeCustomClass(accordion, className);
+
+          const itemParent = accordion.closest('.accordion__item');
+          if (itemParent) {
+            removeCustomClass(itemParent, className);
+          }
         };
 
         const openAccordion = function (accordion, className = "active") {
           accordion.style.maxHeight = accordion.scrollHeight + "px";
           addCustomClass(accordion, className);
+
+          const itemParent = accordion.closest('.accordion__item');
+          if (itemParent) {
+            addCustomClass(itemParent, className);
+          }
         };
 
         const toggleAccordionButton = function (button, className = "active") {
@@ -727,6 +737,13 @@ if (select.length) {
 
 document.querySelectorAll('.portfolio-section__viewport').forEach((viewport) => {
   viewport.querySelectorAll('img').forEach((image) => { image.draggable = false; });
+  const featuredCard = viewport.querySelector('.portfolio-section__card--featured');
+  const centerFeaturedCard = () => {
+    if (!featuredCard || !window.matchMedia('(max-width: 1024px)').matches) return;
+    viewport.scrollLeft = featuredCard.offsetLeft - (viewport.clientWidth - featuredCard.offsetWidth) / 2;
+  };
+  centerFeaturedCard();
+  window.addEventListener('resize', centerFeaturedCard);
   let startX = 0;
   let startScrollLeft = 0;
   let dragged = false;
@@ -747,6 +764,7 @@ document.querySelectorAll('.portfolio-section__viewport').forEach((viewport) => 
 
     const deltaX = event.clientX - startX;
     dragged ||= Math.abs(deltaX) > 4;
+    if (dragged) event.preventDefault();
     viewport.scrollLeft = startScrollLeft - deltaX;
   });
 

@@ -787,7 +787,16 @@ Rules:
 - ambiguous records should be skipped or reported, not guessed;
 - import reports must include created, updated, skipped and failed counts.
 
-## 13. CMS editing rules
+## 13. Спільний блок відгуків
+
+Джерело істини для карток відгуків — CPT `review`. Кожна сторінка, курс, місто й табір із секцією відгуків має вкладку «Відгуки» з однаковою ACF-схемою.
+
+- `reviews_section_title` і `reviews_section_gallery` — необов’язкові локальні заголовок і галерея до чотирьох декоративних фото; порожнє значення використовує global fallback;
+- `global_reviews_title` і `global_reviews_gallery` — fallback для секцій, де локальні поля порожні;
+- `*_featured_reviews`, `course_related_reviews`, `camp_related_reviews`, `city_related_reviews` — необов’язкові добірки конкретної сутності; порожнє значення означає всі схвалені відгуки;
+- старі `*_reviews_title` і `*_testimonials_image_*` лишаються тільки як legacy meta для rollback та не виводяться в admin або на сайті.
+
+## 14. CMS editing rules
 
 Editors can manage:
 
@@ -811,7 +820,7 @@ Editors should not manage:
 - raw SQL;
 - production secrets.
 
-## 14. Template ownership
+## 15. Template ownership
 
 | Template | Primary data source |
 |---|---|
@@ -832,7 +841,7 @@ Rules:
 - repeated blocks should be template parts;
 - all dynamic output must be escaped.
 
-## 15. Change control
+## 16. Change control
 
 Changing this content model requires documentation update before or with implementation.
 

@@ -3,11 +3,11 @@
   "title": "Табір",
   "fields": [
     {
-      "key": "field_camp_external_id",
-      "label": "Зовнішній ID",
-      "name": "camp_external_id",
-      "type": "text",
-      "instructions": "Вкажіть значення для поля «Зовнішній ID»."
+      "key": "field_camp_tab_basics",
+      "label": "Основне",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
     },
     {
       "key": "field_camp_start_date",
@@ -139,22 +139,8 @@
       "instructions": "Введіть редакторський текст для поля «Повідомлення після завершення»."
     },
     {
-      "key": "field_camp_seo_title",
-      "label": "SEO-заголовок",
-      "name": "camp_seo_title",
-      "type": "text",
-      "instructions": "Вкажіть значення для поля «SEO-заголовок»."
-    },
-    {
-      "key": "field_camp_seo_description",
-      "label": "SEO-опис",
-      "name": "camp_seo_description",
-      "type": "textarea",
-      "instructions": "Введіть редакторський текст для поля «SEO-опис»."
-    },
-    {
       "key": "field_camp_tab_hero",
-      "label": "Hero",
+      "label": "Перший екран",
       "name": "",
       "type": "tab",
       "instructions": ""
@@ -211,13 +197,15 @@
           "key": "field_camp_hero_fact_label",
           "label": "Підпис",
           "name": "label",
-          "type": "text"
+          "type": "text",
+          "instructions": "Заповніть «Підпис» для відображення на сайті."
         },
         {
           "key": "field_camp_hero_fact_value",
           "label": "Значення",
           "name": "value",
-          "type": "text"
+          "type": "text",
+          "instructions": "Заповніть «Значення» для відображення на сайті."
         },
         {
           "key": "field_camp_hero_fact_icon",
@@ -225,7 +213,8 @@
           "name": "icon",
           "type": "image",
           "return_format": "id",
-          "preview_size": "medium"
+          "preview_size": "medium",
+          "instructions": "Оберіть медіа для «Іконка»; у полі буде показано мініатюру."
         }
       ]
     },
@@ -501,13 +490,15 @@
           "key": "field_camp_include_item_title",
           "label": "Заголовок",
           "name": "title",
-          "type": "text"
+          "type": "text",
+          "instructions": "Заповніть «Заголовок» для відображення на сайті."
         },
         {
           "key": "field_camp_include_item_text",
           "label": "Текст",
           "name": "text",
-          "type": "textarea"
+          "type": "textarea",
+          "instructions": "Заповніть «Текст» для відображення на сайті."
         },
         {
           "key": "field_camp_include_item_icon",
@@ -515,7 +506,8 @@
           "name": "icon",
           "type": "image",
           "return_format": "id",
-          "preview_size": "medium"
+          "preview_size": "medium",
+          "instructions": "Оберіть медіа для «Іконка»; у полі буде показано мініатюру."
         }
       ]
     },
@@ -562,7 +554,8 @@
           "key": "field_camp_booking_benefit_text",
           "label": "Текст",
           "name": "text",
-          "type": "text"
+          "type": "text",
+          "instructions": "Заповніть «Текст» для відображення на сайті."
         }
       ]
     },
@@ -599,21 +592,37 @@
       "label": "Відгуки",
       "name": "",
       "type": "tab",
-      "instructions": ""
+      "instructions": "",
+      "placement": "top",
+      "endpoint": 0
     },
     {
-      "key": "field_camp_reviews_title",
-      "label": "Заголовок відгуків",
-      "name": "camp_reviews_title",
-      "type": "text",
-      "instructions": "Заповніть поле «Заголовок відгуків»."
+      "key": "field_camp_reviews_section",
+      "label": "Налаштування секції",
+      "name": "",
+      "type": "clone",
+      "instructions": "Задайте заголовок і ілюстрації саме для цієї сторінки. Порожні поля використовують загальні налаштування сайту.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "clone": [
+        "group_logika_testimonials_images"
+      ],
+      "display": "seamless",
+      "layout": "block",
+      "prefix_label": 0,
+      "prefix_name": 0
     },
     {
       "key": "field_camp_related_reviews",
-      "label": "Відгуки",
+      "label": "Власна добірка відгуків",
       "name": "camp_related_reviews",
       "type": "relationship",
-      "instructions": "Заповніть поле «Відгуки».",
+      "instructions": "Оберіть відгуки лише для цієї сторінки. Залиште порожнім, щоб показати глобальну добірку.",
       "post_type": [
         "review"
       ],
@@ -646,13 +655,15 @@
           "key": "field_camp_extra_section_title",
           "label": "Заголовок",
           "name": "title",
-          "type": "text"
+          "type": "text",
+          "instructions": "Заповніть «Заголовок» для відображення на сайті."
         },
         {
           "key": "field_camp_extra_section_text",
           "label": "Текст",
           "name": "text",
-          "type": "wysiwyg"
+          "type": "wysiwyg",
+          "instructions": "Додайте текст для блоку «Текст», який буде показано на сайті."
         },
         {
           "key": "field_camp_extra_section_images",
@@ -660,7 +671,8 @@
           "name": "images",
           "type": "gallery",
           "return_format": "id",
-          "preview_size": "medium"
+          "preview_size": "medium",
+          "instructions": "Оберіть медіа для «Фотографії»; у полі буде показано мініатюру."
         }
       ]
     },
@@ -695,6 +707,34 @@
         "featured_image"
       ],
       "return_format": "id"
+    },
+    {
+      "key": "field_camp_tab_technical",
+      "label": "SEO та технічні дані",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_camp_external_id",
+      "label": "Зовнішній ID",
+      "name": "camp_external_id",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Зовнішній ID»."
+    },
+    {
+      "key": "field_camp_seo_title",
+      "label": "SEO-заголовок",
+      "name": "camp_seo_title",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «SEO-заголовок»."
+    },
+    {
+      "key": "field_camp_seo_description",
+      "label": "SEO-опис",
+      "name": "camp_seo_description",
+      "type": "textarea",
+      "instructions": "Введіть редакторський текст для поля «SEO-опис»."
     }
   ],
   "location": [
@@ -711,5 +751,5 @@
   "show_in_rest": true,
   "allow_ai_access": true,
   "ai_description": "Структуровані редакторські поля Logika: Табір.",
-  "modified": 1784281465
+  "modified": 1784542912
 }

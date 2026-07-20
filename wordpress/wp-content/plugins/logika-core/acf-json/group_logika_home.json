@@ -1572,6 +1572,43 @@
       ]
     },
     {
+      "key": "field_home_tab_reviews",
+      "label": "Відгуки",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_home_reviews_section",
+      "label": "Налаштування секції",
+      "name": "",
+      "type": "clone",
+      "instructions": "Задайте заголовок і ілюстрації саме для цієї сторінки. Порожні поля використовують загальні налаштування сайту.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "clone": [
+        "group_logika_testimonials_images"
+      ],
+      "display": "seamless",
+      "layout": "block",
+      "prefix_label": 0,
+      "prefix_name": 0
+    },
+    {
       "key": "field_home_tab_social",
       "label": "Довіра, проєкти, локації",
       "name": "",
@@ -1588,114 +1625,6 @@
       "placement": "top",
       "endpoint": 0,
       "selected": 0
-    },
-    {
-      "key": "field_home_testimonials_title",
-      "label": "Заголовок відгуків",
-      "name": "home_testimonials_title",
-      "aria-label": "",
-      "type": "text",
-      "instructions": "H2 секції довіри та відгуків.",
-      "required": false,
-      "conditional_logic": false,
-      "wrapper": {
-        "width": "",
-        "class": "",
-        "id": ""
-      },
-      "default_value": "",
-      "maxlength": "",
-      "placeholder": "",
-      "prepend": "",
-      "append": ""
-    },
-    {
-      "key": "field_home_testimonials_image_1",
-      "label": "Велике фото 1",
-      "name": "home_testimonials_image_1",
-      "aria-label": "",
-      "type": "image",
-      "instructions": "Перше велике фото у блоці відгуків.",
-      "required": false,
-      "conditional_logic": false,
-      "wrapper": {
-        "width": "",
-        "class": "",
-        "id": ""
-      },
-      "return_format": "id",
-      "preview_size": "medium",
-      "library": "all",
-      "min_width": 0,
-      "min_height": 0,
-      "min_size": 0,
-      "max_width": 0,
-      "max_height": 0,
-      "max_size": 0,
-      "mime_types": ""
-    },
-    {
-      "key": "field_home_testimonials_image_2",
-      "label": "Велике фото 2",
-      "name": "home_testimonials_image_2",
-      "aria-label": "",
-      "type": "image",
-      "instructions": "Друге велике фото у блоці відгуків.",
-      "required": false,
-      "conditional_logic": false,
-      "wrapper": { "width": "", "class": "", "id": "" },
-      "return_format": "id",
-      "preview_size": "medium",
-      "library": "all",
-      "min_width": 0,
-      "min_height": 0,
-      "min_size": 0,
-      "max_width": 0,
-      "max_height": 0,
-      "max_size": 0,
-      "mime_types": ""
-    },
-    {
-      "key": "field_home_testimonials_image_3",
-      "label": "Велике фото 3",
-      "name": "home_testimonials_image_3",
-      "aria-label": "",
-      "type": "image",
-      "instructions": "Третє велике фото у блоці відгуків.",
-      "required": false,
-      "conditional_logic": false,
-      "wrapper": { "width": "", "class": "", "id": "" },
-      "return_format": "id",
-      "preview_size": "medium",
-      "library": "all",
-      "min_width": 0,
-      "min_height": 0,
-      "min_size": 0,
-      "max_width": 0,
-      "max_height": 0,
-      "max_size": 0,
-      "mime_types": ""
-    },
-    {
-      "key": "field_home_testimonials_image_4",
-      "label": "Велике фото 4",
-      "name": "home_testimonials_image_4",
-      "aria-label": "",
-      "type": "image",
-      "instructions": "Четверте велике фото у блоці відгуків.",
-      "required": false,
-      "conditional_logic": false,
-      "wrapper": { "width": "", "class": "", "id": "" },
-      "return_format": "id",
-      "preview_size": "medium",
-      "library": "all",
-      "min_width": 0,
-      "min_height": 0,
-      "min_size": 0,
-      "max_width": 0,
-      "max_height": 0,
-      "max_size": 0,
-      "mime_types": ""
     },
     {
       "key": "field_home_portfolio_title",
@@ -1823,15 +1752,7 @@
           "type": "image",
           "instructions": "Потрібне для головної картки.",
           "required": false,
-          "conditional_logic": [
-            [
-              {
-                "field": "field_home_portfolio_item_variant",
-                "operator": "==",
-                "value": "featured"
-              }
-            ]
-          ],
+          "conditional_logic": false,
           "return_format": "id",
           "preview_size": "medium",
           "library": "all",
@@ -2703,5 +2624,5 @@
   "display_title": "",
   "allow_ai_access": true,
   "ai_description": "Структуровані редакторські поля Logika: Головна сторінка.",
-  "modified": 1784298127
+  "modified": 1784542912
 }

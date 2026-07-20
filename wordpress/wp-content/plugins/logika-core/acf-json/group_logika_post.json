@@ -234,7 +234,7 @@
     },
     {
       "key": "field_article_tab_cta",
-      "label": "CTA",
+      "label": "Заклик до дії",
       "type": "tab",
       "placement": "top",
       "name": ""

@@ -2,36 +2,243 @@
   "key": "group_logika_page_vacancies",
   "title": "Сторінка вакансій",
   "fields": [
-    {"key":"field_vacancies_tab_hero","label":"Hero","name":"","type":"tab"},
-    {"key":"field_vacancies_hero_title","label":"Заголовок","name":"vacancies_hero_title","type":"text"},
-    {"key":"field_vacancies_hero_text","label":"Текст","name":"vacancies_hero_text","type":"textarea"},
-    {"key":"field_vacancies_hero_image","label":"Фото hero","name":"vacancies_hero_image","type":"image","return_format":"id"},
-    {"key":"field_vacancies_application_url","label":"Посилання для заявки","name":"vacancies_application_url","type":"url"},
-    {"key":"field_vacancies_tab_about","label":"Про команду","name":"","type":"tab"},
-    {"key":"field_vacancies_about_title","label":"Заголовок","name":"vacancies_about_title","type":"text"},
-    {"key":"field_vacancies_about_text","label":"Текст","name":"vacancies_about_text","type":"wysiwyg"},
-    {"key":"field_vacancies_about_gallery","label":"Галерея про команду","name":"vacancies_about_gallery","type":"gallery","return_format":"id"},
-    {"key":"field_vacancies_tab_benefits","label":"Переваги","name":"","type":"tab"},
-    {"key":"field_vacancies_benefits_title","label":"Заголовок","name":"vacancies_benefits_title","type":"text"},
-    {"key":"field_vacancies_benefits_text","label":"Текст","name":"vacancies_benefits_text","type":"textarea"},
-    {"key":"field_vacancies_benefits","label":"Картки переваг","name":"vacancies_benefits","type":"repeater","sub_fields":[{"key":"field_vacancies_benefit_title","label":"Заголовок","name":"title","type":"text"},{"key":"field_vacancies_benefit_text","label":"Текст","name":"text","type":"textarea"},{"key":"field_vacancies_benefit_icon","label":"Іконка","name":"icon","type":"image","return_format":"id"}]},
-    {"key":"field_vacancies_tab_gallery","label":"Фотогалерея","name":"","type":"tab"},
-    {"key":"field_vacancies_team_gallery_title","label":"Заголовок","name":"vacancies_team_gallery_title","type":"text"},
-    {"key":"field_vacancies_team_gallery","label":"Фотогалерея","name":"vacancies_team_gallery","type":"gallery","return_format":"id"},
-    {"key":"field_vacancies_tab_items","label":"Вакансії","name":"","type":"tab"},
-    {"key":"field_vacancies_list_title","label":"Заголовок","name":"vacancies_list_title","type":"text"},
-    {"key":"field_vacancies_items","label":"Вакансії","name":"vacancies_items","type":"repeater","sub_fields":[{"key":"field_vacancies_item_title","label":"Назва","name":"title","type":"text"},{"key":"field_vacancies_item_image","label":"Фото","name":"image","type":"image","return_format":"id"},{"key":"field_vacancies_item_summary","label":"Короткий опис","name":"summary","type":"textarea"},{"key":"field_vacancies_item_details","label":"Повний опис","name":"details","type":"wysiwyg"}]},
-    {"key":"field_vacancies_tab_cta","label":"Нижній CTA","name":"","type":"tab"},
-    {"key":"field_vacancies_cta_title","label":"Заголовок","name":"vacancies_cta_title","type":"text"},
-    {"key":"field_vacancies_cta_text","label":"Текст","name":"vacancies_cta_text","type":"textarea"},
-    {"key":"field_vacancies_cta_image","label":"Ілюстрація","name":"vacancies_cta_image","type":"image","return_format":"id"}
+    {
+      "key": "field_vacancies_tab_hero",
+      "label": "Перший екран",
+      "name": "",
+      "type": "tab"
+    },
+    {
+      "key": "field_vacancies_hero_title",
+      "label": "Заголовок",
+      "name": "vacancies_hero_title",
+      "type": "text",
+      "instructions": "Заповніть «Заголовок» для відображення на сайті."
+    },
+    {
+      "key": "field_vacancies_hero_text",
+      "label": "Текст",
+      "name": "vacancies_hero_text",
+      "type": "textarea",
+      "instructions": "Заповніть «Текст» для відображення на сайті."
+    },
+    {
+      "key": "field_vacancies_hero_image",
+      "label": "Фото hero",
+      "name": "vacancies_hero_image",
+      "type": "image",
+      "return_format": "id",
+      "instructions": "Оберіть медіа для «Фото hero»; у полі буде показано мініатюру.",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_vacancies_application_url",
+      "label": "Посилання для заявки",
+      "name": "vacancies_application_url",
+      "type": "url",
+      "instructions": "Заповніть «Посилання для заявки» для відображення на сайті."
+    },
+    {
+      "key": "field_vacancies_tab_about",
+      "label": "Про команду",
+      "name": "",
+      "type": "tab"
+    },
+    {
+      "key": "field_vacancies_about_title",
+      "label": "Заголовок",
+      "name": "vacancies_about_title",
+      "type": "text",
+      "instructions": "Заповніть «Заголовок» для відображення на сайті."
+    },
+    {
+      "key": "field_vacancies_about_text",
+      "label": "Текст",
+      "name": "vacancies_about_text",
+      "type": "wysiwyg",
+      "instructions": "Додайте текст для блоку «Текст», який буде показано на сайті."
+    },
+    {
+      "key": "field_vacancies_about_gallery",
+      "label": "Галерея про команду",
+      "name": "vacancies_about_gallery",
+      "type": "gallery",
+      "return_format": "id",
+      "instructions": "Оберіть медіа для «Галерея про команду»; у полі буде показано мініатюру.",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_vacancies_tab_benefits",
+      "label": "Переваги",
+      "name": "",
+      "type": "tab"
+    },
+    {
+      "key": "field_vacancies_benefits_title",
+      "label": "Заголовок",
+      "name": "vacancies_benefits_title",
+      "type": "text",
+      "instructions": "Заповніть «Заголовок» для відображення на сайті."
+    },
+    {
+      "key": "field_vacancies_benefits_text",
+      "label": "Текст",
+      "name": "vacancies_benefits_text",
+      "type": "textarea",
+      "instructions": "Заповніть «Текст» для відображення на сайті."
+    },
+    {
+      "key": "field_vacancies_benefits",
+      "label": "Картки переваг",
+      "name": "vacancies_benefits",
+      "type": "repeater",
+      "sub_fields": [
+        {
+          "key": "field_vacancies_benefit_title",
+          "label": "Заголовок",
+          "name": "title",
+          "type": "text",
+          "instructions": "Заповніть «Заголовок» для відображення на сайті."
+        },
+        {
+          "key": "field_vacancies_benefit_text",
+          "label": "Текст",
+          "name": "text",
+          "type": "textarea",
+          "instructions": "Заповніть «Текст» для відображення на сайті."
+        },
+        {
+          "key": "field_vacancies_benefit_icon",
+          "label": "Іконка",
+          "name": "icon",
+          "type": "image",
+          "return_format": "id",
+          "instructions": "Оберіть медіа для «Іконка»; у полі буде показано мініатюру.",
+          "preview_size": "medium"
+        }
+      ],
+      "instructions": "Додавайте рядки та змінюйте їхній порядок перетягуванням."
+    },
+    {
+      "key": "field_vacancies_tab_gallery",
+      "label": "Фотогалерея",
+      "name": "",
+      "type": "tab"
+    },
+    {
+      "key": "field_vacancies_team_gallery_title",
+      "label": "Заголовок",
+      "name": "vacancies_team_gallery_title",
+      "type": "text",
+      "instructions": "Заповніть «Заголовок» для відображення на сайті."
+    },
+    {
+      "key": "field_vacancies_team_gallery",
+      "label": "Фотогалерея",
+      "name": "vacancies_team_gallery",
+      "type": "gallery",
+      "return_format": "id",
+      "instructions": "Оберіть медіа для «Фотогалерея»; у полі буде показано мініатюру.",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_vacancies_tab_items",
+      "label": "Вакансії",
+      "name": "",
+      "type": "tab"
+    },
+    {
+      "key": "field_vacancies_list_title",
+      "label": "Заголовок",
+      "name": "vacancies_list_title",
+      "type": "text",
+      "instructions": "Заповніть «Заголовок» для відображення на сайті."
+    },
+    {
+      "key": "field_vacancies_items",
+      "label": "Вакансії",
+      "name": "vacancies_items",
+      "type": "repeater",
+      "sub_fields": [
+        {
+          "key": "field_vacancies_item_title",
+          "label": "Назва",
+          "name": "title",
+          "type": "text",
+          "instructions": "Заповніть «Назва» для відображення на сайті."
+        },
+        {
+          "key": "field_vacancies_item_image",
+          "label": "Фото",
+          "name": "image",
+          "type": "image",
+          "return_format": "id",
+          "instructions": "Оберіть медіа для «Фото»; у полі буде показано мініатюру.",
+          "preview_size": "medium"
+        },
+        {
+          "key": "field_vacancies_item_summary",
+          "label": "Короткий опис",
+          "name": "summary",
+          "type": "textarea",
+          "instructions": "Заповніть «Короткий опис» для відображення на сайті."
+        },
+        {
+          "key": "field_vacancies_item_details",
+          "label": "Повний опис",
+          "name": "details",
+          "type": "wysiwyg",
+          "instructions": "Додайте текст для блоку «Повний опис», який буде показано на сайті."
+        }
+      ],
+      "instructions": "Додавайте рядки та змінюйте їхній порядок перетягуванням."
+    },
+    {
+      "key": "field_vacancies_tab_cta",
+      "label": "Нижній CTA",
+      "name": "",
+      "type": "tab"
+    },
+    {
+      "key": "field_vacancies_cta_title",
+      "label": "Заголовок",
+      "name": "vacancies_cta_title",
+      "type": "text",
+      "instructions": "Заповніть «Заголовок» для відображення на сайті."
+    },
+    {
+      "key": "field_vacancies_cta_text",
+      "label": "Текст",
+      "name": "vacancies_cta_text",
+      "type": "textarea",
+      "instructions": "Заповніть «Текст» для відображення на сайті."
+    },
+    {
+      "key": "field_vacancies_cta_image",
+      "label": "Ілюстрація",
+      "name": "vacancies_cta_image",
+      "type": "image",
+      "return_format": "id",
+      "instructions": "Оберіть медіа для «Ілюстрація»; у полі буде показано мініатюру.",
+      "preview_size": "medium"
+    }
   ],
-  "location":[[{"param":"page_template","operator":"==","value":"templates/page-vacancies.php"}]],
-  "position":"normal",
-  "style":"default",
-  "label_placement":"top",
-  "instruction_placement":"label",
-  "active":true,
-  "show_in_rest":true,
-  "modified":1784361600
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "templates/page-vacancies.php"
+      }
+    ]
+  ],
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true,
+  "show_in_rest": true,
+  "modified": 1784361600,
+  "allow_ai_access": true,
+  "ai_description": "Структуровані редакторські поля Logika: Сторінка вакансій."
 }

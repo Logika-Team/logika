@@ -11,14 +11,13 @@ $keys = static fn( array $group ): array => array_column( $group['fields'], 'key
 $page = $keys( $page_group );
 $base = $keys( $course );
 
-if ( array_search( 'field_it_courses_tab_sections', $page, true ) >= array_search( 'field_it_courses_catalog_cards', $page, true ) || array_search( 'field_it_courses_tab_texts', $page, true ) >= array_search( 'field_it_courses_reviews_title', $page, true ) || array_search( 'field_it_courses_testimonials_image_1', $page, true ) <= array_search( 'field_it_courses_reviews_title', $page, true ) || array_search( 'field_course_tab_basics', $base, true ) >= array_search( 'field_course_card_image', $base, true ) ) {
+if ( array_search( 'field_it_courses_tab_sections', $page, true ) >= array_search( 'field_it_courses_catalog_cards', $page, true ) || array_search( 'field_it_courses_tab_reviews', $page, true ) >= array_search( 'field_it_courses_reviews_section', $page, true ) || array_search( 'field_it_courses_reviews_section', $page, true ) >= array_search( 'field_it_courses_featured_reviews', $page, true ) || array_search( 'field_course_tab_hero', $base, true ) >= array_search( 'field_course_visual_variant', $base, true ) || array_search( 'field_course_tab_hero', $base, true ) >= array_search( 'field_course_hero_benefits', $base, true ) ) {
 	fwrite( STDERR, 'IT Courses admin fields are not grouped by their visible section.' . PHP_EOL );
 	exit( 1 );
 }
 
-$page_rules = $reviews['location'][0] ?? array();
-if ( ! in_array( array( 'param' => 'page_template', 'operator' => '!=', 'value' => 'templates/page-it-courses.php' ), $page_rules, true ) ) {
-	fwrite( STDERR, 'Shared review images still appear before IT Courses fields.' . PHP_EOL );
+if ( empty( $reviews['active'] ) || in_array( 'field_it_courses_testimonials_image_1', $page, true ) || in_array( 'field_it_courses_reviews_title', $page, true ) ) {
+	fwrite( STDERR, 'IT Courses must use the shared local reviews controls without legacy duplicates.' . PHP_EOL );
 	exit( 1 );
 }
 

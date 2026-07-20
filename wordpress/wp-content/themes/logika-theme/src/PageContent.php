@@ -20,7 +20,6 @@ final class Logika_Theme_Page_Content {
 			'about_map_text' => 'Наші школи у 130 містах України - знайдіть зручний варіант поруч із вами або навчайтесь онлайн.',
 			'about_cta_title' => 'Підберемо курс саме для вашої дитини!',
 			'about_cta_subtitle' => 'Ми зателефонуємо в зручний час',
-			'about_reviews_title' => 'Довіра, підтверджена результатами',
 			'about_faq_title' => 'Питання та відповіді',
 		),
 		'it-courses' => array(
@@ -28,7 +27,6 @@ final class Logika_Theme_Page_Content {
 			'it_courses_hero_text' => 'Перші результати вже через 4 тижні',
 			'it_courses_catalog_title' => 'Курси програмування для дітей 7-17 років',
 			'it_courses_categories_title' => 'Курси для дітей 7-8 років',
-			'it_courses_reviews_title' => 'Довіра, підтверджена результатами',
 			'it_courses_map_title' => 'Знайдіть свою школу або<br>навчайтесь онлайн',
 			'it_courses_map_text' => 'Наші школи у 130 містах України - знайдіть зручний варіант поруч із вами або навчайтесь онлайн.',
 			'it_courses_cta_title' => 'Підберемо курс саме для вашої дитини!',
@@ -43,7 +41,6 @@ final class Logika_Theme_Page_Content {
 			'english_courses_test_text' => 'Допоможемо визначити рівень підготовки, інтереси та формат навчання, щоб дитині було комфортно й цікаво навчатися з перших занять.',
 			'english_courses_test_cta_label' => 'Пройти тестування',
 			'english_courses_about_title' => 'В школі «Logika»:',
-			'english_courses_reviews_title' => 'Довіра, підтверджена результатами',
 			'english_courses_map_title' => 'Знайдіть свою школу або<br>навчайтесь онлайн',
 			'english_courses_map_text' => 'Наші школи у 130 містах України - знайдіть зручний варіант поруч із вами або навчайтесь онлайн.',
 			'english_courses_cta_title' => 'Підберемо курс саме для вашої дитини!',
@@ -54,7 +51,6 @@ final class Logika_Theme_Page_Content {
 			'faq_page_hero_title' => 'Часті запитання про навчання в Logika',
 			'faq_page_hero_text' => 'Зібрали відповіді на найпоширеніші запитання батьків і дітей про курси, формати навчання, розклад, вартість, викладачів, проєкти, табори та можливості приєднатися до команди Logika.',
 			'faq_page_list_title' => 'Найпоширеніші питання',
-			'faq_page_reviews_title' => 'Довіра, підтверджена результатами',
 			'faq_page_cta_title' => 'Підберемо курс саме для вашої дитини!',
 			'faq_page_map_title' => 'Знайдіть свою школу або<br>навчайтесь онлайн',
 			'faq_page_map_text' => 'Наші школи у 130 містах України - знайдіть зручний варіант поруч із вами або навчайтесь онлайн.',
@@ -78,7 +74,6 @@ final class Logika_Theme_Page_Content {
 			'camp_archive_booking_title' => 'Встигніть забронювати<br>незабутні спогади',
 			'camp_archive_booking_text' => 'Залиште заявку — ми зателефонуємо і обговоримо всі деталі.',
 			'camp_archive_history_title' => 'Як це було минулих років',
-			'camp_archive_reviews_title' => 'Довіра, підтверджена результатами',
 			'camp_archive_faq_title' => 'Питання та відповіді',
 		),
 		'camp' => array(
@@ -89,7 +84,6 @@ final class Logika_Theme_Page_Content {
 			'camp_booking_title' => 'Встигніть забронювати<br>незабутні спогади',
 			'camp_booking_text' => 'Залиште заявку — ми зателефонуємо та обговоримо всі деталі.',
 			'camp_gallery_title' => 'Галерея',
-			'camp_reviews_title' => 'Довіра, підтверджена результатами',
 			'camp_faq_title' => 'Питання та відповіді',
 		),
 		'it-course' => array(
@@ -99,7 +93,6 @@ final class Logika_Theme_Page_Content {
 			'course_process_title' => 'Кожне заняття – теорія і практика',
 			'course_portfolio_title' => 'Проекти наших учнів',
 			'course_faq_title' => 'Програма курсу',
-			'course_reviews_title' => 'Довіра, підтверджена результатами',
 			'course_map_title' => 'Знайдіть свою школу або<br>навчайтесь онлайн',
 			'course_map_text' => 'Наші школи у 130 містах України - знайдіть зручний варіант поруч із вами або навчайтесь онлайн.',
 			'course_cta_title' => 'Підберемо курс саме для вашої дитини!',
@@ -200,6 +193,7 @@ final class Logika_Theme_Page_Content {
 			$label = trim( (string) ( $row['label'] ?? '' ) );
 			$anchor = trim( (string) ( $row['anchor'] ?? '' ) );
 			$card = $label ? self::replaceLeaf( $card, '#(<div class="courses-section__item-ages">)(.*?)(</div>)#s', $label ) : $card;
+			$card = self::wrapAgeSeparator( $card );
 			$card = $anchor ? (string) preg_replace( '#(<a\b[^>]*\bhref=)(["\']).*?\2#', '$1$2' . esc_url( $anchor ) . '$2', $card, 1 ) : $card;
 			foreach ( array( 'background' => 'courses-section__item-bg', 'image' => 'courses-section__item-image' ) as $field => $class ) {
 				$url = wp_get_attachment_image_url( (int) ( $row[ $field ] ?? 0 ), 'large' );
@@ -717,6 +711,15 @@ final class Logika_Theme_Page_Content {
 		);
 	}
 
+	private static function wrapAgeSeparator( string $markup ): string {
+		return (string) preg_replace_callback(
+			'#(<div class="courses-section__item-ages">)(.*?)(</div>)#s',
+			static fn( array $matches ): string => $matches[1] . preg_replace( '/(?<=\d)[–-](?=\d)/u', '<span class="age-range-separator">$0</span>', $matches[2] ) . $matches[3],
+			$markup,
+			1
+		);
+	}
+
 	private static function applyGallery( string $markup, string $source, int|string $context ): string {
 		$field = array( 'camps' => 'camp_archive_gallery', 'camp' => 'camp_gallery' )[ $source ] ?? '';
 		$images = $field ? array_values( array_filter( array_map( 'absint', (array) get_field( $field, $context ) ) ) ) : array();
@@ -775,6 +778,12 @@ final class Logika_Theme_Page_Content {
 			$value = trim( (string) get_field( $field, $context ) );
 			if ( $value ) {
 				$markup = (string) preg_replace( $pattern, '$1' . wp_kses_post( $value ) . '$2', $markup, 1 );
+			}
+		}
+		if ( 'media-center' === $source ) {
+			foreach ( array( 'media_center_logirace_link' => '/media-center/articles/logirace-2026/', 'media_center_hackathon_link' => '/media-center/articles/fantasy-games-2025/' ) as $field => $default ) {
+				$url = trim( (string) get_field( $field, $context ) );
+				$markup = $url ? str_replace( 'href="' . $default . '"', 'href="' . esc_url( $url ) . '"', $markup ) : $markup;
 			}
 		}
 

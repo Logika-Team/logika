@@ -154,7 +154,9 @@
   font-weight: 700;
 }
 .media-section__feature-tags span:first-child {
-  width: 172px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   height: 45px;
   padding: 10px 20px;
   -webkit-box-pack: center;
@@ -165,7 +167,9 @@
   border-radius: 46px;
 }
 .media-section__feature-tags span:nth-child(2) {
-  width: 223px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   height: 45px;
   padding: 10px 20px;
   -webkit-box-pack: center;

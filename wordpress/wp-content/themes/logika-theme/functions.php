@@ -30,6 +30,7 @@ function logika_theme_setup(): void {
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'html5', array( 'style', 'script', 'navigation-widgets' ) );
+	add_editor_style( 'assets/css/article-editor.css' );
 	register_nav_menus(
 		array(
 			'primary'            => 'Головне меню',
@@ -106,7 +107,7 @@ function logika_theme_assets(): void {
 	}
 	wp_enqueue_style( 'logika-school-map-style', $uri . '/css/blocks/sections/school-map.css', array( 'logika-theme' ), $map_style_version );
 	wp_enqueue_style( 'logika-faq-banner-style', $uri . '/css/blocks/sections/faq-banner-section.css', array( 'logika-theme' ), $faq_banner_style_version );
-	if ( is_page( 'faq' ) ) {
+	if ( is_page( 'faq' ) || is_singular( 'course' ) ) {
 		wp_enqueue_style( 'logika-faq-accordion', $uri . '/css/faq-accordion.css', array( 'logika-theme' ), $faq_accordion_style_version );
 	}
 	if ( is_page( 'vacancies' ) ) {
@@ -161,7 +162,7 @@ function logika_theme_assets(): void {
 	if ( is_page( 'media-center' ) || get_query_var( 'logika_blog' ) || get_query_var( 'logika_media_category' ) ) {
 		wp_enqueue_style( 'logika-media-search', $uri . '/css/media-search.css', array( 'logika-theme' ), $media_search_version );
 		wp_enqueue_script( 'logika-media-center', $uri . '/js/media-center.js', array( 'logika-city-context' ), $media_center_version, true );
-		wp_localize_script( 'logika-media-center', 'logikaMediaCenter', array( 'endpoint' => esc_url_raw( rest_url( 'logika/v1/media' ) ), 'category' => sanitize_key( (string) get_query_var( 'logika_media_category' ) ) ) );
+		wp_localize_script( 'logika-media-center', 'logikaMediaCenter', array( 'endpoint' => esc_url_raw( rest_url( 'logika/v1/media' ) ), 'category' => sanitize_key( (string) get_query_var( 'logika_media_category' ) ), 'featuredPost' => is_page( 'media-center' ) && function_exists( 'get_field' ) ? absint( get_field( 'media_center_featured_post', get_queried_object_id() ) ) : 0 ) );
 	}
 	if ( is_singular( 'post' ) ) {
 		wp_enqueue_script( 'logika-article-views', $uri . '/js/article-views.js', array(), $article_views_version, true );

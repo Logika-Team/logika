@@ -5,7 +5,8 @@ declare(strict_types=1);
 $root   = dirname( __DIR__ ) . '/wordpress/wp-content/plugins/logika-core/acf-json/';
 $errors = array();
 $groups = array(
-	'group_logika_page_about' => array( 'about_directions_items' => 'repeater', 'about_outcome_items' => 'repeater', 'about_gallery' => 'gallery', 'about_media_items' => 'repeater', 'about_onboarding_items' => 'repeater', 'about_map_title' => 'text', 'about_cta_title' => 'text', 'about_reviews_title' => 'text', 'about_faq_title' => 'text' ),
+	'group_logika_page_about' => array( 'about_directions_items' => 'repeater', 'about_outcome_items' => 'repeater', 'about_gallery' => 'gallery', 'about_media_items' => 'repeater', 'about_onboarding_items' => 'repeater', 'about_map_title' => 'text', 'about_cta_title' => 'text', 'about_faq_title' => 'text' ),
+	'group_logika_global' => array( 'global_reviews_title' => 'text', 'global_reviews_gallery' => 'gallery' ),
 	'group_logika_page_it_courses' => array( 'it_courses_age_categories' => 'repeater', 'it_courses_map_title' => 'text', 'it_courses_cta_title' => 'text', 'it_courses_faq_title' => 'text' ),
 	'group_logika_page_english_courses' => array( 'english_courses_marquee_items' => 'repeater', 'english_courses_test_image' => 'image', 'english_courses_about_text' => 'wysiwyg', 'english_courses_map_title' => 'text', 'english_courses_cta_title' => 'text', 'english_courses_faq_title' => 'text' ),
 	'group_logika_page_faq' => array( 'faq_page_map_title' => 'text', 'faq_page_cta_image' => 'image' ),
@@ -26,7 +27,7 @@ foreach ( $groups as $key => $required ) {
 			$errors[] = "{$key} is missing {$name}:{$type}.";
 		}
 	}
-	if ( 'group_logika_legal' !== $key && count( array_filter( $group['fields'] ?? array(), static fn( array $field ): bool => 'tab' === ( $field['type'] ?? '' ) ) ) < 6 ) {
+	if ( ! in_array( $key, array( 'group_logika_legal', 'group_logika_global' ), true ) && count( array_filter( $group['fields'] ?? array(), static fn( array $field ): bool => 'tab' === ( $field['type'] ?? '' ) ) ) < 6 ) {
 		$errors[] = "{$key} does not group logical sections with Tabs.";
 	}
 }

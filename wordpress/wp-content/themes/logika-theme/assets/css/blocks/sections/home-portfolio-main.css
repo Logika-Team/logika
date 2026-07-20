@@ -29,6 +29,14 @@
 .portfolio-section__viewport::-webkit-scrollbar {
   display: none;
 }
+.portfolio-section__viewport.is-dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+.portfolio-section__viewport img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
 .portfolio-section__slider {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -37,7 +45,7 @@
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  margin: 0 0 0 calc(50% - 1085px);
+  margin: 0;
   padding: 0;
   list-style: none;
   -ms-scroll-snap-type: x mandatory;
@@ -148,6 +156,7 @@
 .portfolio-section__card--featured h3 {
   margin-top: 14px;
   font-size: 20px;
+  color: #fff;
 }
 .portfolio-section__card--featured p {
   margin-top: 10px;
@@ -221,7 +230,7 @@
   font-size: 12px;
   white-space: nowrap;
 }
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .portfolio-section__wrapp {
     gap: 30px;
   }
@@ -230,6 +239,8 @@
     margin-left: 0;
     padding: 0 16px;
   }
+}
+@media (max-width: 767px) {
   .portfolio-section__card {
     -ms-flex-preferred-size: min(84vw, 345px);
     flex-basis: min(84vw, 345px);
@@ -238,13 +249,18 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-preferred-size: min(92vw, 710px);
-    flex-basis: min(92vw, 710px);
+    -ms-flex-preferred-size: min(88vw, 710px);
+    flex-basis: min(88vw, 710px);
+    flex-direction: column;
+    gap: 0;
     min-height: auto;
   }
   .portfolio-section__game {
-    min-height: 210px;
-    margin-top: 20px;
+    order: -1;
+    height: auto;
+    min-height: 0;
+    margin: 0 0 20px;
+    aspect-ratio: 1.31;
   }
 }
 /*# sourceMappingURL=portfolio-section.css.map */

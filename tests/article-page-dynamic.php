@@ -6,7 +6,7 @@ require dirname(__DIR__) . '/wordpress/wp-load.php';
 
 $article = get_page_by_path( 'dynamic-article-test', OBJECT, 'post' );
 $article_id = $article ? (int) $article->ID : (int) wp_insert_post( array( 'post_type' => 'post', 'post_name' => 'dynamic-article-test', 'post_title' => 'Динамічна стаття', 'post_status' => 'publish' ) );
-wp_update_post( array( 'ID' => $article_id, 'post_title' => 'Динамічна стаття', 'post_excerpt' => 'Короткий опис пов’язаної статті.', 'post_content' => '<p>Вступ.</p><h2>Один розділ</h2><p>Текст.</p><h3>Один розділ</h3>' ) );
+wp_update_post( array( 'ID' => $article_id, 'post_title' => 'Динамічна стаття', 'post_excerpt' => 'Короткий опис пов’язаної статті.', 'post_content' => '<p>Вступ.</p><h2>Один розділ</h2><p>Текст.</p><h3>Один розділ</h3><blockquote class="wp-block-quote"><p>Виділена цитата.</p></blockquote>' ) );
 
 if ( ! post_type_exists( 'article_author' ) ) {
 	fwrite( STDERR, "Article author post type is missing.\n" );
@@ -53,16 +53,40 @@ remove_filter( 'acf/format_value', $socials, 20 );
 acf_flush_value_cache( 'options', 'global_social_links' );
 $errors = array();
 
-foreach ( array( 'Динамічна стаття', 'Тестова авторка', 'article-section__author-photo', 'https://instagram.com/logika', 'https://t.me/logika', 'https://youtube.com/@logika', 'Instagram-filled', 'Facebook-filed', 'Youtube-filled', 'Telegram-filled', 'data-article-view-count', '&lt;script&gt;bad()', 'Опублікована пов’язана стаття', 'data-logika-lead-form', 'Надіслати заявку', 'cta-section__top-bg', 'faq-section__left-bg', 'Чи безпечна відповідь?', '<strong>Так.</strong>' ) as $expected ) {
+foreach ( array( 'Динамічна стаття', 'Тестова авторка', 'article-section__author-photo', 'https://instagram.com/logika', 'https://youtube.com/@logika', 'Instagram-filled', 'Facebook-filed', 'Youtube-filled', 'data-article-view-count', '&lt;script&gt;bad()', 'Опублікована пов’язана стаття', 'data-logika-lead-form', 'Надіслати заявку', 'cta-section__top-bg', 'faq-section__left-bg', 'Чи безпечна відповідь?', '<strong>Так.</strong>', 'wp-block-quote', 'Виділена цитата.' ) as $expected ) {
 	if ( ! str_contains( $output, $expected ) ) {
 		$errors[] = "Missing article output: {$expected}";
 	}
 }
 
-foreach ( array( 'https://www.instagram.com/logika_it_school/', 'https://www.facebook.com/logika.it.school/', 'https://www.youtube.com/channel/UCFIBb_OZ1TPuhcjZUhVbifg', 'https://t.me/share/url?' ) as $expected ) {
+if ( str_contains( $output, 'Telegram-filled' ) || str_contains( $output, 'https://t.me/logika' ) ) {
+	$errors[] = 'Article output still renders Telegram sharing.';
+}
+
+$public_styles = (string) file_get_contents( get_template_directory() . '/assets/css/style.css' );
+foreach ( array( '/\\.article-section__editor h2\\s*\\{[^}]*font-size:\\s*20px;/s', '/\\.article-section__editor h3\\s*\\{[^}]*font-size:\\s*18px;/s', '/\\.article-section__editor blockquote[^}]*background-color:\\s*#DDF0FB;/s' ) as $pattern ) {
+	if ( ! preg_match( $pattern, $public_styles ) ) {
+		$errors[] = "Missing public article style: {$pattern}";
+	}
+}
+$editor_styles = get_template_directory() . '/assets/css/article-editor.css';
+if ( ! is_file( $editor_styles ) ) {
+	$errors[] = 'Article editor stylesheet is missing.';
+} elseif ( ! str_contains( (string) file_get_contents( $editor_styles ), '.editor-styles-wrapper .wp-block-quote' ) ) {
+	$errors[] = 'Article editor quote style is missing.';
+}
+if ( ! str_contains( (string) file_get_contents( get_template_directory() . '/functions.php' ), "add_editor_style( 'assets/css/article-editor.css' );" ) ) {
+	$errors[] = 'Article editor stylesheet is not registered.';
+}
+
+foreach ( array( 'https://www.instagram.com/logika_it_school/', 'https://www.facebook.com/logika.it.school/', 'https://www.youtube.com/channel/UCFIBb_OZ1TPuhcjZUhVbifg' ) as $expected ) {
 	if ( ! str_contains( $default_social_output, $expected ) ) {
 		$errors[] = "Missing default social link: {$expected}";
 	}
+}
+
+if ( str_contains( $default_social_output, 'Telegram-filled' ) || str_contains( $default_social_output, 'https://t.me/share/url?' ) ) {
+	$errors[] = 'Default article output still renders Telegram sharing.';
 }
 
 if ( str_contains( $default_social_output, 'Threads-filled' ) ) {

@@ -28,11 +28,21 @@ final class ContentMigration {
 	public static function register(): void {
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
 			WP_CLI::add_command( 'logika acf-migrate', array( self::class, 'cli' ) );
+			WP_CLI::add_command( 'logika acf-migrate-reviews', array( self::class, 'cliReviews' ) );
+			WP_CLI::add_command( 'logika article-faqs seed', array( self::class, 'cliArticleFaqs' ) );
 		}
 	}
 
 	public static function cli( array $args, array $assoc_args ): void {
 		WP_CLI::log( (string) wp_json_encode( self::run( isset( $assoc_args['dry-run'] ) ), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) );
+	}
+
+	public static function cliReviews( array $args, array $assoc_args ): void {
+		WP_CLI::log( (string) wp_json_encode( self::migrateReviewsPresentation( isset( $assoc_args['dry-run'] ) ), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) );
+	}
+
+	public static function cliArticleFaqs( array $args, array $assoc_args ): void {
+		WP_CLI::log( (string) wp_json_encode( self::seedArticleFaqs( isset( $assoc_args['dry-run'] ) ), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) );
 	}
 
 	public static function run( bool $dry_run = false ): array {
@@ -61,6 +71,26 @@ final class ContentMigration {
 		return self::$report;
 	}
 
+	public static function seedArticleFaqs( bool $dry_run = false ): array {
+		self::start( $dry_run );
+		$items = array_map( static fn( array $item ): array => array( 'question' => (string) $item['question'], 'answer' => wpautop( (string) $item['answer'] ) ), (array) get_field( 'home_faq_items', (int) get_option( 'page_on_front' ) ) );
+		if ( ! $items ) {
+			return self::$report;
+		}
+		foreach ( get_posts( array( 'post_type' => 'post', 'post_status' => 'any', 'posts_per_page' => -1, 'fields' => 'ids' ) ) as $post_id ) {
+			if ( $items === (array) get_field( 'article_faq_items', $post_id ) ) {
+				++self::$report['preserved'];
+				continue;
+			}
+			if ( ! $dry_run ) {
+				update_field( 'article_faq_items', $items, $post_id );
+			}
+			++self::$report['changed'];
+		}
+
+		return self::$report;
+	}
+
 	public static function migrateHomepageTestimonials( bool $dry_run = false ): array {
 		self::start( $dry_run );
 		foreach ( range( 1, 4 ) as $index ) {
@@ -81,6 +111,37 @@ final class ContentMigration {
 			foreach ( range( 1, 4 ) as $index ) {
 				self::fill( "testimonials_image_{$index}", '@asset:testimonials/testimonial.png', $context );
 			}
+		}
+
+		return self::$report;
+	}
+
+	public static function migrateReviewsPresentation( bool $dry_run = false ): array {
+		self::start( $dry_run );
+		$home = (int) get_option( 'page_on_front' );
+		$it   = (int) ( get_page_by_path( 'it-courses' )?->ID ?? 0 );
+		$images = array();
+		foreach ( range( 1, 4 ) as $index ) {
+			$image = (int) get_field( "home_testimonials_image_{$index}", $home );
+			$image = $image ?: (int) get_field( "testimonials_image_{$index}", $it );
+			$images[] = $image ?: (int) get_field( "testimonials_image_{$index}", 'camp_archive' );
+		}
+		self::fill( 'global_reviews_title', 'Довіра, підтверджена результатами', 'option' );
+		self::fill( 'global_reviews_gallery', array_values( array_filter( $images ) ), 'option' );
+		$contexts = array(
+			array( $home, 'home_testimonials_title', 'home_testimonials_image_', 'field_home_reviews_section' ),
+			array( (int) ( get_page_by_path( 'about' )?->ID ?? 0 ), 'about_reviews_title', 'testimonials_image_', 'field_about_reviews_section' ),
+			array( $it, 'it_courses_reviews_title', 'testimonials_image_', 'field_it_courses_reviews_section' ),
+			array( (int) ( get_page_by_path( 'english-courses' )?->ID ?? 0 ), 'english_courses_reviews_title', 'testimonials_image_', 'field_english_courses_reviews_section' ),
+			array( (int) ( get_page_by_path( 'faq' )?->ID ?? 0 ), 'faq_page_reviews_title', 'testimonials_image_', 'field_faq_page_reviews_section' ),
+			array( 'camp_archive', 'camp_archive_reviews_title', 'testimonials_image_', 'field_camp_archive_reviews_section' ),
+		);
+		foreach ( $contexts as [ $context, $title_field, $image_prefix, $clone_key ] ) {
+			if ( ! $context ) {
+				continue;
+			}
+			self::fillReviewSection( 'reviews_section_title', $title_field ? trim( (string) get_field( $title_field, $context ) ) : '', $context, $clone_key );
+			self::fillReviewSection( 'reviews_section_gallery', self::reviewGallery( $context, $image_prefix ), $context, $clone_key );
 		}
 
 		return self::$report;
@@ -173,7 +234,6 @@ final class ContentMigration {
 			'cta_subtitle' => 'Ми зателефонуємо в зручний час',
 			'cta_image'    => '@asset:cta/cta.png',
 			'faq_title'    => 'Питання та відповіді',
-			'reviews_title' => 'Довіра, підтверджена результатами',
 		);
 
 		$seeds = match ( $kind ) {
@@ -211,7 +271,7 @@ final class ContentMigration {
 				),
 				'about_map_title' => $common['map_title'], 'about_map_text' => $common['map_text'],
 				'about_cta_title' => $common['cta_title'], 'about_cta_subtitle' => $common['cta_subtitle'], 'about_cta_image' => $common['cta_image'],
-				'about_reviews_title' => $common['reviews_title'], 'about_featured_reviews' => $reviews,
+				'about_featured_reviews' => $reviews,
 				'about_faq_title' => $common['faq_title'], 'about_featured_faq' => $faqs,
 				'about_featured_posts' => $posts, 'about_use_global_certificates' => 1, 'about_use_global_partners' => 1,
 			),
@@ -228,7 +288,7 @@ final class ContentMigration {
 				),
 				'it_courses_marquee_items' => self::textRows( array( 'Перший урок — безкоштовно', 'Навчання з результатом', 'Уроки з живими викладачами', 'Інтерактивне навчання' ) ),
 				'it_courses_age_categories' => self::courseCategories( (array) get_field( 'it_courses_featured_courses', $id ) ?: $courses ),
-				'it_courses_reviews_title' => $common['reviews_title'], 'it_courses_featured_reviews' => $reviews,
+				'it_courses_featured_reviews' => $reviews,
 				'it_courses_map_title' => $common['map_title'], 'it_courses_map_text' => $common['map_text'],
 				'it_courses_cta_title' => $common['cta_title'], 'it_courses_cta_subtitle' => $common['cta_subtitle'], 'it_courses_cta_image' => $common['cta_image'],
 				'it_courses_faq_title' => $common['faq_title'], 'it_courses_featured_faq' => $faqs,
@@ -251,7 +311,7 @@ final class ContentMigration {
 					array( 'title' => 'Читаємо, слухаємо і дивимося', 'text' => 'Працюємо з історіями, аудіо й відео та проводимо активні дискусії.', 'image' => '@asset:en-courses/icon-check-one.svg' ),
 					array( 'title' => 'Граємо та конкуруємо', 'text' => 'Інтерактив та ігри підтримують увагу й мотивацію.', 'image' => '@asset:en-courses/icon-check-one.svg' ),
 				),
-				'english_courses_reviews_title' => $common['reviews_title'], 'english_courses_featured_reviews' => $reviews,
+				'english_courses_featured_reviews' => $reviews,
 				'english_courses_map_title' => $common['map_title'], 'english_courses_map_text' => $common['map_text'],
 				'english_courses_cta_title' => $common['cta_title'], 'english_courses_cta_subtitle' => $common['cta_subtitle'], 'english_courses_cta_image' => $common['cta_image'],
 				'english_courses_faq_title' => $common['faq_title'], 'english_courses_featured_faq' => $faqs,
@@ -260,7 +320,7 @@ final class ContentMigration {
 				'faq_page_hero_title' => self::legacy( $id, 'faq_page_texts', 'Часті запитання про навчання в Logika' ),
 				'faq_page_hero_text' => 'Зібрали відповіді на найпоширеніші запитання про курси, формати навчання, розклад, вартість і викладачів.',
 				'faq_page_hero_image' => '@asset:faq/faq-image.svg', 'faq_page_hero_icon' => '@asset:faq/faq-icon.svg', 'faq_page_list_title' => 'Найпоширеніші питання',
-				'faq_page_featured_faq' => $faqs, 'faq_page_featured_reviews' => $reviews, 'faq_page_reviews_title' => $common['reviews_title'],
+				'faq_page_featured_faq' => $faqs, 'faq_page_featured_reviews' => $reviews,
 				'faq_page_map_title' => $common['map_title'], 'faq_page_map_text' => $common['map_text'],
 				'faq_page_cta_title' => $common['cta_title'], 'faq_page_cta_subtitle' => $common['cta_subtitle'], 'faq_page_cta_image' => $common['cta_image'],
 			),
@@ -336,7 +396,7 @@ final class ContentMigration {
 					array( 'variant' => 'featured', 'student_name' => 'Максим', 'student_age' => '12 років', 'course' => 'Python Start', 'description' => 'Максим освоїв курс Python Start і вже створив свою першу комп’ютерну гру', 'project_image' => '@asset:portfolio/computer-game.png', 'cta_label' => 'Безкоштовний пробний урок', 'cta_url' => '#lead-form' ),
 					array( 'variant' => 'standard', 'student_name' => 'Максим', 'student_age' => '12 років', 'course' => 'Python Start', 'topic' => 'Python', 'description' => 'Максим освоїв курс Python Start і вже створив свою першу комп’ютерну гру', 'student_image' => '@asset:portfolio/maxym.jpg' ),
 				),
-				'course_faq_title' => 'Програма курсу', 'course_reviews_title' => 'Довіра, підтверджена результатами',
+				'course_faq_title' => 'Програма курсу',
 				'course_map_title' => 'Знайдіть свою школу або навчайтесь онлайн', 'course_map_text' => 'Оберіть зручний формат навчання у вашому місті або онлайн.',
 				'course_cta_title' => 'Підберемо курс саме для вашої дитини!', 'course_cta_subtitle' => 'Ми зателефонуємо в зручний час', 'course_cta_image' => '@asset:cta/cta.png',
 				'course_general_faq_title' => 'Питання та відповіді',
@@ -369,7 +429,7 @@ final class ContentMigration {
 				'camp_details_title' => 'Деталі проживання', 'camp_details' => array( array( 'title' => 'Локація', 'text' => 'Комфортна та безпечна територія.', 'image' => '@asset:camp/details/location.png', 'gallery' => array( '@asset:camp/details/location.png', '@asset:camp/details/location-1.png', '@asset:camp/details/location-2.png', '@asset:camp/details/location-3.png' ) ), array( 'title' => 'Проживання', 'text' => 'Зручні кімнати й турбота команди.', 'image' => '@asset:camp/details/accommodation.png', 'gallery' => array( '@asset:camp/details/accommodation.png', '@asset:camp/details/gallery-1.png', '@asset:camp/details/gallery-2.png', '@asset:camp/details/gallery-3.png' ) ), array( 'title' => 'Меню', 'text' => 'Збалансоване харчування протягом дня.', 'image' => '@asset:camp/details/menu.png', 'gallery' => array( '@asset:camp/details/menu.png', '@asset:camp/details/gallery-1.png', '@asset:camp/details/gallery-2.png', '@asset:camp/details/gallery-4.png' ) ) ),
 				'camp_includes_title' => 'У вартість входить:', 'camp_includes' => array( array( 'title' => 'Проживання', 'text' => 'Сучасний курортний комплекс з великою територією, природою та атмосферою справжнього відпочинку преміум класу', 'icon' => '@asset:details/details-icon1.svg' ), array( 'title' => 'Харчування', 'text' => '4-разове преміальне харчування, щоб енергії вистачило на всі пригоди', 'icon' => '@asset:details/details-icon2.svg' ), array( 'title' => 'Speaking clubs', 'text' => 'Спілкування з native-спікерами без нудних підручників', 'icon' => '@asset:details/details-icon3.svg' ), array( 'title' => 'Розваги', 'text' => 'Щодня новий ігровий всесвіт: екскурсії, вечірки та дискотеки', 'icon' => '@asset:details/details-icon4.svg' ), array( 'title' => 'Страхування', 'text' => 'Ми дбаємо про безпеку та комфорт дітей під час усіх активностей.', 'icon' => '@asset:details/details-icon5.svg' ), array( 'title' => 'Супровід', 'text' => 'Професійна команда школи Logika', 'icon' => '@asset:details/details-icon6.svg' ) ),
 				'camp_booking_title' => 'Встигніть забронювати незабутні спогади', 'camp_booking_text' => 'Залиште заявку — ми зателефонуємо та обговоримо всі деталі.', 'camp_booking_image' => '@asset:camp/booking-characters.svg', 'camp_booking_benefits' => array( array( 'text' => 'Оновлена IT програма' ), array( 'text' => 'Активності, квести, турніри, ігри, дискотеки та екскурсії' ), array( 'text' => 'Безпека: вожаті поряд із дітьми 24/7' ) ), 'camp_booking_form_title' => "Встигніть забронювати.\nЗалиште заявку за 30 секунд — ми зателефонуємо і обговоримо усі деталі", 'camp_booking_submit_label' => 'Відправити',
-				'camp_gallery_title' => 'Галерея', 'camp_reviews_title' => 'Довіра, підтверджена результатами', 'camp_related_reviews' => self::entityIds( 'review', 'review_is_approved' ),
+				'camp_gallery_title' => 'Галерея', 'camp_related_reviews' => self::entityIds( 'review', 'review_is_approved' ),
 				'camp_faq_title' => 'Питання та відповіді', 'camp_related_faq' => self::entityIds( 'faq_item', 'faq_is_active' ),
 			) as $field => $value ) {
 				self::fill( $field, $value, $camp->ID );
@@ -409,7 +469,7 @@ final class ContentMigration {
 			'camp_archive_formats_title' => 'Оберіть свій формат', 'camp_archive_booking_title' => 'Встигніть забронювати незабутні спогади', 'camp_archive_booking_text' => 'Залиште заявку — ми зателефонуємо і обговоримо всі деталі.', 'camp_archive_booking_image' => '@asset:camp/booking-characters.svg',
 			'camp_archive_history_title' => 'Як це було минулих років', 'camp_archive_history_text' => '<p>Перегляньте моменти з попередніх змін та відчуйте атмосферу таборів Logika.</p>', 'camp_archive_history_image' => '@asset:camp/hands.png',
 			'camp_archive_gallery_title' => 'Галерея', 'camp_archive_gallery' => array( '@asset:gallery/gallery.png', '@asset:gallery/gallery2.png', '@asset:gallery/gallery3.png', '@asset:gallery/gallery4.png' ),
-			'camp_archive_reviews_title' => 'Довіра, підтверджена результатами', 'camp_archive_reviews' => self::entityIds( 'review', 'review_is_approved' ), 'camp_archive_faq_title' => 'Питання та відповіді', 'camp_archive_faq' => self::entityIds( 'faq_item', 'faq_is_active' ),
+			'camp_archive_reviews' => self::entityIds( 'review', 'review_is_approved' ), 'camp_archive_faq_title' => 'Питання та відповіді', 'camp_archive_faq' => self::entityIds( 'faq_item', 'faq_is_active' ),
 		) as $field => $value ) {
 			self::fill( $field, $value, 'camp_archive' );
 		}
@@ -600,6 +660,39 @@ final class ContentMigration {
 			update_field( $field, $desired, $post_id );
 		}
 		++self::$report['changed'];
+	}
+
+	private static function fillReviewSection( string $field, mixed $desired, int|string $context, string $clone_key ): void {
+		if ( self::emptyValue( $desired ) ) {
+			return;
+		}
+		$current = is_int( $context ) ? get_post_meta( $context, $field, true ) : get_option( $context . '_' . $field );
+		if ( ! self::emptyValue( $current ) ) {
+			++self::$report['preserved'];
+			return;
+		}
+		if ( ! self::$report['dry_run'] ) {
+			if ( is_int( $context ) ) {
+				update_post_meta( $context, $field, $desired );
+				update_post_meta( $context, '_' . $field, $clone_key . '_field_' . $field );
+			} else {
+				update_option( $context . '_' . $field, $desired, false );
+				update_option( $context . '__' . $field, $clone_key . '_field_' . $field, false );
+			}
+		}
+		++self::$report['changed'];
+	}
+
+	/** @return array<int, int> */
+	private static function reviewGallery( int|string $context, string $prefix ): array {
+		return array_values(
+			array_filter(
+				array_map(
+					static fn( int $index ): int => (int) get_field( $prefix . $index, $context ),
+					range( 1, 4 )
+				)
+			)
+		);
 	}
 
 	private static function resolveAssets( mixed $value ): mixed {

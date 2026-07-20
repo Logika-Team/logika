@@ -27,7 +27,7 @@ final class Logika_Theme_Camp_Page {
 			get_template_part( 'template-parts/sections/cta', null, array( 'section_id' => 'lead-form', 'title' => get_field( 'camp_booking_title', $camp_id ) ?: 'Забронювати місце у таборі', 'subtitle' => get_field( 'camp_booking_text', $camp_id ), 'image' => get_field( 'camp_booking_image', $camp_id ), 'button_label' => get_field( 'camp_cta_label', $camp_id ), 'camp_id' => $camp_id ) );
 		}
 		get_template_part( 'template-parts/sections/gallery', null, array( 'title' => get_field( 'camp_gallery_title', $camp_id ), 'images' => get_field( 'camp_gallery', $camp_id ) ) );
-		get_template_part( 'template-parts/sections/reviews', null, array( 'title' => get_field( 'camp_reviews_title', $camp_id ), 'items' => (array) get_field( 'camp_related_reviews', $camp_id ) ?: null ) );
+		get_template_part( 'template-parts/sections/reviews', null, array( 'items' => (array) get_field( 'camp_related_reviews', $camp_id ) ?: null, 'context' => $camp_id ) );
 		$faq_args = array( 'section_title' => get_field( 'camp_faq_title', $camp_id ) ?: 'Питання та відповіді' );
 		$faq_ids  = (array) get_field( 'camp_related_faq', $camp_id );
 		if ( $faq_ids ) {

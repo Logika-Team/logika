@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const image = document.createElement('img');
     element.className = 'news-card__thumbnail';
     element.href = card.url;
-    image.src = card.image || '';
+    image.src = card.image || '/wp-content/themes/logika-theme/assets/img/media-center/blog-placeholder.png';
     image.alt = card.title;
     image.width = width;
     image.height = height;
@@ -230,6 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const url = new URL(config.endpoint, window.location.origin);
     if (city) url.searchParams.set('city', city.id);
 	if (config.category) url.searchParams.set('category', config.category);
+    if (config.featuredPost && !search) url.searchParams.set('featured', config.featuredPost);
     if (search) url.searchParams.set('search', search);
     if (isBlog) url.searchParams.set('all', '1');
     root.setAttribute('aria-busy', 'true');

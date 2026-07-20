@@ -1,10 +1,10 @@
 {
   "key": "group_logika_page_media_center",
-  "title": "Сторінка: Media Center",
+  "title": "Сторінка: Медіацентр",
   "fields": [
     {
       "key": "field_media_center_tab_hero",
-      "label": "Hero",
+      "label": "Перший екран",
       "type": "tab",
       "name": ""
     },
@@ -49,6 +49,20 @@
         }
       ],
       "instructions": "Додавайте рядки та змінюйте їхній порядок перетягуванням."
+    },
+    {
+      "key": "field_media_center_logirace_link",
+      "label": "Посилання картки «LogiRace»",
+      "name": "media_center_logirace_link",
+      "type": "url",
+      "instructions": "Залиште порожнім, щоб використати поточну сторінку конкурсу."
+    },
+    {
+      "key": "field_media_center_hackathon_link",
+      "label": "Посилання картки «Хакатон»",
+      "name": "media_center_hackathon_link",
+      "type": "url",
+      "instructions": "Залиште порожнім, щоб використати поточну сторінку хакатону."
     },
     {
       "key": "field_media_center_tab_sections",
@@ -140,14 +154,14 @@
     },
     {
       "key": "field_media_center_featured_post",
-      "label": "Головний матеріал",
+      "label": "Головна стаття",
       "name": "media_center_featured_post",
       "type": "post_object",
       "post_type": [
         "post"
       ],
       "return_format": "id",
-      "instructions": "Оберіть матеріал для головної картки Media Center."
+      "instructions": "Оберіть статтю для головної картки. Вона показується першою для всіх міст."
     },
     {
       "key": "field_media_center_articles",
@@ -193,7 +207,7 @@
     },
     {
       "key": "field_media_center_tab_cta",
-      "label": "CTA",
+      "label": "Заклик до дії",
       "name": "",
       "type": "tab",
       "instructions": ""
@@ -255,7 +269,7 @@
     },
     {
       "key": "field_media_center_tab_blog",
-      "label": "Blog",
+      "label": "Медіаблог",
       "name": "",
       "type": "tab",
       "instructions": ""
@@ -302,5 +316,5 @@
   "show_in_rest": true,
   "allow_ai_access": true,
   "ai_description": "Структуровані редакторські поля Logika: Сторінка: Media Center.",
-  "modified": 1784281465
+  "modified": 1784547600
 }

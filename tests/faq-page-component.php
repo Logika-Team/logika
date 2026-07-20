@@ -72,6 +72,11 @@ if ( ! str_contains( $main_js, 'if (!defaultOpenContent || !defaultOpenButton)')
 	exit( 1 );
 }
 
+if ( ! str_contains( $main_js, "const itemParent = accordion.closest('.accordion__item')" ) || ! str_contains( $main_js, 'addCustomClass(itemParent, className)' ) ) {
+	fwrite( STDERR, "FAQ accordion does not activate the parent item border.\n" );
+	exit( 1 );
+}
+
 if ( ! str_contains( $faq_section, "position: relative;\n    overflow: hidden;" ) || 2 !== substr_count( $faq_section, 'pointer-events: none;' ) || ! str_contains( $theme_functions, '.faq-section{overflow:hidden}.faq-section__left-bg,.faq-section__right-bg{pointer-events:none}' ) ) {
 	fwrite( STDERR, "FAQ decorations can overlap or block the preceding section.\n" );
 	exit( 1 );

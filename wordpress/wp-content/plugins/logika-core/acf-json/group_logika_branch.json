@@ -23,7 +23,9 @@
       "label": "Місто",
       "name": "branch_city_id",
       "type": "post_object",
-      "post_type": ["city"],
+      "post_type": [
+        "city"
+      ],
       "required": 1,
       "return_format": "id",
       "instructions": "Оберіть місто, до якого належить ця філія. Якщо ви перейшли з картки міста, значення вже заповнене."
@@ -118,7 +120,7 @@
     },
     {
       "key": "field_branch_tab_technical",
-      "label": "Технічне",
+      "label": "Технічні дані",
       "name": "",
       "type": "tab",
       "placement": "top"
@@ -140,7 +142,15 @@
       "instructions": "Створюється автоматично з міста й нормалізованої адреси. Редагувати вручну не потрібно."
     }
   ],
-  "location": [[{"param": "post_type", "operator": "==", "value": "branch"}]],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "branch"
+      }
+    ]
+  ],
   "active": true,
   "position": "acf_after_title",
   "show_in_rest": true,

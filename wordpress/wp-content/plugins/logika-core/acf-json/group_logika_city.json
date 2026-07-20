@@ -232,6 +232,54 @@
       "instructions": "Посилання на опубліковане відео YouTube, Vimeo або іншої відеоплатформи."
     },
     {
+      "key": "field_city_tab_reviews",
+      "label": "Відгуки",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_city_reviews_section",
+      "label": "Налаштування секції",
+      "name": "",
+      "type": "clone",
+      "instructions": "Задайте заголовок і ілюстрації саме для цієї сторінки. Порожні поля використовують загальні налаштування сайту.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "clone": [
+        "group_logika_testimonials_images"
+      ],
+      "display": "seamless",
+      "layout": "block",
+      "prefix_label": 0,
+      "prefix_name": 0
+    },
+    {
+      "key": "field_city_related_reviews",
+      "label": "Власна добірка відгуків",
+      "name": "city_related_reviews",
+      "type": "relationship",
+      "post_type": [
+        "review"
+      ],
+      "return_format": "id",
+      "instructions": "Оберіть відгуки лише для цієї сторінки. Залиште порожнім, щоб показати глобальну добірку."
+    },
+    {
       "key": "field_city_tab_home_relations",
       "label": "Добірки",
       "name": "",
@@ -243,7 +291,9 @@
       "label": "Курси для міста",
       "name": "city_related_courses",
       "type": "relationship",
-      "post_type": ["course"],
+      "post_type": [
+        "course"
+      ],
       "return_format": "id",
       "instructions": "Необов’язково. Оберіть курси та перетягніть їх у потрібному порядку показу. Новий курс: «Курси → Додати новий»."
     },
@@ -252,31 +302,26 @@
       "label": "Табори для міста",
       "name": "city_related_camps",
       "type": "relationship",
-      "post_type": ["camp"],
+      "post_type": [
+        "camp"
+      ],
       "return_format": "id",
       "instructions": "Необов’язково. Оберіть опубліковані табори та впорядкуйте їх перетягуванням."
-    },
-    {
-      "key": "field_city_related_reviews",
-      "label": "Відгуки для міста",
-      "name": "city_related_reviews",
-      "type": "relationship",
-      "post_type": ["review"],
-      "return_format": "id",
-      "instructions": "Необов’язково. Якщо нічого не вибрано, сайт використає загальні підтверджені відгуки. Порядок змінюється перетягуванням."
     },
     {
       "key": "field_city_related_faq",
       "label": "FAQ для міста",
       "name": "city_related_faq",
       "type": "relationship",
-      "post_type": ["faq_item"],
+      "post_type": [
+        "faq_item"
+      ],
       "return_format": "id",
       "instructions": "Необов’язково. Якщо нічого не вибрано, сайт використає загальні активні FAQ. Порядок змінюється перетягуванням."
     },
     {
       "key": "field_city_tab_seo",
-      "label": "SEO і технічне",
+      "label": "SEO та технічні дані",
       "name": "",
       "type": "tab",
       "placement": "top"
@@ -340,20 +385,66 @@
       "type": "group",
       "instructions": "Необов’язково. Заповнюйте лише перевірені дані, які також видимі відвідувачу сторінки.",
       "sub_fields": [
-        {"key": "field_city_schema_name", "label": "Назва", "name": "name", "type": "text", "instructions": "Назва локального представництва; порожнє поле використовує назву міста."},
-        {"key": "field_city_schema_description", "label": "Опис", "name": "description", "type": "textarea", "instructions": "Короткий фактичний опис локального представництва."},
-        {"key": "field_city_schema_telephone", "label": "Телефон", "name": "telephone", "type": "text", "placeholder": "+380…", "instructions": "Локальний контактний телефон у міжнародному форматі."},
-        {"key": "field_city_schema_address", "label": "Адреса", "name": "address", "type": "text", "instructions": "Вказуйте лише реальну видиму адресу представництва."},
-        {"key": "field_city_schema_price_range", "label": "Ціновий діапазон", "name": "price_range", "type": "text", "placeholder": "₴₴", "instructions": "Необов’язково. Заповнюйте лише після погодження бізнесом."},
-        {"key": "field_city_schema_same_as", "label": "Локальний профіль", "name": "same_as", "type": "url", "instructions": "Необов’язково. Посилання на офіційний профіль саме цього міста."}
+        {
+          "key": "field_city_schema_name",
+          "label": "Назва",
+          "name": "name",
+          "type": "text",
+          "instructions": "Назва локального представництва; порожнє поле використовує назву міста."
+        },
+        {
+          "key": "field_city_schema_description",
+          "label": "Опис",
+          "name": "description",
+          "type": "textarea",
+          "instructions": "Короткий фактичний опис локального представництва."
+        },
+        {
+          "key": "field_city_schema_telephone",
+          "label": "Телефон",
+          "name": "telephone",
+          "type": "text",
+          "placeholder": "+380…",
+          "instructions": "Локальний контактний телефон у міжнародному форматі."
+        },
+        {
+          "key": "field_city_schema_address",
+          "label": "Адреса",
+          "name": "address",
+          "type": "text",
+          "instructions": "Вказуйте лише реальну видиму адресу представництва."
+        },
+        {
+          "key": "field_city_schema_price_range",
+          "label": "Ціновий діапазон",
+          "name": "price_range",
+          "type": "text",
+          "placeholder": "₴₴",
+          "instructions": "Необов’язково. Заповнюйте лише після погодження бізнесом."
+        },
+        {
+          "key": "field_city_schema_same_as",
+          "label": "Локальний профіль",
+          "name": "same_as",
+          "type": "url",
+          "instructions": "Необов’язково. Посилання на офіційний профіль саме цього міста."
+        }
       ]
     }
   ],
-  "location": [[{"param": "post_type", "operator": "==", "value": "city"}]],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "city"
+      }
+    ]
+  ],
   "active": true,
   "position": "acf_after_title",
   "show_in_rest": true,
   "allow_ai_access": true,
   "ai_description": "Структуровані редакторські поля Logika: Місто.",
-  "modified": 1784290623
+  "modified": 1784542912
 }

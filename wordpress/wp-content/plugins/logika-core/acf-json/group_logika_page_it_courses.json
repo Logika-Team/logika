@@ -1,10 +1,10 @@
 {
   "key": "group_logika_page_it_courses",
-  "title": "Сторінка: IT Courses",
+  "title": "Сторінка: Курси програмування",
   "fields": [
     {
       "key": "field_it_courses_tab_hero",
-      "label": "Hero",
+      "label": "Перший екран",
       "type": "tab",
       "name": ""
     },
@@ -111,57 +111,59 @@
       "instructions": "Додавайте рядки та змінюйте їхній порядок перетягуванням."
     },
     {
-      "key": "field_it_courses_tab_texts",
+      "key": "field_it_courses_tab_reviews",
       "label": "Відгуки",
+      "name": "",
       "type": "tab",
-      "name": ""
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
     },
     {
-      "key": "field_it_courses_reviews_title",
-      "label": "Заголовок відгуків",
-      "name": "it_courses_reviews_title",
-      "type": "text",
-      "instructions": "Вкажіть значення для поля «Заголовок відгуків»."
+      "key": "field_it_courses_reviews_section",
+      "label": "Налаштування секції",
+      "name": "",
+      "type": "clone",
+      "instructions": "Задайте заголовок і ілюстрації саме для цієї сторінки. Порожні поля використовують загальні налаштування сайту.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "clone": [
+        "group_logika_testimonials_images"
+      ],
+      "display": "seamless",
+      "layout": "block",
+      "prefix_label": 0,
+      "prefix_name": 0
     },
     {
-      "key": "field_it_courses_testimonials_image_1",
-      "label": "Велике фото 1",
-      "name": "testimonials_image_1",
-      "type": "image",
-      "instructions": "Перше велике фото у блоці відгуків.",
+      "key": "field_it_courses_featured_reviews",
+      "label": "Власна добірка відгуків",
+      "name": "it_courses_featured_reviews",
+      "type": "relationship",
+      "post_type": [
+        "review"
+      ],
       "return_format": "id",
-      "preview_size": "medium"
-    },
-    {
-      "key": "field_it_courses_testimonials_image_2",
-      "label": "Велике фото 2",
-      "name": "testimonials_image_2",
-      "type": "image",
-      "instructions": "Друге велике фото у блоці відгуків.",
-      "return_format": "id",
-      "preview_size": "medium"
-    },
-    {
-      "key": "field_it_courses_testimonials_image_3",
-      "label": "Велике фото 3",
-      "name": "testimonials_image_3",
-      "type": "image",
-      "instructions": "Третє велике фото у блоці відгуків.",
-      "return_format": "id",
-      "preview_size": "medium"
-    },
-    {
-      "key": "field_it_courses_testimonials_image_4",
-      "label": "Велике фото 4",
-      "name": "testimonials_image_4",
-      "type": "image",
-      "instructions": "Четверте велике фото у блоці відгуків.",
-      "return_format": "id",
-      "preview_size": "medium"
+      "filters": [
+        "search"
+      ],
+      "instructions": "Оберіть відгуки лише для цієї сторінки. Залиште порожнім, щоб показати глобальну добірку."
     },
     {
       "key": "field_it_courses_tab_content",
-      "label": "Добірки та відгуки",
+      "label": "Добірки",
       "type": "tab",
       "name": ""
     },
@@ -178,20 +180,6 @@
         "search"
       ],
       "instructions": "Оберіть і впорядкуйте курси. Новий курс створюється у «Курси → Додати новий»."
-    },
-    {
-      "key": "field_it_courses_featured_reviews",
-      "label": "Відгуки",
-      "name": "it_courses_featured_reviews",
-      "type": "relationship",
-      "post_type": [
-        "review"
-      ],
-      "return_format": "id",
-      "filters": [
-        "search"
-      ],
-      "instructions": "Оберіть потрібні записи та розташуйте їх у порядку публічного показу."
     },
     {
       "key": "field_it_courses_featured_faq",
@@ -301,7 +289,7 @@
     },
     {
       "key": "field_it_courses_tab_cta",
-      "label": "CTA",
+      "label": "Заклик до дії",
       "name": "",
       "type": "tab",
       "instructions": ""
@@ -357,5 +345,5 @@
   "show_in_rest": true,
   "allow_ai_access": true,
   "ai_description": "Структуровані редакторські поля Logika: Сторінка: IT Courses.",
-  "modified": 1784281465
+  "modified": 1784542912
 }

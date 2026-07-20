@@ -186,7 +186,7 @@
                 </div>
               </div>
 
-              <div class="courses-section__item-ages">7-8 рокiв</div>
+              <div class="courses-section__item-ages">7<span class="age-range-separator">-</span>8 рокiв</div>
 
               <a href="#years7" class="courses-section__item-link btn btn--white">
                 Переглянути курси
@@ -207,7 +207,7 @@
                 </div>
               </div>
 
-              <div class="courses-section__item-ages">9-11 рокiв</div>
+              <div class="courses-section__item-ages">9<span class="age-range-separator">-</span>11 рокiв</div>
 
               <a href="#years9" class="courses-section__item-link btn btn--white">
                 Переглянути курси
@@ -228,7 +228,7 @@
                 </div>
               </div>
 
-              <div class="courses-section__item-ages">12-14 рокiв</div>
+              <div class="courses-section__item-ages">12<span class="age-range-separator">-</span>14 рокiв</div>
 
               <a href="#years12" class="courses-section__item-link btn btn--white">
                 Переглянути курси
@@ -249,7 +249,7 @@
                 </div>
               </div>
 
-              <div class="courses-section__item-ages">14-17 рокiв</div>
+              <div class="courses-section__item-ages">14<span class="age-range-separator">-</span>17 рокiв</div>
 
               <a href="#years14" class="courses-section__item-link btn btn--white">
                 Переглянути курси

@@ -241,7 +241,7 @@
     },
     {
       "key": "field_global_tab_seo_schema",
-      "label": "SEO та Schema",
+      "label": "SEO та структуровані дані",
       "name": "",
       "type": "tab"
     },
@@ -306,6 +306,36 @@
       "label": "Спільні секції",
       "name": "",
       "type": "tab"
+    },
+    {
+      "key": "field_global_tab_reviews",
+      "label": "Відгуки",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_global_reviews_title",
+      "label": "Заголовок блоку відгуків",
+      "name": "global_reviews_title",
+      "type": "text",
+      "instructions": "Спільний заголовок для всіх блоків відгуків на сайті.",
+      "wrapper": {
+        "width": ""
+      }
+    },
+    {
+      "key": "field_global_reviews_gallery",
+      "label": "Декоративні фото відгуків",
+      "name": "global_reviews_gallery",
+      "type": "gallery",
+      "instructions": "Оберіть до чотирьох фото та впорядкуйте їх перетягуванням.",
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min": 0,
+      "max": 4,
+      "insert": "append"
     },
     {
       "key": "field_global_partners",

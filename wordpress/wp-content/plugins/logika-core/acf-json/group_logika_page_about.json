@@ -1,10 +1,10 @@
 {
   "key": "group_logika_page_about",
-  "title": "Сторінка: About",
+  "title": "Сторінка: Про школу",
   "fields": [
     {
       "key": "field_about_tab_hero",
-      "label": "Hero",
+      "label": "Перший екран",
       "type": "tab",
       "name": ""
     },
@@ -119,20 +119,6 @@
       "label": "Добірки",
       "type": "tab",
       "name": ""
-    },
-    {
-      "key": "field_about_featured_reviews",
-      "label": "Відгуки",
-      "name": "about_featured_reviews",
-      "type": "relationship",
-      "post_type": [
-        "review"
-      ],
-      "return_format": "id",
-      "filters": [
-        "search"
-      ],
-      "instructions": "Оберіть потрібні записи та розташуйте їх у порядку публічного показу."
     },
     {
       "key": "field_about_featured_faq",
@@ -401,7 +387,7 @@
     },
     {
       "key": "field_about_tab_cta",
-      "label": "CTA",
+      "label": "Заклик до дії",
       "name": "",
       "type": "tab",
       "instructions": ""
@@ -434,14 +420,44 @@
       "label": "Відгуки",
       "name": "",
       "type": "tab",
-      "instructions": ""
+      "instructions": "",
+      "placement": "top",
+      "endpoint": 0
     },
     {
-      "key": "field_about_reviews_title",
-      "label": "Заголовок відгуків",
-      "name": "about_reviews_title",
-      "type": "text",
-      "instructions": "Заповніть поле «Заголовок відгуків»."
+      "key": "field_about_reviews_section",
+      "label": "Налаштування секції",
+      "name": "",
+      "type": "clone",
+      "instructions": "Задайте заголовок і ілюстрації саме для цієї сторінки. Порожні поля використовують загальні налаштування сайту.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "clone": [
+        "group_logika_testimonials_images"
+      ],
+      "display": "seamless",
+      "layout": "block",
+      "prefix_label": 0,
+      "prefix_name": 0
+    },
+    {
+      "key": "field_about_featured_reviews",
+      "label": "Власна добірка відгуків",
+      "name": "about_featured_reviews",
+      "type": "relationship",
+      "post_type": [
+        "review"
+      ],
+      "return_format": "id",
+      "filters": [
+        "search"
+      ],
+      "instructions": "Оберіть відгуки лише для цієї сторінки. Залиште порожнім, щоб показати глобальну добірку."
     },
     {
       "key": "field_about_tab_faq",
@@ -496,5 +512,5 @@
   "show_in_rest": true,
   "allow_ai_access": true,
   "ai_description": "Структуровані редакторські поля Logika: Сторінка: About.",
-  "modified": 1784277373
+  "modified": 1784542912
 }

@@ -51,7 +51,7 @@
                   <p>Уявіть майбутнє і створіть свій світ на Червоній планеті: ландшафт, технології, роботів, транспорт, ресурси та екосистему.</p>
                 </div>
 
-                <a href="#" class="archive-section__promo-link btn btn--yellow">
+                <a href="/media-center/articles/logirace-2026/" class="archive-section__promo-link btn btn--yellow">
                   Дізнатись більше
                   <svg width='22' height='22'>
                     <use href='img/sprite/sprite.svg#arrow-right'></use>
@@ -72,7 +72,7 @@
                   <p>Уявіть майбутнє і створіть свій світ на Червоній планеті: ландшафт, технології, роботів, транспорт, ресурси та екосистему.</p>
                 </div>
 
-                <a href="#" class="archive-section__promo-link btn btn--yellow">
+                <a href="/media-center/articles/fantasy-games-2025/" class="archive-section__promo-link btn btn--yellow">
                   Дізнатись більше
                   <svg width='22' height='22'>
                     <use href='img/sprite/sprite.svg#arrow-right'></use>

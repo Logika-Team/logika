@@ -3,8 +3,9 @@
 declare(strict_types=1);
 
 final class Logika_Theme_Testimonials {
-	public static function apply( string $markup, ?array $ids = null, int|string $image_context = 0 ): string {
+	public static function apply( string $markup, ?array $ids = null, int|string $section_context = 0 ): string {
 		$markup  = self::normalizeLayout( $markup );
+		$markup  = str_replace( 'Довіра, підтверджена результатами', esc_html( self::title( $section_context ) ), $markup );
 		$reviews = array_filter( array_map( 'get_post', array_slice( Logika_Theme_Entities::reviews( $ids ), 0, 12 ) ) );
 
 		if ( ! $reviews ) {
@@ -28,7 +29,11 @@ final class Logika_Theme_Testimonials {
 			$markup
 		);
 
-		return self::replaceDecorations( self::replaceAvatars( $markup, $reviews ), $image_context );
+		return self::replaceDecorations( self::replaceAvatars( $markup, $reviews ), $section_context );
+	}
+
+	public static function title( int|string $section_context = 0 ): string {
+		return (string) ( self::sectionValue( 'reviews_section_title', $section_context ) ?: get_field( 'global_reviews_title', 'option' ) ?: 'Довіра, підтверджена результатами' );
 	}
 
 	private static function normalizeLayout( string $markup ): string {
@@ -54,9 +59,8 @@ final class Logika_Theme_Testimonials {
 		);
 	}
 
-	private static function replaceDecorations( string $markup, int|string $image_context ): string {
-		$field  = $image_context ? 'testimonials_image_' : 'home_testimonials_image_';
-		$images = array_map( static fn( int $index ): int => (int) get_field( "{$field}{$index}", $image_context ?: (int) get_option( 'page_on_front' ) ), range( 1, 4 ) );
+	private static function replaceDecorations( string $markup, int|string $section_context ): string {
+		$images = array_slice( array_map( 'absint', (array) ( self::sectionValue( 'reviews_section_gallery', $section_context ) ?: get_field( 'global_reviews_gallery', 'option' ) ) ), 0, 4 );
 		$index  = 0;
 
 		return (string) preg_replace_callback(
@@ -68,5 +72,13 @@ final class Logika_Theme_Testimonials {
 			},
 			$markup
 		);
+	}
+
+	private static function sectionValue( string $field, int|string $context ): mixed {
+		if ( ! $context ) {
+			return null;
+		}
+
+		return is_int( $context ) ? get_post_meta( $context, $field, true ) : get_option( $context . '_' . $field );
 	}
 }

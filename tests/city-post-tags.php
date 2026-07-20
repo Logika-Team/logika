@@ -19,6 +19,8 @@ try {
 
 	foreach ( array( 'Загальна', 'Київська', 'Львівська', 'Для кількох міст' ) as $index => $title ) {
 		$posts[] = wp_insert_post( array( 'post_type' => 'post', 'post_status' => 'publish', 'post_title' => $title . ' ' . $suffix, 'post_name' => "city-tag-post-{$index}-{$suffix}" ) );
+		$date = wp_date( 'Y-m-d H:i:s', time() - ( 4 - $index ) * 60, wp_timezone() );
+		wp_update_post( array( 'ID' => $posts[ $index ], 'post_date' => $date, 'post_date_gmt' => get_gmt_from_date( $date ) ) );
 	}
 	update_post_meta( $posts[1], 'post_related_city', $cities[0] );
 	update_post_meta( $posts[2], 'post_related_city', $cities[1] );
@@ -35,6 +37,7 @@ try {
 
 	$local = new WP_REST_Request( 'GET', '/logika/v1/media' );
 	$local->set_param( 'city', $cities[0] );
+	$local->set_param( 'all', true );
 	$local_titles = array_column( rest_do_request( $local )->get_data(), 'title' );
 	if ( array_intersect( array( get_the_title( $posts[2] ) ), $local_titles ) || array_diff( array( get_the_title( $posts[0] ), get_the_title( $posts[1] ), get_the_title( $posts[3] ) ), $local_titles ) ) {
 		throw new RuntimeException( 'A selected city must receive its tagged and common posts, never another city.' );
@@ -59,6 +62,9 @@ try {
 	$local_markup = (string) ob_get_clean();
 	if ( str_contains( $general_markup, get_the_title( $posts[1] ) ) || str_contains( $general_markup, get_the_title( $posts[2] ) ) || str_contains( $general_markup, get_the_title( $posts[3] ) ) || ! str_contains( $local_markup, get_the_title( $posts[1] ) ) || ! str_contains( $local_markup, get_the_title( $posts[3] ) ) || str_contains( $local_markup, get_the_title( $posts[2] ) ) ) {
 		throw new RuntimeException( 'Server homepage cards must honour the selected-city cookie.' );
+	}
+	if ( strpos( $local_markup, get_the_title( $posts[3] ) ) > strpos( $local_markup, get_the_title( $posts[1] ) ) ) {
+		throw new RuntimeException( 'Server homepage cards must show newest selected-city articles first.' );
 	}
 
 	$related_before = get_post_meta( $posts[0], 'article_related_posts', false );

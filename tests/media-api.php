@@ -17,7 +17,11 @@ function logika_media_api_post( string $slug, string $title, string $status, str
 
 register_shutdown_function(
 	static function (): void {
-		foreach ( array( 'media-api-local-new', 'media-api-local-old', 'media-api-common-new', 'media-api-common-old', 'media-api-other-city', 'media-api-draft', 'media-api-search-published', 'media-api-search-draft' ) as $slug ) {
+		$slugs = array( 'media-api-local-new', 'media-api-local-old', 'media-api-common-new', 'media-api-common-old', 'media-api-other-city', 'media-api-draft', 'media-api-search-published', 'media-api-search-draft' );
+		foreach ( range( 1, 8 ) as $number ) {
+			$slugs[] = 'media-api-common-' . $number;
+		}
+		foreach ( $slugs as $slug ) {
 			$post = get_page_by_path( $slug, OBJECT, 'post' );
 			if ( $post instanceof WP_Post ) {
 				wp_delete_post( $post->ID, true );
@@ -46,6 +50,9 @@ $news_id = logika_media_api_post( 'media-api-local-new', 'Локальна но�
 logika_media_api_post( 'media-api-local-old', 'Локальна стара стаття', 'publish', $date( 120 ), $city_id );
 $offer_id = logika_media_api_post( 'media-api-common-new', 'Загальна нова стаття', 'publish', $date( 180 ) );
 logika_media_api_post( 'media-api-common-old', 'Загальна стара стаття', 'publish', $date( 240 ) );
+foreach ( range( 1, 8 ) as $number ) {
+	logika_media_api_post( 'media-api-common-' . $number, 'Загальна стаття ' . $number, 'publish', $date( 300 + $number ) );
+}
 logika_media_api_post( 'media-api-other-city', 'Чужа міська стаття', 'publish', $date( 30 ), $other_city_id );
 logika_media_api_post( 'media-api-draft', 'Чернетка міста', 'draft', $date( 30 ), $city_id );
 logika_media_api_post( 'media-api-search-published', 'Унікальний пошук медіа', 'publish', $date( 300 ) );
@@ -75,6 +82,15 @@ $general = rest_do_request( new WP_REST_Request( 'GET', '/logika/v1/media' ) );
 
 if ( 200 !== $general->get_status() || 7 !== count( $general->get_data() ) ) {
 	fwrite( STDERR, "Media API must provide the general seven-card feed without a selected city.\n" );
+	exit( 1 );
+}
+
+$all = new WP_REST_Request( 'GET', '/logika/v1/media' );
+$all->set_param( 'all', true );
+$all_titles = array_column( rest_do_request( $all )->get_data(), 'title' );
+
+if ( array_diff( array( 'Загальна стаття 1', 'Загальна стаття 8' ), $all_titles ) ) {
+	fwrite( STDERR, "Media API all mode must return common articles beyond the seven-card feed.\n" );
 	exit( 1 );
 }
 

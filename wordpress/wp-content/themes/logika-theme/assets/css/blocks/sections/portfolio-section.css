@@ -29,6 +29,14 @@
 .portfolio-section__viewport::-webkit-scrollbar {
   display: none;
 }
+.portfolio-section__viewport.is-dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+.portfolio-section__viewport img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
 .portfolio-section__slider {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -37,7 +45,7 @@
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  margin: 0 0 0 calc(50% - 1085px);
+  margin: 0;
   padding: 0;
   list-style: none;
   -ms-scroll-snap-type: x mandatory;
@@ -148,6 +156,7 @@
 .portfolio-section__card--featured h3 {
   margin-top: 14px;
   font-size: 20px;
+  color: #fff;
 }
 .portfolio-section__card--featured p {
   margin-top: 10px;
@@ -221,7 +230,7 @@
   font-size: 12px;
   white-space: nowrap;
 }
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .portfolio-section__wrapp {
     gap: 30px;
   }
@@ -230,6 +239,8 @@
     margin-left: 0;
     padding: 0 16px;
   }
+}
+@media (max-width: 767px) {
   .portfolio-section__card {
     -ms-flex-preferred-size: min(84vw, 345px);
     flex-basis: min(84vw, 345px);
@@ -238,16 +249,18 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-preferred-size: min(92vw, 710px);
-    flex-basis: min(92vw, 710px);
+    -ms-flex-preferred-size: min(88vw, 710px);
+    flex-basis: min(88vw, 710px);
+    flex-direction: column;
+    gap: 0;
     min-height: auto;
   }
   .portfolio-section__game {
-    min-height: 210px;
-    margin-top: 20px;
+    order: -1;
+    height: auto;
+    min-height: 0;
+    margin: 0 0 20px;
+    aspect-ratio: 1.31;
   }
 }
 /*# sourceMappingURL=portfolio-section.css.map */
-
-/* WordPress-only selectors. */
-.portfolio-section__card h3,.portfolio-section__card p{margin:0;font-weight:700;letter-spacing:-.05em}.portfolio-section__card>p{margin-top:auto;color:#858585;font-size:14px;line-height:1.4;text-align:center}.portfolio-section__tag--course,.portfolio-section__tag--topic{position:absolute;white-space:nowrap;-webkit-transform:rotate(-10deg);-ms-transform:rotate(-10deg);transform:rotate(-10deg)}@media (max-width:767px){.portfolio-section__wrapp{gap:30px}.portfolio-section__slider{gap:12px;margin-left:0;padding:0 16px}.portfolio-section__card{-ms-flex-preferred-size:min(84vw,345px);flex-basis:min(84vw,345px)}.portfolio-section__card--featured{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:min(92vw,710px);flex-basis:min(92vw,710px);min-height:auto}.portfolio-section__game{min-height:210px;margin-top:20px}}.portfolio-section__viewport.is-dragging{cursor:grabbing;user-select:none}.portfolio-section__viewport img{user-select:none;-webkit-user-drag:none}.portfolio-section--course .portfolio-section__slider{margin:0 auto}

@@ -3,24 +3,11 @@
   "title": "Відгук",
   "fields": [
     {
-      "key": "field_review_external_id",
-      "label": "Зовнішній ID",
-      "name": "review_external_id",
-      "aria-label": "",
-      "type": "text",
-      "instructions": "Вкажіть значення для поля «Зовнішній ID».",
-      "required": false,
-      "conditional_logic": false,
-      "wrapper": {
-        "width": "",
-        "class": "",
-        "id": ""
-      },
-      "default_value": "",
-      "maxlength": "",
-      "placeholder": "",
-      "prepend": "",
-      "append": ""
+      "key": "field_review_tab_author",
+      "label": "Автор",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
     },
     {
       "key": "field_review_author_name",
@@ -61,6 +48,38 @@
       "maxlength": "",
       "prepend": "",
       "append": ""
+    },
+    {
+      "key": "field_review_photo",
+      "label": "Фото",
+      "name": "review_photo",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Оберіть зображення для «Фото». Після вибору в полі буде показано мініатюру.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_review_tab_content",
+      "label": "Вміст",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
     },
     {
       "key": "field_review_text",
@@ -105,12 +124,11 @@
       "append": ""
     },
     {
-      "key": "field_review_photo",
-      "label": "Фото",
-      "name": "review_photo",
-      "aria-label": "",
-      "type": "image",
-      "instructions": "Оберіть зображення для «Фото». Після вибору в полі буде показано мініатюру.",
+      "key": "field_review_card_label",
+      "label": "Мітка картки",
+      "name": "review_card_label",
+      "type": "text",
+      "instructions": "Наприклад: назва курсу або «Відгук батьків».",
       "required": false,
       "conditional_logic": false,
       "wrapper": {
@@ -118,16 +136,36 @@
         "class": "",
         "id": ""
       },
-      "return_format": "id",
-      "preview_size": "medium",
-      "library": "all",
-      "min_width": 0,
-      "min_height": 0,
-      "min_size": 0,
-      "max_width": 0,
-      "max_height": 0,
-      "max_size": 0,
-      "mime_types": ""
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_review_video_url",
+      "label": "Посилання на відеовідгук",
+      "name": "review_video_url",
+      "type": "url",
+      "instructions": "Необов'язкове посилання на опубліковане відео.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "https://",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_review_tab_relations",
+      "label": "Зв’язки",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
     },
     {
       "key": "field_review_related_city",
@@ -178,6 +216,13 @@
       "bidirectional_target": []
     },
     {
+      "key": "field_review_tab_publication",
+      "label": "Публікація",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
       "key": "field_review_is_global",
       "label": "Глобальний відгук",
       "name": "review_is_global",
@@ -218,25 +263,6 @@
       "ui_off_text": ""
     },
     {
-      "key": "field_review_card_label",
-      "label": "Мітка картки",
-      "name": "review_card_label",
-      "type": "text",
-      "instructions": "Наприклад: назва курсу або «Відгук батьків».",
-      "required": false,
-      "conditional_logic": false,
-      "wrapper": {
-        "width": "",
-        "class": "",
-        "id": ""
-      },
-      "default_value": "",
-      "maxlength": "",
-      "placeholder": "",
-      "prepend": "",
-      "append": ""
-    },
-    {
       "key": "field_review_display_order",
       "label": "Порядок показу",
       "name": "review_display_order",
@@ -258,11 +284,19 @@
       "append": ""
     },
     {
-      "key": "field_review_video_url",
-      "label": "Посилання на відеовідгук",
-      "name": "review_video_url",
-      "type": "url",
-      "instructions": "Необов'язкове посилання на опубліковане відео.",
+      "key": "field_review_tab_technical",
+      "label": "Технічні дані",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_review_external_id",
+      "label": "Зовнішній ID",
+      "name": "review_external_id",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Вкажіть значення для поля «Зовнішній ID».",
       "required": false,
       "conditional_logic": false,
       "wrapper": {
@@ -271,7 +305,8 @@
         "id": ""
       },
       "default_value": "",
-      "placeholder": "https://",
+      "maxlength": "",
+      "placeholder": "",
       "prepend": "",
       "append": ""
     }

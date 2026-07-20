@@ -1014,67 +1014,58 @@
         <div class="container portfolio-section__container">
           <div class="portfolio-section__viewport">
             <ul class="portfolio-section__slider">
-            <li class="portfolio-section__card">
-              <h3>Максим, 12 років</h3>
-              <div class="portfolio-section__photo">
-                <img src="img/portfolio/maxym.jpg" alt="Максим, учень курсу Python Start" loading="lazy">
-                <span class="portfolio-section__tag portfolio-section__tag--course">Python Start</span>
-                <span class="portfolio-section__tag portfolio-section__tag--topic">Python</span>
-              </div>
-              <p>Максим освоїв курс Python Start і вже створив свою першу комп’ютерну гру</p>
-            </li>
-            <li class="portfolio-section__card">
-              <h3>Максим, 12 років</h3>
-              <div class="portfolio-section__photo">
-                <img src="img/portfolio/maxym.jpg" alt="Максим, учень курсу Python Start" loading="lazy">
-                <span class="portfolio-section__tag portfolio-section__tag--course">Python Start</span>
-                <span class="portfolio-section__tag portfolio-section__tag--topic">Python</span>
-              </div>
-              <p>Максим освоїв курс Python Start і вже створив свою першу комп’ютерну гру</p>
-            </li>
-            <li class="portfolio-section__card portfolio-section__card--featured">
-              <div class="portfolio-section__content">
-                <span class="portfolio-section__tag">Python Start</span>
+              <li class="portfolio-section__card">
                 <h3>Максим, 12 років</h3>
+                <div class="portfolio-section__photo">
+                  <img src="img/portfolio/maxym.jpg" alt="Максим, учень курсу Python Start" loading="lazy">
+                  <span class="portfolio-section__tag portfolio-section__tag--course">Python Start</span>
+                  <span class="portfolio-section__tag portfolio-section__tag--topic">Python</span>
+                </div>
                 <p>Максим освоїв курс Python Start і вже створив свою першу комп’ютерну гру</p>
-                <a class="portfolio-section__video" href="https://www.youtube.com/watch?v=7QN3QcMHMQ4" target="_blank" rel="noopener noreferrer">
-                  <img src="img/portfolio/Watch.svg" alt="" aria-hidden="true">
-                  Дивитись відеовідгук
-                </a>
-                <a class="portfolio-section__trial btn btn--yellow" href="#lead-form">
-                  Безкоштовний пробний урок
-                  <svg width="20" height="20" aria-hidden="true"><use href="img/sprite/sprite.svg#arrow-right"></use></svg>
-                </a>
-              </div>
-              <img class="portfolio-section__game" src="img/portfolio/computer-game.png" alt="Гра, створена учнем на курсі Python Start" loading="lazy">
-            </li>
-            <li class="portfolio-section__card">
-              <h3>Максим, 12 років</h3>
-              <div class="portfolio-section__photo">
-                <img src="img/portfolio/maxym.jpg" alt="Максим, учень курсу Python Start" loading="lazy">
-                <span class="portfolio-section__tag portfolio-section__tag--course">Python Start</span>
-                <span class="portfolio-section__tag portfolio-section__tag--topic">Python</span>
-              </div>
-              <p>Максим освоїв курс Python Start і вже створив свою першу комп’ютерну гру</p>
-            </li>
-            <li class="portfolio-section__card">
-              <h3>Максим, 12 років</h3>
-              <div class="portfolio-section__photo">
-                <img src="img/portfolio/maxym.jpg" alt="Максим, учень курсу Python Start" loading="lazy">
-                <span class="portfolio-section__tag portfolio-section__tag--course">Python Start</span>
-                <span class="portfolio-section__tag portfolio-section__tag--topic">Python</span>
-              </div>
-              <p>Максим освоїв курс Python Start і вже створив свою першу комп’ютерну гру</p>
-            </li>
-            <li class="portfolio-section__card">
-              <h3>Максим, 12 років</h3>
-              <div class="portfolio-section__photo">
-                <img src="img/portfolio/maxym.jpg" alt="Максим, учень курсу Python Start" loading="lazy">
-                <span class="portfolio-section__tag portfolio-section__tag--course">Python Start</span>
-                <span class="portfolio-section__tag portfolio-section__tag--topic">Python</span>
-              </div>
-              <p>Максим освоїв курс Python Start і вже створив свою першу комп’ютерну гру</p>
-            </li>
+              </li>
+              <li class="portfolio-section__card portfolio-section__card--featured">
+                <div class="portfolio-section__content">
+                  <span class="portfolio-section__tag">Python Start</span>
+                  <h3>Максим, 12 років</h3>
+                  <p>Максим освоїв курс Python Start і вже створив свою першу комп’ютерну гру</p>
+                  <a class="portfolio-section__video" href="https://www.youtube.com/watch?v=7QN3QcMHMQ4" target="_blank" rel="noopener noreferrer">
+                    <img src="img/portfolio/Watch.svg" alt="" aria-hidden="true">
+                    Дивитись відеовідгук
+                  </a>
+                  <a class="portfolio-section__trial btn btn--yellow" href="#lead-form">
+                    Безкоштовний пробний урок
+                    <svg width="20" height="20" aria-hidden="true"><use href="img/sprite/sprite.svg#arrow-right"></use></svg>
+                  </a>
+                </div>
+                <img class="portfolio-section__game" src="img/portfolio/computer-game.png" alt="Гра, створена учнем на курсі Python Start" loading="lazy">
+              </li>
+              <li class="portfolio-section__card">
+                <h3>Ян Корнієць, Львів</h3>
+                <div class="portfolio-section__photo">
+                  <img src="img/portfolio/tactical-strike-force.png" alt="Ілюстрація проєкту Tactical Strike Force" loading="lazy">
+                  <span class="portfolio-section__tag portfolio-section__tag--course">Геймдизайн</span>
+                  <span class="portfolio-section__tag portfolio-section__tag--topic">Roblox</span>
+                </div>
+                <p>Ян створив Tactical Strike Force — власну бойову гру в Roblox і посів перше місце на конкурсі проєктів.</p>
+              </li>
+              <li class="portfolio-section__card">
+                <h3>Ілля Шляпников, Харків</h3>
+                <div class="portfolio-section__photo">
+                  <img src="img/portfolio/shadow-light-2.png" alt="Ілюстрація проєкту Shadow Light 2" loading="lazy">
+                  <span class="portfolio-section__tag portfolio-section__tag--course">Геймдизайн</span>
+                  <span class="portfolio-section__tag portfolio-section__tag--topic">Roblox</span>
+                </div>
+                <p>Ілля розробив Shadow Light 2 — власну гру в Roblox і посів друге місце на конкурсі проєктів.</p>
+              </li>
+              <li class="portfolio-section__card">
+                <h3>Максим Кравченко, Дніпро</h3>
+                <div class="portfolio-section__photo">
+                  <img src="img/portfolio/chernobyl-horror.png" alt="Ілюстрація проєкту Chernobyl Horror" loading="lazy">
+                  <span class="portfolio-section__tag portfolio-section__tag--course">Геймдизайн</span>
+                  <span class="portfolio-section__tag portfolio-section__tag--topic">Roblox</span>
+                </div>
+                <p>Максим створив Chernobyl Horror — власну гру та посів третє місце на конкурсі проєктів.</p>
+              </li>
             </ul>
           </div>
         </div>
@@ -1121,7 +1112,7 @@
       </div>
     </section>
 
-    <section class="media-section">
+    <section class="media-section media-center-section">
       <div class="container">
         <div class="media-section__wrapp">
           <div class="media-section__top">
@@ -1274,6 +1265,31 @@
           <div class="cta-section__bottom-bg">
             <img src="img/cta/cta-bottom-bg.svg" alt="">
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="nizhyn-school" data-city-home-seo aria-labelledby="nizhyn-school-title" hidden>
+      <div class="container">
+        <div class="nizhyn-school__intro">
+          <div class="nizhyn-school__copy">
+            <h2 class="nizhyn-school__title" id="nizhyn-school-title" data-city-home-seo-title></h2>
+            <div class="nizhyn-school__description" data-city-home-seo-description></div>
+            <a class="nizhyn-school__cta btn btn--yellow" href="#lead-form" data-city-home-seo-cta>
+              <span data-city-home-seo-cta-label></span>
+              <svg width="20" height="20" aria-hidden="true"><use href="img/sprite/sprite.svg#arrow-right"></use></svg>
+            </a>
+          </div>
+          <img class="nizhyn-school__illustration" data-city-home-seo-illustration alt="">
+        </div>
+        <div class="nizhyn-school__video">
+          <img data-city-home-seo-video-poster alt="">
+          <div class="nizhyn-school__video-overlay" aria-hidden="true"></div>
+          <div class="nizhyn-school__video-caption" data-city-home-seo-video-caption></div>
+          <button class="nizhyn-school__play" type="button" data-city-home-seo-video-play aria-label="Відтворити відео" aria-controls="city-home-seo-video">
+            <span aria-hidden="true"></span>
+          </button>
+          <iframe class="nizhyn-school__video-frame" id="city-home-seo-video" data-city-home-seo-video-frame title="Відео про школу" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen hidden></iframe>
         </div>
       </div>
     </section>

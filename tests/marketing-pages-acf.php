@@ -6,7 +6,6 @@ require dirname(__DIR__) . '/wordpress/wp-load.php';
 
 $pages = array(
 	'about'           => array( 'field' => 'about_benefits_title', 'value' => 'About ACF benefits title' ),
-	'it-courses'      => array( 'field' => 'it_courses_reviews_title', 'value' => 'IT ACF reviews title' ),
 	'english-courses' => array( 'field' => 'english_courses_test_text', 'value' => 'English ACF test text' ),
 	'faq'             => array( 'field' => 'faq_page_cta_title', 'value' => 'FAQ ACF CTA title' ),
 	'media-center'    => array( 'field' => 'media_center_discount_title', 'value' => 'Media ACF discount title' ),
@@ -38,6 +37,25 @@ foreach ( $pages as $slug => $expectation ) {
 		delete_post_meta( $page_id, '_' . $expectation['field'] );
 	} else {
 		update_field( $expectation['field'], $original, $page_id );
+	}
+}
+
+$it_page = get_page_by_path( 'it-courses' );
+$local_title = $it_page ? get_post_meta( $it_page->ID, 'reviews_section_title', true ) : '';
+if ( $it_page ) {
+	update_post_meta( $it_page->ID, 'reviews_section_title', 'IT Courses local reviews title' );
+}
+ob_start();
+Logika_Theme_Source_Markup::renderPage( 'it-courses', (int) ( $it_page?->ID ?? 0 ) );
+$markup = (string) ob_get_clean();
+if ( ! str_contains( $markup, 'IT Courses local reviews title' ) ) {
+	$errors[] = 'IT Courses does not render its local reviews title.';
+}
+if ( $it_page ) {
+	if ( '' === $local_title ) {
+		delete_post_meta( $it_page->ID, 'reviews_section_title' );
+	} else {
+		update_post_meta( $it_page->ID, 'reviews_section_title', $local_title );
 	}
 }
 

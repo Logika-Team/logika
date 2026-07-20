@@ -1905,9 +1905,9 @@
     "semantic_hash": "304394367930e48143480fbd05479f2f"
   },
   "docs/content-model.md": {
-    "mtime": 1784318226.6808999,
-    "ast_hash": "f9c98a0ff603e4be4821a6012a67c266",
-    "semantic_hash": "f9c98a0ff603e4be4821a6012a67c266"
+    "mtime": 1784543298.9951897,
+    "ast_hash": "cf2985fac82c53f4058cabe529766ba3",
+    "semantic_hash": ""
   },
   "docs/database.md": {
     "mtime": 1784318226.6808999,
@@ -1940,8 +1940,8 @@
     "semantic_hash": "cadf4be6d8dccfc878949850005bb78b"
   },
   "docs/plan.md": {
-    "mtime": 1784485648.8082447,
-    "ast_hash": "d3fa2371a49009ee0aa03d7405e144c5",
+    "mtime": 1784551283.485864,
+    "ast_hash": "465e0cb84e9ad6e2016abfb877c901ba",
     "semantic_hash": ""
   },
   "docs/project.md": {
@@ -1960,9 +1960,9 @@
     "semantic_hash": "c68684e422ef12c9f69947651bdf28e8"
   },
   "docs/testing.md": {
-    "mtime": 1784318226.6818402,
-    "ast_hash": "d59b3d75baa96a00e5ad694611745a0f",
-    "semantic_hash": "d59b3d75baa96a00e5ad694611745a0f"
+    "mtime": 1784543298.9961898,
+    "ast_hash": "4cbd6172c215311659b466d4668b3def",
+    "semantic_hash": ""
   },
   "source/about.html": {
     "mtime": 1784442746.8200963,
@@ -3875,8 +3875,8 @@
     "semantic_hash": ""
   },
   "tests/article-page-dynamic.php": {
-    "mtime": 1784308520.614568,
-    "ast_hash": "9ebbdec90c6032d6ca663bf4f5c9208c",
+    "mtime": 1784549365.9029112,
+    "ast_hash": "79cb7a8dbddc6bc05e2eb9fb8bece0f3",
     "semantic_hash": ""
   },
   "tests/article-views-api.php": {
@@ -3980,8 +3980,8 @@
     "semantic_hash": ""
   },
   "tests/course-camp-architecture.php": {
-    "mtime": 1784329598.2516084,
-    "ast_hash": "c33782c194fe9195acef3d2b2ee0126b",
+    "mtime": 1784540693.6652122,
+    "ast_hash": "50203c38afe7ceef5140938c7beb92f8",
     "semantic_hash": ""
   },
   "tests/course-card-descriptions.php": {
@@ -4015,7 +4015,7 @@
     "semantic_hash": ""
   },
   "tests/course-page-components.php": {
-    "mtime": 1784308520.614568,
+    "mtime": 1784528524.3310924,
     "ast_hash": "66cc67525939feb43a2801a0bf4b2b0d",
     "semantic_hash": ""
   },
@@ -4030,8 +4030,8 @@
     "semantic_hash": ""
   },
   "tests/course-student-projects.php": {
-    "mtime": 1784441690.052103,
-    "ast_hash": "cefa98531ad4984743cc3bd890b772b6",
+    "mtime": 1784550511.4263234,
+    "ast_hash": "e2f3f9f2534d9edde887bc6d4ded330b",
     "semantic_hash": ""
   },
   "tests/cta-decoration-pointer-events.php": {
@@ -4055,13 +4055,13 @@
     "semantic_hash": ""
   },
   "tests/faq-page-component.php": {
-    "mtime": 1784390300.9146633,
-    "ast_hash": "4e90d2fa91d869d444c5d8f0b102c6f3",
+    "mtime": 1784527472.7164302,
+    "ast_hash": "3baa7a3294f356c185f81e3956aed06b",
     "semantic_hash": ""
   },
   "tests/fixed-page-schema.php": {
-    "mtime": 1784305083.6051238,
-    "ast_hash": "710ee18abd0d4b56077f00f6fe9be969",
+    "mtime": 1784540920.236461,
+    "ast_hash": "185e60ac3bef17e768ae7cf6bc8373df",
     "semantic_hash": ""
   },
   "tests/fixed-pages-structured.php": {
@@ -4145,18 +4145,18 @@
     "semantic_hash": ""
   },
   "tests/homepage-student-projects.php": {
-    "mtime": 1784365083.0862012,
-    "ast_hash": "b7fb3b98c52ec205cac15e39b5471d6a",
+    "mtime": 1784542174.4973996,
+    "ast_hash": "0321958741966ccdee6edd3100b1857d",
     "semantic_hash": ""
   },
   "tests/homepage-testimonials-images-runtime.php": {
-    "mtime": 1784312419.4115527,
-    "ast_hash": "a83822a5ff08a8f614ffe53fef1fcee6",
+    "mtime": 1784540493.699786,
+    "ast_hash": "5962d5aa3508de48569643131e926252",
     "semantic_hash": ""
   },
   "tests/homepage-testimonials-images-static.php": {
-    "mtime": 1784311937.9035847,
-    "ast_hash": "38fa87bb9f7aa31c2077f142d2536202",
+    "mtime": 1784543409.9667213,
+    "ast_hash": "d8e3f7d2dc0d971a1b72db0178ea729a",
     "semantic_hash": ""
   },
   "tests/it-course-placeholder-cards.php": {
@@ -4165,13 +4165,13 @@
     "semantic_hash": ""
   },
   "tests/it-courses-admin-fields.php": {
-    "mtime": 1784313511.2646422,
-    "ast_hash": "fedb32423c6349e4b4f0c6b25975887d",
+    "mtime": 1784543273.735386,
+    "ast_hash": "f7c02b780e006c51079b70adf4ee5098",
     "semantic_hash": ""
   },
   "tests/it-courses-image-overrides.php": {
-    "mtime": 1784314073.7493968,
-    "ast_hash": "e54eb8fccfd1fca27b94e51b1238e760",
+    "mtime": 1784540693.6652122,
+    "ast_hash": "eb99b0db13de3f558e7aceba912f106b",
     "semantic_hash": ""
   },
   "tests/lead-dropdown-visibility.php": {
@@ -4215,23 +4215,23 @@
     "semantic_hash": ""
   },
   "tests/marketing-pages-acf.php": {
-    "mtime": 1784308520.6155682,
-    "ast_hash": "69cad4b51ce4bc2f1b8b265743226536",
+    "mtime": 1784543273.735386,
+    "ast_hash": "1043bf753968312f8a7641551424825d",
     "semantic_hash": ""
   },
   "tests/media-api.php": {
-    "mtime": 1784386449.6201215,
-    "ast_hash": "c047bf6eb53e844f6efc5b5326215271",
+    "mtime": 1784550927.0715394,
+    "ast_hash": "f897df78c7b6e06a254c156234045066",
     "semantic_hash": ""
   },
   "tests/media-center-articles.php": {
-    "mtime": 1784210781.2010121,
-    "ast_hash": "33ad4c97034b4e11d42ef052a3f455f9",
+    "mtime": 1784549390.1156807,
+    "ast_hash": "cc4c1d759cda3ab221703d9b92365353",
     "semantic_hash": ""
   },
   "tests/media-center-editor.php": {
-    "mtime": 1784305083.6051238,
-    "ast_hash": "267de53e7d0f6365b3f43aa811c305d0",
+    "mtime": 1784547458.9663434,
+    "ast_hash": "b5123432e275424aa1f859548d4d9308",
     "semantic_hash": ""
   },
   "tests/media-center-fixtures.php": {
@@ -4310,8 +4310,8 @@
     "semantic_hash": ""
   },
   "tests/testimonials-images-context-static.php": {
-    "mtime": 1784312215.2591774,
-    "ast_hash": "1394692a3daf3f0a119b74b205b81b88",
+    "mtime": 1784543409.9647212,
+    "ast_hash": "4cb39d7d56b63e98708596c4648373eb",
     "semantic_hash": ""
   },
   "tests/theme-source-pages.php": {
@@ -4345,103 +4345,103 @@
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/acf-json/group_logika_article_author.json": {
-    "mtime": 1784308520.6155682,
+    "mtime": 1784540169.5262654,
     "ast_hash": "3218634710d406a96421f4925e3d3c85",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/acf-json/group_logika_branch.json": {
-    "mtime": 1784308520.6155682,
-    "ast_hash": "3ba7fddcb0c7204e5189969bed59a074",
+    "mtime": 1784540356.9603484,
+    "ast_hash": "27dd172d3c677f5dfc006dd236f296c2",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/acf-json/group_logika_camp.json": {
-    "mtime": 1784332196.9794075,
-    "ast_hash": "60cd81c2b51fe100392c013a70255ad9",
+    "mtime": 1784542912.0698762,
+    "ast_hash": "91111102241c596e127272b77ae9f002",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/acf-json/group_logika_camp_archive.json": {
-    "mtime": 1784332042.5314898,
-    "ast_hash": "b6b613c797af3ccdac947b82ca6727f2",
+    "mtime": 1784542912.0668762,
+    "ast_hash": "023a20f3e6b5620cb10205243f901f70",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/acf-json/group_logika_city.json": {
-    "mtime": 1784368882.3061502,
-    "ast_hash": "d0615a22aa84b5b0d95d4b56296536c1",
+    "mtime": 1784542912.067876,
+    "ast_hash": "4107d094d6c74cb4af7a6146c2a1b840",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/acf-json/group_logika_course.json": {
-    "mtime": 1784465205.5418162,
-    "ast_hash": "53c98e0fe4c913955426a0135d153ea9",
+    "mtime": 1784550526.792812,
+    "ast_hash": "1ee8785c514ede677b0602c04a64368e",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/acf-json/group_logika_faq.json": {
-    "mtime": 1784308520.6155682,
+    "mtime": 1784540169.5322657,
     "ast_hash": "d077d64526ee55b75fa75abb380c0c1b",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/acf-json/group_logika_generic_page.json": {
-    "mtime": 1784305083.6051238,
+    "mtime": 1784540169.5322657,
     "ast_hash": "3c61406675a0c8cc403e956a36bb7f2d",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/acf-json/group_logika_global.json": {
-    "mtime": 1784308520.6155682,
-    "ast_hash": "2dfb519601615844118917d330bab91c",
+    "mtime": 1784540169.5332656,
+    "ast_hash": "82e85837285a38666df3531993ee7978",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/acf-json/group_logika_home.json": {
-    "mtime": 1784311547.397229,
-    "ast_hash": "7620bdd8d90d443ed4c91e2502d53d62",
+    "mtime": 1784542912.064876,
+    "ast_hash": "df06ee72bbe09cb6b0d5c1abd4a14174",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/acf-json/group_logika_legal.json": {
-    "mtime": 1784305083.6051238,
+    "mtime": 1784540169.5362659,
     "ast_hash": "56ff55ff31926b1e78c16854ef35660b",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/acf-json/group_logika_page_about.json": {
-    "mtime": 1784308520.616568,
-    "ast_hash": "9bb9994f9fe442cbdfba0411ea81e1db",
+    "mtime": 1784542912.065876,
+    "ast_hash": "8b1291cde689dbe59d79436d96e9e4b5",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/acf-json/group_logika_page_english_courses.json": {
-    "mtime": 1784308520.616568,
-    "ast_hash": "cfe25a3b72cd3dbc32f4207cafbf40ee",
+    "mtime": 1784542912.0668762,
+    "ast_hash": "cbcf2042afeb7f94c7f1cb9666c7a50c",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/acf-json/group_logika_page_faq.json": {
-    "mtime": 1784308520.616568,
-    "ast_hash": "7631e7f16ed2a584d3934ad9fe8f1165",
+    "mtime": 1784542912.0668762,
+    "ast_hash": "4bced0c2f95c12487890122efd643d33",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/acf-json/group_logika_page_it_courses.json": {
-    "mtime": 1784313591.6031122,
-    "ast_hash": "467d090df218d677051b64384d49f7d0",
+    "mtime": 1784542912.065876,
+    "ast_hash": "c6bb74c1d2cfa983d8f2506e0045413a",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/acf-json/group_logika_page_media_center.json": {
-    "mtime": 1784308520.616568,
-    "ast_hash": "96a692f0706ccb84409491fd47892dbb",
+    "mtime": 1784547489.6123166,
+    "ast_hash": "c946ec666baccc1acbb4afec3fd24102",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/acf-json/group_logika_post.json": {
-    "mtime": 1784386321.575041,
-    "ast_hash": "adbd7920d8675478a755f0bd2beb96f5",
+    "mtime": 1784540169.5392659,
+    "ast_hash": "6e007239cfc2307052408f79595c6603",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/acf-json/group_logika_region.json": {
-    "mtime": 1784308520.616568,
+    "mtime": 1784540169.5392659,
     "ast_hash": "475399dfabd79257a638522c64355f63",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/acf-json/group_logika_review.json": {
-    "mtime": 1784308520.616568,
-    "ast_hash": "69789968b7dea04e3de5a7de44601703",
+    "mtime": 1784540169.5392659,
+    "ast_hash": "464a13cc1f599f1cb491fcae360e77e6",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/acf-json/group_logika_testimonials_images.json": {
-    "mtime": 1784313591.6031122,
-    "ast_hash": "8c40e12c062ecc722b71d0e8df7a1054",
+    "mtime": 1784543118.137434,
+    "ast_hash": "57673d66fc4ecc94f980be4d5cf2f058",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/assets/js/homepage-image-overrides.js": {
@@ -4480,8 +4480,8 @@
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/src/ContentMigration.php": {
-    "mtime": 1784453547.9291081,
-    "ast_hash": "bff44e310e54253f258dd51e12fd3f2a",
+    "mtime": 1784550094.0620527,
+    "ast_hash": "c19d3688a48d80bc453c32fbc3b57785",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/src/ContentTypes.php": {
@@ -4490,13 +4490,13 @@
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/src/HomepageImageOverrides.php": {
-    "mtime": 1784314092.4119873,
-    "ast_hash": "06a9831b108d173bf7fc95944c39d272",
+    "mtime": 1784540457.7266185,
+    "ast_hash": "4f13d83dd1bdb7dc9a17c7eb14ed853a",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/src/MediaApi.php": {
-    "mtime": 1784386465.9456415,
-    "ast_hash": "d46ed756ab8c34e78d49551fee689df6",
+    "mtime": 1784550947.0831752,
+    "ast_hash": "8e9fb69d188fa14c2a0dbcd57687eeaf",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/src/OptionsPage.php": {
@@ -4575,13 +4575,13 @@
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/assets/js/main.js": {
-    "mtime": 1784492055.1102095,
-    "ast_hash": "8d70ba4314a6557ef475e019e8bedbe2",
+    "mtime": 1784543849.6117034,
+    "ast_hash": "5296c3101891071164b3fee02c90fd9d",
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/assets/js/media-center.js": {
-    "mtime": 1784386164.287029,
-    "ast_hash": "f697ad5e536c631b314277066bd2c436",
+    "mtime": 1784549411.5143607,
+    "ast_hash": "ecc13258754f0134511fe2c9ba08b7dc",
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/assets/js/rangeSlider.js": {
@@ -4620,8 +4620,8 @@
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/functions.php": {
-    "mtime": 1784491205.6380253,
-    "ast_hash": "439972a8f0a4d9e082ceb0f71fa0d17f",
+    "mtime": 1784546952.193252,
+    "ast_hash": "33c3a2caa578505b1a9b08af5e2dff99",
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/header.php": {
@@ -4705,18 +4705,18 @@
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/source-pages/index.php": {
-    "mtime": 1784484939.015986,
-    "ast_hash": "8c4c8700667d58823ed0090fe8df08ed",
+    "mtime": 1784548049.1370845,
+    "ast_hash": "2b914983261673a4c798d826d9009698",
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/source-pages/it-course.php": {
-    "mtime": 1784447497.4874306,
-    "ast_hash": "49df0445e86895d8044b40f01a2b8424",
+    "mtime": 1784528653.3832443,
+    "ast_hash": "3e6cc81dbcaebc197a1515178b17d172",
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/source-pages/it-courses.php": {
-    "mtime": 1784382177.270472,
-    "ast_hash": "803f3a86c3e8a5fe62ca84bb437e55e6",
+    "mtime": 1784543214.7035072,
+    "ast_hash": "82bff0ba37820268c62f8e0e079abc54",
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/source-pages/litsenziia.php": {
@@ -4725,8 +4725,8 @@
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/source-pages/media-center.php": {
-    "mtime": 1784490042.800613,
-    "ast_hash": "73a4f306b54e8a17acb63f6c2786abfa",
+    "mtime": 1784544078.985991,
+    "ast_hash": "30b9e814baf50b6c6490a4cac2e4d9bf",
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/source-pages/privacy-policy.php": {
@@ -4735,8 +4735,8 @@
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/src/ArticlePage.php": {
-    "mtime": 1784447497.4874306,
-    "ast_hash": "68e4756e84759ce456211a0e5a317b2b",
+    "mtime": 1784549341.1651254,
+    "ast_hash": "df28e90e80b33c58a9d98fd1dea904ff",
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/src/CampArchive.php": {
@@ -4745,8 +4745,8 @@
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/src/CampPage.php": {
-    "mtime": 1784308520.6175683,
-    "ast_hash": "7484e9b18d8980cf4fec83413ff00043",
+    "mtime": 1784542962.2664735,
+    "ast_hash": "af0d60f2a3e070a3c971ee166e273e22",
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/src/CityFaqSchema.php": {
@@ -4770,8 +4770,8 @@
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/src/CoursePage.php": {
-    "mtime": 1784451539.9397867,
-    "ast_hash": "c70c97224906be4704b040676784f1ec",
+    "mtime": 1784542962.2664735,
+    "ast_hash": "e349e560dad102849c1856b6458ebd9e",
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/src/CourseSchema.php": {
@@ -4805,8 +4805,8 @@
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/src/PageContent.php": {
-    "mtime": 1784493360.1189358,
-    "ast_hash": "bd51920f850d895fa888c274f4219f31",
+    "mtime": 1784547489.6133165,
+    "ast_hash": "50971becfa1995cfb7793b656dbcd191",
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/src/PhoneCountry.php": {
@@ -4820,13 +4820,13 @@
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/src/SourceMarkup.php": {
-    "mtime": 1784480592.621114,
-    "ast_hash": "29b7971d3caccd3d820f58f053f28db7",
+    "mtime": 1784551150.7236457,
+    "ast_hash": "3c106109f277c954b78d77c492b136a4",
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/src/Testimonials.php": {
-    "mtime": 1784482269.032196,
-    "ast_hash": "08708f58e10968c11d3881c0fd53d45a",
+    "mtime": 1784543199.3810196,
+    "ast_hash": "01831cdb6e922c8d843f0283894d5dd1",
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/template-parts/components/camp-modal.php": {
@@ -4955,8 +4955,8 @@
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/template-parts/sections/reviews.php": {
-    "mtime": 1784482269.0331962,
-    "ast_hash": "b4ae906330bc89d7f14147a68e78b5d0",
+    "mtime": 1784546271.5526397,
+    "ast_hash": "ef3a0d843bfe496899b3be60f4b2bf3d",
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/template-parts/sections/school-map.php": {
@@ -5230,12 +5230,12 @@
     "semantic_hash": ""
   },
   ".ddev/.ddev-docker-compose-full.yaml": {
-    "mtime": 1784472640.442054,
-    "ast_hash": "42da56635b92b9736595e5dad6652adf",
+    "mtime": 1784525582.8153062,
+    "ast_hash": "88b752c860ae958816c5397f5cc338d9",
     "semantic_hash": ""
   },
   ".ddev/.homeadditions/README.txt": {
-    "mtime": 1784472646.9410114,
+    "mtime": 1784525593.5401921,
     "ast_hash": "b661f84e87711152976e9535aa37b60f",
     "semantic_hash": ""
   },
@@ -5245,7 +5245,7 @@
     "semantic_hash": ""
   },
   ".ddev/apache/README.apache.txt": {
-    "mtime": 1784472644.44918,
+    "mtime": 1784525592.4426107,
     "ast_hash": "62d8bd805e4f650717c6e021e6e603fc",
     "semantic_hash": ""
   },
@@ -5285,7 +5285,7 @@
     "semantic_hash": ""
   },
   ".ddev/nginx_full/README.nginx_full.txt": {
-    "mtime": 1784472644.44918,
+    "mtime": 1784525592.4426107,
     "ast_hash": "7e21ac4269144763a0a8d1e13acf22dd",
     "semantic_hash": ""
   },
@@ -5330,7 +5330,7 @@
     "semantic_hash": ""
   },
   ".ddev/traefik/config/logika.yaml": {
-    "mtime": 1784472659.3825152,
+    "mtime": 1784525604.9160054,
     "ast_hash": "2b58e54247e5031405b1b8e4aa92a71c",
     "semantic_hash": ""
   },
@@ -5375,8 +5375,8 @@
     "semantic_hash": ""
   },
   "docs/changelog/2026-07.md": {
-    "mtime": 1784441690.0381026,
-    "ast_hash": "88a41c4cfe9e666f269d49dfc2406d3d",
+    "mtime": 1784537778.145997,
+    "ast_hash": "e1705c7c5907c5086c39b1a0ed2f0645",
     "semantic_hash": ""
   },
   "docs/guidelines/api.md": {
@@ -5425,8 +5425,8 @@
     "semantic_hash": ""
   },
   "docs/guidelines/plan.md": {
-    "mtime": 1784441690.0381026,
-    "ast_hash": "e74be46da21b48452b15adc3d2a0ea98",
+    "mtime": 1784537778.145997,
+    "ast_hash": "830da3ade709a3c4745b0248d2a2ce05",
     "semantic_hash": ""
   },
   "docs/guidelines/project.md": {
@@ -8095,8 +8095,8 @@
     "semantic_hash": ""
   },
   "tests/camp-seasonal-page.php": {
-    "mtime": 1784493360.122936,
-    "ast_hash": "f8ca10489cdee8e87ad380b5469a5656",
+    "mtime": 1784493430.4421809,
+    "ast_hash": "041622d4b55ec132f8a3f0011fd244dc",
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-07-18-seasonal-camp-pages.md": {
@@ -8240,8 +8240,8 @@
     "semantic_hash": ""
   },
   "tests/media-section-mobile.sh": {
-    "mtime": 1784386034.5398943,
-    "ast_hash": "3ac92ca268c8637247c35b14528831ec",
+    "mtime": 1784548228.3667765,
+    "ast_hash": "180601f4feb83ab87bfc8a4cd99c27aa",
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-07-18-media-section-mobile.md": {
@@ -8255,8 +8255,8 @@
     "semantic_hash": ""
   },
   "tests/city-post-tags.php": {
-    "mtime": 1784386643.4442978,
-    "ast_hash": "7ac799f5e54d3fdd6dc7ea9e3f593edc",
+    "mtime": 1784551194.6840425,
+    "ast_hash": "5ea35745fe6c21da38fd81d3775781d9",
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/src/CityPostTags.php": {
@@ -8290,8 +8290,8 @@
     "semantic_hash": ""
   },
   "wordpress/wp-content/plugins/logika-core/acf-json/group_logika_page_vacancies.json": {
-    "mtime": 1784394473.538851,
-    "ast_hash": "a54ca6cff6636997df88da0d0c07aa94",
+    "mtime": 1784540169.5382657,
+    "ast_hash": "6df12236778675681a511548082e6337",
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/source-pages/vacancies.php": {
@@ -8600,8 +8600,8 @@
     "semantic_hash": ""
   },
   "wordpress/wp-content/themes/logika-theme/template-parts/courses/english.php": {
-    "mtime": 1784463517.0266087,
-    "ast_hash": "2a10f8f7849214d52eb23f53d8949e4d",
+    "mtime": 1784548875.050315,
+    "ast_hash": "d4c9b1cb3abf3bc8a73a465a80a3a799",
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-07-18-canonical-wordpress-release.md": {
@@ -9005,8 +9005,8 @@
     "semantic_hash": ""
   },
   "tests/english-b2-1-hero.php": {
-    "mtime": 1784458894.5500643,
-    "ast_hash": "30ba2e2be7ef24fd650289cc26ae0719",
+    "mtime": 1784548850.727542,
+    "ast_hash": "2a147a2a50223e6378a08e4fb79de639",
     "semantic_hash": ""
   },
   ".playwright-cli/page-2026-07-19T10-57-53-736Z.yml": {
@@ -9772,6 +9772,236 @@
   "wordpress/wp-content/themes/logika-theme/assets/img/camp/activities/generated/icon-15.png": {
     "mtime": 1784491536.3246033,
     "ast_hash": "d6240444bd917414b56a600fe4e018c9",
+    "semantic_hash": ""
+  },
+  "tests/acf-admin-unification.php": {
+    "mtime": 1784543273.7343857,
+    "ast_hash": "5dcb109004c7147586785d23ac6f2771",
+    "semantic_hash": ""
+  },
+  "tests/testimonials-global-renderer.php": {
+    "mtime": 1784543273.7343857,
+    "ast_hash": "1f8aa20db8ece21a0487d6831856b637",
+    "semantic_hash": ""
+  },
+  ".playwright-cli/page-2026-07-20T09-45-32-270Z.yml": {
+    "mtime": 1784540732.2734475,
+    "ast_hash": "6b17bf486004795f2026d13f69345217",
+    "semantic_hash": ""
+  },
+  ".playwright-cli/page-2026-07-20T09-45-46-603Z.yml": {
+    "mtime": 1784540746.6092398,
+    "ast_hash": "972f8d6ca3b7a0f0f79287101719c2df",
+    "semantic_hash": ""
+  },
+  ".playwright-cli/page-2026-07-20T09-46-01-533Z.yml": {
+    "mtime": 1784540761.5333836,
+    "ast_hash": "b5cdea5a9b46171b167bbe8d593cda26",
+    "semantic_hash": ""
+  },
+  ".playwright-cli/page-2026-07-20T09-46-14-421Z.yml": {
+    "mtime": 1784540774.426796,
+    "ast_hash": "0b677ac19e1a6b3b9b8e57b33bd91296",
+    "semantic_hash": ""
+  },
+  ".playwright-cli/page-2026-07-20T09-46-26-898Z.yml": {
+    "mtime": 1784540786.9041953,
+    "ast_hash": "88835dc1f3e80d1ead8841f00631b0ca",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/plans/2026-07-20-homepage-student-projects-content.md": {
+    "mtime": 1784542151.143656,
+    "ast_hash": "4f0116c57804a6cc20a20067602be70c",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/specs/2026-07-20-homepage-student-projects-content-design.md": {
+    "mtime": 1784541735.722432,
+    "ast_hash": "1c3e54bc2eccb420a9e697a7cdcf327d",
+    "semantic_hash": ""
+  },
+  "wordpress/wp-content/themes/logika-theme/assets/img/portfolio/chernobyl-horror.png": {
+    "mtime": 1784542276.5516481,
+    "ast_hash": "c14f2e03cf4d39b394c5d537a647d5a9",
+    "semantic_hash": ""
+  },
+  "wordpress/wp-content/themes/logika-theme/assets/img/portfolio/shadow-light-2.png": {
+    "mtime": 1784542276.5506482,
+    "ast_hash": "ca87fb889b9d0cd286a5f17354e8af73",
+    "semantic_hash": ""
+  },
+  "wordpress/wp-content/themes/logika-theme/assets/img/portfolio/tactical-strike-force.png": {
+    "mtime": 1784542276.548648,
+    "ast_hash": "0110a917f8970300798a8e7ef47db0e5",
+    "semantic_hash": ""
+  },
+  "tests/reviews-section-overrides.php": {
+    "mtime": 1784542828.422214,
+    "ast_hash": "615654b2e6659ad72325438d44904f5c",
+    "semantic_hash": ""
+  },
+  ".playwright-cli/page-2026-07-20T10-31-02-293Z.yml": {
+    "mtime": 1784543462.3016346,
+    "ast_hash": "a7da81aed4edc16d485a61fdcc6135da",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/plans/2026-07-20-contest-articles.md": {
+    "mtime": 1784544134.5737572,
+    "ast_hash": "2bed73fbb97dc4decad1607b6f8f33f8",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/specs/2026-07-20-contest-articles-design.md": {
+    "mtime": 1784543343.557608,
+    "ast_hash": "bc6dd4e35cce5b69420a2b14d69c3e6d",
+    "semantic_hash": ""
+  },
+  "tests/contest-articles.php": {
+    "mtime": 1784544062.8914797,
+    "ast_hash": "c807d55a9886ce7de92eb65725638df4",
+    "semantic_hash": ""
+  },
+  "tests/english-course-reviews.php": {
+    "mtime": 1784543972.9226213,
+    "ast_hash": "4be3944d50dce2d30cf4652c6f1c9df4",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/plans/2026-07-20-english-course-reviews.md": {
+    "mtime": 1784543803.5042386,
+    "ast_hash": "5bf4d301582cb79c9af1fd8c410d6aac",
+    "semantic_hash": ""
+  },
+  "scripts/seed-article-sidebar.php": {
+    "mtime": 1784545130.7984078,
+    "ast_hash": "14d315ba16a701ba5aaf63f491dd0971",
+    "semantic_hash": ""
+  },
+  "tests/article-sidebar-fallback.php": {
+    "mtime": 1784546206.9155872,
+    "ast_hash": "7f07900ed81056377e83ca4e7beb0405",
+    "semantic_hash": ""
+  },
+  "tests/reviews-section-parity.php": {
+    "mtime": 1784546244.3017743,
+    "ast_hash": "93a1e1a906bf6a71d2a366a527ffc138",
+    "semantic_hash": ""
+  },
+  ".playwright-cli/page-2026-07-20T11-18-42-171Z.yml": {
+    "mtime": 1784546322.176324,
+    "ast_hash": "eace16a1dad83ae4e96f5605100c885e",
+    "semantic_hash": ""
+  },
+  ".playwright-cli/page-2026-07-20T11-20-19-000Z.yml": {
+    "mtime": 1784546419.0032623,
+    "ast_hash": "0db9e83191e8a877740c4cb7f4b70701",
+    "semantic_hash": ""
+  },
+  "output/playwright/english-a1-reviews-section.png": {
+    "mtime": 1784546426.1231513,
+    "ast_hash": "b5771e83156838f01ccab14badd103b2",
+    "semantic_hash": ""
+  },
+  "output/playwright/english-a1-reviews.png": {
+    "mtime": 1784546324.5293217,
+    "ast_hash": "23c944997167761edc47e817ca5cc2a7",
+    "semantic_hash": ""
+  },
+  "tests/media-center-featured-post.php": {
+    "mtime": 1784550711.590688,
+    "ast_hash": "e35b2cec4984cef529f01fd8f52deed3",
+    "semantic_hash": ""
+  },
+  "tests/media-section-tablet.sh": {
+    "mtime": 1784548839.710192,
+    "ast_hash": "4b1021b755c3ec13e20f7448d4e1fc70",
+    "semantic_hash": ""
+  },
+  ".playwright-cli/page-2026-07-20T11-46-57-401Z.yml": {
+    "mtime": 1784548017.4110768,
+    "ast_hash": "7e7473b632acbe7f0dfad738f790fe9e",
+    "semantic_hash": ""
+  },
+  ".playwright-cli/page-2026-07-20T11-47-38-568Z.yml": {
+    "mtime": 1784548058.5689216,
+    "ast_hash": "c5e5847d1bfd1f5b7e84585deaeb5e6d",
+    "semantic_hash": ""
+  },
+  ".playwright-cli/page-2026-07-20T11-47-48-463Z.png": {
+    "mtime": 1784548068.4636981,
+    "ast_hash": "7f66497ea569bbe92da87066684e2b50",
+    "semantic_hash": ""
+  },
+  ".playwright-cli/page-2026-07-20T11-50-51-055Z.yml": {
+    "mtime": 1784548251.0574973,
+    "ast_hash": "8c83226f4eb76bcd961b0060de1b36cb",
+    "semantic_hash": ""
+  },
+  "tests/english-course-characters.php": {
+    "mtime": 1784548278.7763774,
+    "ast_hash": "80151c89f8a6c694e69aae9c48d04b53",
+    "semantic_hash": ""
+  },
+  "tests/media-section-feature-tags.sh": {
+    "mtime": 1784548482.9418616,
+    "ast_hash": "067e57bda34fe85d5f8026978d259a70",
+    "semantic_hash": ""
+  },
+  ".playwright-cli/page-2026-07-20T11-52-24-761Z.yml": {
+    "mtime": 1784548344.7627926,
+    "ast_hash": "93c5c1c3f9ff94d761d8332ce953be58",
+    "semantic_hash": ""
+  },
+  ".playwright-cli/page-2026-07-20T11-51-32-764Z.png": {
+    "mtime": 1784548292.7658217,
+    "ast_hash": "61e3c120ee962c84e98cbf64f84f9ab6",
+    "semantic_hash": ""
+  },
+  ".playwright-cli/page-2026-07-20T11-54-02-726Z.yml": {
+    "mtime": 1784548442.7265844,
+    "ast_hash": "2d2a8206ec8358596562df2cf2c6dea4",
+    "semantic_hash": ""
+  },
+  ".playwright-cli/page-2026-07-20T11-55-05-706Z.yml": {
+    "mtime": 1784548505.7065845,
+    "ast_hash": "f9182382adddcab09e97becc6ccbe9c7",
+    "semantic_hash": ""
+  },
+  ".playwright-cli/page-2026-07-20T12-00-14-122Z.yml": {
+    "mtime": 1784548814.1223795,
+    "ast_hash": "bf59c259c5b4628bb99b85e72cde0c05",
+    "semantic_hash": ""
+  },
+  ".playwright-cli/page-2026-07-20T12-01-01-375Z.yml": {
+    "mtime": 1784548861.3778803,
+    "ast_hash": "99b6888b6067ce096c061b50e2fe7bf0",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/plans/2026-07-20-hide-english-course-catalog.md": {
+    "mtime": 1784548850.726542,
+    "ast_hash": "4b6d98b446dfd7975cafaca35ccd9259",
+    "semantic_hash": ""
+  },
+  "tests/article-faq-seed.php": {
+    "mtime": 1784550094.0610526,
+    "ast_hash": "4f83c15e40d6ae478b3f63922f3987c5",
+    "semantic_hash": ""
+  },
+  ".playwright-cli/page-2026-07-20T12-01-58-824Z.yml": {
+    "mtime": 1784548918.826706,
+    "ast_hash": "afc69bf1b29b0b15d9e21aa9e89539ce",
+    "semantic_hash": ""
+  },
+  ".playwright-cli/page-2026-07-20T12-03-52-730Z.png": {
+    "mtime": 1784549032.7313251,
+    "ast_hash": "61e3c120ee962c84e98cbf64f84f9ab6",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/specs/2026-07-20-city-media-priority-design.md": {
+    "mtime": 1784550018.967665,
+    "ast_hash": "ba4ea1ad7fffc976594ae3775896934b",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/plans/2026-07-20-city-media-priority.md": {
+    "mtime": 1784550412.8501892,
+    "ast_hash": "b74779950c48c88a5b9c67012c0fdcfe",
     "semantic_hash": ""
   }
 }
