@@ -10003,5 +10003,10 @@
     "mtime": 1784550412.8501892,
     "ast_hash": "b74779950c48c88a5b9c67012c0fdcfe",
     "semantic_hash": ""
+  },
+  "tests/main-adaptives.sh": {
+    "mtime": 1784552612.5691082,
+    "ast_hash": "59fd53bf00593a7fa8828ed52dcaaafe",
+    "semantic_hash": ""
   }
 }
