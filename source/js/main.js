@@ -18,6 +18,7 @@ const marqueeSectionSlider = document.querySelectorAll('.marquee-section__slider
 const englishSectionSlider = document.querySelectorAll('.english-section__slider');
 const categoriesCoursesSlider = document.querySelectorAll('.categories-section__slider');
 const tripsSectionSlider = document.querySelectorAll('.trips-section__slider');
+const gallerySectionSlider = document.querySelectorAll('.gallery-section__slider');
 const campsHighlightsSlider = document.querySelectorAll('.camp-highlights__slider');
 const testimonialsSlider = document.querySelectorAll('.testimonials-section__slider');
 const campGalleries = document.querySelectorAll('[data-camp-gallery]');
@@ -189,46 +190,6 @@ document.addEventListener("DOMContentLoaded", function () {
   elementHeight(header, "header-height");
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const leadModal = document.querySelector('[data-logika-lead-modal]');
-  if (!leadModal) return;
-
-  const closeButtons = leadModal.querySelectorAll('[data-logika-lead-modal-close]');
-  const firstInput = leadModal.querySelector('input[name="name"]');
-  const courseInput = leadModal.querySelector('input[name="course_id"]');
-  let trigger = null;
-
-  const closeLeadModal = () => {
-    leadModal.hidden = true;
-    enableScroll();
-    trigger?.focus();
-  };
-
-  const openLeadModal = (nextTrigger) => {
-    trigger = nextTrigger;
-    courseInput.value = nextTrigger.dataset.logikaCourseId || '';
-    leadModal.hidden = false;
-    disableScroll();
-    window.setTimeout(() => firstInput?.focus(), 0);
-  };
-
-  document.addEventListener('click', (event) => {
-    const link = event.target.closest('a[href]');
-    if (!link || new URL(link.href, window.location.href).hash !== '#lead-form') return;
-
-    event.preventDefault();
-    openLeadModal(link);
-  });
-
-  closeButtons.forEach((button) => button.addEventListener('click', closeLeadModal));
-  leadModal.addEventListener('click', (event) => {
-    if (event.target === leadModal) closeLeadModal();
-  });
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && !leadModal.hidden) closeLeadModal();
-  });
-});
-
 //----accordion----------------------------------
 window.addEventListener("DOMContentLoaded", () => {
   accParrent &&
@@ -238,8 +199,13 @@ window.addEventListener("DOMContentLoaded", () => {
         let breakpoinSetting = false;
         let defaultOpenSetting;
 
-        multipleSetting = accordionParrent.dataset.single || false;
-        breakpoinSetting = accordionParrent.dataset.breakpoint || false;
+        if (
+          accordionParrent.dataset.single &&
+          accordionParrent.dataset.breakpoint
+        ) {
+          multipleSetting = accordionParrent.dataset.single;
+          breakpoinSetting = accordionParrent.dataset.breakpoint; 
+        }
 
         const getAccordions = function (dataName = "[data-id]") {
           return accordionParrent.querySelectorAll(dataName);
@@ -251,18 +217,29 @@ window.addEventListener("DOMContentLoaded", () => {
         const closeAccordion = function (accordion, className = "active") {
           accordion.style.maxHeight = 0;
           removeCustomClass(accordion, className);
+
+          const itemParent = accordion.closest('.accordion__item');
+          if (itemParent) {
+            removeCustomClass(itemParent, className);
+          }
         };
 
         const openAccordion = function (accordion, className = "active") {
           accordion.style.maxHeight = accordion.scrollHeight + "px";
           addCustomClass(accordion, className);
+
+          // Добавляем active на родительский li (.accordion__item)
+          const itemParent = accordion.closest('.accordion__item');
+          if (itemParent) {
+            addCustomClass(itemParent, className);
+          }
         };
 
         const toggleAccordionButton = function (button, className = "active") {
           const childParrent = button.closest('.menu-has-child');
           toggleCustomClass(button, className);
 
-          if(childParrent) {
+          if (childParrent) {
             toggleCustomClass(childParrent, className);
           }
         };
@@ -273,25 +250,30 @@ window.addEventListener("DOMContentLoaded", () => {
 
         const accordionClickHandler = function (e) {
           e.preventDefault();
-          const accordionContent = this.closest(".accordion__item")?.querySelector("[data-content]");
-          if (!accordionContent) return;
+          let curentDataNumber = this.dataset.id;
+
+          toggleAccordionButton(this);
+          const accordionContent = accordionParrent.querySelector(
+            `[data-content="${curentDataNumber}"]`
+          );
           const isAccordionOpen = checkIsAccordionOpen(accordionContent);
 
           if (isAccordionOpen) {
             closeAccordion(accordionContent);
-            toggleAccordionButton(this);
             openedAccordion = null;
           } else {
             if (openedAccordion != null) {
               const mobileSettings = () => {
                 let containerWidth = document.documentElement.clientWidth;
                 if (
-                  multipleSetting === "true" &&
-                  (!breakpoinSetting || containerWidth <= breakpoinSetting)
+                  containerWidth <= breakpoinSetting &&
+                  multipleSetting === "true"
                 ) {
                   closeAccordion(openedAccordion);
                   toggleAccordionButton(
-                    openedAccordion.closest(".accordion__item")?.querySelector("[data-id]")
+                    accordionParrent.querySelector(
+                      `[data-id="${openedAccordion.dataset.content}"]`
+                    )
                   );
                 }
               };
@@ -303,7 +285,6 @@ window.addEventListener("DOMContentLoaded", () => {
             }
 
             openAccordion(accordionContent);
-            toggleAccordionButton(this);
             openedAccordion = accordionContent;
           }
         };
@@ -320,11 +301,6 @@ window.addEventListener("DOMContentLoaded", () => {
           const defaultOpenButton = accordionParrent.querySelector(
             `[data-id="${currentId}"]`
           );
-
-          if (!defaultOpenContent || !defaultOpenButton) {
-            return;
-          }
-
           openedAccordion = defaultOpenContent;
 
           toggleAccordionButton(defaultOpenButton);
@@ -523,40 +499,131 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (container) {
         const mainSwiper = new Swiper(container, {
-          slidesPerView: 3,
-          spaceBetween: 10,
           speed: 1800,
           observer: true,
           observeParents: true,
           watchSlidesProgress: true,
           navigation: {
-            nextEl: nextBtn,
+            nextEl: nextBtn, 
             prevEl: prevBtn,
+          },
+          breakpoints: {
+            360: {
+              slidesPerView: 1.15,
+              spaceBetween: 10,
+            },
+            576: {
+              slidesPerView: 1.75,
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            991: {
+              slidesPerView: 3,
+              spaceBetween: 10,
+            },
           },
         });
       }
     });
   }
 
-  tripsSectionSlider.forEach(function (slider) {
-    const container = slider.querySelector('.swiper-container');
-    const section = slider.closest('.trips-section');
+  if (tripsSectionSlider.length > 0) {
+    tripsSectionSlider.forEach(function (slider) {
+      const container = slider.querySelector(".swiper-container");
+      
+      const parentSection = slider.closest('.trips-section');
+      const nextBtn = parentSection ? parentSection.querySelector(".swiper-button-next") : null;
+      const prevBtn = parentSection ? parentSection.querySelector(".swiper-button-prev") : null;
 
-    if (container && section) {
-      new Swiper(container, { speed: 1800, loop: true, observer: true, observeParents: true, watchSlidesProgress: true, navigation: { nextEl: section.querySelector('.swiper-button-next'), prevEl: section.querySelector('.swiper-button-prev') }, breakpoints: { 320: { slidesPerView: 1.2, centeredSlides: true, spaceBetween: 10 }, 577: { slidesPerView: 'auto', centeredSlides: false, spaceBetween: 20 } } });
-    }
-  });
+      if (container) {
+        const mainSwiper = new Swiper(container, {
+          speed: 1800,
+          loop: true,
+          observer: true,
+          observeParents: true,
+          watchSlidesProgress: true,
+          navigation: {
+            nextEl: nextBtn, 
+            prevEl: prevBtn,
+          },
+          breakpoints: {
+            320: {
+              slidesPerView: 1.2,
+              centeredSlides: true,
+              spaceBetween: 10,   
+            },
+            577: {
+              slidesPerView: 'auto',
+              centeredSlides: false,
+              spaceBetween: 20,
+            },
+          },
+        });
+      }
+    });
+  }
 
+  if (gallerySectionSlider.length > 0) {
+    gallerySectionSlider.forEach(function (slider) {
+      const container = slider.querySelector(".swiper-container");
+      if (!container) return;
+
+      let mainSwiper = null; 
+
+      const initOrDestroySlider = () => {
+        const windowWidth = window.innerWidth; 
+
+        if (windowWidth <= 1024) {
+          if (!mainSwiper) {
+            mainSwiper = new Swiper(container, {
+              speed: 1800,
+              loop: true,
+              observer: true,
+              observeParents: true,
+              watchSlidesProgress: true,
+              spaceBetween: 10,
+              breakpoints: {
+                320: {
+                  slidesPerView: 1.2,
+                  spaceBetween: 10,   
+                },
+                576: {
+                  slidesPerView: 2,
+                  spaceBetween: 15,   
+                },
+              },
+            });
+          }
+        } else {
+          if (mainSwiper) {
+            mainSwiper.destroy(true, true);
+            mainSwiper = null;
+          }
+        }
+      };
+
+      initOrDestroySlider();
+
+      let resizeTimeout;
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(initOrDestroySlider, 150);
+      });
+    });
+  }
 
   if (campsHighlightsSlider.length > 0) {
     campsHighlightsSlider.forEach(function (slider) {
       const container = slider.querySelector(".swiper-container");
       if (!container) return;
 
-      let mainSwiper = null;
+      let mainSwiper = null; 
 
       const initOrDestroySlider = () => {
-        const windowWidth = window.innerWidth;
+        const windowWidth = window.innerWidth; 
 
         if (windowWidth <= 1024) {
           if (!mainSwiper) {
@@ -593,10 +660,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const container = slider.querySelector(".swiper-container");
       if (!container) return;
 
-      let mainSwiper = null;
+      let mainSwiper = null; 
 
       const initOrDestroySlider = () => {
-        const windowWidth = window.innerWidth;
+        const windowWidth = window.innerWidth; 
 
         if (windowWidth <= 1024) {
           if (!mainSwiper) {
@@ -699,43 +766,3 @@ if (select.length) {
   });
 }
 
-document.querySelectorAll('.portfolio-section__viewport').forEach((viewport) => {
-  viewport.querySelectorAll('img').forEach((image) => { image.draggable = false; });
-  let startX = 0;
-  let startScrollLeft = 0;
-  let dragged = false;
-
-  viewport.addEventListener('pointerdown', (event) => {
-    if (event.pointerType === 'mouse' && event.button !== 0) return;
-    if (event.target.closest('a, button, input, select, textarea')) return;
-
-    startX = event.clientX;
-    startScrollLeft = viewport.scrollLeft;
-    dragged = false;
-    viewport.classList.add('is-dragging');
-    viewport.setPointerCapture(event.pointerId);
-  });
-
-  viewport.addEventListener('pointermove', (event) => {
-    if (!viewport.hasPointerCapture(event.pointerId)) return;
-
-    const deltaX = event.clientX - startX;
-    dragged ||= Math.abs(deltaX) > 4;
-    viewport.scrollLeft = startScrollLeft - deltaX;
-  });
-
-  const stopDragging = (event) => {
-    viewport.classList.remove('is-dragging');
-    if (viewport.hasPointerCapture(event.pointerId)) viewport.releasePointerCapture(event.pointerId);
-  };
-
-  viewport.addEventListener('pointerup', stopDragging);
-  viewport.addEventListener('pointercancel', stopDragging);
-  viewport.addEventListener('click', (event) => {
-    if (!dragged) return;
-
-    event.preventDefault();
-    event.stopPropagation();
-    dragged = false;
-  }, true);
-});
