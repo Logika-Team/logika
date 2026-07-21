@@ -6,7 +6,6 @@ const bodyEl = document.body;
 const activeClass = 'active';
 const activeClassMode = 'mode';
 const header = document.querySelector('header');
-const headerTop = document.querySelector('.header__top');
 const footer = document.querySelector('footer');
 
 const burger = document.querySelectorAll('.burger');
@@ -108,10 +107,10 @@ const enableScroll = () => {
   });
 };
 
-const elementHeight = (el, variableName, extraEl = null) => {
+const elementHeight = (el, variableName) => {
   if(el) {
     function initListener(){
-      const elementHeight = el.offsetHeight + (extraEl?.offsetHeight || 0);
+      const elementHeight = el.offsetHeight;
       document.querySelector(':root').style.setProperty(`--${variableName}`, `${elementHeight}px`);
     }
     window.addEventListener('DOMContentLoaded', initListener)
@@ -188,7 +187,7 @@ stickyHeader(header, 300, 100, 'linear', 0, 80);
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  elementHeight(header, "header-height", headerTop);
+  elementHeight(header, "header-height");
 });
 
 document.addEventListener("DOMContentLoaded", () => {
