@@ -144,7 +144,8 @@ final class CityApi {
 		$cta_label   = trim( sanitize_text_field( (string) get_post_meta( $city->ID, 'city_home_seo_cta_label', true ) ) );
 		$caption     = trim( sanitize_textarea_field( (string) get_post_meta( $city->ID, 'city_home_seo_video_caption', true ) ) );
 		$video_url   = esc_url_raw( (string) get_post_meta( $city->ID, 'city_home_seo_video_url', true ) ) ?: self::DEFAULT_HOMEPAGE_SEO_VIDEO_URL;
-		$illustration = self::image( absint( get_post_meta( $city->ID, 'city_home_seo_illustration', true ) ) );
+		$illustration_id = absint( get_post_meta( $city->ID, 'city_home_seo_illustration', true ) ) ?: absint( get_post_meta( (int) get_option( 'page_on_front' ), 'home_seo_illustration', true ) );
+		$illustration = self::image( $illustration_id );
 		$poster       = self::image( absint( get_post_meta( $city->ID, 'city_home_seo_video_poster', true ) ) );
 
 		if ( ! $title || ! $description || ! $cta_label || ! $caption || ! $video_url || ! $illustration || ! $poster ) {

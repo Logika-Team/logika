@@ -109,25 +109,25 @@
             <li class="camp-formats__item">
               <span class="camp-formats__item-season">Літо</span>
               <div class="camp-formats__item-image"><img src="img/camp/formats/summer.jpg" alt="Літній морський пейзаж"></div>
-              <button class="camp-formats__item-btn btn btn--white" data-path="camps">Переглянути табори</button>
+              <button class="camp-formats__item-btn btn btn--white" data-path="camps" data-camp-season="summer">Переглянути табори</button>
             </li>
 
             <li class="camp-formats__item">
               <span class="camp-formats__item-season">Осінь</span>
               <div class="camp-formats__item-image"><img src="img/camp/formats/autumn.jpg" alt="Осінні гори"></div>
-              <button class="camp-formats__item-btn btn btn--white" data-path="camps">Переглянути табори</button>
+              <button class="camp-formats__item-btn btn btn--white" data-path="camps" data-camp-season="autumn">Переглянути табори</button>
             </li>
 
             <li class="camp-formats__item">
               <span class="camp-formats__item-season">Зима</span>
               <div class="camp-formats__item-image"><img src="img/camp/formats/winter.jpg" alt="Засніжені гори взимку"></div>
-              <button class="camp-formats__item-btn btn btn--white" data-path="camps">Переглянути табори</button>
+              <button class="camp-formats__item-btn btn btn--white" data-path="camps" data-camp-season="winter">Переглянути табори</button>
             </li>
 
             <li class="camp-formats__item">
               <span class="camp-formats__item-season">Весна</span>
               <div class="camp-formats__item-image"><img src="img/camp/formats/spring.jpg" alt="Весняний гірський луг"></div>
-              <button class="camp-formats__item-btn btn btn--white" data-path="camps">Переглянути табори</button>
+              <button class="camp-formats__item-btn btn btn--white" data-path="camps" data-camp-season="spring">Переглянути табори</button>
             </li>
           </ul>
         </div>
@@ -141,11 +141,13 @@
 
           <div class="camp-booking__content">
             <div class="camp-booking__benefits">
-              <ul>
-                <li>Оновлена IT програма</li>
-                <li>Активності, квести, турніри, ігри та дискотеки, екскурсії</li>
-                <li>Безпека. Вожаті поряд з дітьми 24/7</li>
-              </ul>
+              <div class="camp-booking__box">
+                <ul>
+                  <li>Оновлена IT програма</li>
+                  <li>Активності, квести, турніри, ігри та дискотеки, екскурсії</li>
+                  <li>Безпека. Вожаті поряд з дітьми 24/7</li>
+                </ul>
+              </div>
 
               <div class="camp-booking__characters">
                 <img width="276" height="175" src="img/camp/booking-characters.svg" alt="">

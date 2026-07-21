@@ -1,1 +1,157 @@
-.camp-booking{padding:clamp(20px,4.167vw,80px) 0}.camp-booking__wrapp{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;gap:clamp(20px,3.125vw,60px)}.camp-booking__title{text-align:center}.camp-booking__content{display:-ms-grid;display:grid;gap:20px}.camp-booking__benefits{position:relative;padding:clamp(20px,2.083vw,40px);border-radius:30px;background-color:var(--light-blue)}.camp-booking__benefits ul{padding:clamp(20px,2.083vw,40px) clamp(20px,4.167vw,80px) clamp(20px,2.083vw,40px) clamp(20px,2.083vw,40px);position:relative;z-index:1;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;gap:clamp(15px,3.906vw,40px);background:var(--white);border-radius:16px}.camp-booking__benefits li{color:var(--violet-500);font-size:clamp(18px,2.344vw,24px);font-weight:600;line-height:1.2}.camp-booking__characters{position:absolute;z-index:2;width:clamp(164px,14.375vw,276px);height:clamp(111px,9.115vw,175px)}@media (min-width:1025px){.camp-booking__content{-ms-grid-columns:1fr 40%;grid-template-columns:1fr 40%}.camp-booking__characters{right:-38px;bottom:-24px}}@media (max-width:1024px){.camp-booking__content{-ms-grid-columns:100%;grid-template-columns:100%}.camp-booking__benefits{padding-bottom:110px}.camp-booking__characters{right:16px;bottom:16px}}.camp-booking__characters img{-o-object-fit:contain;object-fit:contain}.camp-booking__bg{position:absolute;inset:0;display:-webkit-box;display:-ms-flexbox;display:flex}.camp-booking__bg img{border-radius:30px}.camp-booking__form{width:100%;padding:clamp(20px,2.083vw,40px);border-radius:30px;background-color:var(--violet-100);-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+/* stylelint-disable */
+/* stylelint-disable */
+/* stylelint-disable */
+.camp-booking {
+  padding: clamp(20px, 4.167vw, 80px) 0;
+}
+.camp-booking__wrapp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: clamp(20px, 3.125vw, 60px);
+}
+.camp-booking__title {
+  text-align: center;
+}
+.camp-booking__bottom {
+  color: var(--grey-500);
+  text-align: center;
+}
+.camp-booking__content {
+  display: -ms-grid;
+  display: grid;
+  gap: 20px;
+}
+@media (min-width: 1025px) {
+  .camp-booking__content {
+    -ms-grid-columns: 1fr 40%;
+    grid-template-columns: 1fr 40%;
+  }
+}
+@media (max-width: 1024px) {
+  .camp-booking__content {
+    -ms-grid-columns: 100%;
+    grid-template-columns: 100%;
+  }
+}
+.camp-booking__benefits {
+  position: relative;
+  padding: clamp(20px, 2.083vw, 40px);
+  border-radius: 30px;
+  background-color: var(--light-blue);
+}
+@media (max-width: 1024px) {
+  .camp-booking__benefits {
+    padding-bottom: 110px;
+  }
+}
+.camp-booking__benefits ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: clamp(15px, 1.953vw, 20px);
+}
+.camp-booking__benefits li {
+  color: var(--violet-500);
+  font-size: clamp(18px, 2.344vw, 24px);
+  font-weight: 600;
+  line-height: 1.2;
+}
+.camp-booking__box {
+  padding: clamp(20px, 2.083vw, 40px) clamp(20px, 4.167vw, 80px) clamp(20px, 2.083vw, 40px) clamp(20px, 2.083vw, 40px);
+  position: relative;
+  z-index: 1;
+  background: var(--white);
+  border-radius: 16px;
+}
+.camp-booking__pricing {
+  margin-bottom: clamp(20px, 2.778vw, 40px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 10px;
+}
+.camp-booking__pricing > span {
+  font-size: clamp(20px, 2.396vw, 46px);
+  line-height: 118%;
+  font-weight: 700;
+  letter-spacing: -2.3px;
+  color: var(--violet-100);
+}
+.camp-booking__pricing-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 20px;
+}
+.camp-booking__pricing-details > span {
+  color: #E63417;
+}
+.camp-booking__pricing-details > p {
+  font-size: clamp(16px, 1.563vw, 30px);
+  font-weight: 500;
+  line-height: 118%; /* 35.4px */
+  letter-spacing: -1.5px;
+  -webkit-text-decoration-line: line-through;
+  text-decoration-line: line-through;
+  color: var(--grey-500);
+}
+.camp-booking__characters {
+  position: absolute;
+  z-index: 2;
+  width: clamp(164px, 14.375vw, 276px);
+  height: clamp(111px, 9.115vw, 175px);
+}
+@media (min-width: 1025px) {
+  .camp-booking__characters {
+    right: -38px;
+    bottom: -24px;
+  }
+}
+@media (max-width: 1024px) {
+  .camp-booking__characters {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+.camp-booking__characters img {
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.camp-booking__bg {
+  position: absolute;
+  inset: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.camp-booking__bg img {
+  border-radius: 30px;
+}
+.camp-booking__form {
+  width: 100%;
+  padding: clamp(20px, 2.083vw, 40px);
+  border-radius: 30px;
+  background-color: var(--violet-100);
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}

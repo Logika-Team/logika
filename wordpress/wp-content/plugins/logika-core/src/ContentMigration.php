@@ -76,7 +76,7 @@ final class ContentMigration {
 		$cities = get_posts( array( 'post_type' => 'city', 'post_status' => array( 'publish', 'draft', 'pending', 'private', 'future' ), 'posts_per_page' => -1, 'orderby' => 'ID', 'order' => 'ASC' ) );
 		$source = null;
 		foreach ( $cities as $city ) {
-			$fields = array( 'city_home_seo_title', 'city_home_seo_description', 'city_home_seo_cta_label', 'city_home_seo_illustration', 'city_home_seo_video_poster', 'city_home_seo_video_caption' );
+			$fields = array( 'city_home_seo_title', 'city_home_seo_description', 'city_home_seo_cta_label', 'city_home_seo_video_poster', 'city_home_seo_video_caption' );
 			if ( ! array_filter( $fields, static fn( string $field ): bool => self::emptyValue( get_field( $field, $city->ID ) ) ) ) {
 				$source = $city;
 				break;
@@ -88,7 +88,6 @@ final class ContentMigration {
 		}
 		$media = array(
 			'city_home_seo_cta_label'    => (string) get_field( 'city_home_seo_cta_label', $source->ID ),
-			'city_home_seo_illustration' => get_field( 'city_home_seo_illustration', $source->ID ),
 			'city_home_seo_video_poster' => get_field( 'city_home_seo_video_poster', $source->ID ),
 			'city_home_seo_video_url'    => (string) get_field( 'city_home_seo_video_url', $source->ID ),
 		);

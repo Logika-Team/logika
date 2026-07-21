@@ -32,7 +32,7 @@
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      background-color: var(--violet-500);
+      background-color: var(--violet-100);
       cursor: pointer;
 
       svg {
@@ -100,7 +100,7 @@
     bottom: clamp(16px, 2.083vw, 30px);
     color: var(--white);
     font-size: clamp(18px, 1.667vw, 28px);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.15;
     text-align: right;
   }
@@ -115,7 +115,7 @@
     height: clamp(56px, 5.208vw, 80px);
     border: none;
     border-radius: 50%;
-    background: var(--violet-500);
+    background: var(--violet-100);
     cursor: pointer;
     place-items: center;
     transform: translate(-50%, -50%);

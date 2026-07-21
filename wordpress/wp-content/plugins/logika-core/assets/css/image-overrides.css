@@ -1,0 +1,27 @@
+.logika-image-override-field {
+	width: 100%;
+	max-width: none;
+	flex-basis: 100%;
+}
+
+.logika-image-override-field .acf-input {
+	width: 100%;
+	max-width: none;
+}
+
+.logika-image-override-panel {
+	width: 100%;
+	max-width: none;
+}
+
+.logika-image-override-current img,
+.logika-image-override-selected img {
+	max-width: 300px;
+	height: auto;
+}
+
+.logika-image-override-reset.disabled {
+	opacity: 0.5;
+	pointer-events: none;
+	cursor: default;
+}

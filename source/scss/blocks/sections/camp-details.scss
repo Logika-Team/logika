@@ -1,7 +1,7 @@
 @import "../../general/mixins";
 
 .camp-details {
-    padding: 80px 0;
+    padding: clamp(20px, 4.167vw, 80px) 0;
     background-color: var(--white);
 
     &__content {
@@ -33,19 +33,11 @@
 
     h2 {
         color: var(--violet-500);
-        font-size: clamp(34px, 2.917vw, 56px);
-        font-weight: 700;
-        line-height: 118%;
-        letter-spacing: -2.8px;
     }
 
     p {
         max-width: 588px;
         color: var(--grey-500);
-        font-size: clamp(16px, .938vw, 18px);
-        font-weight: 500;
-        line-height: 140%;
-        letter-spacing: -.9px;
     }
 
     &__cta {
@@ -79,8 +71,9 @@
 
     &__controls {
         position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
         right: 15px;
-        bottom: 15px;
         left: 15px;
         display: flex;
         justify-content: space-between;
@@ -149,8 +142,6 @@
     }
 
     @include laptop {
-        padding: 64px 0;
-
         &__content {
             min-height: 0;
         }
@@ -164,17 +155,22 @@
         &__content,
         &--reverse .camp-details__content {
             grid-template-areas:
-                "copy"
-                "gallery";
+                "gallery"
+                "copy";
             grid-template-columns: 1fr;
-            gap: 36px;
+            gap: 15px;
             max-width: 760px;
             margin: 0 auto;
         }
 
         &__copy {
-            width: 100%;
-            max-width: 588px;
+            max-width: 100%;
+            align-items: center;
+            text-align: center;
+
+            p {
+                max-width: 100%;
+            }
         }
 
         &__gallery {
@@ -182,43 +178,43 @@
         }
     }
 
-    @include mobile {
-        padding: 48px 0 56px;
+    // @include mobile {
+    //     padding: 48px 0 56px;
 
-        &__content,
-        &--reverse .camp-details__content {
-            gap: 28px;
-        }
+    //     &__content,
+    //     &--reverse .camp-details__content {
+    //         gap: 28px;
+    //     }
 
-        h2 {
-            letter-spacing: -1.6px;
-        }
+    //     h2 {
+    //         letter-spacing: -1.6px;
+    //     }
 
-        p {
-            font-size: 16px;
-        }
+    //     p {
+    //         font-size: 16px;
+    //     }
 
-        &__cta {
-            width: 100%;
-        }
+    //     &__cta {
+    //         width: 100%;
+    //     }
 
-        &__main-image {
-            border-radius: 18px;
-        }
+    //     &__main-image {
+    //         border-radius: 18px;
+    //     }
 
-        &__control {
-            width: 42px;
-            height: 42px;
-        }
+    //     &__control {
+    //         width: 42px;
+    //         height: 42px;
+    //     }
 
-        &__controls {
-            right: 10px;
-            bottom: 10px;
-            left: 10px;
-        }
+    //     &__controls {
+    //         right: 10px;
+    //         bottom: 10px;
+    //         left: 10px;
+    //     }
 
-        &__thumb {
-            border-radius: 10px;
-        }
-    }
+    //     &__thumb {
+    //         border-radius: 10px;
+    //     }
+    // }
 }

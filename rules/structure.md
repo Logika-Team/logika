@@ -18,7 +18,7 @@
 ## Shared ACF sections
 
 - `logika-core/acf-json` is the only field-schema source; every Image/Gallery returns an attachment ID and shows a `medium` preview.
-- `logika-core/src/HomepageImageOverrides.php` provides the shared replace/reset UI for every ACF Image field; its historical class name is retained for backward compatibility.
+- `logika-core/src/ImageOverrides.php` enhances every ACF Image field (any group, repeater row or options page) with a replace/reset panel. Default resolution: homepage `_override` fields fall back to a sibling base field (`LEGACY_FIELDS`); `field_review_photo` uses its own captured `review_original_photo` meta; every other field uses `_logika_default_image` post meta, snapshotted on that field's first admin save via `GET /wp-json/logika/v1/image-defaults`. If no default is known, the reset button renders disabled rather than clearing the field.
 - `logika-theme/src/Entities.php` is the public visibility gate for reusable Course, FAQ and Review entities. Draft courses, inactive FAQ and unapproved reviews must not be queried around it.
 - Reusable sections live in `logika-theme/template-parts/sections/` and receive explicit `$args`; they do not infer data from the current page.
 - Header/footer navigation comes from the three registered WordPress menu locations. Brand media, contacts, social links, privacy URL, partners and certificates belong to Global Options.

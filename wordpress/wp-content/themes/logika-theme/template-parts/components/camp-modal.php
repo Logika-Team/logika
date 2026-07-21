@@ -2,19 +2,36 @@
 
 declare(strict_types=1);
 
-$assets = get_template_directory_uri() . '/assets';
+$assets  = get_template_directory_uri() . '/assets';
+$page_id = get_queried_object_id();
 
-$selected_ids = array_values( array_filter( array_map( 'absint', (array) get_field( 'camp_archive_formats', get_queried_object_id() ) ) ) );
-$camps        = get_posts( array(
-	'post_type'      => 'camp',
-	'post_status'    => 'publish',
-	'post__in'       => $selected_ids,
-	'orderby'        => 'post__in',
-	'posts_per_page' => count( $selected_ids ),
-	'meta_query'     => array( array( 'key' => 'camp_is_active', 'value' => '1' ) ),
-) );
+$master = array_values( array_filter( array_map( 'absint', (array) get_field( 'camp_archive_formats', $page_id ) ) ) );
 
-	if ( ! $selected_ids || ! $camps ) {
+$seasons = array(
+	'summer' => array( 'Літо', 'camp_archive_summer_camps' ),
+	'autumn' => array( 'Осінь', 'camp_archive_autumn_camps' ),
+	'winter' => array( 'Зима', 'camp_archive_winter_camps' ),
+	'spring' => array( 'Весна', 'camp_archive_spring_camps' ),
+);
+
+$season_camps = array();
+foreach ( $seasons as $season_key => [ $season_label, $season_field ] ) {
+	$override = array_values( array_filter( array_map( 'absint', (array) get_field( $season_field, $page_id ) ) ) );
+	$ids       = $override ?: array_values( array_filter( $master, static function ( int $camp_id ) use ( $season_label ): bool {
+		return mb_strtolower( trim( (string) get_field( 'camp_season', $camp_id ) ) ) === mb_strtolower( $season_label );
+	} ) );
+
+	$season_camps[ $season_key ] = get_posts( array(
+		'post_type'      => 'camp',
+		'post_status'    => 'publish',
+		'post__in'       => $ids,
+		'orderby'        => 'post__in',
+		'posts_per_page' => count( $ids ),
+		'meta_query'     => array( array( 'key' => 'camp_is_active', 'value' => '1' ) ),
+	) );
+}
+
+if ( ! array_filter( $season_camps ) ) {
 	return;
 }
 ?>
@@ -29,31 +46,46 @@ $camps        = get_posts( array(
 					</button>
 				</div>
 
-				<ul class="modal__camps-items">
-					<?php foreach ( $camps as $camp ) : ?>
-						<?php
-						$camp_id     = (int) $camp->ID;
-						$hero_images = array_values( array_filter( array_map( 'absint', (array) get_field( 'camp_hero_images', $camp_id ) ) ) );
-						$image_id    = absint( get_field( 'camp_card_image', $camp_id ) ) ?: absint( get_field( 'camp_hero_image', $camp_id ) ) ?: ( $hero_images[0] ?? 0 );
-						$image_url   = $image_id ? wp_get_attachment_image_url( $image_id, 'medium_large' ) : false;
-						$start       = (string) get_field( 'camp_start_date', $camp_id );
-						$end         = (string) get_field( 'camp_end_date', $camp_id );
-						$dates       = trim( (string) get_field( 'camp_card_dates', $camp_id ) ) ?: ( $start ? wp_date( 'd.m', strtotime( $start ) ) . ( $end ? ' - ' . wp_date( 'd.m', strtotime( $end ) ) : '' ) : trim( (string) get_field( 'camp_season', $camp_id ) ) );
-						$description = trim( (string) get_field( 'camp_card_description', $camp_id ) ) ?: trim( (string) get_the_excerpt( $camp_id ) ) ?: trim( (string) get_field( 'camp_hero_text', $camp_id ) );
-						?>
-						<li class="modal__camps-item">
-							<div class="modal__camps-image">
-								<img width="100" height="100" src="<?php echo esc_url( $image_url ?: $assets . '/img/camp/team.webp' ); ?>" alt="<?php echo esc_attr( get_the_title( $camp_id ) ); ?>">
-							</div>
-							<?php if ( $dates ) : ?><div class="modal__camps-dates"><?php echo esc_html( $dates ); ?></div><?php endif; ?>
-							<div class="modal__camps-info">
-								<span><?php echo esc_html( get_the_title( $camp_id ) ); ?></span>
-								<?php if ( $description ) : ?><p><?php echo esc_html( $description ); ?></p><?php endif; ?>
-							</div>
-							<a class="modal__camps-link btn btn--violet" href="<?php echo esc_url( get_permalink( $camp_id ) ); ?>">Дізнатись більше</a>
-						</li>
-					<?php endforeach; ?>
-				</ul>
+				<?php foreach ( $season_camps as $season_key => $camps ) : ?>
+					<?php $has_scroll = count( $camps ) > 4; ?>
+					<div class="modal__camps-slider<?php echo $has_scroll ? ' has-scroll' : ''; ?>" data-camp-season="<?php echo esc_attr( $season_key ); ?>" hidden>
+						<?php if ( $has_scroll ) : ?>
+							<button type="button" class="modal__camps-arrow is-prev" aria-label="Попередні табори">
+								<img width="20" height="20" src="<?php echo esc_url( $assets . '/img/sprite/icon-arrow-left.svg' ); ?>" alt="">
+							</button>
+						<?php endif; ?>
+						<ul class="modal__camps-items">
+						<?php foreach ( $camps as $camp ) : ?>
+							<?php
+							$camp_id     = (int) $camp->ID;
+							$hero_images = array_values( array_filter( array_map( 'absint', (array) get_field( 'camp_hero_images', $camp_id ) ) ) );
+							$image_id    = absint( get_field( 'camp_card_image', $camp_id ) ) ?: absint( get_field( 'camp_hero_image', $camp_id ) ) ?: ( $hero_images[0] ?? 0 );
+							$image_url   = $image_id ? wp_get_attachment_image_url( $image_id, 'medium_large' ) : false;
+							$start       = (string) get_field( 'camp_start_date', $camp_id );
+							$end         = (string) get_field( 'camp_end_date', $camp_id );
+							$dates       = trim( (string) get_field( 'camp_card_dates', $camp_id ) ) ?: ( $start ? wp_date( 'd.m', strtotime( $start ) ) . ( $end ? ' - ' . wp_date( 'd.m', strtotime( $end ) ) : '' ) : trim( (string) get_field( 'camp_season', $camp_id ) ) );
+							$description = trim( (string) get_field( 'camp_card_description', $camp_id ) ) ?: trim( (string) get_the_excerpt( $camp_id ) ) ?: trim( (string) get_field( 'camp_hero_text', $camp_id ) );
+							?>
+							<li class="modal__camps-item">
+								<div class="modal__camps-image">
+									<img width="100" height="100" src="<?php echo esc_url( $image_url ?: $assets . '/img/camp/team.webp' ); ?>" alt="<?php echo esc_attr( get_the_title( $camp_id ) ); ?>">
+								</div>
+								<?php if ( $dates ) : ?><div class="modal__camps-dates"><?php echo esc_html( $dates ); ?></div><?php endif; ?>
+								<div class="modal__camps-info">
+									<span><?php echo esc_html( get_the_title( $camp_id ) ); ?></span>
+									<?php if ( $description ) : ?><p><?php echo esc_html( $description ); ?></p><?php endif; ?>
+								</div>
+								<a class="modal__camps-link btn btn--violet" href="<?php echo esc_url( get_permalink( $camp_id ) ); ?>">Дізнатись більше</a>
+							</li>
+						<?php endforeach; ?>
+						</ul>
+						<?php if ( $has_scroll ) : ?>
+							<button type="button" class="modal__camps-arrow is-next" aria-label="Наступні табори">
+								<img width="20" height="20" src="<?php echo esc_url( $assets . '/img/sprite/icon-arrow-right.svg' ); ?>" alt="">
+							</button>
+						<?php endif; ?>
+					</div>
+				<?php endforeach; ?>
 			</div>
 		</div>
 	</div>

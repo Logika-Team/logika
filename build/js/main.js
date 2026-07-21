@@ -1,3 +1,7 @@
+/******/ (function() { // webpackBootstrap
+/*!***************************!*\
+  !*** ./source/js/main.js ***!
+  \***************************/
 //-----vars---------------------------------------
 const windowEl = window;
 const documentEl = document;
@@ -7,13 +11,11 @@ const activeClass = 'active';
 const activeClassMode = 'mode';
 const header = document.querySelector('header');
 const footer = document.querySelector('footer');
-
 const burger = document.querySelectorAll('.burger');
 const mobileMenu = document.querySelector('.mobile');
 const mobileMenuCloseBtn = document.querySelectorAll('.mobile__close');
 const dropdownToggles = document.querySelectorAll(".toggle-dropdown");
 const accParrent = [...document.querySelectorAll("[data-accordion-init]")];
-
 const marqueeSectionSlider = document.querySelectorAll('.marquee-section__slider');
 const englishSectionSlider = document.querySelectorAll('.english-section__slider');
 const categoriesCoursesSlider = document.querySelectorAll('.categories-section__slider');
@@ -27,61 +29,56 @@ const campGalleries = document.querySelectorAll('[data-camp-gallery]');
 
 //----customFunction------------------------------
 const fadeIn = (el, timeout, display) => {
-	el.style.opacity = 0;
-	el.style.display = display || 'flex';
-	el.style.transition = `all ${timeout}ms`;
-	setTimeout(() => {
-		el.style.opacity = 1;
-	}, 10);
+  el.style.opacity = 0;
+  el.style.display = display || 'flex';
+  el.style.transition = `all ${timeout}ms`;
+  setTimeout(() => {
+    el.style.opacity = 1;
+  }, 10);
 };
-
 const fadeOut = (el, timeout) => {
-	el.style.opacity = 1;
-	el.style.transition = `all ${timeout}ms ease`;
-	el.style.opacity = 0;
-
-	setTimeout(() => {
-		el.style.display = 'none';
-	}, timeout);
+  el.style.opacity = 1;
+  el.style.transition = `all ${timeout}ms ease`;
+  el.style.opacity = 0;
+  setTimeout(() => {
+    el.style.display = 'none';
+  }, timeout);
 };
-
-const toggleCustomClass = (item, customClass = "active") => {
+const toggleCustomClass = function (item) {
+  let customClass = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "active";
   item.classList.toggle(customClass);
 };
-
-const toggleClassInArray = (arr, customClass = "active") => {
-  arr.forEach((item) => {
+const toggleClassInArray = function (arr) {
+  let customClass = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "active";
+  arr.forEach(item => {
     item.classList.toggle(customClass);
   });
 };
-
-const removeClassInArray = (arr, customClass = "active") => {
-  arr.forEach((item) => {
+const removeClassInArray = function (arr) {
+  let customClass = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "active";
+  arr.forEach(item => {
     item.classList.remove(customClass);
   });
 };
-
-const addCustomClass = (item, customClass = "active") => {
+const addCustomClass = function (item) {
+  let customClass = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "active";
   item.classList.add(customClass);
 };
-
 const addClassInArray = (arr, customClass) => {
-  arr.forEach((item) => {
+  arr.forEach(item => {
     item.classList.add(customClass);
   });
-}
-
-const removeCustomClass = (item, customClass = "active") => {
+};
+const removeCustomClass = function (item) {
+  let customClass = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "active";
   item.classList.remove(customClass);
 };
-
 const disableScroll = () => {
   const fixBlocks = document?.querySelectorAll(".fixed-block");
   const pagePosition = window.scrollY;
   const paddingOffset = `${window.innerWidth - bodyEl.offsetWidth}px`;
-
   htmlEl.style.scrollBehavior = "none";
-  fixBlocks.forEach((el) => {
+  fixBlocks.forEach(el => {
     el.style.paddingRight = paddingOffset;
   });
   bodyEl.style.paddingRight = paddingOffset;
@@ -89,243 +86,198 @@ const disableScroll = () => {
   bodyEl.dataset.position = pagePosition;
   bodyEl.style.top = `-${pagePosition}px`;
 };
-
 const enableScroll = () => {
   const fixBlocks = document?.querySelectorAll(".fixed-block");
   const body = document.body;
   const pagePosition = parseInt(bodyEl.dataset.position, 10);
-  fixBlocks.forEach((el) => {
+  fixBlocks.forEach(el => {
     el.style.paddingRight = "0px";
   });
   bodyEl.style.paddingRight = "0px";
-
   bodyEl.style.top = "auto";
   bodyEl.classList.remove("dis-scroll");
   window.scroll({
     top: pagePosition,
-    left: 0,
+    left: 0
   });
 };
-
 const elementHeight = (el, variableName) => {
-  if(el) {
-    function initListener(){
+  if (el) {
+    function initListener() {
       const elementHeight = el.offsetHeight;
       document.querySelector(':root').style.setProperty(`--${variableName}`, `${elementHeight}px`);
     }
-    window.addEventListener('DOMContentLoaded', initListener)
-    window.addEventListener('resize', initListener)
+    window.addEventListener('DOMContentLoaded', initListener);
+    window.addEventListener('resize', initListener);
   }
-}
-
-const elementWidth = (el, variableName) => {
-	if (el) {
-		function initListener() {
-			const elementWidth = el.offsetWidth;
-			document.querySelector(':root').style.setProperty(`--${variableName}`, `${elementWidth}px`);
-		}
-
-		window.addEventListener('DOMContentLoaded', initListener);
-		window.addEventListener('resize', initListener);
-	}
 };
-
-const stickyHeader = (block, duration, delay, type, offset = 0, scrollThreshold = 40) => {
-	let lastScrollTop = 0;
-	let accumulatedScroll = 0;
-
-	block.style.transition = `all ${duration}ms ${type}`;
-
-	const updateHeaderPosition = () => {
-		const currentScroll = window.pageYOffset;
-		if (currentScroll > block.offsetHeight + offset) {
-			if (currentScroll > lastScrollTop) {
-				block.style.top = `-${block.offsetHeight}px`;
+const elementWidth = (el, variableName) => {
+  if (el) {
+    function initListener() {
+      const elementWidth = el.offsetWidth;
+      document.querySelector(':root').style.setProperty(`--${variableName}`, `${elementWidth}px`);
+    }
+    window.addEventListener('DOMContentLoaded', initListener);
+    window.addEventListener('resize', initListener);
+  }
+};
+const stickyHeader = function (block, duration, delay, type) {
+  let offset = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 0;
+  let scrollThreshold = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 40;
+  let lastScrollTop = 0;
+  let accumulatedScroll = 0;
+  block.style.transition = `all ${duration}ms ${type}`;
+  const updateHeaderPosition = () => {
+    const currentScroll = window.pageYOffset;
+    if (currentScroll > block.offsetHeight + offset) {
+      if (currentScroll > lastScrollTop) {
+        block.style.top = `-${block.offsetHeight}px`;
         block.classList.add('sticky');
-				block.style.transitionDelay = '0ms';
-				accumulatedScroll = 0;
-			} else {
-				accumulatedScroll += lastScrollTop - currentScroll;
-
-				if (accumulatedScroll >= scrollThreshold) {
-					block.style.top = '0';
-					block.style.transitionDelay = `${delay}ms`;
-					accumulatedScroll = 0;
+        block.style.transitionDelay = '0ms';
+        accumulatedScroll = 0;
+      } else {
+        accumulatedScroll += lastScrollTop - currentScroll;
+        if (accumulatedScroll >= scrollThreshold) {
+          block.style.top = '0';
+          block.style.transitionDelay = `${delay}ms`;
+          accumulatedScroll = 0;
           block.classList.remove('sticky');
-				}
-			}
-		} else {
-			block.style.top = '0';
+        }
+      }
+    } else {
+      block.style.top = '0';
       block.classList.remove('sticky');
-			block.style.transitionDelay = '0ms';
-		}
-
-		lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-	};
-
-	const debounce = (func, wait) => {
-		let timeout;
-
-		return function executedFunction(...args) {
-			const later = () => {
-				clearTimeout(timeout);
-				func(...args);
-			};
-
-			clearTimeout(timeout);
-			timeout = setTimeout(later, wait);
-		};
-	};
-
-	const debouncedUpdateHeader = debounce(updateHeaderPosition, 10);
-
-	window.addEventListener('scroll', debouncedUpdateHeader);
+      block.style.transitionDelay = '0ms';
+    }
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  };
+  const debounce = (func, wait) => {
+    let timeout;
+    return function executedFunction() {
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  };
+  const debouncedUpdateHeader = debounce(updateHeaderPosition, 10);
+  window.addEventListener('scroll', debouncedUpdateHeader);
 };
 
 // DinamicHeight
 stickyHeader(header, 300, 100, 'linear', 0, 80);
-
-
 document.addEventListener("DOMContentLoaded", function () {
   elementHeight(header, "header-height");
 });
 
 //----accordion----------------------------------
 window.addEventListener("DOMContentLoaded", () => {
-  accParrent &&
-    accParrent.map(function (accordionParrent) {
-      if (accordionParrent) {
-        let multipleSetting = false;
-        let breakpoinSetting = false;
-        let defaultOpenSetting;
-
-        if (
-          accordionParrent.dataset.single &&
-          accordionParrent.dataset.breakpoint
-        ) {
-          multipleSetting = accordionParrent.dataset.single;
-          breakpoinSetting = accordionParrent.dataset.breakpoint; 
-        }
-
-        const getAccordions = function (dataName = "[data-id]") {
-          return accordionParrent.querySelectorAll(dataName);
-        };
-
-        const accordions = getAccordions();
-        let openedAccordion = null;
-
-        const closeAccordion = function (accordion, className = "active") {
-          accordion.style.maxHeight = 0;
-          removeCustomClass(accordion, className);
-
-          const itemParent = accordion.closest('.accordion__item');
-          if (itemParent) {
-            removeCustomClass(itemParent, className);
-          }
-        };
-
-        const openAccordion = function (accordion, className = "active") {
-          accordion.style.maxHeight = accordion.scrollHeight + "px";
-          addCustomClass(accordion, className);
-
-          // Добавляем active на родительский li (.accordion__item)
-          const itemParent = accordion.closest('.accordion__item');
-          if (itemParent) {
-            addCustomClass(itemParent, className);
-          }
-        };
-
-        const toggleAccordionButton = function (button, className = "active") {
-          const childParrent = button.closest('.menu-has-child');
-          toggleCustomClass(button, className);
-
-          if (childParrent) {
-            toggleCustomClass(childParrent, className);
-          }
-        };
-
-        const checkIsAccordionOpen = function (accordion) {
-          return accordion.classList.contains("active");
-        };
-
-        const accordionClickHandler = function (e) {
-          e.preventDefault();
-          let curentDataNumber = this.dataset.id;
-
-          toggleAccordionButton(this);
-          const accordionContent = accordionParrent.querySelector(
-            `[data-content="${curentDataNumber}"]`
-          );
-          const isAccordionOpen = checkIsAccordionOpen(accordionContent);
-
-          if (isAccordionOpen) {
-            closeAccordion(accordionContent);
-            openedAccordion = null;
-          } else {
-            if (openedAccordion != null) {
-              const mobileSettings = () => {
-                let containerWidth = document.documentElement.clientWidth;
-                if (
-                  containerWidth <= breakpoinSetting &&
-                  multipleSetting === "true"
-                ) {
-                  closeAccordion(openedAccordion);
-                  toggleAccordionButton(
-                    accordionParrent.querySelector(
-                      `[data-id="${openedAccordion.dataset.content}"]`
-                    )
-                  );
-                }
-              };
-
-              window.addEventListener("resize", () => {
-                mobileSettings();
-              });
-              mobileSettings();
-            }
-
-            openAccordion(accordionContent);
-            openedAccordion = accordionContent;
-          }
-        };
-
-        const activateAccordion = function (accordions, handler) {
-          for (const accordion of accordions) {
-            accordion.addEventListener("click", handler);
-          }
-        };
-        const accordionDefaultOpen = (currentId) => {
-          const defaultOpenContent = accordionParrent.querySelector(
-            `[data-content="${currentId}"]`
-          );
-          const defaultOpenButton = accordionParrent.querySelector(
-            `[data-id="${currentId}"]`
-          );
-          openedAccordion = defaultOpenContent;
-
-          toggleAccordionButton(defaultOpenButton);
-          openAccordion(defaultOpenContent);
-        };
-
-        if (accordionParrent.dataset.default) {
-          defaultOpenSetting = accordionParrent.dataset.default; // получает id аккордиона который будет открыт по умолчанию
-          accordionDefaultOpen(defaultOpenSetting);
-        }
-
-        activateAccordion(accordions, accordionClickHandler);
+  accParrent && accParrent.map(function (accordionParrent) {
+    if (accordionParrent) {
+      let multipleSetting = false;
+      let breakpoinSetting = false;
+      let defaultOpenSetting;
+      if (accordionParrent.dataset.single && accordionParrent.dataset.breakpoint) {
+        multipleSetting = accordionParrent.dataset.single;
+        breakpoinSetting = accordionParrent.dataset.breakpoint;
       }
-    });
+      const getAccordions = function () {
+        let dataName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "[data-id]";
+        return accordionParrent.querySelectorAll(dataName);
+      };
+      const accordions = getAccordions();
+      let openedAccordion = null;
+      const closeAccordion = function (accordion) {
+        let className = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "active";
+        accordion.style.maxHeight = 0;
+        removeCustomClass(accordion, className);
+        const itemParent = accordion.closest('.accordion__item');
+        if (itemParent) {
+          removeCustomClass(itemParent, className);
+        }
+      };
+      const openAccordion = function (accordion) {
+        let className = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "active";
+        accordion.style.maxHeight = accordion.scrollHeight + "px";
+        addCustomClass(accordion, className);
+
+        // Добавляем active на родительский li (.accordion__item)
+        const itemParent = accordion.closest('.accordion__item');
+        if (itemParent) {
+          addCustomClass(itemParent, className);
+        }
+      };
+      const toggleAccordionButton = function (button) {
+        let className = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "active";
+        const childParrent = button.closest('.menu-has-child');
+        toggleCustomClass(button, className);
+        if (childParrent) {
+          toggleCustomClass(childParrent, className);
+        }
+      };
+      const checkIsAccordionOpen = function (accordion) {
+        return accordion.classList.contains("active");
+      };
+      const accordionClickHandler = function (e) {
+        e.preventDefault();
+        let curentDataNumber = this.dataset.id;
+        toggleAccordionButton(this);
+        const accordionContent = accordionParrent.querySelector(`[data-content="${curentDataNumber}"]`);
+        const isAccordionOpen = checkIsAccordionOpen(accordionContent);
+        if (isAccordionOpen) {
+          closeAccordion(accordionContent);
+          openedAccordion = null;
+        } else {
+          if (openedAccordion != null) {
+            const mobileSettings = () => {
+              let containerWidth = document.documentElement.clientWidth;
+              if (containerWidth <= breakpoinSetting && multipleSetting === "true") {
+                closeAccordion(openedAccordion);
+                toggleAccordionButton(accordionParrent.querySelector(`[data-id="${openedAccordion.dataset.content}"]`));
+              }
+            };
+            window.addEventListener("resize", () => {
+              mobileSettings();
+            });
+            mobileSettings();
+          }
+          openAccordion(accordionContent);
+          openedAccordion = accordionContent;
+        }
+      };
+      const activateAccordion = function (accordions, handler) {
+        for (const accordion of accordions) {
+          accordion.addEventListener("click", handler);
+        }
+      };
+      const accordionDefaultOpen = currentId => {
+        const defaultOpenContent = accordionParrent.querySelector(`[data-content="${currentId}"]`);
+        const defaultOpenButton = accordionParrent.querySelector(`[data-id="${currentId}"]`);
+        openedAccordion = defaultOpenContent;
+        toggleAccordionButton(defaultOpenButton);
+        openAccordion(defaultOpenContent);
+      };
+      if (accordionParrent.dataset.default) {
+        defaultOpenSetting = accordionParrent.dataset.default; // получает id аккордиона который будет открыт по умолчанию
+        accordionDefaultOpen(defaultOpenSetting);
+      }
+      activateAccordion(accordions, accordionClickHandler);
+    }
+  });
 });
 
 //----burger------------------------------------
 const mobileMenuHandler = function (mobileMenu, burger) {
-  burger.forEach((btn) => {
+  burger.forEach(btn => {
     btn.addEventListener("click", function (e) {
       e.preventDefault();
-
       toggleCustomClass(mobileMenu, activeClass);
       toggleClassInArray(burger, activeClass);
-
       if (mobileMenu.classList.contains(activeClass)) {
         disableScroll();
         addCustomClass(header, "open-menu");
@@ -336,12 +288,10 @@ const mobileMenuHandler = function (mobileMenu, burger) {
     });
   });
 };
-
-const hideMenuHandler = function ( mobileMenu, burger) {
+const hideMenuHandler = function (mobileMenu, burger) {
   enableScroll();
   removeCustomClass(mobileMenu, activeClass);
   removeClassInArray(burger, activeClass);
-
   if (mobileMenu.classList.contains(activeClass)) {
     disableScroll();
     addCustomClass(header, "open-menu");
@@ -350,37 +300,31 @@ const hideMenuHandler = function ( mobileMenu, burger) {
     removeCustomClass(header, "open-menu");
   }
 };
-
 document.addEventListener("DOMContentLoaded", function () {
   mobileMenuHandler(mobileMenu, burger);
-
   if (mobileMenu) {
     mobileMenu.querySelectorAll("a").forEach(function (item) {
       item.addEventListener("click", function () {
-          hideMenuHandler(mobileMenu, burger);
+        hideMenuHandler(mobileMenu, burger);
       });
     });
   }
-
   if (mobileMenuCloseBtn) {
-    mobileMenuCloseBtn.forEach((btn) => {
+    mobileMenuCloseBtn.forEach(btn => {
       btn.addEventListener("click", function (e) {
         hideMenuHandler(mobileMenu, burger);
       });
     });
   }
-
-  if(dropdownToggles){
-    dropdownToggles.forEach((toggle) => {
+  if (dropdownToggles) {
+    dropdownToggles.forEach(toggle => {
       toggle.addEventListener("click", function () {
         const parentItem = this.closest(".header__nav-item");
-  
-        document.querySelectorAll(".header__nav-item.active").forEach((item) => {
+        document.querySelectorAll(".header__nav-item.active").forEach(item => {
           if (item !== parentItem) {
             item.classList.remove("active");
           }
         });
-  
         parentItem.classList.toggle("active");
       });
     });
@@ -395,28 +339,22 @@ document.addEventListener("DOMContentLoaded", function () {
       const thumbs = Array.from(gallery.querySelectorAll("[data-gallery-thumb]"));
       const prevBtn = gallery.querySelector("[data-gallery-prev]");
       const nextBtn = gallery.querySelector("[data-gallery-next]");
-
       if (!mainImage || thumbs.length === 0) {
         return;
       }
-
       let currentIndex = thumbs.findIndex(function (thumb) {
         return thumb.classList.contains("is-active");
       });
-
       if (currentIndex < 0) {
         currentIndex = 0;
       }
-
       const setActiveSlide = function (index) {
         const nextIndex = (index + thumbs.length) % thumbs.length;
         const activeThumb = thumbs[nextIndex];
         const nextSrc = activeThumb.dataset.galleryThumb;
-
         if (!nextSrc) {
           return;
         }
-
         mainImage.src = nextSrc;
         thumbs.forEach(function (thumb, thumbIndex) {
           const isActive = thumbIndex === nextIndex;
@@ -425,19 +363,16 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         currentIndex = nextIndex;
       };
-
       thumbs.forEach(function (thumb, index) {
         thumb.addEventListener("click", function () {
           setActiveSlide(index);
         });
       });
-
       if (prevBtn) {
         prevBtn.addEventListener("click", function () {
           setActiveSlide(currentIndex - 1);
         });
       }
-
       if (nextBtn) {
         nextBtn.addEventListener("click", function () {
           setActiveSlide(currentIndex + 1);
@@ -445,35 +380,29 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
-
   if (marqueeSectionSlider && marqueeSectionSlider.length > 0) {
     marqueeSectionSlider.forEach(function (slider) {
       const container = slider.querySelector(".swiper-container");
-
       const mainSwiper = new Swiper(container, {
         spaceBetween: 36,
         slidesPerView: "auto",
         speed: 4000,
         loop: true,
-        allowTouchMove: false, 
-        
+        allowTouchMove: false,
         autoplay: {
-          delay: 0, 
-          disableOnInteraction: false,
+          delay: 0,
+          disableOnInteraction: false
         },
-        
         observer: true,
-        observeParents: true,
+        observeParents: true
       });
     });
   }
-
   if (englishSectionSlider && englishSectionSlider.length > 0) {
     englishSectionSlider.forEach(function (slider) {
       const container = slider.querySelector(".swiper-container");
       const nextBtn = slider.querySelector(".swiper-button-next");
       const prevBtn = slider.querySelector(".swiper-button-prev");
-
       const mainSwiper = new Swiper(container, {
         slidesPerView: "auto",
         spaceBetween: 10,
@@ -483,20 +412,17 @@ document.addEventListener("DOMContentLoaded", function () {
         observeParents: true,
         navigation: {
           nextEl: nextBtn,
-          prevEl: prevBtn,
-        },
+          prevEl: prevBtn
+        }
       });
     });
   }
-
   if (categoriesCoursesSlider.length > 0) {
     categoriesCoursesSlider.forEach(function (slider) {
       const container = slider.querySelector(".swiper-container");
-      
       const parentSection = slider.closest('.categories-section');
       const nextBtn = parentSection ? parentSection.querySelector(".swiper-button-next") : null;
       const prevBtn = parentSection ? parentSection.querySelector(".swiper-button-prev") : null;
-
       if (container) {
         const mainSwiper = new Swiper(container, {
           speed: 1800,
@@ -504,40 +430,37 @@ document.addEventListener("DOMContentLoaded", function () {
           observeParents: true,
           watchSlidesProgress: true,
           navigation: {
-            nextEl: nextBtn, 
-            prevEl: prevBtn,
+            nextEl: nextBtn,
+            prevEl: prevBtn
           },
           breakpoints: {
             360: {
               slidesPerView: 1.15,
-              spaceBetween: 10,
+              spaceBetween: 10
             },
             576: {
               slidesPerView: 1.75,
-              spaceBetween: 10,
+              spaceBetween: 10
             },
             768: {
               slidesPerView: 2,
-              spaceBetween: 10,
+              spaceBetween: 10
             },
             991: {
               slidesPerView: 3,
-              spaceBetween: 10,
-            },
-          },
+              spaceBetween: 10
+            }
+          }
         });
       }
     });
   }
-
   if (tripsSectionSlider.length > 0) {
     tripsSectionSlider.forEach(function (slider) {
       const container = slider.querySelector(".swiper-container");
-      
       const parentSection = slider.closest('.trips-section');
       const nextBtn = parentSection ? parentSection.querySelector(".swiper-button-next") : null;
       const prevBtn = parentSection ? parentSection.querySelector(".swiper-button-prev") : null;
-
       if (container) {
         const mainSwiper = new Swiper(container, {
           speed: 1800,
@@ -546,36 +469,32 @@ document.addEventListener("DOMContentLoaded", function () {
           observeParents: true,
           watchSlidesProgress: true,
           navigation: {
-            nextEl: nextBtn, 
-            prevEl: prevBtn,
+            nextEl: nextBtn,
+            prevEl: prevBtn
           },
           breakpoints: {
             320: {
               slidesPerView: 1.2,
               centeredSlides: true,
-              spaceBetween: 10,   
+              spaceBetween: 10
             },
             577: {
               slidesPerView: 'auto',
               centeredSlides: false,
-              spaceBetween: 20,
-            },
-          },
+              spaceBetween: 20
+            }
+          }
         });
       }
     });
   }
-
   if (gallerySectionSlider.length > 0) {
     gallerySectionSlider.forEach(function (slider) {
       const container = slider.querySelector(".swiper-container");
       if (!container) return;
-
-      let mainSwiper = null; 
-
+      let mainSwiper = null;
       const initOrDestroySlider = () => {
-        const windowWidth = window.innerWidth; 
-
+        const windowWidth = window.innerWidth;
         if (windowWidth <= 1024) {
           if (!mainSwiper) {
             mainSwiper = new Swiper(container, {
@@ -588,13 +507,13 @@ document.addEventListener("DOMContentLoaded", function () {
               breakpoints: {
                 320: {
                   slidesPerView: 1.2,
-                  spaceBetween: 10,   
+                  spaceBetween: 10
                 },
                 576: {
                   slidesPerView: 2,
-                  spaceBetween: 15,   
-                },
-              },
+                  spaceBetween: 15
+                }
+              }
             });
           }
         } else {
@@ -604,9 +523,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         }
       };
-
       initOrDestroySlider();
-
       let resizeTimeout;
       window.addEventListener("resize", () => {
         clearTimeout(resizeTimeout);
@@ -614,17 +531,13 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
-
   if (campsHighlightsSlider.length > 0) {
     campsHighlightsSlider.forEach(function (slider) {
       const container = slider.querySelector(".swiper-container");
       if (!container) return;
-
-      let mainSwiper = null; 
-
+      let mainSwiper = null;
       const initOrDestroySlider = () => {
-        const windowWidth = window.innerWidth; 
-
+        const windowWidth = window.innerWidth;
         if (windowWidth <= 1024) {
           if (!mainSwiper) {
             mainSwiper = new Swiper(container, {
@@ -634,7 +547,7 @@ document.addEventListener("DOMContentLoaded", function () {
               observeParents: true,
               watchSlidesProgress: true,
               spaceBetween: 10,
-              slidesPerView: "auto",
+              slidesPerView: "auto"
             });
           }
         } else {
@@ -644,9 +557,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         }
       };
-
       initOrDestroySlider();
-
       let resizeTimeout;
       window.addEventListener("resize", () => {
         clearTimeout(resizeTimeout);
@@ -654,17 +565,13 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
-
   if (testimonialsSlider.length > 0) {
     testimonialsSlider.forEach(function (slider) {
       const container = slider.querySelector(".swiper-container");
       if (!container) return;
-
-      let mainSwiper = null; 
-
+      let mainSwiper = null;
       const initOrDestroySlider = () => {
-        const windowWidth = window.innerWidth; 
-
+        const windowWidth = window.innerWidth;
         if (windowWidth <= 1024) {
           if (!mainSwiper) {
             mainSwiper = new Swiper(container, {
@@ -674,7 +581,7 @@ document.addEventListener("DOMContentLoaded", function () {
               observeParents: true,
               watchSlidesProgress: true,
               spaceBetween: 20,
-              slidesPerView: "auto",
+              slidesPerView: "auto"
             });
           }
         } else {
@@ -684,9 +591,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         }
       };
-
       initOrDestroySlider();
-
       let resizeTimeout;
       window.addEventListener("resize", () => {
         clearTimeout(resizeTimeout);
@@ -696,68 +601,58 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-
 //---- Select ----------------------------------
-const closeSelect = function (selectBody, select , className = "active") {
+const closeSelect = function (selectBody, select) {
+  let className = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "active";
   selectBody.style.height = 0;
   removeCustomClass(select, className);
 };
-
-const openSelect = function (selectBody, select , className = "active") {
+const openSelect = function (selectBody, select) {
+  let className = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "active";
   selectBody.style.height = "fit-content";
   addCustomClass(select, className);
 };
-
 const checkIsSelectOpen = function (select) {
   return select.classList.contains('active');
-}
-
+};
 const select = document.querySelectorAll("[data-select]");
-
 if (select.length) {
-  select.forEach((item) => {
+  select.forEach(item => {
     const selectCurrent = item.querySelector(".select__current");
     const selectInput = item.querySelector(".select__input");
     const selectOptions = [...item.querySelectorAll("svg")];
     const selectBody = item.querySelector(".select__body");
-
-    selectOptions.map((option) => {
+    selectOptions.map(option => {
       option ? option.style.pointerEvents = "none" : '';
     });
-
     if (selectInput) {
       const currentId = selectCurrent.getAttribute("data-id");
       selectInput.setAttribute("value", currentId);
     }
-
-    item.addEventListener("click", (e) => {
+    item.addEventListener("click", e => {
       if (e.target.tagName.toLowerCase() !== 'a') {
         e.preventDefault();
       }
-
       const isSelectOpen = checkIsSelectOpen(item);
       const el = e.target.dataset.type;
       const innerSelect = e.target.innerHTML;
       let items = item.querySelectorAll(`.select__list [data-id]`);
-      let currentItem = item.querySelector(`.select__list [data-id='${selectInput.getAttribute("value")}']`)
-
+      let currentItem = item.querySelector(`.select__list [data-id='${selectInput.getAttribute("value")}']`);
       if (el === "option") {
         selectCurrent.innerHTML = innerSelect;
         selectInput.setAttribute("value", e.target.getAttribute("data-id"));
         selectCurrent.setAttribute("data-id", e.target.getAttribute("data-id"));
       }
-
-      items.forEach(function (item) {item.style.display = "flex"});
+      items.forEach(function (item) {
+        item.style.display = "flex";
+      });
       currentItem.style.display = "none";
-
       if (isSelectOpen) {
         closeSelect(selectBody, item);
       } else {
-        openSelect(selectBody, item)
+        openSelect(selectBody, item);
       }
     });
-
-
     document.addEventListener("click", function (event) {
       if (!item.contains(event.target) && checkIsSelectOpen(item)) {
         closeSelect(selectBody, item);
@@ -765,4 +660,5 @@ if (select.length) {
     });
   });
 }
-
+/******/ })()
+;

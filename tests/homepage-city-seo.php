@@ -22,16 +22,25 @@ $seed_id  = (int) wp_insert_post( array( 'post_type' => 'city', 'post_name' => '
 $images   = array(
 	'illustration' => logika_homepage_city_seo_test_image( 'homepage-city-seo-illustration.png', $city_id ),
 	'poster'       => logika_homepage_city_seo_test_image( 'homepage-city-seo-poster.png', $city_id ),
+	'home'         => logika_homepage_city_seo_test_image( 'homepage-city-seo-home-illustration.png', $city_id ),
 );
 
+$front_page_id           = (int) get_option( 'page_on_front' );
+$original_home_seo_image = get_post_meta( $front_page_id, 'home_seo_illustration', true );
+
 register_shutdown_function(
-	static function () use ( $city_id, $draft_id, $seed_id, $images ): void {
+	static function () use ( $city_id, $draft_id, $seed_id, $images, $front_page_id, $original_home_seo_image ): void {
 		foreach ( $images as $image_id ) {
 			wp_delete_attachment( $image_id, true );
 		}
 		wp_delete_post( $city_id, true );
 		wp_delete_post( $draft_id, true );
 		wp_delete_post( $seed_id, true );
+		if ( '' === $original_home_seo_image ) {
+			delete_post_meta( $front_page_id, 'home_seo_illustration' );
+		} else {
+			update_post_meta( $front_page_id, 'home_seo_illustration', $original_home_seo_image );
+		}
 	}
 );
 
@@ -61,6 +70,14 @@ $draft = rest_do_request( new WP_REST_Request( 'GET', '/logika/v1/cities/' . $dr
 if ( 404 !== $draft->get_status() ) {
 	$errors[] = 'Draft city homepage SEO content is publicly accessible.';
 }
+
+update_post_meta( $front_page_id, 'home_seo_illustration', $images['home'] );
+delete_field( 'city_home_seo_illustration', $city_id );
+$fallback = rest_do_request( new WP_REST_Request( 'GET', '/logika/v1/cities/' . $city_id . '/homepage-seo' ) );
+if ( 200 !== $fallback->get_status() || wp_get_attachment_image_url( $images['home'], 'full' ) !== ( $fallback->get_data()['illustration']['url'] ?? '' ) ) {
+	$errors[] = 'Homepage SEO illustration does not fall back to the shared home page image.';
+}
+update_field( 'city_home_seo_illustration', $images['illustration'], $city_id );
 
 update_field( 'city_home_seo_title', 'Редакторський заголовок', $city_id );
 \Logika\Core\ContentMigration::seedHomepageCitySeo();

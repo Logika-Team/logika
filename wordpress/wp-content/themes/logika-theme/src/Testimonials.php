@@ -79,12 +79,30 @@ final class Logika_Theme_Testimonials {
 		$images = array_slice( array_map( 'absint', (array) ( self::sectionValue( 'reviews_section_gallery', $section_context ) ?: get_field( 'global_reviews_gallery', 'option' ) ) ), 0, 4 );
 		$index  = 0;
 
-		return (string) preg_replace_callback(
+		$markup = (string) preg_replace_callback(
 			'#(<div class="testimonials-card is-image">.*?<picture>).*?(</picture>)#s',
 			static function ( array $matches ) use ( $images, &$index ): string {
 				$image = $images[ $index++ ] ?? 0;
 
 				return $image ? $matches[1] . wp_get_attachment_image( $image, 'medium', false, array( 'width' => 220, 'height' => 220, 'alt' => '' ) ) . $matches[2] : $matches[0];
+			},
+			$markup
+		);
+
+		$index = 0;
+
+		return (string) preg_replace_callback(
+			'#(<div class="testimonials-card is-image">)(.*?)(</div>\s*</div>)#s',
+			static function ( array $matches ) use ( $images, &$index ): string {
+				$image     = $images[ $index ] ?? 0;
+				$video_url = $image ? trim( (string) get_field( 'testimonial_photo_video_url', $image ) ) : '';
+				$index++;
+
+				if ( '' === $video_url ) {
+					return $matches[0];
+				}
+
+				return '<a class="testimonials-card is-image" href="' . esc_url( $video_url ) . '" target="_blank" rel="noopener noreferrer">' . $matches[2] . '</div></a>';
 			},
 			$markup
 		);

@@ -1,4 +1,5 @@
-<div class="header__top">
+<header class="header fixed-block">
+  <div class="header__top">
     <div class="container">
       <div class="header__top-box">
         <div class="header__top-city" data-logika-city-top hidden>
@@ -56,7 +57,6 @@
     </div>
   </div>
 
-<header class="header fixed-block">
   <div class="container">
     <div class="header__box">
       <div class="header__left">

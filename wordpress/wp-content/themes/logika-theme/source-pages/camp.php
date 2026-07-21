@@ -7,13 +7,26 @@
 
   <main>
     <section class="banner-section camp-hero">
+      <div class="camp-hero__bottom-bg">
+        <img class="is-desktop" src="img/camp/camp-hero-bottom-bg.svg" alt="">
+        <img class="is-mobile" src="img/camp/camp-center-bg.svg" alt="">
+      </div>
+
+      <div class="camp-hero__left-bg">
+        <img src="img/camp/camp-hero-left-bg.svg" alt="">
+      </div>
+
+      <div class="camp-hero__right-bg">
+        <img src="img/camp/camp-hero-right-bg.svg" alt="">
+      </div>
+
       <div class="container">
         <div class="banner-section__wrapp">
           <div class="banner-section__blocks">
             <div class="banner-section__left">
               <div class="banner-section__info">
                 <h1>Літній табір на Закарпатті – “Фестиваль професій”</h1>
-                <h4>27.06 - 06.07 (перша зміна), 21.07 - 30.07 (друга зміна)</h4>
+                <span>27.06 - 06.07 (перша зміна), 21.07 - 30.07 (друга зміна)</span>
                 <p class="camp-hero__description">Навчаємо дітей створювати ігри, сайти, застосунки та власні digital-проєкти через практику й сучасні технології.</p>
               </div>
 
@@ -22,6 +35,10 @@
                 <img class="camp-hero__image camp-hero__image--pool" src="img/camp/pool.png" alt="Відпочинок дітей у басейні">
                 <img class="camp-hero__image camp-hero__image--team" src="img/camp/team.png" alt="Команда учасників табору">
                 <img class="camp-hero__image camp-hero__image--mountains" src="img/camp/mountains.png" alt="Учасники табору в Карпатах">
+
+                <div class="camp-hero__decor">
+                  <img src="img/camp/camp-hero-decor.svg" alt="">
+                </div>
               </div>
             </div>
 
@@ -85,40 +102,36 @@
     </section>
 
     <section class="camp-benefits" aria-labelledby="camp-benefits-title">
-      <div class="camp-benefits__cloud camp-benefits__cloud--left" aria-hidden="true"></div>
-      <div class="camp-benefits__cloud camp-benefits__cloud--right" aria-hidden="true"></div>
+      <div class="camp-benefits__left-bg">
+        <img src="img/camp/benefits/camp-benefits-left-bg.svg" alt="">
+      </div>
+
+      <div class="camp-benefits__right-bg">
+        <img src="img/camp/benefits/camp-benefits-right-bg.svg" alt="">
+      </div>
 
       <div class="container">
         <div class="camp-benefits__inner">
-          <h2 class="camp-benefits__title" id="camp-benefits-title">
-            10 днів цікавої програми та незабутніх<br>
-            вражень від літніх канікул
+          <h2 class="camp-benefits__title">
+            10 днів цікавої програми та незабутніх<br> вражень від літніх канікул
           </h2>
 
           <ul class="camp-benefits__list">
             <li class="camp-benefits__item">
-              <article>
-                <img class="camp-benefits__image" src="img/camp/benefits/pool.png" alt="">
-                <h3>Безлімітний басейн на<br>свіжому повітрі</h3>
-              </article>
+              <img class="camp-benefits__image" src="img/camp/benefits/pool.png" alt="">
+              <p class="h4">Безлімітний басейн на<br>свіжому повітрі</p>
             </li>
             <li class="camp-benefits__item">
-              <article>
-                <img class="camp-benefits__image" src="img/camp/benefits/medical.png" alt="">
-                <h3>Медична допомога 24/7<br>на території</h3>
-              </article>
+              <img class="camp-benefits__image" src="img/camp/benefits/medical.png" alt="">
+              <p class="h4">Медична допомога 24/7<br>на території</p>
             </li>
             <li class="camp-benefits__item">
-              <article>
-                <img class="camp-benefits__image" src="img/camp/benefits/food.png" alt="">
-                <h3>4-х разове харчування<br>(основне + перекус)</h3>
-              </article>
+              <img class="camp-benefits__image" src="img/camp/benefits/food.png" alt="">
+              <p class="h4">4-х разове харчування<br>(основне + перекус)</p>
             </li>
             <li class="camp-benefits__item">
-              <article>
-                <img class="camp-benefits__image" src="img/camp/benefits/foam.png" alt="">
-                <h3>Незабутня професійна<br>пінна вечірка</h3>
-              </article>
+              <img class="camp-benefits__image" src="img/camp/benefits/foam.png" alt="">
+              <p class="h4">Незабутня професійна<br>пінна вечірка</p>
             </li>
           </ul>
         </div>
@@ -132,70 +145,58 @@
 
           <ul class="camp-activities__list">
             <li class="camp-activities__item">
-              <article>
-                <div class="camp-activities__visual" aria-hidden="true">
-                  <img class="camp-activities__image" src="img/camp/activities/aquatoriy.png" alt="">
-                </div>
-                <div class="camp-activities__copy">
-                  <h3 class="camp-activities__name">Акваторій Emily Resort</h3>
-                  <p>море веселощів, гірки та водні атракціони для яскравих емоцій!</p>
-                </div>
-              </article>
+              <div class="camp-activities__visual" aria-hidden="true">
+                <img class="camp-activities__image" src="img/camp/activities/aquatoriy.png" alt="">
+              </div>
+              <div class="camp-activities__copy">
+                <div class="h4">Акваторій Emily Resort</div>
+                <p>море веселощів, гірки та водні атракціони для яскравих емоцій!</p>
+              </div>
             </li>
             <li class="camp-activities__item">
-              <article>
-                <div class="camp-activities__visual" aria-hidden="true">
-                  <img class="camp-activities__image" src="img/camp/activities/mountains.png" alt="">
-                </div>
-                <div class="camp-activities__copy">
-                  <h3 class="camp-activities__name">Похід у гори</h3>
-                  <p>свіже повітря, мальовничі краєвиди та справжня команда однодумців!</p>
-                </div>
-              </article>
+              <div class="camp-activities__visual" aria-hidden="true">
+                <img class="camp-activities__image" src="img/camp/activities/mountains.png" alt="">
+              </div>
+              <div class="camp-activities__copy">
+                <div class="h4">Похід у гори</div>
+                <p>свіже повітря, мальовничі краєвиди та справжня команда однодумців!</p>
+              </div>
             </li>
             <li class="camp-activities__item">
-              <article>
-                <div class="camp-activities__visual" aria-hidden="true">
-                  <img class="camp-activities__image" src="img/camp/activities/campfire.png" alt="">
-                </div>
-                <div class="camp-activities__copy">
-                  <h3 class="camp-activities__name">Пісні біля вогнища</h3>
-                  <p>атмосферні вечори з гітарою, історіями та смачними маршмелоу!</p>
-                </div>
-              </article>
+              <div class="camp-activities__visual" aria-hidden="true">
+                <img class="camp-activities__image" src="img/camp/activities/campfire.png" alt="">
+              </div>
+              <div class="camp-activities__copy">
+                <div class="h4">Пісні біля вогнища</div>
+                <p>атмосферні вечори з гітарою, історіями та смачними маршмелоу!</p>
+              </div>
             </li>
             <li class="camp-activities__item">
-              <article>
-                <div class="camp-activities__visual" aria-hidden="true">
-                  <img class="camp-activities__image" src="img/camp/activities/lviv.png" alt="">
-                </div>
-                <div class="camp-activities__copy">
-                  <h3 class="camp-activities__name">Пригоди у Львові</h3>
-                  <p>захоплива виїзна мандрівка до міста легенд, історії та яскравих вражень</p>
-                </div>
-              </article>
+              <div class="camp-activities__visual" aria-hidden="true">
+                <img class="camp-activities__image" src="img/camp/activities/lviv.png" alt="">
+              </div>
+              <div class="camp-activities__copy">
+                <div class="h4">Пригоди у Львові</div>
+                <p>захоплива виїзна мандрівка до міста легенд, історії та яскравих вражень</p>
+              </div>
             </li>
             <li class="camp-activities__item">
-              <article>
-                <div class="camp-activities__visual" aria-hidden="true">
-                  <img class="camp-activities__image" src="img/camp/activities/quests.png" alt="">
-                </div>
-                <div class="camp-activities__copy">
-                  <h3 class="camp-activities__name">Розваги</h3>
-                  <p>захопливі квести у стилі популярних ігор, інтелектуальні квізи та челенджі</p>
-                </div>
-              </article>
+              <div class="camp-activities__visual" aria-hidden="true">
+                <img class="camp-activities__image" src="img/camp/activities/quests.png" alt="">
+              </div>
+              <div class="camp-activities__copy">
+                <div class="h4">Розваги</div>
+                <p>захопливі квести у стилі популярних ігор, інтелектуальні квізи та челенджі</p>
+              </div>
             </li>
             <li class="camp-activities__item">
-              <article>
-                <div class="camp-activities__visual" aria-hidden="true">
-                  <img class="camp-activities__image" src="img/camp/activities/team.png" alt="">
-                </div>
-                <div class="camp-activities__copy">
-                  <h3 class="camp-activities__name">Яскраве табірне життя</h3>
-                  <p>спортивні ігри та командні змагання, вечірки, дискотеки та нові друзі</p>
-                </div>
-              </article>
+              <div class="camp-activities__visual" aria-hidden="true">
+                <img class="camp-activities__image" src="img/camp/activities/team.png" alt="">
+              </div>
+              <div class="camp-activities__copy">
+                <div class="h4">Яскраве табірне життя</div>
+                <p>спортивні ігри та командні змагання, вечірки, дискотеки та нові друзі</p>
+              </div>
             </li>
           </ul>
         </div>
@@ -473,11 +474,22 @@
 
           <div class="camp-booking__content">
             <div class="camp-booking__benefits">
-              <ul>
-                <li>Оновлена IT програма</li>
-                <li>Активності, квести, турніри, ігри та дискотеки, екскурсії</li>
-                <li>Безпека. Вожаті поряд з дітьми 24/7</li>
-              </ul>
+              <div class="camp-booking__box">
+                <div class="camp-booking__pricing">
+                  <span>НАЙНИЖЧА ЦІНА до 30.04</span>
+
+                  <div class="camp-booking__pricing-details">
+                    <span class="h3">22900 грн</span>
+                    <p>22900 грн</p>
+                  </div>
+                </div>
+
+                <ul>
+                  <li>Оновлена IT програма</li>
+                  <li>Активності, квести, турніри, ігри та дискотеки, екскурсії</li>
+                  <li>Безпека. Вожаті поряд з дітьми 24/7</li>
+                </ul>
+              </div>
 
               <div class="camp-booking__characters">
                 <img width="276" height="175" src="img/camp/booking-characters.svg" alt="">
@@ -504,6 +516,8 @@
               <p class="main-form__text">Натискаючи, ви погоджуєтесь із <a href="#">Політикою конфіденційності</a></p>
             </form>
           </div>
+
+          <p class="camp-booking__bottom">Щоб отримати спеціальну знижку для клієнтів Logika, звертайтесь до Вашого менеджера</p>
         </div>
       </div>
     </section>

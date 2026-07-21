@@ -1,43 +1,42 @@
 @import "../../general/mixins";
 
 .camp-activities {
+    position: relative;
     overflow: hidden;
-    padding: clamp(56px, 4.167vw, 80px) 0;
+    padding: clamp(20px, 4.167vw, 80px) 0;
     background-color: rgba(221, 240, 251, .4);
 
     &__inner {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: clamp(40px, 3.125vw, 60px);
+        gap: clamp(20px, 3.125vw, 60px);
     }
 
     &__title {
-        color: var(--violet-500);
-        font-size: clamp(32px, 2.917vw, 56px);
-        font-weight: 700;
-        line-height: 118%;
-        letter-spacing: -2.8px;
         text-align: center;
     }
 
     &__list {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 20px;
         width: 100%;
+        display: grid;
+        gap: clamp(5px, 2.604vw, 20px);
+
+        @include for-small-tablet {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        @include small-tablet {
+            grid-template-columns: 100%;
+        }
     }
 
     &__item {
-        min-width: 0;
-
-        article {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            height: 100%;
-        }
+        padding: clamp(20px, 3.906vw, 30px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(10px, 2.604vw, 20px);
     }
 
     &__visual {
@@ -89,6 +88,12 @@
         gap: 10px;
         max-width: 406px;
         text-align: center;
+
+        @include mobile {
+            & > div {
+                font-size: 20px;
+            }
+        }
     }
 
     &__name {
@@ -101,48 +106,5 @@
 
     p {
         color: var(--grey-500);
-        font-size: clamp(14px, .938vw, 18px);
-        font-weight: 600;
-        line-height: 140%;
-        letter-spacing: -.9px;
-    }
-
-    @include tablet {
-        &__list {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            max-width: 720px;
-        }
-    }
-
-    @include mobile {
-        padding: 48px 0 56px;
-
-        &__inner {
-            gap: 40px;
-        }
-
-        &__title {
-            letter-spacing: -1.6px;
-        }
-
-        &__list {
-            grid-template-columns: 1fr;
-            gap: 48px;
-        }
-
-        &__visual {
-            transform: scale(.84);
-            transform-origin: center bottom;
-            margin-bottom: -34px;
-        }
-
-        &__name {
-            font-size: 20px;
-        }
-
-        p {
-            max-width: 330px;
-            font-size: 14px;
-        }
     }
 }

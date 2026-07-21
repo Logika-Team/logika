@@ -3566,7 +3566,59 @@ a .offer-card__info {
 
 .camp-hero {
   overflow: hidden;
-  background-color: var(--light-blue);
+  background-color: rgba(221, 240, 251, 0.4);
+}
+.camp-hero__left-bg {
+  position: absolute;
+  left: 0;
+  top: 37px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: clamp(196px, 27.5vw, 396px);
+}
+.camp-hero__right-bg {
+  position: absolute;
+  top: 300px;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: clamp(85px, 8.889vw, 128px);
+}
+.camp-hero__bottom-bg {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  left: 0;
+  right: 0;
+}
+@media (min-width: 577px) {
+  .camp-hero__bottom-bg {
+    bottom: 0;
+  }
+  .camp-hero__bottom-bg .is-desktop {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .camp-hero__bottom-bg .is-mobile {
+    display: none;
+  }
+}
+@media (max-width: 576px) {
+  .camp-hero__bottom-bg {
+    top: 30%;
+  }
+  .camp-hero__bottom-bg .is-desktop {
+    display: none;
+  }
+  .camp-hero__bottom-bg .is-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 .camp-hero .banner-section__blocks {
   -webkit-box-align: start;
@@ -3579,9 +3631,11 @@ a .offer-card__info {
 .camp-hero .banner-section__info {
   gap: 12px;
 }
-.camp-hero .banner-section__info h4 {
-  font-size: 25px;
-  line-height: 128%;
+.camp-hero .banner-section__info > span {
+  font-size: clamp(18px, 1.736vw, 25px);
+  line-height: 128%; /* 32px */
+  letter-spacing: -1.25px;
+  color: var(--violet-100);
 }
 .camp-hero .banner-section__bar {
   -webkit-box-align: stretch;
@@ -3620,9 +3674,6 @@ a .offer-card__info {
 }
 .camp-hero__description {
   max-width: 585px;
-  font-size: 18px;
-  line-height: 140%;
-  font-weight: 500;
   color: var(--grey-500);
 }
 .camp-hero__gallery {
@@ -3633,8 +3684,31 @@ a .offer-card__info {
   -ms-flex: 0 0 239px;
   flex: 0 0 239px;
 }
+.camp-hero__decor {
+  position: absolute;
+  left: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 1495px;
+  height: 800px;
+  top: -380px;
+}
+.camp-hero__decor picture,
+.camp-hero__decor img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+@media (max-width: 576px) {
+  .camp-hero__decor {
+    display: none;
+  }
+}
 .camp-hero__image {
   position: absolute;
+  z-index: 2;
   display: block;
   max-width: none;
   -o-object-fit: cover;
@@ -3646,19 +3720,19 @@ a .offer-card__info {
 }
 .camp-hero__image--hands {
   top: 88px;
-  left: 0;
+  right: 100px;
   width: 107px;
   height: 107px;
 }
 .camp-hero__image--pool {
   top: 0;
-  left: 125px;
+  left: -30px;
   width: 237px;
   height: 237px;
 }
 .camp-hero__image--team {
-  top: 88px;
-  left: 385px;
+  top: -10px;
+  left: 255px;
   width: 126px;
   height: 126px;
 }
@@ -3696,15 +3770,19 @@ a .offer-card__info {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
   }
   .camp-hero .banner-section__left,
   .camp-hero .banner-section__right {
     width: 100%;
   }
   .camp-hero .banner-section__right {
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
+    margin-top: 0;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
   .camp-hero .banner-section__form {
     max-width: 480px;
@@ -3725,81 +3803,42 @@ a .offer-card__info {
   }
 }
 @media (max-width: 576px) {
-  .camp-hero {
-    padding: 32px 0;
-  }
-  .camp-hero .banner-section__info h1 {
-    font-size: clamp(34px, 10vw, 46px);
-    line-height: 116%;
-    letter-spacing: -1.8px;
-  }
-  .camp-hero .banner-section__info h4 {
-    font-size: 20px;
-  }
-  .camp-hero__description {
-    font-size: 16px;
-  }
   .camp-hero__gallery {
     width: 100%;
-    height: 184px;
-    -ms-flex-preferred-size: 184px;
-    flex-basis: 184px;
+    height: 130px;
+    -webkit-box-flex: initial;
+    -ms-flex: initial;
+    flex: initial;
   }
   .camp-hero__image {
     border-width: 3px;
   }
   .camp-hero__image--hands {
-    top: 70px;
-    width: 82px;
-    height: 82px;
+    top: initial;
+    bottom: 4px;
+    left: 199px;
+    right: initial;
+    width: 59px;
+    height: 59px;
   }
   .camp-hero__image--pool {
-    left: 18%;
-    width: 184px;
-    height: 184px;
+    top: 0;
+    left: 0;
+    width: 130px;
+    height: 130px;
   }
   .camp-hero__image--team {
-    top: 72px;
-    left: auto;
-    right: 12%;
-    width: 98px;
-    height: 98px;
+    top: -10px;
+    left: 140px;
+    width: 70px;
+    height: 70px;
   }
   .camp-hero__image--mountains {
-    top: 0;
-    right: 0;
-    width: 58px;
-    height: 58px;
-  }
-  .camp-hero .banner-section__right {
-    gap: 0;
-  }
-  .camp-hero .banner-section__form {
-    padding: 30px 18px;
-    border-radius: 24px;
-  }
-  .camp-hero .banner-section__bar {
-    padding: 18px;
-    gap: 18px 12px;
-  }
-  .camp-hero .banner-section__bar li {
-    -webkit-box-align: start;
-    -ms-flex-align: start;
-    align-items: flex-start;
-  }
-  .camp-hero .banner-section__bar li span img {
-    width: 36px;
-    height: 36px;
-  }
-  .camp-hero .banner-section__bar li p {
-    gap: 1px;
-  }
-  .camp-hero .banner-section__bar li p span {
-    font-size: 11px;
-  }
-  .camp-hero .banner-section__bar li p strong {
-    font-size: 13px;
-    letter-spacing: -0.35px;
+    top: 17px;
+    left: 238px;
+    right: initial;
+    width: 41px;
+    height: 41px;
   }
 }
 
@@ -4206,12 +4245,29 @@ a .offer-card__info {
 .camp-benefits {
   position: relative;
   overflow: hidden;
-  padding: 80px 0;
-  background-color: var(--white);
+  padding: clamp(20px, 4.167vw, 80px) 0;
+}
+.camp-benefits__left-bg {
+  position: absolute;
+  left: 0;
+  bottom: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 354px;
+  height: 207px;
+}
+.camp-benefits__right-bg {
+  position: absolute;
+  top: 120px;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 342px;
+  height: 139px;
 }
 .camp-benefits__inner {
-  position: relative;
-  z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4222,21 +4278,14 @@ a .offer-card__info {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  gap: 60px;
+  gap: clamp(40px, 3.125vw, 60px);
 }
 .camp-benefits__title {
-  color: var(--violet-500);
-  font-size: clamp(32px, 2.917vw, 56px);
-  font-weight: 700;
-  line-height: 118%;
-  letter-spacing: -2.8px;
   text-align: center;
 }
 .camp-benefits__list {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(0, 588px))[2];
-  grid-template-columns: repeat(2, minmax(0, 588px));
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
@@ -4244,10 +4293,19 @@ a .offer-card__info {
   width: 100%;
   max-width: 1196px;
 }
-.camp-benefits__item {
-  min-width: 0;
+@media (min-width: 768px) {
+  .camp-benefits__list {
+    -ms-grid-columns: (minmax(0, 588px))[2];
+    grid-template-columns: repeat(2, minmax(0, 588px));
+  }
 }
-.camp-benefits__item article {
+@media (max-width: 767px) {
+  .camp-benefits__list {
+    -ms-grid-columns: 100%;
+    grid-template-columns: 100%;
+  }
+}
+.camp-benefits__item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4262,90 +4320,17 @@ a .offer-card__info {
   -webkit-box-shadow: 0 0 25px rgba(37, 37, 37, 0.06);
   box-shadow: 0 0 25px rgba(37, 37, 37, 0.06);
 }
-.camp-benefits__item h3 {
-  color: var(--violet-500);
-  font-size: clamp(16px, 1.042vw, 20px);
-  font-weight: 600;
-  line-height: 128%;
-  letter-spacing: -1px;
-}
-.camp-benefits__image {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 110px;
-  flex: 0 0 110px;
+.camp-benefits__item img {
   width: 110px;
   height: 110px;
-  -o-object-fit: contain;
-  object-fit: contain;
+  border-radius: 20px;
 }
-.camp-benefits__cloud {
-  position: absolute;
-  z-index: 0;
-  width: 240px;
-  height: 120px;
-  opacity: 0.65;
-  background: radial-gradient(ellipse at 22% 76%, #e5f3fa 0 34px, transparent 35px), radial-gradient(ellipse at 48% 58%, #e5f3fa 0 54px, transparent 55px), radial-gradient(ellipse at 73% 70%, #e5f3fa 0 42px, transparent 43px), -webkit-gradient(linear, left top, left bottom, from(#e5f3fa), to(#e5f3fa)) 24px 70px/170px 45px no-repeat;
-  background: radial-gradient(ellipse at 22% 76%, #e5f3fa 0 34px, transparent 35px), radial-gradient(ellipse at 48% 58%, #e5f3fa 0 54px, transparent 55px), radial-gradient(ellipse at 73% 70%, #e5f3fa 0 42px, transparent 43px), linear-gradient(#e5f3fa, #e5f3fa) 24px 70px/170px 45px no-repeat;
-}
-.camp-benefits__cloud--left {
-  bottom: 22px;
-  left: -76px;
-}
-.camp-benefits__cloud--right {
-  top: 20px;
-  right: -38px;
-  -webkit-transform: scale(0.9);
-  -ms-transform: scale(0.9);
-  transform: scale(0.9);
+.camp-benefits__item p {
+  color: var(--violet-500);
 }
 @media (max-width: 1024px) {
-  .camp-benefits {
-    padding: 64px 0;
-  }
-  .camp-benefits__inner {
-    gap: 44px;
-  }
-  .camp-benefits__list {
-    max-width: 720px;
-  }
-}
-@media (max-width: 576px) {
-  .camp-benefits {
-    padding: 48px 0 56px;
-  }
-  .camp-benefits__inner {
-    gap: 36px;
-  }
-  .camp-benefits__title {
-    letter-spacing: -1.6px;
-  }
-  .camp-benefits__list {
-    -ms-grid-columns: 1fr;
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  .camp-benefits__item article {
-    min-height: 118px;
-    padding: 12px;
-    gap: 14px;
-  }
-  .camp-benefits__image {
-    -ms-flex-preferred-size: 86px;
-    flex-basis: 86px;
-    width: 86px;
-    height: 86px;
-  }
-  .camp-benefits__cloud {
-    opacity: 0.45;
-    -webkit-transform: scale(0.7);
-    -ms-transform: scale(0.7);
-    transform: scale(0.7);
-  }
-  .camp-benefits__cloud--left {
-    left: -120px;
-  }
-  .camp-benefits__cloud--right {
-    right: -120px;
+  .camp-benefits__item p br {
+    display: none;
   }
 }
 
@@ -4353,8 +4338,9 @@ a .offer-card__info {
 /* stylelint-disable */
 /* stylelint-disable */
 .camp-activities {
+  position: relative;
   overflow: hidden;
-  padding: clamp(56px, 4.167vw, 80px) 0;
+  padding: clamp(20px, 4.167vw, 80px) 0;
   background-color: rgba(221, 240, 251, 0.4);
 }
 .camp-activities__inner {
@@ -4368,28 +4354,31 @@ a .offer-card__info {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  gap: clamp(40px, 3.125vw, 60px);
+  gap: clamp(20px, 3.125vw, 60px);
 }
 .camp-activities__title {
-  color: var(--violet-500);
-  font-size: clamp(32px, 2.917vw, 56px);
-  font-weight: 700;
-  line-height: 118%;
-  letter-spacing: -2.8px;
   text-align: center;
 }
 .camp-activities__list {
+  width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(0, 1fr))[3];
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-  width: 100%;
+  gap: clamp(5px, 2.604vw, 20px);
+}
+@media (min-width: 768px) {
+  .camp-activities__list {
+    -ms-grid-columns: (minmax(0, 1fr))[3];
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 767px) {
+  .camp-activities__list {
+    -ms-grid-columns: 100%;
+    grid-template-columns: 100%;
+  }
 }
 .camp-activities__item {
-  min-width: 0;
-}
-.camp-activities__item article {
+  padding: clamp(20px, 3.906vw, 30px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4400,8 +4389,7 @@ a .offer-card__info {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  gap: 20px;
-  height: 100%;
+  gap: clamp(10px, 2.604vw, 20px);
 }
 .camp-activities__visual {
   position: relative;
@@ -4465,6 +4453,11 @@ a .offer-card__info {
   max-width: 406px;
   text-align: center;
 }
+@media (max-width: 576px) {
+  .camp-activities__copy > div {
+    font-size: 20px;
+  }
+}
 .camp-activities__name {
   color: var(--violet-500);
   font-size: clamp(18px, 1.458vw, 28px);
@@ -4474,56 +4467,14 @@ a .offer-card__info {
 }
 .camp-activities p {
   color: var(--grey-500);
-  font-size: clamp(14px, 0.938vw, 18px);
-  font-weight: 600;
-  line-height: 140%;
-  letter-spacing: -0.9px;
-}
-@media (max-width: 1024px) {
-  .camp-activities__list {
-    -ms-grid-columns: (minmax(0, 1fr))[2];
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    max-width: 720px;
-  }
-}
-@media (max-width: 576px) {
-  .camp-activities {
-    padding: 48px 0 56px;
-  }
-  .camp-activities__inner {
-    gap: 40px;
-  }
-  .camp-activities__title {
-    letter-spacing: -1.6px;
-  }
-  .camp-activities__list {
-    -ms-grid-columns: 1fr;
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
-  .camp-activities__visual {
-    -webkit-transform: scale(0.84);
-    -ms-transform: scale(0.84);
-    transform: scale(0.84);
-    -webkit-transform-origin: center bottom;
-    -ms-transform-origin: center bottom;
-    transform-origin: center bottom;
-    margin-bottom: -34px;
-  }
-  .camp-activities__name {
-    font-size: 20px;
-  }
-  .camp-activities p {
-    max-width: 330px;
-    font-size: 14px;
-  }
 }
 
 /* stylelint-disable */
 /* stylelint-disable */
 /* stylelint-disable */
 .camp-details {
-  padding: 80px 0;
+  padding: clamp(20px, 4.167vw, 80px) 0;
+  background-color: var(--white);
 }
 .camp-details__content {
   display: -ms-grid;
@@ -4568,18 +4519,10 @@ a .offer-card__info {
 }
 .camp-details h2 {
   color: var(--violet-500);
-  font-size: clamp(34px, 2.917vw, 56px);
-  font-weight: 700;
-  line-height: 118%;
-  letter-spacing: -2.8px;
 }
 .camp-details p {
   max-width: 588px;
   color: var(--grey-500);
-  font-size: clamp(16px, 0.938vw, 18px);
-  font-weight: 500;
-  line-height: 140%;
-  letter-spacing: -0.9px;
 }
 .camp-details__cta {
   min-width: 250px;
@@ -4620,8 +4563,11 @@ a .offer-card__info {
 }
 .camp-details__controls {
   position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
   right: 15px;
-  bottom: 15px;
   left: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4695,9 +4641,6 @@ a .offer-card__info {
   opacity: 0.82;
 }
 @media (max-width: 1240px) {
-  .camp-details {
-    padding: 64px 0;
-  }
   .camp-details__content {
     min-height: 0;
   }
@@ -4707,60 +4650,34 @@ a .offer-card__info {
 }
 @media (max-width: 1024px) {
   .camp-details__content, .camp-details--reverse .camp-details__content {
-    -ms-grid-rows: auto 36px auto;
-    grid-template-areas: "copy" "gallery";
+    -ms-grid-rows: auto 15px auto;
+    grid-template-areas: "gallery" "copy";
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 15px;
     max-width: 760px;
     margin: 0 auto;
   }
   .camp-details__copy {
-    width: 100%;
-    max-width: 588px;
+    max-width: 100%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+  }
+  .camp-details__copy p {
+    max-width: 100%;
   }
   .camp-details__gallery {
     width: 100%;
   }
   .camp-details__copy {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-  }
-  .camp-details__gallery {
     -ms-grid-row: 3;
     -ms-grid-column: 1;
   }
-}
-@media (max-width: 576px) {
-  .camp-details {
-    padding: 48px 0 56px;
-  }
-  .camp-details__content, .camp-details--reverse .camp-details__content {
-    gap: 28px;
-  }
-  .camp-details h2 {
-    letter-spacing: -1.6px;
-  }
-  .camp-details p {
-    font-size: 16px;
-  }
-  .camp-details__cta {
-    width: 100%;
-  }
-  .camp-details__main-image {
-    border-radius: 18px;
-  }
-  .camp-details__control {
-    width: 42px;
-    height: 42px;
-  }
-  .camp-details__controls {
-    right: 10px;
-    bottom: 10px;
-    left: 10px;
-  }
-  .camp-details__thumb {
-    border-radius: 10px;
+  .camp-details__gallery {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
   }
 }
 
@@ -5021,6 +4938,10 @@ a .offer-card__info {
 .camp-booking__title {
   text-align: center;
 }
+.camp-booking__bottom {
+  color: var(--grey-500);
+  text-align: center;
+}
 .camp-booking__content {
   display: -ms-grid;
   display: grid;
@@ -5050,9 +4971,6 @@ a .offer-card__info {
   }
 }
 .camp-booking__benefits ul {
-  padding: clamp(20px, 2.083vw, 40px) clamp(20px, 4.167vw, 80px) clamp(20px, 2.083vw, 40px) clamp(20px, 2.083vw, 40px);
-  position: relative;
-  z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5063,15 +4981,59 @@ a .offer-card__info {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  gap: clamp(15px, 3.906vw, 40px);
-  background: var(--white);
-  border-radius: 16px;
+  gap: clamp(15px, 1.953vw, 20px);
 }
 .camp-booking__benefits li {
   color: var(--violet-500);
   font-size: clamp(18px, 2.344vw, 24px);
   font-weight: 600;
   line-height: 1.2;
+}
+.camp-booking__box {
+  padding: clamp(20px, 2.083vw, 40px) clamp(20px, 4.167vw, 80px) clamp(20px, 2.083vw, 40px) clamp(20px, 2.083vw, 40px);
+  position: relative;
+  z-index: 1;
+  background: var(--white);
+  border-radius: 16px;
+}
+.camp-booking__pricing {
+  margin-bottom: clamp(20px, 2.778vw, 40px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 10px;
+}
+.camp-booking__pricing > span {
+  font-size: clamp(20px, 2.396vw, 46px);
+  line-height: 118%;
+  font-weight: 700;
+  letter-spacing: -2.3px;
+  color: var(--violet-100);
+}
+.camp-booking__pricing-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 20px;
+}
+.camp-booking__pricing-details > span {
+  color: #E63417;
+}
+.camp-booking__pricing-details > p {
+  font-size: clamp(16px, 1.563vw, 30px);
+  font-weight: 500;
+  line-height: 118%; /* 35.4px */
+  letter-spacing: -1.5px;
+  -webkit-text-decoration-line: line-through;
+  text-decoration-line: line-through;
+  color: var(--grey-500);
 }
 .camp-booking__characters {
   position: absolute;

@@ -23,14 +23,15 @@ $variant = in_array( $variant, array( 'a0', 'a1', 'a2', 'b1', 'b2', 'b2-1' ), tr
 $character_assets = array( 'a2' => 'a2-eye.png', 'b1' => 'b1-reader.png' );
 $character_url    = $character_assets[ $variant ] ?? '';
 $character_image  = $character_url ? sprintf( '<img src="%s" alt="%s" loading="eager">', esc_url( get_template_directory_uri() . '/assets/img/english-levels/characters/' . $character_url ), esc_attr( get_the_title( $course_id ) ) ) : '';
-$character_outcomes_image = $character_url ? sprintf( '<img src="%s" alt="%s" loading="lazy">', esc_url( get_template_directory_uri() . '/assets/img/english-levels/characters/' . $character_url ), esc_attr( get_the_title( $course_id ) ) ) : '';
 $image = $image_id( $field( 'course_hero_image', 0 ) );
-$hero_image = 'b2-1' === $variant
-	? sprintf( '<img src="%s" alt="%s" loading="eager">', esc_url( get_template_directory_uri() . '/assets/img/english-levels/characters/b2-1-reader.png' ), esc_attr( get_the_title( $course_id ) ) )
-	: ( $character_image ?: ( $image ? $attachment_image( $image, 'eager' ) : '' ) );
+$hero_image = $image
+	? $attachment_image( $image, 'eager' )
+	: ( 'b2-1' === $variant
+		? sprintf( '<img src="%s" alt="%s" loading="eager">', esc_url( get_template_directory_uri() . '/assets/img/english-levels/characters/b2-1-reader.png' ), esc_attr( get_the_title( $course_id ) ) )
+		: $character_image );
 $approach_image = $image_id( $field( 'course_english_approach_image', 0 ) );
 $outcomes_image = $image_id( $field( 'course_english_outcomes_image', 0 ) );
-$outcomes_markup = $character_outcomes_image ?: ( $outcomes_image ? $attachment_image( $outcomes_image ) : '' );
+$outcomes_markup = $outcomes_image ? $attachment_image( $outcomes_image ) : '';
 $benefits = array_filter( array_filter( (array) $field( 'course_hero_benefits', array() ), 'is_array' ), static fn( array $item ): bool => ! empty( $item['text'] ) );
 $advantages = array_filter( array_filter( (array) $field( 'course_english_advantages', array() ), 'is_array' ), static fn( array $item ): bool => ! empty( $item['title'] ) || ! empty( $item['text'] ) );
 $outcomes = array_filter( array_filter( (array) $field( 'course_english_outcomes', array() ), 'is_array' ), static fn( array $item ): bool => ! empty( $item['text'] ) );

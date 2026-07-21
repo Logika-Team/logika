@@ -17,6 +17,10 @@
 .camp-booking__title {
   text-align: center;
 }
+.camp-booking__bottom {
+  color: var(--grey-500);
+  text-align: center;
+}
 .camp-booking__content {
   display: -ms-grid;
   display: grid;
@@ -46,9 +50,6 @@
   }
 }
 .camp-booking__benefits ul {
-  padding: clamp(20px, 2.083vw, 40px) clamp(20px, 4.167vw, 80px) clamp(20px, 2.083vw, 40px) clamp(20px, 2.083vw, 40px);
-  position: relative;
-  z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -59,15 +60,59 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  gap: clamp(15px, 3.906vw, 40px);
-  background: var(--white);
-  border-radius: 16px;
+  gap: clamp(15px, 1.953vw, 20px);
 }
 .camp-booking__benefits li {
   color: var(--violet-500);
   font-size: clamp(18px, 2.344vw, 24px);
   font-weight: 600;
   line-height: 1.2;
+}
+.camp-booking__box {
+  padding: clamp(20px, 2.083vw, 40px) clamp(20px, 4.167vw, 80px) clamp(20px, 2.083vw, 40px) clamp(20px, 2.083vw, 40px);
+  position: relative;
+  z-index: 1;
+  background: var(--white);
+  border-radius: 16px;
+}
+.camp-booking__pricing {
+  margin-bottom: clamp(20px, 2.778vw, 40px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 10px;
+}
+.camp-booking__pricing > span {
+  font-size: clamp(20px, 2.396vw, 46px);
+  line-height: 118%;
+  font-weight: 700;
+  letter-spacing: -2.3px;
+  color: var(--violet-100);
+}
+.camp-booking__pricing-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 20px;
+}
+.camp-booking__pricing-details > span {
+  color: #E63417;
+}
+.camp-booking__pricing-details > p {
+  font-size: clamp(16px, 1.563vw, 30px);
+  font-weight: 500;
+  line-height: 118%; /* 35.4px */
+  letter-spacing: -1.5px;
+  -webkit-text-decoration-line: line-through;
+  text-decoration-line: line-through;
+  color: var(--grey-500);
 }
 .camp-booking__characters {
   position: absolute;

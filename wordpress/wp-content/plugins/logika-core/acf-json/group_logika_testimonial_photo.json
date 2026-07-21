@@ -1,0 +1,43 @@
+{
+  "key": "group_logika_testimonial_photo",
+  "title": "Фото відгуку",
+  "fields": [
+    {
+      "key": "field_testimonial_photo_video_url",
+      "label": "Посилання на відео",
+      "name": "testimonial_photo_video_url",
+      "type": "url",
+      "instructions": "Необов’язково. Якщо вказано, кнопка відтворення на картці відгуку з цим фото відкриє це посилання в новій вкладці.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "https://"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "attachment",
+        "operator": "==",
+        "value": "image"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": [],
+  "active": true,
+  "description": "",
+  "show_in_rest": true,
+  "display_title": "",
+  "allow_ai_access": true,
+  "ai_description": "Посилання на відео для фото, яке використовується у декоративних картках секції відгуків."
+}

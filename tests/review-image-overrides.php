@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 $root   = dirname(__DIR__);
-$source = (string) file_get_contents( $root . '/wordpress/wp-content/plugins/logika-core/src/HomepageImageOverrides.php' );
-$script = (string) file_get_contents( $root . '/wordpress/wp-content/plugins/logika-core/assets/js/homepage-image-overrides.js' );
+$source = (string) file_get_contents( $root . '/wordpress/wp-content/plugins/logika-core/src/ImageOverrides.php' );
+$script = (string) file_get_contents( $root . '/wordpress/wp-content/plugins/logika-core/assets/js/image-overrides.js' );
 $errors = array();
 
 foreach ( array( 'field_review_photo', 'review_original_photo', 'captureReviewOriginalPhoto' ) as $needle ) {
@@ -13,7 +13,7 @@ foreach ( array( 'field_review_photo', 'review_original_photo', 'captureReviewOr
 	}
 }
 
-foreach ( array( 'field_review_photo', 'original(field)', 'acf.val(field.$input()', 'setAttachment(field, originalImage)' ) as $needle ) {
+foreach ( array( 'settings.reviewField', 'resolveDefault(field)', 'acf.val(field.$input()', 'setAttachment(field, resolved.attachment)' ) as $needle ) {
 	if ( ! str_contains( $script, $needle ) ) {
 		$errors[] = "Review image editor is missing {$needle}.";
 	}

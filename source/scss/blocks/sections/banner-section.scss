@@ -166,7 +166,7 @@
                 text-align: center;
             }
 
-            > span {
+            & > span {
                 display: flex;
                 flex-shrink: 0;
 
@@ -227,7 +227,55 @@
 
 .camp-hero {
     overflow: hidden;
-    background-color: var(--light-blue);
+    background-color: rgba(221, 240, 251, 0.4);
+
+    &__left-bg {
+        position: absolute;
+        left: 0;
+        top: 37px;
+        display: flex;
+        width: clamp(196px, 27.5vw, 396px);
+    }
+
+    &__right-bg {
+        position: absolute;
+        top: 300px;
+        right: 0;
+        display: flex;
+        width: clamp(85px, 8.889vw, 128px);
+    }
+
+    &__bottom-bg {
+        position: absolute;
+        display: flex;
+        left: 0;
+        right: 0;
+
+        @include for-mobile { 
+
+            bottom: 0;  
+
+            .is-desktop {
+                display: flex;
+            }
+
+            .is-mobile {
+                display: none;
+            }
+        }
+
+        @include mobile { 
+            top: 30%;
+
+            .is-desktop {
+                display: none;
+            }
+
+            .is-mobile {
+                display: flex;
+            }
+        }
+    }
 
     .banner-section__blocks {
         align-items: flex-start;
@@ -239,11 +287,13 @@
 
     .banner-section__info {
         gap: 12px;
-    }
 
-    .banner-section__info h4 {
-        font-size: 25px;
-        line-height: 128%;
+        & > span {
+            font-size: clamp(18px, 1.736vw, 25px);
+            line-height: 128%; /* 32px */
+            letter-spacing: -1.25px;
+            color: var(--violet-100);
+        }
     }
 
     .banner-section__bar {
@@ -279,9 +329,6 @@
 
     &__description {
         max-width: 585px;
-        font-size: 18px;
-        line-height: 140%;
-        font-weight: 500;
         color: var(--grey-500);
     }
 
@@ -292,8 +339,27 @@
         flex: 0 0 239px;
     }
 
+    &__decor {
+        position: absolute;
+        left: 30%;
+        display: flex;
+        width: 1495px;
+        height: 800px;
+        top: -380px;
+        
+        picture,
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+        }
+
+        @include mobile { display: none; }
+    }
+
     &__image {
         position: absolute;
+        z-index: 2;
         display: block;
         max-width: none;
         object-fit: cover;
@@ -303,21 +369,21 @@
 
         &--hands {
             top: 88px;
-            left: 0;
+            right: 100px;
             width: 107px;
             height: 107px;
         }
 
         &--pool {
             top: 0;
-            left: 125px;
+            left: -30px;
             width: 237px;
             height: 237px;
         }
 
         &--team {
-            top: 88px;
-            left: 385px;
+            top: -10px;
+            left: 255px;
             width: 126px;
             height: 126px;
         }
@@ -361,6 +427,7 @@
     @include tablet {
         .banner-section__blocks {
             flex-direction: column;
+            align-items: center;
         }
 
         .banner-section__left,
@@ -369,7 +436,8 @@
         }
 
         .banner-section__right {
-            justify-content: flex-start;
+            margin-top: 0;
+            justify-content: center;
         }
 
         .banner-section__form {
@@ -391,92 +459,44 @@
     }
 
     @include mobile {
-        padding: 32px 0;
-
-        .banner-section__info h1 {
-            font-size: clamp(34px, 10vw, 46px);
-            line-height: 116%;
-            letter-spacing: -1.8px;
-        }
-
-        .banner-section__info h4 {
-            font-size: 20px;
-        }
-
-        &__description {
-            font-size: 16px;
-        }
-
         &__gallery {
             width: 100%;
-            height: 184px;
-            flex-basis: 184px;
+            height: 130px;
+            flex: initial;
         }
 
         &__image {
             border-width: 3px;
 
             &--hands {
-                top: 70px;
-                width: 82px;
-                height: 82px;
+                top: initial;
+                bottom: 4px;
+                left: 199px;
+                right: initial;
+                width: 59px;
+                height: 59px;
             }
 
             &--pool {
-                left: 18%;
-                width: 184px;
-                height: 184px;
+                top: 0;
+                left: 0;
+                width: 130px;
+                height: 130px;
             }
 
             &--team {
-                top: 72px;
-                left: auto;
-                right: 12%;
-                width: 98px;
-                height: 98px;
+                top: -10px;
+                left: 140px;
+                width: 70px;
+                height: 70px;
             }
 
             &--mountains {
-                top: 0;
-                right: 0;
-                width: 58px;
-                height: 58px;
-            }
-        }
-
-        .banner-section__right {
-            gap: 0;
-        }
-
-        .banner-section__form {
-            padding: 30px 18px;
-            border-radius: 24px;
-        }
-
-        .banner-section__bar {
-            padding: 18px;
-            gap: 18px 12px;
-
-            li {
-                align-items: flex-start;
-
-                span img {
-                    width: 36px;
-                    height: 36px;
-                }
-
-                p {
-                    gap: 1px;
-
-                    span {
-                        font-size: 11px;
-                    }
-
-                    strong {
-                        font-size: 13px;
-                        letter-spacing: -0.35px;
-                    }
-                }
+                top: 17px;
+                left: 238px;
+                right: initial;
+                width: 41px;
+                height: 41px;
             }
         }
     }

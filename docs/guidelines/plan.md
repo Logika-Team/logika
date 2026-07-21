@@ -790,3 +790,13 @@ Note: CRM adapter implemented with fake client only; production credentials are 
 - [x] Доповнити ACF-поля сторінки About для всіх видимих текстів, CTA, картинок і списків.
 - [x] Зберегти source-markup renderer, fallback і поведінку форм, карти та слайдерів.
 - [x] Синхронізувати Local JSON, ідемпотентно заповнити порожні значення та перевірити маршрут `/about/`.
+
+## 38. Кнопки «Замінити зображення» / «Повернути стандартне» на всіх ACF Image-полях
+
+- [x] Перейменувати `HomepageImageOverrides` у `ImageOverrides`, прибрати whitelist `MANAGED_FIELDS`; `LEGACY_FIELDS`/`SOURCE_PATHS`/`PROFILES` лишились лише для 11 полів головної (base-field fallback і обмеження розміру/пропорцій), без впливу на решту полів.
+- [x] Показувати панель на кожному `acf-field-image` типу `image` (усі групи, репітери на один рівень вкладеності, flexible content, options page), без whitelist.
+- [x] Резолвити «стандартне» зображення: base-поле для 11 `_override` полів головної → `review_original_photo` для `field_review_photo` → знімок при першому save (`_logika_default_image`) для решти. (`_logika_source_path` з міграції свідомо не підключали — уникнули змін у business-critical `ContentMigration.php`.)
+- [x] Якщо стандартне значення невідоме — кнопка «Повернути стандартне» лишається видимою, але неактивною (`disabled`), без прихованого стану.
+- [x] Віддавати дефолти через REST `GET /wp-json/logika/v1/image-defaults?post=<id>` замість `wp_localize_script`, права — `edit_post`.
+- [x] Винести inline-стилі панелі у `assets/css/image-overrides.css`.
+- [x] Тести: перейменовані `tests/image-overrides*.php`, оновлено `tests/it-courses-image-overrides.php` під загальний enhancer, новий `tests/acf-image-override-coverage.php` (119 image-полів мають панель), новий `tests/image-defaults-api.php` (права доступу + збереження знімка). Усі image-override тести проходять у DDEV.

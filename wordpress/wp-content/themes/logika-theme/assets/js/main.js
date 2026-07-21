@@ -271,12 +271,45 @@ document.addEventListener("DOMContentLoaded", () => {
     enableScroll();
     trigger?.focus();
   };
+  const seasonLists = modalContainer.querySelectorAll('[data-camp-season]');
+  const campSliders = modalContainer.querySelectorAll('.modal__camps-slider.has-scroll');
+  const updateCampSliderArrows = (slider) => {
+    const track = slider.querySelector('.modal__camps-items');
+    const prevBtn = slider.querySelector('.modal__camps-arrow.is-prev');
+    const nextBtn = slider.querySelector('.modal__camps-arrow.is-next');
+    if (!track || !prevBtn || !nextBtn) return;
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    prevBtn.disabled = track.scrollLeft <= 0;
+    nextBtn.disabled = track.scrollLeft >= maxScroll - 1;
+  };
+  campSliders.forEach((slider) => {
+    const track = slider.querySelector('.modal__camps-items');
+    const prevBtn = slider.querySelector('.modal__camps-arrow.is-prev');
+    const nextBtn = slider.querySelector('.modal__camps-arrow.is-next');
+    if (!track || !prevBtn || !nextBtn) return;
+    const scrollByCard = (direction) => {
+      const card = track.querySelector('.modal__camps-item');
+      const distance = card ? card.getBoundingClientRect().width + 40 : track.clientWidth;
+      track.scrollBy({ left: direction * distance, behavior: 'smooth' });
+    };
+    prevBtn.addEventListener('click', () => scrollByCard(-1));
+    nextBtn.addEventListener('click', () => scrollByCard(1));
+    track.addEventListener('scroll', () => updateCampSliderArrows(slider));
+    window.addEventListener('resize', () => updateCampSliderArrows(slider));
+  });
   const openCampModal = (nextTrigger) => {
     trigger = nextTrigger;
+    const season = nextTrigger.dataset.campSeason;
+    seasonLists.forEach((list, index) => {
+      list.hidden = season ? list.dataset.campSeason !== season : index !== 0;
+    });
     modalContainer.classList.add('modal-open');
     campModal.hidden = false;
     window.requestAnimationFrame(() => window.requestAnimationFrame(() => campModal.classList.add('is-open')));
     disableScroll();
+    campSliders.forEach((slider) => {
+      if (!slider.hidden) updateCampSliderArrows(slider);
+    });
   };
   document.addEventListener('click', (event) => {
     const link = event.target.closest('a[data-path="camps"], button[data-path="camps"]');
@@ -682,27 +715,53 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   if (campsHistorySlider.length > 0) {
+    const selectedCity = () => {
+      try {
+        return window.logikaCityContext?.get() || JSON.parse(localStorage.getItem("logika-city") || "null");
+      } catch (error) {
+        return null;
+      }
+    };
+
     campsHistorySlider.forEach(function (slider) {
       const container = slider.querySelector(".swiper-container");
+      const wrapper = slider.querySelector(".swiper-wrapper");
+      if (!container || !wrapper) return;
 
       const parentSection = slider.closest('.camp-history');
       const nextBtn = parentSection ? parentSection.querySelector(".swiper-button-next") : null;
       const prevBtn = parentSection ? parentSection.querySelector(".swiper-button-prev") : null;
 
-      const storedCity = (() => {
-        try {
-          return localStorage.getItem("logika-city-id");
-        } catch (error) {
-          return null;
-        }
-      })();
-      const slides = Array.from(slider.querySelectorAll(".nizhyn-school__video"));
-      const initialSlide = Math.max(slides.findIndex((slide) => storedCity && slide.dataset.cityId === storedCity), 0);
+      const slides = Array.from(wrapper.children);
+      let instance = null;
 
-      if (container) {
-        new Swiper(container, {
+      // Спочатку відео обраного міста, далі — того ж регіону, потім решта.
+      const rank = (slide, cityId, regionId) => {
+        const video = slide.querySelector(".nizhyn-school__video");
+        if (cityId && video?.dataset.cityId === cityId) return 0;
+        if (regionId && video?.dataset.regionId === regionId) return 1;
+        return 2;
+      };
+
+      const render = () => {
+        const city = selectedCity();
+        const cityId = city?.id ? String(city.id) : "";
+        const regionId = city?.region?.id ? String(city.region.id) : "";
+
+        if (instance) {
+          instance.destroy(true, true);
+          instance = null;
+        }
+
+        wrapper.replaceChildren(
+          ...slides
+            .map((slide, index) => ({ slide, index, rank: rank(slide, cityId, regionId) }))
+            .sort((a, b) => a.rank - b.rank || a.index - b.index)
+            .map((item) => item.slide)
+        );
+
+        instance = new Swiper(container, {
           speed: 1800,
-          initialSlide: initialSlide,
           observer: true,
           observeParents: true,
           loop: true,
@@ -722,7 +781,10 @@ document.addEventListener("DOMContentLoaded", function () {
             },
           },
         });
-      }
+      };
+
+      render();
+      window.addEventListener('logika:city-change', render);
     });
   }
 

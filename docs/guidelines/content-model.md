@@ -880,7 +880,7 @@ About, IT Courses, English Courses, FAQ and Media Center use page-specific ACF L
 
 Media Center groups its populated fields into `Hero`, `Переваги`, `Новини`, `Статті`, `Пропозиції`, `CTA`, `FAQ` and `Blog`; empty placeholder tabs are not part of the editor contract.
 
-Every ACF Image field uses one shared editor control with an immediate preview plus «Замінити зображення» and «Повернути стандартне». Clearing an image restores the source-markup asset; Gallery fields retain the native ACF thumbnail grid and drag-and-drop order. Image-bearing compound sections use Repeaters or Gallery: `it_courses_catalog_cards`, `media_center_benefits` and `camp_hero_images` are the canonical owners of their visible media.
+Every ACF Image field — on any page, post type, repeater row or options page — uses one shared editor control (`ImageOverrides`) with an immediate preview plus «Замінити зображення» and «Повернути стандартне». «Повернути стандартне» restores the field's captured default (a base field for homepage `_override` fields, `review_original_photo` for reviews, or a first-save snapshot for everything else) and renders disabled when no default is known yet, instead of silently clearing the field. Gallery fields retain the native ACF thumbnail grid and drag-and-drop order and are not covered by this control. Image-bearing compound sections use Repeaters or Gallery: `it_courses_catalog_cards`, `media_center_benefits` and `camp_hero_images` are the canonical owners of their visible media.
 
 ## Shared section contract
 

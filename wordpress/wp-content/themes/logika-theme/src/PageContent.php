@@ -241,10 +241,10 @@ final class Logika_Theme_Page_Content {
 			'#(<div class="camp-hero__gallery"[^>]*>)(.*?)(</div>)#s',
 			static function ( array $gallery ) use ( $images, &$index ): string {
 				$body = (string) preg_replace_callback(
-					'#(<img\b[^>]*\bsrc=)(["\']).*?\2#s',
+					'#(<img\b[^>]*\bclass=(["\'])[^"\']*\bcamp-hero__image\b[^"\']*\2[^>]*\bsrc=)(["\']).*?\3#s',
 					static function ( array $image ) use ( $images, &$index ): string {
 						$url = isset( $images[ $index ] ) ? wp_get_attachment_image_url( $images[ $index++ ], 'large' ) : false;
-						return $url ? $image[1] . $image[2] . esc_url( $url ) . $image[2] : $image[0];
+						return $url ? $image[1] . $image[3] . esc_url( $url ) . $image[3] : $image[0];
 					},
 					$gallery[2]
 				);
@@ -691,7 +691,7 @@ final class Logika_Theme_Page_Content {
 
 	private static function applyCampBooking( string $markup, int|string $context ): string {
 		$rows = array_values( array_filter( (array) get_field( 'camp_booking_benefits', $context ), 'is_array' ) );
-		if ( $rows && preg_match( '#(<div class="camp-booking__benefits">\\s*<ul>)(.*?)(</ul>)#s', $markup, $list ) ) {
+		if ( $rows && preg_match( '#(<div class="camp-booking__benefits">.*?<ul>)(.*?)(</ul>)#s', $markup, $list ) ) {
 			$items = implode( '', array_map( static fn( array $row ): string => '<li>' . esc_html( (string) ( $row['text'] ?? '' ) ) . '</li>', $rows ) );
 			$markup = str_replace( $list[0], $list[1] . $items . $list[3], $markup );
 		}
@@ -750,7 +750,7 @@ final class Logika_Theme_Page_Content {
 				1
 			);
 		} elseif ( $title ) {
-			$title_pattern = '#(<(?:h3\b[^>]*|(?:div|span)\b[^>]*class=["\'][^"\']*(?:__item-title|__item-heading|__name|__heading)[^"\']*["\'][^>]*)>)(.*?)(</(?:h3|div|span)>)#s';
+			$title_pattern = '#(<(?:h3\b[^>]*|(?:div|span)\b[^>]*class=["\'][^"\']*(?:__item-title|__item-heading|__name|__heading|\bh4\b)[^"\']*["\'][^>]*)>)(.*?)(</(?:h3|div|span)>)#s';
 			if ( preg_match( $title_pattern, $item ) ) {
 				$item = self::replaceLeaf( $item, $title_pattern, $title );
 			} else {
