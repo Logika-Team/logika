@@ -185,6 +185,44 @@
             }
         }
     }
+
+    &.en-courses {
+        .banner-section__info {
+            max-width: 575px;
+        }
+
+        .h4 {
+            color: #374C92;
+        }
+
+        form {
+            background-color: #374C92;
+        }
+
+        .banner-section__right {
+            @include mobile {
+                z-index: 6;
+            }            
+        }
+        
+        .banner-section__decor {
+            @include for-mobile {
+                width: 1455px;
+                height: 800px;
+                top: -350px;
+                margin-left: -110px;
+            }
+
+            @include mobile {
+                top: -20px;
+                left: 0;
+                margin-left: -530px;
+                width: 1455px;
+                height: 800px;
+                
+            }
+        }
+    }
 }
 
 .camp-hero {
