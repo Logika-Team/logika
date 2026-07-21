@@ -220,7 +220,10 @@ Required scenarios:
 - age, format and direction saved correctly;
 - course links to required cities;
 - CTA and FAQ available to template;
-- `Course` schema has no empty or false values.
+- `Course` schema has no empty or false values;
+- duplicating a course/camp copies its fields, terms and image into a draft (`tests/post-duplicator.php`);
+- publishing a course adds it to the it-courses/english-courses catalog automatically, and unpublishing or hiding it removes it (`tests/course-catalog-sync.php`);
+- publishing an active camp adds it to the /camps/ archive automatically, and deactivating it removes it (`tests/camp-archive.php`).
 
 ### Forms and leads
 
@@ -364,6 +367,15 @@ ddev exec php /var/www/html/tests/acf-admin-unification.php
 ddev exec php /var/www/html/tests/testimonials-global-renderer.php
 ddev exec php /var/www/html/tests/reviews-section-overrides.php
 ddev exec wp --path=wordpress logika acf-migrate-reviews --dry-run --allow-root
+```
+
+### Курси та табори
+
+```bash
+ddev exec php /var/www/html/tests/course-camp-architecture.php
+ddev exec php /var/www/html/tests/post-duplicator.php
+ddev exec php /var/www/html/tests/course-catalog-sync.php
+ddev exec php /var/www/html/tests/camp-archive.php
 ```
 
 Після dry-run виконайте міграцію один раз, повторіть dry-run і підтвердьте `changed: 0`. Команда читає лише legacy-поля та заповнює порожні global fallback і локальні налаштування секцій; наявні значення не перезаписуються.

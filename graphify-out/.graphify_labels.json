@@ -1556,7 +1556,15 @@
   "1554": "label",
   "1555": "Bindings",
   "1556": "Logika_Theme_Camp_Page",
+  "1557": "gulp-rev-rewrite",
+  "1558": "gulp-typograf",
+  "1559": "postcss",
+  "1560": "sharp",
   "1561": "placeholder",
+  "1562": "stylelint-config-standard-scss",
+  "1563": "webp-uploads.php",
+  "1564": "seed-shared-faq.php",
   "1565": "webpack-stream",
-  "1566": "about-page-acf.php"
+  "1566": "about-page-acf.php",
+  "1567": "page-camps.php"
 }

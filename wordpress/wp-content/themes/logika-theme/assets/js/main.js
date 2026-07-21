@@ -689,9 +689,20 @@ document.addEventListener("DOMContentLoaded", function () {
       const nextBtn = parentSection ? parentSection.querySelector(".swiper-button-next") : null;
       const prevBtn = parentSection ? parentSection.querySelector(".swiper-button-prev") : null;
 
+      const storedCity = (() => {
+        try {
+          return localStorage.getItem("logika-city-id");
+        } catch (error) {
+          return null;
+        }
+      })();
+      const slides = Array.from(slider.querySelectorAll(".nizhyn-school__video"));
+      const initialSlide = Math.max(slides.findIndex((slide) => storedCity && slide.dataset.cityId === storedCity), 0);
+
       if (container) {
         new Swiper(container, {
           speed: 1800,
+          initialSlide: initialSlide,
           observer: true,
           observeParents: true,
           loop: true,
@@ -717,6 +728,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+
+//----camp-history video---------------------------
+document.addEventListener("click", (event) => {
+  const button = event.target.closest(".camp-history .nizhyn-school__play");
+  const card = button && button.closest(".nizhyn-school__video");
+
+  if (!card || !card.dataset.videoId || card.querySelector("iframe")) return;
+
+  const iframe = document.createElement("iframe");
+  iframe.src = `https://www.youtube-nocookie.com/embed/${card.dataset.videoId}?autoplay=1&rel=0`;
+  iframe.title = card.querySelector(".nizhyn-school__video-caption").textContent;
+  iframe.allow = "autoplay; encrypted-media; picture-in-picture";
+  iframe.allowFullscreen = true;
+  card.append(iframe);
+});
 
 //---- Select ----------------------------------
 const closeSelect = function (selectBody, select , className = "active") {

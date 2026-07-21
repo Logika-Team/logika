@@ -149,8 +149,42 @@ final class Logika_Theme_Page_Content {
 		$markup = 'about' === $source ? self::applyAboutImageRows( $markup, $page_id ) : $markup;
 		$markup = 'about' === $source ? self::applyAboutPageFields( $markup, $page_id ) : $markup;
 		$markup = in_array( $source, array( 'it-courses', 'en-courses' ), true ) ? self::applyMarquee( $markup, $source, $page_id ) : $markup;
+		$markup = 'media-center' === $source ? self::applyMediaTopics( $markup ) : $markup;
 
 		return $markup;
+	}
+
+	/**
+	 * Теги рядка з пошуком: редагуються на сторінці Медіа-центру й повторюються на статтях.
+	 *
+	 * @return list<array{label: string, url: string}>
+	 */
+	public static function mediaTopics(): array {
+		$page = get_page_by_path( 'media-center' );
+		$rows = $page ? (array) get_field( 'media_center_tags', (int) $page->ID ) : array();
+		$topics = array();
+
+		foreach ( $rows as $row ) {
+			$label = is_array( $row ) ? trim( (string) ( $row['label'] ?? '' ) ) : '';
+			if ( '' !== $label ) {
+				$topics[] = array( 'label' => $label, 'url' => trim( (string) ( $row['url'] ?? '' ) ) );
+			}
+		}
+
+		return $topics ?: array(
+			array( 'label' => 'Акції', 'url' => '#media-offers' ),
+			array( 'label' => 'Logika Новини', 'url' => '#media-news' ),
+			array( 'label' => 'Logika Блог', 'url' => '#media-articles' ),
+		);
+	}
+
+	private static function applyMediaTopics( string $markup ): string {
+		$items = '';
+		foreach ( self::mediaTopics() as $topic ) {
+			$items .= '<li><a href="' . esc_url( $topic['url'] ?: '#' ) . '">' . esc_html( $topic['label'] ) . '</a></li>';
+		}
+
+		return (string) preg_replace( '#<ul class="tags">.*?</ul>#s', '<ul class="tags">' . $items . '</ul>', $markup, 1 );
 	}
 
 	private static function replaceImageAsset( string $markup, string $default, string $url ): string {

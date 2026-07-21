@@ -48,6 +48,9 @@ final class Logika_Theme_Source_Markup {
 		}
 
 		$markup = self::applyBreadcrumbs( self::replacePrivacyPolicyLinks( Logika_Theme_Page_Content::apply( $markup, $source, $context_id ) ), $source, $context_id );
+		if ( 'camps' === $source ) {
+			$markup = Logika_Theme_Camp_History::apply( $markup, $context_id ?: get_queried_object_id() );
+		}
 		if ( 'index' === $source || 'en-courses' === $source ) {
 			$markup = self::applyEnglishCourseContext( $markup );
 		}

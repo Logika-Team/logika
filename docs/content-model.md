@@ -246,6 +246,8 @@ Fields:
 | `course_seo_title` | Text | no | manual SEO title override |
 | `course_seo_description` | Textarea | no | manual meta description override |
 | `course_schema_course` | Group | no | Course schema inputs |
+| `course_show_in_catalog` | True/False | no | default on; controls automatic catalog sync (see Rendering rules) |
+| `logika_is_template` | True/False | no | surfaces the course first on the "create from template" screen |
 
 Repeater: `course_program`
 
@@ -279,7 +281,8 @@ Rendering rules:
 
 - course cards and course pages must share the same source data;
 - age and format should be visible on public pages;
-- Course schema must not include empty or invisible fields.
+- Course schema must not include empty or invisible fields;
+- publishing a course automatically adds it to the /it-courses/ or /english-courses/ catalog relationship (by `course_direction`/age), and removes it when unpublished or when `course_show_in_catalog` is off — see `Logika\Core\CourseCatalogSync`. It only ever adds/removes its own ID, so hand-curated ordering and placeholder cards are preserved.
 
 ### 4.4. `camp`
 
@@ -324,6 +327,7 @@ Fields:
 | `camp_expired_state_text` | Textarea | no | message for expired camp |
 | `camp_seo_title` | Text | no | SEO title override |
 | `camp_seo_description` | Textarea | no | SEO description override |
+| `logika_is_template` | True/False | no | surfaces the camp first on the "create from template" screen |
 
 Repeater: `camp_program`
 
@@ -343,7 +347,8 @@ Rendering rules:
 
 - expired camps must have explicit visible state;
 - dates and availability come from CMS;
-- if no local camp exists for a city, render agreed fallback or hide block.
+- if no local camp exists for a city, render agreed fallback or hide block;
+- publishing an active camp (`camp_is_active` on) automatically adds it to the /camps/ archive relationship, and removes it when deactivated or unpublished — see `Logika\Core\CampArchiveSync`. It only ever adds/removes its own ID, so hand-curated ordering is preserved.
 
 ### 4.5. `review`
 

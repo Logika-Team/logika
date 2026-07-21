@@ -18,6 +18,8 @@ final class AdminUi {
 		add_action( 'acf/validate_save_post', array( self::class, 'validateUniqueCity' ) );
 		add_filter( 'enter_title_here', array( self::class, 'titlePlaceholder' ), 10, 2 );
 		add_action( 'add_meta_boxes_city', array( self::class, 'removeCityRegionMetaBox' ) );
+		add_action( 'add_meta_boxes_post', array( self::class, 'removePostTagsMetaBox' ) );
+		add_filter( 'rest_prepare_taxonomy', array( self::class, 'hidePostTagsPanel' ), 10, 3 );
 		add_filter( 'acf/validate_value/type=url', array( self::class, 'allowInternalUrl' ), 20, 2 );
 		add_filter( 'acf/prepare_field/type=url', array( self::class, 'renderUrlAsText' ) );
 		foreach ( self::POST_TYPES as $post_type ) {
@@ -104,6 +106,36 @@ final class AdminUi {
 		remove_meta_box( 'regiondiv', 'city', 'side' );
 	}
 
+	/**
+	 * Теги запису редагуються полем «Теги» (field_post_tags). Стандартний блок тегів редактора
+	 * зберігає ту саму таксономію й перетирає значення поля, тому його прибрано в обох редакторах.
+	 */
+	public static function removePostTagsMetaBox(): void {
+		remove_meta_box( 'tagsdiv-post_tag', 'post', 'side' );
+	}
+
+	/**
+	 * @param mixed $response
+	 * @param mixed $taxonomy
+	 * @param mixed $request
+	 * @return mixed
+	 */
+	public static function hidePostTagsPanel( $response, $taxonomy, $request ) {
+		if ( ! $response instanceof \WP_REST_Response || ! is_object( $taxonomy ) || 'post_tag' !== ( $taxonomy->name ?? '' ) ) {
+			return $response;
+		}
+		if ( ! is_object( $request ) || 'edit' !== $request['context'] ) {
+			return $response;
+		}
+		$data = $response->get_data();
+		if ( isset( $data['visibility']['show_ui'] ) ) {
+			$data['visibility']['show_ui'] = false;
+			$response->set_data( $data );
+		}
+
+		return $response;
+	}
+
 	public static function prepareCityMapField( array $field ): array {
 		$post = $GLOBALS['post'] ?? null;
 		if ( $post instanceof WP_Post && 'city' === $post->post_type ) {
@@ -176,7 +208,7 @@ final class AdminUi {
 		if ( ! in_array( 'course', (array) ( $field['post_type'] ?? array() ), true ) ) {
 			return $field;
 		}
-		$link = '<a href="' . esc_url( admin_url( 'post-new.php?post_type=course' ) ) . '">+ Додати новий курс із готовою структурою</a>';
+		$link = '<a href="' . esc_url( admin_url( 'edit.php?post_type=course' ) ) . '">+ Додати новий курс (дублюйте наявний у списку курсів)</a>';
 		$field['instructions'] = trim( (string) ( $field['instructions'] ?? '' ) . '<br>' . $link );
 
 		return $field;

@@ -28,7 +28,11 @@ require_once LOGIKA_CORE_PATH . 'src/SvgUploads.php';
 require_once LOGIKA_CORE_PATH . 'src/ArticleViews.php';
 require_once LOGIKA_CORE_PATH . 'src/HomepageImageOverrides.php';
 require_once LOGIKA_CORE_PATH . 'src/AdminUi.php';
+require_once LOGIKA_CORE_PATH . 'src/PostTagsFields.php';
 require_once LOGIKA_CORE_PATH . 'src/ContentMigration.php';
+require_once LOGIKA_CORE_PATH . 'src/PostDuplicator.php';
+require_once LOGIKA_CORE_PATH . 'src/CourseCatalogSync.php';
+require_once LOGIKA_CORE_PATH . 'src/CampArchiveSync.php';
 
 Logika\Core\AcfJson::register();
 Logika\Core\MediaCategories::register();
@@ -43,6 +47,10 @@ Logika\Core\HomepageImageOverrides::register();
 Logika\Core\AdminUi::register();
 Logika\Core\ContentMigration::register();
 Logika\Core\CityPostTags::register();
+Logika\Core\PostTagsFields::register();
+Logika\Core\PostDuplicator::register();
+Logika\Core\CourseCatalogSync::register();
+Logika\Core\CampArchiveSync::register();
 
 register_activation_hook(
 	__FILE__,

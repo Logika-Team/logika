@@ -61,11 +61,18 @@ final class Logika_Theme_Article_Page {
 	}
 
 	private static function topics(): void {
-		$topics = (array) self::field( 'media_center_topics', 'option' );
+		$topics = Logika_Theme_Page_Content::mediaTopics();
 		if ( ! $topics ) {
 			return;
 		}
-		?> <ul class="tags"><?php foreach ( $topics as $topic ) : if ( empty( $topic['label'] ) || empty( $topic['url'] ) ) { continue; } ?><li><a href="<?php echo esc_url( $topic['url'] ); ?>"><?php echo esc_html( $topic['label'] ); ?></a></li><?php endforeach; ?></ul><?php
+		?> <ul class="tags"><?php foreach ( $topics as $topic ) : ?><li><a href="<?php echo esc_url( self::topicUrl( $topic['url'] ) ); ?>"><?php echo esc_html( $topic['label'] ); ?></a></li><?php endforeach; ?></ul><?php
+	}
+
+	/** Якорі секцій Медіа-центру на сторінці статті мають вести на сам Медіа-центр. */
+	private static function topicUrl( string $url ): string {
+		$url = trim( $url );
+
+		return str_starts_with( $url, '#' ) || '' === $url ? home_url( '/media-center/' . $url ) : $url;
 	}
 
 	private static function has_socials( int $post_id ): bool { return (bool) self::socials( $post_id ); }

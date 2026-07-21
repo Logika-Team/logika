@@ -169,6 +169,36 @@
       "preview_size": "medium"
     },
     {
+      "key": "field_camp_archive_history_reviews",
+      "label": "Відео-відгуки міст",
+      "name": "camp_archive_history_reviews",
+      "type": "relationship",
+      "instructions": "Відгуки із заповненим посиланням на відеовідгук. Якщо нічого не обрано — беруться схвалені відгуки з відео автоматично.",
+      "post_type": [
+        "review"
+      ],
+      "return_format": "id",
+      "filters": [
+        "search"
+      ]
+    },
+    {
+      "key": "field_camp_archive_history_caption_prefix",
+      "label": "Префікс підпису слайда",
+      "name": "camp_archive_history_caption_prefix",
+      "type": "text",
+      "instructions": "До префікса додається назва міста: «Школа програмування для дітей у місті Київ».",
+      "default_value": "Школа програмування для дітей у місті"
+    },
+    {
+      "key": "field_camp_archive_history_limit",
+      "label": "Максимум слайдів",
+      "name": "camp_archive_history_limit",
+      "type": "number",
+      "default_value": 8,
+      "min": 1
+    },
+    {
       "key": "field_camp_archive_tab_gallery",
       "label": "Галерея",
       "name": "",

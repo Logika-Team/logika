@@ -10,6 +10,36 @@
       "instructions": ""
     },
     {
+      "key": "field_post_city_tags",
+      "label": "Теги міст",
+      "name": "post_city_tags",
+      "type": "taxonomy",
+      "taxonomy": "post_tag",
+      "field_type": "multi_select",
+      "add_term": 0,
+      "save_terms": 0,
+      "load_terms": 0,
+      "return_format": "id",
+      "multiple": 0,
+      "allow_null": 1,
+      "instructions": "Оберіть одне або кілька міст зі списку — матеріал показуватиметься лише у вибраних містах. Без міського тега матеріал бачать усі міста."
+    },
+    {
+      "key": "field_post_custom_tags",
+      "label": "Власні теги",
+      "name": "post_custom_tags",
+      "type": "taxonomy",
+      "taxonomy": "post_tag",
+      "field_type": "multi_select",
+      "add_term": 1,
+      "save_terms": 0,
+      "load_terms": 0,
+      "return_format": "id",
+      "multiple": 0,
+      "allow_null": 1,
+      "instructions": "Оберіть раніше створені теми зі списку. Щоб створити новий тег, натисніть «+» праворуч від поля — він одразу додасться до запису."
+    },
+    {
       "key": "field_post_related_course",
       "label": "Пов'язаний курс",
       "name": "post_related_course",
@@ -370,5 +400,5 @@
   "show_in_rest": true,
   "allow_ai_access": true,
   "ai_description": "Структуровані редакторські поля Logika: Редакційні поля запису.",
-  "modified": 1784275910
+  "modified": 1784900000
 }

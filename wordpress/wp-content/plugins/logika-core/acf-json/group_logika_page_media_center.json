@@ -35,7 +35,7 @@
     },
     {
       "key": "field_media_center_tags",
-      "label": "Теги hero",
+      "label": "Теги над пошуком",
       "name": "media_center_tags",
       "type": "repeater",
       "layout": "table",
@@ -45,10 +45,17 @@
           "label": "Назва",
           "name": "label",
           "type": "text",
-          "instructions": "Вкажіть значення для поля «Назва»."
+          "instructions": "Текст тега, наприклад «Logika Новини»."
+        },
+        {
+          "key": "field_media_center_tag_url",
+          "label": "Посилання",
+          "name": "url",
+          "type": "url",
+          "instructions": "Якір секції Медіа-центру (#media-offers, #media-news, #media-articles) або будь-яка інша адреса."
         }
       ],
-      "instructions": "Додавайте рядки та змінюйте їхній порядок перетягуванням."
+      "instructions": "Теги показуються в рядку з пошуком і на сторінках статей. Додавайте рядки та змінюйте їхній порядок перетягуванням."
     },
     {
       "key": "field_media_center_logirace_link",
@@ -316,5 +323,5 @@
   "show_in_rest": true,
   "allow_ai_access": true,
   "ai_description": "Структуровані редакторські поля Logika: Сторінка: Media Center.",
-  "modified": 1784547600
+  "modified": 1784900100
 }

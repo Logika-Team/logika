@@ -705,6 +705,26 @@
       "placement": "top"
     },
     {
+      "key": "field_camp_is_template",
+      "label": "Це шаблон",
+      "name": "logika_is_template",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "Позначені шаблони показуються першими на екрані «Створити з шаблону».",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "ui": 1,
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
       "key": "field_camp_external_id",
       "label": "Зовнішній ID",
       "name": "camp_external_id",
@@ -740,5 +760,5 @@
   "show_in_rest": true,
   "allow_ai_access": true,
   "ai_description": "Структуровані редакторські поля Logika: Табір.",
-  "modified": 1784542912
+  "modified": 1784800000
 }

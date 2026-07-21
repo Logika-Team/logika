@@ -94,3 +94,72 @@
   overflow: hidden;
 }
 /*# sourceMappingURL=camp-history.css.map */
+
+.camp-history .nizhyn-school__video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/11;
+  overflow: hidden;
+  border-radius: 24px;
+  isolation: isolate;
+}
+.camp-history .nizhyn-school__video > img {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.camp-history .nizhyn-school__video iframe {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.camp-history .nizhyn-school__video-overlay {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background: rgba(37, 37, 37, 0.55);
+}
+.camp-history .nizhyn-school__video-caption {
+  position: absolute;
+  z-index: 3;
+  right: clamp(16px, 2.083vw, 30px);
+  bottom: clamp(16px, 2.083vw, 30px);
+  color: var(--white);
+  font-size: clamp(18px, 1.667vw, 28px);
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: right;
+}
+.camp-history .nizhyn-school__play {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  left: 50%;
+  display: -ms-grid;
+  display: grid;
+  width: clamp(56px, 5.208vw, 80px);
+  height: clamp(56px, 5.208vw, 80px);
+  border: none;
+  border-radius: 50%;
+  background: var(--violet-500);
+  cursor: pointer;
+  place-items: center;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.camp-history .nizhyn-school__play span {
+  width: 0;
+  height: 0;
+  margin-left: 6px;
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  border-left: 16px solid var(--white);
+}

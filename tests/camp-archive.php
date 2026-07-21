@@ -4,50 +4,57 @@ declare(strict_types=1);
 
 require dirname( __DIR__ ) . '/wordpress/wp-load.php';
 
-$fields = array( 'camp_archive_hero_title', 'camp_archive_benefits_title', 'camp_archive_benefits', 'camp_archive_formats_title', 'camp_archive_booking_title', 'camp_archive_history_title', 'camp_archive_history_text', 'camp_archive_gallery', 'camp_archive_reviews', 'camp_archive_faq' );
-$before = array();
-$posts  = array();
 $errors = array();
-foreach ( $fields as $field ) {
-	$before[ $field ] = get_field( $field, 'camp_archive' );
+$posts  = array();
+
+$camps_page = get_page_by_path( 'camps' );
+if ( ! $camps_page ) {
+	fwrite( STDERR, "The /camps/ page fixture does not exist; cannot test the camp archive.\n" );
+	exit( 1 );
 }
 
-try {
-	$active   = wp_insert_post( array( 'post_type' => 'camp', 'post_status' => 'publish', 'post_title' => 'Активний табір fixture' ) );
-	$inactive = wp_insert_post( array( 'post_type' => 'camp', 'post_status' => 'publish', 'post_title' => 'Неактивний табір fixture' ) );
-	$draft    = wp_insert_post( array( 'post_type' => 'camp', 'post_status' => 'draft', 'post_title' => 'Чернетка табору fixture' ) );
-	$posts    = array( $active, $inactive, $draft );
-	update_field( 'camp_is_active', 1, $active );
-	update_field( 'camp_is_active', 0, $inactive );
-	update_field( 'camp_is_active', 1, $draft );
-	update_field( 'camp_archive_hero_title', 'Архів таборів fixture', 'camp_archive' );
-	update_field( 'camp_archive_benefits_title', 'Переваги fixture', 'camp_archive' );
-	update_field( 'camp_archive_benefits', array( array( 'title' => 'Перевага fixture', 'text' => 'Опис переваги' ) ), 'camp_archive' );
-	update_field( 'camp_archive_formats_title', 'Формати fixture', 'camp_archive' );
-	update_field( 'camp_archive_booking_title', 'Бронювання fixture', 'camp_archive' );
-	update_field( 'camp_archive_history_title', 'Історія fixture', 'camp_archive' );
-	update_field( 'camp_archive_history_text', '<p>Текст історії fixture.</p>', 'camp_archive' );
+$before = (array) get_field( 'camp_archive_formats', $camps_page->ID );
 
-	ob_start();
-	Logika_Theme_Camp_Archive::render();
-	$html = (string) ob_get_clean();
-	foreach ( array( 'Архів таборів fixture', 'Перевага fixture', 'Активний табір fixture', 'Бронювання fixture', 'Історія fixture' ) as $expected ) {
-		if ( ! str_contains( $html, $expected ) ) {
-			$errors[] = "Camp archive is missing {$expected}.";
-		}
+try {
+	$active   = wp_insert_post( array( 'post_type' => 'camp', 'post_status' => 'publish', 'post_title' => 'Активний табір fixture' ), true );
+	$inactive = wp_insert_post( array( 'post_type' => 'camp', 'post_status' => 'publish', 'post_title' => 'Неактивний табір fixture' ), true );
+	$draft    = wp_insert_post( array( 'post_type' => 'camp', 'post_status' => 'draft', 'post_title' => 'Чернетка табору fixture' ), true );
+	$posts    = array( $active, $inactive, $draft );
+
+	update_field( 'camp_is_active', 1, $active );
+	Logika\Core\CampArchiveSync::sync( $active );
+
+	update_field( 'camp_is_active', 0, $inactive );
+	Logika\Core\CampArchiveSync::sync( $inactive );
+
+	update_field( 'camp_is_active', 1, $draft );
+	Logika\Core\CampArchiveSync::sync( $draft );
+
+	$formats = array_map( 'intval', (array) get_field( 'camp_archive_formats', $camps_page->ID ) );
+
+	if ( ! in_array( $active, $formats, true ) ) {
+		$errors[] = 'Publishing an active camp did not add it to camp_archive_formats.';
 	}
-	foreach ( array( 'Неактивний табір fixture', 'Чернетка табору fixture' ) as $hidden ) {
-		if ( str_contains( $html, $hidden ) ) {
-			$errors[] = "Camp archive exposes {$hidden}.";
-		}
+	if ( in_array( $inactive, $formats, true ) ) {
+		$errors[] = 'An inactive camp was added to camp_archive_formats.';
+	}
+	if ( in_array( $draft, $formats, true ) ) {
+		$errors[] = 'A draft camp was added to camp_archive_formats.';
+	}
+
+	update_field( 'camp_is_active', 0, $active );
+	Logika\Core\CampArchiveSync::sync( $active );
+	$formats_after_deactivation = array_map( 'intval', (array) get_field( 'camp_archive_formats', $camps_page->ID ) );
+	if ( in_array( $active, $formats_after_deactivation, true ) ) {
+		$errors[] = 'Deactivating a camp did not remove it from camp_archive_formats.';
 	}
 } finally {
 	foreach ( $posts as $post_id ) {
-		wp_delete_post( (int) $post_id, true );
+		if ( is_numeric( $post_id ) ) {
+			wp_delete_post( (int) $post_id, true );
+		}
 	}
-	foreach ( $before as $field => $value ) {
-		update_field( $field, $value, 'camp_archive' );
-	}
+	update_field( 'camp_archive_formats', $before, $camps_page->ID );
 }
 
 if ( $errors ) {
@@ -55,4 +62,4 @@ if ( $errors ) {
 	exit( 1 );
 }
 
-echo "Camp archive uses Options and public Camp entities.\n";
+echo "Publishing an active camp syncs it into the /camps/ archive automatically.\n";

@@ -1,0 +1,150 @@
+.camp-history {
+  overflow: hidden;
+  padding: clamp(20px, 4.167vw, 80px) 0;
+
+  &__wrapp {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 2.083vw, 40px);
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  &__title {
+    color: var(--violet-500);
+  }
+
+  &__controls {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 6px;
+
+    &-btn {
+      display: flex;
+      width: 52px;
+      height: 52px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: var(--violet-500);
+      cursor: pointer;
+
+      svg {
+        fill: var(--white);
+      }
+
+      &.swiper-button-disabled {
+        opacity: 0.35;
+        cursor: default;
+      }
+    }
+  }
+
+  &__slider {
+    width: 100%;
+
+    .swiper-container {
+      overflow: hidden;
+    }
+
+    .swiper-slide {
+      height: auto;
+    }
+  }
+
+  // Відео-картка слайда — та сама верстка, що й у секції на головній
+  .nizhyn-school__video {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 11;
+    overflow: hidden;
+    border-radius: 24px;
+    isolation: isolate;
+
+    > img {
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    iframe {
+      position: absolute;
+      z-index: 5;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  }
+
+  .nizhyn-school__video-overlay {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    background: rgba(37, 37, 37, 0.55);
+  }
+
+  .nizhyn-school__video-caption {
+    position: absolute;
+    z-index: 3;
+    right: clamp(16px, 2.083vw, 30px);
+    bottom: clamp(16px, 2.083vw, 30px);
+    color: var(--white);
+    font-size: clamp(18px, 1.667vw, 28px);
+    font-weight: 700;
+    line-height: 1.15;
+    text-align: right;
+  }
+
+  .nizhyn-school__play {
+    position: absolute;
+    z-index: 4;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    width: clamp(56px, 5.208vw, 80px);
+    height: clamp(56px, 5.208vw, 80px);
+    border: none;
+    border-radius: 50%;
+    background: var(--violet-500);
+    cursor: pointer;
+    place-items: center;
+    transform: translate(-50%, -50%);
+
+    span {
+      width: 0;
+      height: 0;
+      margin-left: 6px;
+      border-top: 11px solid transparent;
+      border-bottom: 11px solid transparent;
+      border-left: 16px solid var(--white);
+    }
+  }
+
+  @include small-tablet {
+    &__top {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 15px;
+    }
+
+    &__title {
+      text-align: center;
+    }
+
+    &__controls {
+      order: 1;
+      justify-content: center;
+      gap: 15px;
+    }
+  }
+}

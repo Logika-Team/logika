@@ -209,20 +209,35 @@
               <div class='swiper-container'>
                 <ul class='swiper-wrapper'>
                   <li class='swiper-slide'>
-                    <div class="nizhyn-school__video">
-                      slide 1
+                    <div class="nizhyn-school__video" data-video-id="">
+                      <img src="img/camp/hands.png" alt="Табір Logika у Києві">
+                      <div class="nizhyn-school__video-overlay" aria-hidden="true"></div>
+                      <div class="nizhyn-school__video-caption">Школа програмування<br>для дітей у Києві</div>
+                      <button class="nizhyn-school__play" type="button" aria-label="Відтворити відео про табір у Києві">
+                        <span aria-hidden="true"></span>
+                      </button>
                     </div>
                   </li>
 
                   <li class='swiper-slide'>
-                    <div class="nizhyn-school__video">
-                      slide 2
+                    <div class="nizhyn-school__video" data-video-id="">
+                      <img src="img/camp/hands.png" alt="Табір Logika у Ніжині">
+                      <div class="nizhyn-school__video-overlay" aria-hidden="true"></div>
+                      <div class="nizhyn-school__video-caption">Школа програмування<br>для дітей у Ніжині</div>
+                      <button class="nizhyn-school__play" type="button" aria-label="Відтворити відео про табір у Ніжині">
+                        <span aria-hidden="true"></span>
+                      </button>
                     </div>
                   </li>
 
                   <li class='swiper-slide'>
-                    <div class="nizhyn-school__video">
-                      slide 3
+                    <div class="nizhyn-school__video" data-video-id="">
+                      <img src="img/camp/hands.png" alt="Табір Logika у Одесі">
+                      <div class="nizhyn-school__video-overlay" aria-hidden="true"></div>
+                      <div class="nizhyn-school__video-caption">Школа програмування<br>для дітей у Одесі</div>
+                      <button class="nizhyn-school__play" type="button" aria-label="Відтворити відео про табір у Одесі">
+                        <span aria-hidden="true"></span>
+                      </button>
                     </div>
                   </li>
                 </ul>

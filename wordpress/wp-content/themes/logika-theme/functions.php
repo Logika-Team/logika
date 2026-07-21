@@ -16,6 +16,7 @@ require_once get_template_directory() . '/src/Testimonials.php';
 require_once get_template_directory() . '/src/CityPage.php';
 require_once get_template_directory() . '/src/CoursePage.php';
 require_once get_template_directory() . '/src/CampPage.php';
+require_once get_template_directory() . '/src/CampHistory.php';
 require_once get_template_directory() . '/src/CitySeo.php';
 require_once get_template_directory() . '/src/CitySchema.php';
 require_once get_template_directory() . '/src/CityFaqSchema.php';
