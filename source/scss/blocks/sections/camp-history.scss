@@ -1,0 +1,71 @@
+@import "../../general/mixins";
+ 
+.camp-history {
+    overflow: hidden;
+    padding: clamp(20px, 4.167vw, 80px) 0;
+
+    &__wrapp {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(20px, 2.083vw, 40px);
+    }
+
+    &__top {
+        @include for-small-tablet {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        @include small-tablet {
+            display: contents;
+        }
+    }
+
+    &__title {
+        @include small-tablet {
+            text-align: center;
+        }
+    }
+
+    &__controls {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        &-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background-color: var(--grey-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+                fill: var(--white);
+            }
+        }
+
+        @include small-tablet {
+            order: 1;
+            justify-content: center;
+            gap: 15px;
+        }
+    }
+
+    &__slider {
+        @include for-small-tablet {
+            width: 100%;
+        }
+
+        @include small-tablet {
+            width: 100vw;
+        }
+
+        .swiper-container {
+            overflow: hidden;
+        }
+    }
+}

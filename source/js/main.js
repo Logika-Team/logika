@@ -21,6 +21,7 @@ const tripsSectionSlider = document.querySelectorAll('.trips-section__slider');
 const gallerySectionSlider = document.querySelectorAll('.gallery-section__slider');
 const campsHighlightsSlider = document.querySelectorAll('.camp-highlights__slider');
 const testimonialsSlider = document.querySelectorAll('.testimonials-section__slider');
+const campsHistorySlider = document.querySelectorAll('.camp-history__slider');
 const campGalleries = document.querySelectorAll('[data-camp-gallery]');
 
 //------------------------------------------------
@@ -530,8 +531,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  if (tripsSectionSlider.length > 0) {
-    tripsSectionSlider.forEach(function (slider) {
+  if (tripsSectionSlider.length > 0) { tripsSectionSlider.forEach(function (slider) {
       const container = slider.querySelector(".swiper-container");
       
       const parentSection = slider.closest('.trips-section');
@@ -692,6 +692,41 @@ document.addEventListener("DOMContentLoaded", function () {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(initOrDestroySlider, 150);
       });
+    });
+  }
+
+
+  if (campsHistorySlider.length > 0) {
+    campsHistorySlider.forEach(function (slider) {
+      const container = slider.querySelector(".swiper-container");
+      
+      const parentSection = slider.closest('.camp-history');
+      const nextBtn = parentSection ? parentSection.querySelector(".swiper-button-next") : null;
+      const prevBtn = parentSection ? parentSection.querySelector(".swiper-button-prev") : null;
+
+      if (container) {
+        const mainSwiper = new Swiper(container, {
+          speed: 1800,
+          observer: true,
+          observeParents: true,
+          loop: true,
+          watchSlidesProgress: true,
+          navigation: {
+            nextEl: nextBtn, 
+            prevEl: prevBtn,
+          },
+          breakpoints: {
+            360: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            1024: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+          },
+        });
+      }
     });
   }
 });
