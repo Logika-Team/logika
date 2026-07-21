@@ -204,7 +204,7 @@
                       <img src='img/services/service1.svg' alt=''>
                   </div>
                 </div>
-
+                
                 <div class="services-section__item-content">
                   <div class="services-section__item-title h3">Перший крок у свiт технологiй</div>
                   <ul class="services-section__item-tags">
@@ -248,7 +248,7 @@
                       <img src='img/services/service2.svg' alt=''>
                   </div>
                 </div>
-
+                
                 <div class="services-section__item-content">
                   <div class="services-section__item-title h3">Вiд iгор до власних проектiв</div>
                   <ul class="services-section__item-tags">
@@ -293,7 +293,7 @@
                       <img src='img/services/service3.svg' alt=''>
                   </div>
                 </div>
-
+                
                 <div class="services-section__item-content">
                   <div class="services-section__item-title h3">Серйознi навички для серйозних цiлей</div>
                   <ul class="services-section__item-tags">
@@ -340,7 +340,7 @@
                       <img src='img/services/service4.svg' alt=''>
                   </div>
                 </div>
-
+                
                 <div class="services-section__item-content">
                   <div class="services-section__item-title h3">Перший крок у IT-кар'єру</div>
                   <ul class="services-section__item-tags">

@@ -15,10 +15,13 @@ foreach ( array( 'city', 'branch', 'course', 'camp', 'review', 'faq_item' ) as $
 		$errors[] = "{$type} still exposes the empty block editor.";
 	}
 }
+// These post types have no editor, so the fields still sit directly under the title — but as
+// regular meta boxes, otherwise they render before the side column and push Publish to the very
+// bottom of a one-column screen.
 foreach ( array( 'group_logika_city', 'group_logika_course', 'group_logika_camp' ) as $group_key ) {
 	$group = acf_get_field_group( $group_key );
-	if ( ! $group || 'acf_after_title' !== $group['position'] ) {
-		$errors[] = "{$group_key} is not positioned under the title.";
+	if ( ! $group || 'normal' !== $group['position'] ) {
+		$errors[] = "{$group_key} must render as a normal meta box, below the Publish box.";
 	}
 }
 $review_fields = acf_get_fields( 'group_logika_review' );

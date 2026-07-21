@@ -16,7 +16,6 @@ require_once get_template_directory() . '/src/Testimonials.php';
 require_once get_template_directory() . '/src/CityPage.php';
 require_once get_template_directory() . '/src/CoursePage.php';
 require_once get_template_directory() . '/src/CampPage.php';
-require_once get_template_directory() . '/src/CampArchive.php';
 require_once get_template_directory() . '/src/CitySeo.php';
 require_once get_template_directory() . '/src/CitySchema.php';
 require_once get_template_directory() . '/src/CityFaqSchema.php';
@@ -97,14 +96,13 @@ function logika_theme_assets(): void {
 	wp_add_inline_style( 'logika-theme', '.header{position:sticky;top:0}' );
 	wp_add_inline_style( 'logika-theme', '.banner-section__subtitle{color:var(--violet-100)}.banner-section .main-form__title>span{color:var(--light-blue)}.banner-section__bar{box-shadow:0 0 25px 0 rgba(37,37,37,.12)}' );
 	wp_add_inline_style( 'logika-theme', '.header .btn,.footer .btn,.header__location-region-toggle{font-weight:600}' );
-	wp_add_inline_style( 'logika-theme', '.services-section__item-media{aspect-ratio:588/431}.services-section__item-image{position:absolute;bottom:0;margin-top:0}.services-section__items>li:nth-child(2) .services-section__item-ages{top:auto;right:auto;bottom:0;left:-67px}.services-section__items>li:nth-child(4) .services-section__item-ages{top:auto;right:auto;bottom:0;left:-67px}.services-section__items>li:nth-child(2) .services-section__item-icon{top:43px;right:-67px;bottom:auto;left:auto}.services-section__items>li:nth-child(4) .services-section__item-icon{top:43px;right:-67px;bottom:auto;left:auto}.services-section__items>li:nth-child(3) .services-section__item-image{transform:scale(.9);transform-origin:center bottom}.services-section__items>li:nth-child(4) .services-section__item-image{transform:scale(.9);transform-origin:center bottom}.services-section__item-btns{position:relative;z-index:2}' );
 	wp_add_inline_style( 'logika-theme', '.categories-section__controls-btn{background-color:var(--violet-100)}.categories-section__controls-btn.swiper-button-disabled{background-color:var(--grey-100)}' );
 	wp_add_inline_style( 'logika-theme', '.faq-section{overflow:hidden}.faq-section__left-bg,.faq-section__right-bg{pointer-events:none}' );
 	wp_add_inline_style( 'logika-theme', '.testimonials-section__box{width:100%}.testimonials-section__items{grid-template-columns:repeat(6,minmax(0,1fr))}.testimonials-card__decor{width:min(100%,220px);aspect-ratio:1/1;align-self:flex-start;border-radius:50%;overflow:hidden}.testimonials-card__decor picture,.testimonials-card__decor img{width:100%;height:100%;object-fit:cover}' );
 	wp_enqueue_style( 'logika-lead-modal', $uri . '/css/lead-modal.css', array( 'logika-theme' ), $lead_modal_style_version );
 	if ( is_post_type_archive( 'camp' ) || is_page( 'camps' ) ) {
 		wp_enqueue_style( 'logika-camp-modal', $uri . '/css/camp-modal.css', array( 'logika-lead-modal' ), (string) filemtime( get_template_directory() . '/assets/css/camp-modal.css' ) );
-		foreach ( array( 'camp-booking', 'camp-extra', 'camp-formats', 'camp-highlights', 'camp-page-hero' ) as $section ) {
+		foreach ( array( 'camp-booking', 'camp-extra', 'camp-formats', 'camp-highlights', 'camp-history', 'camp-page-hero' ) as $section ) {
 			wp_enqueue_style( "logika-{$section}", "{$uri}/css/blocks/sections/{$section}.css", array( 'logika-theme' ), (string) filemtime( get_template_directory() . "/assets/css/blocks/sections/{$section}.css" ) );
 		}
 	}
@@ -206,7 +204,7 @@ function logika_theme_is_managed_page( int $post_id ): bool {
 
 	$slug = (string) get_post_field( 'post_name', $post_id );
 
-	return (int) get_option( 'page_on_front' ) === $post_id || in_array( $slug, array( 'about', 'faq', 'it-courses', 'english-courses', 'media-center', 'privacy-policy', 'contractoffer', 'contractoffer-overseas', 'litsenziia', 'vacancies' ), true );
+	return (int) get_option( 'page_on_front' ) === $post_id || in_array( $slug, array( 'about', 'faq', 'it-courses', 'english-courses', 'media-center', 'privacy-policy', 'contractoffer', 'contractoffer-overseas', 'litsenziia', 'vacancies', 'camps' ), true );
 }
 
 add_filter(

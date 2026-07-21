@@ -32,12 +32,26 @@ final class CitySlug {
 
 	public static function find( string $slug ): ?WP_Post {
 		$slug = sanitize_title_for_query( $slug );
-		foreach ( get_posts( array( 'post_type' => 'city', 'post_status' => 'publish', 'posts_per_page' => -1 ) ) as $city ) {
-			if ( $slug === self::for( $city ) ) {
-				return $city;
-			}
+		$id   = self::slugMap()[ $slug ] ?? 0;
+
+		return $id ? get_post( $id ) : null;
+	}
+
+	/**
+	 * @return array<string, int>
+	 */
+	private static function slugMap(): array {
+		static $map = null;
+
+		if ( null !== $map ) {
+			return $map;
 		}
 
-		return null;
+		$map = array();
+		foreach ( get_posts( array( 'post_type' => 'city', 'post_status' => 'publish', 'posts_per_page' => -1, 'fields' => 'ids' ) ) as $city_id ) {
+			$map[ self::for( (int) $city_id ) ] = (int) $city_id;
+		}
+
+		return $map;
 	}
 }

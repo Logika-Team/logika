@@ -29,7 +29,7 @@ final class Logika_Theme_Testimonials {
 			$markup
 		);
 
-		return self::replaceDecorations( self::replaceAvatars( $markup, $reviews ), $section_context );
+		return self::replaceDecorations( self::replaceCourseTags( self::replaceAvatars( $markup, $reviews ), $reviews ), $section_context );
 	}
 
 	public static function title( int|string $section_context = 0 ): string {
@@ -54,6 +54,22 @@ final class Logika_Theme_Testimonials {
 				$photo = isset( $reviews[ $index ] ) ? (int) get_field( 'review_photo', $reviews[ $index++ ]->ID ) : 0;
 
 				return $photo ? $matches[1] . wp_get_attachment_image( $photo, 'thumbnail', false, array( 'width' => 56, 'height' => 56, 'alt' => '' ) ) . $matches[2] : $matches[0];
+			},
+			$markup
+		);
+	}
+
+	/** @param array<int, \WP_Post> $reviews */
+	private static function replaceCourseTags( string $markup, array $reviews ): string {
+		$index = 0;
+
+		return (string) preg_replace_callback(
+			'#(<span class="testimonials-card__tag">).*?(</span>)#s',
+			static function ( array $matches ) use ( $reviews, &$index ): string {
+				$course = isset( $reviews[ $index ] ) ? (int) get_field( 'review_related_course', $reviews[ $index++ ]->ID ) : 0;
+				$title  = $course ? get_the_title( $course ) : '';
+
+				return $title ? $matches[1] . esc_html( $title ) . $matches[2] : $matches[0];
 			},
 			$markup
 		);

@@ -1,16 +1,16 @@
-# Graph Report - wordpress  (2026-07-20)
+# Graph Report - wordpress  (2026-07-21)
 
 ## Corpus Check
-- 946 files · ~10,783,965 words
+- 953 files · ~10,849,867 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 10756 nodes · 14697 edges · 1550 communities (1268 shown, 282 thin omitted)
-- Extraction: 82% EXTRACTED · 18% INFERRED · 0% AMBIGUOUS · INFERRED: 2657 edges (avg confidence: 0.78)
+- 10785 nodes · 14721 edges · 1560 communities (1274 shown, 286 thin omitted)
+- Extraction: 82% EXTRACTED · 18% INFERRED · 0% AMBIGUOUS · INFERRED: 2659 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `084bb0ef`
+- Built from commit: `6ad287b9`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -1146,14 +1146,14 @@
 - instructions
 - Bindings
 - Logika_Leads_Director_Email
-- placeholder
+- instructions
 - placeholder
 - acf_form_comment
 - allow_null
 - typograf
 - Стрілка між блоками навичок на сторінках англійських курсів
 - required
-- acf_field__group
+- placeholder
 - acf_field_gallery
 - ACF_Location_Post_Format
 - AdminUi
@@ -1163,41 +1163,48 @@
 - .load
 - placeholder
 - gulp-cheerio
-- acf_get_user_setting
+- gulp
 - prepend
 - Logika_Theme_Generic_Page
 - prepend
 - placeholder
 - message
-- ACF_Admin_Options_Preview
 - ACF_Location_Nav_Menu
 - AI
 - append
-- ACF_Location_Post_Taxonomy
+- selected
 - ACF_Location_Taxonomy
 - Динамічне підменю курсів у шапці
-- acf_update_internal_post_type
+- .setClasses
 - MaximumSelectionLength
-- logika_sync_tilda_course_catalog
+- placeholder
 - Article Tag Filter Implementation Plan
 - Фільтр статей за тегом
-- label
-- instructions
-- mime_types
+- prepend
+- placeholder
+- default_value
 - media-section-feature-tags.sh
 - instructions
-- max
-- placeholder
+- acf_form_taxonomy
+- Blocks
 - AcfJson
-- default_value
 - endpoint
 - B
+- gulp-autoprefixer
+- BaseAdapter
 - instructions
 - main-adaptives.sh
+- ACF_Location_Post_Status
+- open
+- label
+- Bindings
+- Logika_Theme_Camp_Page
+- placeholder
+- webpack-stream
 
 ## God Nodes (most connected - your core abstractions)
 1. `acf_get_setting()` - 106 edges
-2. `get_field()` - 90 edges
+2. `get_field()` - 92 edges
 3. `acf_render_field_setting()` - 76 edges
 4. `acf_esc_html()` - 71 edges
 5. `d` - 70 edges
@@ -1222,55 +1229,55 @@
 ## Import Cycles
 - None detected.
 
-## Communities (1550 total, 282 thin omitted)
-
-### Community 0 - "acf-internal-post-type-functions.php"
-Cohesion: 0.04
-Nodes (34): acf_delete_field(), acf_duplicate_field(), acf_duplicate_fields(), acf_flush_field_cache(), acf_get_field_json_schema(), acf_get_field_label(), acf_get_valid_field(), acf_prepare_field() (+26 more)
+## Communities (1560 total, 286 thin omitted)
 
 ### Community 1 - "source"
 Cohesion: 0.03
 Nodes (80): source/scss/fonts/#{$url}.woff, source/scss/fonts/#{$url}.woff2, source/scss/general/%23filter0_d_168_2223, advantages section, banner section, blocks, breadcrumbs, breakpoint (+72 more)
 
 ### Community 2 - "ACF_Internal_Post_Type"
-Cohesion: 0.11
-Nodes (43): $a(), ab(), C(), ca(), D(), eb(), fb(), gb() (+35 more)
+Cohesion: 0.07
+Nodes (67): A(), C(), d(), e(), f(), h(), i(), k() (+59 more)
 
 ### Community 3 - "acf_field_clone"
 Cohesion: 0.04
-Nodes (77): acf_filter_field_groups(), acf_flush_field_group_cache(), acf_get_raw_field_group(), acf_get_raw_field_groups(), acf_is_field_group(), acf_prepare_field_group_for_import(), acf_translate_field_group(), acf_update_field_group_active_status() (+69 more)
+Nodes (81): acf_filter_field_groups(), acf_flush_field_group_cache(), acf_get_raw_field_group(), acf_get_raw_field_groups(), acf_is_field_group(), acf_prepare_field_group_for_import(), acf_translate_field_group(), acf_delete_internal_post_type() (+73 more)
 
 ### Community 4 - "acf_extract_var"
-Cohesion: 0.05
-Nodes (8): acf_render_field_setting(), acf_strlen(), acf_encode_choices(), acf_field_email, acf_field_range, acf_field_text, acf_field_textarea, acf_field_url
+Cohesion: 0.04
+Nodes (9): acf_render_field_setting(), acf_strlen(), acf_encode_choices(), acf_field_email, acf_field_range, acf_field_text, acf_field_textarea, acf_field_true_false (+1 more)
 
 ### Community 5 - "index.html"
 Cohesion: 0.03
 Nodes (63): source/img/banner-bar/icon-calendar-check.svg, source/img/banner-bar/icon-document-certificate.svg, source/img/banner-bar/icon-map-location.svg, source/img/banner-bar/icon-outline_school.svg, source/img/banner-bar/icon-rating-star.svg, source/img/banner-bar/icon-tabler-school.svg, source/img/boy-character.svg, source/img/certificates/certificate.png (+55 more)
 
 ### Community 6 - "acf_get_field"
-Cohesion: 0.08
-Nodes (9): ACF, acf_decrypt(), acf_has_setting(), acf_form(), acf_form_front, acf_form_head(), acf_get_form(), acf_get_forms() (+1 more)
+Cohesion: 0.07
+Nodes (13): ACF, acf_get_version_when_first_activated(), acf_decrypt(), acf_encrypt(), acf_has_setting(), acf_form(), acf_form_front, acf_form_head() (+5 more)
 
 ### Community 7 - "api-template.php"
-Cohesion: 0.14
-Nodes (6): acf_determine_internal_post_type(), acf_internal_post_object_contains_valid_key(), acf_is_valid_internal_post_type_key(), acf_delete_json_field_group(), ACF_Local_JSON, acf_write_json_field_group()
+Cohesion: 0.07
+Nodes (7): acf_punctify(), ACF_Admin_Notice, acf_render_admin_notices(), acf_enqueue_scripts(), acf_form_attachment, ACF_Form_User, acf_form_widget
 
 ### Community 8 - "api-helpers.php"
-Cohesion: 0.05
-Nodes (23): acf_array_camel_case(), acf_encrypt(), acf_get_external_dir(), acf_get_grouped_users(), acf_get_image_size(), acf_get_image_sizes(), acf_get_post_id_info(), acf_get_post_stati() (+15 more)
+Cohesion: 0.04
+Nodes (31): acf_append_setting(), acf_array_camel_case(), acf_doing(), acf_get_external_dir(), acf_get_grouped_users(), acf_get_image_size(), acf_get_image_sizes(), acf_get_post_id_info() (+23 more)
+
+### Community 11 - "acf_esc_attrs"
+Cohesion: 0.08
+Nodes (7): ACF_Admin_Upgrade, acf_admin_field_group, acf_get_user_setting(), acf_get_view(), acf_is_row_collapsed(), acf_is_screen(), acf_update_user_setting()
 
 ### Community 12 - "swiper.js"
 Cohesion: 0.13
 Nodes (10): E(), G(), M(), n(), o(), p(), r(), w() (+2 more)
 
 ### Community 13 - "acf_render_field_setting"
-Cohesion: 0.14
-Nodes (3): acf_doing_action(), ACF_Assets, acf_enqueue_uploader()
+Cohesion: 0.07
+Nodes (4): acf_format_numerics(), acf_connect_attachment_to_post(), acf_field_file, acf_field_relationship
 
 ### Community 14 - ".add_filter"
-Cohesion: 0.05
-Nodes (10): acf_add_url_utm_tags(), acf_add_filter_variations(), acf_get_url(), acf_field_date_picker, acf_field_date_and_time_picker, acf_field_tab, acf_field_wysiwyg, acf_third_party (+2 more)
+Cohesion: 0.08
+Nodes (6): acf_add_url_utm_tags(), acf_add_filter_variations(), acf_get_url(), acf_field_wysiwyg, acf_enqueue_in_iframe_styles(), Check_Screen
 
 ### Community 15 - "acf_pro"
 Cohesion: 0.06
@@ -1285,32 +1292,36 @@ Cohesion: 0.07
 Nodes (44): autoprefixer, browserSync, cache(), clean(), cleanCSS, del, faviconIcon(), fileInclude (+36 more)
 
 ### Community 19 - "updates.php"
-Cohesion: 0.07
-Nodes (26): acf_checkbox_input(), acf_clean_atts(), acf_esc_attr(), acf_esc_attr_e(), acf_esc_attrs(), acf_esc_atts(), acf_esc_atts_e(), acf_file_input() (+18 more)
+Cohesion: 0.08
+Nodes (25): acf_checkbox_input(), acf_clean_atts(), acf_esc_attr(), acf_esc_attr_e(), acf_esc_attrs(), acf_esc_atts(), acf_esc_atts_e(), acf_file_input() (+17 more)
+
+### Community 20 - "acf_get_setting"
+Cohesion: 0.08
+Nodes (17): acf_copy_metadata(), acf_delete_metadata(), acf_delete_metadata_by_field(), acf_get_meta(), acf_get_meta_field(), acf_get_meta_instance(), acf_get_metadata(), acf_get_metadata_by_field() (+9 more)
 
 ### Community 21 - "2. Modern PHP Features"
 Cohesion: 0.05
 Nodes (6): get_field(), acf_inline_editing_field_is_empty(), Logika_Theme_Camp_Page, Logika_Theme_Course_Page, Logika_Theme_Generic_Page, Logika_Theme_Page_Content
 
 ### Community 22 - ".apply"
-Cohesion: 0.15
-Nodes (10): acf_build_bidirectional_target_current_choices(), acf_get_bidirectional_field_settings_instruction_text(), acf_get_valid_bidirectional_target_types(), acf_render_bidirectional_field_settings(), acf_update_bidirectional_values(), acf_idval(), acf_maybe_idval(), acf_get_array() (+2 more)
+Cohesion: 0.10
+Nodes (11): acf_build_bidirectional_target_current_choices(), acf_get_bidirectional_field_settings_instruction_text(), acf_get_valid_bidirectional_target_types(), acf_render_bidirectional_field_settings(), acf_update_bidirectional_values(), acf_idval(), acf_maybe_idval(), acf_get_array() (+3 more)
 
 ### Community 23 - "acf_save_post"
 Cohesion: 0.04
 Nodes (3): Logika_Theme_Camp_Archive, Logika_Theme_Fixed_Page, Logika_Theme_Source_Markup
 
 ### Community 24 - "acf_field"
-Cohesion: 0.13
-Nodes (5): acf_prepare_field_for_export(), acf_disable_filters(), acf_extract_vars(), acf_parse_types(), ACF_Internal_Post_Type
+Cohesion: 0.07
+Nodes (14): acf_get_form_data(), acf_decode_taxonomy_term(), acf_decode_taxonomy_terms(), acf_get_attachment(), acf_get_grouped_posts(), acf_get_numeric(), acf_get_post_thumbnail(), acf_get_post_title() (+6 more)
 
 ### Community 25 - "acf_get_view"
 Cohesion: 0.05
 Nodes (43): 1.1 Strict Types Declaration, 1.2 Return Type Declarations, 1.3 Parameter Type Declarations, 1.4 Property Type Declarations, 1.5 Union Types, 1.6 Nullable Types, 1. Type System, 2.10 Asymmetric Visibility (8.4+) (+35 more)
 
 ### Community 26 - "acf_get_field_type"
-Cohesion: 0.12
-Nodes (9): acf_validate_internal_post_type_values(), acf_add_validation_error(), acf_get_validation_error(), acf_get_validation_errors(), acf_reset_validation_errors(), acf_validate_save_post(), acf_validate_value(), acf_validate_values() (+1 more)
+Cohesion: 0.13
+Nodes (11): acf_validate_internal_post_type_values(), acf_add_validation_error(), acf_get_validation_error(), acf_get_validation_errors(), acf_reset_validation_errors(), acf_validate_save_post(), acf_validate_value(), acf_validate_values() (+3 more)
 
 ### Community 27 - "acf_get_array"
 Cohesion: 0.05
@@ -1321,8 +1332,8 @@ Cohesion: 0.05
 Nodes (41): Arrange-Act-Assert Pattern, Common Testing Patterns, Complete Plugin Test Example, Complete Workflow Example, Coverage Reporting, Data Providers, Database Fixtures and Teardown, Factory Objects for Test Data (+33 more)
 
 ### Community 29 - "Results"
-Cohesion: 0.10
-Nodes (6): acf_connect_attachment_to_post(), acf_format_filesize(), acf_get_filesize(), acf_validate_attachment(), acf_field_file, ACF_Media
+Cohesion: 0.09
+Nodes (5): acf_format_filesize(), acf_get_filesize(), acf_validate_attachment(), ACF_Media, HomepageImageOverrides
 
 ### Community 30 - "article.html"
 Cohesion: 0.26
@@ -1349,20 +1360,16 @@ Cohesion: 0.05
 Nodes (39): 10. Lead form content model, 11. SEO/GEO/AEO model, 12. Import identity and dedupe model, 13. CMS editing rules, 14. Template ownership, 15. Change control, 16. Marketing pages, 1. Purpose (+31 more)
 
 ### Community 36 - "ACF_Admin_Internal_Post_Type_List"
-Cohesion: 0.08
-Nodes (14): acf_get_version_when_first_activated(), acf_get_path(), acf_include(), acf_new_instance(), acf_append_setting(), acf_doing(), acf_raw_setting(), acf_update_setting() (+6 more)
+Cohesion: 0.10
+Nodes (8): acf_get_path(), acf_include(), acf_new_instance(), _acf_apply_language_cache_key(), acf_get_locale(), acf_load_textdomain(), determine_locale(), acf_pro
 
 ### Community 37 - "Rules: Idempotency and TDD for Logika School Development"
-Cohesion: 0.05
-Nodes (7): acf_get_combined_field_type_settings_tabs(), acf_field__accordion, acf_field, acf_field_message, acf_field_output, acf_field_separator, acf_field_time_picker
+Cohesion: 0.07
+Nodes (4): acf_format_date(), acf_field_date_picker, acf_field_date_and_time_picker, acf_field_time_picker
 
 ### Community 38 - "select2.full.js"
-Cohesion: 0.09
-Nodes (15): clazz(), callDep(), ContainerCSS(), countResults(), DropdownCSS(), handler(), hasProp(), makeNormalize() (+7 more)
-
-### Community 39 - "ClassLoader"
-Cohesion: 0.05
-Nodes (8): acf_get_user_result(), acf_get_user_role_labels(), acf_get_users(), ACF_Ajax_Query_Users, acf_array(), acf_get_posts(), ACF_Field_User, acf_field_gallery
+Cohesion: 0.08
+Nodes (16): clazz(), AttachContainer(), callDep(), ContainerCSS(), countResults(), DropdownCSS(), handler(), hasProp() (+8 more)
 
 ### Community 40 - "main.js"
 Cohesion: 0.08
@@ -1377,24 +1384,28 @@ Cohesion: 0.07
 Nodes (26): 10. Feature: courses, 11. Feature: reviews, 12. Feature: FAQ, 13. Feature: SEO/GEO/AEO management from admin, 14. Feature: manager admin experience, 15. Feature: localization, 16. Feature: hosting, staging and access, 17. MVP feature priority (+18 more)
 
 ### Community 43 - "acf_field_date_picker"
-Cohesion: 0.07
-Nodes (15): acf_build_bidirectional_relationship_field_target_args(), acf_get_fields(), acf_render_fields(), acf_get_field_group_edit_link(), acf_get_field_group_style(), acf_get_field_group_title(), acf_get_field_groups(), acf_form_data() (+7 more)
+Cohesion: 0.12
+Nodes (13): acf_build_bidirectional_relationship_field_target_args(), acf_get_fields(), acf_render_fields(), acf_get_field_group_edit_link(), acf_get_field_group_style(), acf_get_field_group_title(), acf_get_field_groups(), acf_get_valid_field_group() (+5 more)
 
 ### Community 44 - "ACF_Location"
-Cohesion: 0.12
-Nodes (5): acf_is_beta(), acf_is_pro(), ACF_Admin, acf_get_browser(), acf_is_block_editor()
+Cohesion: 0.14
+Nodes (6): acf_determine_internal_post_type(), acf_internal_post_object_contains_valid_key(), acf_is_valid_internal_post_type_key(), acf_delete_json_field_group(), ACF_Local_JSON, acf_write_json_field_group()
 
 ### Community 45 - "acf_admin_tools"
-Cohesion: 0.07
-Nodes (69): K(), L(), A(), C(), d(), e(), f(), h() (+61 more)
+Cohesion: 0.13
+Nodes (42): K(), L(), $a(), ab(), C(), ca(), D(), eb() (+34 more)
 
 ### Community 46 - "devDependencies"
 Cohesion: 0.06
-Nodes (33): @babel/core, babel-loader, @babel/preset-env, gulp-clean-css, gulp-cli, gulp-replace, gulp-rev, gulp-rev-rewrite (+25 more)
+Nodes (33): @babel/core, babel-loader, @babel/preset-env, browser-sync, gulp-clean-css, gulp-cli, gulp-replace, gulp-rev (+25 more)
 
 ### Community 47 - "Content Model: Logika School CMS"
-Cohesion: 0.12
-Nodes (4): acf_request_args(), ACF_Admin_Internal_Post_Type_List, acf_add_admin_notice(), acf_get_local_json_files()
+Cohesion: 0.08
+Nodes (9): acf_duplicate_field_group(), acf_update_field_group_active_status(), acf_request_args(), acf_update_internal_post_type_active_status(), acf_update_post_type_active_status(), acf_update_taxonomy_active_status(), ACF_Admin_Internal_Post_Type_List, acf_update_ui_options_page_active_status() (+1 more)
+
+### Community 48 - ".trigger"
+Cohesion: 0.09
+Nodes (5): AllowClear(), CloseOnSelect(), EventRelay(), MaximumInputLength(), MinimumInputLength()
 
 ### Community 49 - "ACF_Admin_Post_type"
 Cohesion: 0.06
@@ -1404,37 +1415,29 @@ Nodes (34): 10. Definition of Done for tests, 11. Minimal pre-release checklist,
 Cohesion: 0.07
 Nodes (7): acf_register_store(), Comment, MetaLocation, Post, Term, User, WooOrder
 
-### Community 51 - "Database: MySQL schema for Logika School"
-Cohesion: 0.19
-Nodes (18): acf_copy_metadata(), acf_delete_metadata(), acf_delete_metadata_by_field(), acf_get_meta(), acf_get_meta_field(), acf_get_meta_instance(), acf_get_metadata(), acf_get_metadata_by_field() (+10 more)
-
 ### Community 52 - ".trigger"
-Cohesion: 0.30
-Nodes (19): A(), C(), d(), e(), f(), h(), i(), k() (+11 more)
+Cohesion: 0.05
+Nodes (9): acf_doing_action(), acf_get_instance(), ACF_Assets, acf_enqueue_script(), acf_enqueue_uploader(), acf_localize_data(), acf_localize_text(), ACF_Form_Gutenberg (+1 more)
 
 ### Community 53 - ".get"
 Cohesion: 0.10
-Nodes (8): InitSelection(), MaximumInputLength(), MaximumSelectionLength(), MinimumInputLength(), Options(), Query(), Tags(), Tokenizer()
+Nodes (8): HidePlaceholder(), InitSelection(), MaximumInputLength(), MinimumInputLength(), Options(), Query(), Tags(), Tokenizer()
 
 ### Community 54 - "acf-field-group-functions.php"
 Cohesion: 0.06
 Nodes (33): 10. Lead form content model, 11. SEO/GEO/AEO model, 12. Import identity and dedupe model, 13. Спільний блок відгуків, 14. CMS editing rules, 15. Template ownership, 16. Change control, 1. Purpose (+25 more)
 
-### Community 55 - "acf_enqueue_scripts"
-Cohesion: 0.16
-Nodes (17): I(), s(), v(), y(), a(), c(), e(), g() (+9 more)
-
 ### Community 56 - "acf_field_checkbox"
-Cohesion: 0.11
-Nodes (10): acf_sanitize_request_args(), acf_add_internal_post_type_validation_error(), acf_get_post_type_from_screen_value(), acf_copy_postmeta(), acf_get_wp_reserved_terms(), acf_maybe_get_POST(), ACF_Form_Post, acf_get_post_latest_revision() (+2 more)
+Cohesion: 0.13
+Nodes (10): acf_sanitize_request_args(), acf_add_internal_post_type_validation_error(), acf_get_post_type_from_screen_value(), acf_copy_postmeta(), acf_get_wp_reserved_terms(), acf_maybe_get_GET(), acf_maybe_get_POST(), acf_get_post_latest_revision() (+2 more)
 
 ### Community 57 - "Updater"
 Cohesion: 0.08
-Nodes (26): accParrent, addCustomClass(), burger, campGalleries, campsHighlightsSlider, categoriesCoursesSlider, closeSelect(), disableScroll() (+18 more)
+Nodes (27): accParrent, addCustomClass(), burger, campGalleries, campsHighlightsSlider, categoriesCoursesSlider, closeSelect(), disableScroll() (+19 more)
 
 ### Community 58 - ".apply"
-Cohesion: 0.11
-Nodes (6): AjaxAdapter(), DecoratedClass(), Defaults(), Dropdown(), makeRequire(), Translation()
+Cohesion: 0.10
+Nodes (6): AjaxAdapter(), DecoratedClass(), Defaults(), makeRequire(), SingleSelection(), Translation()
 
 ### Community 59 - "acf_is_using_datastore"
 Cohesion: 0.06
@@ -1445,12 +1448,12 @@ Cohesion: 0.06
 Nodes (31): 10.1. `wp_logika_city_courses`, 10. Optional lookup tables, 11. Indexes, 12. Migrations, 13. Working with `dbDelta`, 14. Transactions and concurrency, 15. Retention and privacy, 16. Backup and restore (+23 more)
 
 ### Community 61 - "SelectAdapter"
-Cohesion: 0.17
-Nodes (3): ArrayAdapter(), InputData(), SelectAdapter()
+Cohesion: 0.14
+Nodes (3): ArrayAdapter(), BaseAdapter(), SelectAdapter()
 
 ### Community 62 - ".get"
-Cohesion: 0.12
-Nodes (6): HidePlaceholder(), MinimumInputLength(), Options(), Placeholder(), Tags(), Tokenizer()
+Cohesion: 0.13
+Nodes (5): AjaxAdapter(), Options(), Tags(), Tokenizer(), Translation()
 
 ### Community 63 - "acf_revisions"
 Cohesion: 0.06
@@ -1461,28 +1464,28 @@ Cohesion: 0.06
 Nodes (31): 10.1. `wp_logika_city_courses`, 10. Optional lookup tables, 11. Indexes, 12. Migrations, 13. Working with `dbDelta`, 14. Transactions and concurrency, 15. Retention and privacy, 16. Backup and restore (+23 more)
 
 ### Community 65 - "acf_get_store"
-Cohesion: 0.12
-Nodes (7): acf_get_field_group_post(), acf_get_internal_post_type_post(), acf_get_post_type_post(), acf_get_taxonomy_post(), ACF_Admin_Tool, ACF_Admin_Tool_Import, acf_get_ui_options_page_post()
+Cohesion: 0.15
+Nodes (3): acf_get_acf_taxonomies(), AbstractAbilityGroup, Taxonomy
 
 ### Community 66 - "MetaLocation"
 Cohesion: 0.06
 Nodes (30): 10. CRM callbacks, 11. `admin-ajax.php` fallback, 12. Caching rules, 13. Testing requirements, 14. Versioning policy, 1. Document purpose, 2. General API rules, 3. Standard response envelope (+22 more)
 
 ### Community 67 - "Results"
-Cohesion: 0.10
-Nodes (4): AttachContainer(), InfiniteScroll(), MultipleSelection(), SingleSelection()
+Cohesion: 0.13
+Nodes (3): InfiniteScroll(), MultipleSelection(), Placeholder()
 
 ### Community 68 - "validation.php"
 Cohesion: 0.32
 Nodes (15): acf_dev_log(), acf_version_compare(), acf_get_db_version(), acf_has_upgrade(), acf_update_db_version(), acf_upgrade_500(), acf_upgrade_500_field(), acf_upgrade_500_field_group() (+7 more)
 
 ### Community 69 - "acf_get_location_type"
-Cohesion: 0.06
-Nodes (19): acf_field_group_has_location_type(), acf_get_field_group(), acf_get_valid_field_group(), acf_is_field_group_key(), acf_validate_field_group(), acf_disable_filter(), acf_enable_filter(), acf_enable_filters() (+11 more)
+Cohesion: 0.24
+Nodes (6): acf_is_field_key(), acf_request_arg(), acf_current_user_can_admin(), acf_parse_args(), acf_send_ajax_results(), acf_verify_ajax()
 
 ### Community 70 - "Schema"
-Cohesion: 0.38
-Nodes (4): E(), F(), G(), x()
+Cohesion: 0.30
+Nodes (19): A(), C(), d(), e(), f(), h(), i(), k() (+11 more)
 
 ### Community 72 - "WordPress Knowledge Graph"
 Cohesion: 0.20
@@ -1493,12 +1496,12 @@ Cohesion: 0.07
 Nodes (29): Authentication, Blog Posts, Bulk Operations, Categories, Create Category via REST, Create Page via REST, Create Post via REST, Critical Patterns (+21 more)
 
 ### Community 75 - "Render"
-Cohesion: 0.20
-Nodes (11): acf_encode_term(), acf_get_choice_from_term(), acf_get_choices_from_grouped_terms(), acf_get_choices_from_terms(), acf_get_encoded_terms(), acf_get_grouped_terms(), acf_get_pretty_taxonomies(), acf_get_taxonomies() (+3 more)
+Cohesion: 0.10
+Nodes (14): acf_decode_term(), acf_encode_term(), acf_get_choice_from_term(), acf_get_choices_from_grouped_terms(), acf_get_choices_from_terms(), acf_get_encoded_terms(), acf_get_grouped_terms(), acf_get_taxonomies() (+6 more)
 
 ### Community 76 - "properties"
 Cohesion: 0.06
-Nodes (33): 10. Phase 8: City pages, 12. Phase 10: City selector and interactive map, 14. Phase 12: SEO, schema and redirects, 15. Phase 13: Security hardening, 16. Phase 14: Testing and QA, 17. Phase 15: Staging release, 18. Phase 16: Production launch, 19. Phase 17: Post-launch stabilization (+25 more)
+Nodes (34): 10. Phase 8: City pages, 12. Phase 10: City selector and interactive map, 14. Phase 12: SEO, schema and redirects, 15. Phase 13: Security hardening, 16. Phase 14: Testing and QA, 17. Phase 15: Staging release, 18. Phase 16: Production launch, 19. Phase 17: Post-launch stabilization (+26 more)
 
 ### Community 78 - "ACF_Admin_Tool_Export"
 Cohesion: 0.07
@@ -1508,25 +1511,29 @@ Nodes (28): Agent Gotchas, Anti-Patterns, Attribute Reference, Basic Validator, 
 Cohesion: 0.33
 Nodes (4): Logika School project, docs, plugins, rules
 
-### Community 81 - ".on"
-Cohesion: 0.22
-Nodes (3): AttachBody(), CloseOnSelect(), EventRelay()
-
 ### Community 82 - "acf_field_select"
 Cohesion: 0.07
 Nodes (28): Best Practices, Block Development Overview, block.json for Dynamic Block, block.json (WordPress 6.4+), Block Patterns, Block Registration, Block Types, Do (+20 more)
+
+### Community 83 - "fields.php"
+Cohesion: 0.11
+Nodes (5): DecoratedClass(), Defaults(), Dropdown(), makeRequire(), SingleSelection()
 
 ### Community 87 - ".on"
 Cohesion: 0.22
 Nodes (3): AttachBody(), CloseOnSelect(), EventRelay()
 
+### Community 88 - "acf_maybe_get_POST"
+Cohesion: 0.13
+Nodes (4): acf_array(), acf_get_posts(), acf_get_truncated(), acf_field_gallery
+
 ### Community 89 - "acf_localize_text"
-Cohesion: 0.04
-Nodes (15): acf_save_post(), acf_set_form_data(), ACF_Ajax_User_Setting, acf_get_user_setting(), acf_is_row_collapsed(), acf_is_screen(), acf_update_user_setting(), acf_enqueue_scripts() (+7 more)
+Cohesion: 0.08
+Nodes (7): _acf_do_save_post(), acf_save_post(), acf_set_form_data(), acf_allow_unfiltered_html(), acf_form_nav_menu, ACF_Form_Post, REST_Save
 
 ### Community 90 - "ACF_Data"
 Cohesion: 0.12
-Nodes (35): acf_get_field_count(), acf_add_local_field(), acf_add_local_field_group(), acf_add_local_fields(), acf_add_local_internal_post_type(), _acf_apply_get_local_field_groups(), _acf_apply_get_local_internal_posts(), _acf_apply_is_local_field_group_key() (+27 more)
+Nodes (33): acf_get_field_count(), acf_add_local_field_group(), acf_add_local_fields(), acf_add_local_internal_post_type(), _acf_apply_get_local_field_groups(), _acf_apply_get_local_internal_posts(), _acf_apply_is_local_field_group_key(), _acf_apply_is_local_field_key() (+25 more)
 
 ### Community 91 - "acf_get_internal_post_type_posts"
 Cohesion: 0.07
@@ -1541,8 +1548,8 @@ Cohesion: 0.07
 Nodes (26): 1. PHPUnit Setup, 2. WP_Mock Unit Tests, 3. PHPCS Standards, AJAX Handlers, Best Practices, Common Patterns Covered, Coverage Goals, Custom Post Types (+18 more)
 
 ### Community 94 - "ACF_Ajax"
-Cohesion: 0.09
-Nodes (12): acf_delete_field_group(), acf_trash_field_group(), acf_delete_internal_post_type(), acf_trash_internal_post_type(), acf_delete_post_type(), acf_trash_post_type(), acf_delete_taxonomy(), acf_trash_taxonomy() (+4 more)
+Cohesion: 0.10
+Nodes (7): acf_delete_field_group(), acf_trash_field_group(), acf_untrash_field_group(), acf_with_default(), acf_get_object_type(), ACF_Admin_Field_Groups, acf_get_location_rule()
 
 ### Community 96 - "composer.json"
 Cohesion: 0.12
@@ -1559,6 +1566,10 @@ Nodes (31): aos, @fancyapps/ui, gulp-rename, gulp-to-ico, dependencies, aos, @fa
 ### Community 99 - "properties"
 Cohesion: 0.08
 Nodes (25): 10. FAQ and schema edge cases, 11. Posts, news and offers edge cases, 12. Lead form validation edge cases, 13. Lead storage and deduplication edge cases, 14. CRM and webhook edge cases, 15. REST API and AJAX edge cases, 16. Security edge cases, 17. SEO, redirects and indexing edge cases (+17 more)
+
+### Community 100 - "properties"
+Cohesion: 0.10
+Nodes (3): AllowClear(), InputData(), MaximumSelectionLength()
 
 ### Community 101 - "properties"
 Cohesion: 0.07
@@ -1577,8 +1588,8 @@ Cohesion: 0.08
 Nodes (24): Best Practices, Block Patterns, Block Template Example (templates/single.html), Block Theme Development (FSE), Block Theme Structure, Child Theme Development, Child Theme functions.php, Child Theme Structure (+16 more)
 
 ### Community 106 - "properties"
-Cohesion: 0.23
-Nodes (23): acf_get_home_url(), acf_is_acf_admin_screen(), acf_is_ajax(), acf_is_multisite_sub_site(), acf_pro_activate_license(), acf_pro_check_defined_license(), acf_pro_deactivate_license(), acf_pro_delete_license_option() (+15 more)
+Cohesion: 0.15
+Nodes (34): acf_get_home_url(), acf_add_admin_notice(), acf_new_admin_notice(), acf_is_ajax(), acf_is_multisite_sub_site(), acf_verify_nonce(), acf_updates(), acf_pro_activate_license() (+26 more)
 
 ### Community 108 - "API: Contracts and payload formats for Logika School"
 Cohesion: 0.08
@@ -1589,8 +1600,8 @@ Cohesion: 0.06
 Nodes (4): FieldSettings, GEO, Schema, SchemaData
 
 ### Community 110 - "ACF_Admin_Taxonomy"
-Cohesion: 0.08
-Nodes (10): acf_translate_field(), acf_get_option_meta(), acf_get_setting(), acf_is_doing(), acf_is_plugin_active(), acf_split_date_time(), acf_translate(), _acf_delete_escaped_html_log() (+2 more)
+Cohesion: 0.05
+Nodes (13): acf_translate_field(), acf_log_invalid_field_notice(), ACF_Admin_Options_Preview, acf_get_setting(), acf_is_doing(), acf_is_plugin_active(), acf_split_date_time(), acf_translate() (+5 more)
 
 ### Community 111 - "Workflow"
 Cohesion: 0.16
@@ -1604,9 +1615,13 @@ Nodes (21): Anti-Patterns, Common Commands, Common Patterns, Compose Security, C
 Cohesion: 0.09
 Nodes (17): HTTPS Server with Load Balancing, HTTPS Server with Load Balancing, Nginx Configuration Script, Nginx Configuration Script, Nginx Monitoring Configuration, Nginx Monitoring Configuration, Production Nginx Configuration, Production Nginx Configuration (+9 more)
 
+### Community 114 - "properties"
+Cohesion: 0.12
+Nodes (5): acf_is_field_group_key(), acf_disable_filter(), acf_is_filter_enabled(), acf_disable_local(), acf_field_clone
+
 ### Community 115 - "ACF_Media"
-Cohesion: 0.18
-Nodes (11): acf_get_field_group_visibility(), acf_get_location_rule_operators(), acf_get_location_rule_types(), acf_get_location_rule_values(), acf_get_location_screen(), acf_get_location_types(), acf_get_valid_location_rule(), acf_match_location_rule() (+3 more)
+Cohesion: 0.08
+Nodes (8): acf_is_beta(), acf_is_pro(), ACF_Admin, acf_get_browser(), acf_is_block_editor(), _acf_delete_escaped_html_log(), acf_register_free_updates(), acf_register_plugin_update()
 
 ### Community 116 - "ACF_Post_Type"
 Cohesion: 0.11
@@ -1636,57 +1651,53 @@ Nodes (18): 1. Purpose, 2. Tone, 3. Constraints, 4. Differentiation, Absolute Ru
 Cohesion: 0.11
 Nodes (18): Action Basics, Actions, Best Practices, Creating Custom Hooks, Custom Actions, Custom Filter with Default Value, Do, Do Not (+10 more)
 
+### Community 124 - "wrapper"
+Cohesion: 0.12
+Nodes (7): E(), F(), G(), H(), n(), x(), y()
+
 ### Community 126 - "properties"
 Cohesion: 0.10
-Nodes (54): acf_prefix_fields(), acf_did(), acf_slugify(), acf_add_action_variations(), acf_add_deprecated_action(), acf_add_deprecated_filter(), _acf_apply_deprecated_hook(), _acf_apply_hook_variations() (+46 more)
+Nodes (51): acf_prefix_fields(), acf_slugify(), acf_add_action_variations(), acf_add_deprecated_action(), acf_add_deprecated_filter(), _acf_apply_deprecated_hook(), _acf_apply_hook_variations(), acf_get_store() (+43 more)
 
 ### Community 127 - "wrapper"
-Cohesion: 0.11
-Nodes (4): acf_is_using_datastore(), Bindings_Editor, Localization, Revisions
+Cohesion: 0.14
+Nodes (3): acf_is_using_datastore(), Localization, Revisions
 
 ### Community 128 - "wrapper"
 Cohesion: 0.11
 Nodes (19): description, type, description, description, type, description, minLength, type (+11 more)
 
-### Community 129 - "properties"
-Cohesion: 0.14
-Nodes (3): acf_maybe_get(), acf_unarray(), acf_field_select
-
-### Community 130 - "wrapper"
-Cohesion: 0.11
-Nodes (5): acf_not_empty(), ACF_Ajax, ACF_Ajax_Check_Screen, ACF_Ajax_Query, ACF_Ajax_Upgrade
-
 ### Community 132 - "wrapper"
-Cohesion: 0.04
-Nodes (15): acf_get_form_data(), acf_format_numerics(), acf_decode_taxonomy_term(), acf_decode_taxonomy_terms(), acf_get_grouped_posts(), acf_get_numeric(), acf_get_post_thumbnail(), acf_get_post_title() (+7 more)
+Cohesion: 0.16
+Nodes (17): I(), s(), v(), y(), a(), c(), e(), g() (+9 more)
 
 ### Community 133 - "wrapper"
 Cohesion: 0.11
 Nodes (18): description, type, description, description, type, description, type, description (+10 more)
 
 ### Community 134 - "wrapper"
-Cohesion: 0.12
-Nodes (16): default, description, type, description, type, description, description, type (+8 more)
+Cohesion: 0.11
+Nodes (18): description, type, description, description, type, description, type, description (+10 more)
 
 ### Community 135 - "wrapper"
-Cohesion: 0.07
-Nodes (15): acf_current_user_can_edit_in_context(), acf_admin_options_page, ACF_Location_Options_Page, acf_add_options_page(), acf_add_options_sub_page(), acf_get_options_page(), acf_get_options_pages(), acf_options_page (+7 more)
+Cohesion: 0.17
+Nodes (11): acf_add_options_page(), acf_add_options_sub_page(), acf_get_options_page(), acf_get_options_pages(), acf_options_page, acf_set_options_page_capability(), acf_set_options_page_menu(), acf_set_options_page_title() (+3 more)
 
 ### Community 137 - "wrapper"
-Cohesion: 0.07
-Nodes (11): acf_is_empty(), acf_format_value(), acf_convert_date_to_php(), acf_convert_rules_to_groups(), acf_convert_time_to_php(), acf_extract_var(), acf_in_array(), ACF_Compatibility (+3 more)
+Cohesion: 0.12
+Nodes (7): acf_get_field_group_post(), acf_get_internal_post_type_post(), acf_get_post_type_post(), acf_get_taxonomy_post(), ACF_Admin_Tool, ACF_Admin_Tool_Import, acf_get_ui_options_page_post()
 
-### Community 139 - "properties"
-Cohesion: 0.16
-Nodes (3): Results(), SelectOnClose(), selected()
+### Community 138 - "wrapper"
+Cohesion: 0.15
+Nodes (3): acf_decode_choices(), acf_str_exists(), acf_field_number
 
 ### Community 140 - "wrapper"
 Cohesion: 0.12
 Nodes (17): default, description, items, type, default, description, items, type (+9 more)
 
 ### Community 141 - "wrapper"
-Cohesion: 0.07
-Nodes (15): AjaxAdapter(), callDep(), countResults(), DecoratedClass(), Defaults(), Dropdown(), hasProp(), makeNormalize() (+7 more)
+Cohesion: 0.11
+Nodes (9): BaseAdapter(), callDep(), countResults(), hasProp(), makeNormalize(), makeRelParts(), MinimumResultsForSearch(), normalize() (+1 more)
 
 ### Community 142 - "wrapper"
 Cohesion: 0.12
@@ -1719,6 +1730,10 @@ Nodes (15): 10. Files, media and uploads, 11. Privacy and data minimization, 12.
 ### Community 149 - "wrapper"
 Cohesion: 0.12
 Nodes (15): 10. Browser support, 11. Quality tools, 12. Hosting and environments, 13. Why not another stack, 14. What not to add without separate design, 1. High-level stack decision, 2. Runtime and CMS, 3. WordPress architecture modules (+7 more)
+
+### Community 150 - "wrapper"
+Cohesion: 0.13
+Nodes (11): acf_prepare_field_group_for_export(), acf_get_internal_post_type_posts(), acf_prepare_internal_post_type_for_export(), acf_prepare_post_type_for_export(), acf_prepare_taxonomy_for_export(), ACF_Ajax_Local_JSON_Diff, acf_get_internal_post_types(), acf_json_encode() (+3 more)
 
 ### Community 151 - "wrapper"
 Cohesion: 0.16
@@ -1789,20 +1804,24 @@ Cohesion: 0.17
 Nodes (12): default, description, type, conditional_logic, return_format, default, description, enum (+4 more)
 
 ### Community 174 - "properties"
-Cohesion: 0.12
-Nodes (3): InfiniteScroll(), MultipleSelection(), SingleSelection()
+Cohesion: 0.18
+Nodes (3): HidePlaceholder(), MultipleSelection(), Placeholder()
 
 ### Community 176 - "properties"
-Cohesion: 0.21
-Nodes (12): acf_strip_protocol(), acf_pro_render_license_status_table(), acf_pro_render_manage_license_button(), acf_pro_get_license(), acf_pro_get_license_key(), acf_pro_get_license_option(), acf_pro_get_license_status(), acf_pro_get_manage_license_url() (+4 more)
+Cohesion: 0.24
+Nodes (10): acf_enable_filter(), acf_enable_filters(), acf_get_current_url(), acf_get_filters(), acf_merge_attributes(), acf_numval(), acf_sanitize_files_array(), acf_sanitize_files_value_array() (+2 more)
+
+### Community 178 - "properties"
+Cohesion: 0.15
+Nodes (3): acf_pro_get_registered_block_count(), AI_Usage, Site_Health
 
 ### Community 179 - "taxonomy.json"
 Cohesion: 0.17
 Nodes (11): additionalProperties, type, required, $schema, type, description, enum, type (+3 more)
 
 ### Community 180 - "properties"
-Cohesion: 0.22
-Nodes (4): acf_with_default(), acf_get_object_id(), acf_get_object_type(), ACF_Rest_Api
+Cohesion: 0.20
+Nodes (4): acf_did(), acf_get_object_id(), acf_get_location_types(), ACF_Rest_Api
 
 ### Community 181 - ".output_jsonld_data"
 Cohesion: 0.23
@@ -2059,10 +2078,6 @@ Nodes (13): default, description, type, description, description, type, descript
 ### Community 246 - "acf_get_instance"
 Cohesion: 0.15
 Nodes (13): description, type, description, type, class, id, width, wrapper (+5 more)
-
-### Community 247 - "ACF_Taxonomy_Field_Walker"
-Cohesion: 0.10
-Nodes (10): acf_prepare_field_group_for_export(), acf_prepare_internal_post_type_for_export(), acf_prepare_post_type_for_export(), acf_prepare_taxonomy_for_export(), ACF_Admin_Tool_Export, ACF_Ajax_Local_JSON_Diff, acf_get_internal_post_types(), acf_json_encode() (+2 more)
 
 ### Community 248 - "blocks-auto-inline-editing.php"
 Cohesion: 0.15
@@ -2357,12 +2372,16 @@ Cohesion: 0.15
 Nodes (13): description, type, description, type, class, id, width, wrapper (+5 more)
 
 ### Community 324 - "select2.js"
-Cohesion: 0.14
-Nodes (4): acf_get_location_type(), ACF_Location_Nav_Menu_Item, ACF_Location_Page, ACF_Location_Post_Category
+Cohesion: 0.15
+Nodes (12): acf_get_field_group_visibility(), acf_get_location_rule_operators(), acf_get_location_rule_types(), acf_get_location_rule_values(), acf_get_location_screen(), acf_get_location_type(), acf_get_valid_location_rule(), acf_match_location_rule() (+4 more)
 
 ### Community 325 - "What You Must Do When Invoked"
 Cohesion: 0.15
 Nodes (13): default, description, type, description, type, description, description, type (+5 more)
+
+### Community 326 - "InfiniteScroll"
+Cohesion: 0.22
+Nodes (5): acf_get_field_post(), acf_get_raw_field(), acf_get_raw_fields(), acf_cache_key(), acf_maybe_unserialize()
 
 ### Community 327 - "acf_is_internal_post_type_key"
 Cohesion: 0.15
@@ -2420,9 +2439,9 @@ Nodes (11): Console Commands, Controllers with Attributes, Custom Events, Depend
 Cohesion: 0.33
 Nodes (6): default, description, type, conditional_logic, array, boolean
 
-### Community 344 - "ACF_Location_Attachment"
-Cohesion: 0.11
-Nodes (4): acf_get_instance(), ACF_Form_Gutenberg, ACF_Local_Meta, acf_reset_meta()
+### Community 345 - "ACF_Location_Comment"
+Cohesion: 0.23
+Nodes (6): acf_field_group_has_location_type(), acf_pro_render_license_status_table(), acf_pro_render_manage_license_button(), acf_pro_is_license_active(), acf_pro_is_license_expired(), acf_pro_was_license_refunded()
 
 ### Community 346 - "ACF_Location_Current_User"
 Cohesion: 0.17
@@ -2738,11 +2757,7 @@ Nodes (9): 2. Sanitization Functions Reference, Array Sanitization, Core Sanitiz
 
 ### Community 430 - "custom_choice_button_text"
 Cohesion: 0.25
-Nodes (8): description, type, properties, instructions, selected, default, description, type
-
-### Community 431 - "key"
-Cohesion: 0.21
-Nodes (5): acf_new_admin_notice(), acf_has_done(), acf_verify_nonce(), ACF_Admin_Updates, acf_pro_display_wp_activation_error()
+Nodes (8): description, type, description, minLength, type, properties, instructions, label
 
 ### Community 433 - "maxlength"
 Cohesion: 0.25
@@ -2795,10 +2810,6 @@ Nodes (8): 1. Type System (CRITICAL) — 9 rules, 2. Modern PHP Features (CRITIC
 ### Community 445 - "allow_in_bindings"
 Cohesion: 0.25
 Nodes (7): Escalation, Failure modes / debugging, Inputs required, Procedure, Verification, When to use, WordPress Router
-
-### Community 448 - "key"
-Cohesion: 0.29
-Nodes (7): return_format, default, description, enum, type, id, url
 
 ### Community 450 - "maxlength"
 Cohesion: 0.33
@@ -3305,12 +3316,24 @@ Cohesion: 0.33
 Nodes (5): Безпека та перевірка, Канонічний WordPress release, Межа release, Мета, Потік
 
 ### Community 584 - "name"
-Cohesion: 0.15
-Nodes (10): acf_get_field(), acf_get_field_ancestors(), acf_is_field_key(), acf_request_arg(), acf_add_array_key_prefix(), acf_current_user_can_admin(), acf_parse_args(), acf_remove_array_key_prefix() (+2 more)
+Cohesion: 0.50
+Nodes (3): City homepage SEO for all cities Implementation Plan, Global Constraints, Task 1: Seed complete homepage SEO content for all cities
+
+### Community 585 - "Frontend Aesthetics Guidelines"
+Cohesion: 0.29
+Nodes (6): About page ACF implementation plan, Global Constraints, Task 1: Prove the missing About-page ACF contract, Task 2: Complete the versioned About field group and migration defaults, Task 3: Hydrate every remaining About section through the existing adapter, Task 4: Run runtime verification and record the finished migration
+
+### Community 588 - "key"
+Cohesion: 0.32
+Nodes (3): acf_get_user_result(), acf_get_user_role_labels(), acf_get_users()
 
 ### Community 590 - "Dropdown"
 Cohesion: 0.25
 Nodes (3): Logika_Leads_Crm_Factory, Logika_Leads_Service, WP_Error
+
+### Community 591 - "multiple"
+Cohesion: 0.29
+Nodes (7): return_format, default, description, enum, type, id, url
 
 ### Community 592 - "name"
 Cohesion: 0.40
@@ -3429,7 +3452,7 @@ Cohesion: 0.40
 Nodes (4): Design, Goal, Runtime Asset Release Sync Design, Safety and verification
 
 ### Community 621 - "required"
-Cohesion: 0.14
+Cohesion: 0.13
 Nodes (3): CityPostTags, CitySlug, WP_Post
 
 ### Community 624 - "key"
@@ -3557,8 +3580,8 @@ Cohesion: 0.50
 Nodes (4): save_custom, default, description, type
 
 ### Community 656 - "Bindings"
-Cohesion: 0.11
-Nodes (42): acf_get_sub_field(), acf_search_fields(), acf_get_valid_post_id(), acf_init(), acf_filter_post_id(), _acf_get_escaped_html_log(), _acf_log_escaped_html(), acf_maybe_get_field() (+34 more)
+Cohesion: 0.09
+Nodes (51): acf_get_sub_field(), acf_search_fields(), acf_delete_value(), acf_flush_value_cache(), acf_get_value(), acf_update_value(), acf_update_values(), acf_current_user_can_edit_in_context() (+43 more)
 
 ### Community 657 - "ComposerAutoloaderInit94e23cbc47a4750e27ee21b7644f1866"
 Cohesion: 0.50
@@ -3932,6 +3955,10 @@ Nodes (3): Global Constraints, Map Region Availability Implementation Plan, Task
 Cohesion: 0.33
 Nodes (5): City Media Priority Implementation Plan, Global Constraints, Task 1: City-first REST ordering, Task 2: Homepage city-first media cards, Task 3: Full verification
 
+### Community 769 - "list-empty.php"
+Cohesion: 0.06
+Nodes (7): acf_get_field_json_schema(), acf_get_combined_field_type_settings_tabs(), acf_field__accordion, acf_field, acf_field_output, acf_field_separator, acf_field_tab
+
 ### Community 770 - "advanced-settings.php"
 Cohesion: 0.50
 Nodes (4): default, description, type, allow_in_bindings
@@ -4201,8 +4228,8 @@ Cohesion: 0.50
 Nodes (4): ui, default, description, type
 
 ### Community 839 - "label"
-Cohesion: 0.09
-Nodes (6): acf_get_acf_post_types(), acf_get_acf_taxonomies(), AbstractAbilityGroup, PostType, Taxonomy, Posts
+Cohesion: 0.20
+Nodes (3): acf_get_acf_post_types(), PostType, Posts
 
 ### Community 840 - "acf-pt_PT.l10n.php"
 Cohesion: 0.50
@@ -4213,8 +4240,8 @@ Cohesion: 0.50
 Nodes (3): English Course Reviews Implementation Plan, Global Constraints, Task 1: English course reviews contract
 
 ### Community 842 - "instructions"
-Cohesion: 0.18
-Nodes (3): acf_get_field_rest_links(), acf_get_field_rest_schema(), ACF_Rest_Embed_Links
+Cohesion: 0.33
+Nodes (5): About page ACF editing, Goal, Rendering, Scope, Validation
 
 ### Community 843 - "acf-sk_SK.l10n.php"
 Cohesion: 0.50
@@ -4347,6 +4374,10 @@ Nodes (4): description, minLength, type, label
 ### Community 875 - "WordPress Pro"
 Cohesion: 0.50
 Nodes (4): description, pattern, type, name
+
+### Community 876 - "choices"
+Cohesion: 0.50
+Nodes (4): description, pattern, type, key
 
 ### Community 877 - "PHP Pro"
 Cohesion: 0.50
@@ -4525,8 +4556,8 @@ Cohesion: 0.67
 Nodes (3): description, type, prepend
 
 ### Community 930 - "Logika_Theme_Generic_Page"
-Cohesion: 0.29
-Nodes (7): _acf_do_save_post(), acf_allow_unfiltered_html(), acf_delete_value(), acf_flush_value_cache(), acf_log_invalid_field_notice(), acf_update_value(), acf_update_values()
+Cohesion: 0.05
+Nodes (14): acf_is_empty(), acf_format_value(), acf_convert_date_to_php(), acf_convert_rules_to_groups(), acf_convert_time_to_php(), acf_extract_var(), acf_in_array(), ACF_Compatibility (+6 more)
 
 ### Community 931 - "9. Security Checklist"
 Cohesion: 0.67
@@ -4537,16 +4568,12 @@ Cohesion: 0.67
 Nodes (3): description, type, prepend
 
 ### Community 936 - "Blocks"
-Cohesion: 0.50
-Nodes (4): default, description, type, allow_null
+Cohesion: 0.04
+Nodes (37): acf_delete_field(), acf_duplicate_field(), acf_duplicate_fields(), acf_flush_field_cache(), acf_get_field(), acf_get_field_ancestors(), acf_get_field_label(), acf_get_valid_field() (+29 more)
 
 ### Community 937 - "Custom Exceptions"
 Cohesion: 0.33
 Nodes (5): Конкурси як статті блогу, Межі, Мета, Перевірка, Потік даних
-
-### Community 940 - "prepend"
-Cohesion: 0.50
-Nodes (4): ui, default, description, type
 
 ### Community 942 - "Arrow Functions"
 Cohesion: 0.67
@@ -4656,49 +4683,33 @@ Nodes (3): 🔗 Links (Production / Stage), Project, WordPress worktree
 Cohesion: 0.50
 Nodes (3): Dynamic article pages, Shared ACF sections, Канонічний WordPress release
 
-### Community 1455 - "default_value"
-Cohesion: 0.67
-Nodes (3): description, type, placeholder
-
-### Community 1458 - "instructions"
-Cohesion: 0.24
-Nodes (4): acf_register_free_updates(), acf_register_plugin_update(), acf_updates(), acf_pro_updates
-
 ### Community 1459 - "max"
 Cohesion: 0.29
 Nodes (6): Assets, Data and rendering, Goal, Homepage Student Projects Content Design, Scope, Verification
-
-### Community 1461 - "ui"
-Cohesion: 0.50
-Nodes (4): return_format, default, description, type
 
 ### Community 1468 - "Bindings"
 Cohesion: 0.33
 Nodes (5): Global Constraints, Media Section Mobile Implementation Plan, Task 1: Add the failing CSS contract check, Task 2: Implement the mobile layout, Task 3: Verify the live renderer
 
 ### Community 1471 - "selected"
-Cohesion: 0.50
-Nodes (4): default, description, type, open
+Cohesion: 0.14
+Nodes (4): ACF_Ajax, ACF_Ajax_Check_Screen, ACF_Ajax_Upgrade, ACF_Ajax_User_Setting
 
 ### Community 1474 - "min"
-Cohesion: 0.67
-Nodes (3): description, type, choices
+Cohesion: 0.50
+Nodes (4): default, description, type, allow_in_bindings
 
 ### Community 1475 - "instructions"
 Cohesion: 0.33
 Nodes (5): Design, Goal, Media Section Mobile Design, Scope, Validation
 
 ### Community 1477 - "Bindings"
-Cohesion: 0.08
-Nodes (4): acf_decode_choices(), acf_str_exists(), acf_field_checkbox, acf_field_number
-
-### Community 1479 - "placeholder"
-Cohesion: 0.67
-Nodes (3): description, type, placeholder
+Cohesion: 0.70
+Nodes (4): logika_seed_tilda_courses(), logika_sync_tilda_course_catalog(), logika_tilda_catalog_bucket(), logika_tilda_term_id()
 
 ### Community 1481 - "placeholder"
-Cohesion: 0.67
-Nodes (3): description, type, instructions
+Cohesion: 0.33
+Nodes (4): acf_is_internal_post_type_key(), acf_is_post_type_key(), acf_is_taxonomy_key(), acf_is_ui_options_page_key()
 
 ### Community 1483 - "allow_null"
 Cohesion: 0.33
@@ -4708,29 +4719,29 @@ Nodes (5): English Course Skills Arrow Implementation Plan, Global Constraints, 
 Cohesion: 0.33
 Nodes (5): Критерії приймання, Мета, Перевірка, Рішення, Стрілка між блоками навичок на сторінках англійських курсів
 
-### Community 1487 - "acf_field__group"
-Cohesion: 0.67
-Nodes (3): description, type, instructions
+### Community 1486 - "required"
+Cohesion: 0.40
+Nodes (4): City home SEO section for all cities, Data and behavior, Scope, Verification
 
-### Community 1488 - "acf_field_gallery"
+### Community 1487 - "placeholder"
 Cohesion: 0.50
-Nodes (4): description, pattern, type, key
+Nodes (4): default, description, type, allow_null
+
+### Community 1490 - "AdminUi"
+Cohesion: 0.50
+Nodes (4): return_format, default, description, type
 
 ### Community 1493 - "name"
 Cohesion: 0.50
 Nodes (4): description, pattern, type, name
 
-### Community 1494 - "acf_prepare_internal_post_type_for_export"
-Cohesion: 0.18
-Nodes (3): acf_duplicate_field_group(), acf_is_array(), ACF_WPML_Compatibility
+### Community 1498 - ".load"
+Cohesion: 0.50
+Nodes (4): ui, default, description, type
 
 ### Community 1500 - "placeholder"
 Cohesion: 0.67
 Nodes (3): description, type, placeholder
-
-### Community 1503 - "acf_get_user_setting"
-Cohesion: 0.43
-Nodes (4): acf_get_field_post(), acf_get_raw_field(), acf_get_raw_fields(), acf_cache_key()
 
 ### Community 1507 - "prepend"
 Cohesion: 0.67
@@ -4741,16 +4752,16 @@ Cohesion: 0.50
 Nodes (4): description, pattern, type, name
 
 ### Community 1509 - "prepend"
-Cohesion: 0.29
-Nodes (5): acf_untrash_field_group(), acf_untrash_internal_post_type(), acf_untrash_post_type(), acf_untrash_taxonomy(), acf_untrash_ui_options_page()
-
-### Community 1510 - "placeholder"
 Cohesion: 0.67
-Nodes (3): description, type, placeholder
+Nodes (3): description, type, min
 
 ### Community 1511 - "message"
 Cohesion: 0.67
 Nodes (3): description, type, message
+
+### Community 1516 - "AI"
+Cohesion: 0.50
+Nodes (4): selected, default, description, type
 
 ### Community 1517 - "append"
 Cohesion: 0.67
@@ -4760,13 +4771,13 @@ Nodes (3): step, description, type
 Cohesion: 0.40
 Nodes (4): Динамічне підменю курсів у шапці, Мета, Перевірка, Рішення
 
+### Community 1524 - ".setClasses"
+Cohesion: 0.67
+Nodes (3): description, type, placeholder
+
 ### Community 1525 - "MaximumSelectionLength"
 Cohesion: 0.67
 Nodes (3): description, type, instructions
-
-### Community 1526 - "logika_sync_tilda_course_catalog"
-Cohesion: 0.70
-Nodes (4): logika_seed_tilda_courses(), logika_sync_tilda_course_catalog(), logika_tilda_catalog_bucket(), logika_tilda_term_id()
 
 ### Community 1527 - "Article Tag Filter Implementation Plan"
 Cohesion: 0.50
@@ -4776,41 +4787,49 @@ Nodes (3): Article Tag Filter Implementation Plan, Global Constraints, Task 1: �
 Cohesion: 0.50
 Nodes (3): Межі, Рішення, Фільтр статей за тегом
 
-### Community 1529 - "label"
-Cohesion: 0.50
-Nodes (4): description, minLength, type, label
-
-### Community 1530 - "instructions"
+### Community 1529 - "prepend"
 Cohesion: 0.67
 Nodes (3): description, type, instructions
 
-### Community 1532 - "mime_types"
+### Community 1530 - "placeholder"
 Cohesion: 0.67
-Nodes (3): description, type, mime_types
+Nodes (3): description, type, placeholder
+
+### Community 1532 - "default_value"
+Cohesion: 0.67
+Nodes (3): description, type, placeholder
 
 ### Community 1535 - "instructions"
 Cohesion: 0.67
-Nodes (3): description, type, instructions
-
-### Community 1536 - "max"
-Cohesion: 0.67
-Nodes (3): description, type, max
-
-### Community 1537 - "placeholder"
-Cohesion: 0.67
-Nodes (3): description, type, placeholder
+Nodes (3): description, type, choices
 
 ### Community 1538 - "AcfJson"
 Cohesion: 0.67
 Nodes (3): description, type, append
 
-### Community 1539 - "default_value"
+### Community 1540 - "endpoint"
+Cohesion: 0.67
+Nodes (3): description, type, prepend
+
+### Community 1541 - "B"
+Cohesion: 0.67
+Nodes (3): description, type, instructions
+
+### Community 1543 - "BaseAdapter"
 Cohesion: 0.67
 Nodes (3): description, type, default_value
 
-### Community 1540 - "endpoint"
+### Community 1553 - "open"
+Cohesion: 0.50
+Nodes (4): default, description, type, open
+
+### Community 1554 - "label"
 Cohesion: 0.67
 Nodes (3): ui_on_text, description, type
+
+### Community 1561 - "placeholder"
+Cohesion: 0.67
+Nodes (3): description, type, placeholder
 
 ## Ambiguous Edges - Review These
 - `article.html` → `archive.php`  [AMBIGUOUS]
@@ -4827,9 +4846,9 @@ Nodes (3): ui_on_text, description, type
   source/it-courses.html · relation: candidate_source_for_template
 
 ## Knowledge Gaps
-- **4428 isolated node(s):** `validate-api.sh script`, `cloudflared.sh script`, `ngrok.sh script`, `./scripts/wp-mcp.sh`, `mcp-adapter` (+4423 more)
+- **4442 isolated node(s):** `validate-api.sh script`, `cloudflared.sh script`, `ngrok.sh script`, `./scripts/wp-mcp.sh`, `mcp-adapter` (+4437 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **282 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **286 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -4846,5 +4865,5 @@ _Questions this graph is uniquely positioned to answer:_
   _Edge tagged AMBIGUOUS (relation: candidate_source_for_template) - confidence is low._
 - **What is the exact relationship between `it-courses.html` and `archive-course.php`?**
   _Edge tagged AMBIGUOUS (relation: candidate_source_for_template) - confidence is low._
-- **Why does `acf_get_setting()` connect `ACF_Admin_Taxonomy` to `acf-internal-post-type-functions.php`, `properties`, `acf_get_field`, `api-template.php`, `api-helpers.php`, `wrapper`, `wrapper`, `acf_render_field_setting`, `.add_filter`, `Bindings`, `updates.php`, `.apply`, `wrapper`, `wrapper`, `Logika_Theme_Generic_Page`, `ACF_Admin_Internal_Post_Type_List`, `acf_field_date_picker`, `ACF_Location`, `key`, `properties`, `instructions`, `Database: MySQL schema for Logika School`, `properties`, `properties`, `validation.php`, `label`, `name`, `acf_form_comment`, `required`, `fields.php`, `bidirectional_target`, `acf_prepare_internal_post_type_for_export`, `ACF_Legacy_Locations`, `ACF_Location_Comment`, `ACF_Data`, `acf_localize_text`, `ACF_Ajax`, `ACF_Admin_Options_Preview`, `properties`, `AI`, `ACF_Media`, `acf_update_internal_post_type`, `min_height`, `ACF_Taxonomy_Field_Walker`, `properties`, `wrapper`?**
+- **Why does `acf_get_setting()` connect `ACF_Admin_Taxonomy` to `properties`, `acf_get_field`, `api-helpers.php`, `acf_esc_attrs`, `.add_filter`, `Bindings`, `updates.php`, `acf_get_setting`, `.apply`, `wrapper`, `wrapper`, `prepend`, `Logika_Theme_Generic_Page`, `ACF_Admin_Internal_Post_Type_List`, `Rules: Idempotency and TDD for Logika School Development`, `Blocks`, `acf_field_date_picker`, `ACF_Location`, `allow_in_bindings`, `key`, `Content Model: Logika School CMS`, `properties`, `properties`, `.trigger`, `properties`, `acf_enqueue_scripts`, `acf_get_store`, `validation.php`, `acf_get_location_type`, `InfiniteScroll`, `select2.js`, `instructions`, `label`, `acf_form_comment`, `bidirectional_target`, `ACF_Location_Comment`, `ACF_Data`, `ACF_Ajax`, `properties`, `ACF_Location_Taxonomy`, `ACF_Media`, `min_height`, `properties`?**
   _High betweenness centrality (0.008) - this node is a cross-community bridge._

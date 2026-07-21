@@ -1,0 +1,10 @@
+[     149ms] [WARNING] Unrecognized feature: 'web-share'. @ http://logika.ddev.site/:1374
+[  300324ms] [WARNING] Unrecognized feature: 'web-share'. @ http://logika.ddev.site/:1374
+[  732653ms] [LOG] mobile active {rect: Array(4), z: 10, position: fixed} @ :0
+[  732653ms] [LOG] burger active {rect: Array(4), z: auto, position: relative} @ :0
+[  732653ms] [LOG] header fixed-block open-menu {rect: Array(4), z: 5, position: sticky} @ :0
+[  776994ms] [WARNING] Unrecognized feature: 'web-share'. @ http://logika.ddev.site/:1374
+[ 1370287ms] [WARNING] Unrecognized feature: 'web-share'. @ http://logika.ddev.site/:1374
+[ 1398285ms] [WARNING] Unrecognized feature: 'web-share'. @ http://logika.ddev.site/:1379
+[ 4917488ms] [WARNING] Unrecognized feature: 'web-share'. @ http://logika.ddev.site/:1374
+[ 4956603ms] [WARNING] Unrecognized feature: 'web-share'. @ http://logika.ddev.site/:1374

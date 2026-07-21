@@ -17,6 +17,7 @@ final class Logika_Theme_Source_Markup {
 		'contractoffer-overseas' => 'contractoffer',
 		'litsenziia'      => 'litsenziia',
 		'vacancies'       => 'vacancies',
+		'camps'           => 'camps',
 	);
 
 	/**
@@ -52,7 +53,7 @@ final class Logika_Theme_Source_Markup {
 		}
 
 		$review_ids = $context_id && 'index' === $source ? array_map( 'absint', (array) get_field( 'city_related_reviews', $context_id ) ) : self::reviewIds( $source, $context_id );
-		$section_context = 'camps' === $source ? 'camp_archive' : ( $context_id ?: ( 'index' === $source ? (int) get_option( 'page_on_front' ) : get_queried_object_id() ) );
+		$section_context = $context_id ?: ( 'index' === $source ? (int) get_option( 'page_on_front' ) : get_queried_object_id() );
 		$markup          = Logika_Theme_Testimonials::apply( self::routeNavigationLinks( self::applyLeadForms( $markup ), $source ), $review_ids ?: null, $section_context );
 
 		if ( preg_match( '#<main(?:\s[^>]*)?>.*?</main>#is', $markup, $matches ) ) {
@@ -82,8 +83,8 @@ final class Logika_Theme_Source_Markup {
 		if ( ! $field ) {
 			return null;
 		}
-		$context = 'camps' === $source ? 'camp_archive' : ( $context_id ?: get_queried_object_id() );
-		$ids = array_map( 'absint', (array) get_field( $field, $context ) );
+		$context = $context_id ?: get_queried_object_id();
+		$ids = array_map( 'absint', array_filter( (array) get_field( $field, $context ) ) );
 
 		return $ids ?: null;
 	}
@@ -557,7 +558,7 @@ final class Logika_Theme_Source_Markup {
 		$markup = self::replacePatternFieldText( $markup, $page_id, 'home_form_consent', '~(<p class="main-form__text">)(.*?)(\s*<a href="#">Політикою конфіденційності</a></p>)~s' );
 		$markup = self::replacePatternFieldText( $markup, $page_id, 'home_english_cta_label', '~(<a\b[^>]*\bclass="[^"]*english-section__link[^"]*"[^>]*>)(.*?)(\s*<svg)~s' );
 		$markup = self::replacePatternFieldText( $markup, $page_id, 'home_transformation_cta_label', '~(<(?:a|button)\b[^>]*\bclass="[^"]*transformation-section__link[^"]*"[^>]*>)(.*?)(\s*<svg)~s' );
-		$markup = self::replacePatternFieldText( $markup, $page_id, 'home_certificates_button', '~(<a class="btn btn--violet" href="#lead-form" data-logika-form-id="gift_certificate">)(.*?)(\s*<svg)~s' );
+		$markup = self::replacePatternFieldText( $markup, $page_id, 'home_certificates_button', '~(<(?:a|button)\b[^>]*\bclass="btn btn--violet"[^>]*>)(.*?)(\s*<svg)~s' );
 		$markup = self::replaceEnglishNextLabel( $markup, $page_id );
 
 		$markup = self::applyRepeaterRows(

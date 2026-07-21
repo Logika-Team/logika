@@ -17,6 +17,8 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      - name: Check PNG/JPEG images have a webp sibling
+        run: npm run media:webp:check
       - run: npm run build
       - run: npm run html
       - name: PHP syntax
@@ -28,7 +30,7 @@ jobs:
       - name: WordPress integration tests
         run: scripts/release/run-wordpress-tests.sh
       - name: Release tooling tests
-        run: node --test tests/release-infrastructure.test.mjs
+        run: node --test tests/release-infrastructure.test.mjs tests/media-webp-script.test.mjs
       - name: Secret scan
         run: |
           for path in \

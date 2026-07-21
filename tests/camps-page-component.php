@@ -17,7 +17,7 @@ foreach ( array( 'Logika_Theme_Camp_Archive::render', "renderPage( 'camps' )", '
 	}
 }
 
-foreach ( array( 'camp-highlights__slider', 'camp-highlights__pattern', 'img/camps/camps1.svg', 'camp-formats__item-season', 'data-path="camps"' ) as $marker ) {
+foreach ( array( 'figma-age.png', 'camp-booking__form-title', 'camp-booking__inputs', 'camp-booking__submit', 'camp-booking__policy' ) as $marker ) {
 	if ( ! str_contains( $page, $marker ) ) {
 		fwrite( STDERR, "The WordPress camps source is missing {$marker}.\n" );
 		exit( 1 );

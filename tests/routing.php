@@ -7,7 +7,7 @@ require dirname(__DIR__) . '/wordpress/wp-load.php';
 $routing = file_get_contents( get_template_directory() . '/src/Routing.php' ) ?: '';
 $errors = array();
 
-foreach ( array( 'about.html', 'faq.html', 'it-courses.html', 'en-courses.html', 'camps.html', 'media-center.html', 'article.html', 'it-course.html', 'camp.html', 'city.html', '^media-center/([^/]+)/?$' ) as $marker ) {
+foreach ( array( 'about.html', 'faq.html', 'it-courses.html', 'en-courses.html', 'camps.html', 'media-center.html', 'article.html', 'it-course.html', 'camp.html', 'city.html', '^media-center/([^/]+)/?$', 'litsenziia', 'privacy_policy', 'contractoffer', 'pythonstart', 'map/nezhen' ) as $marker ) {
 	if ( ! str_contains( $routing, $marker ) ) {
 		$errors[] = "Routing is missing {$marker}.";
 	}

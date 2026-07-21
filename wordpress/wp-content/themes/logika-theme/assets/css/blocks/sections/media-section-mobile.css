@@ -26,8 +26,8 @@
   .media-center-section .media-section__cards-layout{grid-template-columns:1fr;gap:20px}
   .media-center-section .media-section__news,.media-center-section .media-section__promos,.media-center-section .media-section__blog-list{gap:20px}
   .media-center-section .media-section__feature{height:auto;min-height:390px;padding:20px}
-  .media-center-section .media-section__feature-tags{top:20px;left:20px;width:calc(100% - 40px);height:auto;justify-content:center;flex-wrap:wrap}
-  .media-center-section .media-section__feature-tags span,.media-center-section .media-section__feature-tags span:first-child,.media-center-section .media-section__feature-tags span:nth-child(2){width:auto;max-width:100%;height:45px;padding:10px 20px;font-size:18px;font-weight:600}
+  .media-center-section .media-section__feature-tags{top:20px;left:20px;width:calc(100% - 40px);height:auto;justify-content:center;flex-wrap:nowrap}
+  .media-center-section .media-section__feature-tags span,.media-center-section .media-section__feature-tags span:first-child,.media-center-section .media-section__feature-tags span:nth-child(2){flex:1 1 0;min-width:0;width:auto;max-width:none;height:45px;padding:8px;font-size:clamp(10px,3.2vw,18px);font-weight:600}
   .media-center-section .media-section__feature .media-section__figma-art{transform:none;object-fit:contain}
   .media-center-section .media-section__feature-copy{gap:10px}
   .media-center-section .media-section__contest,.media-center-section .media-section__promo,.media-center-section .media-section__race{min-height:0;height:auto;padding:20px;border-radius:20px}

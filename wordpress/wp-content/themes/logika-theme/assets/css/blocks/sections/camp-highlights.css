@@ -3,7 +3,7 @@
 /* stylelint-disable */
 .camp-highlights {
   overflow: hidden;
-  padding: clamp(20px, 4.167vw, 80px) 0;
+  padding: clamp(40px, 4.167vw, 80px) 0;
 }
 .camp-highlights__wrapp {
   display: -webkit-box;
@@ -87,7 +87,7 @@
   right: 0;
   width: 210px;
   height: 201px;
-  background: url("../img/camps/camps-bg.svg") no-repeat 0 0/210px 201px;
+  background: url("../../../img/camps/camps-bg.svg") no-repeat 0 0/210px 201px;
   content: "";
 }
 .camp-highlights__item p {

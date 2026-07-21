@@ -32,6 +32,58 @@
       "preview_size": "medium"
     },
     {
+      "key": "field_about_hero_form_title",
+      "label": "Мітка форми hero",
+      "name": "about_hero_form_title",
+      "type": "text",
+      "instructions": "Коротка мітка над текстом форми."
+    },
+    {
+      "key": "field_about_hero_form_text",
+      "label": "Текст форми hero",
+      "name": "about_hero_form_text",
+      "type": "textarea",
+      "instructions": "Пояснення у формі першого екрана."
+    },
+    {
+      "key": "field_about_hero_cta_label",
+      "label": "Кнопка форми hero",
+      "name": "about_hero_cta_label",
+      "type": "text",
+      "instructions": "Текст кнопки відправлення форми."
+    },
+    {
+      "key": "field_about_hero_consent_text",
+      "label": "Згода у формі hero",
+      "name": "about_hero_consent_text",
+      "type": "textarea",
+      "instructions": "Текст перед посиланням на політику конфіденційності."
+    },
+    {
+      "key": "field_about_hero_background_image",
+      "label": "Фон hero",
+      "name": "about_hero_background_image",
+      "type": "image",
+      "return_format": "id",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_about_hero_pattern_image",
+      "label": "Візерунок hero",
+      "name": "about_hero_pattern_image",
+      "type": "image",
+      "return_format": "id",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_about_hero_character_image",
+      "label": "Персонаж hero",
+      "name": "about_hero_character_image",
+      "type": "image",
+      "return_format": "id",
+      "preview_size": "medium"
+    },
+    {
       "key": "field_about_tab_story",
       "label": "Про школу",
       "type": "tab",
@@ -100,6 +152,13 @@
       "return_format": "id",
       "instructions": "Оберіть зображення для «Зображення історії». Після вибору в полі буде показано мініатюру.",
       "preview_size": "medium"
+    },
+    {
+      "key": "field_about_history_cta_label",
+      "label": "Кнопка історії",
+      "name": "about_history_cta_label",
+      "type": "text",
+      "instructions": "Текст кнопки пробного уроку."
     },
     {
       "key": "field_about_tab_texts",
@@ -361,6 +420,13 @@
           "instructions": "Заповніть поле «Зображення».",
           "return_format": "id",
           "preview_size": "medium"
+        },
+        {
+          "key": "field_about_onboarding_item_cta_label",
+          "label": "Текст кнопки",
+          "name": "cta_label",
+          "type": "text",
+          "instructions": "Текст кнопки у кроці."
         }
       ]
     },
@@ -384,6 +450,24 @@
       "name": "about_map_text",
       "type": "textarea",
       "instructions": "Заповніть поле «Опис карти»."
+    },
+    {
+      "key": "field_about_map_offline_label",
+      "label": "Кнопка офлайн-навчання",
+      "name": "about_map_offline_label",
+      "type": "text"
+    },
+    {
+      "key": "field_about_map_online_label",
+      "label": "Кнопка онлайн-навчання",
+      "name": "about_map_online_label",
+      "type": "text"
+    },
+    {
+      "key": "field_about_map_city_label",
+      "label": "Заголовок вибору міста",
+      "name": "about_map_city_label",
+      "type": "text"
     },
     {
       "key": "field_about_tab_cta",
@@ -412,6 +496,42 @@
       "name": "about_cta_image",
       "type": "image",
       "instructions": "Заповніть поле «Зображення CTA».",
+      "return_format": "id",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_about_cta_submit_label",
+      "label": "Кнопка CTA",
+      "name": "about_cta_submit_label",
+      "type": "text"
+    },
+    {
+      "key": "field_about_cta_consent_text",
+      "label": "Згода у CTA",
+      "name": "about_cta_consent_text",
+      "type": "textarea"
+    },
+    {
+      "key": "field_about_cta_character_image",
+      "label": "Персонаж CTA",
+      "name": "about_cta_character_image",
+      "type": "image",
+      "return_format": "id",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_about_cta_top_background_image",
+      "label": "Верхній фон CTA",
+      "name": "about_cta_top_background_image",
+      "type": "image",
+      "return_format": "id",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_about_cta_bottom_background_image",
+      "label": "Нижній фон CTA",
+      "name": "about_cta_bottom_background_image",
+      "type": "image",
       "return_format": "id",
       "preview_size": "medium"
     },
@@ -472,6 +592,88 @@
       "name": "about_faq_title",
       "type": "text",
       "instructions": "Заповніть поле «Заголовок FAQ»."
+    },
+    {
+      "key": "field_about_tab_certificates",
+      "label": "Подарункові сертифікати",
+      "name": "",
+      "type": "tab"
+    },
+    {
+      "key": "field_about_certificates_title",
+      "label": "Заголовок сертифікатів",
+      "name": "about_certificates_title",
+      "type": "text"
+    },
+    {
+      "key": "field_about_certificates_subtitle",
+      "label": "Підзаголовок сертифікатів",
+      "name": "about_certificates_subtitle",
+      "type": "textarea"
+    },
+    {
+      "key": "field_about_certificates_text",
+      "label": "Текст сертифікатів",
+      "name": "about_certificates_text",
+      "type": "textarea"
+    },
+    {
+      "key": "field_about_certificates_button_label",
+      "label": "Кнопка сертифікатів",
+      "name": "about_certificates_button_label",
+      "type": "text"
+    },
+    {
+      "key": "field_about_certificates_image",
+      "label": "Зображення сертифіката",
+      "name": "about_certificates_image",
+      "type": "image",
+      "return_format": "id",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_about_certificates_background_image",
+      "label": "Фон сертифікатів",
+      "name": "about_certificates_background_image",
+      "type": "image",
+      "return_format": "id",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_about_tab_partners",
+      "label": "Партнери",
+      "name": "",
+      "type": "tab"
+    },
+    {
+      "key": "field_about_partners_title",
+      "label": "Заголовок партнерів",
+      "name": "about_partners_title",
+      "type": "text"
+    },
+    {
+      "key": "field_about_partners_items",
+      "label": "Логотипи партнерів",
+      "name": "about_partners_items",
+      "type": "repeater",
+      "layout": "table",
+      "button_label": "Додати партнера",
+      "sub_fields": [
+        {
+          "key": "field_about_partners_item_name",
+          "label": "Назва",
+          "name": "name",
+          "type": "text"
+        },
+        {
+          "key": "field_about_partners_item_image",
+          "label": "Логотип",
+          "name": "image",
+          "type": "image",
+          "return_format": "id",
+          "preview_size": "medium"
+        }
+      ]
     },
     {
       "key": "field_about_tab_shared",

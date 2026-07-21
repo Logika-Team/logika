@@ -784,3 +784,9 @@ Note: CRM adapter implemented with fake client only; production credentials are 
 ## 36. Форматування статей Медіацентру
 
 - [x] Додати компактні H2/H3 і світло-блакитну цитату для публічної статті та Gutenberg preview.
+
+## 37. Редагування сторінки About через ACF
+
+- [x] Доповнити ACF-поля сторінки About для всіх видимих текстів, CTA, картинок і списків.
+- [x] Зберегти source-markup renderer, fallback і поведінку форм, карти та слайдерів.
+- [x] Синхронізувати Local JSON, ідемпотентно заповнити порожні значення та перевірити маршрут `/about/`.

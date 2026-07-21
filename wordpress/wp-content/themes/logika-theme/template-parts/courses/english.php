@@ -45,7 +45,7 @@ $catalog_courses = get_posts(
 	array(
 		'post_type'      => 'course',
 		'post_status'    => 'publish',
-		'post_name__in'  => array( 'english-a0', 'english-a1', 'english-a2', 'english-b1', 'english-b2', 'english-b2-1' ),
+		'post_name__in'  => array( 'english-a0', 'english-a1', 'english-a2', 'english-b1', 'english-b2' ),
 		'post__not_in'   => array( $course_id ),
 		'orderby'        => 'post_name__in',
 		'posts_per_page' => 6,
@@ -69,9 +69,8 @@ $catalog_courses = get_posts(
 	<?php get_template_part( 'template-parts/sections/reviews', null, array( 'items' => (array) get_field( 'course_related_reviews', $course_id ) ?: null, 'context' => $course_id ) ); ?>
 	<?php get_template_part( 'template-parts/sections/school-map', null, array( 'course_id' => $course_id ) ); ?>
 	<?php get_template_part( 'template-parts/sections/cta', null, array( 'title' => 'Підберемо курс саме для вашої дитини!', 'subtitle' => 'Ми зателефонуємо в зручний час', 'image' => (int) $field( 'course_cta_image', $image ), 'button_label' => 'Отримати консультацію', 'course_id' => $course_id ) ); ?>
-	<?php $catalog_character_assets = array( 'english-a0' => 'english-courses/A0.svg', 'english-a1' => 'english-courses/A1.svg', 'english-a2' => 'english-courses/A2.svg', 'english-b1' => 'english-courses/B1.svg', 'english-b2' => 'english-levels/characters/b2-megaphone.svg', 'english-b2-1' => 'english-levels/characters/b2-1-reader.png' ); ?>
-<?php $show_catalog = false; // Temporarily hidden. ?>
-<?php if ( $show_catalog && $catalog_courses ) : ?>
+	<?php $catalog_character_assets = array( 'english-a0' => 'english-courses/A0.svg', 'english-a1' => 'english-courses/A1.svg', 'english-a2' => 'english-courses/A2.svg', 'english-b1' => 'english-courses/B1.svg', 'english-b2' => 'english-levels/characters/b2-megaphone.svg' ); ?>
+<?php if ( $catalog_courses ) : ?>
 <section class="english-course-catalog">
 	<div class="container">
 		<div class="english-course-catalog__heading"><h2>Доступні курси</h2><img class="english-course-catalog__mascot" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/english-course/catalog-mascot.png' ); ?>" alt="" aria-hidden="true"><p>Для дітей від 8 до 17 років</p></div>

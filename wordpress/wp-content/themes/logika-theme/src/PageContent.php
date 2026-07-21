@@ -6,22 +6,6 @@ final class Logika_Theme_Page_Content {
 	private const TILDA_CAMP_SLUGS = array( 'greece-2026', 'emily-resort-2026', 'carpathians-2026', 'city-camps-2026' );
 
 	private const TEXT_FIELDS = array(
-		'about' => array(
-			'about_hero_title' => 'Найбільша в Україні школа програмування для дітей 7-17 років',
-			'about_hero_text' => 'Перші результати вже через 4 тижні',
-			'about_stats_title' => 'Навчайтеся в найбільшій школі в Україні',
-			'about_outcomes_title' => 'Що отримає ваша дитина,<br>навчаючись у школі “Logika”',
-			'about_history_title' => 'Logika – успішний освітній<br>проєкт з 2018 року',
-			'about_benefits_title' => 'Чому тисячі батьків обирають Logika',
-			'about_gallery_title' => 'Gallery',
-			'about_media_title' => 'Чому тисячі батьків обирають Logika',
-			'about_onboarding_title' => 'Як розпочати навчання',
-			'about_map_title' => 'Знайдіть свою школу або<br>навчайтесь онлайн',
-			'about_map_text' => 'Наші школи у 130 містах України - знайдіть зручний варіант поруч із вами або навчайтесь онлайн.',
-			'about_cta_title' => 'Підберемо курс саме для вашої дитини!',
-			'about_cta_subtitle' => 'Ми зателефонуємо в зручний час',
-			'about_faq_title' => 'Питання та відповіді',
-		),
 		'it-courses' => array(
 			'it_courses_hero_title' => 'Найбільша в Україні школа програмування для дітей 7-17 років',
 			'it_courses_hero_text' => 'Перші результати вже через 4 тижні',
@@ -102,7 +86,6 @@ final class Logika_Theme_Page_Content {
 	);
 
 	private const IMAGE_FIELDS = array(
-		'about'        => array( 'about_hero_image' => 'img/about/hero-characters.png', 'about_history_image' => 'img/about/history-image.svg', 'about_cta_image' => 'img/cta/cta.png' ),
 		'it-courses'   => array( 'it_courses_hero_image' => 'img/boy-character.svg', 'it_courses_cta_image' => 'img/cta/cta.png' ),
 		'en-courses'   => array( 'english_courses_hero_image' => 'img/en-courses/en-courses.svg', 'english_courses_test_image' => 'img/en-courses/test-image.svg', 'english_courses_about_image' => 'img/en-courses/en-about-image.png', 'english_courses_cta_image' => 'img/cta/cta.png' ),
 		'faq'          => array( 'faq_page_hero_image' => 'img/faq/faq-image.svg', 'faq_page_hero_icon' => 'img/faq/faq-icon.svg', 'faq_page_cta_image' => 'img/cta/cta.png' ),
@@ -164,6 +147,7 @@ final class Logika_Theme_Page_Content {
 		$markup = 'it-course' === $source ? self::applyCourseLearn( $markup, $page_id ) : $markup;
 		$markup = 'it-course' === $source ? self::applyCoursePage( $markup, $page_id ) : $markup;
 		$markup = 'about' === $source ? self::applyAboutImageRows( $markup, $page_id ) : $markup;
+		$markup = 'about' === $source ? self::applyAboutPageFields( $markup, $page_id ) : $markup;
 		$markup = in_array( $source, array( 'it-courses', 'en-courses' ), true ) ? self::applyMarquee( $markup, $source, $page_id ) : $markup;
 
 		return $markup;
@@ -171,7 +155,13 @@ final class Logika_Theme_Page_Content {
 
 	private static function replaceImageAsset( string $markup, string $default, string $url ): string {
 		$markup = str_replace( $default, esc_url( $url ), $markup );
-		return str_ends_with( $default, '.png' ) ? str_replace( substr( $default, 0, -4 ) . '.webp', esc_url( $url ), $markup ) : $markup;
+		if ( ! str_ends_with( $default, '.png' ) ) {
+			return $markup;
+		}
+
+		$webp_default = substr( $default, 0, -4 ) . '.webp';
+		$webp_url = class_exists( \Logika\Core\WebpUploads::class ) ? \Logika\Core\WebpUploads::webpUrlFor( $url ) : $url;
+		return str_replace( $webp_default, esc_url( $webp_url ), $markup );
 	}
 
 	private static function isTildaCamp( int|string $context ): bool {
@@ -256,6 +246,53 @@ final class Logika_Theme_Page_Content {
 				$items .= $item;
 			}
 			$markup = str_replace( $list[0], $list[1] . $items . $list[3], $markup );
+		}
+
+		return $markup;
+	}
+
+	private static function applyAboutPageFields( string $markup, int $page_id ): string {
+		foreach ( array(
+			'about_hero_title' => '#(<div class="banner-section__info">\s*<h1>)(.*?)(</h1>)#s',
+			'about_hero_text' => '#(<div class="banner-section__info">.*?<h4>)(.*?)(</h4>)#s',
+			'about_hero_form_title' => '#(<div class="main-form__title h5"><span>)(.*?)(</span>)#s',
+			'about_hero_form_text' => '#(<div class="main-form__title h5"><span>.*?</span>)(.*?)(</div>)#s',
+			'about_hero_cta_label' => '#(<button class="main-form__btn[^>]*>)(.*?)(<svg)#s',
+			'about_hero_consent_text' => '~(<p class="main-form__text">)(.*?)(\s*<a href="#">)~s',
+			'about_stats_title' => '#(<h2 id="about-stats__title">)(.*?)(</h2>)#s',
+			'about_outcomes_title' => '#(<h2 id="about-outcomes-title">)(.*?)(</h2>)#s',
+			'about_history_title' => '#(<h2 id="about-history-title">)(.*?)(</h2>)#s',
+			'about_history_cta_label' => '#(<button class="about-history__btn[^>]*>)(.*?)(\s*<svg)#s',
+			'about_media_title' => '#(<h2 class="media-section__title h2">)(.*?)(</h2>)#s',
+			'about_onboarding_title' => '#(<h2 class="onboarding-section__title">)(.*?)(</h2>)#s',
+			'about_map_title' => '#(<h2 id="school-map-title">)(.*?)(</h2>)#s',
+			'about_map_text' => '#(<div class="school-map__heading">.*?<p>)(.*?)(</p>)#s',
+			'about_map_offline_label' => '#(<button class="is-active" type="button" data-map-mode="offline">)(.*?)(</button>)#s',
+			'about_map_online_label' => '#(<button type="button" data-map-mode="online">)(.*?)(</button>)#s',
+			'about_map_city_label' => '#(<div class="school-map__selector">\s*<h3>)(.*?)(</h3>)#s',
+			'about_cta_title' => '#(<h2 class="cta-form__title h3">)(.*?)(</h2>)#s',
+			'about_cta_subtitle' => '#(<p class="cta-form__subtitle h4">)(.*?)(</p>)#s',
+			'about_cta_submit_label' => '#(<button class="cta-form__btn[^>]*>)(.*?)(\s*<svg)#s',
+			'about_cta_consent_text' => '~(<p class="cta-form__text">)(.*?)(\s*<a href="#">)~s',
+			'about_faq_title' => '#(<h2 class="faq-section__title">)(.*?)(</h2>)#s',
+			'about_certificates_title' => '#(<section class="certificates-section">.*?<h2>)(.*?)(</h2>)#s',
+			'about_certificates_subtitle' => '#(<section class="certificates-section">.*?<h5>)(.*?)(</h5>)#s',
+			'about_certificates_text' => '#(<section class="certificates-section">.*?<div class="certificates-section__text">.*?<p>)(.*?)(</p>)#s',
+			'about_certificates_button_label' => '#(<section class="certificates-section">.*?<button class="btn btn--violet"[^>]*>)(.*?)(\s*<svg)#s',
+			'about_partners_title' => '#(<h2 class="partners-section__title">)(.*?)(</h2>)#s',
+		) as $field => $pattern ) {
+			$value = trim( (string) get_field( $field, $page_id ) );
+			$markup = '' === $value ? $markup : self::replaceLeaf( $markup, $pattern, $value );
+		}
+
+		foreach ( array(
+			'about_hero_image' => 'img/about/hero-characters.svg', 'about_hero_background_image' => 'img/main-hero/main-hero-bg.svg', 'about_hero_pattern_image' => 'img/main-hero/main-pattern.svg', 'about_hero_character_image' => 'img/logika-character.svg',
+			'about_history_image' => 'img/about/history-image.svg', 'about_cta_image' => 'img/cta/cta.png', 'about_cta_character_image' => 'img/cta/cta-icon.svg', 'about_cta_top_background_image' => 'img/cta/cta-top-bg.svg', 'about_cta_bottom_background_image' => 'img/cta/cta-bottom-bg.svg',
+			'about_certificates_image' => 'img/certificates/certificate.png', 'about_certificates_background_image' => 'img/certificates/certificates-bg.svg',
+		) as $field => $asset ) {
+			$image = (int) get_field( $field, $page_id );
+			$url = $image ? wp_get_attachment_image_url( $image, 'large' ) : false;
+			$markup = $url ? self::replaceImageAsset( $markup, $asset, (string) $url ) : $markup;
 		}
 
 		return $markup;
@@ -449,6 +486,7 @@ final class Logika_Theme_Page_Content {
 				array( 'about_stats_items', 'about-stats__list', '', 'tail' ),
 				array( 'about_media_items', 'media-section__cards', 'media-section__card', 'card' ),
 				array( 'about_onboarding_items', 'onboarding-section__items', 'onboarding-section__item', 'card' ),
+				array( 'about_partners_items', 'partners-section__gallery', '', 'card' ),
 			),
 			'en-courses' => array( array( 'english_courses_benefits', 'en-about-section__items', 'en-about-section__item', 'card' ) ),
 			'media-center' => array( array( 'media_center_benefits', 'media-section__cards', 'media-section__card', 'card' ) ),
@@ -694,9 +732,13 @@ final class Logika_Theme_Page_Content {
 		if ( $url ) {
 			$item = (string) preg_replace( '#(\bsrc=)(["\']).*?\2#', '$1$2' . esc_url( $url ) . '$2', $item, 1 );
 		}
+		$alt = trim( (string) ( $row['alt'] ?? $row['name'] ?? '' ) );
+		if ( $alt ) {
+			$item = (string) preg_replace( '#\balt=(["\']).*?\1#', 'alt="' . esc_attr( $alt ) . '"', $item, 1 );
+		}
 		$cta_label = trim( (string) ( $row['cta_label'] ?? '' ) );
 		if ( $cta_label ) {
-			$item = (string) preg_replace_callback( '#(<a\b[^>]*\bclass=(?:["\'])[^"\']*\bbtn\b[^"\']*(?:["\'])[^>]*>).*?(<svg\b[^>]*>)#s', static fn( array $matches ): string => $matches[1] . esc_html( $cta_label ) . ' ' . $matches[2], $item, 1 );
+			$item = (string) preg_replace_callback( '#(<(?:a|button)\b[^>]*\bclass=(?:["\'])[^"\']*\bbtn\b[^"\']*(?:["\'])[^>]*>).*?(<svg\b[^>]*>)#s', static fn( array $matches ): string => $matches[1] . esc_html( $cta_label ) . ' ' . $matches[2], $item, 1 );
 		}
 
 		return $item;
@@ -721,7 +763,7 @@ final class Logika_Theme_Page_Content {
 	}
 
 	private static function applyGallery( string $markup, string $source, int|string $context ): string {
-		$field = array( 'camps' => 'camp_archive_gallery', 'camp' => 'camp_gallery' )[ $source ] ?? '';
+		$field = array( 'about' => 'about_gallery', 'camps' => 'camp_archive_gallery', 'camp' => 'camp_gallery' )[ $source ] ?? '';
 		$images = $field ? array_values( array_filter( array_map( 'absint', (array) get_field( $field, $context ) ) ) ) : array();
 		if ( 'camp' === $source && self::isTildaCamp( $context ) ) {
 			$images = array_values( array_filter( $images, static fn( int $image ): bool => in_array( get_post_mime_type( $image ), array( 'image/jpeg', 'image/webp' ), true ) ) );
@@ -730,7 +772,7 @@ final class Logika_Theme_Page_Content {
 			return $markup;
 		}
 		$target = $markup;
-		if ( 'camp' === $source ) {
+		if ( in_array( $source, array( 'camp', 'camps' ), true ) ) {
 			if ( ! preg_match( '#<section class="gallery-section">.*?</section>#s', $markup, $section ) ) {
 				return $markup;
 			}
@@ -755,7 +797,7 @@ final class Logika_Theme_Page_Content {
 		}
 		$target = str_replace( $list[0], $list[1] . $slides . $list[3], $target );
 
-		return 'camp' === $source ? str_replace( $section[0], $target, $markup ) : $target;
+		return in_array( $source, array( 'camp', 'camps' ), true ) ? str_replace( $section[0], $target, $markup ) : $target;
 	}
 
 	private static function applySectionFields( string $markup, string $source, int|string $context ): string {
@@ -986,9 +1028,6 @@ final class Logika_Theme_Page_Content {
 	}
 
 	private static function pageId( string $source, int $context_id = 0 ): int|string {
-		if ( 'camps' === $source ) {
-			return 'camp_archive';
-		}
 		if ( $context_id && 'index' !== $source ) {
 			return $context_id;
 		}

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 $assets = get_template_directory_uri() . '/assets';
 
-$selected_ids = array_values( array_filter( array_map( 'absint', (array) get_field( 'camp_archive_formats', 'camp_archive' ) ) ) );
+$selected_ids = array_values( array_filter( array_map( 'absint', (array) get_field( 'camp_archive_formats', get_queried_object_id() ) ) ) );
 $camps        = get_posts( array(
 	'post_type'      => 'camp',
 	'post_status'    => 'publish',

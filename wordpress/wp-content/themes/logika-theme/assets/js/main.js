@@ -6,6 +6,7 @@ const bodyEl = document.body;
 const activeClass = 'active';
 const activeClassMode = 'mode';
 const header = document.querySelector('header');
+const headerTop = document.querySelector('.header__top');
 const footer = document.querySelector('footer');
 
 const burger = document.querySelectorAll('.burger');
@@ -20,6 +21,7 @@ const categoriesCoursesSlider = document.querySelectorAll('.categories-section__
 const tripsSectionSlider = document.querySelectorAll('.trips-section__slider');
 const campsHighlightsSlider = document.querySelectorAll('.camp-highlights__slider');
 const testimonialsSlider = document.querySelectorAll('.testimonials-section__slider');
+const campsHistorySlider = document.querySelectorAll('.camp-history__slider');
 const campGalleries = document.querySelectorAll('[data-camp-gallery]');
 
 //------------------------------------------------
@@ -106,10 +108,10 @@ const enableScroll = () => {
   });
 };
 
-const elementHeight = (el, variableName) => {
+const elementHeight = (el, variableName, extraEl = null) => {
   if(el) {
     function initListener(){
-      const elementHeight = el.offsetHeight;
+      const elementHeight = el.offsetHeight + (extraEl?.offsetHeight || 0);
       document.querySelector(':root').style.setProperty(`--${variableName}`, `${elementHeight}px`);
     }
     window.addEventListener('DOMContentLoaded', initListener)
@@ -186,7 +188,7 @@ stickyHeader(header, 300, 100, 'linear', 0, 80);
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  elementHeight(header, "header-height");
+  elementHeight(header, "header-height", headerTop);
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -314,7 +316,7 @@ window.addEventListener("DOMContentLoaded", () => {
           accordion.style.maxHeight = 0;
           removeCustomClass(accordion, className);
 
-          const itemParent = accordion.closest('.accordion__item');
+          const itemParent = accordion.closest('.accordion__item, .menu-has-child');
           if (itemParent) {
             removeCustomClass(itemParent, className);
           }
@@ -324,7 +326,7 @@ window.addEventListener("DOMContentLoaded", () => {
           accordion.style.maxHeight = accordion.scrollHeight + "px";
           addCustomClass(accordion, className);
 
-          const itemParent = accordion.closest('.accordion__item');
+          const itemParent = accordion.closest('.accordion__item, .menu-has-child');
           if (itemParent) {
             addCustomClass(itemParent, className);
           }
@@ -345,7 +347,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
         const accordionClickHandler = function (e) {
           e.preventDefault();
-          const accordionContent = this.closest(".accordion__item")?.querySelector("[data-content]");
+          const accordionContent = this.closest(".accordion__item, .menu-has-child")?.querySelector("[data-content]");
           if (!accordionContent) return;
           const isAccordionOpen = checkIsAccordionOpen(accordionContent);
 
@@ -360,7 +362,7 @@ window.addEventListener("DOMContentLoaded", () => {
               (!breakpoinSetting || document.documentElement.clientWidth <= breakpoinSetting)
             ) {
               closeAccordion(openedAccordion);
-              const previousButton = openedAccordion.closest(".accordion__item")?.querySelector("[data-id]");
+              const previousButton = openedAccordion.closest(".accordion__item, .menu-has-child")?.querySelector("[data-id]");
               if (previousButton) toggleAccordionButton(previousButton);
               openedAccordion = null;
             }
@@ -443,8 +445,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (mobileMenu) {
     mobileMenu.querySelectorAll("a").forEach(function (item) {
+      if (item.parentElement && item.parentElement.classList.contains("menu-has-child")) {
+        return;
+      }
       item.addEventListener("click", function () {
           hideMenuHandler(mobileMenu, burger);
+      });
+    });
+
+    mobileMenu.querySelectorAll(".menu-has-child > .menu-link").forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        if (document.documentElement.clientWidth > 1024) return;
+        e.preventDefault();
+        const button = this.parentElement.querySelector(".menu-button");
+        if (button) button.click();
       });
     });
   }
@@ -666,6 +680,40 @@ document.addEventListener("DOMContentLoaded", function () {
     toggle();
     window.addEventListener('resize', toggle);
   });
+
+  if (campsHistorySlider.length > 0) {
+    campsHistorySlider.forEach(function (slider) {
+      const container = slider.querySelector(".swiper-container");
+
+      const parentSection = slider.closest('.camp-history');
+      const nextBtn = parentSection ? parentSection.querySelector(".swiper-button-next") : null;
+      const prevBtn = parentSection ? parentSection.querySelector(".swiper-button-prev") : null;
+
+      if (container) {
+        new Swiper(container, {
+          speed: 1800,
+          observer: true,
+          observeParents: true,
+          loop: true,
+          watchSlidesProgress: true,
+          navigation: {
+            nextEl: nextBtn,
+            prevEl: prevBtn,
+          },
+          breakpoints: {
+            360: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            1024: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+          },
+        });
+      }
+    });
+  }
 
 });
 

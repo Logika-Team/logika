@@ -152,7 +152,7 @@
     ]
   ],
   "active": true,
-  "position": "acf_after_title",
+  "position": "normal",
   "show_in_rest": true,
   "allow_ai_access": true,
   "ai_description": "Структуровані редакторські поля Logika: Філія.",

@@ -257,6 +257,19 @@ const webpImages = () => {
     .pipe(dest(paths.buildImgFolder))
 };
 
+const { execFileSync } = require('child_process');
+
+// Theme assets (wordpress/wp-content/themes/logika-theme/assets/img) live outside the
+// source/build pipeline above, so they need their own webp pass — see scripts/media/convert-png-to-webp.mjs.
+const themeWebp = (done) => {
+  execFileSync(
+    process.execPath,
+    ['scripts/media/convert-png-to-webp.mjs', '--dir=wordpress/wp-content/themes/logika-theme/assets/img'],
+    { stdio: 'inherit' }
+  );
+  done();
+};
+
 const pdfInclude = () => {
   return src([`${srcFolder}/*.pdf`])
     .pipe(dest(buildFolder))
@@ -342,11 +355,13 @@ const toProd = (done) => {
   done();
 };
 
+exports.themeWebp = themeWebp;
+
 exports.default = series(clean, htmlInclude, pdfInclude, json, scripts, styles, resources, faviconIcon ,images,  webpImages, video, svgSprites, watchFiles);
 
-exports.backend = series(clean, htmlInclude, scriptsBackend, stylesBackend, resources, video,images, webpImages, svgSprites)
+exports.backend = series(clean, htmlInclude, scriptsBackend, stylesBackend, resources, video,images, webpImages, themeWebp, svgSprites)
 
-exports.build = series(toProd, clean, htmlInclude, json, scripts, styles, resources, faviconIcon ,video,images, webpImages, svgSprites, htmlMinify);
+exports.build = series(toProd, clean, htmlInclude, json, scripts, styles, resources, faviconIcon ,video,images, webpImages, themeWebp, svgSprites, htmlMinify);
 
 exports.cache = series(cache, rewrite);
 

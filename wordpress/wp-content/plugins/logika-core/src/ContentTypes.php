@@ -37,7 +37,7 @@ final class ContentTypes {
 		self::registerPostType( 'city', 'Місто', 'Міста', true, false, 'cities' );
 		self::registerPostType( 'branch', 'Філія', 'Філії', false, false );
 		self::registerPostType( 'course', 'Курс', 'Курси', true, true, 'courses' );
-		self::registerPostType( 'camp', 'Табір', 'Табори', true, true, 'camps' );
+		self::registerPostType( 'camp', 'Табір', 'Табори', true, false, 'camps' );
 		self::registerPostType( 'review', 'Відгук', 'Відгуки', false, false );
 		self::registerPostType( 'faq_item', 'FAQ', 'FAQ', false, false );
 		self::registerPostType( 'article_author', 'Автор статей', 'Автори статей', false, false, '', array( 'title' ) );

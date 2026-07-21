@@ -1,6 +1,6 @@
 {
   "key": "group_logika_camp_archive",
-  "title": "Архів таборів",
+  "title": "Сторінка: Табори",
   "fields": [
     {
       "key": "field_camp_archive_tab_hero",
@@ -275,9 +275,9 @@
   "location": [
     [
       {
-        "param": "options_page",
+        "param": "page_template",
         "operator": "==",
-        "value": "logika-camp-archive"
+        "value": "templates/page-camps.php"
       }
     ]
   ],
@@ -288,9 +288,9 @@
   "instruction_placement": "label",
   "hide_on_screen": [],
   "active": true,
-  "description": "Секції публічного архіву таборів.",
+  "description": "Секції публічної сторінки таборів.",
   "show_in_rest": true,
   "allow_ai_access": true,
-  "ai_description": "Налаштування сторінки архіву таборів Logika.",
+  "ai_description": "Налаштування сторінки таборів Logika.",
   "modified": 1784542912
 }

@@ -1,0 +1,7 @@
+{
+  "directories": [
+    "source/img",
+    "wordpress/wp-content/themes/logika-theme/assets/img"
+  ],
+  "extensions": ["png", "jpg", "jpeg"]
+}

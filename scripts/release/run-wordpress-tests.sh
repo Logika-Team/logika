@@ -33,6 +33,7 @@ tests=(
 
   tests/routing.php
   tests/media-api.php
+  tests/webp-uploads.php
 
   tests/legacy-city-redirect.php
   tests/course-schema.php

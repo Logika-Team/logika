@@ -7,13 +7,41 @@
 
   <main>
     <section class="camp-page-hero" aria-labelledby="camp-page-hero-title">
-      <img class="camp-page-hero__art" src="img/camp/camp-hero.svg" alt="" aria-hidden="true">
+      <div class="camp-page-hero__left-bg">
+        <img src="img/camps/camp-left-decor.svg" alt="">
+      </div>
 
-      <div class="container camp-page-hero__container">
-        <div class="camp-page-hero__content">
-          <h1 id="camp-page-hero-title">Табори з Logika: подаруйте<br>дитині незабутні емоції</h1>
-          <p>Відпочиваємо та розвиваємося разом!</p>
-          <a class="camp-page-hero__cta btn btn--violet" href="#camp-booking">Залишити заявку <span aria-hidden="true">→</span></a>
+      <div class="camp-page-hero__right-bg">
+        <img src="img/camps/camps-right-decor.svg" alt="">
+      </div>
+
+      <div class="camp-page-hero__bottom-bg">
+        <img src="img/camps/camps-bottom-bg.svg" alt="">
+      </div>
+
+      <div class="container">
+        <div class="camp-page-hero__wrapp">
+          <div class="camp-page-hero__content">
+            <div class="camp-page-hero__info">
+              <h1 class="camp-page-hero__title" id="camp-page-hero-title">Табори з Logika: подаруйте<br>дитині незабутні емоції</h1>
+              <p class="camp-page-hero__descr h4">Відпочиваємо та розвиваємося разом!</p>
+            </div>
+
+            <button class="camp-page-hero__btn btn btn--violet" data-path="lesson">
+              Залишити заявку
+              <svg width='20' height='20'>
+                <use href='img/sprite/sprite.svg#arrow-right'></use>
+              </svg>
+            </button>
+          </div>
+
+          <div class="camp-page-hero__character-boy">
+            <img width='440' height='225' src='img/camps/camps-person.svg' alt='boy-character'>
+
+            <div class="camp-page-hero__character-decor">
+              <img src="img/camps/camps-drawing.svg" alt="">
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -123,6 +151,9 @@
                 <img width="276" height="175" src="img/camp/booking-characters.svg" alt="">
               </div>
 
+              <div class="camp-booking__bg">
+                <img width="840" height="517" src="img/camp/benefits-pattern.svg" alt="">
+              </div>
             </div>
 
             <form class="camp-booking__form main-form">
@@ -155,7 +186,49 @@
     <section class="camp-history">
       <div class="container">
         <div class="camp-history__wrapp">
-          <h2>Як це було минулих років</h2>
+          <div class="camp-history__top">
+            <h2 class="camp-history__title">Як це було минулих років</h2>
+
+            <div class="camp-history__controls">
+              <div class="camp-history__controls-btn swiper-button-prev">
+                <svg width='30' height='30'>
+                  <use href='img/sprite/sprite.svg#icon-arrow-left'></use>
+                </svg>
+              </div>
+
+              <div class="camp-history__controls-btn swiper-button-next">
+                <svg width='30' height='30'>
+                  <use href='img/sprite/sprite.svg#icon-arrow-right'></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="camp-history__box">
+            <div class="camp-history__slider">
+              <div class='swiper-container'>
+                <ul class='swiper-wrapper'>
+                  <li class='swiper-slide'>
+                    <div class="nizhyn-school__video">
+                      slide 1
+                    </div>
+                  </li>
+
+                  <li class='swiper-slide'>
+                    <div class="nizhyn-school__video">
+                      slide 2
+                    </div>
+                  </li>
+
+                  <li class='swiper-slide'>
+                    <div class="nizhyn-school__video">
+                      slide 3
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -575,7 +648,7 @@
           <ul class='accordion' data-default="1" data-single='true' data-breakpoint='576' data-accordion-init>
             <li class='accordion__item'>
               <button class='accordion__btn h5' data-id='1'>
-                Чи є FAQ для міста?
+                Скільки коштує навчання в Logika?
               </button>
               <div class='accordion__content' data-content='1'>
                 <div class="editor">
@@ -585,7 +658,7 @@
             </li>
             <li class='accordion__item'>
               <button class='accordion__btn h5' data-id='2'>
-                Чи є FAQ для курсу?
+                З якого віку можна навчатися в Logika?
               </button>
               <div class='accordion__content' data-content='2'>
                 <div class="editor">
@@ -595,7 +668,7 @@
             </li>
             <li class='accordion__item'>
               <button class='accordion__btn h5' data-id='3'>
-                Для якого віку підходять курси?
+                Чи потрібен досвід у програмуванні або англійській?
               </button>
               <div class='accordion__content' data-content='3'>
                 <div class="editor">
@@ -605,7 +678,7 @@
             </li>
             <li class='accordion__item'>
               <button class='accordion__btn h5' data-id='4'>
-                У якому форматі проходить навчання?
+                Як проходять заняття?
               </button>
               <div class='accordion__content' data-content='4'>
                 <div class="editor">
@@ -615,7 +688,7 @@
             </li>
             <li class='accordion__item'>
               <button class='accordion__btn h5' data-id='5'>
-                Чи можна відвідати пробний урок?
+                Що отримає дитина під час навчання?
               </button>
               <div class='accordion__content' data-content='5'>
                 <div class="editor">
@@ -625,7 +698,7 @@
             </li>
             <li class='accordion__item'>
               <button class='accordion__btn h5' data-id='6'>
-                Як дізнатись ціну?
+                Як записатися на безкоштовний пробний урок?
               </button>
               <div class='accordion__content' data-content='6'>
                 <div class="editor">
@@ -635,7 +708,7 @@
             </li>
             <li class='accordion__item'>
               <button class='accordion__btn h5' data-id='7'>
-                Який розклад занять?
+                Чим Logika відрізняється від інших шкіл?
               </button>
               <div class='accordion__content' data-content='7'>
                 <div class="editor">

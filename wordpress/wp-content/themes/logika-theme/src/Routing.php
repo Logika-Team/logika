@@ -8,14 +8,51 @@ final class Logika_Theme_Routing {
 	private const REWRITE_VERSION = '8';
 
 	private const LEGACY_ROUTES = array(
+		// Static-build filenames kept for defensive compatibility; none of these paths ever existed on Tilda.
 		'about.html' => '/about/', 'faq.html' => '/faq/', 'it-courses.html' => '/it-courses/', 'en-courses.html' => '/english-courses/', 'camps.html' => '/camps/', 'media-center.html' => '/media-center/', 'article.html' => '/media-center/', 'it-course.html' => '/courses/', 'camp.html' => '/camps/', 'city.html' => '/', 'litsenziia.html' => '/litsenziia/',
+		// Real Tilda slugs (verified against the live sitemap).
+		'litsenziia' => '/litsenziia/', 'privacy_policy' => '/privacy-policy/', 'contractoffer' => '/contractoffer/', 'contract_offer' => '/contractoffer/',
+		'eng-courses' => '/english-courses/', 'english_courses' => '/english-courses/',
 	);
 
-	private const LEGACY_CITY_SLUGS = array( 'map/kuiv' => 'kyiv' );
+	private const LEGACY_CITY_SLUGS = array(
+		'map/kuiv' => 'kyiv', 'map/nezhen' => 'nizhyn',
+		// Kyiv branch pages named after metro stations — no standalone city, redirect to Kyiv.
+		'map/kontraktova_ploshcha' => 'kyiv', 'map/lukyanivka' => 'kyiv', 'map/akademistechko' => 'kyiv',
+		// Transliteration/spelling mismatches between the Tilda slug and the WP city slug.
+		'map/berdichiv' => 'berdychiv', 'map/borislav' => 'boryslav', 'map/bryukhovychi' => 'briukhovychi',
+		'map/dolina' => 'dolyna', 'map/dunaivci' => 'dunaivtsi', 'map/horishni_plavni' => 'horishni-plavni',
+		'map/ivano_frankivsk' => 'ivano-frankivsk', 'map/izmayil' => 'izmail', 'map/khmelnytskyy' => 'khmelnytskyi',
+		'map/kolomiya' => 'kolomyia', 'map/kropyvnytskyy' => 'kropyvnytskyi', 'map/malin' => 'malyn',
+		'map/mohyliv_podilskyy' => 'mohyliv-podilskyi', 'map/mostiska' => 'mostyska', 'map/mykolayiv' => 'mykolaiv',
+		'map/novoyavoryvsk' => 'novoiavorivsk', 'map/novyirozdil' => 'novyi-rozdil', 'map/pereschepyne' => 'pereshchepyne',
+		'map/pivdennoukrayinsk' => 'pivdennoukrainsk', 'map/priluki' => 'pryluky', 'map/pustomiti' => 'pustomyty',
+		'map/shepetyvka' => 'shepetivka', 'map/sinelnikove' => 'synelnykove', 'map/stryy' => 'stryi',
+		'map/truskavec' => 'truskavets', 'map/vinnytsya' => 'vinnytsia', 'map/zaporizhzhya' => 'zaporizhzhia',
+		'map/zhmerinka' => 'zhmerynka', 'map/zhovti_vody' => 'zhovti-vody', 'map/zimnavoda' => 'zymna-voda',
+		'map/avangard' => 'avanhard', 'map/gorodok' => 'horodok', 'map/kanev' => 'kaniv',
+		'map/oleksandriya' => 'oleksandriia', 'map/pidgorodne' => 'pidhorodne', 'map/sorozhynets' => 'storozhynets',
+		'map/starokonstantyniv' => 'starokostiantyniv', 'map/urayinka' => 'ukrainka', 'map/yman' => 'uman',
+		// "/mini/*" branch pages use a different prefix than "/map/*".
+		'mini/kyiv' => 'kyiv', 'mini/chornomorsk' => 'chornomorsk', 'mini/kropivnitskiy' => 'kropyvnytskyi', 'mini/yuzhne' => 'pivdenne',
+	);
 
 	private const LEGACY_COURSE_SLUGS = array(
 		'english_a0' => 'english-a0', 'english_a1' => 'english-a1', 'english_a2' => 'english-a2',
 		'english_b1' => 'english-b1', 'english_b2' => 'english-b2', 'english_b2_1' => 'english-b2-1',
+		'eng-courses-a0' => 'english-a0', 'eng-courses-a1' => 'english-a1', 'eng-courses-a2' => 'english-a2',
+		// Direct course aliases (source_alias in scripts/data/tilda-courses.php).
+		'visualprogrammingnew' => 'visual-programming', 'gamedesignnew' => 'game-design', 'wevsitesnew' => 'websites',
+		'graphicdesignnew' => 'graphic-design', 'pythonstart' => 'python-start', 'pythonmastery' => 'python-mastery',
+		'pythonadvanced' => 'python-advanced', 'graphicdesign2year' => 'graphic-design-2-year', 'pythonexpert' => 'python-expert',
+		'computerliteracynew' => 'computer-literacy', 'comp14' => 'computer-literacy-14', 'frontend' => 'frontend', 'ai' => 'artificial-intelligence',
+		// Marketing-funnel duplicates of the same course landing pages (about/mainpage/lecture variants).
+		'aboutcomputerliteracy' => 'computer-literacy', 'aboutcoursecomputerliteracy' => 'computer-literacy', 'computerliteracyvideo' => 'computer-literacy',
+		'aboutgamedesign' => 'game-design', 'gamedesignmainpage' => 'game-design', 'mainpagegamedesign' => 'game-design', 'gamedesignlectureofmetodist' => 'game-design',
+		'aboutgraphicdesign' => 'graphic-design', 'graphicdesignmainpage' => 'graphic-design', 'graphicdesignlectreofmetodist' => 'graphic-design',
+		'aboutscratch' => 'visual-programming', 'scratchmainpage' => 'visual-programming', 'scratchvideometodist' => 'visual-programming', 'scratch_explosivestart' => 'visual-programming',
+		'aboutwebdesign' => 'websites', 'webdesignmainpage' => 'websites', 'webdesignlectureofmetodist' => 'websites',
+		'aboutpythonstart' => 'python-start', 'mainpagepythonstart' => 'python-start', 'python_explosivestart' => 'python-start', 'lectureofmetodistpythonstart' => 'python-start',
 	);
 
 	public static function register(): void {

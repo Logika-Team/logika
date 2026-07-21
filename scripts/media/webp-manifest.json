@@ -1,0 +1,1018 @@
+{
+	"source/img/about/anniversary-full.png": {
+		"sourceHash": "1c556ba5aba9e7c396173d8f428d11cfbe23d419c6d451d992e2d6fc01b828cb",
+		"status": "written"
+	},
+	"source/img/about/anniversary.png": {
+		"sourceHash": "c12d0eb7838757f6166acc541b4a46fac15e27b741d714b6647a319665ad0dfa",
+		"status": "written"
+	},
+	"source/img/about/direction-camps.png": {
+		"sourceHash": "f9ae2b0ddadbfd6fe239fadb83500aa16aa2ffd415ebc4dd5cb7c07de320eb77",
+		"status": "written"
+	},
+	"source/img/about/direction-english.png": {
+		"sourceHash": "71ce78af994fcdb44cda08d3779cc72e6345c9e16465f7bc5f5d201a55791ac2",
+		"status": "written"
+	},
+	"source/img/about/direction-programming.png": {
+		"sourceHash": "93fc8a866f027b9d410017aee0b2dc89197a0fab799d6af0ab5be90951358360",
+		"status": "written"
+	},
+	"source/img/about/hero-characters.png": {
+		"sourceHash": "1657c6b9b93197ef7baa0703ed5c994dec51f07fb96b61cad74f7f20382f7e45",
+		"status": "written"
+	},
+	"source/img/about/outcome-projects.png": {
+		"sourceHash": "52977307fbba2c48853ff721e32363dc60d30e34f811b401cfce4980bbcc541b",
+		"status": "written"
+	},
+	"source/img/about/outcome-technology.png": {
+		"sourceHash": "6cc4383d2bd624075a2269c8df347738fc3719a8b269a14a0bf44dd4825f5d32",
+		"status": "written"
+	},
+	"source/img/about/outcome-thinking.png": {
+		"sourceHash": "5263336237ae47bfbbc61ad9e1195e5894965f95c15cdff893383a1154994dff",
+		"status": "written"
+	},
+	"source/img/camp/activities/aquatoriy.png": {
+		"sourceHash": "374bbfd40799d39921cd1a4fc729ef257e383868735d14161395ac837b48389d",
+		"status": "written"
+	},
+	"source/img/camp/activities/campfire.png": {
+		"sourceHash": "c3cf1535ad1cb37e71e3956f8a6eeb301e747e806a3e0d957f71b7555d9ab44c",
+		"status": "written"
+	},
+	"source/img/camp/activities/lviv.png": {
+		"sourceHash": "e40ab48109406eee7feab16b6d1d14d84c336db0443af09fe396347a8ffb5a22",
+		"status": "written"
+	},
+	"source/img/camp/activities/mountains.png": {
+		"sourceHash": "d4e8fd519ba7f64283c97231f7fc0481ee2124827381059dfe3df3cef1ad5b50",
+		"status": "written"
+	},
+	"source/img/camp/activities/quests.png": {
+		"sourceHash": "49d6df351d11785a84c9fa7b8c5378d89c9e87c9faafb390f14add008aeb4ce5",
+		"status": "written"
+	},
+	"source/img/camp/activities/team.png": {
+		"sourceHash": "d26172cd8a41dc9fa349737d05b3b44f04206ca88133210ec45e7889d97ca8c0",
+		"status": "written"
+	},
+	"source/img/camp/benefits/foam.png": {
+		"sourceHash": "89bedc061278b7b765133aa52da3f551daa41703adf0c842283bc03e777a606e",
+		"status": "written"
+	},
+	"source/img/camp/benefits/food.png": {
+		"sourceHash": "57d48112b84b16b6f99eb781a451bf3c6a426145c17d130e976fc1ce0261b184",
+		"status": "written"
+	},
+	"source/img/camp/benefits/medical.png": {
+		"sourceHash": "31484114634f293be1a530e5b155dcaf00826cefb899189b8e2595af30ac4591",
+		"status": "written"
+	},
+	"source/img/camp/benefits/pool.png": {
+		"sourceHash": "bd3a5fb54627b595b4ecefbb9d12499746be05fd1c05fbf5a0b65781fb91e475",
+		"status": "written"
+	},
+	"source/img/camp/details/accommodation.png": {
+		"sourceHash": "2586fc627315ae8e00ef901f344bccd0803ba92c3a633c188e85551fc4dbc035",
+		"status": "written"
+	},
+	"source/img/camp/details/gallery-1.png": {
+		"sourceHash": "3271348f303abdadbc43663581613bf97157478d90983d5c8077f4396deb0bcc",
+		"status": "written"
+	},
+	"source/img/camp/details/gallery-2.png": {
+		"sourceHash": "cce1cf8aa03fd2405505303daea6963d2d8613f8692d1c74590aa215a8e9fead",
+		"status": "written"
+	},
+	"source/img/camp/details/gallery-3.png": {
+		"sourceHash": "c7dac219826358cba9275378b3ffcd669a336649049d4cfa56ce90f39dc4f3ab",
+		"status": "written"
+	},
+	"source/img/camp/details/gallery-4.png": {
+		"sourceHash": "8357c53ff46a8fcf98af021e47270275e12ce479eae914e554ceb9fbbe72be98",
+		"status": "written"
+	},
+	"source/img/camp/details/location-1.png": {
+		"sourceHash": "beda035cd4292099811dd0210b4d8944c5e00dbd8a400b1146d3956188cbf44b",
+		"status": "written"
+	},
+	"source/img/camp/details/location-2.png": {
+		"sourceHash": "5b7371a641caa48006ba793459f01aebfc144c0162427bb4e1d01ba8a5ac0e83",
+		"status": "written"
+	},
+	"source/img/camp/details/location-3.png": {
+		"sourceHash": "8debdf3f69c15e465ee158627d1bc6bfc5f6c14f917feccdba0f7e047f7c2d65",
+		"status": "written"
+	},
+	"source/img/camp/details/location-4.png": {
+		"sourceHash": "fd92197cd6019b1a1d8b77d86e5b47b5e08fd521e3f3b8276549fd58dd350b80",
+		"status": "written"
+	},
+	"source/img/camp/details/location.png": {
+		"sourceHash": "916a1895cbe3de454889492ef386bc4635800894be09175da1201a82af3d468b",
+		"status": "written"
+	},
+	"source/img/camp/details/menu.png": {
+		"sourceHash": "450a3b895fa2db05101d786d92d6a2804fa0ef8ab3d2381b0219417ee6c51e61",
+		"status": "written"
+	},
+	"source/img/camp/formats/autumn.jpg": {
+		"sourceHash": "7e4ecbeb0bcbe6e99907c9383d72eecfedfb394be50062ba64eda5cb5c6878da",
+		"status": "written"
+	},
+	"source/img/camp/formats/spring.jpg": {
+		"sourceHash": "d136289dfbc1e27ea3ba017cce7f8b473c3cceff0fb1fddf6a6822417b5326ba",
+		"status": "written"
+	},
+	"source/img/camp/formats/summer.jpg": {
+		"sourceHash": "55200d339cd64ed4e9efa33e85105b7874ea7ad39bbd96ecfbc7d93d46a53836",
+		"status": "written"
+	},
+	"source/img/camp/formats/winter.jpg": {
+		"sourceHash": "5f9be02bf80cfbd71b5c43bb5c0c9d71ced2d71179764854bb8895a4ab6f7b01",
+		"status": "written"
+	},
+	"source/img/camp/hands.png": {
+		"sourceHash": "fd92197cd6019b1a1d8b77d86e5b47b5e08fd521e3f3b8276549fd58dd350b80",
+		"status": "written"
+	},
+	"source/img/camp/highlights/figma-age.png": {
+		"sourceHash": "d673b793a6bd098bdcaa85f52a078b2293899d0c7606af9ec3e2c2e44f301a0c",
+		"status": "written"
+	},
+	"source/img/camp/highlights/figma-all-inclusive.png": {
+		"sourceHash": "7bd6b0741fb1403b41131d55f26099dd82de381d535bd45521c5295c018aff13",
+		"status": "written"
+	},
+	"source/img/camp/highlights/figma-entertainment.png": {
+		"sourceHash": "7c2208f745eaccf40be7c74b37c70f997590f5e8272e1d295214081a484a6996",
+		"status": "written"
+	},
+	"source/img/camp/highlights/figma-medical.png": {
+		"sourceHash": "0f46a22672194e96de7425563405826afbb8b583f0aa472f4ac091f4491f1eb8",
+		"status": "written"
+	},
+	"source/img/camp/highlights/figma-team.png": {
+		"sourceHash": "587b36e2cb28385f413a1414ab06b805a49c7f102048e815f4dfd54ccd38c482",
+		"status": "written"
+	},
+	"source/img/camp/highlights/figma-transfer.png": {
+		"sourceHash": "39a88c544587388fe01897cd93d4a3018970a100a68df0a184863f5646d6a4bb",
+		"status": "written"
+	},
+	"source/img/camp/mountains.png": {
+		"sourceHash": "beda035cd4292099811dd0210b4d8944c5e00dbd8a400b1146d3956188cbf44b",
+		"status": "written"
+	},
+	"source/img/camp/pool.png": {
+		"sourceHash": "11f6e067ea5d59f72617df99adda7fd5b6779a04168ff484f1d35d164ce38e68",
+		"status": "written"
+	},
+	"source/img/camp/team.png": {
+		"sourceHash": "460296abf63f9f8573454169841fc2b735da4570dbe96e1c22560d7939c41f05",
+		"status": "written"
+	},
+	"source/img/certificates/certificate.png": {
+		"sourceHash": "615a48f9528c3aefae17e2ff3f08293c01518049cda6add76e09bf13332e0c5a",
+		"status": "written"
+	},
+	"source/img/course/process-img1.png": {
+		"sourceHash": "22f1b3155be6e562235aeac63fcd1bdce38931d479514114893d4b6cd34fa195",
+		"status": "written"
+	},
+	"source/img/course/process-img2.png": {
+		"sourceHash": "1361f3b1c90ba3d57f6a4d8e971bfcfb7f11cd7ef97cd221bf80b8ec54e837f4",
+		"status": "written"
+	},
+	"source/img/courses/course1.png": {
+		"sourceHash": "01660b1df9dfc95533f887037e6e128b58fd67eb837d237de8eeff44ee68ef55",
+		"status": "written"
+	},
+	"source/img/courses/course2.png": {
+		"sourceHash": "15ad233f79a11ddc1e05edb6f0d0bc38dd8c35ed133e303254ed234bbce4d391",
+		"status": "written"
+	},
+	"source/img/courses/course3.png": {
+		"sourceHash": "c3ae342563438324781d0ae162e2a68ea1449269debb45eae1afb6e9e0713970",
+		"status": "written"
+	},
+	"source/img/courses/course4.png": {
+		"sourceHash": "3242f8e06646e96c5c4ee42cd4156cde62c594ec60f7226684fc5cf8ee11d4b7",
+		"status": "written"
+	},
+	"source/img/cta/cta.png": {
+		"sourceHash": "efea47ae049488e0d76f27204027157133aa9f32fdca51eb580dc8fd99dc28f3",
+		"status": "written"
+	},
+	"source/img/en-courses/en-about-image.png": {
+		"sourceHash": "5d3c8b7c1624ebf300722f5b8026d416e229ba87fa09b16cf4ea0280cb9a15da",
+		"status": "written"
+	},
+	"source/img/gallery/gallery.png": {
+		"sourceHash": "bf684dc53a7b9d9b63747bdf366e00269da690b9342f682877e8f22a70269128",
+		"status": "written"
+	},
+	"source/img/gallery/gallery2.png": {
+		"sourceHash": "7a2dcc0e45457b4dfb25e6f454a2899f2bb95d6918982973a8b4f97fa0159611",
+		"status": "written"
+	},
+	"source/img/gallery/gallery3.png": {
+		"sourceHash": "468bf80e9a9cbd6a0865afb138d45de894dfadedfbeeed0ff12f28d556cc031c",
+		"status": "written"
+	},
+	"source/img/gallery/gallery4.png": {
+		"sourceHash": "bca880bf728bfaf38b16b92a1fbda41f80cae77dccc5fe93855808aa63966286",
+		"status": "written"
+	},
+	"source/img/learn/learn-image.png": {
+		"sourceHash": "2c97aa72c060d2c286e036c1e15a407b9ccda986b478c81b15bead062198e4c4",
+		"status": "written"
+	},
+	"source/img/media-center/blog-placeholder.png": {
+		"sourceHash": "e3723ad75b9772c74642018a00cd96455cd16f52aaea97561246bda83a6f2ff6",
+		"status": "written"
+	},
+	"source/img/media-center/why-logika/game-method.png": {
+		"sourceHash": "99208a138427cb55875449473205088759fb6ced9cb8327b5b2e8c0726fc6f74",
+		"status": "written"
+	},
+	"source/img/media-center/why-logika/online-city.png": {
+		"sourceHash": "4dc9cb7dfdf93fac1ae541f827a215f6b71d3bd6e46dd50d498cbee4b92d4a06",
+		"status": "written"
+	},
+	"source/img/media-center/why-logika/open-lessons.png": {
+		"sourceHash": "1fdbdabc5b6a6dceefb434112ac5024709bc17403fd8a086ab4bd1a2bb6418a0",
+		"status": "written"
+	},
+	"source/img/media-center/why-logika/platform.png": {
+		"sourceHash": "ddfd71673accad406c427587698a7c3e432907c56a3662ab503c3defd1e91176",
+		"status": "written"
+	},
+	"source/img/media-center/why-logika/projects.png": {
+		"sourceHash": "c336f6d4098ee68121e95aa6eb6bff8216961d39e609813397481d15e6692493",
+		"status": "written"
+	},
+	"source/img/media-center/why-logika/teachers.png": {
+		"sourceHash": "d6845963a163bc0f1ecdd169601aa257564fce0cdbd7bff4654f2c69c88886d0",
+		"status": "written"
+	},
+	"source/img/media-promo.png": {
+		"sourceHash": "b9f3d798210a5a55186351bbbee9f99f6739ba71b1f0e27de9c3c32763f90b50",
+		"status": "written"
+	},
+	"source/img/Partners/1+1.png": {
+		"sourceHash": "3faefaad14184cb1d06f686378a74f71cd4b33eb4227d0252544b45e01ff6825",
+		"status": "written"
+	},
+	"source/img/Partners/basis.png": {
+		"sourceHash": "07b101093081b2eb6743ff8b795e18e4ad2e1b2526d303b9b9ec462f01e8e094",
+		"status": "written"
+	},
+	"source/img/Partners/club.png": {
+		"sourceHash": "ba599ae39ecc72cd17038602c5e9caa20ba83d1184776a7745c2045911a7420f",
+		"status": "written"
+	},
+	"source/img/Partners/ed.png": {
+		"sourceHash": "cffe71f9c6cd7656b0832b0a60473a198fbbdf1929bc199f28ad72758380fd54",
+		"status": "written"
+	},
+	"source/img/Partners/fond.png": {
+		"sourceHash": "5190e59066efe69475f4bbd75f47008b6fd82c8c6ae0856079cdb603cf767122",
+		"status": "written"
+	},
+	"source/img/Partners/Free.png": {
+		"sourceHash": "9672b70ba40583ae27c7522c913fe338c291683a344e02bbf3c8ceb403673291",
+		"status": "written"
+	},
+	"source/img/Partners/mriya.png": {
+		"sourceHash": "18a3a725e2cfd519f3ca3ee4a2e5f32c2bd4fdd9636be595c29812ed8378ace2",
+		"status": "written"
+	},
+	"source/img/Partners/think.png": {
+		"sourceHash": "a030d0fb6658909ce6a21886959a40bddfae3abb26c167ef81c397bc9c9b4626",
+		"status": "written"
+	},
+	"source/img/portfolio/computer-game.png": {
+		"sourceHash": "0aa8a7a026d76d96de3a55231635af29ac4ca2160ec3d5cf4b377de7e03eb339",
+		"status": "written"
+	},
+	"source/img/portfolio/maxym.jpg": {
+		"sourceHash": "5e1bddfabc16d9204cb1c39d6e487216233328fe1203563c3c92f15f7b62c77d",
+		"status": "written"
+	},
+	"source/img/posts/article-post.png": {
+		"sourceHash": "0db0862effc6adb418c5aca5573f8cf6be70d48bcc423ad1b3c9b02c4d7f2b6b",
+		"status": "written"
+	},
+	"source/img/services/service1.png": {
+		"sourceHash": "a14183c8bc6966902eaa24d1ec3a897c84a47852b85dd103ca5e2c2df3fa4852",
+		"status": "written"
+	},
+	"source/img/services/service2.png": {
+		"sourceHash": "15ad233f79a11ddc1e05edb6f0d0bc38dd8c35ed133e303254ed234bbce4d391",
+		"status": "written"
+	},
+	"source/img/services/service3.png": {
+		"sourceHash": "c3ae342563438324781d0ae162e2a68ea1449269debb45eae1afb6e9e0713970",
+		"status": "written"
+	},
+	"source/img/services/service4.png": {
+		"sourceHash": "3242f8e06646e96c5c4ee42cd4156cde62c594ec60f7226684fc5cf8ee11d4b7",
+		"status": "written"
+	},
+	"source/img/testimonials/ANNA.png": {
+		"sourceHash": "5514d45a243ad4ab38fc8966fb4ea445b1bb026ed6673ca0eec219cf2bac357c",
+		"status": "written"
+	},
+	"source/img/testimonials/testimonial.png": {
+		"sourceHash": "c709f019cf556d61adc0d0804117a01868d60bebf9bc7931e53766e4d49313f4",
+		"status": "written"
+	},
+	"source/img/testimonials/testimonial2.png": {
+		"sourceHash": "9b62f3bb905de2bd3c46cf3f7d1e43d4794fa4e06bd926056f7c7f100f83aed6",
+		"status": "written"
+	},
+	"source/img/testimonials/testimonial3.png": {
+		"sourceHash": "4a40c3fe9e29cae961e90f3876d05fe8b7108761fb54f6a885b47a4efb48905f",
+		"status": "written"
+	},
+	"source/img/testimonials/testimonial4.png": {
+		"sourceHash": "9bfe1138e2c19c86a01491a7b5bcecd71697a49829bb7105e41d34577ce37761",
+		"status": "written"
+	},
+	"source/img/transformation/after.png": {
+		"sourceHash": "16dd7949232aaad4134e2cd690979ebce89e8a57137baf8c8b2e56e22b72c0d3",
+		"status": "written"
+	},
+	"source/img/transformation/before.png": {
+		"sourceHash": "af921a85a16b434f14e1af339811981e4cd01c02f7ad1fa42943757370fd2264",
+		"status": "written"
+	},
+	"source/img/trips/trip-img1.png": {
+		"sourceHash": "b583e26954aa716dd5b84a4a09eb621885314afb7b9be2facb67abf29dab5277",
+		"status": "written"
+	},
+	"source/img/trips/trip-img2.png": {
+		"sourceHash": "c48ab4aa95c2c4ebf6b7abfcd79e7e2d708e377302b397b27ed5bd8f75194b59",
+		"status": "written"
+	},
+	"source/img/trips/trip-img3.png": {
+		"sourceHash": "766c638aafd92086f26e2f715d056a0f3ff7864bfc655b8130f65507ada83298",
+		"status": "written"
+	},
+	"source/img/vacancies/about-1.jpg": {
+		"sourceHash": "9a25c4e376259b873550379f871d57d3c65022a1cfe3f01c54ff538cbae95ae4",
+		"status": "skipped-larger"
+	},
+	"source/img/vacancies/about-2.jpg": {
+		"sourceHash": "bbd739c0d4d8ca917bfe0ce6cdc8f0edc65434828c8ec6dd61151858273a2b58",
+		"status": "written"
+	},
+	"source/img/vacancies/about-3.jpg": {
+		"sourceHash": "10d36c95cfd9069f9f9703cf53ea83f73f4a09e3fbb9820366ee5b1175f81e30",
+		"status": "written"
+	},
+	"source/img/vacancies/client-manager.jpg": {
+		"sourceHash": "13c24c1f1fc6b8b09686b5409cef372983ced74938d5e1cb04712a241e56fd80",
+		"status": "written"
+	},
+	"source/img/vacancies/english-teacher.jpg": {
+		"sourceHash": "b3816680b8b345dc666cc2cbdb221b49c14f013f0ca0274ea9c5e77a16915a4d",
+		"status": "written"
+	},
+	"source/img/vacancies/hero-team.jpg": {
+		"sourceHash": "6f3d22f950f5ac89ab506ced22fed176110e12380b1d186d86743f0597f9dfc1",
+		"status": "written"
+	},
+	"source/img/vacancies/programming-teacher.jpeg": {
+		"sourceHash": "08a988e48801f36dcea26737aa0abf2c23d6ac929c24eada073a470d472ab649",
+		"status": "written"
+	},
+	"source/img/vacancies/team-01.jpg": {
+		"sourceHash": "ab9ca1ecf33cd0f3ad0bd6c7f1e576569cd908c98445b9af6904bd59fb2ed4e1",
+		"status": "skipped-larger"
+	},
+	"source/img/vacancies/team-02.jpg": {
+		"sourceHash": "adb75fa782eddfb79b4ec31856f0041dab0ca85638db7efcc91b06f7383cdda4",
+		"status": "written"
+	},
+	"source/img/vacancies/team-03.jpg": {
+		"sourceHash": "87e0bb5c7fb5a9bb240e7be9a08ce4c653c44e346911d978dae6b0f8cc89738c",
+		"status": "written"
+	},
+	"source/img/vacancies/team-04.jpg": {
+		"sourceHash": "f8887da8074469d8b32fee4da7982ce9450d81c230019a673cc1c3797b9cb899",
+		"status": "skipped-larger"
+	},
+	"source/img/vacancies/team-05.jpg": {
+		"sourceHash": "c74f6f19f23149ad4dc8401cbf4b4240f899c69839a8951ade292bf2aa98d648",
+		"status": "written"
+	},
+	"source/img/vacancies/team-06.jpg": {
+		"sourceHash": "f86b8ea2cad5dd00873699bbcc319d305f6af03be4d7ad72da4a899cfb689ad8",
+		"status": "skipped-larger"
+	},
+	"source/img/vacancies/team-07.jpg": {
+		"sourceHash": "59b06657addf2f420fa35f7c3f8d8af21ed80a4d52960ca5632036e389e29f41",
+		"status": "written"
+	},
+	"source/img/vacancies/team-08.jpg": {
+		"sourceHash": "f3f40857864cfbb90d9247c1e153cfb7a15497cacaa3baff06bd1e24aed1b694",
+		"status": "written"
+	},
+	"source/img/vacancies/team-09.jpg": {
+		"sourceHash": "3596d02d1ab45212f604cf82c34c004a343aa94eeb0a4a53c74b4f5770fe520a",
+		"status": "skipped-larger"
+	},
+	"source/img/vacancies/team-10.jpg": {
+		"sourceHash": "6b029805a75c32b18bfe20ddef54736d84ca8674bc457ff61ffe5b421deb67e0",
+		"status": "skipped-larger"
+	},
+	"source/img/vacancies/team-11.jpg": {
+		"sourceHash": "0fb4468387688566db511dea289820d0e70b48b4ff030e1c67092c9fa64945bd",
+		"status": "skipped-larger"
+	},
+	"source/img/vacancies/team-12.jpg": {
+		"sourceHash": "d0ca6a4a89e3001e4b280fd19a53bd48951d37ac875ea51d95a5d841826a89b1",
+		"status": "written"
+	},
+	"source/img/vacancies/team-13.jpg": {
+		"sourceHash": "5fb82577768e8d440480ca27b99791fa5cefa0f4b79ef3cee100556be6e8e619",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/about/anniversary-full.png": {
+		"sourceHash": "1c556ba5aba9e7c396173d8f428d11cfbe23d419c6d451d992e2d6fc01b828cb",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/about/anniversary.png": {
+		"sourceHash": "c12d0eb7838757f6166acc541b4a46fac15e27b741d714b6647a319665ad0dfa",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/about/direction-camps.png": {
+		"sourceHash": "f9ae2b0ddadbfd6fe239fadb83500aa16aa2ffd415ebc4dd5cb7c07de320eb77",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/about/direction-english.png": {
+		"sourceHash": "71ce78af994fcdb44cda08d3779cc72e6345c9e16465f7bc5f5d201a55791ac2",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/about/direction-programming.png": {
+		"sourceHash": "93fc8a866f027b9d410017aee0b2dc89197a0fab799d6af0ab5be90951358360",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/about/hero-characters.png": {
+		"sourceHash": "1657c6b9b93197ef7baa0703ed5c994dec51f07fb96b61cad74f7f20382f7e45",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/about/outcome-projects.png": {
+		"sourceHash": "52977307fbba2c48853ff721e32363dc60d30e34f811b401cfce4980bbcc541b",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/about/outcome-technology.png": {
+		"sourceHash": "6cc4383d2bd624075a2269c8df347738fc3719a8b269a14a0bf44dd4825f5d32",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/about/outcome-thinking.png": {
+		"sourceHash": "5263336237ae47bfbbc61ad9e1195e5894965f95c15cdff893383a1154994dff",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/activities/aquatoriy.png": {
+		"sourceHash": "374bbfd40799d39921cd1a4fc729ef257e383868735d14161395ac837b48389d",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/activities/campfire.png": {
+		"sourceHash": "c3cf1535ad1cb37e71e3956f8a6eeb301e747e806a3e0d957f71b7555d9ab44c",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/activities/generated/icon-00.png": {
+		"sourceHash": "bf60e12bcee9ff473c262dc8368c35d9f320178323e40e2dbc5a46b8f8f039cf",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/activities/generated/icon-01.png": {
+		"sourceHash": "08acee4aae74e6598ab6ca1200faab1004109e4e318d1fcc1189539e1df77a96",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/activities/generated/icon-02.png": {
+		"sourceHash": "26d2f33217cf9fe8a53a4d9701c428b00d9c5f95cc62ddb1609564c735789b5f",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/activities/generated/icon-03.png": {
+		"sourceHash": "4c927457fafab612e5b6cb07cc6e4da7b8461e5e14b78ddca7691e02255a75c8",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/activities/generated/icon-04.png": {
+		"sourceHash": "da1e3c8344504917b6befeda26b8e01f544e4044f777086b00a66ea5802f5e7f",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/activities/generated/icon-05.png": {
+		"sourceHash": "3684e78299728924baecf4b22701c5efad8f6e0e6d5b4006364d65096616afc1",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/activities/generated/icon-06.png": {
+		"sourceHash": "a56cf3626e2c2486c369ecf27718c28c674e62353f410209d9d0e5ef0b916bb5",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/activities/generated/icon-07.png": {
+		"sourceHash": "a6fba34e2706b852947ec4c258fcee05107b2af1eb932522210f1b24202b3dbd",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/activities/generated/icon-08.png": {
+		"sourceHash": "baac9aca8fc99518624e7fc8b090ba774dfbe8e1623d049e2383757ec90c84fa",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/activities/generated/icon-09.png": {
+		"sourceHash": "3dd140cf59c4f643cda8c194b6e5725accd1d3922ced8df894050cb0e7a3ad76",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/activities/generated/icon-10.png": {
+		"sourceHash": "0cb3cc04c4d1c35bd2f3f87896924a192792ee86dcd8a5ad45ebc1d6941245ab",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/activities/generated/icon-11.png": {
+		"sourceHash": "b273bbe256016613b262a29af443c119025cbca6bd80119e382df06875d992a3",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/activities/generated/icon-12.png": {
+		"sourceHash": "5dd6d13dcd64867491e9b30a92d657191b98c896f8cd6cf42ee80f2feaec0219",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/activities/generated/icon-13.png": {
+		"sourceHash": "8266bab03be31a6de5e592bb96168bb44676cda406b6a6310c84566160961d7e",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/activities/generated/icon-14.png": {
+		"sourceHash": "e6896515c6f9181d4de1d414f81226e603ab82e34040ba2ef6c2a39ddb5abf8c",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/activities/generated/icon-15.png": {
+		"sourceHash": "23b1789f9ca5fe30a390ed173c73df4b576d224c0b704bac03390c6714d4d57a",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/activities/lviv.png": {
+		"sourceHash": "e40ab48109406eee7feab16b6d1d14d84c336db0443af09fe396347a8ffb5a22",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/activities/mountains.png": {
+		"sourceHash": "d4e8fd519ba7f64283c97231f7fc0481ee2124827381059dfe3df3cef1ad5b50",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/activities/quests.png": {
+		"sourceHash": "49d6df351d11785a84c9fa7b8c5378d89c9e87c9faafb390f14add008aeb4ce5",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/activities/team.png": {
+		"sourceHash": "d26172cd8a41dc9fa349737d05b3b44f04206ca88133210ec45e7889d97ca8c0",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/benefits/foam.png": {
+		"sourceHash": "89bedc061278b7b765133aa52da3f551daa41703adf0c842283bc03e777a606e",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/benefits/food.png": {
+		"sourceHash": "57d48112b84b16b6f99eb781a451bf3c6a426145c17d130e976fc1ce0261b184",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/benefits/medical.png": {
+		"sourceHash": "31484114634f293be1a530e5b155dcaf00826cefb899189b8e2595af30ac4591",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/benefits/pool.png": {
+		"sourceHash": "bd3a5fb54627b595b4ecefbb9d12499746be05fd1c05fbf5a0b65781fb91e475",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/details/accommodation.png": {
+		"sourceHash": "2586fc627315ae8e00ef901f344bccd0803ba92c3a633c188e85551fc4dbc035",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/details/gallery-1.png": {
+		"sourceHash": "3271348f303abdadbc43663581613bf97157478d90983d5c8077f4396deb0bcc",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/details/gallery-2.png": {
+		"sourceHash": "cce1cf8aa03fd2405505303daea6963d2d8613f8692d1c74590aa215a8e9fead",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/details/gallery-3.png": {
+		"sourceHash": "c7dac219826358cba9275378b3ffcd669a336649049d4cfa56ce90f39dc4f3ab",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/details/gallery-4.png": {
+		"sourceHash": "8357c53ff46a8fcf98af021e47270275e12ce479eae914e554ceb9fbbe72be98",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/details/location-1.png": {
+		"sourceHash": "beda035cd4292099811dd0210b4d8944c5e00dbd8a400b1146d3956188cbf44b",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/details/location-2.png": {
+		"sourceHash": "5b7371a641caa48006ba793459f01aebfc144c0162427bb4e1d01ba8a5ac0e83",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/details/location-3.png": {
+		"sourceHash": "8debdf3f69c15e465ee158627d1bc6bfc5f6c14f917feccdba0f7e047f7c2d65",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/details/location-4.png": {
+		"sourceHash": "fd92197cd6019b1a1d8b77d86e5b47b5e08fd521e3f3b8276549fd58dd350b80",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/details/location.png": {
+		"sourceHash": "916a1895cbe3de454889492ef386bc4635800894be09175da1201a82af3d468b",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/details/menu.png": {
+		"sourceHash": "450a3b895fa2db05101d786d92d6a2804fa0ef8ab3d2381b0219417ee6c51e61",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/formats/autumn.jpg": {
+		"sourceHash": "7e4ecbeb0bcbe6e99907c9383d72eecfedfb394be50062ba64eda5cb5c6878da",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/formats/spring.jpg": {
+		"sourceHash": "d136289dfbc1e27ea3ba017cce7f8b473c3cceff0fb1fddf6a6822417b5326ba",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/formats/summer.jpg": {
+		"sourceHash": "55200d339cd64ed4e9efa33e85105b7874ea7ad39bbd96ecfbc7d93d46a53836",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/formats/winter.jpg": {
+		"sourceHash": "5f9be02bf80cfbd71b5c43bb5c0c9d71ced2d71179764854bb8895a4ab6f7b01",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/hands.png": {
+		"sourceHash": "fd92197cd6019b1a1d8b77d86e5b47b5e08fd521e3f3b8276549fd58dd350b80",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/highlights/figma-age.png": {
+		"sourceHash": "d673b793a6bd098bdcaa85f52a078b2293899d0c7606af9ec3e2c2e44f301a0c",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/highlights/figma-all-inclusive.png": {
+		"sourceHash": "7bd6b0741fb1403b41131d55f26099dd82de381d535bd45521c5295c018aff13",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/highlights/figma-entertainment.png": {
+		"sourceHash": "7c2208f745eaccf40be7c74b37c70f997590f5e8272e1d295214081a484a6996",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/highlights/figma-medical.png": {
+		"sourceHash": "0f46a22672194e96de7425563405826afbb8b583f0aa472f4ac091f4491f1eb8",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/highlights/figma-team.png": {
+		"sourceHash": "587b36e2cb28385f413a1414ab06b805a49c7f102048e815f4dfd54ccd38c482",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/highlights/figma-transfer.png": {
+		"sourceHash": "39a88c544587388fe01897cd93d4a3018970a100a68df0a184863f5646d6a4bb",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/mountains.png": {
+		"sourceHash": "beda035cd4292099811dd0210b4d8944c5e00dbd8a400b1146d3956188cbf44b",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/pool.png": {
+		"sourceHash": "11f6e067ea5d59f72617df99adda7fd5b6779a04168ff484f1d35d164ce38e68",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/camp/team.png": {
+		"sourceHash": "460296abf63f9f8573454169841fc2b735da4570dbe96e1c22560d7939c41f05",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/certificates/certificate.png": {
+		"sourceHash": "615a48f9528c3aefae17e2ff3f08293c01518049cda6add76e09bf13332e0c5a",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/course/process-img1.png": {
+		"sourceHash": "22f1b3155be6e562235aeac63fcd1bdce38931d479514114893d4b6cd34fa195",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/course/process-img2.png": {
+		"sourceHash": "1361f3b1c90ba3d57f6a4d8e971bfcfb7f11cd7ef97cd221bf80b8ec54e837f4",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/courses/course1.png": {
+		"sourceHash": "01660b1df9dfc95533f887037e6e128b58fd67eb837d237de8eeff44ee68ef55",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/cta/cta.png": {
+		"sourceHash": "efea47ae049488e0d76f27204027157133aa9f32fdca51eb580dc8fd99dc28f3",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/en-courses/en-about-image.png": {
+		"sourceHash": "5d3c8b7c1624ebf300722f5b8026d416e229ba87fa09b16cf4ea0280cb9a15da",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/english-course/catalog-mascot.png": {
+		"sourceHash": "868b3c72c7d30b0a16d9bad059d4dc417c606f7b0e8561697116edfe549024a7",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/english-course/dotted-arrow.png": {
+		"sourceHash": "c6027bcea9da55f6731bd65b6116ea63af97fd0de49ff0174da4bde01402a6f7",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/english-course/hero-decor.png": {
+		"sourceHash": "b5baaf035055f1970e5ec9105095aabd79146e15712d548bacf6284442c41c48",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/english-levels/a0.png": {
+		"sourceHash": "e5adf3f7f0721a34e84b3ff193fc085f804d57d54c4c50c02a3c970c9b01adf3",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/english-levels/a1.png": {
+		"sourceHash": "c771ff0beebd0663a2ca103010e96080521e4248063e710910162ced6b676a62",
+		"status": "skipped-larger"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/english-levels/a2.png": {
+		"sourceHash": "fb0d197f823e5ad6faf6ca5ebe10145a29a3a8245201da7f4fa8882d930cb57b",
+		"status": "skipped-larger"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/english-levels/b1.jpg": {
+		"sourceHash": "e2ffe5783b92c239ed877fb90ef61751de3f93abee053e7aae331482b5fe9054",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/english-levels/b2-1.png": {
+		"sourceHash": "c12b051f68c3f92edee9451eb290db67a04f37771dc67a9e8892509080bc2287",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/english-levels/b2.png": {
+		"sourceHash": "fc9e507db6b912962b21c178c3608df64587b8bf270e1ac48798d01b5d46712b",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/english-levels/characters/a0-logika.png": {
+		"sourceHash": "af84acae24dbf9f47d0d1105b94de0064c76ce584d7c31cd4585cb2ef88c805f",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/english-levels/characters/a1-rocket.png": {
+		"sourceHash": "7612dd285747caa020851d1f855cf33cb6bc6a156d4c2355aed2a45a54d0f978",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/english-levels/characters/a2-eye.png": {
+		"sourceHash": "2f78200f2afea4a089976bc60aa2b06ec5e9c4a36aad2502595fa61dec504bde",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/english-levels/characters/b1-reader.png": {
+		"sourceHash": "d9695cd86fd829746372268ba700430bebd9a5a5ab5428459cd80816454bf58f",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/english-levels/characters/b2-1-reader.png": {
+		"sourceHash": "d9695cd86fd829746372268ba700430bebd9a5a5ab5428459cd80816454bf58f",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/gallery/gallery.png": {
+		"sourceHash": "bf684dc53a7b9d9b63747bdf366e00269da690b9342f682877e8f22a70269128",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/gallery/gallery2.png": {
+		"sourceHash": "7a2dcc0e45457b4dfb25e6f454a2899f2bb95d6918982973a8b4f97fa0159611",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/gallery/gallery3.png": {
+		"sourceHash": "468bf80e9a9cbd6a0865afb138d45de894dfadedfbeeed0ff12f28d556cc031c",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/gallery/gallery4.png": {
+		"sourceHash": "bca880bf728bfaf38b16b92a1fbda41f80cae77dccc5fe93855808aa63966286",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/learn/learn-image.png": {
+		"sourceHash": "2c97aa72c060d2c286e036c1e15a407b9ccda986b478c81b15bead062198e4c4",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/media-center/blog-placeholder.png": {
+		"sourceHash": "e3723ad75b9772c74642018a00cd96455cd16f52aaea97561246bda83a6f2ff6",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/media-center/why-logika/background.png": {
+		"sourceHash": "cfc877ee2699f25910cadc1d0e154c41cd3d8689b47f85c98c0ee3d5e9e15d51",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/media-center/why-logika/game-method.png": {
+		"sourceHash": "99208a138427cb55875449473205088759fb6ced9cb8327b5b2e8c0726fc6f74",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/media-center/why-logika/online-city.png": {
+		"sourceHash": "4dc9cb7dfdf93fac1ae541f827a215f6b71d3bd6e46dd50d498cbee4b92d4a06",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/media-center/why-logika/open-lessons.png": {
+		"sourceHash": "1fdbdabc5b6a6dceefb434112ac5024709bc17403fd8a086ab4bd1a2bb6418a0",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/media-center/why-logika/platform.png": {
+		"sourceHash": "ddfd71673accad406c427587698a7c3e432907c56a3662ab503c3defd1e91176",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/media-center/why-logika/projects.png": {
+		"sourceHash": "c336f6d4098ee68121e95aa6eb6bff8216961d39e609813397481d15e6692493",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/media-center/why-logika/teachers.png": {
+		"sourceHash": "d6845963a163bc0f1ecdd169601aa257564fce0cdbd7bff4654f2c69c88886d0",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/media-promo.png": {
+		"sourceHash": "b9f3d798210a5a55186351bbbee9f99f6739ba71b1f0e27de9c3c32763f90b50",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/nizhyn-school/nizhyn-school-video.png": {
+		"sourceHash": "3de5d06fba08d5c80ae08ecdf504a818f6a5349e04a004b49d12c1d07a3ed27d",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/Partners/1+1.png": {
+		"sourceHash": "3faefaad14184cb1d06f686378a74f71cd4b33eb4227d0252544b45e01ff6825",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/Partners/basis.png": {
+		"sourceHash": "07b101093081b2eb6743ff8b795e18e4ad2e1b2526d303b9b9ec462f01e8e094",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/Partners/club.png": {
+		"sourceHash": "ba599ae39ecc72cd17038602c5e9caa20ba83d1184776a7745c2045911a7420f",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/Partners/ed.png": {
+		"sourceHash": "cffe71f9c6cd7656b0832b0a60473a198fbbdf1929bc199f28ad72758380fd54",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/Partners/fond.png": {
+		"sourceHash": "5190e59066efe69475f4bbd75f47008b6fd82c8c6ae0856079cdb603cf767122",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/Partners/Free.png": {
+		"sourceHash": "9672b70ba40583ae27c7522c913fe338c291683a344e02bbf3c8ceb403673291",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/Partners/mriya.png": {
+		"sourceHash": "18a3a725e2cfd519f3ca3ee4a2e5f32c2bd4fdd9636be595c29812ed8378ace2",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/Partners/think.png": {
+		"sourceHash": "a030d0fb6658909ce6a21886959a40bddfae3abb26c167ef81c397bc9c9b4626",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/portfolio/chernobyl-horror.png": {
+		"sourceHash": "59e9fdc0a31871b97c0f5375b8928040046e821f55d87a294130bfe4a90f66a0",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/portfolio/computer-game.png": {
+		"sourceHash": "0aa8a7a026d76d96de3a55231635af29ac4ca2160ec3d5cf4b377de7e03eb339",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/portfolio/maxym.jpg": {
+		"sourceHash": "5e1bddfabc16d9204cb1c39d6e487216233328fe1203563c3c92f15f7b62c77d",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/portfolio/shadow-light-2.png": {
+		"sourceHash": "d66d22a29cd460425831f9da09d2d0f93196e3afefb24f8cbeb262ab01566cc6",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/portfolio/tactical-strike-force.png": {
+		"sourceHash": "29ea116f9195e5bca1e93420d9d12fb2c4d555caa8d402280ee2983666deab97",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/posts/article-post.png": {
+		"sourceHash": "0db0862effc6adb418c5aca5573f8cf6be70d48bcc423ad1b3c9b02c4d7f2b6b",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/services/service1.png": {
+		"sourceHash": "01660b1df9dfc95533f887037e6e128b58fd67eb837d237de8eeff44ee68ef55",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/services/service2.png": {
+		"sourceHash": "15ad233f79a11ddc1e05edb6f0d0bc38dd8c35ed133e303254ed234bbce4d391",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/services/service3.png": {
+		"sourceHash": "c3ae342563438324781d0ae162e2a68ea1449269debb45eae1afb6e9e0713970",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/services/service4.png": {
+		"sourceHash": "3242f8e06646e96c5c4ee42cd4156cde62c594ec60f7226684fc5cf8ee11d4b7",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/testimonials/ANNA.png": {
+		"sourceHash": "5514d45a243ad4ab38fc8966fb4ea445b1bb026ed6673ca0eec219cf2bac357c",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/testimonials/testimonial.png": {
+		"sourceHash": "c709f019cf556d61adc0d0804117a01868d60bebf9bc7931e53766e4d49313f4",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/testimonials/testimonial2.png": {
+		"sourceHash": "9b62f3bb905de2bd3c46cf3f7d1e43d4794fa4e06bd926056f7c7f100f83aed6",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/testimonials/testimonial3.png": {
+		"sourceHash": "4a40c3fe9e29cae961e90f3876d05fe8b7108761fb54f6a885b47a4efb48905f",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/testimonials/testimonial4.png": {
+		"sourceHash": "9bfe1138e2c19c86a01491a7b5bcecd71697a49829bb7105e41d34577ce37761",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/transformation/after.png": {
+		"sourceHash": "16dd7949232aaad4134e2cd690979ebce89e8a57137baf8c8b2e56e22b72c0d3",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/transformation/before.png": {
+		"sourceHash": "af921a85a16b434f14e1af339811981e4cd01c02f7ad1fa42943757370fd2264",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/trips/trip-img1.png": {
+		"sourceHash": "b583e26954aa716dd5b84a4a09eb621885314afb7b9be2facb67abf29dab5277",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/trips/trip-img2.png": {
+		"sourceHash": "c48ab4aa95c2c4ebf6b7abfcd79e7e2d708e377302b397b27ed5bd8f75194b59",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/trips/trip-img3.png": {
+		"sourceHash": "766c638aafd92086f26e2f715d056a0f3ff7864bfc655b8130f65507ada83298",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/vacancies/about-1.jpg": {
+		"sourceHash": "9a25c4e376259b873550379f871d57d3c65022a1cfe3f01c54ff538cbae95ae4",
+		"status": "skipped-larger"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/vacancies/about-2.jpg": {
+		"sourceHash": "bbd739c0d4d8ca917bfe0ce6cdc8f0edc65434828c8ec6dd61151858273a2b58",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/vacancies/about-3.jpg": {
+		"sourceHash": "10d36c95cfd9069f9f9703cf53ea83f73f4a09e3fbb9820366ee5b1175f81e30",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/vacancies/client-manager.jpg": {
+		"sourceHash": "13c24c1f1fc6b8b09686b5409cef372983ced74938d5e1cb04712a241e56fd80",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/vacancies/english-teacher.jpg": {
+		"sourceHash": "b3816680b8b345dc666cc2cbdb221b49c14f013f0ca0274ea9c5e77a16915a4d",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/vacancies/hero-team.jpg": {
+		"sourceHash": "6f3d22f950f5ac89ab506ced22fed176110e12380b1d186d86743f0597f9dfc1",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/vacancies/programming-teacher.jpeg": {
+		"sourceHash": "08a988e48801f36dcea26737aa0abf2c23d6ac929c24eada073a470d472ab649",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/vacancies/team-01.jpg": {
+		"sourceHash": "ab9ca1ecf33cd0f3ad0bd6c7f1e576569cd908c98445b9af6904bd59fb2ed4e1",
+		"status": "skipped-larger"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/vacancies/team-02.jpg": {
+		"sourceHash": "adb75fa782eddfb79b4ec31856f0041dab0ca85638db7efcc91b06f7383cdda4",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/vacancies/team-03.jpg": {
+		"sourceHash": "87e0bb5c7fb5a9bb240e7be9a08ce4c653c44e346911d978dae6b0f8cc89738c",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/vacancies/team-04.jpg": {
+		"sourceHash": "f8887da8074469d8b32fee4da7982ce9450d81c230019a673cc1c3797b9cb899",
+		"status": "skipped-larger"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/vacancies/team-05.jpg": {
+		"sourceHash": "c74f6f19f23149ad4dc8401cbf4b4240f899c69839a8951ade292bf2aa98d648",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/vacancies/team-06.jpg": {
+		"sourceHash": "f86b8ea2cad5dd00873699bbcc319d305f6af03be4d7ad72da4a899cfb689ad8",
+		"status": "skipped-larger"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/vacancies/team-07.jpg": {
+		"sourceHash": "59b06657addf2f420fa35f7c3f8d8af21ed80a4d52960ca5632036e389e29f41",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/vacancies/team-08.jpg": {
+		"sourceHash": "f3f40857864cfbb90d9247c1e153cfb7a15497cacaa3baff06bd1e24aed1b694",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/vacancies/team-09.jpg": {
+		"sourceHash": "3596d02d1ab45212f604cf82c34c004a343aa94eeb0a4a53c74b4f5770fe520a",
+		"status": "skipped-larger"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/vacancies/team-10.jpg": {
+		"sourceHash": "6b029805a75c32b18bfe20ddef54736d84ca8674bc457ff61ffe5b421deb67e0",
+		"status": "skipped-larger"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/vacancies/team-11.jpg": {
+		"sourceHash": "0fb4468387688566db511dea289820d0e70b48b4ff030e1c67092c9fa64945bd",
+		"status": "skipped-larger"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/vacancies/team-12.jpg": {
+		"sourceHash": "d0ca6a4a89e3001e4b280fd19a53bd48951d37ac875ea51d95a5d841826a89b1",
+		"status": "written"
+	},
+	"wordpress/wp-content/themes/logika-theme/assets/img/vacancies/team-13.jpg": {
+		"sourceHash": "5fb82577768e8d440480ca27b99791fa5cefa0f4b79ef3cee100556be6e8e619",
+		"status": "written"
+	}
+}

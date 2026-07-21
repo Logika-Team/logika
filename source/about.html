@@ -88,20 +88,23 @@
         <div class="about-history__layout">
           <div class="about-history__content">
             <h2 id="about-history-title">Logika – успішний освітній<br>проєкт з 2018 року</h2>
+
             <div class="about-history__copy">
               <p>Наша школа є успішним освітнім проєктом, який діє з 2018 року та має понад 50 000 випускників. Навчаємо дітей 7–17 років, заняття проводимо онлайн та офлайн. Маємо два напрямки: програмування та англійська мова.</p>
               <p>Крім основного навчання проводимо сезонні інтелектуальні квести з призами, їздимо в IT-табори до Карпат та заохочуємо до навчання різноманітними способами.</p>
               <strong>Наша основна мета – навчити цікаво, легко та ефективно!</strong>
             </div>
-            <a class="about-history__cta" href="#form">Безкоштовний пробний урок&nbsp; →</a>
+
+            <button class="about-history__btn btn btn--violet" data-path="lesson">
+              Безкоштовний пробний урок
+              <svg width='20' height='20'>
+                <use href='img/sprite/sprite.svg#arrow-right'></use>
+              </svg>
+            </button>
           </div>
+
           <div class="about-history__image">
-            <img src="img/about/anniversary-full.png" alt="Logika святкує чотири роки">
-            <span class="about-history__skill about-history__skill--team">командна робота</span>
-            <span class="about-history__skill about-history__skill--communication">комунікація</span>
-            <span class="about-history__skill about-history__skill--thinking">критичне мислення</span>
-            <span class="about-history__skill about-history__skill--creativity">креативність</span>
-          </div>
+            <img src="img/about/history-image.svg?ver=de68c1b" alt="Logika святкує чотири роки">
         </div>
       </div>
     </section>
@@ -215,11 +218,60 @@
       </div>
     </section>
 
-    <section class="advantages-section">
+    <section class="media-section">
       <div class="container">
-        <div class="advantages-section__wrapp">
-          <h2>Чому тисячі батьків обирають Logika</h2>
+        <div class="media-section__wrapp">
+          <h2 class="media-section__title h2">Чому тисячі батьків обирають Logika</h2>
 
+          <ul class="media-section__cards">
+            <li class="media-section__card media-section__card--yellow media-section__card--platform">
+              <img class="media-section__card-img" width="270" height="255" src="img/media-center/why-logika/platform.png" alt="Єдина платформа — єдина якість">
+              <div class="media-section__card-content">
+                <h3>Єдина платформа — єдина якість</h3>
+                <p>Інтерактивний підручник, практичні завдання й трекер результатів забезпечують високу якість навчання.</p>
+              </div>
+            </li>
+
+            <li class="media-section__card media-section__card--violet media-section__card--projects">
+              <img class="media-section__card-img" width="230" height="215" src="img/media-center/why-logika/projects.png" alt="Мінімум 5 реальних проєктів за курс">
+              <div class="media-section__card-content">
+                <h3>Мінімум 5 реальних проєктів за курс</h3>
+                <p>Ігри, мультфільми, боти, сайти чи додатки — від ідеї до готового результату.</p>
+              </div>
+            </li>
+
+            <li class="media-section__card media-section__card--green media-section__card--open-lessons">
+              <img class="media-section__card-img" width="257" height="235" src="img/media-center/why-logika/open-lessons.png" alt="Відкриті уроки для батьків">
+              <div class="media-section__card-content">
+                <h3>Відкриті уроки для батьків</h3>
+                <p>Наприкінці модуля дитина презентує свій проєкт, а ви бачите реальний прогрес.</p>
+              </div>
+            </li>
+
+            <li class="media-section__card media-section__card--violet media-section__card--online-city">
+              <img class="media-section__card-img" width="300" height="230" src="img/media-center/why-logika/online-city.png" alt="Онлайн або у вашому місті">
+              <div class="media-section__card-content">
+                <h3>Онлайн або у вашому місті</h3>
+                <p>Займайтеся у школі Logika або онлайн у невеликих групах.</p>
+              </div>
+            </li>
+
+            <li class="media-section__card media-section__card--green media-section__card--teachers">
+              <img class="media-section__card-img" width="290" height="235" src="img/media-center/why-logika/teachers.png" alt="Викладачі з профільною освітою">
+              <div class="media-section__card-content">
+                <h3>Викладачі з профільною освітою</h3>
+                <p>Багаторівневий відбір, навчання за методологією Logika та досвід роботи з дітьми.</p>
+              </div>
+            </li>
+
+            <li class="media-section__card media-section__card--yellow media-section__card--game-method">
+              <img class="media-section__card-img" width="300" height="230" src="img/media-center/why-logika/game-method.png" alt="Власна ігрова методика">
+              <div class="media-section__card-content">
+                <h3>Власна ігрова методика</h3>
+                <p>Навчаємо через сюжети, практику та залучення, а не через суху теорію.</p>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -245,7 +297,7 @@
                     <img width='368' height='280' src='img/onbording/onbording1.svg' alt=''>
                   </div>
                 </div>
-                
+
                 <div class="onboarding-section__item-content">
                   <div class="onboarding-section__item-title h3">Залишiть заявку</div>
 
@@ -266,7 +318,7 @@
                     <img width='368' height='280' src='img/onbording/onbording2.svg' alt=''>
                   </div>
                 </div>
-                
+
                 <div class="onboarding-section__item-content">
                   <div class="onboarding-section__item-title h3">Відвідайте безкоштовний пробний урок</div>
 
@@ -287,7 +339,7 @@
                     <img width='368' height='280' src='img/onbording/onbording3.svg' alt=''>
                   </div>
                 </div>
-                
+
                 <div class="onboarding-section__item-content">
                   <div class="onboarding-section__item-title h3">Розпочніть навчання та отримайте результат</div>
 
@@ -404,288 +456,299 @@
     <section class="testimonials-section">
       <div class="container">
         <div class="testimonials-section__wrapp">
-          <h2>Довіра, підтверджена результатами</h2>
+          <h2 class="testimonials-section__title">Довіра, підтверджена результатами</h2>
 
           <div class="testimonials-section__box">
-            <ul class="testimonials-section__items">
-              <li class="testimonials-section__item">
-                <div class="testimonials-card is-image">
-                  <div class="testimonials-card__decor">
-                    <picture>
-                      <source type='image/webp' srcset='img/testimonials/testimonial.webp'>
-                      <img width='220' height='220' src='img/testimonials/testimonial.png' alt=''>
-                    </picture>
-
-                  </div>
-
-                  <div class="testimonials-card__watch">
-                    <svg width='34' height='34'>
-                      <use href='img/sprite/sprite.svg#watch'></use>
-                    </svg>
-                  </div>
-                </div>
-              </li>
-
-              <li class="testimonials-section__item">
-                <div class="testimonials-card">
-                  <div class="testimonials-card__box">
-                    <div class="testimonials-card__top">
-                      <div class="testimonials-card__avatar">
+            <div class="testimonials-section__slider">
+              <div class='swiper-container'>
+                <ul class='swiper-wrapper'>
+                  <li class='swiper-slide'>
+                    <div class="testimonials-card is-image">
+                      <div class="testimonials-card__decor">
                         <picture>
-                          <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
-                          <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                          <source type='image/webp' srcset='img/testimonials/testimonial.webp'>
+                          <img width='220' height='220' src='img/testimonials/testimonial.png' alt=''>
                         </picture>
+
                       </div>
 
-                      <div class="testimonials-card__info">
-                        <div class="testimonials-card__name">Анна Н.</div>
-                        <div class="testimonials-card__rating">
-                          <svg width='100' height='18'>
-                            <use href='img/sprite/sprite.svg#stars-rating'></use>
-                          </svg>
-                        </div>
+                      <div class="testimonials-card__watch">
+                        <svg width='34' height='34'>
+                          <use href='img/sprite/sprite.svg#watch'></use>
+                        </svg>
                       </div>
                     </div>
+                  </li>
+                  <li class="swiper-slide">
+                    <div class="testimonials-card">
+                      <div class="testimonials-card__box">
+                        <div class="testimonials-card__top">
+                          <div class="testimonials-card__avatar">
+                            <picture>
+                              <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                              <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                            </picture>
+                          </div>
 
-                    <span class="testimonials-card__tag">Python Mastery</span>
-
-                    <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="testimonials-section__item">
-                <div class="testimonials-card">
-                  <div class="testimonials-card__box">
-                    <div class="testimonials-card__top">
-                      <div class="testimonials-card__avatar">
-                        <picture>
-                          <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
-                          <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
-                        </picture>
-                      </div>
-
-                      <div class="testimonials-card__info">
-                        <div class="testimonials-card__name">Анна Н.</div>
-                        <div class="testimonials-card__rating">
-                          <svg width='100' height='18'>
-                            <use href='img/sprite/sprite.svg#stars-rating'></use>
-                          </svg>
+                          <div class="testimonials-card__info">
+                            <div class="testimonials-card__name">Анна Н.</div>
+                            <div class="testimonials-card__rating">
+                              <svg width='100' height='18'>
+                                <use href='img/sprite/sprite.svg#stars-rating'></use>
+                              </svg>
+                            </div>
+                          </div>
                         </div>
+
+                        <span class="testimonials-card__tag">Python Mastery</span>
+
+                        <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
                       </div>
                     </div>
+                  </li>
+                  <li class="swiper-slide">
+                    <div class="testimonials-card">
+                      <div class="testimonials-card__box">
+                        <div class="testimonials-card__top">
+                          <div class="testimonials-card__avatar">
+                            <picture>
+                              <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                              <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                            </picture>
+                          </div>
 
-                    <span class="testimonials-card__tag">Python Mastery</span>
-
-                    <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="testimonials-section__item">
-                <div class="testimonials-card is-image">
-                  <div class="testimonials-card__decor">
-                    <picture>
-                      <source type='image/webp' srcset='img/testimonials/testimonial.webp'>
-                      <img width='220' height='220' src='img/testimonials/testimonial.png' alt=''>
-                    </picture>
-
-                  </div>
-                </div>
-              </li>
-
-              <li class="testimonials-section__item">
-                <div class="testimonials-card">
-                  <div class="testimonials-card__box">
-                    <div class="testimonials-card__top">
-                      <div class="testimonials-card__avatar">
-                        <picture>
-                          <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
-                          <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
-                        </picture>
-                      </div>
-
-                      <div class="testimonials-card__info">
-                        <div class="testimonials-card__name">Анна Н.</div>
-                        <div class="testimonials-card__rating">
-                          <svg width='100' height='18'>
-                            <use href='img/sprite/sprite.svg#stars-rating'></use>
-                          </svg>
+                          <div class="testimonials-card__info">
+                            <div class="testimonials-card__name">Анна Н.</div>
+                            <div class="testimonials-card__rating">
+                              <svg width='100' height='18'>
+                                <use href='img/sprite/sprite.svg#stars-rating'></use>
+                              </svg>
+                            </div>
+                          </div>
                         </div>
+
+                        <span class="testimonials-card__tag">Python Mastery</span>
+
+                        <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                       </div>
                     </div>
-
-                    <span class="testimonials-card__tag">Python Mastery</span>
-
-                    <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="testimonials-section__item">
-                <div class="testimonials-card">
-                  <div class="testimonials-card__box">
-                    <div class="testimonials-card__top">
-                      <div class="testimonials-card__avatar">
+                  </li>
+                  <li class='swiper-slide'>
+                    <div class="testimonials-card is-image">
+                      <div class="testimonials-card__decor">
                         <picture>
-                          <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
-                          <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                          <source type='image/webp' srcset='img/testimonials/testimonial2.webp'>
+                          <img width='220' height='220' src='img/testimonials/testimonial2.png' alt=''>
                         </picture>
+
                       </div>
 
-                      <div class="testimonials-card__info">
-                        <div class="testimonials-card__name">Анна Н.</div>
-                        <div class="testimonials-card__rating">
-                          <svg width='100' height='18'>
-                            <use href='img/sprite/sprite.svg#stars-rating'></use>
-                          </svg>
-                        </div>
+                      <div class="testimonials-card__watch">
+                        <svg width='34' height='34'>
+                          <use href='img/sprite/sprite.svg#watch'></use>
+                        </svg>
                       </div>
                     </div>
+                  </li>
+                  <li class="swiper-slide">
+                    <div class="testimonials-card">
+                      <div class="testimonials-card__box">
+                        <div class="testimonials-card__top">
+                          <div class="testimonials-card__avatar">
+                            <picture>
+                              <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                              <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                            </picture>
+                          </div>
 
-                    <span class="testimonials-card__tag">Python Mastery</span>
-
-                    <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="testimonials-section__item">
-                <div class="testimonials-card">
-                  <div class="testimonials-card__box">
-                    <div class="testimonials-card__top">
-                      <div class="testimonials-card__avatar">
-                        <picture>
-                          <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
-                          <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
-                        </picture>
-                      </div>
-
-                      <div class="testimonials-card__info">
-                        <div class="testimonials-card__name">Анна Н.</div>
-                        <div class="testimonials-card__rating">
-                          <svg width='100' height='18'>
-                            <use href='img/sprite/sprite.svg#stars-rating'></use>
-                          </svg>
+                          <div class="testimonials-card__info">
+                            <div class="testimonials-card__name">Анна Н.</div>
+                            <div class="testimonials-card__rating">
+                              <svg width='100' height='18'>
+                                <use href='img/sprite/sprite.svg#stars-rating'></use>
+                              </svg>
+                            </div>
+                          </div>
                         </div>
+
+                        <span class="testimonials-card__tag">Python Mastery</span>
+
+                        <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                       </div>
                     </div>
+                  </li>
+                  <li class="swiper-slide">
+                    <div class="testimonials-card">
+                      <div class="testimonials-card__box">
+                        <div class="testimonials-card__top">
+                          <div class="testimonials-card__avatar">
+                            <picture>
+                              <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                              <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                            </picture>
+                          </div>
 
-                    <span class="testimonials-card__tag">Python Mastery</span>
-
-                    <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="testimonials-section__item">
-                <div class="testimonials-card">
-                  <div class="testimonials-card__box">
-                    <div class="testimonials-card__top">
-                      <div class="testimonials-card__avatar">
-                        <picture>
-                          <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
-                          <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
-                        </picture>
-                      </div>
-
-                      <div class="testimonials-card__info">
-                        <div class="testimonials-card__name">Анна Н.</div>
-                        <div class="testimonials-card__rating">
-                          <svg width='100' height='18'>
-                            <use href='img/sprite/sprite.svg#stars-rating'></use>
-                          </svg>
+                          <div class="testimonials-card__info">
+                            <div class="testimonials-card__name">Анна Н.</div>
+                            <div class="testimonials-card__rating">
+                              <svg width='100' height='18'>
+                                <use href='img/sprite/sprite.svg#stars-rating'></use>
+                              </svg>
+                            </div>
+                          </div>
                         </div>
+
+                        <span class="testimonials-card__tag">Python Mastery</span>
+
+                        <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
                       </div>
                     </div>
+                  </li>
+                  <li class="swiper-slide">
+                    <div class="testimonials-card">
+                      <div class="testimonials-card__box">
+                        <div class="testimonials-card__top">
+                          <div class="testimonials-card__avatar">
+                            <picture>
+                              <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                              <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                            </picture>
+                          </div>
 
-                    <span class="testimonials-card__tag">Python Mastery</span>
-
-                    <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="testimonials-section__item">
-                <div class="testimonials-card is-image">
-                  <div class="testimonials-card__decor">
-                    <picture>
-                      <source type='image/webp' srcset='img/testimonials/testimonial.webp'>
-                      <img width='220' height='220' src='img/testimonials/testimonial.png' alt=''>
-                    </picture>
-
-                  </div>
-                </div>
-              </li>
-
-              <li class="testimonials-section__item">
-                <div class="testimonials-card">
-                  <div class="testimonials-card__box">
-                    <div class="testimonials-card__top">
-                      <div class="testimonials-card__avatar">
-                        <picture>
-                          <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
-                          <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
-                        </picture>
-                      </div>
-
-                      <div class="testimonials-card__info">
-                        <div class="testimonials-card__name">Анна Н.</div>
-                        <div class="testimonials-card__rating">
-                          <svg width='100' height='18'>
-                            <use href='img/sprite/sprite.svg#stars-rating'></use>
-                          </svg>
+                          <div class="testimonials-card__info">
+                            <div class="testimonials-card__name">Анна Н.</div>
+                            <div class="testimonials-card__rating">
+                              <svg width='100' height='18'>
+                                <use href='img/sprite/sprite.svg#stars-rating'></use>
+                              </svg>
+                            </div>
+                          </div>
                         </div>
+
+                        <span class="testimonials-card__tag">Python Mastery</span>
+
+                        <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                       </div>
                     </div>
+                  </li>
+                  <li class="swiper-slide">
+                    <div class="testimonials-card">
+                      <div class="testimonials-card__box">
+                        <div class="testimonials-card__top">
+                          <div class="testimonials-card__avatar">
+                            <picture>
+                              <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                              <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                            </picture>
+                          </div>
 
-                    <span class="testimonials-card__tag">Python Mastery</span>
-
-                    <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="testimonials-section__item">
-                <div class="testimonials-card is-image">
-                  <div class="testimonials-card__decor">
-                    <picture>
-                      <source type='image/webp' srcset='img/testimonials/testimonial.webp'>
-                      <img width='220' height='220' src='img/testimonials/testimonial.png' alt=''>
-                    </picture>
-
-                  </div>
-                </div>
-              </li>
-
-              <li class="testimonials-section__item">
-                <div class="testimonials-card">
-                  <div class="testimonials-card__box">
-                    <div class="testimonials-card__top">
-                      <div class="testimonials-card__avatar">
-                        <picture>
-                          <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
-                          <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
-                        </picture>
-                      </div>
-
-                      <div class="testimonials-card__info">
-                        <div class="testimonials-card__name">Анна Н.</div>
-                        <div class="testimonials-card__rating">
-                          <svg width='100' height='18'>
-                            <use href='img/sprite/sprite.svg#stars-rating'></use>
-                          </svg>
+                          <div class="testimonials-card__info">
+                            <div class="testimonials-card__name">Анна Н.</div>
+                            <div class="testimonials-card__rating">
+                              <svg width='100' height='18'>
+                                <use href='img/sprite/sprite.svg#stars-rating'></use>
+                              </svg>
+                            </div>
+                          </div>
                         </div>
+
+                        <span class="testimonials-card__tag">Python Mastery</span>
+
+                        <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
                       </div>
                     </div>
+                  </li>
+                  <li class='swiper-slide'>
+                    <div class="testimonials-card is-image">
+                      <div class="testimonials-card__decor">
+                        <picture>
+                          <source type='image/webp' srcset='img/testimonials/testimonial3.webp'>
+                          <img width='220' height='220' src='img/testimonials/testimonial3.png' alt=''>
+                        </picture>
 
-                    <span class="testimonials-card__tag">Python Mastery</span>
+                      </div>
 
-                    <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
-                  </div>
-                </div>
-              </li>
-            </ul>
+                      <div class="testimonials-card__watch">
+                        <svg width='34' height='34'>
+                          <use href='img/sprite/sprite.svg#watch'></use>
+                        </svg>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="swiper-slide">
+                    <div class="testimonials-card">
+                      <div class="testimonials-card__box">
+                        <div class="testimonials-card__top">
+                          <div class="testimonials-card__avatar">
+                            <picture>
+                              <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                              <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                            </picture>
+                          </div>
+
+                          <div class="testimonials-card__info">
+                            <div class="testimonials-card__name">Анна Н.</div>
+                            <div class="testimonials-card__rating">
+                              <svg width='100' height='18'>
+                                <use href='img/sprite/sprite.svg#stars-rating'></use>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+
+                        <span class="testimonials-card__tag">Python Mastery</span>
+
+                        <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class='swiper-slide'>
+                    <div class="testimonials-card is-image">
+                      <div class="testimonials-card__decor">
+                        <picture>
+                          <source type='image/webp' srcset='img/testimonials/testimonial4.webp'>
+                          <img width='220' height='220' src='img/testimonials/testimonial4.png' alt=''>
+                        </picture>
+
+                      </div>
+
+                      <div class="testimonials-card__watch">
+                        <svg width='34' height='34'>
+                          <use href='img/sprite/sprite.svg#watch'></use>
+                        </svg>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="swiper-slide">
+                    <div class="testimonials-card">
+                      <div class="testimonials-card__box">
+                        <div class="testimonials-card__top">
+                          <div class="testimonials-card__avatar">
+                            <picture>
+                              <source type='image/webp' srcset='img/testimonials/ANNA.webp'>
+                              <img width='56' height='56' src='img/testimonials/ANNA.png' alt=''>
+                            </picture>
+                          </div>
+
+                          <div class="testimonials-card__info">
+                            <div class="testimonials-card__name">Анна Н.</div>
+                            <div class="testimonials-card__rating">
+                              <svg width='100' height='18'>
+                                <use href='img/sprite/sprite.svg#stars-rating'></use>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+
+                        <span class="testimonials-card__tag">Python Mastery</span>
+
+                        <p class="testimonials-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis vestibulum ullamcorper. Curabitur arcu magna, lobortis vel sapien...</p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -32,8 +32,8 @@ if ( str_contains( $markup, 'class="accordion__btn" data-id="english-program-' )
 	exit( 1 );
 }
 
-if ( str_contains( $markup, 'english-course-catalog' ) ) {
-	fwrite( STDERR, "English course catalog must be temporarily hidden.\n" );
+if ( ! str_contains( $markup, 'english-course-catalog' ) ) {
+	fwrite( STDERR, "English course catalog is missing.\n" );
 	exit( 1 );
 }
 

@@ -7,6 +7,8 @@ namespace Logika\Core;
 use WP_Post;
 
 final class AdminUi {
+	private const POST_TYPES = array( 'city', 'branch', 'course', 'camp', 'review', 'faq_item', 'article_author' );
+
 	public static function register(): void {
 		add_filter( 'acf/prepare_field/type=relationship', array( self::class, 'prepareCourseField' ) );
 		add_filter( 'acf/prepare_field/type=post_object', array( self::class, 'prepareCourseField' ) );
@@ -16,6 +18,78 @@ final class AdminUi {
 		add_action( 'acf/validate_save_post', array( self::class, 'validateUniqueCity' ) );
 		add_filter( 'enter_title_here', array( self::class, 'titlePlaceholder' ), 10, 2 );
 		add_action( 'add_meta_boxes_city', array( self::class, 'removeCityRegionMetaBox' ) );
+		add_filter( 'acf/validate_value/type=url', array( self::class, 'allowInternalUrl' ), 20, 2 );
+		add_filter( 'acf/prepare_field/type=url', array( self::class, 'renderUrlAsText' ) );
+		foreach ( self::POST_TYPES as $post_type ) {
+			add_filter( 'get_user_option_meta-box-order_' . $post_type, array( self::class, 'publishBoxFirst' ) );
+		}
+	}
+
+	/**
+	 * ACF's url field only accepts absolute URLs, so the in-page anchors and root-relative paths
+	 * editors legitimately enter for buttons (`#lead-form`, `/camps/`) are rejected on save.
+	 *
+	 * @param mixed $valid
+	 * @param mixed $value
+	 * @return mixed
+	 */
+	public static function allowInternalUrl( $valid, $value ) {
+		if ( true === $valid || ! is_string( $value ) ) {
+			return $valid;
+		}
+
+		$value = trim( $value );
+		if ( str_starts_with( $value, '#' ) || preg_match( '#^(mailto:|tel:)#i', $value ) ) {
+			return true;
+		}
+		if ( str_starts_with( $value, '/' ) && ! str_starts_with( $value, '//' ) ) {
+			return true;
+		}
+
+		return $valid;
+	}
+
+	/**
+	 * ACF renders url fields as `<input type="url">`, so the browser itself refuses to submit
+	 * the form ("Please enter a URL.") before any of our server-side validation runs. Render the
+	 * plain text input instead; the value is still validated on save by allowInternalUrl().
+	 *
+	 * @param mixed $field
+	 * @return mixed
+	 */
+	public static function renderUrlAsText( $field ) {
+		if ( ! is_array( $field ) ) {
+			return $field;
+		}
+
+		// The text renderer reads settings the url field type does not define.
+		$field = array_merge( array( 'prepend' => '', 'append' => '', 'maxlength' => '' ), $field );
+		$field['type'] = 'text';
+
+		return $field;
+	}
+
+	/**
+	 * The side column is rendered before the field groups, but a stored box order (or a group
+	 * dragged into the side column) can push the Publish box below the whole ACF form. Pin it
+	 * back to the top of its column.
+	 *
+	 * @param mixed $order
+	 * @return mixed
+	 */
+	public static function publishBoxFirst( $order ) {
+		if ( ! is_array( $order ) || ! isset( $order['side'] ) || ! is_string( $order['side'] ) ) {
+			return $order;
+		}
+
+		$boxes = array_filter( array_map( 'trim', explode( ',', $order['side'] ) ) );
+		if ( ! in_array( 'submitdiv', $boxes, true ) ) {
+			return $order;
+		}
+
+		$order['side'] = implode( ',', array_merge( array( 'submitdiv' ), array_diff( $boxes, array( 'submitdiv' ) ) ) );
+
+		return $order;
 	}
 
 	public static function titlePlaceholder( string $title, object $post ): string {

@@ -1,6 +1,7 @@
 (() => {
   const storageKey = 'logika-city';
   const legacyStorageKey = 'logika-city-id';
+  const cookieName = 'logika_city';
   const config = window.logikaCityContextConfig || {};
   let cities = [];
   let loading = null;
@@ -23,6 +24,7 @@
   })();
 
   const remember = (city) => {
+	  document.cookie = `${cookieName}=${encodeURIComponent(String(city.id))}; Path=/; Max-Age=31536000; SameSite=Lax`;
     try {
       localStorage.setItem(storageKey, JSON.stringify(city));
       localStorage.setItem(legacyStorageKey, String(city.id));
@@ -32,6 +34,7 @@
   };
 
   const forget = () => {
+	  document.cookie = `${cookieName}=; Path=/; Max-Age=0; SameSite=Lax`;
     try {
       localStorage.removeItem(storageKey);
       localStorage.removeItem(legacyStorageKey);
@@ -58,6 +61,12 @@
     if (title && city.hero.title) title.textContent = city.hero.title;
     if (text && city.hero.text) text.textContent = city.hero.text;
   };
+  const applyTopCity = (city) => {
+    const topCity = document.querySelector('[data-logika-city-top]');
+    if (!topCity) return;
+    topCity.hidden = !city?.label;
+    topCity.querySelector('span').textContent = city?.label ? `місто ${city.label}` : '';
+  };
 
   const syncHomeLinks = (city) => {
     if (!city?.url) return;
@@ -83,6 +92,7 @@
           remember(city);
           syncHomeLinks(city);
           applyHero(city);
+          applyTopCity(city);
         } else if (cities.length) {
           forget();
           if (/^\/cities\/[^/]+(?:\/|$)/.test(window.location.pathname)) window.location.replace('/');
@@ -99,6 +109,7 @@
     remember(city);
     syncHomeLinks(city);
     applyHero(city);
+    applyTopCity(city);
     window.dispatchEvent(new CustomEvent('logika:city-change', { detail: { city } }));
     if (openCityPage && city.url) {
       if (isHomepage() && window.history?.replaceState) window.history.replaceState({ cityId: city.id }, '', city.url);
@@ -110,6 +121,7 @@
   if (initial) {
     syncHomeLinks(initial);
     applyHero(initial);
+    applyTopCity(initial);
   }
 
   window.addEventListener('popstate', () => {
@@ -117,6 +129,7 @@
     if (city) {
       syncHomeLinks(city);
       applyHero(city);
+      applyTopCity(city);
       window.dispatchEvent(new CustomEvent('logika:city-change', { detail: { city } }));
     }
   });

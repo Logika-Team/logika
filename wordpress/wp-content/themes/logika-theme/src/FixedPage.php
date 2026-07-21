@@ -10,6 +10,7 @@ final class Logika_Theme_Fixed_Page {
 		'faq'          => 'faq',
 		'media-center' => 'media-center',
 		'vacancies'    => 'vacancies',
+		'camps'        => 'camps',
 	);
 
 	public static function render( string $kind, int $page_id ): void {

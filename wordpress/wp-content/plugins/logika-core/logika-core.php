@@ -23,6 +23,8 @@ require_once LOGIKA_CORE_PATH . 'src/CityHero.php';
 require_once LOGIKA_CORE_PATH . 'src/CityApi.php';
 require_once LOGIKA_CORE_PATH . 'src/MediaApi.php';
 require_once LOGIKA_CORE_PATH . 'src/MediaCategories.php';
+require_once LOGIKA_CORE_PATH . 'src/WebpUploads.php';
+require_once LOGIKA_CORE_PATH . 'src/SvgUploads.php';
 require_once LOGIKA_CORE_PATH . 'src/ArticleViews.php';
 require_once LOGIKA_CORE_PATH . 'src/HomepageImageOverrides.php';
 require_once LOGIKA_CORE_PATH . 'src/AdminUi.php';
@@ -30,6 +32,8 @@ require_once LOGIKA_CORE_PATH . 'src/ContentMigration.php';
 
 Logika\Core\AcfJson::register();
 Logika\Core\MediaCategories::register();
+Logika\Core\WebpUploads::register();
+Logika\Core\SvgUploads::register();
 add_action( 'init', array( Logika\Core\ContentTypes::class, 'register' ) );
 add_action( 'acf/init', array( Logika\Core\OptionsPage::class, 'register' ) );
 add_action( 'rest_api_init', array( Logika\Core\CityApi::class, 'register' ) );

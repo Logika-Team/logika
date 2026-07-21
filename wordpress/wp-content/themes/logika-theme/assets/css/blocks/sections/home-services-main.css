@@ -31,7 +31,8 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  gap: 60px;
+  gap: clamp(40px, 4.167vw, 60px);
+  text-align: center;
 }
 .services-section__box {
   width: 100%;
@@ -288,6 +289,11 @@
   flex-direction: column;
   gap: clamp(12px, 2.93vw, 30px);
 }
+@media (min-width: 1025px) {
+  .services-section__item-content {
+    text-align: left;
+  }
+}
 @media (max-width: 1024px) {
   .services-section__item-content {
     text-align: center;
@@ -352,4 +358,3 @@
     width: fit-content;
   }
 }
-/*# sourceMappingURL=services-section.css.map */
