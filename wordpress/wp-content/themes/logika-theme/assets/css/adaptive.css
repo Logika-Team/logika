@@ -170,9 +170,15 @@ h5,
 
 @media (max-width: 767px) {
   .header__top-box {
-    flex-wrap: wrap;
-    gap: 4px 12px;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 6px 12px;
+  }
+
+  .header__top-city {
+    grid-column: 1;
+    grid-row: 2;
+    margin-right: 0;
   }
 
   .header__socials-heading {
@@ -193,15 +199,22 @@ h5,
 
   .header__contact--email {
     display: flex;
-    order: -1;
-    flex: 1;
+    grid-column: 1;
+    grid-row: 1;
     justify-content: flex-start;
   }
 
+  .header__contact--tel {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+  }
+
   .header__socials {
-    order: -1;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
     flex-shrink: 0;
-    justify-content: flex-end;
   }
 
   .header__socials-links a svg {
@@ -320,7 +333,6 @@ h5,
 @media screen and (min-width:577px){.trip-card{max-width:clamp(320px,32.292vw,465px)}}
 @media (min-width:768px){.cta-form__inputs{-ms-grid-columns:(1fr)[2];grid-template-columns:repeat(2,1fr)}}
 @media (max-width:767px){.cta-form__top{-webkit-box-align:center;-ms-flex-align:center;align-items:center;text-align:center}.cta-form__inputs{-ms-grid-columns:100%;grid-template-columns:100%}.cta-form__text{text-align:center}}
-@media (max-width:767px){.header__top-box{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}}
 @media (max-width:767px){.header__contact-heading span{display:none}}
 @media (max-width:767px){.header__socials-heading{display:none}.header__socials-links a svg{width:30px;height:30px}}
 

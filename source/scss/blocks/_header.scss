@@ -20,9 +20,9 @@
             gap: 47.5px;
 
             @include small-tablet {
-                flex-wrap: wrap;
-                gap: 4px 12px;
-                justify-content: space-between;
+                display: grid;
+                grid-template-columns: 1fr auto;
+                gap: 6px 12px;
             }
         }
 
@@ -34,6 +34,12 @@
             color: var(--white);
 
             svg { filter: brightness(0) invert(1); }
+
+            @include small-tablet {
+                grid-column: 1;
+                grid-row: 2;
+                margin-right: 0;
+            }
         }
     }
 
@@ -78,9 +84,17 @@
         &--email {
             @include small-tablet {
                 display: flex;
-                order: -1;
-                flex: 1;
+                grid-column: 1;
+                grid-row: 1;
                 justify-content: flex-start;
+            }
+        }
+
+        &--tel {
+            @include small-tablet {
+                grid-column: 2;
+                grid-row: 2;
+                justify-self: end;
             }
         }
     }
@@ -91,9 +105,10 @@
         gap: 12px;
 
         @include small-tablet {
-            order: -1;
+            grid-column: 2;
+            grid-row: 1;
+            justify-self: end;
             flex-shrink: 0;
-            justify-content: flex-end;
         }
 
         &-heading {

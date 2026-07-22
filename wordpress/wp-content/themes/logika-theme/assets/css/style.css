@@ -2488,12 +2488,11 @@ a .offer-card__info {
 }
 @media (max-width: 767px) {
   .header__top-box {
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    gap: 4px 12px;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr auto;
+    grid-template-columns: 1fr auto;
+    gap: 6px 12px;
   }
 }
 .header__contact {
@@ -2550,15 +2549,21 @@ a .offer-card__info {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-ordinal-group: 0;
-    -ms-flex-order: -1;
-    order: -1;
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 1;
+    grid-row: 1;
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: flex-start;
+  }
+  .header__contact--tel {
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-grid-row: 2;
+    grid-row: 2;
+    -ms-grid-column-align: end;
+    justify-self: end;
   }
 }
 .header__socials {
@@ -2572,14 +2577,14 @@ a .offer-card__info {
 }
 @media (max-width: 767px) {
   .header__socials {
-    -webkit-box-ordinal-group: 0;
-    -ms-flex-order: -1;
-    order: -1;
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-grid-row: 1;
+    grid-row: 1;
+    -ms-grid-column-align: end;
+    justify-self: end;
     -ms-flex-negative: 0;
     flex-shrink: 0;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
   }
 }
 .header__socials-heading {
